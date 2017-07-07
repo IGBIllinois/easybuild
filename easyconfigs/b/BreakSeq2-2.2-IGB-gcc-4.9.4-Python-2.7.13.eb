@@ -1,0 +1,23 @@
+easyblock = 'PythonPackage'
+
+name = 'BreakSeq2'
+version = '2.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://bioinform.github.io/breakseq2/'
+description = 'Ultrafast and accurate nucleotide-resolution analysis of structural variants'
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/bioinform/breakseq2/archive']
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('BWA', '0.7.15'),
+	('SAMtools', '1.5'),
+]
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+moduleclass = 'bio'

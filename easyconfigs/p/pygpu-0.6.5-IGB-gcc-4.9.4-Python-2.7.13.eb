@@ -1,0 +1,22 @@
+easyblock = 'PythonPackage'
+
+name = 'pygpu'
+version = '0.6.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://deeplearning.net/software/libgpuarray'
+description = 'Python bindings for libgpuarray'
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/Theano/libgpuarray/archive/']
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('libgpuarray', version),
+]
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+moduleclass = 'devel'

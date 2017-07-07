@@ -1,0 +1,29 @@
+easyblock = 'Tarball'
+
+name = 'BS-Seeker'
+version = '2.1.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/BSSeeker/BSseeker2'
+description = """BS Seeker 2 is a seamless and versatile pipeline for accurately and fast mapping the bisulfite-treated short reads."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/BSSeeker/BSseeker2/archive']
+
+dependencies = [
+	('Python', '2.7.13'),
+	('Bowtie2', '2.3.2'),
+]
+
+sanity_check_paths = {
+	'files': ['bs_seeker2-align.py'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': ''
+}
+
+moduleclass = 'bio'

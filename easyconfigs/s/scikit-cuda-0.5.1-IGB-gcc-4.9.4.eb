@@ -1,0 +1,27 @@
+easyblock = 'PythonPackage'
+
+name = 'scikit-cuda'
+version = '0.5.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/lebedov/scikit-cuda'
+description = """scikit-cuda provides Python interfaces to many of the functions in the CUDA device/runtime, CUBLAS, CUFFT, and CUSOLVER libraries distributed as part of NVIDIA's CUDA Programming Toolkit, as well as interfaces to select functions in the free and standard versions of the CULA Dense Toolkit. Both low-level wrapper functions similar to their C counterparts and high-level functions comparable to those in NumPy and Scipy are provided."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '2.7.13'),
+        ('CUDA', '8.0.61'),
+        ('PyCUDA', '2017.1', versionsuffix),
+]
+
+builddependencies = [
+        ('nose-parameterized', '0.6.0', versionsuffix),
+]
+
+exts_filter = ('python -c "import skcuda"', "")
+
+moduleclass = 'bio'

@@ -1,0 +1,23 @@
+easyblock = 'Tarball'
+
+name = 'Supernova'
+version = '1.1.5'
+
+homepage = 'http://'
+description = """Supernova"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['%(namelower)s-%(version)s.tar.gz']
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['supernova'],
+	'dirs':[]
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
+

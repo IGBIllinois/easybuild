@@ -1,0 +1,33 @@
+easyblock = 'CmdCp'
+
+name = 'REAPR'
+version = '1.0.18'
+
+homepage = 'http://www.sanger.ac.uk/science/tools/reapr'
+description = """REAPR is a tool that evaluates the accuracy of a genome assembly using mapped paired end reads, without the use of a reference genome for comparison. It can be used in any stage of an assembly pipeline to automatically break incorrect scaffolds and flag other errors in an assembly for manual inspection. It reports mis-assemblies and other warnings, and produces a new broken assembly based on the error calls."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['Reapr_%(version)s.tar.gz']
+source_urls = ['ftp://ftp.sanger.ac.uk/pub/resources/software/reapr']
+
+cmds_map = [('.*','./install.sh')]
+
+dependencies = [
+	('R', '3.3.3'),
+	('Perl', '5.24.1'),
+]
+
+sanity_check_paths = {
+	'files': ['reapr'],
+	'dirs': [],
+}
+
+files_to_copy = ['*']
+keepsymlinks = True
+
+modextrapaths = {
+	'PATH': ['','src']
+}
+
+moduleclass = 'bio'

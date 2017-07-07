@@ -1,0 +1,27 @@
+# Easyconfig for MEGAHIT
+# Author: Joe Leigh
+# Copyright UIUC 2017
+
+easyblock = 'MakeCp'
+
+name = 'MEGAHIT'
+version = '1.1.1'
+
+homepage = 'https://github.com/voutcn/megahit'
+description = """MEGAHIT is a single node assembler for large and complex metagenomics NGS reads, such as soil. It makes use of succinct de Bruijn graph (SdBG) to achieve low memory assembly."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['http://github.com/voutcn/megahit/archive']
+
+files_to_copy = [
+	(['megahit','megahit_asm_core','megahit_toolkit','megahit_sdbg_build'],'bin'),
+]
+
+sanity_check_paths = {
+	'files': ['bin/megahit'],
+	'dirs': []
+}
+
+moduleclass = 'bio'

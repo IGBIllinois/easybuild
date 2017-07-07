@@ -1,0 +1,32 @@
+easyblock = "MakeCp"
+
+name = 'augustus'
+version = '3.2.3'
+
+homepage = 'http://bioinf.uni-greifswald.de/augustus/'
+description = """AUGUSTUS is a program that predicts genes in eukaryotic genomic sequences. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchainopts = {'pic': True, 'usempi': True}
+
+source_urls = ['http://bioinf.uni-greifswald.de/augustus/binaries/']
+
+sources = [SOURCELOWER_TAR_GZ]
+
+
+dependencies = [
+    ('Boost', '1.63.0'),
+    ('GSL', '2.3'),
+    ('zlib','1.2.11'),
+    ('BamTools','2.4.1'),
+]
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+    'files': ['bin/%s' % x for x in ['augustus', 'bam2hints', 'etraining', 'fastBlockSearch', 'filterBam','homGeneMapping','joingenes','prepareAlign']],
+    'dirs': [],
+}
+moduleclass = 'bio'
+
+modextrapaths = {'AUGUSTUS_CONFIG_PATH':'config'}

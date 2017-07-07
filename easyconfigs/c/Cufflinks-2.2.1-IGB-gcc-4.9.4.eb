@@ -1,0 +1,29 @@
+name = 'Cufflinks'
+version = '2.2.1'
+
+homepage = 'http://cole-trapnell-lab.github.io/cufflinks/'
+description = """Transcript assembly, differential expression, and differential regulation for RNA-Seq"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+sources = ['cufflinks-%(version)s.tar.gz']
+source_urls = ['http://cole-trapnell-lab.github.io/cufflinks/assets/downloads/']
+
+dependencies = [
+    ('Boost', '1.63.0'),
+    ('SAMtools', '1.4'),
+    ('HTSlib', '1.4'),
+    ('Eigen', '3.3.3'),
+    ('zlib', '1.2.11'),
+]
+
+configopts = '--with-boost=$EBROOTBOOST --with-bam=$EBROOTSAMTOOLS'
+preconfigopts = 'env CPPFLAGS="-I$EBROOTEIGEN/include $CPPFLAGS" LDFLAGS="-lboost_system -lhts $LDFLAGS" '
+
+sanity_check_paths = {
+    'files': ['bin/cufflinks'],
+    'dirs': []
+}
+
+moduleclass = 'bio'

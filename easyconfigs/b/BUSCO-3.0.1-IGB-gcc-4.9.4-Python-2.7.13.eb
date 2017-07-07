@@ -1,0 +1,50 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2015 Virginia Bioinformatics Institute at Virginia Tech
+# Authors::   Dominik L. Borkowski <dominik.borkowski@gmail.com>
+# License::   MIT/GPL
+# $Id$
+#
+##
+
+easyblock = 'PythonPackage'
+
+name = 'BUSCO'
+version = '3.0.1'
+
+homepage = 'http://busco.ezlab.org/'
+description = "BUSCO v3 provides quantitative measures for the assessment of genome assembly, gene set, and transcriptome completeness, based on evolutionarily-informed expectations of gene content from near-universal single-copy orthologs selected from OrthoDB v9."
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://gitlab.com/ezlab/busco/repository/archive.tar.gz?ref=3.0.1']
+sources = [SOURCE_TAR_GZ]
+
+python = 'Python'
+pyver = '2.7.13'
+pyshortver = '.'.join(pyver.split('.')[0:2])
+pylibdir = 'lib/python%s/site-packages' % pyshortver
+versionsuffix = "-%s-%s" % (python, pyver)
+
+dependencies = [
+    (python, pyver),
+    ('augustus','3.2.3'),
+    ('R','3.3.3'),
+    ('BLAST+','2.6.0'),
+    ('HMMER','3.1b2'),
+    
+]
+
+options = {'modulename': 'busco'}
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['lib/python2.7/site-packages/busco']
+}
+#sanity_check_commands = [('python', '-c "import busco;"')]
+
+postinstallcmds = [('cp -fR config sample_data scripts %(installdir)s/')]
+
+modextrapaths = {'PATH':'scripts'}
+moduleclass = 'bio'

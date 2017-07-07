@@ -1,0 +1,31 @@
+easyblock = 'ConfigureMake'
+
+name = 'ARCS'
+version = '1.0.0'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/bcgsc/arcs'
+description = """Scaffolding genome sequence assemblies using 10X Genomics GemCode/Chromium data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/bcgsc/arcs/archive']
+
+dependencies = [
+	('Boost', '1.63.0', '-Python-2.7.13'),
+	('Perl', '5.24.1'),
+	('LINKS', '1.8.5', versionsuffix),
+]
+builddependencies = [
+	('Autotools', '20150215'),
+]
+
+preconfigopts = 'bash autogen.sh && '
+
+sanity_check_paths = {
+	'files': ['bin/arcs'],
+	'dirs': ['bin', 'share'],
+}
+
+moduleclass = 'bio'

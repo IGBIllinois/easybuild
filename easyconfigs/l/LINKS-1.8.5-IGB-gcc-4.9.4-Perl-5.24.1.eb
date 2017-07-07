@@ -1,0 +1,38 @@
+easyblock = 'CmdCp'
+
+name = 'LINKS'
+version = '1.8.5'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'http://www.bcgsc.ca/platform/bioinfo/software/links'
+description = """LINKS is a scalable genomics application for scaffolding or re-scaffolding genome assembly drafts with long reads, such as those produced by Oxford Nanopore Technologies Ltd and Pacific Biosciences. It provides a generic alignment-free framework for scaffolding and can work on any sequences. It is versatile and supports not only long sequences as a source of long-range information, but also MPET pairs and linked-reads, such as those from the 10X Genomics GemCode and Chromium platform, via ARCS (http://www.bcgsc.ca/platform/bioinfo/software/arcs). Fill gaps in LINKS-derived scaffolds using Sealer (http://www.bcgsc.ca/platform/bioinfo/software/sealer)."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s_v%s.tar.gz' % (name.lower(), version.replace('.', '-'))]
+source_urls = ['http://www.bcgsc.ca/platform/bioinfo/software/links/releases/1.8.5']
+
+dependencies = [
+	('Perl', '5.24.1'),
+]
+
+builddependencies = [
+	('SWIG', '3.0.12', '-Python-2.7.13'),
+]
+
+patches = ['links_env_perl.patch']
+
+cmds_map = [('.*','cd lib/bloomfilter/swig; swig -Wall -c++ -perl5 BloomFilter.i; g++ -c BloomFilter_wrap.cxx -I$EBROOTPERL/lib/perl5/5.24.1/x86_64-linux-thread-multi/CORE -fPIC -Dbool=char; g++ -Wall -shared BloomFilter_wrap.o -o BloomFilter.so; cd -')] 
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['LINKS'],
+	'dirs': ['lib'],
+}
+
+modextrapaths = {
+	'PATH': [''],
+}
+
+moduleclass = 'bio'

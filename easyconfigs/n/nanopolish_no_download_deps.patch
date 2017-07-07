@@ -1,0 +1,117 @@
+--- Makefile.orig	2017-04-13 11:29:01.000000000 -0500
++++ Makefile	2017-04-13 11:10:38.000000000 -0500
+@@ -8,13 +8,13 @@
+ #
+ 
+ #Basic flags every build needs
+-LIBS=-lz
++LIBS=-lz -lhts -lhdf5
+ CXXFLAGS = -g -O3
+ CXXFLAGS += -std=c++11 -fopenmp
+ CFLAGS=-O3
+ CXX=g++
+ CC=gcc
+-HDF5=install
++HDF5=
+ 
+ # Check operating system, OSX doesn't have -lrt
+ UNAME_S := $(shell uname -s)
+@@ -22,30 +22,11 @@
+     LIBS += -lrt
+ endif
+ 
+-# Default to automatically installing hdf5
+-ifeq ($(HDF5), install)
+-    H5_LIB=./lib/libhdf5.a
+-    H5_INCLUDE=-I./include
+-    LIBS += -ldl
+-else
+-    # Use system-wide hdf5
+-    H5_LIB=
+-    H5_INCLUDE=
+-    LIBS += -lhdf5
+-endif
+-
+-# Bulild and link the libhts submodule
+-HTS_LIB=./htslib/libhts.a
+-HTS_INCLUDE=-I./htslib
+-
+-# Include the header-only fast5 library
+-FAST5_INCLUDE=-I./fast5/src
+-
+ # Include the src subdirectories
+ NP_INCLUDE=$(addprefix -I./, $(SUBDIRS))
+ 
+ # Add include flags
+-CPPFLAGS += $(H5_INCLUDE) $(HTS_INCLUDE) $(FAST5_INCLUDE) $(NP_INCLUDE)
++CPPFLAGS += $(NP_INCLUDE)
+ 
+ # Main programs to build
+ PROGRAM=nanopolish
+@@ -54,29 +35,6 @@
+ all: $(PROGRAM) $(TEST_PROGRAM)
+ 
+ #
+-# Build libhts
+-#
+-htslib/libhts.a:
+-	cd htslib; make
+-
+-#
+-# If this library is a dependency the user wants HDF5 to be downloaded and built.
+-#
+-lib/libhdf5.a:
+-	wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.14/src/hdf5-1.8.14.tar.gz
+-	tar -xzf hdf5-1.8.14.tar.gz
+-	cd hdf5-1.8.14; ./configure --enable-threadsafe --prefix=`pwd`/..; make; make install
+-
+-
+-# Download and install eigen if not already downloaded
+-EIGEN=eigen/INSTALL
+-
+-$(EIGEN):
+-	wget http://bitbucket.org/eigen/eigen/get/3.2.5.tar.bz2
+-	tar -xjvf 3.2.5.tar.bz2
+-	mv eigen-eigen-bdd17ee3b1b3 eigen
+-
+-#
+ # Source files
+ #
+ 
+@@ -93,7 +51,7 @@
+ PHONY=depend
+ depend: .depend
+ 
+-.depend: $(CPP_SRC) $(C_SRC) $(EXE_SRC) $(H5_LIB) $(EIGEN)
++.depend: $(CPP_SRC) $(C_SRC) $(EXE_SRC)
+ 	rm -f ./.depend
+ 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -MM $(CPP_SRC) $(C_SRC) > ./.depend;
+ 
+@@ -107,12 +65,12 @@
+ 	$(CC) -o $@ -c $(CFLAGS) -fPIC $<
+ 
+ # Link main executable
+-$(PROGRAM): src/main/nanopolish.o $(CPP_OBJ) $(C_OBJ) $(HTS_LIB) $(H5_LIB) $(EIGEN)
+-	$(CXX) -o $@ $(CXXFLAGS) $(CPPFLAGS) -fPIC $< $(CPP_OBJ) $(C_OBJ) $(HTS_LIB) $(H5_LIB) $(LIBS)
++$(PROGRAM): src/main/nanopolish.o $(CPP_OBJ) $(C_OBJ)
++	$(CXX) -o $@ $(CXXFLAGS) $(CPPFLAGS) -fPIC $< $(CPP_OBJ) $(C_OBJ) $(LIBS)
+ 
+ # Link test executable
+-$(TEST_PROGRAM): src/test/nanopolish_test.o $(CPP_OBJ) $(C_OBJ) $(HTS_LIB) $(H5_LIB)
+-	$(CXX) -o $@ $(CXXFLAGS) $(CPPFLAGS) -fPIC $< $(CPP_OBJ) $(C_OBJ) $(HTS_LIB) $(H5_LIB) $(LIBS)
++$(TEST_PROGRAM): src/test/nanopolish_test.o $(CPP_OBJ) $(C_OBJ)
++	$(CXX) -o $@ $(CXXFLAGS) $(CPPFLAGS) -fPIC $< $(CPP_OBJ) $(C_OBJ) $(LIBS)
+ 
+ test: $(TEST_PROGRAM)
+ 	./$(TEST_PROGRAM)
+--- src/nanopolish_methyltrain.cpp.orig	2017-03-16 09:36:15.000000000 -0500
++++ src/nanopolish_methyltrain.cpp	2017-04-13 11:34:36.000000000 -0500
+@@ -42,7 +42,7 @@
+ #include "logger.hpp"
+ 
+ #include "nanopolish_scorereads.h"
+-#include "../eigen/Eigen/Dense"
++#include "Eigen/Dense"
+ 
+ extern float g_p_skip, g_p_skip_self, g_p_bad, g_p_bad_self;
+ 

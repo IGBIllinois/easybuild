@@ -1,0 +1,20 @@
+easyblock = 'PythonPackage'
+
+name = 'h5py'
+version = '2.7.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/arq5x/poretools'
+description = """a toolkit for working with nanopore sequencing data from Oxford Nanopore."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(name)s-%(version)s.tar.gz']
+source_urls = ['https://pypi.python.org/packages/source/h/h5py/']
+
+dependencies = [
+        ('HDF5', '1.8.18'),
+        ('Python', '2.7.13'),
+]
+
+moduleclass = 'bio'

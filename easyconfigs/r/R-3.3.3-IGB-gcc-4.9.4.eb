@@ -1,0 +1,171 @@
+name = 'R'
+version = '3.3.3'
+
+homepage = 'http://www.r-project.org/'
+description = """R is a free software environment for statistical computing and graphics."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://cran.us.r-project.org/src/base/R-%(version_major)s']
+
+preconfigopts = 'BLAS_LIBS="$LIBBLAS" LAPACK_LIBS="$LIBLAPACK"'
+configopts = "--with-lapack --with-blas --with-pic --enable-threads --with-x --enable-R-shlib --with-cairo --with-libpng --with-jpeglib --with-libtiff --with-tcltk"
+# some recommended packages may fail in a parallel build (e.g. Matrix), and we're installing them anyway below
+configopts += " --with-recommended-packages=no"
+
+dependencies = [
+    ('libreadline', '6.3'),
+    ('ncurses', '6.0'),
+    ('bzip2', '1.0.6'),
+    ('XZ', '5.2.3'),
+    ('zlib', '1.2.11'),
+    ('SQLite', '3.17.0'),
+    ('PCRE', '8.40'),
+    ('libpng', '1.6.29'),  # for plotting in R
+    ('libjpeg-turbo', '1.5.1'),  # for plotting in R
+    ('LibTIFF', '4.0.7'),
+    ('Java', '1.8.0_121', '', True),  # Java bindings are built if Java is found, might as well provide it
+    ('Tcl', '8.6.6'),  # for tcltk
+    ('Tk', '8.6.6'),  # for tcltk
+    ('cURL', '7.53.1'),  # for RCurl
+    ('libxml2', '2.9.4'),  # for XML
+    ('PROJ', '4.9.3'),  # for rgdal
+    ('GMP', '6.1.2'),  # for igraph
+    ('cairo','1.14.8'),
+]
+
+name_tmpl = '%(name)s_%(version)s.tar.gz'
+ext_options = {
+    'source_urls': [
+        'http://cran.r-project.org/src/contrib/Archive/%(name)s',  # package archive
+        'http://cran.r-project.org/src/contrib/',  # current version of packages
+        'http://cran.freestatistics.org/src/contrib',  # mirror alternative for current packages
+        'http://bioconductor.org/packages/3.4/bioc/src/contrib/',
+        'http://bioconductor.org/packages/3.4/data/annotation/src/contrib/',
+        'http://bioconductor.org/packages/3.4/data/experiment/src/contrib/',
+    ],
+    'source_tmpl': name_tmpl,
+}
+
+
+# !! order of packages is important !!
+# packages updated on July 8th 2016
+exts_list = [
+    # default libraries, only here to sanity check their presence
+    'base',
+    'datasets',
+    'graphics',
+    'grDevices',
+    'grid',
+    'methods',
+    'splines',
+    'stats',
+    'stats4',
+    'tools',
+    'utils',
+    # non-standard libraries, should be specified with fixed versions!
+    ('stringi', '1.1.5', ext_options),
+    ('magrittr', '1.5', ext_options),
+    ('colorspace', '1.3-2', ext_options),
+    ('Rcpp', '0.12.10', ext_options),
+    ('stringr', '1.2.0', ext_options),
+    ('RColorBrewer', '1.1-2', ext_options),
+    ('dichromat', '2.0-0', ext_options),
+    ('munsell', '0.4.3', ext_options),
+    ('labeling', '0.3', ext_options),
+    ('digest', '0.6.12', ext_options),
+    ('gtable', '0.2.0', ext_options),
+    ('MASS', '7.3-45', ext_options),
+    ('plyr', '1.8.4', ext_options),
+    ('reshape2', '1.4.2', ext_options),
+    ('scales', '0.4.1', ext_options),
+    ('lazyeval', '0.2.0', ext_options),
+    ('tibble', '1.3.0', ext_options),
+    ('ggplot2', '2.2.1', ext_options),
+    ('memoise', '1.0.0', ext_options),
+    ('BH', '1.62.0-1', ext_options),
+ ('plogr', '0.1-1', ext_options),
+ ('BiocGenerics', '0.20.0', ext_options),
+ ('S4Vectors', '0.12.2', ext_options),
+ ('DBI', '0.6-1', ext_options),
+ ('RSQLite', '1.1-2', ext_options),
+ ('Biobase', '2.34.0', ext_options),
+ ('IRanges', '2.8.2', ext_options),
+ ('AnnotationDbi', '1.36.2', ext_options),
+ ('mime','0.5',ext_options),
+('evaluate','0.10',ext_options),
+('highr','0.6',ext_options),
+('markdown','0.7.7',ext_options),
+('yaml','2.1.14',ext_options),
+('backports','1.0.5',ext_options),
+('jsonlite','1.4',ext_options),
+('lambda.r','1.1.9',ext_options),
+('futile.options','1.0.0',ext_options),
+('xtable','1.8-2',ext_options),
+('knitr','1.15.1',ext_options),
+('checkmate','1.8.2',ext_options),
+('htmltools','0.3.5',ext_options),
+('htmlwidgets','0.8',ext_options),
+('viridisLite','0.2.0',ext_options),
+('lattice','0.20-35',ext_options),
+('Matrix','1.2-8',ext_options),
+('futile.logger','1.4.3',ext_options),
+('snow','0.4-2',ext_options),
+('XML','3.98-1.6',ext_options),
+('bitops','1.0-6',ext_options),
+('RCurl','1.95-4.8',ext_options),
+('annotate','1.52.1',ext_options),
+('survival','2.41-3',ext_options),
+('Formula','1.2-1',ext_options),
+('latticeExtra','0.6-28',ext_options),
+('cluster','2.0.6',ext_options),
+('rpart','4.1-10',ext_options),
+('nnet','7.3-12',ext_options),
+('acepack','1.4.1',ext_options),
+('foreign','0.8-67',ext_options),
+('gridExtra','2.2.1',ext_options),
+('data.table','1.10.4',ext_options),
+('htmlTable','1.9',ext_options),
+('viridis','0.4.0',ext_options),
+('base64enc','0.1-3',ext_options),
+('locfit','1.5-9.1',ext_options),
+('GenomeInfoDb','1.10.3',ext_options),
+('zlibbioc','1.20.0',ext_options),
+('XVector','0.14.1',ext_options),
+('GenomicRanges','1.26.4',ext_options),
+('SummarizedExperiment','1.4.0',ext_options),
+('BiocParallel','1.8.2',ext_options),
+('genefilter','1.56.0',ext_options),
+('geneplotter','1.52.0',ext_options),
+('Hmisc','4.0-2',ext_options),
+('RcppArmadillo','0.7.700.0.0',ext_options),
+('biomaRt','2.30.0',ext_options),
+('hwriter','1.3.2',ext_options),
+('Biostrings','2.42.1',ext_options),
+('Rsamtools','1.26.2',ext_options),
+('statmod','1.4.29',ext_options),
+('GenomicAlignments','1.10.1',ext_options),
+('limma','3.30.13',ext_options),
+('edgeR','3.16.5',ext_options),
+('DESeq2','1.14.1',ext_options),
+('DEXSeq','1.20.2',ext_options),
+('Rsubread','1.24.2',ext_options),
+('rtracklayer','1.34.2',ext_options),
+('RIPSeeker','1.14.0',ext_options),
+#('Cairo','1.5-9',ext_options),
+('KernSmooth', '2.23-15',ext_options),
+('codetools','0.2-15',ext_options),
+('iterators,'1.0.8',ext_options),
+('dynamicTreeCut','1.63-1',ext_options),
+('fastcluster','1.1.22',ext_options),
+('matrixStats,'0.52-2',ext_options),
+('foreeach','1.4.3',ext_options),
+('doParallel','1.0.10',ext_options),
+('impute','1.48.0',ext_options),
+('preprocessCore','1.36.0',ext_options),
+('GO.db','3.4.0',ext_options),
+('WGCNA','1.51',ext_options)
+]
+
+moduleclass = 'lang'

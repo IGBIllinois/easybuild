@@ -1,0 +1,9 @@
+diff -ur links_v1.8.5/LINKS links_v1.8.5-2/LINKS
+--- links_v1.8.5/LINKS	2017-05-18 10:00:02.000000000 -0500
++++ links_v1.8.5-2/LINKS	2017-06-16 16:53:19.000000000 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#! /usr/bin/env perl
+ 
+ #AUTHOR
+ #   Rene Warren

@@ -1,0 +1,19 @@
+easyblock = 'ConfigureMake'
+
+name = 'gengetopt'
+version = '2.22.6'
+
+homepage = 'https://www.gnu.org/software/gengetopt/gengetopt.html'
+description = """Gengetopt is a tool to write command line option parsing code for C programs."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(name)s-%(version)s.tar.gz']
+source_urls = ['http://mirrors.peers.community/mirrors/gnu/gengetopt/']
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['bin'],
+}
+
+moduleclass = 'devel'

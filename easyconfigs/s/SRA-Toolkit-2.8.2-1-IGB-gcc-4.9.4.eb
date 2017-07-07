@@ -1,0 +1,29 @@
+easyblock = 'ConfigureMake'
+
+name = 'SRA-Toolkit'
+version = '2.8.2-1'
+
+homepage = 'http://ncbi.github.io/sra-tools/'
+description = """The NCBI SRA Toolkit enables reading (dumping) of sequencing files from the SRA database 
+	and writing (loading) files into the .sra format (Note that this is not required for submission)"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/ncbi/sra-tools/archive/']
+sources = ['%(version)s.tar.gz']
+
+dependencies = [
+    ('libxml2', '2.9.4'),
+    ('HDF5','1.8.18'),
+    ('NGS','1.3.0'),
+    ('ncbi-vdb','2.8.2'),
+]
+
+configopts = "--with-ngs-sdk-prefix=$EBROOTNGS --with-ncbi-vdb-build=$EBROOTNCBIMINVDB --with-ncbi-vdb-src=/home/a-m/easybuild/.local/easybuild/build/ncbivdb/2.8.2/IGB-gcc-4.9.4/ncbi-vdb-2.8.2"
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': [],
+}
+
+moduleclass = 'bio'

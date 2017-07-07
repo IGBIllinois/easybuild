@@ -1,0 +1,33 @@
+easyblock = 'CmdCp'
+
+name = 'fast5'
+version = '0.6.2'
+
+homepage = 'https://github.com/mateidavid/fast5'
+description = 'A lightweight C++ library for accessing Oxford Nanopore Technologies sequencing data.'
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/mateidavid/fast5/archive/']
+
+dependencies = [
+	('HDF5', '1.8.18'),
+]
+
+cmds_map = [('.*','')]
+
+files_to_copy = [(['src/*'],'include')]
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['include'],
+}
+
+modextrapaths = {
+	'CPLUS_INCLUDE_PATH': ['include'],
+	'C_INCLUDE_PATH': ['include'],
+	'CXX_INCLUDE_PATH': ['include'],
+}
+
+moduleclass = 'lib'

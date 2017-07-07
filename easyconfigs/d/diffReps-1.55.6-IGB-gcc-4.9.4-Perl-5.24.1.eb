@@ -1,0 +1,26 @@
+easyblock = 'PerlModule'
+
+name = 'diffReps'
+version = '1.55.6'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/shenlab-sinai/diffreps'
+description = """ChIP-seq is now widely used to profile the protein DNA interactions on a genome. It is of high interest to compare the differential enrichment of a histone mark or transcription factor between two contrasting conditions, such as disease vs. control. diffReps is developed to serve this purpose. It scans the whole genome using a sliding window, performing millions of statistical tests and report the significant hits."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/shenlab-sinai/diffreps/archive/']
+
+dependencies = [
+	('Perl', '5.24.1'),
+]
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['bin', 'lib'],
+}
+
+exts_filter = ('','')
+
+moduleclass = 'bio'

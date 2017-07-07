@@ -1,0 +1,213 @@
+diff -ur numpy-1.12.1.orig/numpy/distutils/fcompiler/__init__.py numpy-1.12.1-2/numpy/distutils/fcompiler/__init__.py
+--- numpy-1.12.1.orig/numpy/distutils/fcompiler/__init__.py	2017-03-05 12:13:50.000000000 -0600
++++ numpy-1.12.1-2/numpy/distutils/fcompiler/__init__.py	2017-03-29 15:43:07.000000000 -0500
+@@ -628,7 +628,10 @@
+         return options
+ 
+     def library_option(self, lib):
+-        return "-l" + lib
++        if lib[0]=='-':
++            return lib
++        else:
++            return "-l" + lib
+     def library_dir_option(self, dir):
+         return "-L" + dir
+ 
+diff -ur numpy-1.12.1.orig/numpy/distutils/system_info.py numpy-1.12.1-2/numpy/distutils/system_info.py
+--- numpy-1.12.1.orig/numpy/distutils/system_info.py	2017-03-18 09:23:22.000000000 -0500
++++ numpy-1.12.1-2/numpy/distutils/system_info.py	2017-03-29 16:15:58.000000000 -0500
+@@ -675,7 +675,7 @@
+             if is_string(default):
+                 return [default]
+             return default
+-        return [b for b in [a.strip() for a in libs.split(',')] if b]
++        return [b for b in [a.strip().replace(':',',') for a in libs.split(',')] if b]
+ 
+     def get_libraries(self, key='libraries'):
+         if hasattr(self, '_lib_names'):
+@@ -715,6 +715,23 @@
+                      lib_dirs)
+         return info
+ 
++    def check_libs_all(self,lib_dir,libs,opt_libs =[]):
++        """If static or shared libraries are available then return
++        their info dictionary.
++
++        Checks for all libraries as shared libraries first, then
++        static (or vice versa if self.search_static_first is True).
++        """
++        exts = self.library_extensions()
++        info = None
++        for ext in exts:
++            info = self._check_libs_all(lib_dir,libs,opt_libs,[ext])
++            if info is not None:
++                break
++        if not info:
++            log.info('  libraries %s not found in %s', ','.join(libs), lib_dir)
++        return info
++
+     def check_libs2(self, lib_dirs, libs, opt_libs=[]):
+         """If static or shared libraries are available then return
+         their info dictionary.
+@@ -729,6 +746,18 @@
+ 
+         return info
+ 
++    def check_libs2_all(self, lib_dirs, libs, opt_libs =[]):
++        """If static or shared libraries are available then return
++        their info dictionary.
++
++        Checks each library for shared or static.
++        """
++        exts = self.library_extensions()
++        info = self._check_libs_all(lib_dirs,libs,opt_libs,exts)
++        if not info:
++            log.info('  libraries %s not found in %s', ','.join(libs), os.pathsep.join(lib_dirs))
++        return info
++
+     def _find_lib(self, lib_dir, lib, exts):
+         assert is_string(lib_dir)
+         # under windows first try without 'lib' prefix
+@@ -756,6 +785,9 @@
+         # make sure we preserve the order of libs, as it can be important
+         found_dirs, found_libs = [], []
+         for lib in libs:
++            if lib[0]=='-':
++                found_libs.append(lib)
++                continue
+             for lib_dir in lib_dirs:
+                 found_lib = self._find_lib(lib_dir, lib, exts)
+                 if found_lib:
+@@ -765,6 +797,19 @@
+                     break
+         return found_dirs, found_libs
+ 
++    def _find_libs_all(self, lib_dirs, libs, exts):
++        assert (type(lib_dirs)==list)
++        if lib_dirs:
++           assert is_string(lib_dirs[0])
++        liblist=[]
++        for lib_dir in lib_dirs:
++           ls=self._find_libs(lib_dir,libs,exts)
++           for l in ls:
++               log.info("(_find_libs_all) Found %s in %s"%(l,lib_dir))
++               if l not in liblist:
++                   liblist.append(l)
++        return liblist
++
+     def _check_libs(self, lib_dirs, libs, opt_libs, exts):
+         """Find mandatory and optional libs in expected paths.
+ 
+@@ -786,6 +831,22 @@
+         else:
+             return None
+ 
++    def _check_libs_all(self, lib_dirs, libs, opt_libs, exts):
++        found_libs_unordered = self._find_libs_all(lib_dirs, libs, exts)
++        # ensure same order as in lib_dirs
++        found_libs = []
++        for lib_dir in libs:
++            if lib_dir in found_libs_unordered:
++                found_libs.append(lib_dir)
++        if len(found_libs) == len(libs):
++            info = {'libraries' : found_libs, 'library_dirs' : lib_dirs}
++            opt_found_libs = self._find_libs_all(lib_dirs, opt_libs, exts)
++            if len(opt_found_libs) == len(opt_libs):
++                info['libraries'].extend(opt_found_libs)
++            return info
++        else:
++            return
++
+     def combine_paths(self, *args):
+         """Return a list of existing paths composed by all combinations
+         of items from the arguments.
+@@ -1012,9 +1073,11 @@
+         lib_dirs = self.get_lib_dirs()
+         incl_dirs = self.get_include_dirs()
+         mkl_libs = self.get_libs('mkl_libs', self._lib_mkl)
+-        info = self.check_libs2(lib_dirs, mkl_libs)
+-        if info is None:
++        mkl = None
++        mkl = self.check_libs2_all(lib_dirs,mkl_libs)
++        if mkl is None:
+             return
++        info = mkl
+         dict_append(info,
+                     define_macros=[('SCIPY_MKL_H', None),
+                                    ('HAVE_CBLAS', None)],
+@@ -1064,16 +1127,13 @@
+         atlas = None
+         lapack = None
+         atlas_1 = None
+-        for d in lib_dirs:
+-            atlas = self.check_libs2(d, atlas_libs, [])
+-            lapack_atlas = self.check_libs2(d, ['lapack_atlas'], [])
+-            if atlas is not None:
+-                lib_dirs2 = [d] + self.combine_paths(d, ['atlas*', 'ATLAS*'])
+-                lapack = self.check_libs2(lib_dirs2, lapack_libs, [])
+-                if lapack is not None:
+-                    break
+-            if atlas:
+-                atlas_1 = atlas
++        atlas = self.check_libs2_all(lib_dirs, atlas_libs)
++        lapack_atlas = self.check_libs2_all(lib_dirs, ['lapack_atlas'])
++        if atlas is not None:
++            lib_dirs2 = lib_dirs + self.combine_paths(lib_dirs,['atlas*','ATLAS*'])
++            lapack = self.check_libs2_all(lib_dirs2, lapack_libs)
++        if atlas:
++            atlas_1 = atlas
+         log.info(self.__class__)
+         if atlas is None:
+             atlas = atlas_1
+@@ -1152,7 +1212,8 @@
+         info = {}
+         atlas_libs = self.get_libs('atlas_libs',
+                                    self._lib_names + self._lib_atlas)
+-        atlas = self.check_libs2(lib_dirs, atlas_libs, [])
++        atlas = None
++        atlas = self.check_libs2_all(lib_dirs, atlas_libs)
+         if atlas is None:
+             return
+         include_dirs = self.get_include_dirs()
+@@ -1256,8 +1317,10 @@
+         lib_dirs = self.get_lib_dirs()
+ 
+         lapack_libs = self.get_libs('lapack_libs', self._lib_names)
+-        info = self.check_libs(lib_dirs, lapack_libs, [])
+-        if info is None:
++        lapack = self.check_libs_all(lib_dirs, lapack_libs, [])
++        if lapack is not None:
++            info = lapack
++        else:
+             return
+         info['language'] = 'f77'
+         self.set_info(**info)
+@@ -1664,8 +1727,10 @@
+     def calc_info(self):
+         lib_dirs = self.get_lib_dirs()
+         blas_libs = self.get_libs('blas_libs', self._lib_names)
+-        info = self.check_libs(lib_dirs, blas_libs, [])
+-        if info is None:
++        blas = self.check_libs_all(lib_dirs, blas_libs, [])
++        if blas is not None:
++            info = blas
++        else:
+             return
+         if platform.system() == 'Windows':
+             # The check for windows is needed because has_cblas uses the
+diff -ur numpy-1.12.1.orig/numpy/distutils/unixccompiler.py numpy-1.12.1-2/numpy/distutils/unixccompiler.py
+--- numpy-1.12.1.orig/numpy/distutils/unixccompiler.py	2016-12-21 15:46:24.000000000 -0600
++++ numpy-1.12.1-2/numpy/distutils/unixccompiler.py	2017-03-29 15:54:32.000000000 -0500
+@@ -123,3 +123,12 @@
+ 
+ replace_method(UnixCCompiler, 'create_static_lib',
+                UnixCCompiler_create_static_lib)
++
++def UnixCCompiler_library_option(self, lib):
++    if lib[0]=='-':
++        return lib
++    else:
++        return "-l" + lib
++
++replace_method(UnixCCompiler, 'library_option',
++               UnixCCompiler_library_option)

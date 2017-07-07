@@ -1,0 +1,35 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+#
+# 
+# 
+# Note that upstream development is mainly at: https://github.com/medusa-project/databank-client 
+##
+
+easyblock = 'Tarball'
+
+name = 'IllinoisDataBank'
+version = '1.0'
+versionsuffix = "-Python-%(pyver)s"
+
+homepage = 'https://databank.illinois.edu/'
+description = "The Illinois Data Bank is a public access repository for publishing research data from the University of Illinois at Urbana-Champaign"
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+dependencies = [
+	('Python','2.7.13'),
+]
+source_urls = ['https://github.com/medusa-project/databank-client/archive/']
+sources = ['master.tar.gz']
+
+sanity_check_paths = {
+	'files': ["illinois_data_bank_datafile.py"],
+	'dirs': [],
+}
+
+moduleclass = 'base'
+
+modextrapaths = {'PATH': ''}

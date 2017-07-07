@@ -1,0 +1,31 @@
+name = 'tbb'
+version = '2017_U5'
+
+easyblock = "MakeCp"
+
+homepage = 'http://software.intel.com/en-us/articles/intel-tbb/'
+description = """Intel Threading Building Blocks 4.0 (Intel TBB)
+ is a widely used, award-winning C++ template library for creating reliable,
+ portable, and scalable parallel applications.
+ Use Intel TBB for a simple and rapid way of developing robust task-based
+ parallel applications that scale to available processor cores, are compatible
+ with multiple environments, and are easier to maintain.
+ Intel TBB is the most proficient way to implement future-proof parallel applications
+ that tap into the power and performance of multicore and manycore hardware platforms."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = [('http://github.com/01org/tbb/archive/')]
+
+files_to_copy = [
+	(['build/linux_intel64_gcc_cc4.9.4_libc2.17_kernel3.10.0_release/libtbb*'],'lib'),
+	('include'),
+]
+
+sanity_check_paths = {
+	'files': ['lib/libtbb.so'],
+	'dirs': ['include']
+}
+
+moduleclass = 'lib'

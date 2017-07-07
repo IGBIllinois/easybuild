@@ -1,0 +1,9 @@
+diff -ur trim_galore_v0.4.4/trim_galore trim_galore_v0.4.4-2/trim_galore
+--- trim_galore_v0.4.4/trim_galore	2017-03-28 20:27:26.000000000 -0500
++++ trim_galore_v0.4.4-2/trim_galore	2017-06-20 09:10:16.000000000 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ use strict;
+ use warnings;
+ use Getopt::Long;

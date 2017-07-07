@@ -1,0 +1,30 @@
+easyblock = 'Tarball'
+
+name = 'blobtools'
+version = '0.9.19.6'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/DRL/blobtools'
+description = """Application for the visualisation of (draft) genome assemblies using TAGC (Taxon-annotated Gc-Coverage) plots"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/DRL/blobtools/archive']
+
+dependencies = {
+	('Python', '2.7.13'),
+}
+
+#postinstallcmds = ['wget ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz && tar xf taxdump.tar.gz nodes.dmp names.dmp && blobtools create -i test_files/assembly.fna -c test_files/mapping_1.bam.cov -t test_files/blast.out --names names.dmp --nodes nodes.dmp']
+
+sanity_check_paths = {
+	'files': ['blobtools.py'],
+	'dirs': ['data'],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,34 @@
+easyblock = 'ConfigureMake'
+
+name = 'SWIG'
+version = '3.0.12'
+
+homepage = 'http://www.swig.org/'
+description = """SWIG is a software development tool that connects programs written in C and C++ with
+ a variety of high-level programming languages."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchainopts = {'pic': True}
+
+source_urls = [SOURCEFORGE_SOURCE]
+sources = [SOURCELOWER_TAR_GZ]
+
+python = 'Python'
+pythonversion = '2.7.13'
+perl = 'Perl'
+perlversion = '5.24.1'
+versionsuffix = '-%s-%s-%s-%s' % (python, pythonversion, perl, perlversion)
+
+dependencies = [
+    (python, pythonversion),
+    (perl, perlversion),
+    ('PCRE', '8.40'),
+]
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['bin'],
+}
+
+
+moduleclass = 'devel'

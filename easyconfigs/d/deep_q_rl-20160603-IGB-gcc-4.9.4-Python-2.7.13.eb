@@ -1,0 +1,40 @@
+easyblock = 'Tarball'
+
+name = 'deep_q_rl'
+version = '20160603'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/spragunr/deep_q_rl'
+description = """This package provides a Lasagne/Theano-based implementation of the deep Q-learning algorithm described in:
+
+Playing Atari with Deep Reinforcement Learning Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Alex Graves, Ioannis Antonoglou, Daan Wierstra, Martin Riedmiller
+
+and
+
+Mnih, Volodymyr, et al. "Human-level control through deep reinforcement learning." Nature 518.7540 (2015): 529-533."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['34202491f5d8c219f52410d19cd0e91d44c37ecc.zip']
+source_urls = ['https://github.com/spragunr/deep_q_rl/archive/']
+
+dependencies = [
+	('Python', '2.7.13'),
+	('CUDA', '8.0.61'),
+	('OpenCV', '3.1.0'),
+	('Theano', '0.9.0', versionsuffix),
+	('Lasagne', '20170606', versionsuffix),
+	('pylearn2', '20170525', versionsuffix),
+	('ArcadeLearningEnvironment', '0.5.1', versionsuffix),
+]
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['deep_q_rl'],
+}
+
+modextrapaths = {
+	'PATH': ['deep_q_rl'],
+}
+
+moduleclass = 'math'

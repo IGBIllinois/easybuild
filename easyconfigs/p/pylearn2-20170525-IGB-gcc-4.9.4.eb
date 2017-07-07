@@ -1,0 +1,24 @@
+easyblock = 'PythonPackage'
+
+name = 'pylearn2'
+version = '20170525'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/lisa-lab/pylearn2'
+description = 'Pylearn2 is a library designed to make machine learning research easy.'
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['58ba37286182817301ed72b0f143a89547b3f011.zip']
+source_urls = ['https://github.com/lisa-lab/pylearn2/archive/']
+
+use_setup_py_develop = True
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('Theano', '0.9.0', versionsuffix),
+]
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+moduleclass = 'math'

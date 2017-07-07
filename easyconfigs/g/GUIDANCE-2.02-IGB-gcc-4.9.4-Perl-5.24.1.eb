@@ -1,0 +1,32 @@
+easyblock = 'MakeCp'
+
+name = 'GUIDANCE'
+version = '2.02'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'http://guidance.tau.ac.il/ver2/'
+description = """GUIDANCE is meant to be used for weighting, filtering or masking unreliably aligned positions in sequence alignments before subsequent analysis. For example, align codon sequences (nucleotide sequences that code for proteins) using PAGAN, remove columns with low GUIDANCE scores, and use the remaining alignment to infer positive selection using the branch-site dN/dS test. Other analyses where GUIDANCE filtering could be useful include phylogeny reconstruction, reconstruction of the history of specific insertion and deletion events, inference of recombination events, etc."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(namelower)s.v%(version)s.tar.gz']
+source_urls = ['http://guidance.tau.ac.il/ver2/']
+
+dependencies = [
+	('Perl', '5.24.1'),
+	('BioPerl', '1.7.1', versionsuffix),
+	('Ruby', '2.4.1'),
+	('gengetopt', '2.22.6'),
+]
+
+files_to_copy = ['libs','programs','www']
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['libs','programs','www'],
+}
+
+modextrapaths = {
+	'PATH': 'www/Guidance',
+}
+
+moduleclass = 'bio'

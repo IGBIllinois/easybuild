@@ -1,0 +1,22 @@
+easyblock = 'PythonPackage'
+
+name = 'Lasagne'
+version = '20170606'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://lasagne.readthedocs.io/en/latest/index.html'
+description = 'Lasagne is a lightweight library to build and train neural networks in Theano.'
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['ed79bc4e379c82e3c25cff68b8dd4f17a371c314.zip']
+source_urls = ['https://github.com/Lasagne/Lasagne/archive/']
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('Theano', '0.9.0', versionsuffix),
+]
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+moduleclass = 'math'

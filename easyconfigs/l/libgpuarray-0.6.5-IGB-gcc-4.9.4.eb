@@ -1,0 +1,27 @@
+easyblock = 'CMakeMake'
+
+name = 'libgpuarray'
+version = '0.6.5'
+
+homepage = 'http://deeplearning.net/software/libgpuarray/'
+description = """Make a common GPU ndarray(n dimensions array) that can be reused by all projects that is as future proof as possible, while keeping it easy to use for simple need/quick test."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/Theano/libgpuarray/archive/']
+
+dependencies = [
+    ('CUDA', '8.0.61'),
+]
+
+builddependencies = [
+    ('CMake', '3.7.2'),
+]
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['lib','include'],
+}
+
+moduleclass = 'devel'

@@ -1,0 +1,148 @@
+Only in nanopolish-0.7.1/: .depend
+diff -ur nanopolish-0.7.1.orig/Makefile nanopolish-0.7.1/Makefile
+--- nanopolish-0.7.1.orig/Makefile	2017-07-05 11:30:27.000000000 -0500
++++ nanopolish-0.7.1/Makefile	2017-07-07 12:54:24.607160760 -0500
+@@ -8,7 +8,7 @@
+ #
+ 
+ #Basic flags every build needs
+-LIBS=-lz
++LIBS=-lz -lz -lhts -lhdf5
+ CXXFLAGS ?= -g -O3
+ CXXFLAGS += -std=c++11 -fopenmp
+ CFLAGS ?= -O3
+@@ -16,8 +16,8 @@
+ CC ?= gcc
+ 
+ # Change the value of HDF5 or EIGEN below to any value to disable compilation of bundled HDF5 code
+-HDF5=install
+-EIGEN=install
++HDF5=
++EIGEN=
+ 
+ # Check operating system, OSX doesn't have -lrt
+ UNAME_S := $(shell uname -s)
+@@ -45,18 +45,13 @@
+     EIGEN_CHECK=
+ endif
+ 
+-# Build and link the libhts submodule
+-HTS_LIB=./htslib/libhts.a
+-HTS_INCLUDE=-I./htslib
+ 
+-# Include the header-only fast5 library
+-FAST5_INCLUDE=-I./fast5/src
+ 
+ # Include the src subdirectories
+ NP_INCLUDE=$(addprefix -I./, $(SUBDIRS))
+ 
+ # Add include flags
+-CPPFLAGS += $(H5_INCLUDE) $(HTS_INCLUDE) $(FAST5_INCLUDE) $(NP_INCLUDE)
++CPPFLAGS += $(NP_INCLUDE)
+ 
+ # Main programs to build
+ PROGRAM=nanopolish
+@@ -65,27 +60,6 @@
+ all: $(PROGRAM) $(TEST_PROGRAM)
+ 
+ #
+-# Build libhts
+-#
+-htslib/libhts.a:
+-	cd htslib && make || exit 255
+-
+-#
+-# If this library is a dependency the user wants HDF5 to be downloaded and built.
+-#
+-lib/libhdf5.a:
+-	if [ ! -e hdf5-1.8.14.tar.gz ]; then wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.14/src/hdf5-1.8.14.tar.gz; fi
+-	tar -xzf hdf5-1.8.14.tar.gz || exit 255
+-	cd hdf5-1.8.14 && ./configure --enable-threadsafe --prefix=`pwd`/.. && make && make install
+-
+-
+-# Download and install eigen if not already downloaded
+-eigen/INSTALL:
+-	if [ ! -e 3.2.5.tar.bz2 ]; then wget http://bitbucket.org/eigen/eigen/get/3.2.5.tar.bz2; fi
+-	tar -xjvf 3.2.5.tar.bz2 || exit 255
+-	mv eigen-eigen-bdd17ee3b1b3 eigen || exit 255
+-
+-#
+ # Source files
+ #
+ 
+@@ -102,7 +76,7 @@
+ PHONY=depend
+ depend: .depend
+ 
+-.depend: $(CPP_SRC) $(C_SRC) $(EXE_SRC) $(H5_LIB) $(EIGEN_CHECK)
++.depend: $(CPP_SRC) $(C_SRC) $(EXE_SRC)
+ 	rm -f ./.depend
+ 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -MM $(CPP_SRC) $(C_SRC) > ./.depend;
+ 
+@@ -116,12 +90,12 @@
+ 	$(CC) -o $@ -c $(CFLAGS) -fPIC $<
+ 
+ # Link main executable
+-$(PROGRAM): src/main/nanopolish.o $(CPP_OBJ) $(C_OBJ) $(HTS_LIB) $(H5_LIB) $(EIGEN_CHECK)
+-	$(CXX) -o $@ $(CXXFLAGS) $(CPPFLAGS) -fPIC $< $(CPP_OBJ) $(C_OBJ) $(HTS_LIB) $(H5_LIB) $(LIBS)
++$(PROGRAM): src/main/nanopolish.o $(CPP_OBJ) $(C_OBJ)
++	$(CXX) -o $@ $(CXXFLAGS) $(CPPFLAGS) -fPIC $< $(CPP_OBJ) $(C_OBJ) $(LIBS)
+ 
+ # Link test executable
+-$(TEST_PROGRAM): src/test/nanopolish_test.o $(CPP_OBJ) $(C_OBJ) $(HTS_LIB) $(H5_LIB)
+-	$(CXX) -o $@ $(CXXFLAGS) $(CPPFLAGS) -fPIC $< $(CPP_OBJ) $(C_OBJ) $(HTS_LIB) $(H5_LIB) $(LIBS)
++$(TEST_PROGRAM): src/test/nanopolish_test.o $(CPP_OBJ) $(C_OBJ)
++	$(CXX) -o $@ $(CXXFLAGS) $(CPPFLAGS) -fPIC $< $(CPP_OBJ) $(C_OBJ) $(LIBS)
+ 
+ test: $(TEST_PROGRAM)
+ 	./$(TEST_PROGRAM)
+Only in nanopolish-0.7.1/: Makefile.orig
+Only in nanopolish-0.7.1.orig/: nanopolish-0.7.1
+Only in nanopolish-0.7.1/src/alignment: nanopolish_alignment_db.o
+Only in nanopolish-0.7.1/src/alignment: nanopolish_anchor.o
+Only in nanopolish-0.7.1/src/alignment: nanopolish_eventalign.o
+Only in nanopolish-0.7.1/src/common: logsum.o
+Only in nanopolish-0.7.1/src/common: nanopolish_alphabet.o
+Only in nanopolish-0.7.1/src/common: nanopolish_bam_processor.o
+Only in nanopolish-0.7.1/src/common: nanopolish_bam_utils.o
+Only in nanopolish-0.7.1/src/common: nanopolish_common.o
+Only in nanopolish-0.7.1/src/common: nanopolish_fast5_map.o
+Only in nanopolish-0.7.1/src/common: nanopolish_iupac.o
+Only in nanopolish-0.7.1/src/common: nanopolish_klcs.o
+Only in nanopolish-0.7.1/src/common: nanopolish_model_names.o
+Only in nanopolish-0.7.1/src/common: nanopolish_variant.o
+Only in nanopolish-0.7.1/src/hmm: nanopolish_duration_model.o
+Only in nanopolish-0.7.1/src/hmm: nanopolish_pore_model_set.o
+Only in nanopolish-0.7.1/src/hmm: nanopolish_profile_hmm.o
+Only in nanopolish-0.7.1/src/hmm: nanopolish_profile_hmm_r7.o
+Only in nanopolish-0.7.1/src/hmm: nanopolish_profile_hmm_r9.o
+Only in nanopolish-0.7.1/src/hmm: nanopolish_transition_parameters.o
+Only in nanopolish-0.7.1/src/main: nanopolish.o
+Only in nanopolish-0.7.1/src: nanopolish_call_methylation.o
+Only in nanopolish-0.7.1/src: nanopolish_call_variants.o
+Only in nanopolish-0.7.1/src: nanopolish_consensus.o
+Only in nanopolish-0.7.1/src: nanopolish_extract.o
+Only in nanopolish-0.7.1/src: nanopolish_getmodel.o
+Only in nanopolish-0.7.1/src: nanopolish_haplotype.o
+diff -ur nanopolish-0.7.1.orig/src/nanopolish_methyltrain.cpp nanopolish-0.7.1/src/nanopolish_methyltrain.cpp
+--- nanopolish-0.7.1.orig/src/nanopolish_methyltrain.cpp	2017-07-05 11:30:27.000000000 -0500
++++ nanopolish-0.7.1/src/nanopolish_methyltrain.cpp	2017-07-07 12:40:32.100075751 -0500
+@@ -42,7 +42,7 @@
+ #include "logger.hpp"
+ 
+ #include "nanopolish_scorereads.h"
+-#include "../eigen/Eigen/Dense"
++#include "Eigen/Dense"
+ 
+ extern float g_p_skip, g_p_skip_self, g_p_bad, g_p_bad_self;
+ 
+Only in nanopolish-0.7.1/src: nanopolish_methyltrain.cpp.orig
+Only in nanopolish-0.7.1/src: nanopolish_methyltrain.o
+Only in nanopolish-0.7.1/src: nanopolish_phase_reads.o
+Only in nanopolish-0.7.1/src: nanopolish_poremodel.o
+Only in nanopolish-0.7.1/src: nanopolish_scorereads.o
+Only in nanopolish-0.7.1/src: nanopolish_squiggle_read.o
+Only in nanopolish-0.7.1/src: nanopolish_train_poremodel_from_basecalls.o
+Only in nanopolish-0.7.1/src: nanopolish_variant_db.o
+Only in nanopolish-0.7.1/src/thirdparty: stdaln.o
+Only in nanopolish-0.7.1/src: training_core.o
