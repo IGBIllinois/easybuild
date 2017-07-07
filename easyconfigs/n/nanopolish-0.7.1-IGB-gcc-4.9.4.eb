@@ -17,13 +17,16 @@ dependencies = [
 	('fast5', '0.6.2'),
 	('HTSlib', '1.4'),
 	('Eigen', '3.3.3'),
+	('Biopython','1.68','-Python-2.7.13'),
 ]
 
 patches = [('nanopolish_0.7.1_no_download_deps.patch',1)]
 
 files_to_copy = ['*']
 
-modextrapaths = {'PATH': ''}
+modextrapaths = {'PATH': '',
+		'PATH': 'scripts/'
+}
 
 sanity_check_paths = {
 	'files': ['nanopolish'],
