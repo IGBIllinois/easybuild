@@ -15,7 +15,7 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 source_urls = ['http://www.bioinformatics.babraham.ac.uk/projects/%(namelower)s']
 sources = ['%(namelower)s_v%(version)s.zip']
 
-patches = ['FastQC_shebang.patch']
+patches = ['FastQC-0.11.5.patch']
 
 dependencies = [('Java', '1.8.0_121','',True),
 		('Perl','5.24.1')

@@ -736,7 +736,7 @@ exts_list = [
         'source_urls': ['https://cpan.metacpan.org/authors/id/E/EX/EXODIST'],
     }),
     ('LWP::MediaTypes', '6.02', {
-        'source_tmpl': 'LWP-MediaTypes-6.02.tar.gz',
+		'source_tmpl': 'LWP-MediaTypes-6.02.tar.gz',
         'source_urls': ['https://cpan.metacpan.org/authors/id/G/GA/GAAS'],
     }),
     ('Scalar::Util', '1.45', {
@@ -914,6 +914,54 @@ exts_list = [
     ('Thread::Queue', '3.12', {
 	'source_tmpl': 'Thread-Queue-3.12.tar.gz',
 	'source_urls': ['http://search.cpan.org/CPAN/authors/id/J/JD/JDHEDDEN/'],
+    }),
+    ('Bit::Vector', '7.4', {
+        'source_tmpl': 'Bit-Vector-7.4.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/S/ST/STBEY/'],
+    }),
+    ('Carp::Clan', '6.06', {
+        'source_tmpl': 'Carp-Clan-6.06.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/K/KE/KENTNL/'],
+    }),
+    ('PerlIO::gzip', '0.20', {
+        'source_tmpl': 'PerlIO-gzip-0.20.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/N/NW/NWCLARK/'],
+    }),
+    ('SVG', '2.78', {
+        'source_tmpl': 'SVG-2.78.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/M/MA/MANWAR/'],
+    }),
+    ('Time::HiRes', '1.9742', {
+        'source_tmpl': 'Time-HiRes-1.9742.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/J/JH/JHI/'],
+    }),
+    ('XML::Parser', '2.44', {
+        'source_tmpl': 'XML-Parser-2.44.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/T/TO/TODDR/'],
+    }),
+    ('SOAP::Lite', '1.20', {
+        'source_tmpl': 'SOAP-Lite-1.20.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/P/PH/PHRED/'],
+    }),
+    ('Inline', '0.80', {
+        'source_tmpl': 'Inline-0.80.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/I/IN/INGY/'],
+    }),
+    ('File::ShareDir::Install', '0.11', {
+        'source_tmpl': 'File-ShareDir-Install-0.11.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/'],
+    }),
+    ('Inline::C', '0.78', {
+        'source_tmpl': 'Inline-C-0.78.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/T/TI/TINITA/'],
+    }),
+    ('DB_File', '1.840', {
+        'source_tmpl': 'DB_File-1.840.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/'],
+    }),
+    ('DBD::mysql', '4.043', {
+        'source_tmpl': 'DBD-mysql-4.043.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/'],
     }),
 ]
 

@@ -165,7 +165,10 @@ exts_list = [
 ('impute','1.48.0',ext_options),
 ('preprocessCore','1.36.0',ext_options),
 ('GO.db','3.4.0',ext_options),
-('WGCNA','1.51',ext_options)
+('WGCNA','1.51',ext_options),
+('ShortRead','1.32.1',ext_options),
+('RcppParallel','4.3.20',ext_options),
+('dada2','1.2.2',ext_options)
 ]
 
 moduleclass = 'lang'

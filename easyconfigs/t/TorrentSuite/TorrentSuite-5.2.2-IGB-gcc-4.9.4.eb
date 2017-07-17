@@ -3,7 +3,7 @@ easyblock = 'ConfigureMake'
 name = 'TorrentSuite'
 version = '5.2.2'
 
-homepage = 'https://github.com/iontorrent/TS'
+homepage = 'ioncommunity.lifetechnologies.com/welcome'
 description = """Cairo is a 2D graphics library with support for multiple output devices.
  Currently supported output targets include the X Window System (via both Xlib and XCB), Quartz, Win32, image buffers,
  PostScript, PDF, and SVG file output. Experimental backends include OpenGL, BeOS, OS/2, and DirectFB"""
@@ -13,7 +13,15 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 source_urls = ['https://github.com/iontorrent/TS/releases']
 sources = [SOURCE_TAR_XZ]
 
-dependencies = [
+builddependencies = [('CMake','3.7.2'),
+]
+
+dependencies = [('R','3.3.3'),
+		('HDF5','1.8.18'),
+		'CUDA','8.0.61'),
+		('zlib','1.2.11'),
+		('cURL','7.53.1'),
+		('Boost','1.63.0'),
 ]
 
 # disable symbol lookup, which requires -lbfd, to avoid link issues with (non-PIC) libiberty.a provided by GCC

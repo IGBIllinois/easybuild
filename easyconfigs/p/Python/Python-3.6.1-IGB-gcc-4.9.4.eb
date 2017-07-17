@@ -90,6 +90,21 @@ exts_list = [
     ('virtualenv', '15.1.0', {
         'source_urls': ['https://pypi.python.org/packages/source/v/virtualenv'],
     }),
+    ('networkx', '1.11', {
+        'source_urls': ['https://pypi.python.org/packages/source/n/networkx'],
+    }),
+    ('matplotlib', '2.0.2', {
+        'source_urls': ['https://pypi.python.org/packages/source/m/matplotlib'],
+    }),
+    ('PyWavelets', '0.5.2', {
+        'source_urls': ['https://pypi.python.org/packages/source/p/PyWavelets'],
+    }),
+    ('jpeg', '0.1.4', {
+        'source_urls': ['https://pypi.python.org/packages/source/j/jpeg'],
+    }),
+    ('scikit-image', '0.13.0', {
+        'source_urls': ['https://pypi.python.org/packages/source/s/scikit-image'],
+    }),
 ]
 
 moduleclass = 'lang'
