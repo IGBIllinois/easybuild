@@ -78,9 +78,6 @@ exts_list = [
     ('decorator', '4.0.11', {
         'source_urls': ['https://pypi.python.org/packages/source/d/decorator/'],
     }),
-    ('pyparsing', '2.2.0', {
-        'source_urls': ['https://pypi.python.org/packages/source/p/pyparsing/'],
-    }),
     ('pytz', '2016.10', {
         'source_urls': ['https://pypi.python.org/packages/source/p/pytz'],
     }),
@@ -104,12 +101,21 @@ exts_list = [
     }),
     ('Pyomo', '5.2', {
         'source_urls': ['https://pypi.python.org/packages/source/p/Pyomo'],
+        'modulename': 'pyomo',
     }),
     ('Mako', '1.0.6', {
         'source_urls': ['https://pypi.python.org/packages/source/m/Mako'],
+        'modulename': 'mako',
     }),
     ('pysam', '0.11.2.2', {
 	'source_urls': ['https://pypi.python.org/packages/source/p/pysam'],
+    }),
+    ('pp', '1.6.5', {
+        'source_urls': ['https://pypi.python.org/packages/source/p/pp'],
+    }),
+    ('pyBigWig', '0.3.4', {
+        'source_urls': ['https://pypi.python.org/packages/source/p/pyBigWig'],
+        'modulename': 'pyBigWig',
     }),
 ]
 
