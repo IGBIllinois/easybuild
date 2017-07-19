@@ -1,0 +1,11 @@
+diff -ru flexbar-3.0.3-orig/src/CMakeLists.txt flexbar-3.0.3/src/CMakeLists.txt
+--- flexbar-3.0.3-orig/src/CMakeLists.txt	2017-07-19 15:20:32.089872889 -0500
++++ flexbar-3.0.3/src/CMakeLists.txt	2017-07-19 15:20:41.839896833 -0500
+@@ -11,7 +11,6 @@
+ endif()
+ 
+ 
+-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
+ 
+ if( CMAKE_SIZEOF_VOID_P MATCHES "8" )
+ 	message( STATUS "Flexbar 64 bit architecture" )
