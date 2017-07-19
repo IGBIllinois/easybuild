@@ -1,0 +1,35 @@
+easyblock = 'MakeCp'
+
+name = 'quickmerge'
+version = '0.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/mahulchak/quickmerge'
+description = """quickmerge uses a simple concept to improve contiguity of genome assemblies based on long molecule sequences, often with dramatic outcomes. The program uses information from assemblies made with illumina short reads and PacBio long reads to improve contiguities of an assembly generated with PacBio long reads alone. This is counterintuitive because illumina short reads are not typically considered to cover genomic regions which PacBio long reads cannot. Although we have not evaluated this program for assemblies generated with Oxford nanopore sequences, the program should work with ONP-assemblies too."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/mahulchak/quickmerge/archive']
+
+dependencies = [
+	('Python', '2.7.13'),
+	('MUMmer', '3.23'),
+]
+
+keepsymlinks = True
+
+start_dir = 'merger'
+
+files_to_copy = ['merger', 'merge_wrapper.py']
+
+sanity_check_paths = {
+	'files': ['merge_wrapper.py'],
+	'dirs': ['merger'],
+}
+
+modextrapaths = {
+	'PATH': 'merger',
+}
+
+moduleclass = 'bio'
