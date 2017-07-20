@@ -12,12 +12,12 @@ diff -ru FastQC-orig/fastqc FastQC/fastqc
  	
  	push @java_args ,"-Dfastqc.threads=$threads";
 -	my $memory = 250 * $threads;
-+	my $memory = 500 * $threads;
++	my $memory = 1024 * $threads;
  	unshift @java_args,"-Xmx${memory}m";
  }
  else {
 -	unshift @java_args,'-Xmx250m';
-+	unshift @java_args,'-Xmx500m';
++	unshift @java_args,'-Xmx1024m';
  }
  
  if ($kmer_size) {
