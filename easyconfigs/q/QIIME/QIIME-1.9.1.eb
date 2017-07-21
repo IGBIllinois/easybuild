@@ -25,6 +25,9 @@ sanity_check_paths = {
     'dirs': ['lib/python2.7/site-packages/qiime']
 }
 
+modextrapaths = {
+	'QIIME_CONFIG_FP': ['qiime_config'],
+}
 sanity_check_commands = ['print_qiime_config.py -t']
 
 moduleclass = 'bio'

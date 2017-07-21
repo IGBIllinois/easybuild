@@ -5,7 +5,7 @@ version = ''
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = ''
-description = ''
+description = """"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 

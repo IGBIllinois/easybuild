@@ -1,0 +1,28 @@
+easyblock = 'MakeInstall'
+
+name = 'centrifuge'
+version = '1.0.3-beta'
+
+homepage = 'https://ccb.jhu.edu/software/centrifuge/'
+description = """Centrifuge is a very rapid and memory-efficient system for the classification of DNA sequences from microbial 
+samples, with better sensitivity than and comparable accuracy to other leading systems."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['centrifuge-%(version)s-source.zip']
+source_urls = ['ftp://ftp.ccb.jhu.edu/pub/infphilo/centrifuge/downloads/']
+
+dependencies = [('Python','2.7.13')
+]
+
+installopts = 'prefix=%(installdir)s'
+
+sanity_check_paths = {
+	'files': ['bin/centrifuge'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
