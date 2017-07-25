@@ -25,8 +25,7 @@ patches = [('nanopolish_0.7.1-159d92b.patch',1)]
 
 files_to_copy = ['*']
 
-modextrapaths = {'PATH': '',
-		'PATH': 'scripts/'
+modextrapaths = {'PATH': ['','scripts'],
 }
 
 sanity_check_paths = {

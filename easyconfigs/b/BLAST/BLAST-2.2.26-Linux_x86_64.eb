@@ -52,3 +52,6 @@ buildstats = [{
     "timestamp": 1490981633,
     "total_memory": 193170,
 }]
+
+allow_prepend_abs_path = True
+modextrapaths = {'BLASTDB': '/home/mirror/ncbi/blastdb/latest'}
