@@ -4,13 +4,16 @@ name = 'h5py'
 version = '2.7.0'
 versionsuffix = '-Python-%(pyver)s'
 
-homepage = 'https://github.com/arq5x/poretools'
-description = """a toolkit for working with nanopore sequencing data from Oxford Nanopore."""
+homepage = 'http://www.h5py.org/'
+description = """The h5py package is a Pythonic interface to the HDF5 binary data format."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['%(name)s-%(version)s.tar.gz']
-source_urls = ['https://pypi.python.org/packages/source/h/h5py/']
+#sources = ['%(name)s-%(version)s.tar.gz']
+#source_urls = ['https://pypi.python.org/packages/source/h/h5py/']
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
 
 dependencies = [
         ('HDF5', '1.8.18'),

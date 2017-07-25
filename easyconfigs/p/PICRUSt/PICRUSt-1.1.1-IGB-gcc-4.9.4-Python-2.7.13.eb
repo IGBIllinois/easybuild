@@ -16,6 +16,7 @@ source_urls = ['https://github.com/picrust/%(namelower)s/releases/download/%(ver
 dependencies = [
 	('Python', '2.7.13'),
 	('biom-format','2.1.6','-Python-2.7.13'),
+	('h5py','2.7.0','-Python-2.7.13'),
 ]
 
 moduleclass = 'bio'
