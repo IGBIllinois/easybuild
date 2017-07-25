@@ -68,7 +68,7 @@ exts_list = [
     ('pbr', '2.0.0', {
         'source_urls': ['https://pypi.python.org/packages/source/p/pbr/'],
     }),
-    ('Cython', '0.25.2', {
+    ('Cython', '0.26', {
         'source_urls': ['https://pypi.python.org/packages/source/c/cython/'],
     }),
     ('dateutil', '2.6.0', {
@@ -189,10 +189,14 @@ exts_list = [
         'modulename': 'utils',
     }),
     ('casadi','3.2.0', {
+	'source_tmpl': '%(name)s-%(version)s-cp27-none-manylinux1_x86_64.whl ',
         'source_urls': ['https://pypi.python.org/packages/source/c/casadi'],
         'modulename': 'casadi',
     }),
-
+    ('cogent','1.9', {
+        'source_urls': ['https://pypi.python.org/packages/source/c/cogent'],
+        'modulename': 'cogent',
+    }),
 
 
 

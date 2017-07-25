@@ -12,10 +12,10 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 sources = ['%(namelower)s-%(version)s.tar.gz']
 source_urls = ['https://github.com/picrust/%(namelower)s/releases/download/%(version)s/']
 
-use_pip = True
 
 dependencies = [
 	('Python', '2.7.13'),
+	('biom-format','2.1.6','-Python-2.7.13'),
 ]
 
 moduleclass = 'bio'
