@@ -976,6 +976,14 @@ exts_list = [
         'source_tmpl': 'XML-LibXML-2.0129.tar.gz',
         'source_urls': ['http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/'],
     }),
+    ('YAML', '1.23', {
+        'source_tmpl': 'YAML-1.23.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/I/IN/INGY/'],
+    }),
+    ('define', '1.04', {
+        'source_tmpl': 'define-1.04.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/N/NE/NEILB/'],
+    }),
 ]
 
 moduleclass = 'lang'
