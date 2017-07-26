@@ -12,6 +12,7 @@ sources = [SOURCELOWER_TAR_GZ]
 
 dependencies = [
     ('MariaDB', '5.5.54'),
+    ('libxml2','2.9.4'),
 ]
 
 exts_list = [
@@ -970,6 +971,10 @@ exts_list = [
     ('Config::IniFiles','2.93', {
 	'source_tmpl': 'Config-IniFiles-2.93.tar.gz',
 	'source_urls': ['http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/'],
+    }),
+    ('XML::LibXML','2.0129', {
+        'source_tmpl': 'XML-LibXML-2.0129.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/'],
     }),
 ]
 
