@@ -2,7 +2,7 @@ easyblock = 'Tarball'
 
 name = 'VICSIN'
 version = '0.5'
-versionsuffix = '-Python-%(pyver)s-Perl-%(perlver)s'
+versionsuffix = '-Perl-%(perlver)s-Python-%(pyver)s'
 
 homepage = ''
 description = 'VICSIN = Viral, Integrative, and Conjugative Sequence Identification and Networking'
