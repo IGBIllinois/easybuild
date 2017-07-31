@@ -1,0 +1,34 @@
+easyblock = "MakeCp"
+
+name = "nanopolish"
+version = "0.7.1"
+commit = "159d92b"
+versionsuffix = "-%s" % commit
+homepage = "https://github.com/jts/nanopolish"
+description = """Software package for signal-level analysis of Oxford Nanopore sequencing data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.tar.gz' % commit]
+source_urls = ['https://github.com/jts/nanopolish/archive/']
+
+dependencies = [
+	('HDF5', '1.8.18'),
+	('SAMtools', '1.4'),
+	('fast5', '0.6.2'),
+	('HTSlib', '1.4'),
+	('Eigen', '3.3.3'),
+	('Biopython','1.68','-Python-2.7.13'),
+]
+
+patches = [('nanopolish_0.7.1-159d92b.patch',1)]
+
+files_to_copy = ['*']
+
+modextrapaths = {'PATH': ['','scripts'],
+}
+
+sanity_check_paths = {
+	'files': ['nanopolish'],
+	'dirs': []
+}

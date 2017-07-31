@@ -1,0 +1,22 @@
+easyblock = 'PythonPackage'
+
+name = 'keras-rl'
+version = '0.3.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/matthiasplappert/keras-rl'
+description = '''keras-rl implements some state-of-the art deep reinforcement learning algorithms in Python and seamlessly integrates with the deep learning library Keras. '''
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('Keras','2.0.6','-Python-2.7.13'),
+]
+
+exts_filter = ('python -c "import rl"', "")
+
+moduleclass = 'bio'

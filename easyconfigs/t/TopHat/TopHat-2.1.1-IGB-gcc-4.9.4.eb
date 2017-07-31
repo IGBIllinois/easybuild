@@ -1,0 +1,33 @@
+easyblock = 'ConfigureMake'
+
+name = 'TopHat'
+version = '2.1.1'
+
+homepage = 'http://ccb.jhu.edu/software/tophat/'
+description = """TopHat is a fast splice junction mapper for RNA-Seq reads."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchainopts = {'pic': True}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = ['http://ccb.jhu.edu/software/tophat/downloads/']
+
+patches = [
+    'tophat-2.0.13-zlib.patch',
+]
+
+dependencies = [
+    ('Boost', '1.63.0'),
+    ('zlib', '1.2.11'),
+]
+
+configopts = '--with-boost=$EBROOTBOOST'
+
+parallel = 1
+
+sanity_check_paths = {
+    'files': ['bin/tophat'],
+    'dirs': [],
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,38 @@
+easyblock = 'MakeCp'
+
+name = 'MapSplice'
+version = '2.2.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://www.netlab.uky.edu/p/bioinfo/MapSplice2'
+description = """MapSplice is a software for mapping RNA-seq data to reference genome for splice junction discovery that depends only on reference genome, and not on any further annotations."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(name)s-v%(version)s.zip']
+source_urls = ['http://protocols.netlab.uky.edu/~zeng/']
+
+patches = ['MapSplice-2.2.1-use-bowtie-samtools.patch']
+
+dependencies = [
+	('Python', '2.7.13'),
+	('Bowtie', '1.2.0'),
+	('SAMtools', '1.5'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['mapsplice.py'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,34 @@
+easyblock = 'Tarball'
+
+name = 'VirSorter'
+version = '20170215'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/simroux/VirSorter'
+description = """VirSorter: mining viral signal from microbial genomic data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/simroux/%(name)s/archive/']
+sources = ['939d5910ca5ffac7194693fea834b80694834384.zip']
+
+dependencies = [
+    ('Perl', '5.24.1'),
+    ('BioPerl', '1.7.1', '-Perl-%(perlver)s'),
+    ('HMMER', '3.1b2'),
+    ('MCL', '14.137'),
+    ('MetaGeneAnnotator', '20080819', '-x86-64', True),
+    ('MUSCLE', '3.8.31'),
+    ('BLAST', '2.2.26', '-Linux_x86_64', True),
+]
+
+sanity_check_paths = {
+    'files': ['wrapper_phage_contigs_sorter_iPlant.pl'],
+    'dirs': ['Scripts'],
+}
+
+modextrapaths = {'PATH': ['', 'Scripts']}
+modaliases = {'%(namelower)s': 'wrapper_phage_contigs_sorter_iPlant.pl'}
+
+moduleclass = 'bio'
+

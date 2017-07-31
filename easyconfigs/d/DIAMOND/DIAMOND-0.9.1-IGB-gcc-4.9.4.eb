@@ -1,9 +1,4 @@
-# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
-# Author: Pablo Escobar Lopez
-# sciCORE - University of Basel
-# SIB Swiss Institute of Bioinformatics
-
-easyblock = "Tarball"
+easyblock = 'CMakeMake'
 
 name = 'DIAMOND'
 version = '0.9.1'
@@ -13,8 +8,8 @@ description = """Accelerated BLAST compatible local sequence aligner"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-source_urls = ['https://github.com/bbuchfink/diamond/releases/download/v%(version)s']
-sources = ['%(namelower)s-linux64.tar.gz']
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/bbuchfink/diamond/archive/v%(version)s']
 
 separate_build_dir = True
 
@@ -25,7 +20,7 @@ dependencies = [
 ]
 
 sanity_check_paths = {
-    'files': ['diamond'],
+    'files': ['bin/diamond'],
     'dirs': [],
 }
 

@@ -1,0 +1,32 @@
+easyblock = 'MakeCp'
+
+name = 'PhiSpy'
+version = '2.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://sourceforge.net/projects/phispy'
+description = """A novel algorithm for finding prophages in microbial genomes that combines similarity-based and composition-based strategies"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['phiSpyNov11_v%(version)s.zip']
+source_urls = [SOURCEFORGE_SOURCE]
+
+dependencies = [
+	('Python', '2.7.13'),
+	('R', '3.3.3'),
+]
+
+start_dir = 'phiSpyNov11_v%(version)s'
+
+files_to_copy = [(['phiSpyNov11_v%(version)s/*'],'')]
+
+sanity_check_paths = {
+	'files': ['phiSpy.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': ''}
+
+moduleclass = 'bio'
+

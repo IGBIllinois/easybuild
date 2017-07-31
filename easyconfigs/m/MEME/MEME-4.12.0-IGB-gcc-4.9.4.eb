@@ -1,0 +1,30 @@
+easyblock = 'ConfigureMake'
+
+name = 'MEME'
+version = '4.12.0'
+
+homepage = 'http://meme-suite.org/'
+description = """The MEME Suite allows you to: * discover motifs using MEME, DREME (DNA only) or
+  GLAM2 on groups of related DNA or protein sequences, * search sequence databases with motifs using
+  MAST, FIMO, MCAST or GLAM2SCAN, * compare a motif to all motifs in a database of motifs, * associate
+  motifs with Gene Ontology terms via their putative target genes, and * analyse motif enrichment
+  using SpaMo or CentriMo."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+# Download from eg. http://meme-suite.org/meme-software/4.8.0/meme_4.8.0.tar.gz
+sources = ['meme_%(version)s.tar.gz']
+source_urls = ['http://meme-suite.org/meme-software/%(version)s/']
+
+dependencies = [
+    ('libxml2', '2.9.4'),
+    ('libxslt', '1.1.29'),
+    ('zlib', '1.2.11'),
+]
+
+sanity_check_paths = {
+    'files': ["bin/meme"],
+    'dirs': ["share", "lib"],
+}
+
+moduleclass = 'bio'

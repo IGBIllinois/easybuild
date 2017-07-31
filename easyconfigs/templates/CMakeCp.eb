@@ -1,0 +1,31 @@
+easyblock = "CMakeCp"
+
+name = ''
+version = ''
+
+homepage = ''
+description = """"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['']
+sources = ['v%(version)s.tar.gz']
+
+builddependencies = [('CMake', '3.7.2')]
+
+dependencies = [
+]
+
+separate_build_dir = True
+patches = ['']
+
+files_to_copy = ['']
+sanity_check_paths = {
+    'files': [],
+    'dirs': []
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
+

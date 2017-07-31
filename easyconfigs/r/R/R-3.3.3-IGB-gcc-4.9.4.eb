@@ -156,16 +156,20 @@ exts_list = [
 #('Cairo','1.5-9',ext_options),
 ('KernSmooth', '2.23-15',ext_options),
 ('codetools','0.2-15',ext_options),
-('iterators,'1.0.8',ext_options),
+('iterators','1.0.8',ext_options),
 ('dynamicTreeCut','1.63-1',ext_options),
 ('fastcluster','1.1.22',ext_options),
-('matrixStats,'0.52-2',ext_options),
-('foreeach','1.4.3',ext_options),
+('matrixStats','0.52.2',ext_options),
+('foreach','1.4.3',ext_options),
 ('doParallel','1.0.10',ext_options),
 ('impute','1.48.0',ext_options),
 ('preprocessCore','1.36.0',ext_options),
 ('GO.db','3.4.0',ext_options),
-('WGCNA','1.51',ext_options)
+('WGCNA','1.51',ext_options),
+('ShortRead','1.32.1',ext_options),
+('RcppParallel','4.3.20',ext_options),
+('dada2','1.2.2',ext_options),
+('randomForest','4.6-12',ext_options),
 ]
 
 moduleclass = 'lang'

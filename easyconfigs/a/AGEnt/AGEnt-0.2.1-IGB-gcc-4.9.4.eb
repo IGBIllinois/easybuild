@@ -1,0 +1,30 @@
+easyblock = 'Tarball'
+
+name = 'AGEnt'
+version = '0.2.1'
+
+homepage = 'http://vfsmspineagent.fsm.northwestern.edu/'
+description = """AGEnt performs in silico subtractive hybridization of core genome sequences, such as those produced by Spine, against a query genomic sequence to identify accessory genomic sequences (AGEs) in the query genome. Sequences are aligned using Nucmer, outputting sequences and sequence characteristics of those regions in the query genome that are not found in the core genome. If gene coordinate information is provided, a list of accessory genes in the query genome will also be output."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/egonozer/%(name)s/archive/']
+sources = ['v%(version)s.tar.gz']
+
+dependencies = [
+	('Perl', '5.24.1'),
+	('MUMmer', '3.23')
+]
+
+postinstallcmds = ['chmod -R a+x %(installdir)s']
+
+sanity_check_paths = {
+	'files': ['AGEnt.pl'],
+	'dirs': ['scripts']
+}
+
+modextrapaths = {'PATH': ['', 'scripts']}
+modaliases = {'%(namelower)s': 'AGEnt.pl'}
+
+moduleclass = 'bio'
+

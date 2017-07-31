@@ -1,0 +1,23 @@
+easyblock = 'Binary'
+
+name = 'Prodigal'
+version = '2.6.3'
+versionsuffix = '-Linux_x86_64'
+
+homepage = 'https://github.com/hyattpd/prodigal'
+description = """Fast, reliable protein-coding gene prediction for prokaryotic genomes."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['prodigal.linux']
+source_urls = ['https://github.com/hyattpd/prodigal/releases/download/v%(version)s']
+
+sanity_check_paths = {
+	'files': ['prodigal.linux'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': ''}
+
+moduleclass = 'bio'
+

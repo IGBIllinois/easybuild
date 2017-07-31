@@ -1,0 +1,48 @@
+easyblock = 'Tarball'
+
+name = 'Biopieces'
+version = '2.0'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/maasha/biopieces'
+description = """Biopieces is a bioinformatic framework of tools easily used and easily created."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/maasha/biopieces/archive']
+
+dependencies = [
+	('Perl', '5.24.1'),
+	('bzip2', '1.0.6'),
+	('BLAST', '2.2.26', '-Linux_x86_64', True),
+	('BLAT', '3.5'),
+	('Bowtie', '1.2.0'),
+	('Bowtie2', '2.3.2'),
+	('BWA', '0.7.15'),
+	('HMMER', '3.1b2'),
+	('gnuplot', '5.0.6'),
+	('MUSCLE', '3.8.31'),
+	('MUMmer', '3.23'),
+	('USEARCH', '9.2.64', '', True),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['bin', 'data'],
+}
+
+modextrapaths = {
+	'BP_DIR': '',
+	'BP_DATA': 'data',
+	'BP_LOG': 'logs',
+	'PERL5LIB': 'src/perl',
+	'RUBYLIB': 'src/ruby/lib',
+}
+modextravars = {
+	'BP_TMP': '/scratch',
+}
+
+moduleclass = 'bio'
