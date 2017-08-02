@@ -1,0 +1,29 @@
+easyblock = 'Tarball'
+
+name = 'TASSEL'
+version = '5.2.28'
+
+homepage = 'http://www.maizegenetics.net/tassel'
+description = """While TASSEL has changed considerably since its initial public release in 2001, its primary function continues to be providing tools to investigate the relationship between phenotypes and genotypes """
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['V%(version)s.tar.gz']
+source_urls = ['https://bitbucket.org/tasseladmin/tassel-5-standalone/get']
+
+java = 'Java'
+javaver = '1.8.0_121'
+versionsuffix = '-%s-%s' % (java, javaver)
+dependencies = [(java, javaver)]
+
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['start_tassel.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': ''}
+
+moduleclass = 'bio'

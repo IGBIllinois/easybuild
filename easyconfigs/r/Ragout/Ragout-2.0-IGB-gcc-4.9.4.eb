@@ -1,0 +1,34 @@
+easyblock = 'MakeCp'
+
+name = 'Ragout'
+version = '2.0'
+
+homepage = 'http://fenderglass.github.io/Ragout/'
+description = """Ragout (Reference-Assisted Genome Ordering UTility) is a tool for chromosome assembly using multiple references. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/fenderglass/Ragout/archive/']
+
+dependencies = [
+        ('Python','2.7.13'),
+	('Sibelia','3.0.7'),
+
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+        'files': ['ragout.py'],
+        'dirs': ['lib','scripts','ragout'],
+}
+
+modextrapaths = {'PATH': ['','scripts']
+}
+
+moduleclass = 'bio'

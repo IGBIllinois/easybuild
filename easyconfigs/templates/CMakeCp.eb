@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 separate_build_dir = True
-patches = ['']
+patches = []
 
 files_to_copy = ['']
 sanity_check_paths = {

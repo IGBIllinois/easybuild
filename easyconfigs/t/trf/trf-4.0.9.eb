@@ -1,0 +1,26 @@
+easyblock = 'Binary'
+
+name = 'trf'
+version = '4.0.9'
+
+homepage = 'http://tandem.bu.edu/trf/trf.html'
+description = """Tandem Repeats Finder is a program to locate and display tandem repeats in DNA sequences. """
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['trf409.linux64']
+source_urls = ['http://tandem.bu.edu/trf/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['trf409.linux64'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': ''}
+
+moduleclass = 'bio'

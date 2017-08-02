@@ -18,7 +18,7 @@ keepsymlinks = True
 
 with_configure = False
 
-files_to_copy = []
+files_to_copy = ['*']
 
 sanity_check_paths = {
 	'files': [],
