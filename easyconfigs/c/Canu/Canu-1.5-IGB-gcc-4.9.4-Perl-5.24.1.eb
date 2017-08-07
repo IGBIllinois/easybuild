@@ -1,7 +1,7 @@
 easyblock = 'MakeCp'
 
 name = 'Canu'
-version = '1.4'
+version = '1.5'
 versionsuffix = '-Perl-%(perlver)s'
 
 homepage = 'https://github.com/marbl/canu'
