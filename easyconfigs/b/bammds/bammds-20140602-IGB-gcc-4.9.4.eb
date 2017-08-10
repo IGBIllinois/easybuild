@@ -1,0 +1,31 @@
+easyblock = 'ConfigureMake'
+
+name = 'bammds'
+version = '20140602'
+
+homepage = 'http://dna.ku.dk/%7Esapfo/bammds.html'
+description = """Software that allows to create a multidimensional scaling (MDS) plot of populations for genetic data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = [SOURCE_TAR_GZ]
+sources = ['http://dna.ku.dk/%7Esapfo/bammds-20140602.tar.gz']
+
+dependencies = [('SAMtools','1.4.1'),
+		('R','3.3.3'),
+		('Perl','5.24.1')
+]
+
+configopts = ''
+
+sanity_check_paths = {
+        'files': ['bin/bammds'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
+
+

@@ -1,0 +1,28 @@
+easyblock = 'ConfigureMake'
+
+name = ''
+version = ''
+
+homepage = ''
+description = """"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['']
+sources = [SOURCE_TAR_GZ]
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

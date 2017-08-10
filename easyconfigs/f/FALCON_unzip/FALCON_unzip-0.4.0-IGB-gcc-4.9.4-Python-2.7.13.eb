@@ -1,0 +1,25 @@
+easyblock = 'PythonPackage'
+
+name = 'FALCON_unzip'
+version = '0.4.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/PacificBiosciences/FALCON_unzip'
+description = """FALCON-Unzip contains the modules that works with FALCON for full diploid assembly (representing haplotype specific contigs as "haplotigs" as assembly output)."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/PacificBiosciences/FALCON_unzip/archive']
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('BLASR', '4.0.0'),
+	('SAMtools', '1.5'),
+	('MUMmer', '3.23'),
+	('GenomicConsensus','3.0.2', versionsuffix),
+]
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+moduleclass = 'bio'

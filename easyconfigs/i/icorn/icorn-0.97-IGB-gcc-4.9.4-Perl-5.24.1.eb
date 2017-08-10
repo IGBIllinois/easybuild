@@ -1,0 +1,32 @@
+easyblock = 'Tarball'
+
+name = 'icorn'
+version = '0.97'
+
+homepage = 'http://icorn.sourceforge.net/documentation.html'
+description = """Inputs: Reference Sequence (FASTA) & reads (FASTQ) & information of short reads """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['iCORN-v%(version)s.tar.gz']
+source_urls = [('https://sourceforge.net/projects/%(namelower)s/files/%(namelower)s-%(version)s', 'download')]
+
+patches = [('icorn_0.97.patch',1)]
+
+dependencies = [('snpomatic','1.0'),
+		('ssaha_pileup','0.6'),
+		('Perl','5.24.1')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['icorn.Correct.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'',
+		'ICORN_HOME':''
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'snpomatic'
+version = '1.0'
+
+homepage = 'https://github.com/magnusmanske/snpomatic'
+description = """SNP-o-matic is a fast, stringent short-read mapping software. It supports a multitude of output types and formats, for uses in filtering reads, alignments, sequence-based genotyping calls, assisted reassembly of contigs etc."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/magnusmanske/snpomatic/archive/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['doc','findknownsnps','README.md']
+
+sanity_check_paths = {
+	'files': ['findknownsnps'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

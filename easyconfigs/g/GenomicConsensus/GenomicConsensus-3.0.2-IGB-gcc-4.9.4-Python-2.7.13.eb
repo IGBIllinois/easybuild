@@ -1,0 +1,25 @@
+easyblock = 'PythonPackage'
+
+name = 'GenomicConsensus'
+version = '3.0.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/PacificBiosciences/GenomicConsensus'
+description = """The GenomicConsensus package provides the variantCaller tool, which allows you to apply the Quiver or Arrow algorithm to mapped PacBio reads to get consensus and variant calls."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['smrtanalysis-%(version)s.tar.gz']
+source_urls = ['https://github.com/PacificBiosciences/GenomicConsensus/archive']
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('ConsensusCore', '1.0.1', versionsuffix),
+	('h5py','2.7.0',versionsuffix),
+]
+
+use_setup_py_develop = True
+
+exts_filter = ('python -c "import GenomicConsensus"', "")
+
+moduleclass = 'bio'

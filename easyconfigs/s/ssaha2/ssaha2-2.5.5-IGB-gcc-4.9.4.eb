@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'ssaha2'
+version = '2.5.5'
+
+homepage = 'http://www.sanger.ac.uk/science/tools/ssaha2-0'
+description = """SSAHA2 (Sequence Search and Alignment by Hashing Algorithm) is a pairwise sequence alignment program designed for the efficient mapping of sequencing reads onto genomic reference sequences."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(namelower)s_v%(version)s_x86_64.tgz']
+source_urls = ['ftp://ftp.sanger.ac.uk/pub/resources/software/ssaha2/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['ssaha2','ssaha2Build','ssahaSNP'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

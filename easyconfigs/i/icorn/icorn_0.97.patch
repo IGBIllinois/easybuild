@@ -1,0 +1,54 @@
+diff -ru iCORN-v0.97.orig/analyse.countpair.pl iCORN-v0.97/analyse.countpair.pl
+--- iCORN-v0.97.orig/analyse.countpair.pl	2010-06-08 04:44:44.000000000 -0500
++++ iCORN-v0.97/analyse.countpair.pl	2017-08-09 10:12:29.427666958 -0500
+@@ -1,4 +1,4 @@
+-#! /usr/bin/perl -w
++#! /usr/bin/env perl
+ #
+ # File: analyse.roundMatch.pl
+ # Time-stamp: <15-May-2009 13:03:01 tdo>
+diff -ru iCORN-v0.97.orig/analyse.matePairDistance.RP.pl iCORN-v0.97/analyse.matePairDistance.RP.pl
+--- iCORN-v0.97.orig/analyse.matePairDistance.RP.pl	2010-06-08 04:44:44.000000000 -0500
++++ iCORN-v0.97/analyse.matePairDistance.RP.pl	2017-08-09 10:12:38.018687026 -0500
+@@ -1,4 +1,4 @@
+-#! /usr/bin/perl -w
++#! /usr/bin/env perl
+ #
+ # File: analyse.roundMatch.pl
+ # Time-stamp: <26-May-2009 16:02:54 tdo>
+diff -ru iCORN-v0.97.orig/icorn.Correct.pl iCORN-v0.97/icorn.Correct.pl
+--- iCORN-v0.97.orig/icorn.Correct.pl	2010-06-08 04:44:44.000000000 -0500
++++ iCORN-v0.97/icorn.Correct.pl	2017-08-09 10:12:10.437622598 -0500
+@@ -1,4 +1,4 @@
+-#! /usr/bin/perl -w
++#! /usr/bin/env perl
+ #
+ # File: snp.correctString.pl
+ # Time-stamp: <03-Jul-2009 13:30:59 tdo>
+diff -ru iCORN-v0.97.orig/splitit.pl iCORN-v0.97/splitit.pl
+--- iCORN-v0.97.orig/splitit.pl	2010-06-08 04:44:44.000000000 -0500
++++ iCORN-v0.97/splitit.pl	2017-08-09 10:12:48.126710640 -0500
+@@ -1,4 +1,4 @@
+-#! /usr/bin/perl -w
++#! /usr/bin/env perl
+ #
+ # File: splitit.pl
+ # Time-stamp: <22-Oct-2009 17:13:40 tdo>
+diff -ru iCORN-v0.97.orig/transform.fastq2fastqMate.pl iCORN-v0.97/transform.fastq2fastqMate.pl
+--- iCORN-v0.97.orig/transform.fastq2fastqMate.pl	2010-06-08 04:44:44.000000000 -0500
++++ iCORN-v0.97/transform.fastq2fastqMate.pl	2017-08-09 10:12:58.150734054 -0500
+@@ -1,4 +1,4 @@
+-#! /usr/bin/perl -w
++#! /usr/bin/env perl
+ #
+ # File: join.solexa2pairs.pl
+ # Time-stamp: <03-Jul-2009 12:19:16 tdo>
+diff -ru iCORN-v0.97.orig/transform.fastqMate2fastqSNPomatic.pl iCORN-v0.97/transform.fastqMate2fastqSNPomatic.pl
+--- iCORN-v0.97.orig/transform.fastqMate2fastqSNPomatic.pl	2010-06-08 04:44:44.000000000 -0500
++++ iCORN-v0.97/transform.fastqMate2fastqSNPomatic.pl	2017-08-09 10:13:05.965752311 -0500
+@@ -1,4 +1,4 @@
+-#! /usr/bin/perl -w
++#! /usr/bin/env perl
+ #
+ # File: join.solexa2pairs.pl
+ # Time-stamp: <03-Jul-2009 12:19:53 tdo>

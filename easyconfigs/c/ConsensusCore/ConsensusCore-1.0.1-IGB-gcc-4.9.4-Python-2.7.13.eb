@@ -1,0 +1,31 @@
+easyblock = 'PythonPackage'
+
+name = 'ConsensusCore'
+version = '1.0.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/PacificBiosciences/ConsensusCore'
+description = """ConsensusCore is a library of C++ algorithms for PacBio multiple sequence consensus that powers Quiver (Python) and ConsensusTools (.NET)."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['800541e573caf29e81e8d69c4582e82f5b87532d.zip']
+source_urls = ['https://github.com/PacificBiosciences/ConsensusCore/archive']
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('Boost', '1.63.0', versionsuffix),
+	('SWIG', '3.0.12', versionsuffix),
+]
+
+skipsteps = ['build','sanity']
+installopts = '--boost=$EBROOTBOOST/include --swig=$EBROOTSWIG/bin/swig'
+
+exts_filter = ('python -c "import ConsensusCore"', "")
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['lib/python2.7/site-packages'],
+}
+
+moduleclass = 'bio'

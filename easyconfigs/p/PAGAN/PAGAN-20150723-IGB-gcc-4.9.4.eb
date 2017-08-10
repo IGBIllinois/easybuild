@@ -1,0 +1,39 @@
+easyblock = 'MakeCp'
+
+name = 'PAGAN'
+version = '20150723'
+
+homepage = 'http://wasabiapp.org/software/pagan'
+description = """PAGAN is a general-purpose method for the alignment of sequence graphs. PAGAN is based on the phylogeny-aware progressive alignment algorithm and uses graphs to describe the uncertainty in the presence of characters at certain sequence positions. However, graphs also allow describing the uncertainty in input sequences and modelling e.g. homopolymer errors in Roche 454 reads, or representing inferred ancestral sequences against which other sequences can then be aligned. PAGAN is still under development and will hopefully evolve to an easy-to-use, general-purpose method for phylogenetic sequence alignment."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(namelower)s.src.%(version)s.tgz']
+source_urls = ['http://wasabiapp.org/download/pagan/']
+
+dependencies = [
+	('Boost','1.63.0'),
+	('cURL', '7.53.1'),
+]
+
+buildopts = '-f Makefile.no_Qt'
+
+keepsymlinks = True
+
+with_configure = False
+
+patches = [('PAGAN-20150723-Makefile.patch',1)]
+
+start_dir = 'src'
+
+files_to_copy = [(['pagan'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/pagan'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

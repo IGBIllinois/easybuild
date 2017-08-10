@@ -1,0 +1,11 @@
+diff --new-file -ru pileup_v0.6.orig/Makefile pileup_v0.6/Makefile
+--- pileup_v0.6.orig/Makefile	1969-12-31 18:00:00.000000000 -0600
++++ pileup_v0.6/Makefile	2017-08-09 09:56:28.888432380 -0500
+@@ -0,0 +1,7 @@
++SUBDIRS = ssaha_pileup/ssaha_pileup ssaha_pileup/other_codes/get_seqreads ssaha_pileup/other_codes/search_read ssaha_pileup/other_codes/ssaha_parseSNP ssaha_pileup/other_codes/ssaha_split
++
++all: $(SUBDIRS)
++$(SUBDIRS):
++	$(MAKE) -C $@
++
++.PHONY: all $(SUBDIRS)
