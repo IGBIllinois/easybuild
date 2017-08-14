@@ -12,12 +12,10 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 sources = ['%(name)s-v%(version)s.zip']
 source_urls = ['http://protocols.netlab.uky.edu/~zeng/']
 
-patches = ['MapSplice-2.2.1-use-bowtie-samtools.patch']
+patches = [('MapSplice-2.2.1-Makefile-fix.patch',1)]
 
 dependencies = [
 	('Python', '2.7.13'),
-	('Bowtie', '1.2.0'),
-	('SAMtools', '1.5'),
 ]
 
 keepsymlinks = True

@@ -1,0 +1,34 @@
+Binary files MapSplice-v2.2.1/.DS_Store and MapSplice-v2.2.1 3/.DS_Store differ
+diff -ur MapSplice-v2.2.1/mapsplice.py MapSplice-v2.2.1 3/mapsplice.py
+--- MapSplice-v2.2.1/mapsplice.py	2016-06-13 14:57:14.000000000 -0500
++++ MapSplice-v2.2.1 3/mapsplice.py	2017-08-14 10:10:47.000000000 -0500
+@@ -1,3 +1,4 @@
++#! /usr/bin/env python
+  #    MapSplice
+  #
+  #    Copyright (C) 2012-2013 University of Kentucky 
+Binary files MapSplice-v2.2.1/src/.DS_Store and MapSplice-v2.2.1 3/src/.DS_Store differ
+diff -ur MapSplice-v2.2.1/src/MapSplice/Makefile MapSplice-v2.2.1 3/src/MapSplice/Makefile
+--- MapSplice-v2.2.1/src/MapSplice/Makefile	2017-08-11 15:48:05.000000000 -0500
++++ MapSplice-v2.2.1 3/src/MapSplice/Makefile	2017-08-14 10:11:31.000000000 -0500
+@@ -16,7 +16,7 @@
+ BOWTIE_SHARED_MEM = 1
+ EXTRA_FLAGS =
+ EXTRA_CFLAGS = 
+-EXTRA_CXXFLAGS =
++EXTRA_CXXFLAGS = -fpermissive
+ CFLAGS += $(EXTRA_CFLAGS)
+ CXXFLAGS += $(EXTRA_CXXFLAGS)
+ 
+diff -ur MapSplice-v2.2.1/src/bowtie/Makefile MapSplice-v2.2.1 3/src/bowtie/Makefile
+--- MapSplice-v2.2.1/src/bowtie/Makefile	2015-08-10 17:47:06.000000000 -0500
++++ MapSplice-v2.2.1 3/src/bowtie/Makefile	2017-08-14 10:11:13.000000000 -0500
+@@ -16,7 +16,7 @@
+ BOWTIE_SHARED_MEM = 1
+ EXTRA_FLAGS =
+ EXTRA_CFLAGS =
+-EXTRA_CXXFLAGS =
++EXTRA_CXXFLAGS = -fpermissive
+ CFLAGS += $(EXTRA_CFLAGS)
+ CXXFLAGS += $(EXTRA_CXXFLAGS)
+ 
