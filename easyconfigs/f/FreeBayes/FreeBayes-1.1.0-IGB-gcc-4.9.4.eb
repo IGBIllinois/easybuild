@@ -1,0 +1,26 @@
+easyblock = 'ConfigureMake'
+
+name = 'FreeBayes'
+version = '1.1.0'
+
+homepage = 'https://github.com/ekg/freebayes'
+description = """FreeBayes is a Bayesian genetic variant detector designed to find small polymorphisms, specifically SNPs (single-nucleotide polymorphisms), indels (insertions and deletions), MNPs (multi-nucleotide polymorphisms), and complex events (composite insertion and substitution events) smaller than the length of a short-read sequencing alignment."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+skipsteps = ['source','prepare','configure','build','test','install']
+
+dependencies = []
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['bin'],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

@@ -1,0 +1,25 @@
+easyblock = 'PythonPackage'
+
+name = 'Segway'
+version = '2.0.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://www.pmgenomics.ca/hoffmanlab/proj/segway/'
+description = """Segway is a tool for easy pattern discovery and identification in functional genomics data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+use_pip = True
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('HDF5', '1.8.18'),
+	('GMTK', '1.4.4'),
+]
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+moduleclass = 'bio'

@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'novocraft'
+version = '3.08.00'
+
+homepage = 'http://www.novocraft.com/'
+description = """Powerful tool designed for mapping of short reads onto a reference genome from Illumina, Ion Torrent, and 454 NGS platforms."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['%(name)sV%(version)s.Linux3.0.0-32.tar.gz']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['novoindex','novosort'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
