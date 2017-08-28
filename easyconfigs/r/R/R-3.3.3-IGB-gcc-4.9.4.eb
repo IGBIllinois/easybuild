@@ -170,6 +170,17 @@ exts_list = [
 ('RcppParallel','4.3.20',ext_options),
 ('dada2','1.2.2',ext_options),
 ('randomForest','4.6-12',ext_options),
+('inline','0.3.14',ext_options),
+('gam','1.14-4',ext_options),
+('gtools','3.5.0',ext_options),
+('gdata','2.18.0',ext_options),
+('caTools','1.17.1',ext_options),
+('gplots','3.0.1',ext_options),
+('dotCall64','0.9-04',ext_options),
+('spam','2.1-1',ext_options),
+('maps','3.2.0',ext_options),
+('fields','9.0',ext_options),
+
 ]
 
 moduleclass = 'lang'
