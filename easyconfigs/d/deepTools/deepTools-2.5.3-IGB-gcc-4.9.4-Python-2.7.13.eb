@@ -1,0 +1,21 @@
+easyblock = 'PythonPackage'
+
+name = 'deepTools'
+version = '2.5.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/fidelram/deepTools'
+description = """deepTools addresses the challenge of handling the large amounts of data that are now routinely generated from DNA sequencing centers. deepTools contains useful modules to process the mapped reads data for multiple quality checks, creating normalized coverage files in standard bedGraph and bigWig file formats, that allow comparison between different files (for example, treatment and control). Finally, using such normalized and standardized files, deepTools can create many publication-ready visualizations to identify enrichments and for functional annotations of the genome."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/fidelram/deepTools/archive/']
+
+dependencies = [
+        ('Python', '2.7.13'),
+]
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+moduleclass = 'bio'

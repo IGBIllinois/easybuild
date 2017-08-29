@@ -13,9 +13,11 @@ sources = ['http://dna.ku.dk/%7Esapfo/bammds-20140602.tar.gz']
 
 dependencies = [('SAMtools','1.4.1'),
 		('R','3.3.3'),
-		('Perl','5.24.1')
+		('Perl','5.24.1'),
+		('parallel','20170622')
 ]
 
+patches = ['bammds-20140602.patch']
 configopts = ''
 
 sanity_check_paths = {

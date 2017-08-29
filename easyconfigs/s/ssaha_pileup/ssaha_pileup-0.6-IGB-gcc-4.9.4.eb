@@ -12,7 +12,7 @@ sources = ['pileup.tgz']
 source_urls = ['ftp://ftp.sanger.ac.uk/pub/resources/software/ssaha2/']
 
 patches = [('ssaha_pileup_0.6.patch',1)]
-dependencies = [
+dependencies = [('ssaha2','2.5.5')
 ]
 
 keepsymlinks = True
@@ -26,7 +26,9 @@ sanity_check_paths = {
 	'dirs': ['ssaha_pileup/other_codes/'],
 }
 
-modextrapaths = {'PILEUP_HOME':''
+postinstallcmds = ['mv %(installdir)s/pileup.csh_src %(installdir)s/pileup.csh; chmod 775 %(installdir)s/pileup.csh']
+
+modextrapaths = {'PILEUP_HOME':'ssaha_pileup/ssaha_pileup'
 }
 
 moduleclass = 'bio'

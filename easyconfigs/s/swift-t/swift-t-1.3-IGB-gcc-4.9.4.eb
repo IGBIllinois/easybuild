@@ -20,7 +20,8 @@ dependencies = [('OpenMPI','2.1.0'),
 		('zlib','1.2.11'),
 		('HDF5','1.8.18'),
 		('Java','1.8.0_121','',True),
-		('swig','3.0.12')
+		('SWIG','3.0.12','-Python-2.7.13-Perl-5.24.1'),
+		('M4','1.4.17')
 		
 ]
 
@@ -41,4 +42,12 @@ modextrapaths = {'PATH': ['turbine/bin','stc/bin'],
 		'CPATH': ['turbine/include','turbine/include','c-utils/include']
 }
 
+postinstallcmds = ['chmod 775 %(installdir)s/turbine/bin/turbine',
+	'chmod 664 %(installdir)s/turbine/export/*',
+	'chmod 775 %(installdir)s/turbine/etc/help',
+	'chmod 664 %(installdir)s/turbine/etc/help/*',
+	'chmod 664 %(installdir)s/turbine/include/*',
+	'chmod 664 %(installdir)s/turbine/lib/*.tcl',
+	'chmod 664 %(installdir)s/c-utils/include/*'
+]
 moduleclass = 'bio'

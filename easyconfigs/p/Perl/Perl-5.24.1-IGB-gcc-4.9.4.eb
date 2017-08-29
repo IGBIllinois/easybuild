@@ -984,6 +984,14 @@ exts_list = [
         'source_tmpl': 'define-1.04.tar.gz',
         'source_urls': ['http://search.cpan.org/CPAN/authors/id/N/NE/NEILB/'],
     }),
+    ('Digest::MD5', '2.55', {
+        'source_tmpl': 'Digest-MD5-2.55.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/'],
+    }),
+    ('local::lib', '2.000023', {
+        'source_tmpl': 'local-lib-2.000023.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/H/HA/HAARG/'],
+    }),
 ]
 
 moduleclass = 'lang'
