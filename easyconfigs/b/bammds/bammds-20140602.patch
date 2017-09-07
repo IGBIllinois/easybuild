@@ -70,6 +70,15 @@ diff -ru bammds-20140602.orig/src/bammds.pl bammds-20140602/src/bammds.pl
  
  # Copyright (C) 2013,2014 Ole Tange, Mike DeGiorgio, Anna-Sapfo
  # Malaspinas, Jose Victor Moreno-Mayar, Yong Wang and Free Software
+diff -ru bammds-20140602.orig/src/bammds_plot.r bammds-20140602/src/bammds_plot.r
+--- bammds-20140602.orig/src/bammds_plot.r	2017-08-29 09:43:34.706452121 -0500
++++ bammds-20140602/src/bammds_plot.r	2017-08-31 08:42:45.995543507 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/Rscript
++#!/usr/bin/env Rscript
+ 
+ # Copyright (C) 2013,2014 Ole Tange, Mike DeGiorgio, Anna-Sapfo
+ # Malaspinas, Jose Victor Moreno-Mayar, Yong Wang and Free Software
 diff -ru bammds-20140602.orig/src/bammds.pod bammds-20140602/src/bammds.pod
 --- bammds-20140602.orig/src/bammds.pod	2017-08-29 09:43:34.691452082 -0500
 +++ bammds-20140602/src/bammds.pod	2017-08-29 09:50:40.641564786 -0500

@@ -6,7 +6,7 @@
 easyblock = 'CondaCustom'
 
 name = 'QIIME2'
-version = '2017.6'
+version = '2017.8'
 
 homepage = 'http://qiime.org/'
 description = """QIIME is an open-source bioinformatics pipeline for performing microbiome analysis

@@ -1,0 +1,9 @@
+diff -ru pal2nal.v14.original/pal2nal.pl pal2nal.v14/pal2nal.pl
+--- pal2nal.v14.original/pal2nal.pl	2017-09-05 09:32:34.741594772 -0500
++++ pal2nal.v14/pal2nal.pl	2017-09-05 09:32:50.365634713 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ #
+ #    pal2nal.pl  (v14)                                      Mikita Suyama
+ #

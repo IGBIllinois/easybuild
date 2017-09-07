@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'pal2nal'
+version = '14'
+
+homepage = 'http://www.bork.embl.de/pal2nal/'
+description = """PAL2NAL is a program that converts a multiple sequence alignment of proteins and the corresponding DNA (or mRNA) sequences into a codon alignment."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['pal2nal.v%(version)s.tar.gz']
+source_urls = ['http://www.bork.embl.de/pal2nal/distribution/']
+
+patches = [('pal2nal_14.patch',1)]
+
+dependencies = [('Perl','5.24.1')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['pal2nal.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': ''}
+
+moduleclass = 'bio'

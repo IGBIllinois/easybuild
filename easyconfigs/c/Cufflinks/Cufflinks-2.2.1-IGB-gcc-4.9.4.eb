@@ -1,3 +1,5 @@
+easyblock = 'ConfigureMake'
+
 name = 'Cufflinks'
 version = '2.2.1'
 
@@ -5,7 +7,7 @@ homepage = 'http://cole-trapnell-lab.github.io/cufflinks/'
 description = """Transcript assembly, differential expression, and differential regulation for RNA-Seq"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
-toolchainopts = {'optarch': True, 'pic': True}
+#toolchainopts = {'optarch': True, 'pic': True}
 
 sources = ['cufflinks-%(version)s.tar.gz']
 source_urls = ['http://cole-trapnell-lab.github.io/cufflinks/assets/downloads/']
@@ -18,7 +20,7 @@ dependencies = [
     ('zlib', '1.2.11'),
 ]
 
-configopts = '--with-boost=$EBROOTBOOST --with-bam=$EBROOTSAMTOOLS'
+configopts = '--with-boost=$EBROOTBOOST --with-bam=$EBROOTSAMTOOLS --enable-intel64 --enable-vectorize'
 preconfigopts = 'env CPPFLAGS="-I$EBROOTEIGEN/include $CPPFLAGS" LDFLAGS="-lboost_system -lhts $LDFLAGS" '
 
 sanity_check_paths = {
