@@ -1,0 +1,24 @@
+easyblock = 'PythonPackage'
+
+name = 'albacore'
+version = '2.0.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://nanoporetech.com/'
+description = """Local basecalling for MinKNOW"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ["ont_albacore-2.0.2-cp36-cp36m-manylinux1_x86_64.whl"]
+source_urls = ["https://americas.oxfordnanoportal.com/software/analysis/"]
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+use_pip = True
+unpack_sources = False
+
+#exts_filter = ('python -c "import %(ext_name)s"', "")
+
+moduleclass = 'bio'

@@ -105,6 +105,11 @@ exts_list = [
         'source_urls': ['https://pypi.python.org/packages/source/s/scikit-image'],
         'source_tmpl': 'scikit-image-%(version)s.tar.gz',
     }),
+
+    ('wheel', '0.30.0', {
+        'source_urls': ['https://pypi.python.org/packages/source/w/wheel'],
+        'source_tmpl': 'wheel-%(version)s.tar.gz',
+    }),
 ]
 
 moduleclass = 'lang'
