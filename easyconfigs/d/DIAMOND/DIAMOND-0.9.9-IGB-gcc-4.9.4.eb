@@ -19,6 +19,8 @@ dependencies = [
     ('zlib', '1.2.11'),
 ]
 
+patches = ['DIAMOND-%(version)s.patch']
+
 sanity_check_paths = {
     'files': ['bin/diamond'],
     'dirs': [],
