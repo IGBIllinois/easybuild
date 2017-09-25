@@ -2,7 +2,6 @@ easyblock = 'Binary'
 
 name = 'Prodigal'
 version = '2.6.3'
-versionsuffix = '-Linux_x86_64'
 
 homepage = 'https://github.com/hyattpd/prodigal'
 description = """Fast, reliable protein-coding gene prediction for prokaryotic genomes."""

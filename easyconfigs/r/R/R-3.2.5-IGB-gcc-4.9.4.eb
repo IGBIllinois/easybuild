@@ -63,7 +63,10 @@ exts_list = [
     'stats',
     'stats4',
     'tools',
-    'utils'
+    'utils',
+('gtable', '0.2.0', ext_options),
+('data.table','1.10.4',ext_options),
+('gridExtra','2.2.1',ext_options)
 ]
 
 moduleclass = 'lang'

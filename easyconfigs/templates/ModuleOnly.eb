@@ -1,4 +1,4 @@
-easyblock = 'ConfigureMake'
+easyblock = 'ModuleOnly'
 
 name = ''
 version = ''
@@ -8,10 +8,12 @@ description = """"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-skipsteps = ['source','prepare','configure','build','test','install']
+source_urls = ['']
+sources = [SOURCE_TAR_GZ]
 
 dependencies = []
 
+configopts = ''
 sanity_check_paths = {
         'files': [],
         'dirs': [],

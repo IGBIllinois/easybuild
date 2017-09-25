@@ -1,0 +1,41 @@
+easyblock = 'PythonPackage'
+
+name = 'CheckM'
+version = '1.0.7'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://ecogenomics.github.io/CheckM'
+description = """CheckM provides a set of tools for assessing the quality of genomes recovered from isolates, single cells, or metagenomes."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ["checkm-genome-%(version)s.tar.gz"]
+source_urls = ["https://pypi.python.org/packages/source/c/checkm-genome/"]
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('HMMER','3.1b2'),
+	('Prodigal','2.6.3','',True),
+	('pplacer','1.1.alpha19','',True)
+]
+
+use_pip = True
+
+exts_defaultclass = 'PythonPackage'
+
+exts_list = [
+    ('ScreamingBackpack', '0.2.333', {
+        'source_urls': ['https://pypi.python.org/packages/source/S/ScreamingBackpack/'],
+        'source_tmpl': "ScreamingBackpack-0.2.333.tar.gz",
+    }),
+    ('DendroPy', '4.3.0', {
+        'source_urls': [PYPI_SOURCE],
+        'source_tmpl': SOURCE_TAR_GZ,
+    }),
+
+]
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+moduleclass = 'bio'

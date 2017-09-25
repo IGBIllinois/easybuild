@@ -1,0 +1,28 @@
+easyblock = 'ConfigureMake'
+
+name = 'ADOL-C'
+version = '2.6.3'
+
+homepage = 'https://projects.coin-or.org/ADOL-C'
+description = """ADOL-C is an open-source package for the automatic differentiation of C and C++ programs. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://www.coin-or.org/download/source/ADOL-C/']
+sources = ["ADOL-C-%(version)s.tgz"]
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['include'],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'math'
+
+

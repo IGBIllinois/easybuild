@@ -1,0 +1,32 @@
+easyblock = 'ConfigureMake'
+
+name = 'gdb'
+version = '8.0.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://www.gnu.org/software/gdb/gdb.html'
+description = "The GNU Project Debugger"
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_XZ]
+source_urls = [GNU_SOURCE]
+
+
+dependencies = [
+    ('ncurses', '6.0'),
+    ('Python', '2.7.13'),
+]
+
+configopts = '--with-python'
+
+parallel = 1
+
+sanity_check_paths = {
+    'files': ['bin/gdb', 'bin/gdbserver'],
+    'dirs': [],
+}
+
+moduleclass = 'debugger'
+
+

@@ -1,0 +1,28 @@
+easyblock = 'ConfigureMake'
+
+name = 'texlive'
+version = '20170520'
+
+homepage = 'https://www.tug.org/texlive/'
+description = """TeX Live is an easy way to get up and running with the TeX document production system. It provides a comprehensive TeX system with binaries for most flavors of Unix, including GNU/Linux, and also Windows. It includes all the major TeX-related programs, macro packages, and fonts that are free software, including support for many languages around the world. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['http://mirror.hmc.edu/ctan/systems/texlive/Source/']
+sources = ["texlive-%(version)s-source.tar.xz"]
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

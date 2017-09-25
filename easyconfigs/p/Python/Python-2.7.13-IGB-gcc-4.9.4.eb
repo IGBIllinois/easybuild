@@ -207,7 +207,10 @@ exts_list = [
     ('statsmodels', '0.8.0', {
         'source_urls': ['https://pypi.python.org/packages/source/s/statsmodels'],
     }),
-
+    ('ScreamingBackpack', '0.2.333', {
+        'source_urls': ['https://pypi.python.org/packages/source/s/screamingbackpack'],
+        'source_tmpl': 'ScreamingBackpack-%(version)s.tar.gz',
+    }),
 
 ]
 

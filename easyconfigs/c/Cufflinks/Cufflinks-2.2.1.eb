@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'Cufflinks'
+version = '2.2.1'
+
+homepage = 'http://cole-trapnell-lab.github.io/cufflinks/'
+description = """Transcript assembly, differential expression, and differential regulation for RNA-Seq"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['cufflinks-%(version)s.Linux_x86_64.tar.gz']
+source_urls = ['http://cole-trapnell-lab.github.io/cufflinks/assets/downloads/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['cufflinks'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

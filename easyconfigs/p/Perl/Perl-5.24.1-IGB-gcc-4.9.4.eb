@@ -992,6 +992,11 @@ exts_list = [
         'source_tmpl': 'local-lib-2.000023.tar.gz',
         'source_urls': ['http://search.cpan.org/CPAN/authors/id/H/HA/HAARG/'],
     }),
+    ('LWP::Protocol::https', '6.04', {
+        'source_tmpl': 'LWP-Protocol-https-6.04.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/'],
+    }),
+
 ]
 
 moduleclass = 'lang'

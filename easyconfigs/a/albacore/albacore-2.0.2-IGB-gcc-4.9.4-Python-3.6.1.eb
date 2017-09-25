@@ -19,6 +19,20 @@ dependencies = [
 use_pip = True
 unpack_sources = False
 
+exts_defaultclass = 'PythonPackage'
+
+exts_list = [
+    ('progressbar33', '2.4', {
+        'modulename': 'progressbar',
+        'source_urls': [PYPI_SOURCE],
+        'source_tmpl': SOURCE_TAR_GZ,
+    }),
+    ('ont-fast5-api', '0.4.1', {
+	'modulename': 'ont_fast5_api',
+        'source_urls': [PYPI_SOURCE],
+        'source_tmpl': SOURCE_TAR_GZ,
+    }),
+]
 #exts_filter = ('python -c "import %(ext_name)s"', "")
 
 moduleclass = 'bio'

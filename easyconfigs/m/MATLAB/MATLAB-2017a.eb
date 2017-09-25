@@ -1,0 +1,26 @@
+easyblock = "ModuleOnly"
+name = 'MATLAB'
+version = '2017a'
+
+
+homepage = 'http://www.mathworks.com/products/matlab'
+description = """MATLAB is a high-level language and interactive environment
+ that enables you to perform computationally intensive tasks faster than with
+ traditional programming languages such as C, C++, and Fortran."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = []
+
+dependencies = [('Java', '1.8.0_121')]
+
+sanity_check_paths = {
+        'files': ['bin/matlab'],
+        'dirs': [],
+}
+
+
+modextrapaths = {'LD_LIBRARY_PATH':'runtime/glnxa64'
+}
+moduleclass = 'math'
+

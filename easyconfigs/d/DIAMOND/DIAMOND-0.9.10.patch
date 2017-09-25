@@ -1,0 +1,15 @@
+diff -ru diamond-0.9.10.original/CMakeLists.txt diamond-0.9.10/CMakeLists.txt
+--- diamond-0.9.10.original/CMakeLists.txt	2017-09-25 12:34:41.989118210 -0500
++++ diamond-0.9.10/CMakeLists.txt	2017-09-25 12:34:56.754147538 -0500
+@@ -10,9 +10,9 @@
+ endif()
+ 
+ include(CheckCXXCompilerFlag)
+-CHECK_CXX_COMPILER_FLAG("-march=native" COMPILER_SUPPORTS_MARCHNATIVE)
++CHECK_CXX_COMPILER_FLAG("-march=generic" COMPILER_SUPPORTS_MARCHNATIVE)
+ if(COMPILER_SUPPORTS_MARCHNATIVE)
+-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
++    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=generic")
+ endif()
+ 
+ find_package(ZLIB REQUIRED)
