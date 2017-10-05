@@ -1,0 +1,29 @@
+easyblock = 'Tarball'
+
+name = 'prokka'
+version = '1.12'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/tseemann/prokka'
+description = """Whole genome annotation is the process of identifying features of interest in a set of genomic DNA sequences, and labelling them with useful information. Prokka is a software tool to annotate bacterial, archaeal and viral genomes quickly and produce standards-compliant output files."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/tseemann/prokka/archive/']
+
+dependencies = [('Perl','5.24.1'),
+		('BioPerl','1.7.1','-Perl-5.24.1'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/prokka'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'binaries/lunux'
+}
+
+moduleclass = 'bio'

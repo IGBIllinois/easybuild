@@ -1,0 +1,33 @@
+easyblock = 'ModuleOnly'
+
+name = 'RepeatMasker'
+version = '4.0.7'
+versionsuffix = '-Perl-%(perlver)s-unthreaded'
+
+homepage = 'http://www.repeatmasker.org/'
+description = """RepeatMasker is a program that screens DNA sequences for interspersed 
+repeats and low complexity DNA sequences. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = []
+sources = []
+
+dependencies = [('Perl','5.26.1','-unthreaded'),
+		('trf','4.0.9','',True),
+		('HMMER','3.1b2')
+]
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['RepeatMasker'],
+        'dirs': [],
+}
+
+modextrapaths = {"PATH":""
+}
+
+
+moduleclass = 'bio'
+
+

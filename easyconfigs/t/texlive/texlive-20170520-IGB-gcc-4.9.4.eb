@@ -13,13 +13,16 @@ sources = ["texlive-%(version)s-source.tar.xz"]
 
 dependencies = []
 
-configopts = ''
+osdependencies = ['libXaw-devel']
+
+configopts = '--enable-build-in-source-tree '
 sanity_check_paths = {
-        'files': [],
+        'files': ['bin/x86_64-pc-linux-gnu/tex'],
         'dirs': [],
 }
 
-modextrapaths = {
+modextrapaths = {'PATH':'bin/x86_64-pc-linux-gnu',
+		'LD_LIBRARY_PATH':'lib/x86_64-pc-linux-gnu'
 }
 
 

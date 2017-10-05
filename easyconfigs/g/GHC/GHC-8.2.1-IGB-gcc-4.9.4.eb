@@ -1,0 +1,26 @@
+name = 'GHC'
+version = '8.2.1'
+
+homepage = 'http://haskell.org/ghc/'
+description = """The Glorious/Glasgow Haskell Compiler"""
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+#toolchainopts = {'pic': True}
+
+sources = ['%(namelower)s-%(version)s-src.tar.xz']
+source_urls = ['https://downloads.haskell.org/~ghc/%(version)s/']
+
+dependencies = [
+    ('GMP', '6.1.2'),
+    ('zlib', '1.2.11'),
+    ('ncurses', '6.0'),
+]
+
+osdependencies = ['ghc']
+
+builddependencies = [
+    ('libxslt', '1.1.29'),
+]
+
+moduleclass = 'compiler'
+

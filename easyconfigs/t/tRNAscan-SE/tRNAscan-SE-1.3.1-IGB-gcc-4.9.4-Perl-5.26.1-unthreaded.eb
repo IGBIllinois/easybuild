@@ -1,0 +1,30 @@
+easyblock = 'ConfigureMake'
+
+name = 'tRNAscan-SE'
+version = '1.3.1'
+versionsuffix = '-Perl-%(perlver)s-unthreaded'
+
+homepage = 'http://lowelab.ucsc.edu/tRNAscan-SE/'
+description = """tRNAscan-SE: a tool for finding transfer RNAs"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+skipsteps = ['source','prepare','configure','build','test','install']
+
+dependencies = [
+	('Perl','5.26.1','-unthreaded'),
+]
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['bin'],
+}
+
+modextrapaths = {
+	'PERL5LIB': 'bin'
+}
+
+
+moduleclass = 'bio'
+
+

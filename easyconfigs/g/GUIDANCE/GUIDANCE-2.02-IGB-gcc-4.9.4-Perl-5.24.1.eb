@@ -12,6 +12,8 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 sources = ['%(namelower)s.v%(version)s.tar.gz']
 source_urls = ['http://guidance.tau.ac.il/ver2/']
 
+patches = ['GUIDANCE-2.02.patch']
+
 dependencies = [
 	('Perl', '5.24.1'),
 	('BioPerl', '1.7.1', versionsuffix),
@@ -25,8 +27,12 @@ sanity_check_paths = {
 	'dirs': ['libs','programs','www'],
 }
 
+postinstallcmds = ['chmod -R 775 %(installdir)s/www/Guidance/*.pl',
+'chmod -R 775 %(installdir)s/www/bioSequence_scripts_and_constants/*.pl'
+]
+
 modextrapaths = {
-	'PATH': 'www/Guidance',
+	'PATH': ['www/Guidance','www/bioSequence_scripts_and_constants'],
 }
 
 moduleclass = 'bio'

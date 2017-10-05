@@ -1,0 +1,28 @@
+easyblock = 'ConfigureMake'
+
+name = 'perfsuite'
+version = '1.1.4'
+
+homepage = 'http://perfsuite.ncsa.illinois.edu/'
+description = """PerfSuite is a collection of tools, utilities, and libraries for software performance analysis where the primary design goals are ease of use, comprehensibility, interoperability, and simplicity. This software can provide a good "entry point" for more detailed performance analysis and can help point the way towards selecting other tools and/or techniques using more specialized software if necessary (for example, tools/libraries from academic research groups or third-party commercial software). """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['http://perfsuite.ncsa.illinois.edu/download/']
+sources = [SOURCE_TAR_GZ]
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/psrun'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'debugger'
+
+

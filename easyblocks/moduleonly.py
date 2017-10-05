@@ -10,6 +10,7 @@ class ModuleOnly(ConfigureMake):
 
 	def __init__(self, *args, **kwargs):
 		ConfigureMake.__init__(self,*args,**kwargs)
+		self.cfg['keeppreviousinstall'] = True
 
 	def configure_step(self):
 		pass

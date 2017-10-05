@@ -1,0 +1,443 @@
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/BIOSEQUENCE_FUNCTIONS.pm guidance.v2.02/www/bioSequence_scripts_and_constants/BIOSEQUENCE_FUNCTIONS.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/BIOSEQUENCE_FUNCTIONS.pm	2017-09-26 11:20:21.075633469 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/BIOSEQUENCE_FUNCTIONS.pm	2017-09-26 11:34:07.357790582 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ package BIOSEQUENCE_FUNCTIONS; #don't forget: a package must end with a return value (1; in the end)!!!!!
+ 
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/blastpgp_to_fasta.pl guidance.v2.02/www/bioSequence_scripts_and_constants/blastpgp_to_fasta.pl
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/blastpgp_to_fasta.pl	2017-09-26 11:20:21.071633458 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/blastpgp_to_fasta.pl	2017-09-26 11:34:07.303790442 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use strict;
+ use lib "/bioseq/bioSequence_scripts_and_constants";
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/BlastResultsForm.pm guidance.v2.02/www/bioSequence_scripts_and_constants/BlastResultsForm.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/BlastResultsForm.pm	2017-09-26 11:20:21.080633482 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/BlastResultsForm.pm	2017-09-26 11:34:17.167816144 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ package BlastResultsForm;
+ 
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/checkjob.pl guidance.v2.02/www/bioSequence_scripts_and_constants/checkjob.pl
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/checkjob.pl	2017-09-26 11:20:21.078633476 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/checkjob.pl	2017-09-26 11:34:07.383790650 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl -w
+ 
+ my $ans_out_file = "checkjob.out";
+ my $ans_err_file = "checkjob.err";
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/cluster.pl guidance.v2.02/www/bioSequence_scripts_and_constants/cluster.pl
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/cluster.pl	2017-09-26 11:20:21.076633471 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/cluster.pl	2017-09-26 11:34:07.367790609 -0500
+@@ -1,5 +1,5 @@
+ 
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ #  --------
+ #  PROGRAM:  1lock.pl  (created by Developer's Daily, http://www.DevDaily.com)
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/ConSeq_gradesPE_and_Outputs.pm guidance.v2.02/www/bioSequence_scripts_and_constants/ConSeq_gradesPE_and_Outputs.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/ConSeq_gradesPE_and_Outputs.pm	2017-09-26 11:20:21.074633466 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/ConSeq_gradesPE_and_Outputs.pm	2017-09-26 11:34:07.344790549 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl -w
+ 
+ package ConSeq_gradesPE_and_Outputs;
+ use lib "/bioseq/ConSurf";
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/convertNacessFormat.pl guidance.v2.02/www/bioSequence_scripts_and_constants/convertNacessFormat.pl
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/convertNacessFormat.pl	2017-09-26 11:20:21.073633463 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/convertNacessFormat.pl	2017-09-26 11:34:07.325790499 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl -w
+ use strict;
+ 
+ 
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/cp_rasmol_gradesPE_and_pipe.pm guidance.v2.02/www/bioSequence_scripts_and_constants/cp_rasmol_gradesPE_and_pipe.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/cp_rasmol_gradesPE_and_pipe.pm	2017-09-26 11:20:21.077633474 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/cp_rasmol_gradesPE_and_pipe.pm	2017-09-26 11:34:23.064831509 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ package cp_rasmol_gradesPE_and_pipe;
+ 
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/create_chimerx.pl guidance.v2.02/www/bioSequence_scripts_and_constants/create_chimerx.pl
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/create_chimerx.pl	2017-09-26 11:20:21.079633479 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/create_chimerx.pl	2017-09-26 11:34:07.393790676 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl -w
+ #************************************************************************************************
+ # -p : pdb file name
+ # -w : url to directory with files
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/create_colored_chimera_msa.pl guidance.v2.02/www/bioSequence_scripts_and_constants/create_colored_chimera_msa.pl
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/create_colored_chimera_msa.pl	2017-09-26 11:20:21.083633490 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/create_colored_chimera_msa.pl	2017-09-26 11:34:34.471861229 -0500
+@@ -1,4 +1,4 @@
+-#! /usr/bin/perl -w
++#! /usr/bin/env perl
+ 
+ use lib "/bioseq/bioSequence_scripts_and_constants";
+ 
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/create_MSA_from_blast.pl guidance.v2.02/www/bioSequence_scripts_and_constants/create_MSA_from_blast.pl
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/create_MSA_from_blast.pl	2017-09-26 11:20:21.078633476 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/create_MSA_from_blast.pl	2017-09-26 11:34:53.429910620 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ # 1. choose homolougs from blast - according to some parameters
+ # in case the blast input is psi-blast with few rounds: runs only on the last round hits
+@@ -273,4 +273,4 @@
+     print LOG $error;
+     close LOG;
+     die($error);
+-}
+\ No newline at end of file
++}
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/design_pipe.pm guidance.v2.02/www/bioSequence_scripts_and_constants/design_pipe.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/design_pipe.pm	2017-09-26 11:20:21.075633469 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/design_pipe.pm	2017-09-26 11:35:05.201941287 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl 
+ 
+ package design_pipe;
+ 
+@@ -348,4 +348,4 @@
+     
+     return "$final_string";    
+ }
+-1;
+\ No newline at end of file
++1;
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/extract_info_from_pdb.pl guidance.v2.02/www/bioSequence_scripts_and_constants/extract_info_from_pdb.pl
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/extract_info_from_pdb.pl	2017-09-26 11:20:21.084633492 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/extract_info_from_pdb.pl	2017-09-26 11:34:07.427790765 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ #######################################################################
+ # The script extracts the SEQRES and ATOM sequences from the PDB file,
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/GENERAL_CONSTANTS.pm guidance.v2.02/www/bioSequence_scripts_and_constants/GENERAL_CONSTANTS.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/GENERAL_CONSTANTS.pm	2017-09-26 11:20:21.083633490 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/GENERAL_CONSTANTS.pm	2017-09-26 11:34:07.420790747 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ package GENERAL_CONSTANTS; #don't forget: a package must end with a return value (1; in the end)!!!!!
+ 
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/GENERAL_CONST_LECS.pm guidance.v2.02/www/bioSequence_scripts_and_constants/GENERAL_CONST_LECS.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/GENERAL_CONST_LECS.pm	2017-09-26 11:20:21.072633461 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/GENERAL_CONST_LECS.pm	2017-09-26 11:34:07.311790463 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ package GENERAL_CONST_LECS; #don't forget: a package must end with a return value (1; in the end)!!!!!
+ 
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/HandleQueue.pm guidance.v2.02/www/bioSequence_scripts_and_constants/HandleQueue.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/HandleQueue.pm	2017-09-26 11:20:21.080633482 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/HandleQueue.pm	2017-09-26 11:34:07.406790710 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ package HandleQueue;
+ 
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/MSA_parser.pm guidance.v2.02/www/bioSequence_scripts_and_constants/MSA_parser.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/MSA_parser.pm	2017-09-26 11:20:21.071633458 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/MSA_parser.pm	2017-09-26 11:35:16.896971753 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ package MSA_parser;
+ 
+@@ -627,4 +627,4 @@
+     return $ret_seq;
+ }
+ #----------------------------------
+-1;
+\ No newline at end of file
++1;
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/new_rate4site_routines.pm guidance.v2.02/www/bioSequence_scripts_and_constants/new_rate4site_routines.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/new_rate4site_routines.pm	2017-09-26 11:20:21.072633461 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/new_rate4site_routines.pm	2017-09-26 11:35:23.457988843 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ package new_rate4site_routines;
+ 
+@@ -375,4 +375,4 @@
+ 
+ #------------------------------
+ #------------------------------
+-1;
+\ No newline at end of file
++1;
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/old_parseFiles.pm guidance.v2.02/www/bioSequence_scripts_and_constants/old_parseFiles.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/old_parseFiles.pm	2017-09-26 11:20:21.085633495 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/old_parseFiles.pm	2017-09-26 11:35:31.638010151 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl 
+ 
+ package parseFiles;
+ 
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/parseFiles.pm guidance.v2.02/www/bioSequence_scripts_and_constants/parseFiles.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/parseFiles.pm	2017-09-26 11:20:21.072633461 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/parseFiles.pm	2017-09-26 11:35:36.722023393 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ package parseFiles;
+ 
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/r4s_res_to_gradesPE.pl guidance.v2.02/www/bioSequence_scripts_and_constants/r4s_res_to_gradesPE.pl
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/r4s_res_to_gradesPE.pl	2017-09-26 11:20:21.084633492 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/r4s_res_to_gradesPE.pl	2017-09-26 11:34:07.441790801 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ 
+ use lib "/bioseq/bioSequence_scripts_and_constants";
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/rasmol_gradesPE_and_pipe.pm guidance.v2.02/www/bioSequence_scripts_and_constants/rasmol_gradesPE_and_pipe.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/rasmol_gradesPE_and_pipe.pm	2017-09-26 11:20:21.085633495 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/rasmol_gradesPE_and_pipe.pm	2017-09-26 11:35:44.202042876 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ package rasmol_gradesPE_and_pipe;
+ 
+@@ -1276,4 +1276,4 @@
+ #************************************************************************************************
+ #************************************************************************************************
+ 
+-1;
+\ No newline at end of file
++1;
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/rate4site_routines.pm guidance.v2.02/www/bioSequence_scripts_and_constants/rate4site_routines.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/rate4site_routines.pm	2017-09-26 11:20:21.080633482 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/rate4site_routines.pm	2017-09-26 11:35:50.453059157 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ package rate4site_routines;
+ 
+@@ -142,4 +142,4 @@
+ 	else {return "rate4site_routines::extract_diversity_matrix_info: Can't find '$r4s_log_file' or file is empty\n"};
+ 	return ("OK",$matrix_disINFO,$matrix_lowINFO,$matrix_upINFO);
+ }
+-1;
+\ No newline at end of file
++1;
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/SELECTON_CONSTANTS.pm guidance.v2.02/www/bioSequence_scripts_and_constants/SELECTON_CONSTANTS.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/SELECTON_CONSTANTS.pm	2017-09-26 11:20:21.078633476 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/SELECTON_CONSTANTS.pm	2017-09-26 11:34:07.385790655 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ package SELECTON_CONSTANTS;
+ 
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/sendEmail.pl guidance.v2.02/www/bioSequence_scripts_and_constants/sendEmail.pl
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/sendEmail.pl	2017-09-26 11:20:21.074633466 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/sendEmail.pl	2017-09-26 11:35:56.354074527 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ ##############################################################################
+ ## sendEmail
+ ## Written by: Brandon Zehm <caspian@dotconf.net>
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/test_time.pl guidance.v2.02/www/bioSequence_scripts_and_constants/test_time.pl
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/test_time.pl	2017-09-26 11:20:21.079633479 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/test_time.pl	2017-09-26 11:36:04.626096070 -0500
+@@ -1,8 +1,7 @@
+-
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ use BIOSEQUENCE_FUNCTIONS;
+ use strict;
+ 
+ 
+ my $ans = &BIOSEQUENCE_FUNCTIONS::subtract_time_from_now("11:53:00", "29-10-2007");
+-print $ans;
+\ No newline at end of file
++print $ans;
+diff -ru guidance.v2.02.original/www/bioSequence_scripts_and_constants/TREE_parser.pm guidance.v2.02/www/bioSequence_scripts_and_constants/TREE_parser.pm
+--- guidance.v2.02.original/www/bioSequence_scripts_and_constants/TREE_parser.pm	2017-09-26 11:20:21.076633471 -0500
++++ guidance.v2.02/www/bioSequence_scripts_and_constants/TREE_parser.pm	2017-09-26 11:36:12.632116921 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ package TREE_parser;
+ use strict;
+diff -ru guidance.v2.02.original/www/Guidance/code2nameFasta.pl guidance.v2.02/www/Guidance/code2nameFasta.pl
+--- guidance.v2.02.original/www/Guidance/code2nameFasta.pl	2017-09-26 11:20:21.064633440 -0500
++++ guidance.v2.02/www/Guidance/code2nameFasta.pl	2017-09-26 11:24:37.527303884 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/env perl
+ use Bio::SeqIO;
+ use FileHandle;
+ use strict;
+diff -ru guidance.v2.02.original/www/Guidance/exec/convertBSTrees2MafftFormat.pl guidance.v2.02/www/Guidance/exec/convertBSTrees2MafftFormat.pl
+--- guidance.v2.02.original/www/Guidance/exec/convertBSTrees2MafftFormat.pl	2017-09-26 11:20:21.056633419 -0500
++++ guidance.v2.02/www/Guidance/exec/convertBSTrees2MafftFormat.pl	2017-09-26 11:25:05.712377512 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ use strict;
+ use Bio::SeqIO;
+ 
+diff -ru guidance.v2.02.original/www/Guidance/exec/HoT/COS.pl guidance.v2.02/www/Guidance/exec/HoT/COS.pl
+--- guidance.v2.02.original/www/Guidance/exec/HoT/COS.pl	2017-09-26 11:20:21.061633432 -0500
++++ guidance.v2.02/www/Guidance/exec/HoT/COS.pl	2017-09-26 11:27:06.549693066 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ #
+ ########
+diff -ru guidance.v2.02.original/www/Guidance/exec/HoT_COS_GUIDANCE2.pl guidance.v2.02/www/Guidance/exec/HoT_COS_GUIDANCE2.pl
+--- guidance.v2.02.original/www/Guidance/exec/HoT_COS_GUIDANCE2.pl	2017-09-26 11:20:21.057633422 -0500
++++ guidance.v2.02/www/Guidance/exec/HoT_COS_GUIDANCE2.pl	2017-09-26 11:25:34.662453129 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ #
+ ########
+diff -ru guidance.v2.02.original/www/Guidance/exec/newick2mafft.rb guidance.v2.02/www/Guidance/exec/newick2mafft.rb
+--- guidance.v2.02.original/www/Guidance/exec/newick2mafft.rb	2017-09-26 11:20:21.055633416 -0500
++++ guidance.v2.02/www/Guidance/exec/newick2mafft.rb	2017-09-26 11:25:48.479489215 -0500
+@@ -1,4 +1,4 @@
+-#! /usr/bin/ruby
++#! /usr/bin/env ruby
+ #/usr/bin/env ruby
+ 
+ tree = gets.strip.gsub( /_.*?:/, ":" ).gsub(/:0,/, ":0.00,").gsub(/:0\)/, ":0.00\)").gsub(/[0-9]\.[0-9]*e-[0-9]*/, "0.0").gsub(/[0-9]*e-[0-9]*/, "0.0")
+diff -ru guidance.v2.02.original/www/Guidance/exec/printColoredAlignment.pl guidance.v2.02/www/Guidance/exec/printColoredAlignment.pl
+--- guidance.v2.02.original/www/Guidance/exec/printColoredAlignment.pl	2017-09-26 11:20:21.062633435 -0500
++++ guidance.v2.02/www/Guidance/exec/printColoredAlignment.pl	2017-09-26 11:26:04.676531514 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ use strict;
+ use Bio::AlignIO;
+diff -ru guidance.v2.02.original/www/Guidance/exec/pullOutBStrees.pl guidance.v2.02/www/Guidance/exec/pullOutBStrees.pl
+--- guidance.v2.02.original/www/Guidance/exec/pullOutBStrees.pl	2017-09-26 11:20:21.056633419 -0500
++++ guidance.v2.02/www/Guidance/exec/pullOutBStrees.pl	2017-09-26 11:26:18.771568320 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ use strict;
+ use warnings;
+ 
+diff -ru guidance.v2.02.original/www/Guidance/exec/removeLowSPsites.pl guidance.v2.02/www/Guidance/exec/removeLowSPsites.pl
+--- guidance.v2.02.original/www/Guidance/exec/removeLowSPsites.pl	2017-09-26 11:20:21.063633437 -0500
++++ guidance.v2.02/www/Guidance/exec/removeLowSPsites.pl	2017-09-26 11:26:27.438590952 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ use strict;
+ use Bio::SeqIO;
+ use Bio::Align::AlignI;
+diff -ru guidance.v2.02.original/www/Guidance/exec/rootTree.pl guidance.v2.02/www/Guidance/exec/rootTree.pl
+--- guidance.v2.02.original/www/Guidance/exec/rootTree.pl	2017-09-26 11:20:21.063633437 -0500
++++ guidance.v2.02/www/Guidance/exec/rootTree.pl	2017-09-26 11:26:36.025613373 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ use strict;
+ use Bio::TreeIO;
+diff -ru guidance.v2.02.original/www/Guidance/exec/runAlignBStrees.pl guidance.v2.02/www/Guidance/exec/runAlignBStrees.pl
+--- guidance.v2.02.original/www/Guidance/exec/runAlignBStrees.pl	2017-09-26 11:20:21.056633419 -0500
++++ guidance.v2.02/www/Guidance/exec/runAlignBStrees.pl	2017-09-26 11:26:48.109644924 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ use strict;
+ 
+ use Bio::SeqIO;
+diff -ru guidance.v2.02.original/www/Guidance/failedCheck.pl guidance.v2.02/www/Guidance/failedCheck.pl
+--- guidance.v2.02.original/www/Guidance/failedCheck.pl	2017-09-26 11:20:21.048633398 -0500
++++ guidance.v2.02/www/Guidance/failedCheck.pl	2017-09-26 11:22:29.419969095 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl -w
++#!/usr/bin/env perl
+ use strict;
+ 
+ @ARGV >= 1 or die "USAGE: $0 guidanceDir1 [guidanceDir2...]\n";
+diff -ru guidance.v2.02.original/www/Guidance/guidance.pl guidance.v2.02/www/Guidance/guidance.pl
+--- guidance.v2.02.original/www/Guidance/guidance.pl	2017-09-26 11:20:21.046633393 -0500
++++ guidance.v2.02/www/Guidance/guidance.pl	2017-09-26 11:22:47.558016509 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ use strict;
+ use Storable;
+diff -ru guidance.v2.02.original/www/Guidance/Remove_Pos_bellow_Cutoff.pl guidance.v2.02/www/Guidance/Remove_Pos_bellow_Cutoff.pl
+--- guidance.v2.02.original/www/Guidance/Remove_Pos_bellow_Cutoff.pl	2017-09-26 11:20:21.048633398 -0500
++++ guidance.v2.02/www/Guidance/Remove_Pos_bellow_Cutoff.pl	2017-09-26 11:22:56.757040554 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ #use lib "/bioseq/Guidance/";
+ 
+ use strict;
+diff -ru guidance.v2.02.original/www/Guidance/Remove_Seq_bellow_Cutoff.pl guidance.v2.02/www/Guidance/Remove_Seq_bellow_Cutoff.pl
+--- guidance.v2.02.original/www/Guidance/Remove_Seq_bellow_Cutoff.pl	2017-09-26 11:20:21.064633440 -0500
++++ guidance.v2.02/www/Guidance/Remove_Seq_bellow_Cutoff.pl	2017-09-26 11:23:07.949069807 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ #use lib "/bioseq/Guidance/";
+ 
+ use strict;
+diff -ru guidance.v2.02.original/www/Selecton/calculate_statistics.pl guidance.v2.02/www/Selecton/calculate_statistics.pl
+--- guidance.v2.02.original/www/Selecton/calculate_statistics.pl	2017-09-26 11:20:21.092633513 -0500
++++ guidance.v2.02/www/Selecton/calculate_statistics.pl	2017-09-26 11:36:30.355163075 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ use strict;
+ 
+ my $stat_file = "/bioseq/Selecton/selecton_models_statistics.log";
+@@ -103,4 +103,4 @@
+ #            }
+ #            print "\n";
+ #        }        
+-#}
+\ No newline at end of file
++#}
+diff -ru guidance.v2.02.original/www/Selecton/statTest.pl guidance.v2.02/www/Selecton/statTest.pl
+--- guidance.v2.02.original/www/Selecton/statTest.pl	2017-09-26 11:20:21.095633521 -0500
++++ guidance.v2.02/www/Selecton/statTest.pl	2017-09-26 11:36:52.841221629 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ 
+ use strict;

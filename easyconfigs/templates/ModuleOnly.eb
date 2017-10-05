@@ -22,7 +22,7 @@ sanity_check_paths = {
 modextrapaths = {
 }
 
-
+keeppreviousinstall = True
 moduleclass = 'bio'
 
 

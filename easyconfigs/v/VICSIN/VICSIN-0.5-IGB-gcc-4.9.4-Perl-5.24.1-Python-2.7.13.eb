@@ -16,7 +16,7 @@ dependencies = [
 	('Python', '2.7.13'),
 	('Biopython', '1.68', '-Python-%(pyver)s'),
 	('Perl', '5.24.1'),
-	('Prodigal', '2.6.3', '-Linux_x86_64', True),
+	('Prodigal', '2.6.3', '', True),
 	('VirSorter', '20170215', '-Perl-%(perlver)s'),
 	('PhiSpy', '2.3', '-Python-%(pyver)s'),
 	('BLAST', '2.2.26', '-Linux_x86_64', True),

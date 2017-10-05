@@ -1,0 +1,59 @@
+name = 'Perl'
+version = '5.26.1'
+versionsuffix = '-unthreaded'
+
+homepage = 'http://www.perl.org/'
+description = """Larry Wall's Practical Extraction and Report Language, built without thread support"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+source_urls = ['http://www.cpan.org/src/%(version_major)s.0']
+sources = [SOURCELOWER_TAR_GZ]
+
+use_perl_threads = False
+
+exts_list = [
+    ('DBI', '1.637', {
+        'source_tmpl': 'DBI-1.637.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/T/TI/TIMB'],
+    }),
+    ('DBD::SQLite', '1.54', {
+        'source_tmpl': 'DBD-SQLite-1.50.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI'],
+    }),
+    ('forks', '0.36', {
+        'source_tmpl': 'forks-0.36.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/R/RY/RYBSKEJ'],
+    }),
+    ('File::Which', '1.22', {
+        'source_tmpl': 'File-Which-1.22.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/P/PL/PLICEASE'],
+    }),
+    ('Perl::Unsafe::Signals', '0.03', {
+        'source_tmpl': 'Perl-Unsafe-Signals-0.03.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/R/RG/RGARCIA'],
+    }),
+    ('Bit::Vector', '7.4', {
+        'source_tmpl': 'Bit-Vector-7.4.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/S/ST/STBEY'],
+    }),
+    ('File::ShareDir::Install', '0.11', {
+        'source_tmpl': 'File-ShareDir-Install-0.11.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/E/ET/ETHER'],
+    }),
+    ('Inline::C', '0.78', {
+        'source_tmpl': 'Inline-C-0.78.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/T/TI/TINITA'],
+    }),
+    ('IO::All', '0.87', {
+        'source_tmpl': 'IO-All-0.87.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/F/FR/FREW'],
+    }),
+    ('IO::Prompt', '0.997004', {
+        'source_tmpl': 'IO-Prompt-0.997004.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/D/DC/DCONWAY'],
+    }),
+]
+
+moduleclass = 'lang'
