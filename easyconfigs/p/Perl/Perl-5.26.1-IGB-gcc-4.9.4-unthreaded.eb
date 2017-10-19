@@ -42,6 +42,10 @@ exts_list = [
         'source_tmpl': 'File-ShareDir-Install-0.11.tar.gz',
         'source_urls': ['https://cpan.metacpan.org/authors/id/E/ET/ETHER'],
     }),
+    ('Inline', '0.80', {
+        'source_tmpl': 'Inline-0.80.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/I/IN/INGY/'],
+    }),
     ('Inline::C', '0.78', {
         'source_tmpl': 'Inline-C-0.78.tar.gz',
         'source_urls': ['https://cpan.metacpan.org/authors/id/T/TI/TINITA'],
@@ -53,6 +57,102 @@ exts_list = [
     ('IO::Prompt', '0.997004', {
         'source_tmpl': 'IO-Prompt-0.997004.tar.gz',
         'source_urls': ['https://cpan.metacpan.org/authors/id/D/DC/DCONWAY'],
+    }),
+    ('Module::Build', '0.4224', {
+        'source_tmpl': 'Module-Build-0.4224.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/L/LE/LEONT'],
+    }),
+    ('Test::Most', '0.35', {
+        'source_tmpl': 'Test-Most-0.35.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/O/OV/OVID'],
+    }),
+    ('Exception::Class', '1.43', {
+        'source_tmpl': 'Exception-Class-1.43.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/D/DR/DROLSKY'],
+    }),
+    ('Class::Data::Inheritable', '0.08', {
+        'source_tmpl': 'Class-Data-Inheritable-0.08.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/T/TM/TMTM'],
+    }),
+    ('Devel::StackTrace', '2.01', {
+        'source_tmpl': 'Devel-StackTrace-2.01.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/D/DR/DROLSKY'],
+    }),
+    ('Test::Warn', '0.30', {
+        'source_tmpl': 'Test-Warn-0.30.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/C/CH/CHORNY'],
+    }),
+    ('Test::Differences', '0.64', {
+        'source_tmpl': 'Test-Differences-0.64.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/D/DC/DCANTRELL'],
+    }),
+    ('Text::Diff', '1.44', {
+        'source_tmpl': 'Text-Diff-1.44.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/N/NE/NEILB'],
+    }),
+    ('Test::Exception', '0.43', {
+        'source_tmpl': 'Test-Exception-0.43.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/E/EX/EXODIST'],
+    }),
+    ('Sub::Uplevel', '0.25', {
+        'source_tmpl': 'Sub-Uplevel-0.25.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN'],
+    }),
+    ('Algorithm::Diff', '1.1903', {
+        'source_tmpl': 'Algorithm-Diff-1.1903.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/T/TY/TYEMQ'],
+    }),
+    ('Test::Deep', '1.120', {
+        'source_tmpl': 'Test-Deep-1.120.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/R/RJ/RJBS'],
+    }),
+    ('IO::String', '1.08', {
+        'source_tmpl': 'IO-String-1.08.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/G/GA/GAAS'],
+    }),
+    ('Want', '0.29', {
+        'source_tmpl': 'Want-0.29.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/R/RO/ROBIN'],
+    }),
+    ('LWP::Simple', '6.15', {
+        'source_tmpl': 'libwww-perl-6.15.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/E/ET/ETHER'],
+    }),
+    ('Bundle::BioPerl', '2.1.9', {
+        'source_tmpl': 'Bundle-BioPerl-2.1.9.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS'],
+    }),
+    ('Parse::RecDescent', '1.967013', {
+        'source_tmpl': 'Parse-RecDescent-1.967013.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/J/JT/JTBRAUN'],
+    }),
+    ('inc::latest', '0.500', {
+        'source_tmpl': 'inc-latest-0.500.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN'],
+    }),
+    ('List::MoreUtils', '0.425', {
+        'source_tmpl': 'List-MoreUtils-0.425.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/R/RE/REHSACK'],
+    }),
+    ('Exporter::Tiny', '1.000000', {
+        'source_tmpl': 'Exporter-Tiny-1.000000.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/T/TO/TOBYINK'],
+    }),
+    ('Sys::SigAction', '0.23', {
+        'source_tmpl': 'Sys-SigAction-0.23.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/L/LB/LBAXTER'],
+    }),
+    ('Acme::Damn', '0.08', {
+        'source_tmpl': 'Acme-Damn-0.08.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/I/IB/IBB'],
+    }),
+    ('URI', '1.72', {
+        'source_tmpl': 'URI-1.72.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/E/ET/ETHER'],
+    }),
+    ('Text::Soundex', '3.05', {
+        'source_tmpl': 'Text-Soundex-3.05.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/R/RJ/RJBS'],
     }),
 ]
 

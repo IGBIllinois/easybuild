@@ -17,7 +17,7 @@ dependencies = [
     ('freetype', '2.7.1'),
 ]
 
-builddependencies = [('GObject-Introspection', '1.49.1')]
+builddependencies = [('GObject-Introspection', '1.49.1', '-Python-3.6.1')]
 
 configopts = "--enable-introspection=yes --with-gobject=yes --enable-static --enable-shared --with-cairo "
 

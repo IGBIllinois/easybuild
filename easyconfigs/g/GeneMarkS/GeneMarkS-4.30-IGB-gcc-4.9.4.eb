@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'GeneMarkS'
+version = '4.30'
+
+homepage = 'http://exon.gatech.edu/GeneMark/'
+description = """GeneMarkS: a self-training method for prediction of gene starts in microbial genomes"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['genemark_suite_linux_64.tar.gz']
+
+dependencies = [
+]
+
+keepsymlinks = True
+start_dir = 'gmsuite'
+
+sanity_check_paths = {
+	'files': ['gm'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+moduleclass = 'bio'

@@ -996,7 +996,18 @@ exts_list = [
         'source_tmpl': 'LWP-Protocol-https-6.04.tar.gz',
         'source_urls': ['http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/'],
     }),
-
+    ('HTML::Template', '2.97', {
+        'source_tmpl': 'HTML-Template-2.97.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/S/SA/SAMTREGAR'],
+    }),
+    ('XML::Compile::SOAP11', '3.22', {
+        'source_tmpl': 'XML-Compile-SOAP-3.22.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/M/MA/MARKOV'],
+    }),
+    ('XML::Compile::WSDL11', '3.06', {
+        'source_tmpl': 'XML-Compile-WSDL11-3.06.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/M/MA/MARKOV'],
+    }),
 ]
 
 moduleclass = 'lang'

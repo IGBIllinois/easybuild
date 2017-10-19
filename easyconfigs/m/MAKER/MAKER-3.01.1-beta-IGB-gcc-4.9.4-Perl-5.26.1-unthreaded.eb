@@ -1,0 +1,38 @@
+easyblock = 'ConfigureMake'
+
+name = 'MAKER'
+version = '3.01.1-beta'
+versionsuffix = '-Perl-%(perlver)s-unthreaded'
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+homepage = "http://www.yandell-lab.org/software/maker.html"
+description = """MAKER is a portable and easily configurable genome annotation pipeline. Its purpose is to allow smaller eukaryotic and prokaryotic genome projects to independently annotate their genomes and to create genome databases. MAKER identifies repeats, aligns ESTs and proteins to a genome, produces ab-initio gene predictions and automatically synthesizes these data into gene annotations having evidence-based quality values. MAKER is also easily trainable: outputs of preliminary runs can be used to automatically retrain its gene prediction algorithm, producing higher quality gene-models on seusequent runs. MAKER's inputs are minimal and its ouputs can be directly loaded into a GMOD database. They can also be viewed in the Apollo genome browser; this feature of MAKER provides an easy means to annotate, view and edit individual contigs and BACs without the overhead of a database. MAKER should prove especially useful for emerging model organism projects with minimal bioinformatics expertise and computer resources."""
+
+sources = ['%(namelower)s-%(version)s.tgz']
+
+skipsteps = ['source','prepare','configure','build','test','install']
+
+dependencies = [
+	('Perl', '5.26.1', '-unthreaded'),
+	('BioPerl', '1.7.1', versionsuffix),
+	('augustus', '3.2.3'),
+	('GeneMarkS', '4.30'),
+	('GeneMark-ES', '4.33'),
+	('SNAP', '2013-11-29'),
+	('exonerate', '2.2.0'),
+	('BLAST+', '2.6.0'),
+	('RepeatMasker', '4.0.7', versionsuffix),
+	('tRNAscan-SE', '1.3.1', versionsuffix),
+	('snoscan', '0.9.1', versionsuffix),
+	('OpenMPI', '2.1.0'),
+]
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['bin'],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

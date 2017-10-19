@@ -2,6 +2,7 @@ easyblock = 'ConfigureMake'
 
 name = 'ATK'
 version = '2.24.0'
+versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://developer.gnome.org/ATK/stable/'
 description = """
@@ -16,8 +17,9 @@ source_urls = [FTPGNOME_SOURCE]
 sources = [SOURCELOWER_TAR_XZ]
 
 dependencies = [
+	('Python', '2.7.13'),
     ('GLib', '2.49.5'),
-    ('GObject-Introspection', '1.49.1')
+    ('GObject-Introspection', '1.49.1', versionsuffix)
 ]
 
 configopts = "--enable-introspection=yes"

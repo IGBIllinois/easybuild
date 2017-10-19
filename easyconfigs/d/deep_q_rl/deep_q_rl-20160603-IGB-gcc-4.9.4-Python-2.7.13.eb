@@ -21,7 +21,7 @@ source_urls = ['https://github.com/spragunr/deep_q_rl/archive/']
 dependencies = [
 	('Python', '2.7.13'),
 	('CUDA', '8.0.61'),
-	('OpenCV', '3.1.0'),
+	('OpenCV', '3.1.0', versionsuffix),
 	('Theano', '0.9.0', versionsuffix),
 	('Lasagne', '20170606', versionsuffix),
 	('pylearn2', '20170525', versionsuffix),

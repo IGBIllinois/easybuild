@@ -8,7 +8,7 @@ easyblock = 'PerlModule'
 
 name = 'BioPerl'
 version = '1.7.1'
-versionsuffix = '-Perl-%(perlver)s'
+versionsuffix = '-Perl-%(perlver)s-unthreaded'
 
 homepage = 'http://www.bioperl.org/'
 description = """Bioperl is the product of a community effort to produce Perl code which is useful in biology.

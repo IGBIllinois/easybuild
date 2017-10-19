@@ -1,0 +1,33 @@
+easyblock = 'MakeCp'
+
+name = 'SNAP'
+version = '2013-11-29'
+
+homepage = 'http://korflab.ucdavis.edu/software.html'
+description = """(Semi-HMM-based Nucleic Acid Parser) gene prediction tool"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(namelower)s-%(version)s.tar.gz']
+source_urls = ['http://korflab.ucdavis.edu/Software/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['snap'],
+	'dirs': ['Zoe'],
+}
+
+modextrapaths = {
+	'PATH': '',
+	'ZOE': '',
+}
+
+moduleclass = 'bio'

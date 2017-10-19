@@ -1,7 +1,9 @@
+# Built with EasyBuild version 3.1.2 on 2017-06-05_14-24-53
 easyblock = 'CMakeMake'
 
 name = 'OpenCV'
 version = '3.1.0'
+versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'http://opencv.org/'
 description = """OpenCV (Open Source Computer Vision Library) is an open source computer vision
@@ -37,7 +39,7 @@ dependencies = [
     ('Java', '1.8.0_121', '', True),
     ('ant', '1.10.1', '-Java-%(javaver)s', True),
     ('GLib', '2.49.5'),
-    ('GTK+', '2.24.31'),
+    ('GTK+', '2.24.31', versionsuffix),
 ]
 
 # the destination directory is "linux-<MD5>" see 3rdparty/ippicv/downloader.cmake
@@ -78,3 +80,29 @@ modextrapaths = {
 }
 
 moduleclass = 'vis'
+
+# Build statistics
+buildstats = [{
+    "build_time": 2291.92,
+    "command_line": ["--hide-deps='M4,Autoconf,Automake,libtool,flex,Autotools,Bison,zlib,binutils,GCCcore,GCC,OpenBLAS,numactl,hwloc,gompi,FFTW,ScaLAPACK,ncurses,libreadline,Tk,GMP,PCRE,libpng,LibTIFF,NASM,libjpeg-turbo,XZ,cURL,PROJ,CMake,Doxygen,Szip,gettext,Boost,help2man,netCDF,libevent,libffi,argtable,tbb,libgtextutils,file,HTSlib,Eigen,h5py,libgd,LittleCMS,pkg-config,gengetopt,x264,Yasm,ATK,Gdk-Pixbuf,Pango,GObject-Introspection,HarfBuzz'", "--hide-toolchains='foss,GCCcore,GCC,gompi,IGB-gcc'", "--include-toolchains='/home/a-m/easybuild/.local/easybuild/toolchains/*.py'", "--installpath='/home/apps'", "--job-backend-config='/home/a-m/easybuild/.config/easybuild/gc3pie.cfg'", "--optarch='GENERIC'", "--parallel='1'", "--robot-paths='/home/a-m/easybuild/:/home/a-m/easybuild/.local/easybuild/ebfiles_repo'", '--update-modules-tool-cache', 'OpenCV-3.2.0-IGB-gcc-4.9.4.eb'],
+    "core_count": 48,
+    "cpu_model": "Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz",
+    "cpu_speed": 3100.0,
+    "cpu_vendor": "Intel",
+    "easybuild-easyblocks_version": "3.1.2",
+    "easybuild-framework_version": "3.1.2",
+    "gcc_version": "Using built-in specs.; COLLECT_GCC=gcc; COLLECT_LTO_WRAPPER=/home/apps/software/GCCcore/4.9.4/libexec/gcc/x86_64-unknown-linux-gnu/4.9.4/lto-wrapper; Target: x86_64-unknown-linux-gnu; Configured with: ../configure --enable-languages=c,c++,fortran --enable-lto --enable-checking=release --disable-multilib --enable-shared=yes --enable-static=yes --enable-threads=posix --enable-gold=default --enable-plugins --enable-ld --with-plugin-ld=ld.gold --enable-bootstrap --prefix=/home/apps/software/GCCcore/4.9.4 --with-local-prefix=/home/apps/software/GCCcore/4.9.4; Thread model: posix; gcc version 4.9.4 (GCC) ; ",
+    "glibc_version": "2.17",
+    "hostname": "biocluster.igb.illinois.edu",
+    "install_size": 309592297,
+    "modules_tool": ('Lmod', '/opt/ohpc/admin/lmod/lmod/libexec/lmod', '6.0.24'),
+    "os_name": "centos linux",
+    "os_type": "Linux",
+    "os_version": "7.2.1511",
+    "platform_name": "x86_64-unknown-linux",
+    "python_version": "2.7.5 (default, Nov  6 2016, 00:28:07) ; [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)]",
+    "system_gcc_path": "/home/apps/software/GCCcore/4.9.4/bin/gcc",
+    "system_python_path": "/home/apps/software/Python/2.7.13-IGB-gcc-4.9.4/bin/python",
+    "timestamp": 1496690692,
+    "total_memory": 193169,
+}]

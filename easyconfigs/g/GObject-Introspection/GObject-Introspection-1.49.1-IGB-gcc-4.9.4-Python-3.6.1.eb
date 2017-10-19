@@ -2,6 +2,7 @@ easyblock = 'ConfigureMake'
 
 name = 'GObject-Introspection'
 version = '1.49.1'
+versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://wiki.gnome.org/GObjectIntrospection/'
 description = """GObject introspection is a middleware layer between C libraries
@@ -16,7 +17,7 @@ source_urls = [FTPGNOME_SOURCE]
 sources = [SOURCELOWER_TAR_XZ]
 
 dependencies = [
-    ('Python', '2.7.13'),
+    ('Python', '3.6.1'),
     ('GLib', '2.49.5'),
     ('libffi', '3.2.1'),
 ]

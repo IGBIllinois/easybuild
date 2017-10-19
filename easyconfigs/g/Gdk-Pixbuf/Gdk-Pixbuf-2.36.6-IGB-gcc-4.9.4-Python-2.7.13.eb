@@ -2,6 +2,7 @@ easyblock = 'ConfigureMake'
 
 name = 'Gdk-Pixbuf'
 version = '2.36.6'
+versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://developer.gnome.org/gdk-pixbuf/stable/'
 description = """
@@ -17,11 +18,12 @@ source_urls = [FTPGNOME_SOURCE]
 sources = [SOURCELOWER_TAR_XZ]
 
 dependencies = [
+	('Python', '2.7.13'),
     ('GLib', '2.49.5'),
     ('libjpeg-turbo', '1.5.1'),
     ('libpng', '1.6.29'),
     ('LibTIFF', '4.0.7'),
-    ('GObject-Introspection', '1.49.1')
+    ('GObject-Introspection', '1.49.1', versionsuffix)
 ]
 
 configopts = "--disable-maintainer-mode --enable-debug=no --enable-introspection=yes "
