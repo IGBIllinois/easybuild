@@ -1,0 +1,32 @@
+easyblock = 'MakeCp'
+
+name = 'miniasm'
+version = '0.2'
+
+homepage = 'https://github.com/lh3/miniasm'
+description = """Miniasm is a very fast OLC-based de novo assembler for noisy long reads. It takes all-vs-all read self-mappings (typically by minimap) as input and outputs an assembly graph in the GFA format. Different from mainstream assemblers, miniasm does not have a consensus step. It simply concatenates pieces of read sequences to generate the final unitig sequences. Thus the per-base error rate is similar to the raw input reads."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/lh3/miniasm/archive']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['miniasm'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+moduleclass = 'bio'

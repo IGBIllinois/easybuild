@@ -1,0 +1,26 @@
+easyblock = 'ModuleOnly'
+
+name = 'Krona'
+version = '2.7'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/marbl/Krona'
+description = """Interactively explore metagenomes and more from a web browser."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['KronaTools-%(version)s.tar']
+source_urls = ['https://github.com/marbl/Krona/releases/download/v%(version)s/']
+
+dependencies = [
+	('Perl','5.24.1'),
+]
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['bin'],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

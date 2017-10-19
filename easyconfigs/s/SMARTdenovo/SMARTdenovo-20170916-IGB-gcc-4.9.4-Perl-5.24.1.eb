@@ -1,0 +1,34 @@
+easyblock = 'MakeCp'
+
+name = 'SMARTdenovo'
+version = '20170916'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/ruanjue/smartdenovo'
+description = """SMARTdenovo is a de novo assembler for PacBio and Oxford Nanopore (ONT) data. It produces an assembly from all-vs-all raw read alignments without an error correction stage. It also provides tools to generate accurate consensus sequences, though a platform dependent consensus polish tools (e.g. Quiver for PacBio or Nanopolish for ONT) are still required for higher accuracy."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['03ac26ee57081376c4bdb4dfc98c086f2a0c3223.zip']
+source_urls = ['https://github.com/ruanjue/smartdenovo/archive/']
+
+dependencies = [
+	('Perl', '5.24.1'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['smartdenovo.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+moduleclass = 'bio'

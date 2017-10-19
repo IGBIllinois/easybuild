@@ -1,0 +1,18 @@
+diff -ur TULIP-8a8357d74a64c986cdd5607545d4fd87a1a94e12/tulipbulb.perl TULIP-8a8357d74a64c986cdd5607545d4fd87a1a94e12 2/tulipbulb.perl
+--- TULIP-8a8357d74a64c986cdd5607545d4fd87a1a94e12/tulipbulb.perl	2017-06-13 10:06:12.000000000 -0500
++++ TULIP-8a8357d74a64c986cdd5607545d4fd87a1a94e12 2/tulipbulb.perl	2017-10-17 10:40:48.000000000 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl -w
+ use strict;
+ use Getopt::Long;
+ use Cwd;
+diff -ur TULIP-8a8357d74a64c986cdd5607545d4fd87a1a94e12/tulipseed.perl TULIP-8a8357d74a64c986cdd5607545d4fd87a1a94e12 2/tulipseed.perl
+--- TULIP-8a8357d74a64c986cdd5607545d4fd87a1a94e12/tulipseed.perl	2017-06-13 10:06:12.000000000 -0500
++++ TULIP-8a8357d74a64c986cdd5607545d4fd87a1a94e12 2/tulipseed.perl	2017-10-17 10:40:44.000000000 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl -w
+ use strict;
+ use Getopt::Long;
+ use Cwd;

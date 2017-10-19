@@ -1,0 +1,30 @@
+easyblock = 'BinariesTarball'
+
+name = 'TULIP'
+version = '20170513'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/Generade-nl/TULIP'
+description = """Tulipseed takes as input alignments files of long reads to sparse short seeds, and outputs a graph and scaffold structures. Tulipbulb adds long read sequencing data to these."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['8a8357d74a64c986cdd5607545d4fd87a1a94e12.zip']
+source_urls = ['https://github.com/Generade-nl/TULIP/archive/']
+
+patches = [('TULIP-env.patch',1)]
+
+dependencies = [
+	('Perl', '5.24.1'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/tulipbulb.perl'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

@@ -1,0 +1,36 @@
+easyblock = 'CMakeMake'
+
+name = 'SPAdes'
+version = '3.11.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://cab.spbu.ru/software/spades/'
+description = """SPAdes . St. Petersburg genome assembler . is intended for both standard isolates and single-cell MDA bacteria assemblies."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(name)s-%(version)s.tar.gz']
+source_urls = ['http://cab.spbu.ru/files/release%(version)s/']
+
+dependencies = [
+	('Python','3.6.1'),
+	('zlib', '1.2.11'),
+	('bzip2', '1.0.6'),
+]
+
+builddependencies = [
+	('CMake', '3.7.2'),
+]
+
+separate_build_dir = True
+srcdir = '../%(name)s-%(version)s/src'
+
+#cmds_map = [('.*','./spades_compile.sh')]
+#files_to_copy = ['bin','share']
+
+sanity_check_paths = {
+	'files': ['bin/spades.py'],
+	'dirs': ['share'],
+}
+
+moduleclass = 'bio'

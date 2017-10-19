@@ -1,0 +1,102 @@
+Only in nanopolish-0.8.3 2: .DS_Store
+diff -ur nanopolish-0.8.3/Makefile nanopolish-0.8.3 2/Makefile
+--- nanopolish-0.8.3/Makefile	2017-10-05 14:18:44.000000000 -0500
++++ nanopolish-0.8.3 2/Makefile	2017-10-16 15:13:27.000000000 -0500
+@@ -8,16 +8,16 @@
+ #
+ 
+ #Basic flags every build needs
+-LIBS=-lz
++LIBS=-lz -lhts -lhdf5
+ CXXFLAGS ?= -g -O3
+ CXXFLAGS += -std=c++11 -fopenmp
+-CFLAGS ?= -O3 -std=c99
++CFLAGS = -O3 -std=c99
+ CXX ?= g++
+ CC ?= gcc
+ 
+ # Change the value of HDF5 or EIGEN below to any value to disable compilation of bundled HDF5 code
+-HDF5=install
+-EIGEN=install
++HDF5=
++EIGEN=
+ 
+ # Check operating system, OSX doesn't have -lrt
+ UNAME_S := $(shell uname -s)
+@@ -45,21 +45,11 @@
+     EIGEN_CHECK=
+ endif
+ 
+-# Build and link the libhts submodule
+-HTS_LIB=./htslib/libhts.a
+-HTS_INCLUDE=-I./htslib
+-
+-# Include the header-only fast5 library
+-FAST5_INCLUDE=-I./fast5/include
+-
+-# Include the header-only eigen library
+-EIGEN_INCLUDE=-I./eigen/
+-
+ # Include the src subdirectories
+ NP_INCLUDE=$(addprefix -I./, $(SUBDIRS))
+ 
+ # Add include flags
+-CPPFLAGS += $(H5_INCLUDE) $(HTS_INCLUDE) $(FAST5_INCLUDE) $(NP_INCLUDE) $(EIGEN_INCLUDE)
++CPPFLAGS += $(NP_INCLUDE)
+ 
+ # Main programs to build
+ PROGRAM=nanopolish
+@@ -68,27 +58,6 @@
+ all: $(PROGRAM) $(TEST_PROGRAM)
+ 
+ #
+-# Build libhts
+-#
+-htslib/libhts.a:
+-	cd htslib && make || exit 255
+-
+-#
+-# If this library is a dependency the user wants HDF5 to be downloaded and built.
+-#
+-lib/libhdf5.a:
+-	if [ ! -e hdf5-1.8.14.tar.gz ]; then wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.14/src/hdf5-1.8.14.tar.gz; fi
+-	tar -xzf hdf5-1.8.14.tar.gz || exit 255
+-	cd hdf5-1.8.14 && ./configure --enable-threadsafe --prefix=`pwd`/.. && make && make install
+-
+-
+-# Download and install eigen if not already downloaded
+-eigen/INSTALL:
+-	if [ ! -e 3.2.5.tar.bz2 ]; then wget http://bitbucket.org/eigen/eigen/get/3.2.5.tar.bz2; fi
+-	tar -xjvf 3.2.5.tar.bz2 || exit 255
+-	mv eigen-eigen-bdd17ee3b1b3 eigen || exit 255
+-
+-#
+ # Source files
+ #
+ 
+@@ -105,7 +74,7 @@
+ PHONY=depend
+ depend: .depend
+ 
+-.depend: $(CPP_SRC) $(C_SRC) $(EXE_SRC) $(H5_LIB) $(EIGEN_CHECK)
++.depend: $(CPP_SRC) $(C_SRC) $(EXE_SRC)
+ 	rm -f ./.depend
+ 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -MM $(CPP_SRC) $(C_SRC) > ./.depend;
+ 
+@@ -119,12 +88,12 @@
+ 	$(CC) -o $@ -c $(CFLAGS) $(H5_INCLUDE) -fPIC $<
+ 
+ # Link main executable
+-$(PROGRAM): src/main/nanopolish.o $(CPP_OBJ) $(C_OBJ) $(HTS_LIB) $(H5_LIB) $(EIGEN_CHECK)
+-	$(CXX) -o $@ $(CXXFLAGS) $(CPPFLAGS) -fPIC $< $(CPP_OBJ) $(C_OBJ) $(HTS_LIB) $(H5_LIB) $(LIBS)
++$(PROGRAM): src/main/nanopolish.o $(CPP_OBJ) $(C_OBJ)
++	$(CXX) -o $@ $(CXXFLAGS) $(CPPFLAGS) -fPIC $< $(CPP_OBJ) $(C_OBJ) $(LIBS)
+ 
+ # Link test executable
+-$(TEST_PROGRAM): src/test/nanopolish_test.o $(CPP_OBJ) $(C_OBJ) $(HTS_LIB) $(H5_LIB)
+-	$(CXX) -o $@ $(CXXFLAGS) $(CPPFLAGS) -fPIC $< $(CPP_OBJ) $(C_OBJ) $(HTS_LIB) $(H5_LIB) $(LIBS)
++$(TEST_PROGRAM): src/test/nanopolish_test.o $(CPP_OBJ) $(C_OBJ)
++	$(CXX) -o $@ $(CXXFLAGS) $(CPPFLAGS) -fPIC $< $(CPP_OBJ) $(C_OBJ) $(LIBS)
+ 
+ test: $(TEST_PROGRAM)
+ 	./$(TEST_PROGRAM)
