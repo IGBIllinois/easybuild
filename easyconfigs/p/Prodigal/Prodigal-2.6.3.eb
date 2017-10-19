@@ -18,5 +18,7 @@ sanity_check_paths = {
 
 modextrapaths = {'PATH': ''}
 
+postinstallcmds = ['ln -s %(installdir)s/prodigal.linux %(installdir)s/prodigal']
+
 moduleclass = 'bio'
 
