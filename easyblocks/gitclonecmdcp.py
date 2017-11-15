@@ -3,7 +3,7 @@ from easybuild.easyblocks.gitclonemakecp import GitCloneMakeCp
 
 # Work In Progress
 
-class GitCloneMakeCp(GitCloneMakeCp, CmdCp):
+class GitCloneCmdCp(GitCloneMakeCp, CmdCp):
     """Builds the Arcade Learning Environment
 
     Uses cmake, make, then copies the executable to bin
