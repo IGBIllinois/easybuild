@@ -1,0 +1,51 @@
+easyblock = 'Bundle'
+
+name = 'TensorFlowModels'
+version = '20171113'
+versionsuffix = "-Python-3.6.1"
+commit = 'd07447a'
+
+homepage = 'https://github.com/tensorflow/models'
+description = """This repository contains a number of different models implemented in TensorFlow:"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+#source_urls = ['https://github.com/tensorflow/models/archive/']
+#sources = ['%s.zip' % commit]
+
+dependencies = [('Tensorflow-GPU','1.2.1','-Python-3.6.1'),
+	('Python','3.6.1'),
+	('jupyter','1.0.0','-Python-3.6.1'),
+	('protobuf','2.6.1'),
+	('zlib','1.2.11'),
+	('libjpeg-turbo','1.5.1'),
+	
+]
+
+
+keepsymlinks = True
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+
+    ('Pillow', '4.3.0', {
+        'source_urls': ['https://pypi.python.org/packages/source/p/Pillow'],
+    }),
+    ('lxml', '4.1.1', {
+        'source_urls': ['https://pypi.python.org/packages/source/l/lxml'],
+    }),
+
+
+]
+
+exts_filter = ('python -c "from PIL import Image"', "")
+
+
+sanity_check_paths = {
+	'files': ['bin/enhancer.py'],
+	'dirs': ['research/slim'],
+}
+
+modextrapaths = {'PYTHONPATH':['research/slim','research','lib/python3.6/site-packages']}
+
+moduleclass = 'bio'

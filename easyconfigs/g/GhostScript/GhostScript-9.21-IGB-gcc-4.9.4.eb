@@ -1,7 +1,7 @@
 
 easyblock = 'ConfigureMake'
 
-name = 'Ghostscript'
+name = 'GhostScript'
 version = '9.21'
 
 homepage = 'http://ghostscript.com'

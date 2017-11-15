@@ -22,7 +22,9 @@ sanity_check_paths = {
 	'dirs': [],
 }
 
+# Need to install indexes manually
 modextrapaths = {
+	'CENTRIFUGE_INDEXES': 'indexes',
 }
 
 moduleclass = 'bio'

@@ -1,0 +1,31 @@
+easyblock = 'Tarball'
+
+name = 'tagdigger'
+version = '1.1'
+versionsuffix = '-Python-3.6.1'
+
+homepage = 'https://github.com/lvclark/tagdigger'
+description = """TagDigger is a program for processing FASTQ files from genotyping-by-sequencing (GBS) or restriction site-associated DNA sequencing (RAD-seq) experiments. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/lvclark/tagdigger/archive/']
+
+patches = ['tagdigger-1.1.patch']
+
+dependencies = [('Python','3.6.1')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['tagdigger_script.py'],
+	'dirs': [],
+}
+
+postinstallcmds = [('chmod 775 %(installdir)s/*.py')]
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

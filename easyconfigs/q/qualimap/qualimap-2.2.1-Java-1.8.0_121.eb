@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'qualimap'
+version = '2.2.1'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = 'http://qualimap.bioinfo.cipf.es/'
+description = """Qualimap 2 is a platform-independent application written in Java and R that provides both a Graphical User Inteface (GUI) and a command-line interface to facilitate the quality control of alignment sequencing data and its derivatives like feature counts. """
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ['qualimap_v%(version)s.zip']
+source_urls = ['https://bitbucket.org/kokonech/qualimap/downloads/']
+
+dependencies = [('Java','1.8.0_121'),
+		('R','3.3.3','-IGB-gcc-4.9.4')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['qualimap.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

@@ -1,0 +1,28 @@
+easyblock = 'ConfigureMake'
+
+name = 'protobuf'
+version = '3.5.0'
+
+homepage = 'https://github.com/google/protobuf'
+description = """Protocol Buffers (a.k.a., protobuf) are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/google/protobuf/releases/download/v%(version)s/']
+sources = ["%(name)s-cpp-%(version)s.tar.gz"]
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/protoc'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

@@ -1,0 +1,38 @@
+easyblock = 'ConfigureMake'
+
+name = 'GHC'
+version = '7.10.3'
+
+homepage = 'http://haskell.org/ghc/'
+description = """The Glorious/Glasgow Haskell Compiler"""
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchainopts = {'pic': True}
+
+sources = ['%(namelower)s-%(version)s-src.tar.xz']
+source_urls = ['https://downloads.haskell.org/~ghc/%(version)s/']
+
+dependencies = [
+    ('GMP', '6.1.2'),
+    ('zlib', '1.2.11'),
+    ('ncurses', '6.0'),
+]
+
+osdependencies = ['ghc']
+
+builddependencies = [
+    ('libxslt', '1.1.29'),
+]
+
+configopts = " --enable-error-on-warning=no"
+
+sanity_check_paths = {
+    'files': ["bin/%s" % x for x in ['ghc', 'ghc-%(version)s', 'ghci', 'ghci-%(version)s', 'ghc-pkg',
+                                     'ghc-pkg-%(version)s', 'haddock', 'haddock-ghc-%(version)s',
+                                     'hp2ps', 'hpc', 'hsc2hs', 'runghc', 'runghc-%(version)s',
+                                     'runhaskell']],
+    'dirs': [],
+}
+
+moduleclass = 'compiler'
+
+parallel = 2

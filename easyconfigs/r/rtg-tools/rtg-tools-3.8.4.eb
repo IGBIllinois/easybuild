@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'rtg-tools'
+version = '3.8.4'
+
+homepage = 'https://www.realtimegenomics.com/products/rtg-tools'
+description = """RTG Tools contains utilities to easily manipulate and accurately compare multiple VCF files, as well as utilities for processing other common NGS data formats."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ['rtg-tools-%(version)s-linux-x64.zip']
+source_urls = ['https://github.com/RealTimeGenomics/rtg-tools/releases/download/%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['RTG.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

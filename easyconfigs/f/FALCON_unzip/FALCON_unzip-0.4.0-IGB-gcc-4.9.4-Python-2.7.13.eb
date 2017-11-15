@@ -20,6 +20,13 @@ dependencies = [
 	('GenomicConsensus','3.0.2', versionsuffix),
 ]
 
+postinstallcmds = [('mkdir %(installdir)s/smrt_bin'),
+	('ln -s ${EBROOTBLASR}/bin/blasr %(installdir)s/smrt_bin/blasr'),
+	('ln -s ${EBROOTSAMTOOLS}/bin/samtools %(installdir)s/smrt_bin/samtools'),
+	('ln -s ${EBROOTMUMMER}/bin/nucmer %(installdir)s/smrt_bin/nucmer'),
+	('ln -s ${EBROOTGENOMICCONSENSUS}/bin/variantCaller %(installdir)s/smrt_bin/variantCaller'),
+]
 exts_filter = ('python -c "import %(ext_name)s"', "")
+
 
 moduleclass = 'bio'

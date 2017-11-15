@@ -1,0 +1,49 @@
+easyblock = 'GitCloneConfigureMake'
+
+name = 'Torch'
+version = '20171018'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/torch/distro'
+description = """Torch is a scientific computing framework with wide support for machine learning algorithms that puts GPUs first. It is easy to use and efficient, thanks to an easy and fast scripting language, LuaJIT, and an underlying C/CUDA implementation."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['https://github.com/torch/distro.git']
+git_commit = '20e523771377568841e9d11bc3275a4404edcd1e'
+
+dependencies = [
+	('Python', '3.6.1'),
+	('Lua', '5.3.4'),
+	('CUDA', '8.0.61'),
+	('cURL', '7.53.1'),
+	('libreadline', '6.3'),
+	('ncurses', '6.0'),
+	('gnuplot', '5.0.6'),
+	('libjpeg-turbo', '1.5.1'),
+	('libpng', '1.6.29'),
+	('ImageMagick','7.0.5-5'),
+	('GraphicsMagick','1.3.26'),
+	('FFTW','3.3.6'),
+	('SoX', '14.4.2'),
+	('ZeroMQ', '4.2.2'),
+	('Qt', '4.8.7'),
+]
+
+builddependencies = [
+	('CMake', '3.7.2'),
+]
+
+configopts = ''
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

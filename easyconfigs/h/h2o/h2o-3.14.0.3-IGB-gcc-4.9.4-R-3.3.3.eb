@@ -1,0 +1,32 @@
+easyblock = 'RPackage'
+
+name = 'h2o'
+version = '3.14.0.3'
+
+homepage = 'https://cran.r-project.org/web/packages/%(name)s/index.html'
+description = """R scripting functionality for H2O, the open source math engine for big data that computes parallel distributed machine learning algorithms such as generalized linear models, gradient boosting machines, random forests, and neural networks (deep learning) within various cluster environments."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = [
+	'http://cran.r-project.org/src/contrib/',
+	'http://cran.r-project.org/src/contrib/Archive/$(name)s/',
+]
+sources = ['%(name)s_%(version)s.tar.gz']
+
+r = 'R'
+rver = '3.3.3'
+versionsuffix = '-%s-%s' % (r,rver)
+
+dependencies = [
+	(r,rver),
+	('Java','1.8.0_121','',True),
+	('Tensorflow-GPU','1.2.1','-Python-3.6.1')
+]
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['%(name)s'],
+}
+
+moduleclass = 'lib'

@@ -1,0 +1,37 @@
+easyblock = 'GitCloneCMakeMake'
+
+name = 'graphtyper'
+version = '1.3'
+
+homepage = 'https://github.com/DecodeGenetics/graphtyper'
+description = """Graphtyper is a highly scalable genotyping software. It represents a reference genome and known variants of a genomic region using an acyclic mathematical graph structure (a "pangenome reference"), which high-throughput sequence reads are re-aligned to for the purpose of discovering and genotyping SNPs and small indels."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['https://github.com/DecodeGenetics/graphtyper.git']
+git_commit = '04ab5ee460fa36129fb0d8ea5d4b72adc3836f52'
+
+builddependencies = [('CMake','3.7.2')
+]
+dependencies = [('Boost','1.63.0'),
+		('zlib','1.2.11'),
+		('XZ','5.2.3'),
+		('bzip2','1.0.6')
+
+]
+
+start_dir='graphtyper'
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/graphtyper'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

@@ -114,7 +114,17 @@ exts_list = [
         'source_urls': ['https://pypi.python.org/packages/source/h/h5py'],
         'source_tmpl': SOURCE_TAR_GZ,
     }),
-
+    ('backports.weakref','1.0rc1', {
+        'source_urls': ['https://pypi.python.org/packages/source/b/backports.weakref'],
+        'modulename': 'backports.weakref',
+    }),
+    ('scikit-learn','0.19.0', {
+        'source_urls': ['https://pypi.python.org/packages/source/s/scikit-learn'],
+        'modulename': 'sklearn',
+    }),
+    ('sympy', '1.1.1', {
+        'source_urls': ['https://pypi.python.org/packages/source/s/sympy'],
+    }),
 ]
 
 moduleclass = 'lang'

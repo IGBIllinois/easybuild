@@ -1,0 +1,31 @@
+easyblock = 'Tarball'
+
+name = 'microbiome_helper'
+version = '20171114'
+commit = '151b105'
+
+homepage = 'https://github.com/LangilleLab/microbiome_helper'
+description = """An assortment of scripts to help process and automate various microbiome and metagenomic bioinformatic tools. We provide workflows, tutorials and a virtual box image to help researchers process microbial data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/LangilleLab/microbiome_helper/archive/']
+sources = ['%s.zip' % commit]
+
+dependencies = [('Perl','5.24.1'),
+		('Python','2.7.13'),
+		('R','3.3.3')
+]
+
+patches = ['microbiome_helper-20171114.patch']
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['run_pear.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

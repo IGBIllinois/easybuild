@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'randfold'
+version = '2.0.1'
+
+homepage = 'http://bioinformatics.psb.ugent.be/supplementary_data/erbon/nov2003/'
+description = """Minimum free energy of folding randomization test software """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['randfold-%(version)s.tar.gz']
+source_urls = ['http://bioinformatics.psb.ugent.be/supplementary_data/erbon/nov2003/downloads/']
+
+dependencies = [('squid','1.9g')
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['randfold','Readme.txt','COPYRIGHT','LICENSE']
+
+sanity_check_paths = {
+	'files': ['randfold'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''
+}
+
+moduleclass = 'bio'

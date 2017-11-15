@@ -1,0 +1,38 @@
+easyblock = 'MakeCp'
+
+name = 'HOMER'
+version = '4.9.1'
+versionsuffix = '-Perl-%(perlver)s-Test'
+
+homepage = 'http://homer.ucsd.edu/homer/'
+description = """HOMER (Hypergeometric Optimization of Motif EnRichment) is a suite of tools for Motif Discovery and ChIP-Seq analysis. It is a collection of command line programs for unix-style operating systems written in mostly perl and c++. Homer was primarily written as a de novo motif discovery algorithm that is well suited for finding 8-12 bp motifs in large scale genomics data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['http://homer.ucsd.edu/homer/data/software/']
+sources = ['homer.v%(version)s.zip']
+
+dependencies = [('Perl','5.24.1')
+]
+
+patches = [('HOMER-4.9.1.patch',1)]
+prebuildopts = "make clean; "
+
+configopts = 'cd ..; '
+sanity_check_paths = {
+        'files': ['bin/homer'],
+        'dirs': [],
+}
+files_to_copy = ['*']
+
+modextravars = {'HOMER_DATA':'%(installdir)s/data'
+}
+
+modextrapaths = {
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/configureHomer.pl']
+
+moduleclass = 'bio'
+
+

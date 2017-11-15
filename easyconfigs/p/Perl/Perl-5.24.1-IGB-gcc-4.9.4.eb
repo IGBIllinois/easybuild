@@ -1008,6 +1008,10 @@ exts_list = [
         'source_tmpl': 'XML-Compile-WSDL11-3.06.tar.gz',
         'source_urls': ['http://search.cpan.org/CPAN/authors/id/M/MA/MARKOV'],
     }),
+    ('PDF::API2', '2.033', {
+        'source_tmpl': 'PDF-API2-2.033.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/S/SS/SSIMMS/'],
+    }),
 ]
 
 moduleclass = 'lang'

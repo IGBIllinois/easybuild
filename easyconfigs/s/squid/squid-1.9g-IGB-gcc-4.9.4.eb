@@ -1,0 +1,28 @@
+easyblock = 'ConfigureMake'
+
+name = 'squid'
+version = '1.9g'
+
+homepage = 'http://eddylab.org/software.html'
+description = """A C library that is bundled with much of the above software. C function library for sequence analysis."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['http://eddylab.org/software/squid/']
+sources = ["squid.tar.gz"]
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/afetch','bin/shuffle'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'lib'
+
+

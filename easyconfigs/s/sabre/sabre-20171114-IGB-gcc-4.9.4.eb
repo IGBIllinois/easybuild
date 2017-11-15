@@ -1,0 +1,32 @@
+easyblock = 'MakeCp'
+
+name = 'sabre'
+version = '20171114'
+commit = '039a55e'
+
+homepage = 'https://github.com/najoshi/sabre'
+description = """Next-generation sequencing can currently produce hundreds of millions of reads per lane of sample and that number increases at a dizzying rate. Barcoding individual sequences for multiple lines or multiple species is a cost-efficient method to sequence and analyze a broad range of data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.zip' % commit]
+source_urls = ['https://github.com/najoshi/sabre/archive/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['sabre'],'bin'),'README.md','LICENSE']
+
+sanity_check_paths = {
+	'files': ['bin/sabre'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

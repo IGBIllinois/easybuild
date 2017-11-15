@@ -33,6 +33,7 @@ dependencies = [
     ('PROJ', '4.9.3'),  # for rgdal
     ('GMP', '6.1.2'),  # for igraph
     ('cairo','1.14.8'),
+	('HDF5','1.8.18'),
 ]
 
 name_tmpl = '%(name)s_%(version)s.tar.gz'
@@ -289,7 +290,11 @@ exts_list = [
 ('withr','2.0.0',ext_options),
 ('GA','3.0.2',ext_options),
 ('caret','6.0-77',ext_options),
-('h2o','3.14.0.3',ext_options),
+('rhdf5','2.18.0',ext_options),
+('biomformat','1.2.0',ext_options),
+('phyloseq','1.19.1',ext_options),
+('gsalib','2.1',ext_options),
+('snowfall','1.84-6.1',ext_options),
 ]
 
 moduleclass = 'lang'

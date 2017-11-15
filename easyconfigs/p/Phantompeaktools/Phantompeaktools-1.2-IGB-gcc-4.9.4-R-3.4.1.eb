@@ -1,0 +1,33 @@
+easyblock = 'Tarball'
+
+name = 'Phantompeaktools'
+version = '1.2'
+versionsuffix = '-R-%(rver)s'
+
+homepage = 'https://github.com/kundajelab/phantompeakqualtools'
+description = """Custom SPP for Phantompeaktools"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/kundajelab/phantompeakqualtools/archive']
+
+dependencies = [
+	('R','3.4.1'),
+	('Boost','1.59.0'),
+	('SAMtools','1.5'),
+	('Phantompeaktools-spp','1.2',versionsuffix)
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['run_spp.R'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,27 @@
+easyblock = 'GitCloneConfigureMake'
+
+name = ''
+version = ''
+
+homepage = ''
+description = """"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['https://github.com/username/reponame.git']
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

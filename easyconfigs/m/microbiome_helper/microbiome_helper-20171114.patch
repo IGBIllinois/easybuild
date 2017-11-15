@@ -1,0 +1,180 @@
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/chimera_filter.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/chimera_filter.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/chimera_filter.pl	2017-11-14 08:38:13.941742487 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/chimera_filter.pl	2017-11-14 08:38:42.993811116 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/chimera_filter_usearch61.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/chimera_filter_usearch61.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/chimera_filter_usearch61.pl	2017-11-14 08:38:13.937742477 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/chimera_filter_usearch61.pl	2017-11-14 08:38:51.539831304 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/concat_lanes.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/concat_lanes.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/concat_lanes.pl	2017-11-14 08:38:13.940742484 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/concat_lanes.pl	2017-11-14 08:39:00.009851312 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/concat_paired_end.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/concat_paired_end.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/concat_paired_end.pl	2017-11-14 08:38:13.936742475 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/concat_paired_end.pl	2017-11-14 08:39:08.183870621 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/count_fastq.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/count_fastq.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/count_fastq.pl	2017-11-14 08:38:13.935742473 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/count_fastq.pl	2017-11-14 08:39:16.383889992 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/create_qiime_map.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/create_qiime_map.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/create_qiime_map.pl	2017-11-14 08:38:13.936742475 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/create_qiime_map.pl	2017-11-14 08:39:23.340906426 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ #Creates a qiime map file based on a list of input filenames that can then be used with the script "add_qiime_labels.py"
+ 
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/filter_fastq.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/filter_fastq.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/filter_fastq.pl	2017-11-14 08:38:13.933742468 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/filter_fastq.pl	2017-11-14 08:39:31.002924526 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/humann_to_stamp.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/humann_to_stamp.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/humann_to_stamp.pl	2017-11-14 08:38:13.947742501 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/humann_to_stamp.pl	2017-11-14 08:39:40.091945997 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ #humann_to_stamp.py 04b-hit-keg-mpm-cop-nul-nve-nve.txt > hummann_modules.spf
+ #humann_to_stamp.py 04b-hit-keg-mpt-cop-nul-nve-nve.txt > hummann_pathways.spf
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/metaphlan_to_stamp.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/metaphlan_to_stamp.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/metaphlan_to_stamp.pl	2017-11-14 08:38:13.942742489 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/metaphlan_to_stamp.pl	2017-11-14 08:39:47.457963398 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ #Created by: Morgan Langille
+ 
+ #Note: metaphlan file must contain merged files
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/read_filter.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/read_filter.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/read_filter.pl	2017-11-14 08:38:13.944742494 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/read_filter.pl	2017-11-14 08:39:55.408982180 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_contaminant_filter.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_contaminant_filter.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_contaminant_filter.pl	2017-11-14 08:38:13.949742506 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_contaminant_filter.pl	2017-11-14 08:40:05.430005852 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_deconseq.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_deconseq.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_deconseq.pl	2017-11-14 08:38:13.947742501 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_deconseq.pl	2017-11-14 08:40:12.455022447 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_fastq_to_fasta.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_fastq_to_fasta.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_fastq_to_fasta.pl	2017-11-14 08:38:13.932742465 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_fastq_to_fasta.pl	2017-11-14 08:40:20.291040958 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_kraken.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_kraken.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_kraken.pl	2017-11-14 08:38:13.935742473 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_kraken.pl	2017-11-14 08:40:26.611055888 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_metaphlan2.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_metaphlan2.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_metaphlan2.pl	2017-11-14 08:38:13.942742489 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_metaphlan2.pl	2017-11-14 08:40:36.553079373 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_metaphlan.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_metaphlan.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_metaphlan.pl	2017-11-14 08:38:13.944742494 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_metaphlan.pl	2017-11-14 08:40:45.551100627 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_pear.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_pear.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_pear.pl	2017-11-14 08:38:13.949742506 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_pear.pl	2017-11-14 08:40:53.109118480 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_pre_humann.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_pre_humann.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_pre_humann.pl	2017-11-14 08:38:13.943742492 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_pre_humann.pl	2017-11-14 08:41:02.232140029 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_sra_to_fastq.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_sra_to_fastq.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_sra_to_fastq.pl	2017-11-14 08:38:13.945742496 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_sra_to_fastq.pl	2017-11-14 08:41:08.103153897 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_trimmomatic.pl microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_trimmomatic.pl
+--- microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da.orig/run_trimmomatic.pl	2017-11-14 08:38:13.933742468 -0600
++++ microbiome_helper-151b10528d2fe93dc19ddd8b22b9be6fda8c25da/run_trimmomatic.pl	2017-11-14 08:41:13.523166700 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;

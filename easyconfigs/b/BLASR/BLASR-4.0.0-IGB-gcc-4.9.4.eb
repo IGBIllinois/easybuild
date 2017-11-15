@@ -1,8 +1,8 @@
-# NOTE This easyblock does not work. Will update once GitSubmoduleMakeCp easyblock is finished. Use only for module.
-easyblock = 'ConfigureMake'
+easyblock = 'CMakeCp'
 
 name = 'BLASR'
 version = '4.0.0'
+commit = '8d086d7'
 
 homepage = 'https://github.com/PacificBiosciences/blasr'
 description = """ BLASR (Basic Local Alignment with Successive Refinement) rapidly maps 
@@ -12,29 +12,39 @@ description = """ BLASR (Basic Local Alignment with Successive Refinement) rapid
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
+
 source_urls = ['https://github.com/PacificBiosciences/blasr/archive/']
-sources = ['smrtanalysis-%(version)s.tar.gz']
+sources = [''smrtanalysis-4.0.0.tar.gz']
 
-dependencies = [('HDF5', '1.8.18')]
 
-skipsteps = ['configure']
+builddependencies = [('CMake','3.7.2')]
 
-prebuildopts = 'export HDF5LIBDIR=$EBROOTHDF5/lib &&'
-prebuildopts += 'export HDF5INCLUDEDIR=$EBROOTHDF5/include &&'
 
-# the STATIC= option is a workaround. Check details here:
-# https://github.com/PacificBiosciences/blasr/issues/4#issuecomment-44142749
-buildopts = ' STATIC= '
+dependencies = [
+	('HDF5', '1.8.18'),
+	('Boost','1.63.0','-Python-2.7.13'),
+	('HTSlib','1.4.1'),
+	
+]
 
-installopts = ' INSTALL_BIN_DIR=%(installdir)s/bin'
+separate_build_dir = True
+
+configopts = "-DHDF5_LIBRARIES=${EBROOTHDF5}/lib/ -DHDF5_INCLUDE_DIRS='${EBROOTHDF5}/include;${EBROOTXZ}/include -D${EBROOTHTSLIB}include -DPacBioBAM_build_shared:BOOL=True "
+
+parallel = 2
+
+binaries = ['blasr', 'sawriter', 'toAfg']
+libraries = ['external/pbbam/build/lib/libpbam.so'']
+files_to_copy = [(binaries, 'bin'),
+	(libraries,'lib')
+]
+
 
 sanity_check_paths = {
-    'files': ["blasr"],
-    'dirs': ["utils"],
+    'files': ['bin/blasr', 'bin/sawriter', 'bin/toAfg'],
+    'dirs': [],
 }
 
-modextrapaths = {
-	'PATH': '',
-}
 
 moduleclass = 'bio'
+

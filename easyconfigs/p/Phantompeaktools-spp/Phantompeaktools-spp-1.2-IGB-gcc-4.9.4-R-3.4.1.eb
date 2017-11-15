@@ -1,0 +1,36 @@
+easyblock = 'RPackage'
+
+name = 'Phantompeaktools-spp'
+version = '1.2'
+versionsuffix = '-R-%(rver)s'
+
+homepage = 'https://github.com/kundajelab/phantompeakqualtools'
+description = """Custom SPP for Phantompeaktools"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['spp_1.14.tar.gz']
+source_urls = ['https://github.com/kundajelab/phantompeakqualtools/raw/916b09f1b7edba4d47d61ce4930c78fd47e807d9/']
+
+hidden=True
+
+dependencies = [
+	('R','3.4.1'),
+	('Boost','1.59.0'),
+	('SAMtools','1.5'),
+]
+
+exts_filter = ("R -q --no-save", "library(spp)")
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['spp/libs/spp.so'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+moduleclass = 'bio'

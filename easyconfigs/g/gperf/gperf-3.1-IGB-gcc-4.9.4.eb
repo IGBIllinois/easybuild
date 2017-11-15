@@ -1,0 +1,28 @@
+easyblock = 'ConfigureMake'
+
+name = 'gperf'
+version = '3.1'
+
+homepage = 'https://www.gnu.org/software/gperf/'
+description = """ GNU gperf is a perfect hash function generator. For a given list of strings, it produces a hash function and hash table, in form of C or C++ code, for looking up a value depending on the input string. The hash function is perfect, which means that the hash table has no collisions, and the hash table lookup needs a single string comparison only. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['http://ftp.gnu.org/pub/gnu/gperf/']
+sources = [SOURCE_TAR_GZ]
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/gperf'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

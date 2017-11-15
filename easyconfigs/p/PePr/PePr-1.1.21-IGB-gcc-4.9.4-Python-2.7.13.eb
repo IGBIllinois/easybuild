@@ -1,0 +1,27 @@
+easyblock = 'PythonPackage'
+
+name = 'PePr'
+version = '1.1.21'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/shawnzhangyx/PePr'
+description = """PePr is a ChIP-Seq Peak-calling and Prioritization pipeline that uses a sliding window approach and models read counts across replicates and between groups with a negative binomial distribution."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '2.7.13'),
+]
+use_pip = True
+exts_defaultclass = "PythonPackage"
+exts_list = [
+    ('sharedmem', '0.3.5', {
+        'source_urls': ['https://pypi.python.org/packages/source/s/sharedmem'],
+    }),
+]
+
+exts_filter = ('python -c "import PePr"', "")
+moduleclass = 'bio'

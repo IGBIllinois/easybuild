@@ -1,0 +1,73 @@
+easyblock = 'PythonPackage'
+
+name = 'Tensorflow-GPU'
+version = '1.2.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://www.tensorflow.org/'
+description = "An open-source software library for Machine Intelligence"
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+pymaj = '3'
+pymin = '6'
+pyminor = '1'
+pymajmin = pymaj + pymin
+
+source_urls = [PYPI_SOURCE]
+sources = [
+    'tensorflow_gpu-%%(version)s-cp%(pymajmin)s-cp%(pymajmin)sm-manylinux1_x86_64.whl' % {'pymajmin': pymajmin},
+]
+
+dependencies = [
+	('Python', '3.6.1'),
+	('CUDA','8.0.61'),
+	('cuDNN','5.1','-CUDA-8.0.61'),
+   
+]
+
+use_pip = True
+unpack_sources = False
+
+exts_filter = ('python --version', "")
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+
+        ('protobuf', '3.3.0', {
+        'modulename': 'protobuf',
+        'source_urls': ["https://pypi.python.org/packages/source/p/protobuf/"],
+        'source_tmpl': SOURCE_TAR_GZ,
+}),
+
+	('google', '1.9.3', {
+        'modulename': 'google',
+        'source_urls': ["https://pypi.python.org/packages/source/g/google/"],
+        'source_tmpl': SOURCE_TAR_GZ,
+}),
+        ('mock', '2.0.0', {
+        'modulename': 'mock',
+        'source_urls': ["https://pypi.python.org/packages/source/m/mock/"],
+        'source_tmpl': SOURCE_TAR_GZ,
+}),
+        ('tensorflow-tensorboard', '0.4.0rc1', {
+        'modulename': 'tensorflow_tensorboard',
+        'source_urls': ["https://pypi.python.org/packages/source/t/tensorflow_tensorboard/"],
+        'source_tmpl': "tensorflow_tensorboard-0.4.0rc1-py3-none-any.whl",
+}),
+        ('beautifulsoup4', '4.6.0', {
+        'modulename': 'beatifulsoup',
+        'source_urls': ["https://pypi.python.org/packages/source/b/beautifulsoup4/"],
+        'source_tmpl': SOURCE_TAR_GZ,
+}),
+
+
+]
+
+sanity_check_paths = {
+    'files': ['bin/tensorboard'],
+    'dirs': ['lib/python%(pyshortver)s/site-packages'],
+}
+
+moduleclass = 'lib'
+

@@ -16,6 +16,10 @@ dependencies = [
         ('Python', '2.7.13'),
 ]
 
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
 exts_filter = ('python -c "import %(ext_name)s"', "")
 
 moduleclass = 'bio'

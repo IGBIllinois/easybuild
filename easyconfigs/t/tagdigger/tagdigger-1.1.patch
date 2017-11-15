@@ -1,0 +1,27 @@
+diff -ru tagdigger-1.1.orig/barcode_splitter_script.py tagdigger-1.1/barcode_splitter_script.py
+--- tagdigger-1.1.orig/barcode_splitter_script.py	2017-11-07 08:49:29.679705483 -0600
++++ tagdigger-1.1/barcode_splitter_script.py	2017-11-07 08:49:43.673742829 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python3
++#!/usr/bin/env python3
+ 
+ # non-interactive script for doing barcode splitting
+ 
+diff -ru tagdigger-1.1.orig/exp_frag_size.py tagdigger-1.1/exp_frag_size.py
+--- tagdigger-1.1.orig/exp_frag_size.py	2017-11-07 08:49:29.680705486 -0600
++++ tagdigger-1.1/exp_frag_size.py	2017-11-07 08:49:50.272760436 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python3
++#!/usr/bin/env python3
+ 
+ from bisect import bisect_left
+ import csv
+diff -ru tagdigger-1.1.orig/tagdigger_script.py tagdigger-1.1/tagdigger_script.py
+--- tagdigger-1.1.orig/tagdigger_script.py	2017-11-07 08:49:29.674705470 -0600
++++ tagdigger-1.1/tagdigger_script.py	2017-11-07 08:50:02.106792007 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python3
++#!/usr/bin/env python3
+ 
+ # script for running TagDigger in a non-interactive (scripted) way
+ 

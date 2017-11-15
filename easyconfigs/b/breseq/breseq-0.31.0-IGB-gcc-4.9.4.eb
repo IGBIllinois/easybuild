@@ -1,0 +1,32 @@
+easyblock = 'ConfigureMake'
+
+name = 'breseq'
+version = '0.31.0'
+
+homepage = 'https://github.com/barricklab/breseq'
+description = """is a computational pipeline for the analysis of short-read re-sequencing data (e.g. Illumina, 454, IonTorrent, etc.). It uses reference-based alignment approaches to predict mutations in a sample relative to an already sequenced genome."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ["https://github.com/barricklab/breseq/archive/"]
+
+dependencies = [('Bowtie2','2.1.0'),
+		('R','3.3.3')
+]
+
+preconfigopts = "sh bootstrap.sh && "
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/breseq'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

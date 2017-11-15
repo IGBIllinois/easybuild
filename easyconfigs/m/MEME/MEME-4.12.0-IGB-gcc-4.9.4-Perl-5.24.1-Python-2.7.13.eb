@@ -2,6 +2,7 @@ easyblock = 'ConfigureMake'
 
 name = 'MEME'
 version = '4.12.0'
+versionsuffix = '-Perl-%(perlver)s-Python-%(pyver)s'
 
 homepage = 'http://meme-suite.org/'
 description = """The MEME Suite allows you to: * discover motifs using MEME, DREME (DNA only) or
@@ -17,6 +18,8 @@ sources = ['meme_%(version)s.tar.gz']
 source_urls = ['http://meme-suite.org/meme-software/%(version)s/']
 
 dependencies = [
+    ('Perl','5.24.1'),
+    ('Python','2.7.13'),
     ('libxml2', '2.9.4'),
     ('libxslt', '1.1.29'),
     ('zlib', '1.2.11'),
@@ -25,6 +28,11 @@ dependencies = [
 sanity_check_paths = {
     'files': ["bin/meme"],
     'dirs': ["share", "lib"],
+}
+
+modextrapaths = {
+    'PERL5LIB': 'lib/perl',
+    'PYTHONPATH': 'lib/python',
 }
 
 moduleclass = 'bio'

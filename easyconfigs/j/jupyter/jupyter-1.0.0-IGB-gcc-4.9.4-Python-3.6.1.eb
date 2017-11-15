@@ -1,0 +1,27 @@
+easyblock = 'PythonPackagePip'
+
+name = 'jupyter'
+version = '1.0.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://jupyter.org/'
+description = """Project Jupyter exists to develop open-source software, open-standards, and services for interactive computing across dozens of programming languages."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+installopts = ""
+use_pip = True
+
+
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+moduleclass = 'tools'

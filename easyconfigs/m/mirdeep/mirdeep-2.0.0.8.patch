@@ -1,0 +1,315 @@
+diff -ru mirdeep2_0_0_8.orig/src/bwa_sam_converter.pl mirdeep2_0_0_8/src/bwa_sam_converter.pl
+--- mirdeep2_0_0_8.orig/src/bwa_sam_converter.pl	2017-10-23 15:02:41.854527258 -0500
++++ mirdeep2_0_0_8/src/bwa_sam_converter.pl	2017-10-23 15:03:32.560653598 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ use strict;
+ use Getopt::Std;
+ 
+diff -ru mirdeep2_0_0_8.orig/src/clip_adapters.pl mirdeep2_0_0_8/src/clip_adapters.pl
+--- mirdeep2_0_0_8.orig/src/clip_adapters.pl	2017-10-23 15:02:41.860527273 -0500
++++ mirdeep2_0_0_8/src/clip_adapters.pl	2017-10-23 15:03:32.603653706 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/collapse_reads_md.pl mirdeep2_0_0_8/src/collapse_reads_md.pl
+--- mirdeep2_0_0_8.orig/src/collapse_reads_md.pl	2017-10-23 15:02:41.852527253 -0500
++++ mirdeep2_0_0_8/src/collapse_reads_md.pl	2017-10-23 15:03:32.549653571 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/convert_bowtie_output.pl mirdeep2_0_0_8/src/convert_bowtie_output.pl
+--- mirdeep2_0_0_8.orig/src/convert_bowtie_output.pl	2017-10-23 15:02:41.853527256 -0500
++++ mirdeep2_0_0_8/src/convert_bowtie_output.pl	2017-10-23 15:03:32.553653581 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use strict;
+ 
+diff -ru mirdeep2_0_0_8.orig/src/excise_precursors_iterative_final.pl mirdeep2_0_0_8/src/excise_precursors_iterative_final.pl
+--- mirdeep2_0_0_8.orig/src/excise_precursors_iterative_final.pl	2017-10-23 15:02:41.857527266 -0500
++++ mirdeep2_0_0_8/src/excise_precursors_iterative_final.pl	2017-10-23 15:03:32.584653658 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/excise_precursors.pl mirdeep2_0_0_8/src/excise_precursors.pl
+--- mirdeep2_0_0_8.orig/src/excise_precursors.pl	2017-10-23 15:02:41.855527261 -0500
++++ mirdeep2_0_0_8/src/excise_precursors.pl	2017-10-23 15:03:32.568653619 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/extract_miRNAs.pl mirdeep2_0_0_8/src/extract_miRNAs.pl
+--- mirdeep2_0_0_8.orig/src/extract_miRNAs.pl	2017-10-23 15:02:41.850527248 -0500
++++ mirdeep2_0_0_8/src/extract_miRNAs.pl	2017-10-23 15:03:32.538653544 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use strict;
+ 
+diff -ru mirdeep2_0_0_8.orig/src/fastaparse.pl mirdeep2_0_0_8/src/fastaparse.pl
+--- mirdeep2_0_0_8.orig/src/fastaparse.pl	2017-10-23 15:02:41.863527281 -0500
++++ mirdeep2_0_0_8/src/fastaparse.pl	2017-10-23 15:03:32.635653786 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/fastaselect.pl mirdeep2_0_0_8/src/fastaselect.pl
+--- mirdeep2_0_0_8.orig/src/fastaselect.pl	2017-10-23 15:02:41.861527276 -0500
++++ mirdeep2_0_0_8/src/fastaselect.pl	2017-10-23 15:03:32.622653753 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/fastq2fasta.pl mirdeep2_0_0_8/src/fastq2fasta.pl
+--- mirdeep2_0_0_8.orig/src/fastq2fasta.pl	2017-10-23 15:02:41.865527286 -0500
++++ mirdeep2_0_0_8/src/fastq2fasta.pl	2017-10-23 15:03:32.675653885 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use strict;
+ 
+diff -ru mirdeep2_0_0_8.orig/src/find_read_count.pl mirdeep2_0_0_8/src/find_read_count.pl
+--- mirdeep2_0_0_8.orig/src/find_read_count.pl	2017-10-23 15:02:41.867527290 -0500
++++ mirdeep2_0_0_8/src/find_read_count.pl	2017-10-23 15:03:32.694653933 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/geo2fasta.pl mirdeep2_0_0_8/src/geo2fasta.pl
+--- mirdeep2_0_0_8.orig/src/geo2fasta.pl	2017-10-23 15:02:41.867527290 -0500
++++ mirdeep2_0_0_8/src/geo2fasta.pl	2017-10-23 15:03:32.691653925 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/get_mirdeep2_precursors.pl mirdeep2_0_0_8/src/get_mirdeep2_precursors.pl
+--- mirdeep2_0_0_8.orig/src/get_mirdeep2_precursors.pl	2017-10-23 15:02:41.859527271 -0500
++++ mirdeep2_0_0_8/src/get_mirdeep2_precursors.pl	2017-10-23 15:03:32.596653688 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ #######################################################################
+ #
+diff -ru mirdeep2_0_0_8.orig/src/illumina_to_fasta.pl mirdeep2_0_0_8/src/illumina_to_fasta.pl
+--- mirdeep2_0_0_8.orig/src/illumina_to_fasta.pl	2017-10-23 15:02:41.868527293 -0500
++++ mirdeep2_0_0_8/src/illumina_to_fasta.pl	2017-10-23 15:03:32.697653940 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/make_html2.pl mirdeep2_0_0_8/src/make_html2.pl
+--- mirdeep2_0_0_8.orig/src/make_html2.pl	2017-10-23 15:02:41.863527281 -0500
++++ mirdeep2_0_0_8/src/make_html2.pl	2017-10-23 15:03:32.644653808 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ 
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/make_html.pl mirdeep2_0_0_8/src/make_html.pl
+--- mirdeep2_0_0_8.orig/src/make_html.pl	2017-10-23 15:02:41.860527273 -0500
++++ mirdeep2_0_0_8/src/make_html.pl	2017-10-23 15:03:32.619653746 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ 
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/mapper.pl mirdeep2_0_0_8/src/mapper.pl
+--- mirdeep2_0_0_8.orig/src/mapper.pl	2017-10-23 15:02:41.864527283 -0500
++++ mirdeep2_0_0_8/src/mapper.pl	2017-10-23 15:03:32.650653823 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ ## last update 21/04/2016
+ 
+diff -ru mirdeep2_0_0_8.orig/src/mirdeep2bed.pl mirdeep2_0_0_8/src/mirdeep2bed.pl
+--- mirdeep2_0_0_8.orig/src/mirdeep2bed.pl	2017-10-23 15:02:41.858527268 -0500
++++ mirdeep2_0_0_8/src/mirdeep2bed.pl	2017-10-23 15:03:32.587653666 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl 
++#!/usr/bin/env perl 
+ 
+ use strict;
+ 
+diff -ru mirdeep2_0_0_8.orig/src/miRDeep2_core_algorithm.pl mirdeep2_0_0_8/src/miRDeep2_core_algorithm.pl
+--- mirdeep2_0_0_8.orig/src/miRDeep2_core_algorithm.pl	2017-10-23 15:02:41.865527286 -0500
++++ mirdeep2_0_0_8/src/miRDeep2_core_algorithm.pl	2017-10-23 15:03:32.662653853 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/miRDeep2.pl mirdeep2_0_0_8/src/miRDeep2.pl
+--- mirdeep2_0_0_8.orig/src/miRDeep2.pl	2017-10-23 15:02:41.857527266 -0500
++++ mirdeep2_0_0_8/src/miRDeep2.pl	2017-10-23 15:03:32.579653646 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/parse_mappings.pl mirdeep2_0_0_8/src/parse_mappings.pl
+--- mirdeep2_0_0_8.orig/src/parse_mappings.pl	2017-10-23 15:02:41.864527283 -0500
++++ mirdeep2_0_0_8/src/parse_mappings.pl	2017-10-23 15:03:32.653653830 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/perform_controls.pl mirdeep2_0_0_8/src/perform_controls.pl
+--- mirdeep2_0_0_8.orig/src/perform_controls.pl	2017-10-23 15:02:41.866527288 -0500
++++ mirdeep2_0_0_8/src/perform_controls.pl	2017-10-23 15:03:32.688653917 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/permute_structure.pl mirdeep2_0_0_8/src/permute_structure.pl
+--- mirdeep2_0_0_8.orig/src/permute_structure.pl	2017-10-23 15:02:41.859527271 -0500
++++ mirdeep2_0_0_8/src/permute_structure.pl	2017-10-23 15:03:32.600653698 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/prepare_signature.pl mirdeep2_0_0_8/src/prepare_signature.pl
+--- mirdeep2_0_0_8.orig/src/prepare_signature.pl	2017-10-23 15:02:41.851527251 -0500
++++ mirdeep2_0_0_8/src/prepare_signature.pl	2017-10-23 15:03:32.542653554 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/quantifier.pl mirdeep2_0_0_8/src/quantifier.pl
+--- mirdeep2_0_0_8.orig/src/quantifier.pl	2017-10-23 15:02:41.866527288 -0500
++++ mirdeep2_0_0_8/src/quantifier.pl	2017-10-23 15:03:32.685653910 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ ######################
+ 
+diff -ru mirdeep2_0_0_8.orig/src/remove_white_space_in_id.pl mirdeep2_0_0_8/src/remove_white_space_in_id.pl
+--- mirdeep2_0_0_8.orig/src/remove_white_space_in_id.pl	2017-10-23 15:02:41.865527286 -0500
++++ mirdeep2_0_0_8/src/remove_white_space_in_id.pl	2017-10-23 15:03:32.670653873 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/rna2dna.pl mirdeep2_0_0_8/src/rna2dna.pl
+--- mirdeep2_0_0_8.orig/src/rna2dna.pl	2017-10-23 15:02:41.862527278 -0500
++++ mirdeep2_0_0_8/src/rna2dna.pl	2017-10-23 15:03:32.632653778 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/samFLAGinfo.pl mirdeep2_0_0_8/src/samFLAGinfo.pl
+--- mirdeep2_0_0_8.orig/src/samFLAGinfo.pl	2017-10-23 15:02:41.854527258 -0500
++++ mirdeep2_0_0_8/src/samFLAGinfo.pl	2017-10-23 15:03:32.556653589 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ 
+ ## convert decimal number to binary and then to hexadecimal to get read FLAG identification 
+diff -ru mirdeep2_0_0_8.orig/src/sam_reads_collapse.pl mirdeep2_0_0_8/src/sam_reads_collapse.pl
+--- mirdeep2_0_0_8.orig/src/sam_reads_collapse.pl	2017-10-23 15:02:41.862527278 -0500
++++ mirdeep2_0_0_8/src/sam_reads_collapse.pl	2017-10-23 15:03:32.629653771 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ 
+ if(not $ARGV[1]){
+diff -ru mirdeep2_0_0_8.orig/src/sanity_check_genome.pl mirdeep2_0_0_8/src/sanity_check_genome.pl
+--- mirdeep2_0_0_8.orig/src/sanity_check_genome.pl	2017-10-23 15:02:41.861527276 -0500
++++ mirdeep2_0_0_8/src/sanity_check_genome.pl	2017-10-23 15:03:32.625653760 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -W
++#!/usr/bin/env perl -W
+ 
+ use strict;
+ 
+diff -ru mirdeep2_0_0_8.orig/src/sanity_check_mapping_file.pl mirdeep2_0_0_8/src/sanity_check_mapping_file.pl
+--- mirdeep2_0_0_8.orig/src/sanity_check_mapping_file.pl	2017-10-23 15:02:41.866527288 -0500
++++ mirdeep2_0_0_8/src/sanity_check_mapping_file.pl	2017-10-23 15:03:32.678653893 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -W
++#!/usr/bin/env perl -W
+ 
+ use strict;
+ my $rid;
+diff -ru mirdeep2_0_0_8.orig/src/sanity_check_mature_ref.pl mirdeep2_0_0_8/src/sanity_check_mature_ref.pl
+--- mirdeep2_0_0_8.orig/src/sanity_check_mature_ref.pl	2017-10-23 15:02:41.855527261 -0500
++++ mirdeep2_0_0_8/src/sanity_check_mature_ref.pl	2017-10-23 15:03:32.563653606 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -W
++#!/usr/bin/env perl -W
+ 
+ use strict;
+ 
+diff -ru mirdeep2_0_0_8.orig/src/sanity_check_reads_ready_file.pl mirdeep2_0_0_8/src/sanity_check_reads_ready_file.pl
+--- mirdeep2_0_0_8.orig/src/sanity_check_reads_ready_file.pl	2017-10-23 15:02:41.852527253 -0500
++++ mirdeep2_0_0_8/src/sanity_check_reads_ready_file.pl	2017-10-23 15:03:32.545653561 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -W
++#!/usr/bin/env perl -W
+ 
+ use strict;
+ 
+diff -ru mirdeep2_0_0_8.orig/src/select_for_randfold.pl mirdeep2_0_0_8/src/select_for_randfold.pl
+--- mirdeep2_0_0_8.orig/src/select_for_randfold.pl	2017-10-23 15:02:41.858527268 -0500
++++ mirdeep2_0_0_8/src/select_for_randfold.pl	2017-10-23 15:03:32.592653678 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;
+diff -ru mirdeep2_0_0_8.orig/src/survey.pl mirdeep2_0_0_8/src/survey.pl
+--- mirdeep2_0_0_8.orig/src/survey.pl	2017-10-23 15:02:41.856527263 -0500
++++ mirdeep2_0_0_8/src/survey.pl	2017-10-23 15:03:32.572653629 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use warnings;
+ use strict;

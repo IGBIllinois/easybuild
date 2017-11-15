@@ -1,0 +1,42 @@
+easyblock = 'Tarball'
+
+name = 'Falcon2Fastg'
+version = '0.3.1'
+versionsuffix = "-Python-%(pyver)s"
+
+homepage = 'https://github.com/md5sam/Falcon2Fastg'
+description = """This software converts the results of PacBio assembly using FALCON, to a FASTG graph that can be visualized using Bandage."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/md5sam/Falcon2Fastg/archive/']
+
+dependencies = [('Python','2.7.13'),
+	('Biopython','1.68','-Python-2.7.13')
+]
+
+keepsymlinks = True
+
+exts_defaultclass = 'PythonPackage'
+
+exts_list = [
+    ('pyfaidx', '0.5.1', {
+        'source_urls': ['https://pypi.python.org/packages/source/p/pyfaidx'],
+        'source_tmpl': SOURCE_TAR_GZ,
+    }),
+
+]
+
+
+sanity_check_paths = {
+	'files': ['Falcon2Fastg.py'],
+	'dirs': [],
+}
+
+exts_filter = ('python -c "from pyfaidx import Fasta"', "")
+
+modextrapaths = {'PATH':'','PYTHONPATH':'lib/python2.7/site-packages'
+}
+
+moduleclass = 'bio'
