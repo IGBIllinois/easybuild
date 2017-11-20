@@ -1,0 +1,22 @@
+diff -ru cisgenome_project.orig/cpp/tablesorter.cpp cisgenome_project/cpp/tablesorter.cpp
+--- cisgenome_project.orig/cpp/tablesorter.cpp	2017-11-17 09:07:59.712749744 -0600
++++ cisgenome_project/cpp/tablesorter.cpp	2017-11-17 09:08:26.577811114 -0600
+@@ -4,6 +4,7 @@
+ #include <vector>
+ #include <iostream>
+ #include <algorithm>
++#include <stdio.h>
+ 
+ #define LONG_LINE_LENGTH 65535
+ 
+diff -ru cisgenome_project.orig/cpp/tablesorter_str.cpp cisgenome_project/cpp/tablesorter_str.cpp
+--- cisgenome_project.orig/cpp/tablesorter_str.cpp	2017-11-17 09:07:59.712749744 -0600
++++ cisgenome_project/cpp/tablesorter_str.cpp	2017-11-17 09:08:38.387838094 -0600
+@@ -4,6 +4,7 @@
+ #include <vector>
+ #include <iostream>
+ #include <algorithm>
++#include <stdio.h>
+ 
+ #define LONG_LINE_LENGTH 65535
+ 

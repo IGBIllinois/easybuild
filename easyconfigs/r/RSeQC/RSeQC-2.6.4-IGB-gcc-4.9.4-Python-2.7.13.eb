@@ -1,0 +1,35 @@
+easyblock = 'PythonPackage'
+
+name = 'RSeQC'
+version = '2.6.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://rseqc.sourceforge.net/'
+description = """RSeQC package provides a number of useful modules that can comprehensively evaluate high throughput sequence data especially RNA-seq data. Some basic modules quickly inspect sequence quality, nucleotide composition bias, PCR bias and GC bias, while RNA-seq specific modules evaluate sequencing saturation, mapped reads distribution, coverage uniformity, strand specificity, transcript level RNA integrity etc."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '2.7.13'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+    ('bx-python', '0.7.3', {
+        'source_urls': ['https://pypi.python.org/packages/source/b/bx-python'],
+    }),
+]
+
+
+exts_filter = ('', "")
+
+
+sanity_check_paths = {
+        'files': ['bin/read_GC.py'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

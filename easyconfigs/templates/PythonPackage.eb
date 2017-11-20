@@ -22,4 +22,9 @@ exts_list = []
 
 exts_filter = ('python -c "import %(ext_name)s"', "")
 
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
 moduleclass = 'bio'

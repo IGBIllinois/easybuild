@@ -1,0 +1,38 @@
+easyblock = 'CmdCp'
+
+name = 'cisgenome'
+version = '2.0'
+
+homepage = 'http://www.biostat.jhsph.edu/~hji/cisgenome/'
+description = """An integrated tool for tiling array, ChIP-seq, genome and cis-regulatory element analysis"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(name)s_v%(version)s_linux.tar.gz']
+source_urls = ['http://jilab.biostat.jhsph.edu/software/cisgenome/executables/']
+
+dependencies = [
+]
+
+patches = ['cisgenome-%(version)s.patch']
+
+start_dir = 'cisgenome_project'
+
+cmds_map = [('.','./makefile')]
+
+with_configure = False
+
+keepsymlinks = True
+
+
+files_to_copy = ['bin']
+
+sanity_check_paths = {
+	'files': ['bin/flexmodule'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

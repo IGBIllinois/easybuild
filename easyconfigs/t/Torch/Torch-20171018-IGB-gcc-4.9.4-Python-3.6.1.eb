@@ -1,4 +1,4 @@
-easyblock = 'GitCloneConfigureMake'
+easyblock = 'GitCloneCmdCp'
 
 name = 'Torch'
 version = '20171018'
@@ -14,7 +14,7 @@ git_commit = '20e523771377568841e9d11bc3275a4404edcd1e'
 
 dependencies = [
 	('Python', '3.6.1'),
-	('Lua', '5.3.4'),
+	('IPython', '5.3.0',versionsuffix),
 	('CUDA', '8.0.61'),
 	('cURL', '7.53.1'),
 	('libreadline', '6.3'),
@@ -34,15 +34,15 @@ builddependencies = [
 	('CMake', '3.7.2'),
 ]
 
-configopts = ''
+start_dir = 'distro'
+cmds_map = [('.*','PREFIX=%(installdir)s ./install.sh -bs')]
+files_to_copy = []
+skipsteps = ['install']
+
 sanity_check_paths = {
-        'files': [],
+        'files': ['bin/th'],
         'dirs': [],
 }
-
-modextrapaths = {
-}
-
 
 moduleclass = 'bio'
 
