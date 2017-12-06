@@ -1,0 +1,31 @@
+easyblock = 'Tarball'
+
+name = 'DRL_SDCC'
+version = '0.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/MLJejuCamp2017/DRL_based_SelfDrivingCarControl'
+description = """Deep Reinforcement Learning-based Self Driving Car Control"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['3d83942bc7d58b67e179e9eca6b204ca6d5de15d.zip']
+source_urls = ['https://github.com/MLJejuCamp2017/DRL_based_SelfDrivingCarControl/archive']
+
+dependencies = [
+	('Python','3.6.1'),
+	('Tensorflow-GPU','1.2.1',versionsuffix),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['1_DQN.py'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': ''
+}
+
+moduleclass = 'bio'

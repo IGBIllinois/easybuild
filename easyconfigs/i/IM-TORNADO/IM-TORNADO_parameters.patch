@@ -1,0 +1,37 @@
+diff -ur imtornado2-2.0.3.3/scripts/tornado-params.sh imtornado2-2.0.3.3 2/scripts/tornado-params.sh
+--- imtornado2-2.0.3.3/scripts/tornado-params.sh	2016-01-26 20:10:00.000000000 -0600
++++ imtornado2-2.0.3.3 2/scripts/tornado-params.sh	2017-11-21 14:13:12.000000000 -0600
+@@ -73,7 +73,7 @@
+ 
+ #Name of the usearch version 7 binary. Could be the actual name,
+ #or some other name. It needs to be in the PATH
+-USEARCH7=usearch7
++USEARCH7=usearch
+ 
+ #(OPTIONAL) If you have VSEARCH, enter the name of the VSEARCH binary or a 64-bit USEARCH.
+ #Otherwise, leave empty.
+@@ -83,19 +83,19 @@
+ #limitations of 32-bit USEARCH.
+ #USE VSEARCH_OPTS to enter any VSEARCH-specific options for the usearch_global step
+ #e.g. VSEARCH_OPTS=--output_no_hits
+-VSEARCH=
++VSEARCH=vsearch
+ VSEARCH_OPTS=
+ 
+ #Name of the Fast Tree executable
+-FASTTREE=FastTreeMP
++FASTTREE=FastTree
+ 
+ #PATH to Trimmomatic jar file
+-TRIMMOMATIC=/path/to/trimmomatic-0.32.jar
++TRIMMOMATIC=$EBROOTTRIMMOMATIC/trimmomatic-0.36.jar
+ 
+ #Name of the GZip executable. If you have pigz (parallel gzip), enter it here.
+ #For example: GZIP="pigz -p $NPROC"
+-GZIP=gz
++GZIP=gzip
+ 
+ #Advanced settings. Do not modify unless you know what you are doing.
+-TORNADO2=/path/to/IM-TORNADO-2.0.3.3
++TORNADO2=$EBROOTIMMINTORNADO
+ DATA=$TORNADO2/data

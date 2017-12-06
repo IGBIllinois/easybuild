@@ -219,6 +219,9 @@ exts_list = [
     ('bitarray', '0.8.1', {
         'source_urls': ['https://pypi.python.org/packages/source/b/bitarray'],
     }),
+    ('Jinja2', '2.10', {
+        'source_urls': ['https://pypi.python.org/packages/source/j/Jinja2'],
+    }),
 ]
 
 moduleclass = 'lang'

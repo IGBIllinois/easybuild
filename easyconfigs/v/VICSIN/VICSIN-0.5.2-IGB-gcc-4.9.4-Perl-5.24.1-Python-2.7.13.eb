@@ -1,0 +1,42 @@
+easyblock = 'Tarball'
+
+name = 'VICSIN'
+version = '0.5.2'
+versionsuffix = '-Perl-%(perlver)s-Python-%(pyver)s'
+
+homepage = ''
+description = 'VICSIN = Viral, Integrative, and Conjugative Sequence Identification and Networking'
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/IGB-UIUC/VICSIN/archive']
+
+dependencies = [
+	('Python', '2.7.13'),
+	('Biopython', '1.68', '-Python-%(pyver)s'),
+	('Perl', '5.24.1'),
+	('Prodigal', '2.6.3', '', True),
+	('VirSorter', '20170215', '-Perl-%(perlver)s'),
+	('PhiSpy', '2.3', '-Python-%(pyver)s'),
+	('BLAST', '2.2.26', '-Linux_x86_64', True),
+	('BLAST+', '2.6.0'),
+	('Spine', '0.2.1'),
+	('AGEnt', '0.2.1'),
+	('MCL', '14.137'),
+]
+
+sanity_check_paths = {
+	'files': ['vicsin','Blast_to_MCL.1.py','MCLdump2clusters.pl','core_genome.py','genbank_to_fasta.py','gff_to_seed.pl'],
+	'dirs': ['modules'],
+}
+
+modextrapaths = {
+	'PATH': '',
+	'PERL5LIB': 'modules',
+}
+
+moduleclass = 'bio'
+
+
+

@@ -1,0 +1,30 @@
+easyblock = 'PythonPackage'
+
+name = 'pssh'
+version = '2.3.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/lilydjwg/pssh'
+description = """PSSH provides parallel versions of OpenSSH and related tools, including pssh, pscp, prsync, pnuke and pslurp. This project includes psshlib which can be used within custom applications."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/lilydjwg/pssh/archive']
+
+dependencies = [
+        ('Python', '2.7.13'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import psshlib"', "")
+
+sanity_check_paths = {
+        'files': ['bin/pssh'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

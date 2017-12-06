@@ -125,6 +125,9 @@ exts_list = [
     ('sympy', '1.1.1', {
         'source_urls': ['https://pypi.python.org/packages/source/s/sympy'],
     }),
+    ('Jinja2', '2.10', {
+        'source_urls': ['https://pypi.python.org/packages/source/j/Jinja2'],
+    }),
 ]
 
 moduleclass = 'lang'

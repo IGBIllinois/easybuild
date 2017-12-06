@@ -7,7 +7,7 @@
 easyblock = 'ConfigureMake'
 
 name = 'Ruby'
-version = '2.3.4'
+version = '2.4.2'
 
 homepage = 'https://www.ruby-lang.org'
 description = """Ruby is a dynamic, open source programming language with 
@@ -19,11 +19,15 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 sources = [SOURCELOWER_TAR_GZ]
 source_urls = ['http://cache.ruby-lang.org/pub/ruby/']
 
+dependencies = [
+	('zlib', '1.2.11'),
+]
+
 sanity_check_paths = {
-    'files': ['bin/ruby', 'bin/rake', 'bin/gem', 'bin/testrb', 'bin/erb',
-              'bin/ri', 'bin/irb', 'bin/rdoc', 'lib/libruby.so.2.1.0',
-              'lib/libruby-static.a', 'lib/libruby.%s' % SHLIB_EXT],
-    'dirs': ['lib/ruby/2.1.0', 'lib/ruby/gems', 'lib/pkgconfig', 'include/ruby-2.1.0']
+    'files': ['bin/ruby', 'bin/rake', 'bin/gem', 'bin/erb',
+              'bin/ri', 'bin/irb', 'bin/rdoc', 'lib/libruby.so.%(version)s',
+              'lib/libruby.%s' % SHLIB_EXT],
+    'dirs': ['lib/ruby/%(version_major_minor)s.0', 'lib/ruby/gems', 'lib/pkgconfig', 'include/ruby-%(version_major_minor)s.0']
 }
 
 configopts = "--disable-install-doc --enable-shared"

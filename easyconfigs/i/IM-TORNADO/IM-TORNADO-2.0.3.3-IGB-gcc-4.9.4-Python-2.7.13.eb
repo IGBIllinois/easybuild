@@ -1,0 +1,40 @@
+easyblock = 'Tarball'
+
+name = 'IM-TORNADO'
+version = '2.0.3.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/pjeraldo/imtornado2'
+description = """A pipeline for 16S reads from paired-end libraries"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/pjeraldo/imtornado2/archive']
+
+dependencies = [
+	('Python', '2.7.13'),
+	('Biopython', '1.68', versionsuffix),
+	('biom-format', '2.1.6', versionsuffix),
+	('USEARCH', '7.0.1090','',True),
+	('Mothur','1.39.5',versionsuffix),
+	('FastTree', '2.1.10'),
+	('genometools', '1.5.10'),
+	('Infernal', '1.1.2'),
+	('Trimmomatic', '0.36', '-Java-1.8.0_121', True),
+	('Perl', '5.24.1'),
+	('VSEARCH', '2.4.3'),
+]
+
+patches = [('IM-TORNADO_parameters.patch',1)]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/tornado_run_pipeline.sh'],
+	'dirs': ['data'],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

@@ -1,0 +1,30 @@
+easyblock = 'ModuleOnly'
+
+name = 'aspera'
+version = '3.7.6'
+
+homepage = 'http://asperasoft.com/'
+description = """Aspera’s unwavering mission is to create the next-generation software technologies that move the world’s data at maximum speed, regardless of file size, transfer distance and network conditions."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['aspera-cli-%(version)s.636.4d51a47-linux-64-release.sh']
+source_urls = ['http://download.asperasoft.com/download/sw/cli/%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'DRL_SDCC_Sim'
+version = '0.5'
+
+homepage = 'https://github.com/MLJejuCamp2017/DRL_based_SelfDrivingCarControl'
+description = """Simulator for use with DRL_SDCC"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['ADAS_linux.zip']
+source_urls = ['https://www.dropbox.com/s/38yb77sc56xusen/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['ADAS_linux.x86_64'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': ''
+}
+
+moduleclass = 'math'

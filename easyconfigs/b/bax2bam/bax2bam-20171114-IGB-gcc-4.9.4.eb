@@ -19,10 +19,6 @@ builddependencies = [('CMake','3.7.2')]
 
 
 dependencies = [
-	('HDF5', '1.8.18'),
-	('Boost','1.63.0','-Python-2.7.13'),
-	('HTSlib','1.4.1'),
-	('BLASR','4.0.0'),
 	
 ]
 
@@ -40,6 +36,17 @@ sanity_check_paths = {
     'dirs': [],
 }
 
+modextrapaths = {'PATH':'workspace/bax2bam/bin',
+	'LD_LIBRARY_PATH':['workspace/blasr_libcpp/alignment',
+			'workspace/blasr_libcpp/hdf',
+			'workspace/blasr_libcpp/pbdata',
+			'staging/hdf5-1.8.16/lib',
+			'staging/pbbam/lib',
+			
+
+]
+
+}
 
 moduleclass = 'bio'
 

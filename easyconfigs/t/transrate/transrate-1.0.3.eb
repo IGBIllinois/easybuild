@@ -1,0 +1,24 @@
+easyblock = 'Tarball'
+
+name = 'transrate'
+version = '1.0.3'
+
+homepage = 'http://hibberdlab.com/transrate/'
+description = """Transrate is software for de-novo transcriptome assembly quality analysis. It examines your assembly in detail and compares it to experimental evidence such as the sequencing reads, reporting quality scores for contigs and assemblies."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+source_urls = ['https://bintray.com/artifact/download/blahah/generic/']
+
+sources = ['transrate-%(version)s-linux-x86_64.tar.gz']
+
+
+dependencies = [
+]
+
+sanity_check_paths = {
+	'files': ['transrate'],
+	'dirs': [],
+}
+
+moduleclass = 'bio'
