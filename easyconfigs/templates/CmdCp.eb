@@ -1,0 +1,33 @@
+easyblock = 'CmdCp'
+
+name = ''
+version = ''
+
+homepage = ''
+description = """"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+cmds_map = [('.*', 'install.sh')]
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

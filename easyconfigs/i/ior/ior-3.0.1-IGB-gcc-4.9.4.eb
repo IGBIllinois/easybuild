@@ -1,0 +1,32 @@
+easyblock = 'ConfigureMake'
+
+name = 'ior'
+version = '3.0.1'
+
+homepage = 'https://github.com/LLNL/ior'
+description = """Parallel filesystem I/O benchmark"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/LLNL/ior/archive']
+sources = ['%(version)s.tar.gz']
+
+dependencies = [
+	('OpenMPI', '2.1.0'),
+]
+
+builddependencies = [
+	('Autotools', '20150215'),
+]
+
+preconfigopts = "./bootstrap &&"
+
+sanity_check_paths = {
+    'files': ["bin/ior"],
+    'dirs': ["share"]
+}
+
+
+moduleclass = 'mpi'
+
+

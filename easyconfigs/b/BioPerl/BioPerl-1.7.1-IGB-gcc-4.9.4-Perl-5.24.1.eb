@@ -21,8 +21,21 @@ sources = ['release-%s.zip' % version.replace('.', '-')]
 
 dependencies = [
     ('Perl', '5.24.1'),
+
 ]
 
 options = {'modulename': 'Bio::Perl'}
+
+exts_defaultclass = 'PerlModule'
+
+exts_list = [
+	('Bio::SearchIO::blastxml', '1.70', {
+		'source_tmpl': 'Bio-SearchIO-blastxml-1.70.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/'],
+	}),
+
+]
+
+exts_filter = ("perldoc -lm %(ext_name)s ", "")
 
 moduleclass = 'bio'

@@ -1,0 +1,29 @@
+diff -ru HiC-Pro-2.9.0.orig/config-install.txt HiC-Pro-2.9.0/config-install.txt
+--- HiC-Pro-2.9.0.orig/config-install.txt	2017-12-08 08:57:37.436123508 -0600
++++ HiC-Pro-2.9.0/config-install.txt	2017-12-08 09:47:32.850893892 -0600
+@@ -4,8 +4,8 @@
+ #########################################################################
+ 
+ PREFIX = 
+-BOWTIE2_PATH = 
+-SAMTOOLS_PATH = 
+-R_PATH = 
+-PYTHON_PATH = 
+-CLUSTER_SYS = 
++BOWTIE2_PATH = /home/apps/software/Bowtie2/2.3.2-IGB-gcc-4.9.4/bin
++SAMTOOLS_PATH = /home/apps/software/SAMtools/1.5-IGB-gcc-4.9.4/bin
++R_PATH = /home/apps/software/R/3.3.3-IGB-gcc-4.9.4/bin
++PYTHON_PATH = /home/apps/software/Python/2.7.13-IGB-gcc-4.9.4/bin
++CLUSTER_SYS = SLRUM
+diff -ru HiC-Pro-2.9.0.orig/Makefile HiC-Pro-2.9.0/Makefile
+--- HiC-Pro-2.9.0.orig/Makefile	2017-12-08 08:57:37.308123216 -0600
++++ HiC-Pro-2.9.0/Makefile	2017-12-08 09:52:01.984497653 -0600
+@@ -65,7 +65,7 @@
+ 
+ cp:
+ ifneq ($(realpath $(MK_PATH)), $(realpath $(INSTALL_PATH)))
+-	cp -Ri $(MK_PATH) $(INSTALL_PATH)
++	cp -Rf $(MK_PATH)/* $(INSTALL_PATH)/
+ endif
+ 	@echo "HiC-Pro installed in $(realpath $(INSTALL_PATH)) !"
+ 

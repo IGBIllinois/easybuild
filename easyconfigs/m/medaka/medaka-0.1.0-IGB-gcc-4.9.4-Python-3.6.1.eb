@@ -1,0 +1,28 @@
+easyblock = 'ModuleOnly'
+
+name = 'medaka'
+version = '0.1.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/nanoporetech/medaka'
+description = """Medaka demonstrates a framework for error correcting sequencing data, particularly aimed at nanopore sequencing. Tools are provided for both training and inference. The code exploits the keras deep learning library."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/nanoporetech/medaka/archive']
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+modextrapaths = {
+	'PYTHONPATH': 'lib/python3.6/site-packages',
+}
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python3.6'],
+}
+
+moduleclass = 'bio'

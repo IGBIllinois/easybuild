@@ -1,0 +1,32 @@
+easyblock = 'ModuleOnly'
+
+name = 'pomoxis'
+version = '0.1.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/nanoporetech/pomoxis'
+description = """Pomoxis contains a set of services to perform analysis of squiggles as they are produced in real-time along with fast pipelines for generating draft assemblies."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/nanoporetech/pomoxis/archive']
+
+dependencies = [
+        ('Python', '3.6.1'),
+        ('BWA', '0.7.15'),
+        ('miniasm', '0.2'),
+        ('minimap', '2.3'),
+        ('racon', '0.5.0', versionsuffix),
+]
+
+modextrapaths = {
+	'PYTHONPATH': 'lib/python3.6/site-packages',
+}
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['bin','lib/python3.6'],
+}
+
+moduleclass = 'bio'

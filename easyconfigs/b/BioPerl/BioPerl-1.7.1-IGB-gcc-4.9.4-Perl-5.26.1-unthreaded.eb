@@ -25,4 +25,12 @@ dependencies = [
 
 options = {'modulename': 'Bio::Perl'}
 
+exts_defaultclass = 'PerlModule'
+
+exts_list = [
+
+]
+
+exts_filter = ("perldoc -lm %(ext_name)s ", "")
+
 moduleclass = 'bio'

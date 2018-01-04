@@ -1,0 +1,31 @@
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+# Author: Pablo Escobar Lopez
+# sciCORE - University of Basel
+# SIB Swiss Institute of Bioinformatics 
+
+easyblock = 'CondaCustom'
+
+name = 'QIIME2'
+version = '2017.11'
+
+homepage = 'http://qiime.org/'
+description = """QIIME is an open-source bioinformatics pipeline for performing microbiome analysis
+ from raw DNA sequencing data."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+#requirements = "%(namelower)s=%(version)s matplotlib=1.4.3 mock nose"
+#requirements = "%(namelower)s-%(version)s"
+custom_file = "https://raw.githubusercontent.com/qiime2/environment-files/master/%(version)s/release/qiime2-%(version)s-conda-linux-64.txt"
+
+dependencies = []
+builddependencies = [('Anaconda2', '4.3.1')]
+
+sanity_check_paths = {
+    'files': ['bin/qiime'],
+    'dirs': ['lib/python3.5/site-packages/qiime2']
+}
+
+#sanity_check_commands = ['print_qiime_config.py -t']
+
+moduleclass = 'bio'

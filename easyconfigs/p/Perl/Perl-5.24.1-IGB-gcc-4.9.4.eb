@@ -1012,6 +1012,14 @@ exts_list = [
         'source_tmpl': 'PDF-API2-2.033.tar.gz',
         'source_urls': ['http://search.cpan.org/CPAN/authors/id/S/SS/SSIMMS/'],
     }),
+    ('XML::Writer', '0.625', {
+        'source_tmpl': 'XML-Writer-0.625.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/J/JO/JOSEPHW/'],
+    }),
+    ('Array::Utils', '0.5', {
+        'source_tmpl': 'Array-Utils-0.5.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/Z/ZM/ZMIJ/Array/'],
+    }),
 ]
 
 moduleclass = 'lang'

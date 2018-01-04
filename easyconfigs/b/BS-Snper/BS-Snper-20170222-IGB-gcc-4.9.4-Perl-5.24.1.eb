@@ -1,0 +1,37 @@
+easyblock = 'CmdCp'
+
+name = 'BS-Snper'
+version = '20170222'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/hellbelly/BS-Snper'
+description = """BS-SNPer is an ultrafast and memory-efficient package, a program for BS-Seq variation detection from alignments in standard BAM/SAM format using approximate Bayesian modeling."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['93c1616448d681175815a9a692d853f483b1e30b.zip']
+source_urls = ['https://github.com/hellbelly/BS-Snper/archive']
+
+dependencies = [
+	('Perl', '5.24.1'),
+	('zlib', '1.2.11'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+cmds_map = [('.*', 'bash BS-Snper.sh')]
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['chrLenExtract'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+moduleclass = 'bio'
