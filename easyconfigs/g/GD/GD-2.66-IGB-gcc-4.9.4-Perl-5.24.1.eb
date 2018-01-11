@@ -22,4 +22,23 @@ dependencies = [
     ('libjpeg-turbo', '1.5.1'),
 ]
 
+exts_defaultclass = "PerlModule"
+
+exts_list = [
+    ('GD::Text::Align', '0.86', {
+        'source_tmpl': 'GDTextUtil-0.86.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/M/MV/MVERB/'],
+    }),
+
+
+
+    ('GD::Graph::boxplot', '1.00', {
+        'source_tmpl': 'GDGraph-boxplot-1.00.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/G/GA/GAFFER/'],
+    }),
+]
+
+
+exts_filter = ("perldoc -lm %(ext_name)s ", "")
+
 moduleclass = 'bio'

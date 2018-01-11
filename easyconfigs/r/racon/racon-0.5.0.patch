@@ -1,0 +1,15 @@
+diff -ru racon-v0.5.0.orig/Makefile racon-v0.5.0/Makefile
+--- racon-v0.5.0.orig/Makefile	2018-01-05 13:22:14.641084998 -0600
++++ racon-v0.5.0/Makefile	2018-01-08 08:41:05.189200984 -0600
+@@ -34,8 +34,8 @@
+ # -I$(wildcard $(CODEBASE)/*/src/)
+ # -I"codebase/seqlib/src/"
+ 
+-CC_FLAGS_DEBUG = -O0 -g -rdynamic -c -fmessage-length=0 -ffreestanding -fopenmp -m64 -std=c++11 -Werror=return-type -pthread -march=native
+-CC_FLAGS_RELEASE = -O3 -fdata-sections -ffunction-sections -c -fmessage-length=0 -ffreestanding -fopenmp -m64 -std=c++11 -Werror=return-type -pthread -march=native
++CC_FLAGS_DEBUG = -O0 -g -rdynamic -c -fmessage-length=0 -ffreestanding -fopenmp -m64 -std=c++11 -Werror=return-type -pthread -mtune=generic
++CC_FLAGS_RELEASE = -O3 -fdata-sections -ffunction-sections -c -fmessage-length=0 -ffreestanding -fopenmp -m64 -std=c++11 -Werror=return-type -pthread -mtune=generic
+ LD_FLAGS = -static-libgcc -static-libstdc++ -m64 -ffreestanding
+ LD_LIBS = -lpthread -lgomp -lm -lz
+ 
+Only in racon-v0.5.0: racon-0.5.0.patch

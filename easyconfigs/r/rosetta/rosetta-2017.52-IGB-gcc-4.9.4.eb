@@ -1,0 +1,30 @@
+easyblock = 'ModuleOnly'
+
+name = 'rosetta'
+version = '2017.52'
+
+homepage = 'https://www.rosettacommons.org/'
+description = """The Rosetta software suite includes algorithms for computational modeling and analysis of protein structures. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://www.rosettacommons.org/downloads/academic/2017/wk52']
+sources = [SOURCE_TAR_GZ]
+
+dependencies = [('Python','2.7.13')
+
+]
+
+configopts = ''
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+keeppreviousinstall = True
+moduleclass = 'bio'
+
+

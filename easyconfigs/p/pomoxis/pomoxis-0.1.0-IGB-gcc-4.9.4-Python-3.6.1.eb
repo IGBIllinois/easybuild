@@ -1,4 +1,4 @@
-easyblock = 'ModuleOnly'
+easyblock = 'PythonPackage'
 
 name = 'pomoxis'
 version = '0.1.0'
@@ -18,6 +18,7 @@ dependencies = [
         ('miniasm', '0.2'),
         ('minimap', '2.3'),
         ('racon', '0.5.0', versionsuffix),
+	('SAMtools','1.5'),
 ]
 
 modextrapaths = {
@@ -28,5 +29,7 @@ sanity_check_paths = {
         'files': [],
         'dirs': ['bin','lib/python3.6'],
 }
+
+postinstallcmds = ['chmod 775 %(installdir)s/bin/*']
 
 moduleclass = 'bio'

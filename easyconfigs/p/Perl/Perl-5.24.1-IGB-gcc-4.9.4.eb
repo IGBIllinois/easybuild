@@ -10,6 +10,9 @@ toolchainopts = {'pic': True}
 source_urls = ['http://www.cpan.org/src/%(version_major)s.0']
 sources = [SOURCELOWER_TAR_GZ]
 
+builddependencies = [
+	('R','3.3.3'),
+]
 dependencies = [
     ('MariaDB', '5.5.54'),
     ('libxml2','2.9.4'),
@@ -1020,6 +1023,20 @@ exts_list = [
         'source_tmpl': 'Array-Utils-0.5.tar.gz',
         'source_urls': ['http://search.cpan.org/CPAN/authors/id/Z/ZM/ZMIJ/Array/'],
     }),
+    ('Bio::GFF3::LowLevel', '2.0', {
+        'source_tmpl': 'Bio-GFF3-2.0.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/R/RB/RBUELS/'],
+    }),
+    ('Parallel::ForkManager', '1.19', {
+        'source_tmpl': 'Parallel-ForkManager-1.19.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/Y/YA/YANICK/'],
+    }),
+
+    ('Statistics::R', '0.34', {
+        'source_tmpl': 'Statistics-R-0.34.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/F/FA/FANGLY/'],
+    }),
+
 ]
 
 moduleclass = 'lang'
