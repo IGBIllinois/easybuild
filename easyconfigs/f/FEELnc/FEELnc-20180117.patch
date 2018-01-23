@@ -1,0 +1,27 @@
+diff -ru FEELnc-master.orig/scripts/FEELnc_classifier.pl FEELnc-master/scripts/FEELnc_classifier.pl
+--- FEELnc-master.orig/scripts/FEELnc_classifier.pl	2018-01-17 08:55:44.834915134 -0600
++++ FEELnc-master/scripts/FEELnc_classifier.pl	2018-01-17 09:04:42.304262620 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ 
+ use strict;
+diff -ru FEELnc-master.orig/scripts/FEELnc_codpot.pl FEELnc-master/scripts/FEELnc_codpot.pl
+--- FEELnc-master.orig/scripts/FEELnc_codpot.pl	2018-01-17 08:55:44.835915136 -0600
++++ FEELnc-master/scripts/FEELnc_codpot.pl	2018-01-17 08:56:08.547974585 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ #
+ # Modification by V.Wucher april 16 2015:
+diff -ru FEELnc-master.orig/scripts/FEELnc_filter.pl FEELnc-master/scripts/FEELnc_filter.pl
+--- FEELnc-master.orig/scripts/FEELnc_filter.pl	2018-01-17 08:55:44.833915131 -0600
++++ FEELnc-master/scripts/FEELnc_filter.pl	2018-01-17 08:56:16.787995243 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl
+ 
+ # Perl libs
+ use warnings;

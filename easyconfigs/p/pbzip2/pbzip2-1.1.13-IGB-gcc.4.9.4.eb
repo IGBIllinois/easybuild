@@ -1,0 +1,32 @@
+easyblock = 'ConfigureMake'
+
+name = 'pbzip2'
+version = '1.1.13'
+
+homepage = 'http://compression.ca/pbzip2/'
+description = """PBZIP2 is a parallel implementation of the bzip2 block-sorting file compressor that uses pthreads and achieves near-linear speedup on SMP machines."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://launchpad.net/pbzip2/1.1/1.1.13/+download/']
+sources = [SOURCE_TAR_GZ]
+
+dependencies = [('bzip2','1.0.6')]
+
+skipsteps = ['configure']
+
+configopts = ''
+installopts = 'PREFIX=%(installdir)s'
+
+sanity_check_paths = {
+        'files': ['bin/pbzip2'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

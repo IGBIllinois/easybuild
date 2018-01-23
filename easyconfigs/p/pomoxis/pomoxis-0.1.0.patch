@@ -1,0 +1,41 @@
+diff -ur pomoxis.orig/Makefile pomoxis/Makefile
+--- pomoxis.orig/Makefile	2018-01-16 12:12:06.677450890 -0600
++++ pomoxis/Makefile	2018-01-16 13:59:40.470638086 -0600
+@@ -57,8 +57,7 @@
+ 	${IN_VENV} && pip install numpy # needs to get done before other things
+ 
+ 
+-install: venv | $(addprefix $(BINCACHEDIR)/, $(BINARIES))
+-	${IN_VENV} && pip install -r requirements.txt && python setup.py install
++install: $(addprefix $(BINCACHEDIR)/, $(BINARIES))
+ 
+ 
+ # You can set these variables from the command line.
+diff -ur pomoxis.orig/submodules/racon/codebase/seqlib/Makefile pomoxis/submodules/racon/codebase/seqlib/Makefile
+--- pomoxis.orig/submodules/racon/codebase/seqlib/Makefile	2018-01-16 12:12:03.017442343 -0600
++++ pomoxis/submodules/racon/codebase/seqlib/Makefile	2018-01-16 13:59:31.670617240 -0600
+@@ -27,8 +27,8 @@
+ CC_LIBS = -static-libgcc -static-libstdc++ -D__cplusplus=201103L
+ INCLUDE = -I"./src/" -I"/usr/include/"
+ 
+-CC_FLAGS_DEBUG = -DTEST_SEQ_LIB_ -O0 -g -rdynamic -c -fmessage-length=0 -ffreestanding -fopenmp -m64 -std=c++11 -Werror=return-type -pthread -march=native
+-CC_FLAGS_RELEASE = -DTEST_SEQ_LIB_ -O3 -fdata-sections -ffunction-sections -c -fmessage-length=0 -ffreestanding -fopenmp -m64 -std=c++11 -Werror=return-type -pthread -march=native
++CC_FLAGS_DEBUG = -DTEST_SEQ_LIB_ -O0 -g -rdynamic -c -fmessage-length=0 -ffreestanding -fopenmp -m64 -std=c++11 -Werror=return-type -pthread -mtune=generic
++CC_FLAGS_RELEASE = -DTEST_SEQ_LIB_ -O3 -fdata-sections -ffunction-sections -c -fmessage-length=0 -ffreestanding -fopenmp -m64 -std=c++11 -Werror=return-type -pthread -mtune=generic
+ LD_FLAGS = -static-libgcc -static-libstdc++ -m64 -ffreestanding
+ LD_LIBS = -lpthread -lgomp -lm -lz
+ 
+diff -ur pomoxis.orig/submodules/racon/Makefile pomoxis/submodules/racon/Makefile
+--- pomoxis.orig/submodules/racon/Makefile	2018-01-16 12:11:51.303414988 -0600
++++ pomoxis/submodules/racon/Makefile	2018-01-16 13:59:31.672617244 -0600
+@@ -34,8 +34,8 @@
+ # -I$(wildcard $(CODEBASE)/*/src/)
+ # -I"codebase/seqlib/src/"
+ 
+-CC_FLAGS_DEBUG = -O0 -g -rdynamic -c -fmessage-length=0 -ffreestanding -fopenmp -m64 -std=c++11 -Werror=return-type -pthread -march=native
+-CC_FLAGS_RELEASE = -O3 -fdata-sections -ffunction-sections -c -fmessage-length=0 -ffreestanding -fopenmp -m64 -std=c++11 -Werror=return-type -pthread -march=native
++CC_FLAGS_DEBUG = -O0 -g -rdynamic -c -fmessage-length=0 -ffreestanding -fopenmp -m64 -std=c++11 -Werror=return-type -pthread -mtune=generic
++CC_FLAGS_RELEASE = -O3 -fdata-sections -ffunction-sections -c -fmessage-length=0 -ffreestanding -fopenmp -m64 -std=c++11 -Werror=return-type -pthread -mtune=generic
+ LD_FLAGS = -static-libgcc -static-libstdc++ -m64 -ffreestanding
+ LD_LIBS = -lpthread -lgomp -lm -lz
+ 

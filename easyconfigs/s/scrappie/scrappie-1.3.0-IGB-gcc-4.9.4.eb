@@ -13,13 +13,14 @@ sources = ['release-%(version)s.tar.gz']
 
 dependencies = [
 	('HDF5', '1.8.18'),
+	('CUnit','2.1-3'),
 ]
 
 builddependencies = [
 	('CMake', '3.7.2'),
 ]
 
-configopts = ''
+configopts = '-DBUILD_SHARED_LIB=ON '
 sanity_check_paths = {
         'files': ['bin/scrappie'],
         'dirs': [],

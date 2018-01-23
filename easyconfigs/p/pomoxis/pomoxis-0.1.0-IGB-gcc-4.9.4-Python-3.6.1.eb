@@ -1,4 +1,4 @@
-easyblock = 'PythonPackage'
+easyblock = 'ModuleOnly'
 
 name = 'pomoxis'
 version = '0.1.0'
@@ -14,12 +14,10 @@ source_urls = ['https://github.com/nanoporetech/pomoxis/archive']
 
 dependencies = [
         ('Python', '3.6.1'),
-        ('BWA', '0.7.15'),
-        ('miniasm', '0.2'),
-        ('minimap', '2.3'),
-        ('racon', '0.5.0', versionsuffix),
-	('SAMtools','1.5'),
+	('Biopython','1.68','-Python-3.6.1')
 ]
+
+patches = ['pomoxis-0.1.0.patch']
 
 modextrapaths = {
 	'PYTHONPATH': 'lib/python3.6/site-packages',

@@ -1,0 +1,37 @@
+easyblock = 'Tarball'
+
+name = 'FEELnc'
+version = '20180117'
+commit = '9489347'
+
+homepage = 'https://github.com/tderrien/FEELnc'
+description = """This document is intended to give a technical description of the FEELnc pipeline in order to annotate long non-coding RNAs (lncRNAs) based on reconstructed transcripts from RNA-seq data (either with or without a reference genome). """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.tar.gz' % commit]
+source_urls = ['https://github.com/tderrien/FEELnc/archive/']
+
+dependencies = [('Perl','5.24.1'),
+	('R','3.3.3'),
+	('BioPerl','1.7.1','-Perl-5.24.1'),
+	
+]
+
+patches = ['FEELnc-20180117.patch']
+
+keepsymlinks = True
+
+
+sanity_check_paths = {
+	'files': ['bin/LINUX/KmerInShort','bin/LINUX/fasta_ushuffle'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':['bin/LINUX','scripts','utils'],
+	'PERL5LIB':'lib',
+	'FEELNCPATH':'',
+
+}
+
+moduleclass = 'bio'

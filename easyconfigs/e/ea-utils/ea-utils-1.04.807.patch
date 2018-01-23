@@ -1,0 +1,201 @@
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/affy-csv-to-bed.pl ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/affy-csv-to-bed.pl
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/affy-csv-to-bed.pl	2018-01-16 09:28:47.565889619 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/affy-csv-to-bed.pl	2018-01-16 09:29:40.351015433 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use strict;
+ use Data::Dumper;
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/affy-liftover.pl ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/affy-liftover.pl
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/affy-liftover.pl	2018-01-16 09:28:47.309889008 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/affy-liftover.pl	2018-01-16 09:29:39.112012479 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use strict;
+ use Getopt::Long;
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/aggregate-results-by-gene.pl ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/aggregate-results-by-gene.pl
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/aggregate-results-by-gene.pl	2018-01-16 09:28:47.567889623 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/aggregate-results-by-gene.pl	2018-01-16 09:29:40.370015478 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ #Copyright (c) 2012 Erik Aronesty (erik@q32.com)
+ #
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/alc ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/alc
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/alc	2018-01-16 09:28:47.566889621 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/alc	2018-01-16 09:29:40.360015454 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ # Copyright (c) 2011 Erik Aronesty (erik@q32.com)
+ # 
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/bwa-to-bowtie ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/bwa-to-bowtie
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/bwa-to-bowtie	2018-01-16 09:28:47.565889619 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/bwa-to-bowtie	2018-01-16 09:29:40.342015411 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ ####
+ #Copyright (c) 2012 Erik Aronesty (erik@q32.com)
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/contig-stats ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/contig-stats
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/contig-stats	2018-01-16 09:28:47.309889008 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/contig-stats	2018-01-16 09:29:39.117012491 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ #Copyright (c) 2012 Erik Aronesty
+ #
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/determine-phred ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/determine-phred
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/determine-phred	2018-01-16 09:28:47.518889507 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/determine-phred	2018-01-16 09:29:40.050014715 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ use strict;
+ 
+ my $ssiz=7000;			# sample size
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/fasta-qual-to-fastq ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/fasta-qual-to-fastq
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/fasta-qual-to-fastq	2018-01-16 09:28:47.566889621 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/fasta-qual-to-fastq	2018-01-16 09:29:40.355015442 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use EA;
+ 
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/fastq-clipper.cpp ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/fastq-clipper.cpp
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/fastq-clipper.cpp	2018-01-16 09:28:47.399889223 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/fastq-clipper.cpp	2018-01-16 09:29:39.547013516 -0600
+@@ -259,7 +259,7 @@
+ }
+ 
+ /*
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ my ($f, $a) = @ARGV;
+ 
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/fastq-to-fasta ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/fastq-to-fasta
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/fastq-to-fasta	2018-01-16 09:28:47.590889678 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/fastq-to-fasta	2018-01-16 09:29:40.665016181 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use Getopt::Long;
+ 
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/getgenbankannot ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/getgenbankannot
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/getgenbankannot	2018-01-16 09:28:47.565889619 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/getgenbankannot	2018-01-16 09:29:40.347015423 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use strict;
+ use Getopt::Long;
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/gff2gtf ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/gff2gtf
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/gff2gtf	2018-01-16 09:28:47.396889216 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/gff2gtf	2018-01-16 09:29:39.509013426 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ # Copyright (c) 2011 Erik Aronesty (erik@q32.com)
+ # 
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/grun ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/grun
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/grun	2018-01-16 09:28:47.567889623 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/grun	2018-01-16 09:29:40.389015523 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ #    grun - lightweight jobs queueing system
+ #    Copyright (C) 2011 Erik Aronesty
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/gtf2bed ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/gtf2bed
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/gtf2bed	2018-01-16 09:28:47.566889621 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/gtf2bed	2018-01-16 09:29:40.365015466 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ # Copyright (c) 2011 Erik Aronesty (erik@q32.com)
+ # 
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/merge-fifo ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/merge-fifo
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/merge-fifo	2018-01-16 09:28:47.399889223 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/merge-fifo	2018-01-16 09:29:39.552013528 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use Getopt::Long;
+ use IO::Select;
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/qsh ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/qsh
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/qsh	2018-01-16 09:28:47.304888997 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/qsh	2018-01-16 09:29:39.024012270 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use strict;
+ use Getopt::Long;
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/qsub ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/qsub
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/qsub	2018-01-16 09:28:47.568889626 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/qsub	2018-01-16 09:29:40.394015535 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ # qsub -pe smp ${NPROC} -S /bin/bash -V -q secondary -N ${JOB_ID} -o ${STDOUT_FILE} -e ${STDERR_FILE} ${EXTRAS} ${CMD}
+ 
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/randomFQ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/randomFQ
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/randomFQ	2018-01-16 09:28:47.301888989 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/randomFQ	2018-01-16 09:29:38.996012203 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ use strict;
+ use Getopt::Long;
+ 
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/sam-stats.pl ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/sam-stats.pl
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/sam-stats.pl	2018-01-16 09:28:47.590889678 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/sam-stats.pl	2018-01-16 09:29:40.655016157 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ # Copyright (c) 2011 Expression Analysis / Erik Aronesty
+ # 
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/varcall-matrix ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/varcall-matrix
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/varcall-matrix	2018-01-16 09:28:47.393889209 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/varcall-matrix	2018-01-16 09:29:39.486013371 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use strict;
+ 
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/xjoin ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/xjoin
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/xjoin	2018-01-16 09:28:47.396889216 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/xjoin	2018-01-16 09:29:39.515013440 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use strict;
+ use File::Temp;
+diff -ru ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/zhead ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/zhead
+--- ea-utils-27a480914f52b016d25567e639c55ce8f7557daa.orig/clipper/zhead	2018-01-16 09:28:47.398889221 -0600
++++ ea-utils-27a480914f52b016d25567e639c55ce8f7557daa/clipper/zhead	2018-01-16 09:29:39.533013483 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use Getopt::Long qw(:config pass_through);
+ 

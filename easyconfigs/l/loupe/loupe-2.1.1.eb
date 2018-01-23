@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'loupe'
+version = '2.1.1'
+
+homepage = 'https://support.10xgenomics.com/genome-exome/software/visualization/latest/what-is-loupe'
+description = """Loupe is a genome browser designed to visualize the Linked-Read data produced by the 10x Chromium Platform. Loupe is named for a jeweler's loupe, which is used to inspect gems."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['%(name)s-linux-%(version)s.tar.gz']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['start_loupe.sh'],
+	'dirs': [],
+}
+
+modextrapaths = {'LOUPE_SERVER':'',
+	'PATH':''
+}
+
+moduleclass = 'bio'

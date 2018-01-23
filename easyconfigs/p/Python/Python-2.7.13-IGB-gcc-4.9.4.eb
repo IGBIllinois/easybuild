@@ -222,6 +222,10 @@ exts_list = [
     ('Jinja2', '2.10', {
         'source_urls': ['https://pypi.python.org/packages/source/j/Jinja2'],
     }),
+    ('PyYAML', '3.12', {
+        'source_urls': ['https://pypi.python.org/packages/source/p/PyYAML'],
+        'modulename': 'yaml',
+    }),
 ]
 
 moduleclass = 'lang'
