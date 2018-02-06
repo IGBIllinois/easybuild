@@ -1,0 +1,30 @@
+easyblock = 'Tarball'
+
+name = 'DIYABC'
+version = '2.1.0'
+
+homepage = 'http://www1.montpellier.inra.fr/CBGP/diyabc/index.php'
+description = """a user-friendly approach to Approximate Bayesian Computation for inference on population history using molecular markers"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['%(name)s-%(version)s.zip']
+source_urls = ['http://www1.montpellier.inra.fr/CBGP/diyabc/download/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['diyabc_core-2.1.0-linux-x64'],
+	'dirs': [],
+}
+
+postinstallcmds = ['rm -fr %(installdir)s/*.zip',
+		'rm -fr %(installdir)s/*.exe',
+		'chmod 775 %(installdir)s/diyabc_core-2.1.0-linux-x64']
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

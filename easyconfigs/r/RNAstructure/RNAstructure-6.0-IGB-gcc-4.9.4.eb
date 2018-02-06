@@ -1,0 +1,32 @@
+easyblock = 'MakeCp'
+
+name = 'RNAstructure'
+version = '6.0'
+
+homepage = 'http://rna.urmc.rochester.edu/RNAstructure.html'
+description = """RNAstructure is a complete package for RNA and DNA secondary structure prediction and analysis. It includes algorithms for secondary structure prediction, including facility to predict base pairing probabilities. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['RNAstructureSource.tgz']
+source_urls = ['http://rna.urmc.rochester.edu/Releases/%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+buildopts = "all";
+files_to_copy = [(['exe/*'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/AccessFold','bin/AllSub'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
