@@ -1,4 +1,4 @@
-easyblock = 'RPackage'
+easyblock = 'RPackageCustom'
 
 name = 'Rmpi'
 version = '0.6-6'
@@ -7,6 +7,7 @@ homepage = 'https://cran.r-project.org/web/packages/%(name)s/index.html'
 description = """An interface (wrapper) to MPI APIs. It also provides interactive R manager and worker environment."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchainopts = {'opt': True, 'optarch': True, 'pic': True}
 
 source_urls = [
 	'http://cran.r-project.org/src/contrib/',
@@ -15,10 +16,10 @@ source_urls = [
 sources = ['%(name)s_%(version)s.tar.gz']
 
 r = 'R'
-rver = '3.3.3'
+rver = '3.4.2'
 versionsuffix = '-%s-%s' % (r,rver)
 
-configureargs = ["--with-Rmpi-type=OPENMPI "]
+install_args = ["--with-Rmpi-type=OPENMPI "]
 
 dependencies = [
 	(r,rver),
