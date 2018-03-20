@@ -1,0 +1,31 @@
+easyblock = 'PythonPackage'
+
+name = 'pgmpy'
+version = '20180320'
+versionsuffix = '-Python-%(pyver)s'
+commit = "e45f746"
+
+homepage = 'https://github.com/pgmpy/pgmpy'
+description = """pgmpy is a python library for working with Probabilistic Graphical Models."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.tar.gz' % commit ]
+source_urls = ['https://github.com/pgmpy/pgmpy/archive/']
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python3.6/site-packages/pgmpy-0.1.6-py3.6.egg'],
+}
+
+moduleclass = 'bio'

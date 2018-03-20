@@ -1,0 +1,36 @@
+easyblock = 'CMakeMake'
+
+name = 'gossamer'
+version = '20170105'
+
+homepage = 'https://github.com/data61/gossamer'
+description = """The gossamer bioinformatics suite contains goss, gossple, xenome, and electus"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/data61/gossamer/archive']
+sources = ['8a3c20c969e5cee2b23774292fceacdd78d6a644.zip']
+
+dependencies = [
+	('Boost', '1.63.0'),
+	('zlib', '1.2.11'),
+	('bzip2', '1.0.6'),
+	('SQLite', '3.17.0'),
+]
+builddependencies = [
+	('CMake', '3.7.2'),
+]
+
+configopts = '-DBUILD_docs=OFF' # Don't build the documentation so we don't Pandoc
+sanity_check_paths = {
+        'files': ['bin/goss','bin/gossple','bin/xenome','bin/electus'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

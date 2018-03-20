@@ -1,0 +1,70 @@
+diff --new-file -ru sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca.orig/home.path sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca/home.path
+--- sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca.orig/home.path	1969-12-31 18:00:00.000000000 -0600
++++ sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca/home.path	2018-03-20 13:21:01.640598665 -0500
+@@ -0,0 +1 @@
++/home/apps/software/SEPP/20180223-IGB-gcc-4.9.4-Python-2.7.13
+diff --new-file -ru sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca.orig/main.config sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca/main.config
+--- sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca.orig/main.config	1969-12-31 18:00:00.000000000 -0600
++++ sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca/main.config	2018-03-20 13:21:28.307665005 -0500
+@@ -0,0 +1,24 @@
++[pplacer]
++path=pplacer
++
++[hmmalign]
++path=hmmalign
++
++[hmmsearch]
++path=hmmsearch
++piped=False
++elim=10000
++filters=True
++
++[hmmbuild]
++path=hmmbuild
++
++[jsonmerger]
++path=/home/apps/software/SEPP/20180223-IGB-gcc-4.9.4-Python-2.7.13/seppJsonMerger.jar
++
++[exhaustive]
++strategy = centroid
++minsubsetsize = 2
++placementminsubsetsizefacotr = 4
++placer = pplacer
++weight_placement_by_alignment = True
+diff --new-file -ru sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca.orig/tipp.config sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca/tipp.config
+--- sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca.orig/tipp.config	1969-12-31 18:00:00.000000000 -0600
++++ sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca/tipp.config	2018-03-20 13:20:45.165557651 -0500
+@@ -0,0 +1,33 @@
++[pplacer]
++path=pplacer
++
++[hmmalign]
++path=hmmalign
++
++[hmmsearch]
++path=hmmsearch
++piped=False
++elim=10000
++filters=True
++
++[hmmbuild]
++path=hmmbuild
++
++[jsonmerger]
++path=/home/apps/SEPP/20180223-IGB-gcc-4.9.4-Python-2.7.13/tippJsonMerger.jar
++
++[exhaustive]
++strategy = centroid
++minsubsetsize = 2
++placementminsubsetsizefacotr = 4
++placer = pplacer
++weight_placement_by_alignment = True
++
++[blast]
++path=blastn
++
++[reference]
++path=None
++
++[tipp]
++pushdown = true

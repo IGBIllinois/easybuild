@@ -16,10 +16,23 @@ dependencies = [
         ('Python', '2.7.13'),
 	('ConsensusCore', '1.0.1', versionsuffix),
 	('h5py','2.7.0',versionsuffix),
+	('Cython','0.27.3',versionsuffix),
 ]
 
-use_setup_py_develop = True
+patches = ['GenomicConsensus-3.0.2.patch']
 
-exts_filter = ('python -c "import GenomicConsensus"', "")
+use_pip = False
+
+exts_filter = ("", '')
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('pbcore', '1.2.10', {
+        'source_urls': ['https://pypi.python.org/packages/source/p/pbcore']
+    }),
+
+
+]
+
 
 moduleclass = 'bio'

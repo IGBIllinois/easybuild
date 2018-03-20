@@ -1,0 +1,30 @@
+easyblock = 'PythonPackage'
+
+name = 'NucleoATAC'
+version = '0.3.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://nucleoatac.readthedocs.io/en/latest/'
+description = """NucleoATAC is a python package for calling nucleosome positions and occupancy using ATAC-Seq data. Functions for calling nucleosomes are included in the nucleoatac command-line function. NucleoATAC also includes other utlities for working with ATAC-seq data under the pyatac function."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '2.7.13'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/nucleoatac'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,31 @@
+easyblock = 'PythonPackage'
+
+name = 'epic'
+version = '0.2.9'
+versionsuffix = '-Python-%(pyver)s'
+commit = '6da14a1'
+
+homepage = 'https://github.com/biocore-ntnu/epic'
+description = """epic is a software package for finding medium to diffusely enriched domains in chip-seq data. It is a fast, parallel and memory-efficient implementation of the incredibly popular SICER algorithm. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.tar.gz' % commit]
+source_urls = ['https://github.com/biocore-ntnu/epic/archive']
+
+dependencies = [
+        ('Python', '2.7.13'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/epic'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

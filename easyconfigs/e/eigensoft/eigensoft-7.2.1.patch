@@ -1,0 +1,45 @@
+diff -ru EIG-7.2.1.orig/bin/evec2pca-ped.perl EIG-7.2.1/bin/evec2pca-ped.perl
+--- EIG-7.2.1.orig/bin/evec2pca-ped.perl	2018-02-19 15:16:16.887072301 -0600
++++ EIG-7.2.1/bin/evec2pca-ped.perl	2018-02-19 15:16:31.245113816 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ ### translate .evec file to .pca file expected by eigenstrat program
+ ### Note: .evec file does not contain entries for outliers
+diff -ru EIG-7.2.1.orig/bin/evec2pca.perl EIG-7.2.1/bin/evec2pca.perl
+--- EIG-7.2.1.orig/bin/evec2pca.perl	2018-02-19 15:16:16.887072301 -0600
++++ EIG-7.2.1/bin/evec2pca.perl	2018-02-19 15:16:39.669138173 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ ### translate .evec file to .pca file expected by eigenstrat program
+ ### Note: .evec file does not contain entries for outliers
+diff -ru EIG-7.2.1.orig/bin/gc.perl EIG-7.2.1/bin/gc.perl
+--- EIG-7.2.1.orig/bin/gc.perl	2018-02-19 15:16:16.886072298 -0600
++++ EIG-7.2.1/bin/gc.perl	2018-02-19 15:16:47.812161717 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ $P = $ARGV[0];
+ $out = $ARGV[1];
+diff -ru EIG-7.2.1.orig/bin/smarteigenstrat.perl EIG-7.2.1/bin/smarteigenstrat.perl
+--- EIG-7.2.1.orig/bin/smarteigenstrat.perl	2018-02-19 15:16:16.886072298 -0600
++++ EIG-7.2.1/bin/smarteigenstrat.perl	2018-02-19 15:16:57.044188410 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ # perl wrapper for smarteigenstrat program.  Run smarteigenstrat.perl with no options for usage
+ 
+diff -ru EIG-7.2.1.orig/bin/smartpca.perl EIG-7.2.1/bin/smartpca.perl
+--- EIG-7.2.1.orig/bin/smartpca.perl	2018-02-19 15:16:16.887072301 -0600
++++ EIG-7.2.1/bin/smartpca.perl	2018-02-19 15:17:03.636207470 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ use Getopt::Std ;
+ use File::Basename ;

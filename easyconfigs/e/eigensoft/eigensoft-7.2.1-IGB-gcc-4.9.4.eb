@@ -1,0 +1,38 @@
+easyblock = 'MakeCp'
+
+name = 'eigensoft'
+version = '7.2.1'
+
+homepage = 'https://github.com/DReichLab/EIG'
+description = """The EIGENSOFT package combines functionality from our population genetics methods (Patterson et al. 2006) and our EIGENSTRAT stratification correction method (Price et al. 2006). """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/DReichLab/EIG/archive/']
+
+dependencies = [('GSL','2.3'),
+	('Perl','5.24.1'),
+
+]
+
+patches = ['eigensoft-7.2.1.patch']
+
+start_dir = 'src'
+
+keepsymlinks = True
+
+with_configure = False
+
+buildopts = "; make install "
+files_to_copy = ['bin','LICENSE.txt','README']
+
+sanity_check_paths = {
+	'files': ['bin/smartpca'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

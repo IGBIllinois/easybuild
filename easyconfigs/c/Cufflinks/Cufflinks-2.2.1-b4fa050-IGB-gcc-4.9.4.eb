@@ -1,7 +1,9 @@
-easyblock = 'ConfigureMake'
+easyblock = 'GitCloneConfigureMake'
 
 name = 'Cufflinks'
 version = '2.2.1'
+git_commit = 'b4fa050'
+versionsuffix = "-%s" % git_commit
 
 homepage = 'http://cole-trapnell-lab.github.io/cufflinks/'
 description = """Transcript assembly, differential expression, and differential regulation for RNA-Seq"""
@@ -9,17 +11,21 @@ description = """Transcript assembly, differential expression, and differential 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 #toolchainopts = {'optarch': True, 'pic': True}
 
-sources = ['cufflinks-%(version)s.tar.gz']
-source_urls = ['http://cole-trapnell-lab.github.io/cufflinks/assets/downloads/']
+sources = ['https://github.com/cole-trapnell-lab/cufflinks.git']
 
+builddependencies = [
+	('Autotools','20150215'),
+]
 dependencies = [
     ('Boost', '1.63.0'),
-    ('SAMtools', '0.1.20'),
+    ('HTSlib', '1.5'),
     ('Eigen', '3.3.3'),
     ('zlib', '1.2.11'),
 ]
 
-configopts = '--with-boost=$EBROOTBOOST --with-bam=$EBROOTSAMTOOLS --enable-intel64 --enable-vectorize'
+start_dir = 'cufflinks'
+preconfigopts = "autoreconf -fiv && "
+configopts = '--with-boost=$EBROOTBOOST --with-bam=$EBROOTHTSLIB --enable-intel64 --enable-vectorize'
 #preconfigopts = 'env CPPFLAGS="-I$EBROOTEIGEN/include $CPPFLAGS" LDFLAGS="-lboost_system -lhts $LDFLAGS" '
 
 sanity_check_paths = {

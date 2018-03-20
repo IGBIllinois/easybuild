@@ -15,13 +15,15 @@ source_urls = [
 ]
 
 sources = [SOURCELOWER_TAR_GZ]
-checksums = ['dd2148b740713ca0295442ec683d7b1c']
 
+configopts = '--enable-threadsafe --enable-production --enable-fortran --enable-cxx --enable-parallel'
 buildopts = 'CXXFLAGS="$CXXFLAGS -DMPICH_IGNORE_CXX_SEEK"'
 
 dependencies = [
-    ('zlib', '1.2.11'),
-    ('Szip', '2.1.1'),
+	('zlib', '1.2.11'),
+	('Szip', '2.1.1'),
+	('libxml2','2.9.4'),
+
 ]
 
 moduleclass = 'data'

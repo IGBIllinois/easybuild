@@ -1,0 +1,54 @@
+easyblock = 'PythonPackage'
+
+name = 'SEPP'
+version = '20180223'
+versionsuffix = '-Python-%(pyver)s'
+commit = "391efc1"
+
+homepage = 'https://github.com/smirarab/sepp'
+description = """SEPP stands for "SATe-enabled Phylogenetic Placement", and addresses the problem of phylogenetic placement of short reads into reference alignments and trees."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.tar.gz' % commit]
+source_urls = ['https://github.com/smirarab/sepp/archive/']
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('pplacer','1.1.alpha19','',True),
+	('HMMER','3.1b2'),
+	('Java','1.8.0_152','',True),
+	('BLAST','2.2.26-Linux_x86_64','',True)
+
+]
+
+patches = [('SEPP-20180223.patch',1)]
+
+#prebuildopts = "python setup.py config -c ;"
+#buildopts = "; python setup.py tipp -c "
+postinstallcmds = [
+	'cp %(builddir)s/sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca/tools/merge/tippJsonMerger.jar %(installdir)s/',
+	'cp %(builddir)s/sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca/tools/merge/seppJsonMerger.jar %(installdir)s/',
+	'cp %(builddir)s/sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca/main.config %(installdir)s/',
+	'cp %(builddir)s/sepp-391efc18d89d1251261aecf19ca1a14fb8f148ca/tipp.config %(installdir)s/',
+]
+
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('DendroPy', '4.3.0', {
+		'modulename': 'dendropy',
+		'source_urls': ['https://pypi.python.org/packages/source/d/dendropy'],
+		'source_tmpl': 'DendroPy-%(version)s.tar.gz',
+	}),
+]
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/run_sepp.py'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

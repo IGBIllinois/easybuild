@@ -14,6 +14,7 @@ sources = ['%s.zip' % commit]
 
 dependencies = [('Perl','5.24.1'),
 		('Python','2.7.13'),
+		('biom-format','2.1.6','-Python-2.7.13'),
 		('R','3.3.3')
 ]
 

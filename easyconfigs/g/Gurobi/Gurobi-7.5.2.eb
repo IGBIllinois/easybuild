@@ -1,0 +1,34 @@
+easyblock = 'Tarball'
+
+name = 'Gurobi'
+version = '7.5.2'
+
+homepage = 'http://www.gurobi.com/'
+description = """The Gurobi Optimizer was designed from the ground up to be the fastest, most powerful solver available for your LP, QP, QCP, and MIP (MILP, MIQP, and MIQCP) problems."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['gurobi%(version)s_linux64.tar.gz']
+source_urls = ['http://packages.gurobi.com/7.5/']
+
+dependencies = [('Python','2.7.13','-IGB-gcc-4.9.4')
+]
+
+keepsymlinks = True
+
+patches = [('Gurobi-7.5.2.patch',2)]
+
+sanity_check_paths = {
+	'files': ['bin/gurobi_cl'],
+	'dirs': [],
+}
+
+
+modextrapaths = {'GUROBI_HOME':''
+
+}
+
+modextravars = {'GRB_LICENSE_FILE':'%(installdir)s/gurobi.lic'
+
+}
+moduleclass = 'math'

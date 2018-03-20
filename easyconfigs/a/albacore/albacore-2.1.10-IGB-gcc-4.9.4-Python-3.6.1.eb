@@ -1,0 +1,39 @@
+easyblock = 'PythonPackage'
+
+name = 'albacore'
+version = '2.1.10'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://nanoporetech.com/'
+description = """Local basecalling for MinKNOW"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ["ont_albacore-2.1.10-cp36-cp36m-manylinux1_x86_64.whl"]
+source_urls = ["https://americas.oxfordnanoportal.com/software/analysis/"]
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('numpy','1.14.1',"-Python-3.6.1"),
+]
+
+use_pip = True
+unpack_sources = False
+
+exts_defaultclass = 'PythonPackage'
+
+exts_list = [
+    ('progressbar33', '2.4', {
+        'modulename': 'progressbar',
+        'source_urls': [PYPI_SOURCE],
+        'source_tmpl': SOURCE_TAR_GZ,
+    }),
+    ('ont-fast5-api', '0.4.1', {
+	'modulename': 'ont_fast5_api',
+        'source_urls': [PYPI_SOURCE],
+        'source_tmpl': SOURCE_TAR_GZ,
+    }),
+]
+exts_filter = ('', "")
+
+moduleclass = 'bio'

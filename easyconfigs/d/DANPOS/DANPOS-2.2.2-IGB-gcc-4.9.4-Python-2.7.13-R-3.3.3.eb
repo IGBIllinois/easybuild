@@ -1,0 +1,33 @@
+easyblock = 'Tarball'
+
+name = 'DANPOS'
+version = '2.2.2'
+versionsuffix = '-Python-%(pyver)s-R-%(rver)s'
+
+homepage = 'https://sites.google.com/site/danposdoc/news'
+description = """A toolkit for Dynamic Analysis of Nucleosome and Protein Occupancy by Sequencing, version 2"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(namelower)s-%(version)s.tgz']
+source_urls = ['http://lilab.research.bcm.edu/dldcc-web/lilab/kaifuc/danpos/release']
+
+dependencies = [
+	('R', '3.3.3'),
+	('Python', '2.7.13'),
+	('SAMtools','1.5'),
+	('rpy2','2.8.6',versionsuffix),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['danpos.py'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+moduleclass = 'bio'

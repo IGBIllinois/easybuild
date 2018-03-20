@@ -1,0 +1,16 @@
+diff -ru --new-file gurobi752.orig/linux64/gurobi.lic gurobi752/linux64/gurobi.lic
+--- gurobi752.orig/linux64/gurobi.lic	1969-12-31 18:00:00.000000000 -0600
++++ gurobi752/linux64/gurobi.lic	2018-02-14 13:09:04.246128165 -0600
+@@ -0,0 +1,12 @@
++# License ID 221497
++# Gurobi license for University of Illinois
++ORGANIZATION=University of Illinois
++TYPE=TOKEN
++TOKENSERVER=license-server.igb.illinois.edu
++HOSTNAME=license-server.igb.illinois.edu
++HOSTID=94e70e
++EXPIRATION=2019-02-12
++VERSION=7
++USELIMIT=4096
++DISTRIBUTED=100
++KEY=F6UIA7X2

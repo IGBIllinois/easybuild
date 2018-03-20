@@ -1,0 +1,36 @@
+easyblock = 'MakeCp'
+
+name = 'FLASH2'
+version = '2.2.00'
+
+homepage = 'https://github.com/dstreett/FLASH2'
+description = """FLASH (Fast Length Adjustment of SHort reads) is an accurate and fast tool
+to merge paired-end reads that were generated from DNA fragments whose
+lengths are shorter than twice the length of reads.  Merged read pairs result
+in unpaired longer reads, which are generally more desired in genome
+assembly and genome analysis processes."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/dstreett/FLASH2/archive']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['flash2']
+
+sanity_check_paths = {
+	'files': ['flash2'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+moduleclass = 'bio'

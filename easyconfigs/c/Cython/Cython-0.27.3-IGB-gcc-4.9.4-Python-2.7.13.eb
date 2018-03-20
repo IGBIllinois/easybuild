@@ -1,0 +1,30 @@
+easyblock = 'PythonPackage'
+
+name = 'Cython'
+version = '0.27.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://cython.org/'
+description = """Cython is an optimising static compiler for both the Python programming language and the extended Cython programming language (based on Pyrex). It makes writing C extensions for Python as easy as Python itself. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '2.7.13'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/cython'],
+        'dirs': [],
+}
+
+moduleclass = 'lang'

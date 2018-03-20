@@ -1,0 +1,28 @@
+easyblock = 'ConfigureMake'
+
+name = 'jansson'
+version = '2.6'
+
+homepage = 'http://www.digip.org/jansson/'
+description = """Jansson is a C library for encoding, decoding and manipulating JSON data. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['http://www.digip.org/jansson/releases/']
+sources = [SOURCE_TAR_GZ]
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['lib/libjansson.so'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'lib'
+
+

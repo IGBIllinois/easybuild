@@ -1,0 +1,30 @@
+easyblock = 'PythonPackage'
+
+name = 'Porechop'
+version = '0.2.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/rrwick/Porechop'
+description = """Porechop is a tool for finding and removing adapters from Oxford Nanopore reads."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/rrwick/Porechop/archive/']
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/porechop'],
+        'dirs': ['lib/python3.6/site-packages/porechop'],
+}
+
+moduleclass = 'bio'

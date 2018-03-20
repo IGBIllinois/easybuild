@@ -1,0 +1,47 @@
+easyblock = 'Conda'
+
+name = 'albacore'
+version = '2.1.10'
+
+homepage = 'https://nanoporetech.com/'
+description = """Local basecalling for MinKNOW"""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ["ont_albacore-2.1.10-cp36-cp36m-manylinux1_x86_64.whl"]
+source_urls = ["https://mirror.oxfordnanoportal.com/software/analysis/"]
+
+builddependencies = [
+        ('Anaconda3', '5.1.0'),
+]
+
+environment_file = "~/github/easybuild/easyconfigs/a/albacore/albacore-%(version)s-environment.yml"
+
+exts_defaultclass = 'PythonPackage'
+exts_filter = ('', '')
+
+exts_list = [
+    ('progressbar33', '2.4', {
+        'modulename': 'progressbar',
+        'source_urls': ["https://pypi.python.org/packages/source/p/progressbar33/"],
+        'source_tmpl': SOURCE_TAR_GZ,
+    }),
+    ('ont-fast5-api', '0.4.1', {
+        'modulename': 'ont_fast5_api',
+        'source_urls': ["https://pypi.python.org/packages/source/o/ont-fast5-api/"],
+        'source_tmpl': "ont-fast5-api-0.4.1.tar.gz",
+    }),
+    ('ont_albacore', '2.1.0', {
+        'modulename': 'albacore',
+        'source_urls': ["https://mirror.oxfordnanoportal.com/software/analysis/"],
+        'source_tmpl': "ont_albacore-2.1.10-cp36-cp36m-manylinux1_x86_64.whl",
+	'use_pip': True,
+	'unpack_sources': False,
+    }),
+]
+
+sanity_check_paths = {
+    'files': ["bin/read_fast5_basecaller.py"],
+    'dirs': []
+}
+moduleclass = 'bio'

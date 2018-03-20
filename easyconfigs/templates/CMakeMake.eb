@@ -1,15 +1,15 @@
-easyblock = 'GitCloneConfigureMake'
+easyblock = 'CMakeMake'
 
 name = ''
 version = ''
-git_commit = ''
 
 homepage = ''
 description = """"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['https://github.com/username/reponame.git']
+source_urls = ['']
+sources = [SOURCE_TAR_GZ]
 
 dependencies = []
 
