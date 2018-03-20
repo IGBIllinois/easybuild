@@ -20,6 +20,5 @@ sanity_check_paths = {
     'dirs': [],
 }
 
-modloadmsg = "To execute picard run: java -jar $EBROOTPICARD/%(name)s.jar\n"
-
+modaliases = {'picard': 'java -jar %(installdir)s/picard.jar'}
 moduleclass = 'bio'

@@ -25,6 +25,9 @@ sanity_check_paths = {
     'dirs': ['clinEff','snpEff']
 }
 
-modloadmsg = "To execute snpEff run: java -jar $EBROOTSNPEFF/snpEff/snpEff.jar\n"
 
+modaliases = {'trimmomatic': 'java -jar %(installdir)s/snpEff/snpEff.jar',
+	'SnpSift': 'java -jar %(installdir)s/snpEff/snpEff/SnpSift.jar',
+	'clinEff': 'java -jar %(installdir)s/snpEff/clinEff/clinEff.jar'
+}
 moduleclass = 'bio'

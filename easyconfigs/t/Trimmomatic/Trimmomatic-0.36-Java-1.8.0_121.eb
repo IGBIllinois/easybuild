@@ -18,11 +18,11 @@ javaver = '1.8.0_121'
 versionsuffix = '-%s-%s' % (java, javaver)
 dependencies = [(java, javaver)]
 
-modloadmsg = """To execute Trimmomatic run: java -jar $EBROOTTRIMMOMATIC/trimmomatic-%(version)s.jar\n"""
-
 sanity_check_paths = {
     'files': ["trimmomatic-%(version)s.jar"],
     'dirs': [""],
 }
+
+modaliases = {'trimmomatic': 'java -jar %(installdir)s/trimmomatic-0.36.jar'}
 
 moduleclass = 'bio'

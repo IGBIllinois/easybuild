@@ -23,5 +23,5 @@ sanity_check_paths = {
 	'files': ['%(name)s-%(version)s.jar'],
 	'dirs': [],
 }
-
+modaliases = {'pilon': 'java -jar %(installdir)s/pilon-%(version)s.jar'}
 moduleclass = 'bio'
