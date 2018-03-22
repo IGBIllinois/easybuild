@@ -1,0 +1,29 @@
+diff -ru mothur-1.39.5.orig/Makefile mothur-1.39.5/Makefile
+--- mothur-1.39.5.orig/Makefile	2018-03-22 09:25:14.739884043 -0500
++++ mothur-1.39.5/Makefile	2018-03-22 10:50:28.666078880 -0500
+@@ -19,9 +19,9 @@
+ OPTIMIZE ?= yes
+ USEREADLINE ?= yes
+ USEBOOST ?= yes
+-BOOST_LIBRARY_DIR="\"Enter_your_boost_library_path_here\""
+-BOOST_INCLUDE_DIR="\"Enter_your_boost_include_path_here\""
+-MOTHUR_FILES="\"Enter_your_default_path_here\""
++BOOST_LIBRARY_DIR="${EBROOTBOOST}/lib"
++BOOST_INCLUDE_DIR="${EBROOTBOOST}/include"
++MOTHUR_FILES=""
+ RELEASE_DATE = "\"3/20/2017\""
+ VERSION = "\"1.39.5\""
+ 
+@@ -34,10 +34,10 @@
+     CXXFLAGS += -O3
+ endif
+ 
+-CXXFLAGS += -DRELEASE_DATE=${RELEASE_DATE} -DVERSION=${VERSION} -std=c++0x
++CXXFLAGS += -DRELEASE_DATE=${RELEASE_DATE} -DVERSION=${VERSION} -std=c++0x -mtune=generic
+ LDFLAGS += -std=c++0x
+ 
+-ifeq  ($(strip $(MOTHUR_FILES)),"\"Enter_your_default_path_here\"")
++ifeq  ($(strip $(MOTHUR_FILES)),"")
+ else
+     CXXFLAGS += -DMOTHUR_FILES=${MOTHUR_FILES}
+ endif

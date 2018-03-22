@@ -17,7 +17,7 @@ dependencies = [
 	('Biopython', '1.68', versionsuffix),
 	('biom-format', '2.1.6', versionsuffix),
 	('USEARCH', '7.0.1090','',True),
-	('Mothur','1.39.5',versionsuffix),
+	('Mothur','1.39.5'),
 	('FastTree', '2.1.10'),
 	('genometools', '1.5.10'),
 	('Infernal', '1.1.2'),

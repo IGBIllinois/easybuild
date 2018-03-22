@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'memprof'
+version = '1.0'
+
+homepage = 'https://github.com/IGBIllinois/memprof'
+description = """HPC Cluster Memory Profiling"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/IGBIllinois/memprof/archive/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['memprof.sh'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'debugger'
