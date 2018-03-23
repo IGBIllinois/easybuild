@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'biodatabase'
+version = '1.0'
+
+homepage = 'https://github.com/IGBIllinois/biodatabase/'
+description = """Scripts to create databases on the biodatabase machine."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/IGBIllinois/biodatabase/archive/']
+
+dependencies = [('MariaDB','5.5.58')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/lsdb','bin/rmdb','bin/mkdb'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'tools'

@@ -18,7 +18,8 @@ requirements = "%(namelower)s=%(version)s matplotlib=1.4.3 mock nose"
 channels = ['bioconda', 'conda-forge']
 
 dependencies = [('BLAST','2.2.26','-Linux_x86_64'),
-	('ea-utils','1.04.807','-IGB-gcc-4.9.4')
+	('ea-utils','1.04.807','-IGB-gcc-4.9.4'),
+	('USEARCH','6.1.544'),
 ]
 builddependencies = [('Anaconda2', '4.3.1')]
 

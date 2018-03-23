@@ -1,0 +1,25 @@
+easyblock = 'Binary'
+
+name = 'USEARCH'
+version = '6.1.544'
+
+homepage = 'http://www.drive5.com/usearch/index.html'
+description = """USEARCH is a unique sequence analysis tool which offers search and clustering algorithms that are
+ often orders of magnitude faster than BLAST."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+# download via http://www.drive5.com/usearch/download.html
+usearch_bin = 'usearch%s_i86linux32' % version
+sources = [usearch_bin]
+
+install_cmd = "mkdir -p %%(installdir)s/bin && mv %s %%(installdir)s/bin/%%(namelower)s && " % usearch_bin
+install_cmd += "chmod a+rx %(installdir)s/bin/%(namelower)s"
+
+postinstallcmds = ["ln -s %(installdir)s/bin/usearch %(installdir)s/bin/usearch61"]
+sanity_check_paths = {
+    'files': ['bin/%(namelower)s'],
+    'dirs': [],
+}
+
+moduleclass = 'bio'
