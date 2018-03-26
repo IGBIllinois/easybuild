@@ -1,0 +1,30 @@
+easyblock = 'Tarball'
+
+name = 'InterProScan'
+version = '5.28-67.0'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = 'https://www.ebi.ac.uk/interpro/interproscan.html'
+description = """InterProScan is the software package that allows sequences (protein and nucleic) to be scanned against InterPro's signatures. Signatures are predictive models, provided by several different databases, that make up the InterPro consortium."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(namelower)s-%(version)s-64-bit.tar.gz']
+source_urls = ['ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/%(version)s']
+
+dependencies = [
+	('Java', '1.8.0_152', '', True),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['interproscan.sh','interproscan-5.jar'],
+	'dirs': ['bin','data'],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+moduleclass = 'bio'
