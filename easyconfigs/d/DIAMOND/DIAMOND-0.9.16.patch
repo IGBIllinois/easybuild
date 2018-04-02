@@ -1,0 +1,15 @@
+diff -ru diamond-0.9.16.orig/CMakeLists.txt diamond-0.9.16/CMakeLists.txt
+--- diamond-0.9.16.orig/CMakeLists.txt	2018-03-27 15:34:39.675225902 -0500
++++ diamond-0.9.16/CMakeLists.txt	2018-03-27 15:36:04.390451339 -0500
+@@ -13,9 +13,9 @@
+   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=${CMAKE_BUILD_MARCH}")
+ else()
+   include(CheckCXXCompilerFlag)
+-  CHECK_CXX_COMPILER_FLAG("-march=native" COMPILER_SUPPORTS_MARCHNATIVE)
++  CHECK_CXX_COMPILER_FLAG("-march=generic" COMPILER_SUPPORTS_MARCHNATIVE)
+   if(COMPILER_SUPPORTS_MARCHNATIVE)
+-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
++    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=generic")
+   endif()
+ endif()
+ 

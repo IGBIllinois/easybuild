@@ -1,0 +1,53 @@
+easyblock = 'Tarball'
+
+name = 'pfamscan'
+version = '1.6'
+versionsuffix = '-Perl-%(perlver)s'
+homepage = 'ftp://ftp.ebi.ac.uk/pub/databases/Pfam/Tools/README'
+description = """This readme should help you get started with "pfam_scan.pl", which is for use
+with the HMMER3 version of HMMER."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['PfamScan.tar.gz']
+source_urls = ['ftp://ftp.ebi.ac.uk/pub/databases/Pfam/Tools/']
+
+dependencies = [('Perl','5.24.1'),
+	('BioPerl','1.7.1','-Perl-5.24.1'),
+	('HMMER','3.1b2'),
+]
+
+keepsymlinks = True
+
+exts_defaultclass = "PerlModule"
+exts_list = [
+
+('Devel::OverloadInfo', '0.005', {
+        'source_tmpl': 'Devel-OverloadInfo-0.005.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/I/IL/ILMARI/'],
+    }),
+
+('Moose', '2.2010', {
+        'source_tmpl': 'Moose-2.2010.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/'],
+    }),
+
+('Sub::Identify', '0.14', {
+        'source_tmpl': 'Sub-Identify-0.14.tar.gz',
+        'source_urls': ['http://search.cpan.org/CPAN/authors/id/R/RG/RGARCIA/'],
+    }),
+
+]
+
+exts_filter = ('', "")
+
+sanity_check_paths = {
+	'files': ['pfam_scan.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'',
+'PERL5LIB': ['','lib/perl5/site_perl/5.24.1'],
+}
+
+moduleclass = 'bio'

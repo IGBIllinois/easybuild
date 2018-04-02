@@ -11,7 +11,8 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 sources = ['%(version)s.tar.gz']
 source_urls = ['https://github.com/IGBIllinois/biodatabase/archive/']
 
-dependencies = [('MariaDB','5.5.58')
+dependencies = [('MariaDB','10.1.31'),
+	('sharutils','4.15.2'),
 ]
 
 keepsymlinks = True

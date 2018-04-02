@@ -12,9 +12,10 @@ source_urls = ['https://downloads.mariadb.org/f/mariadb-%(version)s/source']
 sources = [SOURCELOWER_TAR_GZ]
 
 dependencies = [
-    ('libevent', '2.1.8'),
-    ('libreadline', '6.3'),
-    ('zlib', '1.2.11'),
+	('libevent', '2.1.8'),
+	('libreadline', '6.3'),
+	('zlib', '1.2.11'),
+	('ncurses','5.9'),
 ]
 
 builddependencies = [('CMake', '3.7.2')]
