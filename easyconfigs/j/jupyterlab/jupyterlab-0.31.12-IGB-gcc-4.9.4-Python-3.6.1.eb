@@ -15,6 +15,7 @@ source_urls = [PYPI_LOWER_SOURCE]
 dependencies = [
         ('Python', '3.6.1'),
 	('R','3.3.3'),
+	('nodejs','9.9.0'),
 ]
 
 installopts = ""
@@ -30,8 +31,12 @@ exts_list = [
 ]
 
 
-modextravars = {'JUPYTER_PATH':'%(installdir)s/share/jupyter'
+modextravars = {'JUPYTER_PATH':'%(installdir)s/share/jupyter',
+'JUPYTER_CONFIG_DIR':'~/.jupyter:%(installdir)s/etc/jupyter',
+'JUPYTERLAB_DIR':'%(installdir)s/share/jupyter/lab',
 }
 exts_filter = ('python -c "import %(ext_name)s"', "")
+
+postinstallcmds = ['mkdir -p %(installdir)s/etc/jupyter']
 
 moduleclass = 'tools'

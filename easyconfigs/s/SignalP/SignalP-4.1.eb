@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'SignalP'
+version = '4.1'
+
+homepage = 'http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?signalp'
+description = """Signal peptide and cleavage sites in gram+, gram- and eukaryotic amino acid sequences"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['%(namelower)s-%(version)sf.Linux.tar.gz']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['signalp'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+moduleclass = 'bio'

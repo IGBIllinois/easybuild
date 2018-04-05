@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'RNAmmer'
+version = '1.2'
+
+homepage = 'http://www.cbs.dtu.dk/cgi-bin/sw_request?rnammer'
+description = """Ribosomal RNA sub units"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['%(namelower)s-%(version)s.src.tar.Z']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['rnammer'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+moduleclass = 'bio'
