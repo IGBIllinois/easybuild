@@ -15,7 +15,7 @@ source_urls = [
     'http://ftpmirror.gnu.org/gcc/gcc-%s' % version,  # GCC auto-resolving HTTP mirror
     'http://ftpmirror.gnu.org/gmp',  # idem for GMP
     'http://ftpmirror.gnu.org/mpfr',  # idem for MPFR
-    'http://www.multiprecision.org/mpc/download',  # MPC official
+    'http://ftpmirror.gnu.org/mpc',  # MPC official
 ]
 sources = [
     'gcc-%(version)s.tar.bz2',
