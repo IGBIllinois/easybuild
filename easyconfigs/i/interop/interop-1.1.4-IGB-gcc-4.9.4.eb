@@ -1,0 +1,30 @@
+easyblock = 'CMakeMake'
+
+name = 'interop'
+version = '1.1.4'
+
+homepage = 'http://illumina.github.io/interop/'
+description = """The Illumina InterOp libraries are a set of common routines used for reading and writing InterOp metric files. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/Illumina/interop/archive/']
+sources = ['v%(version)s.tar.gz']
+
+builddependencies = [('CMake','3.7.2')]
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/summary','bin/dumptext','bin/dumpbin'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+
