@@ -1,0 +1,33 @@
+easyblock = 'ConfigureMake'
+
+name = 'fdupes'
+version = '1.6.1'
+
+homepage = 'https://github.com/adrianlopezroche/fdupes'
+description = """FDUPES is a program for identifying duplicate files residing
+within specified directories."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/adrianlopezroche/fdupes/archive/']
+sources = ['v%(version)s.tar.gz']
+
+patches = ['fdupes-1.6.1.patch']
+
+skipsteps = ['configure']
+
+dependencies = []
+
+installopts = 'PREFIX=%(installdir)s '
+sanity_check_paths = {
+        'files': ['bin/fdupes'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'tools'
+
+

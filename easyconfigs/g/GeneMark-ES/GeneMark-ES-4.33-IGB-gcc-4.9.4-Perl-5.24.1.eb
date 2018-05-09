@@ -2,6 +2,7 @@ easyblock = 'Tarball'
 
 name = 'GeneMark-ES'
 version = '4.33'
+versionsuffix = "-Perl-5.24.1"
 
 homepage = 'http://exon.gatech.edu/GeneMark/'
 description = """Novel genomes can be analyzed by the program GeneMark-ES utilizing unsupervised training."""
@@ -10,8 +11,10 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 sources = ['gm_et_linux_64.tar.gz']
 
-dependencies = [
+dependencies = [('Perl','5.24.1')
 ]
+
+patches = ['GeneMark-ES-4.33.patch']
 
 keepsymlinks = True
 start_dir = 'gmes_petap'
@@ -24,5 +27,7 @@ sanity_check_paths = {
 modextrapaths = {
 	'PATH': '',
 }
+
+postinstallcmds = ['rm -fr %(installdir)s/*.orig']
 
 moduleclass = 'bio'

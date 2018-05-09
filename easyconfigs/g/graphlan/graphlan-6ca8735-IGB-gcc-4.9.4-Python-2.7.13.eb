@@ -1,0 +1,30 @@
+easyblock = 'Tarball'
+
+name = 'graphlan'
+version = '6ca8735'
+versionsuffix = '-Python-2.7.13'
+
+homepage = 'https://bitbucket.org/nsegata/graphlan/'
+description = """GraPhlAn is a software tool for producing high-quality circular representations of taxonomic and phylogenetic trees. It focuses on concise, integrative, informative, and publication-ready representations of phylogenetically- and taxonomically-driven investigation."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['graphlan_commit_%(version)s.zip']
+source_urls = ['https://bitbucket.org/nsegata/graphlan/downloads/']
+
+dependencies = [('Python','2.7.13'),
+		('Biopython','1.68','-Python-2.7.13'),
+		('biom-format','2.1.6','-Python-2.7.13'),
+		
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['graphlan.py','graphlan_annotate.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':['','export2graphlan']}
+
+moduleclass = 'bio'

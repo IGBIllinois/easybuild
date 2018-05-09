@@ -21,7 +21,8 @@ sanity_check_paths = {
 }
 
 modextrapaths = {
-	'PATH': '',
+	'PATH': ('','bin'),
+	'PERL5LIB': 'lib',
 }
 
 moduleclass = 'bio'

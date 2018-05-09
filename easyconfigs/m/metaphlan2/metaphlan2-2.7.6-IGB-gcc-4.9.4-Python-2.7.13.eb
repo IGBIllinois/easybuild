@@ -15,6 +15,7 @@ source_urls = ['https://bitbucket.org/biobakery/metaphlan2/get/']
 dependencies = [('Python','2.7.13'),
 	('Bowtie2','2.3.2'),
 	('biom-format','2.1.6','-Python-2.7.13'),
+	('Biopython','1.68','-Python-2.7.13'),
 ]
 
 keepsymlinks = True

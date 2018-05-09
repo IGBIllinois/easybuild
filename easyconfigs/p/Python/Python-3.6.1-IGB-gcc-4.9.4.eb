@@ -28,7 +28,7 @@ dependencies = [
     # ('OpenSSL', '1.0.2h'),
 ]
 
-osdependencies = [('openssl-devel', 'libssl-dev', 'libopenssl-devel')]
+#osdependencies = [('openssl-devel', 'libssl-dev', 'libopenssl-devel')]
 
 # order is important!
 # package versions updated May 28th 2015
@@ -127,6 +127,10 @@ exts_list = [
     }),
     ('Jinja2', '2.10', {
         'source_urls': ['https://pypi.python.org/packages/source/j/Jinja2'],
+    }),
+    ('pydicom', '1.0.2', {
+	'source_tmpl': 'v%(version)s.tar.gz',
+        'source_urls': ['https://github.com/pydicom/pydicom/archive/'],
     }),
 ]
 

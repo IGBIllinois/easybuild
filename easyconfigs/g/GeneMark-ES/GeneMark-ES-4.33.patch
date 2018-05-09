@@ -1,0 +1,207 @@
+diff -ru gm_et_linux_64.orig/gmes_petap/bet_to_gff.pl gm_et_linux_64/gmes_petap/bet_to_gff.pl
+--- gm_et_linux_64.orig/gmes_petap/bet_to_gff.pl	2018-04-16 11:00:18.320373008 -0500
++++ gm_et_linux_64/gmes_petap/bet_to_gff.pl	2018-04-16 11:10:19.807659950 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # ------------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/bp_seq_select.pl gm_et_linux_64/gmes_petap/bp_seq_select.pl
+--- gm_et_linux_64.orig/gmes_petap/bp_seq_select.pl	2018-04-16 11:00:18.319373006 -0500
++++ gm_et_linux_64/gmes_petap/bp_seq_select.pl	2018-04-16 11:10:19.802659940 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # ---------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/build_mod.pl gm_et_linux_64/gmes_petap/build_mod.pl
+--- gm_et_linux_64.orig/gmes_petap/build_mod.pl	2018-04-16 11:00:18.338373046 -0500
++++ gm_et_linux_64/gmes_petap/build_mod.pl	2018-04-16 11:10:19.946660238 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # --------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/calc_introns_from_gtf.pl gm_et_linux_64/gmes_petap/calc_introns_from_gtf.pl
+--- gm_et_linux_64.orig/gmes_petap/calc_introns_from_gtf.pl	2018-04-16 11:00:18.331373032 -0500
++++ gm_et_linux_64/gmes_petap/calc_introns_from_gtf.pl	2018-04-16 11:10:19.873660087 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # --------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology
+diff -ru gm_et_linux_64.orig/gmes_petap/gc_distr.pl gm_et_linux_64/gmes_petap/gc_distr.pl
+--- gm_et_linux_64.orig/gmes_petap/gc_distr.pl	2018-04-16 11:00:18.340373051 -0500
++++ gm_et_linux_64/gmes_petap/gc_distr.pl	2018-04-16 11:10:19.958660263 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # --------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/get_sequence_from_GTF.pl gm_et_linux_64/gmes_petap/get_sequence_from_GTF.pl
+--- gm_et_linux_64.orig/gmes_petap/get_sequence_from_GTF.pl	2018-04-16 11:00:18.333373036 -0500
++++ gm_et_linux_64/gmes_petap/get_sequence_from_GTF.pl	2018-04-16 11:10:19.894660130 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ #-------------------------------------------------
+ # Alex Lomsadze
+ # December 23, 2008
+diff -ru gm_et_linux_64.orig/gmes_petap/gmes_petap.pl gm_et_linux_64/gmes_petap/gmes_petap.pl
+--- gm_et_linux_64.orig/gmes_petap/gmes_petap.pl	2018-04-16 11:00:18.335373040 -0500
++++ gm_et_linux_64/gmes_petap/gmes_petap.pl	2018-04-16 11:10:19.915660174 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # ==============================================================
+ # Alex Lomsadze
+ #
+diff -ru gm_et_linux_64.orig/gmes_petap/histogram.pl gm_et_linux_64/gmes_petap/histogram.pl
+--- gm_et_linux_64.orig/gmes_petap/histogram.pl	2018-04-16 11:00:18.337373044 -0500
++++ gm_et_linux_64/gmes_petap/histogram.pl	2018-04-16 11:10:19.936660217 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # --------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/hmm_to_gtf.pl gm_et_linux_64/gmes_petap/hmm_to_gtf.pl
+--- gm_et_linux_64.orig/gmes_petap/hmm_to_gtf.pl	2018-04-16 11:00:18.323373015 -0500
++++ gm_et_linux_64/gmes_petap/hmm_to_gtf.pl	2018-04-16 11:10:19.834660006 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ #=================================
+ # Move files from eukaryotic GeneMark.hmm LST format to GTF format.
+ #
+diff -ru gm_et_linux_64.orig/gmes_petap/make_nt_freq_mat.pl gm_et_linux_64/gmes_petap/make_nt_freq_mat.pl
+--- gm_et_linux_64.orig/gmes_petap/make_nt_freq_mat.pl	2018-04-16 11:00:18.334373038 -0500
++++ gm_et_linux_64/gmes_petap/make_nt_freq_mat.pl	2018-04-16 11:10:19.904660151 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # ------------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/parse_by_introns.pl gm_et_linux_64/gmes_petap/parse_by_introns.pl
+--- gm_et_linux_64.orig/gmes_petap/parse_by_introns.pl	2018-04-16 11:00:18.329373027 -0500
++++ gm_et_linux_64/gmes_petap/parse_by_introns.pl	2018-04-16 11:10:19.868660076 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # ------------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/parse_ET.pl gm_et_linux_64/gmes_petap/parse_ET.pl
+--- gm_et_linux_64.orig/gmes_petap/parse_ET.pl	2018-04-16 11:00:18.337373044 -0500
++++ gm_et_linux_64/gmes_petap/parse_ET.pl	2018-04-16 11:10:19.930660205 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # --------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/parse_gibbs.pl gm_et_linux_64/gmes_petap/parse_gibbs.pl
+--- gm_et_linux_64.orig/gmes_petap/parse_gibbs.pl	2018-04-16 11:00:18.325373019 -0500
++++ gm_et_linux_64/gmes_petap/parse_gibbs.pl	2018-04-16 11:10:19.843660025 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # ---------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/parse_set.pl gm_et_linux_64/gmes_petap/parse_set.pl
+--- gm_et_linux_64.orig/gmes_petap/parse_set.pl	2018-04-16 11:00:18.332373034 -0500
++++ gm_et_linux_64/gmes_petap/parse_set.pl	2018-04-16 11:10:19.879660099 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # ==============================================================
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/predict_genes.pl gm_et_linux_64/gmes_petap/predict_genes.pl
+--- gm_et_linux_64.orig/gmes_petap/predict_genes.pl	2018-04-16 11:00:18.332373034 -0500
++++ gm_et_linux_64/gmes_petap/predict_genes.pl	2018-04-16 11:10:19.884660110 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # --------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/reformat_fasta.pl gm_et_linux_64/gmes_petap/reformat_fasta.pl
+--- gm_et_linux_64.orig/gmes_petap/reformat_fasta.pl	2018-04-16 11:00:18.334373038 -0500
++++ gm_et_linux_64/gmes_petap/reformat_fasta.pl	2018-04-16 11:10:19.898660139 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # --------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2015
+diff -ru gm_et_linux_64.orig/gmes_petap/reformat_gff.pl gm_et_linux_64/gmes_petap/reformat_gff.pl
+--- gm_et_linux_64.orig/gmes_petap/reformat_gff.pl	2018-04-16 11:00:18.336373042 -0500
++++ gm_et_linux_64/gmes_petap/reformat_gff.pl	2018-04-16 11:10:19.919660182 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # --------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/rescale_gff.pl gm_et_linux_64/gmes_petap/rescale_gff.pl
+--- gm_et_linux_64.orig/gmes_petap/rescale_gff.pl	2018-04-16 11:00:18.337373044 -0500
++++ gm_et_linux_64/gmes_petap/rescale_gff.pl	2018-04-16 11:10:19.940660226 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # --------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/rnaseq_introns_to_gff.pl gm_et_linux_64/gmes_petap/rnaseq_introns_to_gff.pl
+--- gm_et_linux_64.orig/gmes_petap/rnaseq_introns_to_gff.pl	2018-04-16 11:00:18.328373025 -0500
++++ gm_et_linux_64/gmes_petap/rnaseq_introns_to_gff.pl	2018-04-16 11:10:19.859660058 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # --------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/run_hmm_pbs.pl gm_et_linux_64/gmes_petap/run_hmm_pbs.pl
+--- gm_et_linux_64.orig/gmes_petap/run_hmm_pbs.pl	2018-04-16 11:00:18.318373004 -0500
++++ gm_et_linux_64/gmes_petap/run_hmm_pbs.pl	2018-04-16 11:10:19.793659921 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # ===========================================
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/scan_for_bp.pl gm_et_linux_64/gmes_petap/scan_for_bp.pl
+--- gm_et_linux_64.orig/gmes_petap/scan_for_bp.pl	2018-04-16 11:00:18.333373036 -0500
++++ gm_et_linux_64/gmes_petap/scan_for_bp.pl	2018-04-16 11:10:19.889660120 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # ---------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014
+diff -ru gm_et_linux_64.orig/gmes_petap/star_to_gff.pl gm_et_linux_64/gmes_petap/star_to_gff.pl
+--- gm_et_linux_64.orig/gmes_petap/star_to_gff.pl	2018-04-16 11:00:18.336373042 -0500
++++ gm_et_linux_64/gmes_petap/star_to_gff.pl	2018-04-16 11:10:19.924660193 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # ------------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2015
+diff -ru gm_et_linux_64.orig/gmes_petap/verify_evidence_gmhmm.pl gm_et_linux_64/gmes_petap/verify_evidence_gmhmm.pl
+--- gm_et_linux_64.orig/gmes_petap/verify_evidence_gmhmm.pl	2018-04-16 11:00:18.319373006 -0500
++++ gm_et_linux_64/gmes_petap/verify_evidence_gmhmm.pl	2018-04-16 11:10:19.798659931 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # ------------------------------------------------
+ # Alex Lomsadze
+ # Georgia Institute of Technology, -2014

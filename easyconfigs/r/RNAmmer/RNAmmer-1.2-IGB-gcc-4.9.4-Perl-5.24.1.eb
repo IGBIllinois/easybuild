@@ -2,15 +2,18 @@ easyblock = 'Tarball'
 
 name = 'RNAmmer'
 version = '1.2'
+versionsuffix = '-Perl-%(perlver)s'
 
 homepage = 'http://www.cbs.dtu.dk/cgi-bin/sw_request?rnammer'
 description = """Ribosomal RNA sub units"""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 sources = ['%(namelower)s-%(version)s.src.tar.Z']
 
 dependencies = [
+	('Perl','5.24.1'),
+	('HMMER2','2.3'),
 ]
 
 keepsymlinks = True
@@ -22,6 +25,7 @@ sanity_check_paths = {
 
 modextrapaths = {
 	'PATH': '',
+	'MANPATH': 'man',
 }
 
 moduleclass = 'bio'

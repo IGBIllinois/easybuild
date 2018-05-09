@@ -1,0 +1,42 @@
+name = 'R'
+version = "3.5.0"
+
+homepage = 'http://www.r-project.org/'
+description = """R is a free software environment for statistical computing and graphics."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://cran.us.r-project.org/src/base/R-%(version_major)s']
+
+preconfigopts = 'BLAS_LIBS="$LIBBLAS" LAPACK_LIBS="$LIBLAPACK"'
+configopts = "--with-lapack --with-blas --with-pic --enable-threads --with-x --enable-R-shlib --with-cairo --with-libpng --with-jpeglib --with-libtiff --with-tcltk"
+# some recommended packages may fail in a parallel build (e.g. Matrix), and we're installing them anyway below
+configopts += " --with-recommended-packages=no"
+
+dependencies = [
+    ('libreadline', '6.3'),
+    ('ncurses', '6.0'),
+    ('bzip2', '1.0.6'),
+    ('XZ', '5.2.3'),
+    ('zlib', '1.2.11'),
+    ('SQLite', '3.17.0'),
+    ('PCRE', '8.40'),
+    ('libpng', '1.6.29'),  # for plotting in R
+    ('libjpeg-turbo', '1.5.1'),  # for plotting in R
+    ('LibTIFF', '4.0.7'),
+    ('Java', '1.8.0_121', '', True),  # Java bindings are built if Java is found, might as well provide it
+    ('Tcl', '8.6.6'),  # for tcltk
+    ('Tk', '8.6.6'),  # for tcltk
+    ('cURL', '7.53.1'),  # for RCurl
+    ('libxml2', '2.9.4'),  # for XML
+    ('PROJ', '4.9.3'),  # for rgdal
+    ('GMP', '6.1.2'),  # for igraph
+    ('cairo','1.14.8'),
+    ('MariaDB', '5.5.58'), # for RMySQL
+    ('GSL', '2.3'),
+    ('udunits', '2.2.26'),
+]
+
+moduleclass = 'lang'
+

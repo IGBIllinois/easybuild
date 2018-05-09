@@ -1,0 +1,12 @@
+diff -ru fdupes-1.6.1.orig/Makefile fdupes-1.6.1/Makefile
+--- fdupes-1.6.1.orig/Makefile	2018-04-09 12:28:58.239047099 -0500
++++ fdupes-1.6.1/Makefile	2018-04-09 12:29:50.717172149 -0500
+@@ -11,7 +11,7 @@
+ # determination of the actual installation directories.
+ # Suggested values are "/usr/local", "/usr", "/pkgs/fdupes-$(VERSION)"
+ #
+-PREFIX = /usr/local
++PREFIX?= /usr/local
+ 
+ #
+ # When compiling for 32-bit systems, FILEOFFSET_64BIT must be enabled
