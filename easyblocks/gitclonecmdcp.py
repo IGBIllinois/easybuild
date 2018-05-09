@@ -1,5 +1,5 @@
 from easybuild.easyblocks.generic.cmdcp import CmdCp
-from easybuild.easyblocks.gitclonemakecp import GitCloneMakeCp
+from easybuild.easyblocks.generic.gitclonemakecp import GitCloneMakeCp
 
 # Work In Progress
 
