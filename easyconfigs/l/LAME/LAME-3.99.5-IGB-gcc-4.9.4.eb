@@ -11,7 +11,7 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 sources = [SOURCELOWER_TAR_GZ]
 source_urls = ['https://sourceforge.net/projects/lame/files/lame/%(version_major_minor)s/']
 
-dependencies = [('ncurses', '5.9')]
+dependencies = [('ncurses', '6.0')]
 
 # configure is broken: add workaround to find libncurses...
 configure_cmd_prefix = "FRONTEND_LDADD='-L${EBROOTNCURSES}/lib' "

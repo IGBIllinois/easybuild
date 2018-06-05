@@ -12,7 +12,7 @@ sources = ['userApps.v%(version)s.src.tgz']
 source_urls = ['http://hgdownload.soe.ucsc.edu/admin/exe/']
 
 dependencies = [
-	('MariaDB', '5.5.54'),
+	('MariaDB', '5.5.58'),
 ]
 
 keepsymlinks = True
