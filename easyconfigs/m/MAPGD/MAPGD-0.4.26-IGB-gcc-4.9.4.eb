@@ -1,0 +1,37 @@
+easyblock = 'MakeCp'
+
+name = 'MAPGD'
+version = '0.4.26'
+
+homepage = 'https://github.com/LynchLab/MAPGD'
+description = """MAPGD is a series of related programs that estimate allele frequency, heterozygosity, Hardy-Weinberg disequilibrium, linkage disequilibrium and identity-by-descent (IBD) coefficients from population genomic data using a statistically rigorous maximum likelihood approach."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/LynchLab/MAPGD/archive/']
+sources = ["v%(version)s.tar.gz"]
+
+dependencies = [('GSL','2.3'),
+	('HTSlib','1.5')
+
+]
+
+
+with_configure = False
+
+files_to_copy = [(['bin/mapgd'],'bin'),
+	(['docs/man/man1'],'man')
+]
+
+sanity_check_paths = {
+        'files': ['bin/mapgd'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

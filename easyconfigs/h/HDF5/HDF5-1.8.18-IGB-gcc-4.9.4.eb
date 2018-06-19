@@ -10,8 +10,7 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 toolchainopts = {'pic': True, 'usempi': True}
 
 source_urls = [
-    'https://support.hdfgroup.org/ftp/HDF5/current18/src/',
-    'https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-%(versions)/src/'
+    'https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-%(version)s/src/'
 ]
 
 sources = [SOURCELOWER_TAR_GZ]

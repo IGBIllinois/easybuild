@@ -21,8 +21,8 @@ sources = [
 
 dependencies = [
 	('Python', '3.6.1'),
-	('CUDA','8.0.61'),
-	('cuDNN','5.1','-CUDA-8.0.61'),
+	('CUDA','9.0.176'),
+	('cuDNN','7.0.5','-CUDA-9.0.176'),
    
 ]
 
@@ -60,7 +60,6 @@ exts_list = [
         'source_urls': ["https://pypi.python.org/packages/source/b/beautifulsoup4/"],
         'source_tmpl': SOURCE_TAR_GZ,
 }),
-
 
 ]
 

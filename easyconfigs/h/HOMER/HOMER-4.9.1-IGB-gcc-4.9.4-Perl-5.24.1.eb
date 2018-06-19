@@ -2,8 +2,8 @@ easyblock = 'MakeCp'
 
 name = 'HOMER'
 version = '4.9.1'
-versionsuffix = '-Perl-%(perlver)s-Test'
-commit = "6b6c568"
+versionsuffix = '-Perl-%(perlver)s'
+commit = "9e1dcf4"
 homepage = 'http://homer.ucsd.edu/homer/'
 description = """HOMER (Hypergeometric Optimization of Motif EnRichment) is a suite of tools for Motif Discovery and ChIP-Seq analysis. It is a collection of command line programs for unix-style operating systems written in mostly perl and c++. Homer was primarily written as a de novo motif discovery algorithm that is well suited for finding 8-12 bp motifs in large scale genomics data."""
 
@@ -15,7 +15,6 @@ sources = ['%s.tar.gz' % commit]
 dependencies = [('Perl','5.24.1')
 ]
 
-#patches = [('HOMER-4.9.1.patch',1)]
 
 configopts = 'cd ..; '
 sanity_check_paths = {
@@ -24,13 +23,21 @@ sanity_check_paths = {
 }
 files_to_copy = ['*']
 
+modloadmsg = """
+Please set the environmental variable HOMER_DATA to a directory in your home folder.
+This will be the location of the HOMER databases. An example is below.
+export HOMER_DATA='/home/a-m/username/homer_data'
+"""
+
 modextravars = {'HOMER_DATA':'%(installdir)s/data'
 }
 
-modextrapaths = {
+modextrapaths = {'PERL5LIB':'bin'
 }
 
-postinstallcmds = ['chmod 775 %(installdir)s/configureHomer.pl']
+postinstallcmds = ['chmod 775 %(installdir)s/configureHomer.pl',
+	'touch %(installdir)s/data/config.txt',
+]
 
 moduleclass = 'bio'
 

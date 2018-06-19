@@ -1,0 +1,27 @@
+easyblock = "Conda"
+
+name = "MetaBAT"
+version = "2.12.1"
+
+homepage = "https://bitbucket.org/berkeleylab/metabat"
+description = """MetaBAT, an efficient tool for accurately reconstructing single genomes from complex microbial communities"""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+channels = ['ursky']
+requirements = 'metabat2'
+
+builddependencies = [
+	('Anaconda3', '5.0.1')
+]
+
+sanity_check_paths = {
+	'files': ['bin/metabat'],
+	'dirs': []
+}
+
+modextrapaths = {
+	'PATH': ''
+}
+
+moduleclass = 'bio'

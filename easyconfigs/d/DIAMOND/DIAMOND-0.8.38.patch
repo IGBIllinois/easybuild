@@ -1,0 +1,33 @@
+Only in diamond-0.8.38: .DS_Store
+diff -ur diamond-0.8.38/CMakeLists.txt diamond-0.8.38 2/CMakeLists.txt
+--- diamond-0.8.38/CMakeLists.txt	2017-04-20 08:00:02.000000000 -0500
++++ diamond-0.8.38 2/CMakeLists.txt	2018-05-25 09:24:26.000000000 -0500
+@@ -10,10 +10,6 @@
+ endif()
+ 
+ include(CheckCXXCompilerFlag)
+-CHECK_CXX_COMPILER_FLAG("-march=native" COMPILER_SUPPORTS_MARCHNATIVE)
+-if(COMPILER_SUPPORTS_MARCHNATIVE)
+-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
+-endif()
+ 
+ find_package(ZLIB REQUIRED)
+ find_package(Threads REQUIRED)
+diff -ur diamond-0.8.38/src/util/tinythread.cpp diamond-0.8.38 2/src/util/tinythread.cpp
+--- diamond-0.8.38/src/util/tinythread.cpp	2017-04-20 08:00:02.000000000 -0500
++++ diamond-0.8.38 2/src/util/tinythread.cpp	2018-05-25 09:37:50.000000000 -0500
+@@ -23,11 +23,14 @@
+ 
+ #include <exception>
+ #include <iostream>
++#include <stdexcept>
+ #include "tinythread.h"
+ #include "log_stream.h"
+ 
+ #if defined(_TTHREAD_POSIX_)
+   #include <unistd.h>
++  #include <pthread.h>
++  #include <errno.h>
+   #include <map>
+ #elif defined(_TTHREAD_WIN32_)
+   #include <process.h>

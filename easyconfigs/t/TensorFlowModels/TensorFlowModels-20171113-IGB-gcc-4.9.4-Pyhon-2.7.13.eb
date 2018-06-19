@@ -2,7 +2,7 @@ easyblock = 'Bundle'
 
 name = 'TensorFlowModels'
 version = '20171113'
-versionsuffix = "-Python-3.6.1"
+versionsuffix = "-Python-%(pyver)s"
 commit = 'd07447a'
 
 homepage = 'https://github.com/tensorflow/models'
@@ -13,9 +13,9 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 #source_urls = ['https://github.com/tensorflow/models/archive/']
 #sources = ['%s.zip' % commit]
 
-dependencies = [
-	('Python','3.6.1'),
-	('jupyter','1.0.0','-Python-3.6.1'),
+dependencies = [('Tensorflow-GPU','1.2.1','-Python-%(pyver)s'),
+	('Python','2.7.13'),
+	('jupyter','1.0.0','-Python-%(pyver)s'),
 	('protobuf','2.6.1'),
 	('zlib','1.2.11'),
 	('libjpeg-turbo','1.5.1'),

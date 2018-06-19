@@ -1,0 +1,28 @@
+easyblock = 'ModuleOnly'
+
+name = 'minorseq'
+version = '20180314'
+
+homepage = 'https://github.com/PacificBiosciences/minorseq/blob/54ac795d7c119d21a4611d91ac458cd3e2e2b30a/doc/INSTALL.md'
+description = """Minor Variant Calling and Phasing Tools"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+dependencies = [
+	('Boost','1.63.0'),
+	('HTSlib','1.5'),
+]
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/juliet'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+keeppreviousinstall = True
+moduleclass = 'bio'
+
+

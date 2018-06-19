@@ -1,0 +1,33 @@
+easyblock = 'MakeInstall'
+
+name = 'centrifuge'
+version = '1.0.4-beta'
+
+homepage = 'https://ccb.jhu.edu/software/centrifuge/'
+description = """Centrifuge is a very rapid and memory-efficient system for the classification of DNA sequences from microbial 
+samples, with better sensitivity than and comparable accuracy to other leading systems."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchainopts = {'cstd': 'c++11'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/infphilo/centrifuge/archive/']
+
+patches = [('centrifuge-1.0.4.patch',1)]
+
+dependencies = [('Python','2.7.13')
+]
+
+installopts = 'prefix=%(installdir)s'
+
+sanity_check_paths = {
+	'files': ['bin/centrifuge'],
+	'dirs': [],
+}
+
+# Need to install indexes manually
+modextrapaths = {
+	'CENTRIFUGE_INDEXES': 'indexes',
+}
+
+moduleclass = 'bio'

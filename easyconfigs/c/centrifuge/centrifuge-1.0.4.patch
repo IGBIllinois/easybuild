@@ -1,0 +1,12 @@
+diff -ur centrifuge-1.0.4-beta/Makefile centrifuge-1.0.4-beta 2/Makefile
+--- centrifuge-1.0.4-beta/Makefile	2018-06-05 16:49:50.000000000 -0500
++++ centrifuge-1.0.4-beta 2/Makefile	2018-06-07 16:18:12.000000000 -0500
+@@ -55,6 +55,8 @@
+ 	MACOS = 1
+ endif
+ 
++EXTRA_FLAGS += -std=c++11 
++
+ POPCNT_CAPABILITY ?= 1
+ ifeq (1, $(POPCNT_CAPABILITY))
+     EXTRA_FLAGS += -DPOPCNT_CAPABILITY

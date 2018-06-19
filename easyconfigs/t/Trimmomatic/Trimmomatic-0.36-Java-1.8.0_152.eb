@@ -18,11 +18,13 @@ javaver = '1.8.0_152'
 versionsuffix = '-%s-%s' % (java, javaver)
 dependencies = [(java, javaver)]
 
+modloadmsg = "Please limit the number of trimmomatic jobs to 3 at a time.  Using more creates a lot of stress on the shared filesystem on the cluster\n"
+
 sanity_check_paths = {
     'files': ["trimmomatic-%(version)s.jar"],
     'dirs': [""],
 }
 
-modaliases = {'trimmomatic': 'java -jar %(installdir)s/trimmomatic-0.36.jar'}
+modaliases = {'trimmomatic': 'java -jar %(installdir)s/trimmomatic-%(version)s.jar'}
 
 moduleclass = 'bio'

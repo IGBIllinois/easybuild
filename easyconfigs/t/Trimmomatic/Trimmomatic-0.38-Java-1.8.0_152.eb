@@ -1,7 +1,7 @@
 easyblock = 'Tarball'
 
 name = 'Trimmomatic'
-version = '0.36'
+version = '0.38'
 
 homepage = 'http://www.usadellab.org/cms/?page=trimmomatic'
 description = """Trimmomatic performs a variety of useful trimming tasks for illumina
@@ -14,11 +14,12 @@ source_urls = ['http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/'
 sources = [SOURCE_ZIP]
 
 java = 'Java'
-javaver = '1.8.0_121'
+javaver = '1.8.0_152'
 versionsuffix = '-%s-%s' % (java, javaver)
 dependencies = [(java, javaver)]
 
 modloadmsg = "Please limit the number of trimmomatic jobs to 3 at a time.  Using more creates a lot of stress on the shared filesystem on the cluster\n"
+
 sanity_check_paths = {
     'files': ["trimmomatic-%(version)s.jar"],
     'dirs': [""],

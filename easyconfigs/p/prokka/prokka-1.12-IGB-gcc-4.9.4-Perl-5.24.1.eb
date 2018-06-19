@@ -23,7 +23,7 @@ sanity_check_paths = {
 	'dirs': [],
 }
 
-modextrapaths = {'PATH':'binaries/lunux'
+modextrapaths = {'PATH':['binaries/linux','binaries/common']
 }
 
 moduleclass = 'bio'
