@@ -1,0 +1,21 @@
+diff -ru cactus.orig/Makefile cactus/Makefile
+--- cactus.orig/Makefile	2018-07-05 14:13:22.929131906 -0500
++++ cactus/Makefile	2018-07-05 14:13:03.088077357 -0500
+@@ -15,7 +15,7 @@
+ libMatchingAndOrdering = ${PWD}/submodules/sonLib/lib/matchingAndOrdering.a
+ 
+ halAppendCactusSubtree = ${PWD}/submodules/cactus2hal/bin/halAppendCactusSubtree
+-h5c++ = ${PWD}/submodules/hdf5/bin/h5c++
++h5c++ = `which h5c++`
+ 
+ .PHONY: all all.% clean clean.% selfClean copyToBin
+ 
+@@ -82,7 +82,7 @@
+ 
+ ${h5c++}:
+ 	@echo "Building dependency hdf5"
+-	@cd ${PWD}/submodules/hdf5 && (output=`(./configure --prefix=$(PWD)/submodules/hdf5 --enable-cxx && CFLAGS=-std=c99 AM_MAKEFLAGS=-e make -j4 -e && make install) 2>&1` || (echo "$$output"; exit 1))
++	#@cd ${PWD}/submodules/hdf5 && (output=`(./configure --prefix=$(PWD)/submodules/hdf5 --enable-cxx && CFLAGS=-std=c99 AM_MAKEFLAGS=-e make -j4 -e && make install) 2>&1` || (echo "$$output"; exit 1))
+ 
+ halRule: ${h5c++} ${libSonLib}
+ 	@echo "Building dependency hal"

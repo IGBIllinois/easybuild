@@ -27,8 +27,11 @@ builddependencies = [
 
 # make sure both static and shared libs are built
 configopts = [
-    "-DBUILD_SHARED_LIBS=OFF ",
-    "-DBUILD_SHARED_LIBS=ON ",
+	"-DBUILD_SHARED_LIBS=OFF ",
+	"-DBUILD_SHARED_LIBS=ON ",
+	"-DENABLE_NETCDF_4=ON ",
+	"-DBUILD_UTILITIES=ON ",
+
 ]
 
 moduleclass = 'data'

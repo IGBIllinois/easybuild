@@ -1,0 +1,35 @@
+easyblock = 'PythonPackage'
+
+name = 'RGT'
+version = '0.11.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://www.regulatory-genomics.org/rgt/basic-introduction/'
+description = """Regulatory Genomics Toolbox (RGT) is an open source python library for analysis of regulatory genomics. RGT is programmed in an oriented object fashion and its core classes provide functionality for handling regulatory genomics data. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ["https://pypi.python.org/packages/source/r/rgt/"]
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('Biopython','1.68','-Python-2.7.13'),
+	('Cython','0.27.3','-Python-2.7.13'),
+	('Pysam','0.13.0','-Python-2.7.13'),
+	('HTSeq','0.9.1','-Python-2.7.13'),
+
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/rgt-THOR'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

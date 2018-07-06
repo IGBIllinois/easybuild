@@ -1,0 +1,33 @@
+easyblock = 'MakeCp'
+
+name = 'GFOLD'
+version = '1.1.4'
+
+homepage = 'https://bitbucket.org/feeldead/gfold'
+description = """GFOLD stands for Generalized FOLD change for ranking differentially expressed genes from RNA-seq data. GFOLD is especially useful when no replicate is available. GFOLD generalizes the fold change by considering the posterior distribution of log fold change, such that each gene is assigned a reliable fold change."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['gfold.V%(version)s.tar.gz']
+source_urls = ['https://bitbucket.org/feeldead/gfold/downloads/']
+
+dependencies = [('GSL','2.3'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['gfold'],'bin'),
+	(['doc/gfold.man'],'share/man/man1')
+]
+
+sanity_check_paths = {
+	'files': ['bin/gfold'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

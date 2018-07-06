@@ -1036,7 +1036,10 @@ exts_list = [
         'source_tmpl': 'Statistics-R-0.34.tar.gz',
         'source_urls': ['http://search.cpan.org/CPAN/authors/id/F/FA/FANGLY/'],
     }),
-
+    ('Statistics::Lite', '3.62', {
+        'source_tmpl': 'Statistics-Lite-3.62.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/B/BR/BRIANL/'],
+    }),
 ]
 
 moduleclass = 'lang'

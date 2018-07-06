@@ -1,0 +1,38 @@
+easyblock = 'CmdCp'
+
+name = 'VEP'
+version = '92.4'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/Ensembl/ensembl-vep'
+description = """VEP (Variant Effect Predictor) predicts the functional effects of genomic variants."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/Ensembl/ensembl-vep/archive/release']
+
+dependencies = [
+	('Perl','5.24.1'),
+	('tabix','0.2.6'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+cmds_map = [('.*', 'perl INSTALL.pl --AUTO a')]
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['haplo','vep'],
+	'dirs': ['Bio'],
+}
+
+modextrapaths = {
+	'PERL5LIB': '',
+	'PATH': '',
+}
+
+moduleclass = 'bio'

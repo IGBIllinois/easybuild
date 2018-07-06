@@ -1,0 +1,32 @@
+easyblock = 'PythonPackage'
+
+name = 'tensorly'
+version = '0.4.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://tensorly.org/stable/home.html'
+description = """Simple and Fast Tensor Learning in Python """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ["tensorly-%(version)s-py3-none-any.whl"]
+source_urls = ["https://pypi.python.org/packages/source/t/tensorly/"]
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python3.6/site-packages/tensorly'],
+}
+
+moduleclass = 'bio'

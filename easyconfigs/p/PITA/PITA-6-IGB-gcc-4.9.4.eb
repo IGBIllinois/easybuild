@@ -1,0 +1,32 @@
+easyblock = 'ConfigureMake'
+
+name = 'PITA'
+version = '6'
+
+homepage = 'https://genie.weizmann.ac.il/pubs/mir07/mir07_exe.html'
+description = """The PITA executable allows you to identify and score microRNA targets on UTRs."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://genie.weizmann.ac.il/pubs/mir07']
+sources = ['64bit_exe_pita_prediction.tar.gz']
+
+dependencies = [
+	('Perl','5.24.1'),
+]
+
+skipsteps = ['configure','build']
+buildininstalldir = True
+sanity_check_paths = {
+        'files': ['pita_prediction.pl'],
+        'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+
+moduleclass = 'bio'
+
+

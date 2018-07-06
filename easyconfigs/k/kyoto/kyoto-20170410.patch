@@ -1,0 +1,18 @@
+diff -ru kyoto-stable-20170410.orig/Makefile kyoto-stable-20170410/Makefile
+--- kyoto-stable-20170410.orig/Makefile	2018-07-05 13:28:35.016734960 -0500
++++ kyoto-stable-20170410/Makefile	2018-07-05 13:29:16.268848689 -0500
+@@ -23,12 +23,12 @@
+ 
+ # Too much parallelism actually hurts the build...
+ ifeq ($(shell test $(NPROCS) -gt 4; echo $$?),0)
+-	NPROCS := 4
++	NPROCS := 1
+ endif
+ 
+ # Avoid resource exhaustion on the Raspberry Pi...
+ ifeq ($(shell test $(NPROCS) -gt 2 && egrep -qsi "raspberry\s*pi" /boot/LICENCE.broadcom; echo $$?),0)
+-	NPROCS := 2
++	NPROCS := 1
+ endif
+ 
+ # For dependencies below...

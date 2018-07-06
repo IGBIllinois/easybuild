@@ -1,0 +1,37 @@
+easyblock = 'ConfigureMake'
+
+name = 'kyoto'
+version = '20170410'
+
+homepage = 'https://github.com/alticelabs/kyoto'
+description = """Kyoto Tycoon is a lightweight network server on top of the Kyoto Cabinet key-value database, built for high-performance and concurrency. Some of its features include:"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/alticelabs/kyoto/archive/']
+sources = ['stable-%(version)s.tar.gz']
+
+dependencies = [('lzo','.2.10'),
+	('Lua','5.1.5'),
+
+]
+
+skipsteps = ['configure']
+
+buildopts = 'PREFIX=%(installdir)s '
+
+patches = ['kyoto-%(version)s.patch']
+
+sanity_check_paths = {
+        'files': ['bin/ktserver'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+parallel = 1
+
+moduleclass = 'tools'
+
+

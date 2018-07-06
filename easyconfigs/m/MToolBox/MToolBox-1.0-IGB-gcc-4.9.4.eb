@@ -1,0 +1,35 @@
+easyblock = 'Tarball'
+
+name = 'MToolBox'
+version = '1.0'
+
+homepage = 'https://github.com/mitoNGS/MToolBox'
+description = """MToolBox is a highly automated bioinformatics pipeline to reconstruct and analyze human mitochondrial DNA from high throughput sequencing data. MToolBox includes an updated computational strategy to assemble mitochondrial genomes from Whole Exome and/or Genome Sequencing (PMID: 22669646) and an improved fragment-classify tool (PMID:22139932) for haplogroup assignment, functional and prioritization analysis of mitochondrial variants. MToolBox provides pathogenicity scores, profiles of genome variability and disease-associations for mitochondrial variants. MToolBox provides also a Variant Call Format file (version 4.0) featuring, for the first time, allele-specific heteroplasmy."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v.%(version)s.tar.gz']
+source_urls = ['https://github.com/mitoNGS/MToolBox/archive']
+
+dependencies = [
+	('Python','2.7.13'),
+	('GMAP-GSNAP','2017-11-15'),
+	('SAMtools','1.7'),
+	('MUSCLE','3.8.31'),
+	('zlib','1.2.11'),
+	('picard','2.10.1','-Java-1.8.0_152',True),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['MToolBox'],
+}
+
+modextrapaths = {
+	'MTOOLBOX_DIR': '',
+	'PATH': 'MToolBox'
+}
+
+moduleclass = 'bio'

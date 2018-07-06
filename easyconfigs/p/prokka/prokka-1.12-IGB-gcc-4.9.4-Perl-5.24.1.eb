@@ -14,6 +14,8 @@ source_urls = ['https://github.com/tseemann/prokka/archive/']
 
 dependencies = [('Perl','5.24.1'),
 		('BioPerl','1.7.1','-Perl-5.24.1'),
+		('Java','1.8.0_152','',True),
+		('tbl2asn','20180516','',True),
 ]
 
 keepsymlinks = True
@@ -25,5 +27,7 @@ sanity_check_paths = {
 
 modextrapaths = {'PATH':['binaries/linux','binaries/common']
 }
+
+postinstallcmds = ['rm -fr $(installdir)s/binaries/linux/tbl2asn']
 
 moduleclass = 'bio'

@@ -1,0 +1,33 @@
+easyblock = 'MakeCp'
+
+name = 'primer3'
+version = '2.4.0'
+
+homepage = 'http://www.primer3.org'
+description = """Primer3 is a widely used program for designing PCR primers (PCR = "Polymerase Chain Reaction"). PCR is an essential and ubiquitous tool in genetics and molecular biology. Primer3 can also design hybridization probes and sequencing primers. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/primer3-org/primer3/archive/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+start_dir = "src"
+
+files_to_copy = [(['long_seq_tm_test','ntdpal','ntthal','oligotm','primer3_core','primer3_masker'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/primer3_core'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

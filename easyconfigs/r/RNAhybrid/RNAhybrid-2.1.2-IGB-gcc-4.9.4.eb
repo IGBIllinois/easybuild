@@ -1,0 +1,29 @@
+easyblock = 'ConfigureMake'
+
+name = 'RNAhybrid'
+version = '2.1.2'
+
+homepage = 'https://bibiserv2.cebitec.uni-bielefeld.de/rnahybrid'
+description = """RNAhybrid is a tool for finding the minimum free energy hybridization of a long and a short RNA. The hybridization is performed in a kind of domain mode, ie. the short sequence is hybridized to the best fitting part of the long one. The tool is primarily meant as a means for microRNA target prediction. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://bibiserv2.cebitec.uni-bielefeld.de/applications/rnahybrid/resources/downloads/']
+sources = [SOURCE_TAR_GZ]
+
+dependencies = [
+]
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/RNAhybrid','bin/RNAcalibrate','bin/RNAeffective'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+
