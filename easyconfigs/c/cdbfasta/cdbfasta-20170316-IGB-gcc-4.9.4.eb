@@ -1,0 +1,32 @@
+easyblock = 'MakeCp'
+
+name = 'cdbfasta'
+version = '20170316'
+
+homepage = 'https://github.com/gpertea/cdbfasta'
+description = """CDB (Constant DataBase) indexing and retrieval tools for FASTA files"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['b3e481fe02dfbc767a3842bcb1b687c60376a5e8.zip']
+source_urls = ['https://github.com/gpertea/cdbfasta/archive']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['cdbfasta','cdbyank']
+
+sanity_check_paths = {
+	'files': ['cdbfasta','cdbyank'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+moduleclass = 'bio'

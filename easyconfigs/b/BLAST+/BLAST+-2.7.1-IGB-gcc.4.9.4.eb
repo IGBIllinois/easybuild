@@ -9,6 +9,7 @@ description = """Basic Local Alignment Search Tool, or BLAST, is an algorithm
  sequences of different proteins or the nucleotides of DNA sequences."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchainopts = {'pic': True, 'usempi': True}
 
 sources = ['ncbi-blast-%(version)s+-src.tar.gz']
 source_urls = ['http://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/%(version)s/']
@@ -21,13 +22,13 @@ dependencies = [('Boost', '1.63.0'),
 		('libxml2','2.9.4'),
 		('zlib','1.2.11'),
 		('OpenBLAS','0.2.19','-LAPACK-3.7.0'),
+		('LMDB','0.9.22'),
 ]
 
-#patches = ['BLAST+-%(version)s.patch']
 
 configopts = '--with-boost=$EBROOTBOOST --with-lapack=$EBROOTOPENBLAS --with-64 --with-openmp --with-lfs --without-gbench --with-bz2 '
 configopts += '--with-bin-release --without-debug --without-gui --with-curl --with-libxml --with-z '
-configopts += '--with-openssl --without-lmdb'
+configopts += '--with-openssl'
 
 sanity_check_paths = {
     'files': ["bin/blastn", "bin/blastp", "bin/blastx"],

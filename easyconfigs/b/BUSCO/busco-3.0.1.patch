@@ -1,0 +1,12 @@
+diff -ur busco-078252e00399550d7b0e8941cd4d986c8e868a83/src/busco/BuscoAnalysis.py busco-078252e00399550d7b0e8941cd4d986c8e868a83 2/src/busco/BuscoAnalysis.py
+--- busco-078252e00399550d7b0e8941cd4d986c8e868a83/src/busco/BuscoAnalysis.py	2017-05-29 07:36:52.000000000 -0500
++++ busco-078252e00399550d7b0e8941cd4d986c8e868a83 2/src/busco/BuscoAnalysis.py	2018-08-09 15:50:13.000000000 -0500
+@@ -847,6 +847,8 @@
+             blast_job.add_parameter('%s' % self._sequences)
+             blast_job.add_parameter('-dbtype')
+             blast_job.add_parameter('nucl')
++            blast_job.add_parameter('-logfile')
++            blast_job.add_parameter('blast.log')
+             blast_job.add_parameter('-out')
+             blast_job.add_parameter('%s%s%s' % (self._tmp, self._out, self._random))
+ 

@@ -1,0 +1,32 @@
+easyblock = 'Tarball'
+
+name = 'RDPClassifier'
+version = '2.12'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = 'https://sourceforge.net/projects/rdp-classifier'
+description = """The RDP Classifier is a naive Bayesian classifier which was developed to provide rapid taxonomic placement based on rRNA sequence data. The RDP Classifier can rapidly and accurately classify bacterial and archaeal 16s rRNA sequences, and Fungal LSU sequences. It provides taxonomic assignments from domain to genus, with confidence estimates for each assignment."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['rdp_classifier_%(version)s.zip']
+source_urls = ['http://sourceforge.net/projects/rdp-classifier/files/rdp-classifier']
+
+dependencies = [
+	('Java','1.8.0_152'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['dist/classifier.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'CLASSPATH': 'dist/lib',
+}
+
+modaliases = {'classifier': 'java -jar %(installdir)s/dist/classifier.jar'}
+
+moduleclass = 'bio'

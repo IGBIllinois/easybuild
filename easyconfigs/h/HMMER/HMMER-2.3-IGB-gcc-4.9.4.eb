@@ -12,7 +12,7 @@
 
 easyblock = 'ConfigureMake'
 
-name = 'HMMER2'
+name = 'HMMER'
 version = '2.3'
 
 homepage = 'http://hmmer.org/'

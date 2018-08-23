@@ -1,5 +1,5 @@
 name = 'R'
-version = "3.5.0"
+version = '3.1.2'
 
 homepage = 'http://www.r-project.org/'
 description = """R is a free software environment for statistical computing and graphics."""
@@ -12,7 +12,7 @@ source_urls = ['http://cran.us.r-project.org/src/base/R-%(version_major)s']
 preconfigopts = 'BLAS_LIBS="$LIBBLAS" LAPACK_LIBS="$LIBLAPACK"'
 configopts = "--with-lapack --with-blas --with-pic --enable-threads --with-x --enable-R-shlib --with-cairo --with-libpng --with-jpeglib --with-libtiff --with-tcltk"
 # some recommended packages may fail in a parallel build (e.g. Matrix), and we're installing them anyway below
-configopts += " --with-recommended-packages=no"
+configopts += " --with-recommended-packages=yes"
 
 dependencies = [
     ('libreadline', '6.3'),
@@ -33,10 +33,21 @@ dependencies = [
     ('PROJ', '4.9.3'),  # for rgdal
     ('GMP', '6.1.2'),  # for igraph
     ('cairo','1.14.8'),
-    ('MariaDB', '5.5.58'), # for RMySQL
-    ('GSL', '2.3'),
-    ('udunits', '2.2.26'),
 ]
 
-moduleclass = 'lang'
+name_tmpl = '%(name)s_%(version)s.tar.gz'
+ext_options = {
+    'source_urls': [
+        'http://cran.r-project.org/src/contrib/Archive/%(name)s',  # package archive
+        'http://cran.r-project.org/src/contrib/',  # current version of packages
+        'http://cran.freestatistics.org/src/contrib',  # mirror alternative for current packages
+        'http://bioconductor.org/packages/3.4/bioc/src/contrib/',
+        'http://bioconductor.org/packages/3.4/data/annotation/src/contrib/',
+        'http://bioconductor.org/packages/3.4/data/experiment/src/contrib/',
+    ],
+    'source_tmpl': name_tmpl,
+}
 
+
+
+moduleclass = 'lang'

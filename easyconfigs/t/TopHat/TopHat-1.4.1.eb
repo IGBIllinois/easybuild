@@ -1,6 +1,6 @@
 easyblock = 'Tarball'
 
-name = 'Tophat'
+name = 'TopHat'
 version = '1.4.1'
 
 homepage = 'http://ccb.jhu.edu/software/tophat/index.shtml'

@@ -1,0 +1,34 @@
+easyblock = 'ModuleOnly'
+
+name = 'cactus'
+version = '20180705'
+git_commit = '2722314'
+versionsuffix = "-Python-2.7.13"
+homepage = 'https://github.com/ComparativeGenomicsToolkit/cactus'
+description = """Cactus is a reference-free whole-genome multiple alignment program."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['https://github.com/ComparativeGenomicsToolkit/cactus.git']
+source_urls = ['']
+
+dependencies = [('kyoto','.20170410'),
+	('Python','2.7.13'),
+]
+
+keepsymlinks = True
+
+
+modloadmsg = "Please do not load any other modules with the cactus module due to dependency issues\n"
+
+sanity_check_paths = {
+	'files': ['bin/cactus_check'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+modluafooter = "execute{cmd='source %(installdir)s/cactus_env/bin/activate',modeA={'load'}}\n"
+modluafooter += "execute{cmd='deactivate',modeA={'unload'}}"
+
+moduleclass = 'bio'

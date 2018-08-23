@@ -18,8 +18,8 @@ description = "BUSCO v3 provides quantitative measures for the assessment of gen
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-source_urls = ['https://gitlab.com/ezlab/busco/repository/archive.tar.gz?ref=3.0.1']
-sources = [SOURCE_TAR_GZ]
+source_urls = ['https://gitlab.com/ezlab/busco/-/archive/078252e00399550d7b0e8941cd4d986c8e868a83']
+sources = ['busco-078252e00399550d7b0e8941cd4d986c8e868a83.tar.gz']
 
 python = 'Python'
 pyver = '2.7.13'
@@ -35,6 +35,8 @@ dependencies = [
     ('HMMER','3.1b2'),
     
 ]
+
+patches = [('busco-3.0.1.patch',1)]
 
 options = {'modulename': 'busco'}
 

@@ -35,6 +35,7 @@ dependencies = [
     ('cairo','1.14.8'),
     ('MariaDB', '5.5.58'), # for RMySQL
     ('GSL', '2.3'),
+    ('HDF5','1.8.18'),
 ]
 
 moduleclass = 'lang'

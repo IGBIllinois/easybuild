@@ -30,6 +30,9 @@ sanity_check_paths = {
 modextrapaths = {
 }
 
+modextravars = {'kyotoTycoonIncl': '-I%(installdir)s/include -DHAVE_KYOTO_TYCOON=1',
+	'kyotoTycoonLib': '-L%(installdir)s/lib -Wl,-rpath,%(installdir)s/lib -lkyototycoon -lkyotocabinet -lz -lbz2 -lpthread -lm -lstdc++'
+}
 parallel = 1
 
 moduleclass = 'tools'

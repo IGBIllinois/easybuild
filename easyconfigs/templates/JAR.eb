@@ -1,0 +1,32 @@
+easyblock = 'JAR'
+
+name = ''
+version = ''
+versionsuffix = "-Java-1.8.0_152"
+
+homepage = ''
+description = """ """
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ['%(version)s.jar']
+source_urls = ['']
+
+dependencies = [('Java','1.8.0_152')
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': [''],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+#Creates bash alias for java program
+modaliases = {'%(name)s': 'java -jar %(installdir)s/%(version)s.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+moduleclass = 'bio'

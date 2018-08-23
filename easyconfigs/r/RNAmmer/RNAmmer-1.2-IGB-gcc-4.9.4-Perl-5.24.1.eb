@@ -13,7 +13,7 @@ sources = ['%(namelower)s-%(version)s.src.tar.Z']
 
 dependencies = [
 	('Perl','5.24.1'),
-	('HMMER2','2.3'),
+	('HMMER','2.3'),
 ]
 
 keepsymlinks = True

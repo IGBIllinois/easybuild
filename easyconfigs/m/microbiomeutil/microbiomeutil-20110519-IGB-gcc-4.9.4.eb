@@ -1,0 +1,35 @@
+easyblock = 'ConfigureMake'
+
+name = 'microbiomeutil'
+version = '20110519'
+
+homepage = 'http://microbiomeutil.sourceforge.net/'
+description = """Contains ChimeraSlayer, WigeoN, and NAST-iEr"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://sourceforge.net/projects/microbiomeutil/files']
+sources = ['microbiomeutil-r20110519.tgz']
+
+dependencies = [
+	('BLAST','2.2.26','-Linux_x86_64',True),
+	('cdbfasta','20170316'),
+	# ('Python','2.7.13'),
+	('Perl','5.24.1'),
+]
+
+buildininstalldir = True
+skipsteps = ['configure','install']
+sanity_check_paths = {
+        'files': ['microbiomeutil-r20110519/NAST-iEr/NAST-iEr'],
+        'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': ['microbiomeutil-r20110519/NAST-iEr','microbiomeutil-r20110519/ChimeraSlayer','microbiomeutil-r20110519/WigeoN'],
+}
+
+
+moduleclass = 'bio'
+
+
