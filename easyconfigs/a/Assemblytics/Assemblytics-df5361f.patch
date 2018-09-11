@@ -1,0 +1,34 @@
+diff -ru Assemblytics-df5361f809a7034d4ab6acde1691cc962b82d833.original/Assemblytics_dotplot.R Assemblytics-df5361f809a7034d4ab6acde1691cc962b82d833/Assemblytics_dotplot.R
+--- Assemblytics-df5361f809a7034d4ab6acde1691cc962b82d833.original/Assemblytics_dotplot.R	2018-08-28 08:00:02.689194309 -0500
++++ Assemblytics-df5361f809a7034d4ab6acde1691cc962b82d833/Assemblytics_dotplot.R	2018-08-28 08:00:32.040270212 -0500
+@@ -1,6 +1,6 @@
+ library(ggplot2)
+ 
+-
++options(bitmapType='cairo')
+ args<-commandArgs(TRUE)
+ prefix <- args[1]
+ 
+diff -ru Assemblytics-df5361f809a7034d4ab6acde1691cc962b82d833.original/Assemblytics_Nchart.R Assemblytics-df5361f809a7034d4ab6acde1691cc962b82d833/Assemblytics_Nchart.R
+--- Assemblytics-df5361f809a7034d4ab6acde1691cc962b82d833.original/Assemblytics_Nchart.R	2018-08-28 08:00:02.683194294 -0500
++++ Assemblytics-df5361f809a7034d4ab6acde1691cc962b82d833/Assemblytics_Nchart.R	2018-08-28 08:00:49.337314953 -0500
+@@ -2,7 +2,7 @@
+ # Email: mnattest@cshl.edu
+ # This script is part of Assemblytics, a program to detect and analyze structural variants from an assembly aligned to a reference genome using MUMmer. 
+ 
+-
++options(bitmapType='cairo')
+ library(ggplot2)
+ library(scales)
+ 
+diff -ru Assemblytics-df5361f809a7034d4ab6acde1691cc962b82d833.original/Assemblytics_variant_charts.R Assemblytics-df5361f809a7034d4ab6acde1691cc962b82d833/Assemblytics_variant_charts.R
+--- Assemblytics-df5361f809a7034d4ab6acde1691cc962b82d833.original/Assemblytics_variant_charts.R	2018-08-28 08:00:02.688194307 -0500
++++ Assemblytics-df5361f809a7034d4ab6acde1691cc962b82d833/Assemblytics_variant_charts.R	2018-08-28 08:01:04.857355105 -0500
+@@ -1,6 +1,6 @@
+ library(ggplot2)
+ library(plyr)
+-
++options(bitmapType='cairo')
+ args<-commandArgs(TRUE)
+ output_prefix <- args[1]
+ abs_min_var <- as.numeric(args[2])

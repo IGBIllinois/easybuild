@@ -1,0 +1,12 @@
+diff -ru salmon-0.11.3.orig/CMakeLists.txt salmon-0.11.3/CMakeLists.txt
+--- salmon-0.11.3.orig/CMakeLists.txt	2018-09-04 10:30:54.467216914 -0500
++++ salmon-0.11.3/CMakeLists.txt	2018-09-04 10:31:10.511253259 -0500
+@@ -99,7 +99,7 @@
+ set(CMAKE_CXX_STANDARD_REQUIRED ON)
+ set(CMAKE_CXX_EXTENSIONS OFF)
+ set(CXXSTDFLAG "-std=c++14")
+-set(GCCVERSION "5.2")
++set(GCCVERSION "4.8.2")
+ 
+ if(CONDA_BUILD)
+   message("Building with CONDA_BUILD flag")

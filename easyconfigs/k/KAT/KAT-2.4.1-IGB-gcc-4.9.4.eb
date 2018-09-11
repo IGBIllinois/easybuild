@@ -1,0 +1,33 @@
+easyblock = 'ConfigureMake'
+
+name = 'KAT'
+version = '2.4.1'
+
+homepage = 'https://github.com/TGAC/KAT'
+description = """KAT is a suite of tools that analyse jellyfish hashes or sequence files (fasta or fastq) using kmer counts. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/TGAC/KAT/archive/']
+sources = ["Release-%(version)s.tar.gz"]
+
+dependencies = [('Python','3.6.1'),
+
+]
+
+preconfigopts = './build_boost.sh; '
+preconfigopts += './autogen.sh && '
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/kat','bin/tabulate'],
+        'dirs': [],
+}
+
+modextrapaths = {'PYTHONPATH':'lib/python3.6/site-packages'
+}
+
+
+moduleclass = 'bio'
+
+

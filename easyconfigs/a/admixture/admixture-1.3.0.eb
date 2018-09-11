@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'admixture'
+version = '1.3.0'
+
+homepage = 'http://www.genetics.ucla.edu/software/admixture/index.html'
+description = """ADMIXTURE is a software tool for maximum likelihood estimation of individual ancestries from multilocus SNP genotype datasets. It uses the same statistical model as STRUCTURE but calculates estimates much more rapidly using a fast numerical optimization algorithm. """
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['admixture_linux-%(version)s.tar.gz']
+source_urls = ['http://www.genetics.ucla.edu/software/admixture/binaries/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['admixture'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

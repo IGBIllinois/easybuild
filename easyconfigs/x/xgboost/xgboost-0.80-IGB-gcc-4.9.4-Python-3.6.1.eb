@@ -1,0 +1,34 @@
+easyblock = 'PythonPackage'
+
+name = 'xgboost'
+version = '0.80'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/dmlc/xgboost'
+description = """XGBoost is an optimized distributed gradient boosting library designed to be highly efficient, flexible and portable. It implements machine learning algorithms under the Gradient Boosting framework."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ["xgboost-multigpu-%(version)s-py2.py3-none-manylinux1_x86_64.whl"]
+source_urls = ["https://s3-us-west-2.amazonaws.com/xgboost-wheels/"]
+
+use_pip = True
+unpack_sources = False
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('CUDA','9.1.85'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['xgboost/libxgboost.so'],
+        'dirs': [],
+}
+
+moduleclass = 'lib'

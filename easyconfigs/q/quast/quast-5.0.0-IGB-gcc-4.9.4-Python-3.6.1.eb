@@ -1,0 +1,31 @@
+easyblock = 'PythonPackage'
+
+name = 'quast'
+version = '5.0.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://sourceforge.net/projects/quast/'
+description = """QUAST performs fast and convenient quality evaluation and comparison of genome assemblies. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [SOURCEFORGE_SOURCE]
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+#exts_filter = ('python -c "import %(ext_name)s"', "")
+exts_filter = ('', "")
+
+sanity_check_paths = {
+        'files': ['bin/quast.py'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

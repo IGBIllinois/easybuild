@@ -1,0 +1,75 @@
+diff -ru rnammer.orig/core-rnammer rnammer/core-rnammer
+--- rnammer.orig/core-rnammer	2018-08-27 14:51:20.558778320 -0500
++++ rnammer/core-rnammer	2018-08-30 12:10:19.306340137 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ use Data::Dumper;
+ # VERSION 1.2
+ my $version = '1.2-core';
+diff -ru rnammer.orig/rnammer rnammer/rnammer
+--- rnammer.orig/rnammer	2018-08-27 14:51:20.543778267 -0500
++++ rnammer/rnammer	2018-08-30 12:37:05.450616075 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # VERSION 1.2
+ my $version = '1.2';
+ # 1.1b: config parameter 'multi' introduced to allow parallel execution
+@@ -32,7 +32,7 @@
+ ## PROGRAM CONFIGURATION BEGIN
+ 
+ # the path of the program
+-my $INSTALL_PATH = "/usr/cbs/bio/src/rnammer-1.2";
++my $INSTALL_PATH = "/home/apps/software/RNAmmer/1.2-IGB-gcc-4.9.4-Perl-5.24.1";
+ 
+ # The library in which HMMs can be found
+ my $HMM_LIBRARY = "$INSTALL_PATH/lib";
+@@ -47,8 +47,9 @@
+ my $HMMSEARCH_BINARY;
+ my $PERL;
+ if ( $uname eq "Linux" ) {
+-	$HMMSEARCH_BINARY = "/usr/cbs/bio/bin/linux64/hmmsearch";
+-	$PERL = "/usr/bin/perl";
++	#$HMMSEARCH_BINARY = "/usr/cbs/bio/bin/linux64/hmmsearch";
++	$HMMSEARCH_BINARY = `which hmmsearch`;
++	$PERL = "perl";
+ } elsif ( $uname eq "IRIX64" ) {
+ 	$HMMSEARCH_BINARY = "/usr/cbs/bio/bin/irix64/hmmsearch";
+ 	$PERL = "/usr/sbin/perl";
+@@ -179,7 +180,7 @@
+ 	push  @TEMP_FILES , $TEMP_CF_FILE unless $keep;
+ 	if ($multi) {
+ 		unless (fork) {
+-			open CORE , "$PERL $RNAMMER_CORE $TEMP_CF_FILE |"; 
++			open CORE , "$RNAMMER_CORE $TEMP_CF_FILE |"; 
+ 			while (<CORE>) {
+ 				$faultstring .= $_;
+ 			}
+@@ -188,7 +189,7 @@
+ 			exit;
+ 		}
+ 	} else {
+-			open CORE , "$PERL $RNAMMER_CORE $TEMP_CF_FILE |"; 
++			open CORE , "$RNAMMER_CORE $TEMP_CF_FILE |"; 
+ 			while (<CORE>) {
+ 				$faultstring .= $_;
+ 			}
+diff -ru rnammer.orig/xml2fsa rnammer/xml2fsa
+--- rnammer.orig/xml2fsa	2018-08-27 14:51:20.557778317 -0500
++++ rnammer/xml2fsa	2018-08-30 12:10:25.321360503 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # Peter Hallin 2007-02-06, to be used with RNAmmer v1.2
+ 
+ use XML::Simple;
+diff -ru rnammer.orig/xml2gff rnammer/xml2gff
+--- rnammer.orig/xml2gff	2018-08-27 14:51:20.558778320 -0500
++++ rnammer/xml2gff	2018-08-30 12:10:33.160387039 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # Peter Hallin 2007-02-06, to be used with RNAmmer v1.2
+ 
+ use XML::Simple;

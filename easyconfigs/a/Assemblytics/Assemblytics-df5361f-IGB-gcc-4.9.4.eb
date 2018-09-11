@@ -1,0 +1,30 @@
+easyblock = 'Tarball'
+
+name = 'Assemblytics'
+version = 'df5361f'
+commit = version
+homepage = 'http://assemblytics.com/'
+description = """Analyze your assembly by comparing it to a reference genome"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.tar.gz' % commit]
+source_urls = ['https://github.com/MariaNattestad/Assemblytics/archive']
+
+patches = ['Assemblytics-%(version)s.patch']
+
+dependencies = [('Python','2.7.13'),
+		('R','3.3.3'),
+		('Perl','5.24.1')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['Assemblytics'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': ''}
+
+moduleclass = 'bio'
