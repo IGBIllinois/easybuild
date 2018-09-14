@@ -4,7 +4,7 @@ name = 'kentUtils'
 version = '353'
 
 homepage = 'http://genome.cse.ucsc.edu'
-description = """UCSC genome browser 'kent' bioinformatic utilities"""
+description = """UCSC genome browser kent bioinformatic utilities"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 

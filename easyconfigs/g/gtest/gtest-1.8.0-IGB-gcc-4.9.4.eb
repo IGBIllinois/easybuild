@@ -4,7 +4,7 @@ name = 'gtest'
 version = '1.8.0'
 
 homepage = 'https://github.com/google/googletest'
-description = "Google's C++ test framework"
+description = "Googles C++ test framework"
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 

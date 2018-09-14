@@ -1,0 +1,41 @@
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+# Author: Pablo Escobar Lopez
+# sciCORE - University of Basel
+# SIB Swiss Institute of Bioinformatics
+
+easyblock = 'MakeCp'
+
+name = 'STAR'
+version = '2.6.1b'
+
+homepage = 'https://github.com/alexdobin/STAR'
+description = "STAR aligns RNA-seq reads to a reference genome using uncompressed suffix arrays."
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchainopts = {'openmp': True}
+
+source_urls = ['https://github.com/alexdobin/STAR/archive/']
+sources = ['%(version)s.tar.gz']
+
+dependencies = [
+    ('zlib', '1.2.11'),
+]
+
+start_dir = 'source'
+
+buildopts = ' STAR && make STARlong'
+
+parallel = 1
+
+files_to_copy = [
+    (['source/STAR', 'source/STARlong'], 'bin'),
+    'CHANGES.md', 'doc', 'extras', 'LICENSE', 'README.md', 'RELEASEnotes.md',
+]
+
+sanity_check_paths = {
+    'files': ["bin/STAR", "bin/STARlong"],
+    'dirs': [],
+}
+
+modloadmsg = "Please limit the number of STAR jobs to 3 at a time.  Using more creates a lot of stress on the shared filesystem on the cluster\n"
+moduleclass = 'bio'

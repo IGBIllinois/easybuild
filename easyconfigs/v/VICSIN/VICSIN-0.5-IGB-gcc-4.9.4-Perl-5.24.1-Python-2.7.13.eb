@@ -4,7 +4,7 @@ name = 'VICSIN'
 version = '0.5'
 versionsuffix = '-Perl-%(perlver)s-Python-%(pyver)s'
 
-homepage = ''
+homepage = 'https://github.com/IGBIllinois/VICSIN'
 description = 'VICSIN = Viral, Integrative, and Conjugative Sequence Identification and Networking'
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}

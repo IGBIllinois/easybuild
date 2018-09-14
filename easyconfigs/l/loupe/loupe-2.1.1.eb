@@ -4,7 +4,7 @@ name = 'loupe'
 version = '2.1.1'
 
 homepage = 'https://support.10xgenomics.com/genome-exome/software/visualization/latest/what-is-loupe'
-description = """Loupe is a genome browser designed to visualize the Linked-Read data produced by the 10x Chromium Platform. Loupe is named for a jeweler's loupe, which is used to inspect gems."""
+description = """Loupe is a genome browser designed to visualize the Linked-Read data produced by the 10x Chromium Platform. Loupe is named for a jewelers loupe, which is used to inspect gems."""
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 

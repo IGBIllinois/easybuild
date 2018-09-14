@@ -5,7 +5,7 @@ version = '5.28-67.0'
 versionsuffix = '-Java-%(javaver)s'
 
 homepage = 'https://www.ebi.ac.uk/interpro/interproscan.html'
-description = """InterProScan is the software package that allows sequences (protein and nucleic) to be scanned against InterPro's signatures. Signatures are predictive models, provided by several different databases, that make up the InterPro consortium."""
+description = """InterProScan is the software package that allows sequences (protein and nucleic) to be scanned against InterPros signatures. Signatures are predictive models, provided by several different databases, that make up the InterPro consortium."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 

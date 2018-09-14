@@ -2,7 +2,7 @@ name = 'Perl'
 version = '5.24.1'
 
 homepage = 'http://www.perl.org/'
-description = """Larry Wall's Practical Extraction and Report Language"""
+description = """Larry Wall Practical Extraction and Report Language"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 toolchainopts = {'pic': True}

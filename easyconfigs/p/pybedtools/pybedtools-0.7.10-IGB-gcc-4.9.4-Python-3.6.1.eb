@@ -5,7 +5,7 @@ version = '0.7.10'
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://daler.github.io/pybedtools/main.html'
-description = """pybedtools is a Python package that wraps BEDTools, so you'll need both installed."""
+description = """pybedtools is a Python package that wraps BEDTools, so you will need both installed."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 

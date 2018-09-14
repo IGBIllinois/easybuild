@@ -1,0 +1,51 @@
+easyblock = 'PythonPackagePip'
+
+name = 'jupyterlab'
+version = '0.34.10'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://jupyter.org/'
+description = """Project Jupyter exists to develop open-source software, open-standards, and services for interactive computing across dozens of programming languages."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('R','3.3.3'),
+	('nodejs','9.9.0'),
+	('pandoc','2.2.3.2','',True),
+]
+
+installopts = ""
+use_pip = True
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+('jupyterhub', '0.9.3', {
+        'source_urls': ['https://pypi.python.org/packages/source/j/jupyterhub'],
+        'source_tmpl': 'jupyterhub-%(version)s.tar.gz',
+    }),
+
+('async_generator', '1.10', {
+        'source_urls': ['https://pypi.python.org/packages/source/a/async_generator'],
+        'source_tmpl': 'async_generator-%(version)s.tar.gz',
+    }),
+
+]
+
+
+modextravars = {'JUPYTER_PATH':'%(installdir)s/share/jupyter',
+'JUPYTER_CONFIG_DIR':'~/.jupyter:%(installdir)s/etc/jupyter',
+'JUPYTERLAB_DIR':'%(installdir)s/share/jupyter/lab',
+'XDG_RUNTIME_DIR':'',
+}
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+postinstallcmds = ['mkdir -p %(installdir)s/etc/jupyter']
+
+moduleclass = 'tools'
+
+#Run 'jupyter labextension install @jupyterlab/hub-extension' after installation

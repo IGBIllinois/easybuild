@@ -3,7 +3,7 @@ version = '5.26.1'
 versionsuffix = '-unthreaded'
 
 homepage = 'http://www.perl.org/'
-description = """Larry Wall's Practical Extraction and Report Language, built without thread support"""
+description = """Larry Wall Practical Extraction and Report Language, built without thread support"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 toolchainopts = {'optarch': True, 'pic': True}

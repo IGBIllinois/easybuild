@@ -5,7 +5,7 @@ version = '5.1.0'
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'http://pillow.readthedocs.org/'
-description = """Pillow is the 'friendly PIL fork' by Alex Clark and Contributors.
+description = """Pillow is the friendly PIL fork by Alex Clark and Contributors.
  PIL is the Python Imaging Library by Fredrik Lundh and Contributors."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}

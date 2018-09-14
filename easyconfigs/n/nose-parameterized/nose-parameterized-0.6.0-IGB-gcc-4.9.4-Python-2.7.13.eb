@@ -4,7 +4,7 @@ name = 'nose-parameterized'
 version = '0.6.0'
 versionsuffix = '-Python-%(pyver)s'
 
-homepage = 'hmat://github.com/wolever/nose-parameterized'
+homepage = 'http://github.com/wolever/nose-parameterized'
 description = """Parameterized testing with any Python test framework."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}

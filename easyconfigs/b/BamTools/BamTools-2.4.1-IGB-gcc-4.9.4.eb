@@ -2,7 +2,7 @@ name = 'BamTools'
 version = '2.4.1'
 
 homepage = 'https://github.com/pezmaster31/bamtools'
-description = """BamTools provides both a programmer's API and an end-user's toolkit for handling BAM files."""
+description = """BamTools provides both a programmers API and an end-users toolkit for handling BAM files."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 

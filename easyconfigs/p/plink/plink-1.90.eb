@@ -4,7 +4,7 @@ name = 'plink'
 version = '1.90'
 
 homepage = 'https://www.cog-genomics.org/plink2'
-description = """This is a comprehensive update to Shaun Purcell's PLINK command-line program, developed by Christopher Chang with support from the NIH-NIDDK's Laboratory of Biological Modeling, the Purcell Lab at Mount Sinai School of Medicine, and others. """
+description = """This is a comprehensive update to Shaun Purcells PLINK command-line program, developed by Christopher Chang with support from the NIH-NIDDKs Laboratory of Biological Modeling, the Purcell Lab at Mount Sinai School of Medicine, and others. """
 
 toolchain = {'name': 'dummy', 'version': ''}
 

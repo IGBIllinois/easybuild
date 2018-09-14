@@ -13,7 +13,7 @@ version = '6.6.0'
 versionsuffix = '-Java-%(javaver)s'
 
 homepage = 'http://emboss.sourceforge.net/'
-description = """EMBOSS is 'The European Molecular Biology Open Software Suite'.
+description = """EMBOSS, The European Molecular Biology Open Software Suite.
  EMBOSS is a free Open Source software analysis package specially developed for
  the needs of the molecular biology (e.g. EMBnet) user community."""
 
