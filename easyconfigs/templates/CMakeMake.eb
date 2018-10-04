@@ -11,6 +11,8 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 source_urls = ['']
 sources = [SOURCE_TAR_GZ]
 
+builddependencies = [('CMake', '3.7.2')]
+
 dependencies = []
 
 configopts = ''

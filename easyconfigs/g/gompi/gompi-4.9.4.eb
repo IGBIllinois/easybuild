@@ -3,7 +3,7 @@ easyblock = "Toolchain"
 name = 'gompi'
 version = '4.9.4'
 
-homepage = '(none)'
+homepage = ''
 description = """GNU Compiler Collection (GCC) based compiler toolchain,
  including OpenMPI for MPI support."""
 

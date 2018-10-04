@@ -1,0 +1,29 @@
+easyblock = 'Tarball'
+
+name = 'distruct'
+version = '2.2'
+
+homepage = 'http://www.crypticlineage.net/pages/distruct.html'
+description = """Modified version of the original distruct.py """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['distruct22.tar.gz']
+source_urls = ['http://www.crypticlineage.net/download/distruct/']
+
+dependencies = [('Python','2.7.13')
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['distruct2.2.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+modaliases = {'distruct': 'python %(installdir)s/distruct2.2.py'}
+
+moduleclass = 'bio'

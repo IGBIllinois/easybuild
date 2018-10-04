@@ -2,6 +2,7 @@ easyblock = 'PythonPackage'
 
 name = 'quast'
 version = '5.0.0'
+commit = '24f4128'
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://sourceforge.net/projects/quast/'
@@ -9,8 +10,8 @@ description = """QUAST performs fast and convenient quality evaluation and compa
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = [SOURCELOWER_TAR_GZ]
-source_urls = [SOURCEFORGE_SOURCE]
+sources = ['%s.tar.gz' % commit]
+source_urls = ["https://github.com/ablab/quast/archive/"]
 
 dependencies = [
         ('Python', '3.6.1'),

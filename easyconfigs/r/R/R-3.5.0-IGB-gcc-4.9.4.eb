@@ -36,6 +36,7 @@ dependencies = [
     ('MariaDB', '5.5.58'), # for RMySQL
     ('GSL', '2.3'),
     ('udunits', '2.2.26'),
+    ('GDAL','2.3.1'),
 ]
 
 moduleclass = 'lang'

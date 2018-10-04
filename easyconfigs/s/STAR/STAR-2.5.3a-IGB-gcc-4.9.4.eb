@@ -37,6 +37,5 @@ sanity_check_paths = {
     'dirs': [],
 }
 
-modloadmsg = "Please limit the number of STAR jobs to 3 at a time.  Using more creates a lot of stress on the shared filesystem on the cluster\n"
-
+modloadmsg = """Please use the outTmpDir parameter with STAR to point to the nodes local /scratch directory.  Without this parameter, the program causes issues with our shared filesystem.\nSTAR --outTmpDir /scratch/username/$SLURM_JOB_ID ...\n"""
 moduleclass = 'bio'

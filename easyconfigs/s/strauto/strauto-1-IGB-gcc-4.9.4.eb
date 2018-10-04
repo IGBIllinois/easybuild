@@ -1,0 +1,29 @@
+easyblock = 'Tarball'
+
+name = 'strauto'
+version = '1'
+
+homepage = 'http://www.crypticlineage.net/pages/software.html'
+description = """Automation and Parallelization of STRUCTURE Analysis"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['strauto_1.tar.gz']
+source_urls = ['http://www.crypticlineage.net/download/strauto/']
+
+dependencies = [('Python','2.7.13'),
+	('structure','2.3.4'),
+	('parallel','20170622'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['input.py','strauto_1.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+modaliases = {'strauto': 'python %(installdir)s/strauto_1.py'}
+moduleclass = 'bio'

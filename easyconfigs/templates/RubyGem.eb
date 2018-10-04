@@ -1,0 +1,32 @@
+easyblock = 'RubyGem'
+
+name = ''
+version = ''
+rubyver = '2.4.2'
+versionsuffix = '-Ruby-%s' % rubyver
+
+
+homepage = ''
+description = """"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['http://rubygems.org/downloads/']
+sources = ['%(namelower)s-%(version)s.gem']
+
+dependencies = [
+        ('Ruby', rubyver),
+]
+
+exts_defaultclass = "RubyGem"
+exts_list = [
+
+]
+
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

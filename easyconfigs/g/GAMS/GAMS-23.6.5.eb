@@ -1,0 +1,29 @@
+easyblock = 'ModuleOnly'
+
+name = 'GAMS'
+version = '23.6.5'
+
+homepage = 'https://www.gams.com/'
+description = """The General Algebraic Modeling System (GAMS) is a high-level modeling system for mathematical programming and optimization. 
+It consists of a language compiler and a stable of integrated high-performance solvers."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['linux_x64_64_xfs.exe']
+source_urls = ['https://d37drm4t2jghv5.cloudfront.net/distributions/%(version)s/linux/linux_x64_64_sfx.exe']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['gams'],
+	'dirs': [],
+}
+
+license_file = "gamslice.txt"
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'numlib'

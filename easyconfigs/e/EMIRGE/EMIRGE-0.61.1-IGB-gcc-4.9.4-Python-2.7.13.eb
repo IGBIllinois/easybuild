@@ -1,0 +1,38 @@
+easyblock = 'PythonPackage'
+
+name = 'EMIRGE'
+version = '0.61.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/csmiller/EMIRGE'
+description = """EMIRGE reconstructs full length ribosomal genes from short read
+sequencing data.  In the process, it also provides estimates of the
+sequences abundances.
+"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/csmiller/EMIRGE/archive/']
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('Biopython','1.68','-Python-2.7.13'),
+	('SAMtools','1.7'),
+	('Bowtie','1.1.2'),
+	('USEARCH','6.1.544','',True),
+	('VSEARCH','2.4.3'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('', "")
+
+sanity_check_paths = {
+        'files': ['bin/emirge.py','bin/emirge_amplicon.py'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

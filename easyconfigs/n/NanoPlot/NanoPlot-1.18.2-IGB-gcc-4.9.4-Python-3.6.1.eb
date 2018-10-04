@@ -1,0 +1,33 @@
+easyblock = 'PythonPackage'
+
+name = 'NanoPlot'
+version = '1.18.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/wdecoster/NanoPlot'
+description = """Plotting tool for long read sequencing data and alignments."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('HTSlib','1.5'),
+	('Biopython','1.68','-Python-3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+]
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/NanoPlot'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
