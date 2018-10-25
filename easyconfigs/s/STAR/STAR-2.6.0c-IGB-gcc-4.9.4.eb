@@ -37,5 +37,8 @@ sanity_check_paths = {
     'dirs': [],
 }
 
-modloadmsg = """Please use the outTmpDir parameter with STAR to point to the nodes local /scratch directory.  Without this parameter, the program causes issues with our shared filesystem.\nSTAR --outTmpDir /scratch/username/$SLURM_JOB_ID ...\n"""
+modloadmsg = "Please use the outTmpDir parameter with STAR to point to the nodes local /scratch directory.  Without this parameter, the program causes issues with our shared filesystem.\n"
+modloadmsg += "We will kill your job if you do not use the --outTmpDir parameter.\n"
+modloadmsg += "STAR --outTmpDir /scratch/username/$SLURM_JOB_ID ...\n"
+
 moduleclass = 'bio'

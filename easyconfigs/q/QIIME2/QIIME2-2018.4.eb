@@ -22,4 +22,8 @@ builddependencies = [('Anaconda3', '5.0.1')]
 
 sanity_check_commands = ['qiime info']
 
+modloadmsg = "When running QIIME2, do not have any other modules loaded as other modules might conflict with QIIME2.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load QIIME2/%(version)s\n"
+
 moduleclass = 'bio'

@@ -21,4 +21,6 @@ sanity_check_paths = {
 }
 
 modaliases = {'picard': 'java -jar %(installdir)s/picard.jar'}
+#modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
 moduleclass = 'bio'

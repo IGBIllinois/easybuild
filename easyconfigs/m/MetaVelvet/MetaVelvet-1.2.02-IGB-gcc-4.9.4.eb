@@ -1,0 +1,35 @@
+easyblock = 'MakeCp'
+
+name = 'MetaVelvet'
+version = '1.2.02'
+
+homepage = 'https://metavelvet.dna.bio.keio.ac.jp/'
+description = """An extension of Velvet assembler to de novo metagenome assembly from short sequence reads"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(name)s-%(version)s.tgz']
+source_urls = ['https://metavelvet.dna.bio.keio.ac.jp/src']
+
+dependencies = [
+	('zlib','1.2.11'),
+	('velvet','1.2.10','-kmer_121'),
+]
+
+buildopts = "MAXKMERLENGTH=121"
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['meta-velvetg']
+
+sanity_check_paths = {
+	'files': ['meta-velvetg'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+moduleclass = 'bio'

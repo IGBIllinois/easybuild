@@ -28,6 +28,9 @@ modextrapaths = {
 	'PATH': '',
 }
 
+modloadmsg = "Before running GeneMark-ES for the first time you need to copy the license key to your home folder.\n"
+modloadmsg += "cp -fR %(installdir)s/gm_key ~/.gm_key\n"
+
 postinstallcmds = ['rm -fr %(installdir)s/*.orig']
 
 moduleclass = 'bio'
