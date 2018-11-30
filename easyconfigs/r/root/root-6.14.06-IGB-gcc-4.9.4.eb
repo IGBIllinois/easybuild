@@ -1,0 +1,42 @@
+easyblock = 'CMakeMake'
+
+name = 'root'
+version = '6.14.06'
+
+homepage = 'https://root.cern.ch/'
+description = """A modular scientific software toolkit. It provides all the functionalities needed to deal with big data processing, statistical analysis, visualisation and storage. It is mainly written in C++ but integrated with other languages such as Python and R."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['root_v%(version)s.source.tar.gz']
+source_urls = ['https://root.cern.ch/download/']
+
+builddependencies = [('CMake','3.7.2'),
+]
+
+dependencies = [('git','2.9.5'),
+	('Python','3.6.1'),
+	('graphviz','2.40.1'),
+	('libxml2','2.9.4'),
+	('GSL','2.3'),
+	('R','3.3.3'),
+	('PCRE','8.40'),
+	
+]
+
+keepsymlinks = True
+separate_build_dir = True
+
+
+sanity_check_paths = {
+	'files': ['bin/root-config'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+modextravars = {'ROOTSYS':'%(installdir)s'
+}
+
+moduleclass = 'tools'

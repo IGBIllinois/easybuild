@@ -1,0 +1,34 @@
+easyblock = 'CMakeMake'
+
+name = 'Meraculous-2d'
+version = '2.2.6'
+
+homepage = 'https://sourceforge.net/projects/meraculous20/'
+description = """Meraculous-2D is a whole genome assembler for NGS reads (Illumina) that is capable of assembling large, diploid genomes with modest computational requirements."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://sourceforge.net/projects/meraculous20/files/%(version)s']
+sources = ['Meraculous-v%(version)s.tar.gz']
+
+builddependencies = [('CMake', '3.7.2')]
+
+dependencies = [('gnuplot','5.0.6'),
+	('Boost','1.63.0'),
+	('Perl','5.24.1'),
+]
+
+separate_build_dir = True
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/meraculous.pl'],
+        'dirs': [],
+}
+
+modextrapaths = {'PERL5LIB':'lib',
+}
+
+
+moduleclass = 'bio'
+
+

@@ -18,6 +18,7 @@ sources = ['%(namelower)s_%(version)s_linux-run']
 
 modextrapaths = {
 	'CUDA_ROOT':'',
+	'CUDA_HOME':'',
 }
 
 moduleclass = 'system'

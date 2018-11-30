@@ -15,6 +15,8 @@ builddependencies = [('CMake', '3.7.2')]
 
 dependencies = []
 
+separate_build_dir = True
+
 configopts = ''
 sanity_check_paths = {
         'files': [],

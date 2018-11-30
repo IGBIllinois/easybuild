@@ -1,0 +1,23 @@
+diff -ru FastQC-0.11.8.orig/fastqc FastQC-0.11.8/fastqc
+--- FastQC-0.11.8.orig/fastqc	2018-11-18 16:13:21.330073000 -0600
++++ FastQC-0.11.8/fastqc	2018-11-18 16:15:42.577664701 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ use warnings;
+ use strict;
+ use FindBin qw($RealBin);
+@@ -163,11 +163,11 @@
+ 	}
+ 	
+ 	push @java_args ,"-Dfastqc.threads=$threads";
+-	my $memory = 250 * $threads;
++	my $memory = 15000 * $threads;
+ 	unshift @java_args,"-Xmx${memory}m";
+ }
+ else {
+-	unshift @java_args,'-Xmx250m';
++	unshift @java_args,'-Xmx15000m';
+ }
+ 
+ if ($kmer_size) {

@@ -23,10 +23,11 @@ dependencies = [
 
 use_pip = True
 
+
 exts_list = [
 	('torch', '0.4.0', {
-		'modulename': 'torch',
-        'source_urls': [PYPI_LOWER_SOURCE],
+	'modulename': 'torch',
+        'source_urls': ['https://pypi.python.org/packages/source/t/torch/'],
         'source_tmpl': 'torch-0.4.0-cp36-cp36m-manylinux1_x86_64.whl',
         'unpack_sources': False,
         'use_pip': True,
@@ -35,6 +36,14 @@ exts_list = [
     	'modulename': 'torchvision',
         'source_urls': ['https://pypi.python.org/packages/source/t/torchvision/'],
         'source_tmpl': 'torchvision-0.2.1-py2.py3-none-any.whl',
+        'unpack_sources': False,
+        'use_pip': True,
+    }),
+
+    ('cffi', '1.11.5', {
+        'modulename': 'cffi',
+        'source_urls': ['https://pypi.python.org/packages/source/c/cffi/'],
+        'source_tmpl': 'cffi-1.11.5-cp36-cp36m-manylinux1_x86_64.whl',
         'unpack_sources': False,
         'use_pip': True,
     }),
@@ -47,6 +56,5 @@ sanity_check_paths = {
     'dirs': ['lib/python3.6/site-packages/torch']
 }
 
-#sanity_check_commands = ['print_qiime_config.py -t']
 
 moduleclass = 'bio'

@@ -1,0 +1,34 @@
+easyblock = 'MakeCp'
+
+name = 'cortex'
+version = '1.0.5.21'
+
+homepage = 'https://github.com/iqbal-lab/cortex'
+description = """reference free variant assembly"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/iqbal-lab/cortex/archive/']
+
+dependencies = [
+	
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+prebuildopts = "bash install.sh ; "
+buildopts = "cortex_var"
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['bin/cortex_var_31_c1'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

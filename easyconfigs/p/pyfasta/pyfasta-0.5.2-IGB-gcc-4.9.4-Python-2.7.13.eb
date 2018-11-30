@@ -1,0 +1,30 @@
+easyblock = 'PythonPackage'
+
+name = 'pyfasta'
+version = '0.5.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/brentp/pyfasta/'
+description = """Stores a flattened version of the fasta file without spaces or headers and uses either a mmap of numpy binary format or fseek/fread so the sequence data is never read into memory."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '2.7.13'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/pyfasta'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

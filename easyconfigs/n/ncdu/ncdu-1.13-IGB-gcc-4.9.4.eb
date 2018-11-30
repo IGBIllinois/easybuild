@@ -1,0 +1,28 @@
+easyblock = 'ConfigureMake'
+
+name = 'ncdu'
+version = '1.13'
+
+homepage = 'https://dev.yorhel.nl/ncdu'
+description = """Ncdu is a disk usage analyzer with an ncurses interface. It is designed to find space hogs on a remote server where you don't have an entire graphical setup available, but it is a useful tool even on regular desktop systems."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://dev.yorhel.nl/download/']
+sources = ['ncdu-%(version)s.tar.gz']
+
+dependencies = [('ncurses','6.0')]
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/ncdu'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

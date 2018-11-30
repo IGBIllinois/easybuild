@@ -1,0 +1,32 @@
+easyblock = 'ConfigureMake'
+
+name = 'scallop'
+version = '0.10.3'
+
+homepage = 'https://github.com/Kingsford-Group/scallop'
+description = """Scallop is an accurate reference-based transcript assembler. Scallop features its high accuracy in assembling multi-exon transcripts as well as lowly expressed transcripts."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/Kingsford-Group/scallop/archive/']
+sources = ['v%(version)s.tar.gz']
+
+dependencies = [('Boost','1.63.0'),
+	('HTSlib','1.9'),
+	('Clp','.1.16.11')
+]
+
+preconfigopts = 'autoreconf -i && '
+configopts = '--with-clp --with-htslib --with-boost'
+sanity_check_paths = {
+        'files': ['bin/scallop'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

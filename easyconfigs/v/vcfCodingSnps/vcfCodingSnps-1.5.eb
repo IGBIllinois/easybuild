@@ -1,0 +1,29 @@
+easyblock = 'Tarball'
+
+name = 'vcfCodingSnps'
+version = '1.5'
+
+homepage = 'http://csg.sph.umich.edu/liyanmin/vcfCodingSnps/index.shtml'
+description = """vcfCodingSnps is a SNP annotation tool that annotates coding variants in VCF files. """
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ['vcfCodingSnps_v%(version)s.tar.gz']
+source_urls = ['http://csg.sph.umich.edu/liyanmin/vcfCodingSnps/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['vcfCodingSnps.v1.5'],
+	'dirs': [],
+}
+
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

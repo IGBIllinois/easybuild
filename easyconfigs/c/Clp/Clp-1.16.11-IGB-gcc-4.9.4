@@ -1,0 +1,29 @@
+easyblock = 'ConfigureMake'
+
+name = 'Clp'
+version = '1.16.11'
+
+homepage = 'https://projects.coin-or.org/Clp'
+description = """Clp (Coin-or linear programming) is an open-source linear programming solver written in C++. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://www.coin-or.org/download/source/Clp/']
+sources = ['Clp-%(version)s.zip']
+
+dependencies = [('libxml2','2.9.4')
+]
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/clp','lib/libClp.so'],
+        'dirs': [],
+}
+
+modextrapaths = {'CPATH':'include/coin'
+}
+
+
+moduleclass = 'numlib'
+
+

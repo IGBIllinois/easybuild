@@ -1,0 +1,37 @@
+easyblock = 'Binary'
+
+name = 'nextflow'
+version = '18.10.1'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = 'https://www.nextflow.io/'
+description = """Nextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages. """
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['nextflow']
+source_urls = ['https://github.com/nextflow-io/nextflow/releases/download/v%(version)s/']
+
+dependencies = [('Java','1.8.0_152'),
+	('graphviz','2.40.1','-IGB-gcc-4.9.4-Python-2.7.13'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['nextflow'],
+	'dirs': [],
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/nextflow',
+	'chmod 664 %(installdir)s/config/framework/0.25.7/nextflow-0.25.7-one.jar'
+]
+
+modextrapaths = {'PATH': '',
+		'NXF_HOME': 'config',
+}
+
+modextravars = {'NXF_EXECUTOR': 'SLURM',
+		'NXF_TEMP': '/tmp'}
+
+moduleclass = 'bio'
