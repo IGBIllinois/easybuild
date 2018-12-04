@@ -1,7 +1,7 @@
 easyblock = "PythonPackage"
 
 name = "MultiQC"
-version = "1.2"
+version = "1.6"
 versionsuffix = "-Python-%(pyver)s"
 
 homepage = "http://multiqc.info/"
@@ -16,7 +16,7 @@ dependencies = [('Python', '3.6.1')]
 
 sanity_check_paths = {
 	'files': [],
-	'dirs': ['bin','lib/python2.7/site-packages/']
+	'dirs': ['bin','lib/python3.6/site-packages/']
 }
 
 moduleclass = 'bio'

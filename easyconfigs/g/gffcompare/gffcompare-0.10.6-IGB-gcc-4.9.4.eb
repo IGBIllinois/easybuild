@@ -1,0 +1,40 @@
+easyblock = 'MakeCp'
+
+name = 'gffcompare'
+version = '0.10.6'
+
+homepage = 'http://ccb.jhu.edu/software/stringtie/gffcompare.shtml'
+description = """The program gffcompare can be used to compare, merge, annotate and estimate accuracy of one or more GFF files (the query files), when compared with a reference annotation (also provided as GFF). """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+
+sources =[
+	{'source_urls': ['https://github.com/gpertea/gffcompare/archive/'],
+	'filename': 'v%(version)s.tar.gz'}
+]
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['gffcompare','trmap'],'bin')]
+
+prebuildopts = "wget https://github.com/gpertea/gclib/archive/v0.10.3.tar.gz && "
+prebuildopts += "tar xfvz v0.10.3.tar.gz -C %(builddir)s && "
+prebuildopts += "ln -s %(builddir)s/gclib-0.10.3 %(builddir)s/gclib && "
+
+buildopts = "release"
+
+sanity_check_paths = {
+	'files': ['bin/gffcompare','bin/trmap'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
