@@ -1,6 +1,6 @@
 easyblock = 'MakeCp'
 
-name = 'fastqp'
+name = 'fastp'
 version = '0.19.5'
 
 homepage = 'https://github.com/OpenGene/fastp'

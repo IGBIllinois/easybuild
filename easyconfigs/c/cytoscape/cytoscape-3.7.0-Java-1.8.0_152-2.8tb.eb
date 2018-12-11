@@ -1,0 +1,33 @@
+easyblock = 'Tarball'
+
+name = 'cytoscape'
+version = '3.7.0'
+versionsuffix = '-Java-1.8.0_152-2.8tb'
+
+homepage = 'https://cytoscape.org/'
+description = """Cytoscape is an open source software platform for visualizing complex networks and integrating these with any type of attribute data."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ['cytoscape-%(version)s.tar.gz']
+source_urls = ['https://github.com/cytoscape/cytoscape/releases/download/%(version)s/']
+
+dependencies = [('Java','1.8.0_152'),
+]
+
+keepsymlinks = True
+
+patches = [('cytoscape-%(version)s-2.8tb.patch',1)]
+
+sanity_check_paths = {
+	'files': ['cytoscape.sh'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+modloadmsg = "This version of cytoscape limits you to a maximum of 2.8TB of memory.\n"
+modloadmsg += "It will only run on nodes with at least 2.8TB of memory installed in the system.\n";
+
+
+moduleclass = 'tools'

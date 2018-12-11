@@ -21,12 +21,21 @@ dependencies = [
 buildopts = "USE_SRA=1 NCBI_NGS_DIR=$EBROOTNGS NCBI_VDB_DIR=$EBROOTNCBIMINVDB"
 
 executables = ['hisat2', 'hisat2-align-l', 'hisat2-align-s', 'hisat2-build', 'hisat2-build-l', 'hisat2-build-s',
-               'hisat2-inspect', 'hisat2-inspect-s', 'hisat2-inspect-l']
-files_to_copy = [(executables, 'bin')]
+               'hisat2-inspect', 'hisat2-inspect-s', 'hisat2-inspect-l','extract_exons.py','extract_splice_sites.py','hisat2_extract_exons.py',
+'hisat2_extract_snps_haplotypes_UCSC.py','hisat2_extract_snps_haplotypes_VCF.py','hisat2_extract_splice_sites.py','hisat2_simulate_reads.py',
+'hisatgenotype_build_genome.py','hisatgenotype_extract_reads.py','hisatgenotype_extract_vars.py','hisatgenotype_hla_cyp.py','hisatgenotype_locus.py',
+'hisatgenotype.py']
+
+files_to_copy = [(executables, 'bin'),'scripts','doc','example','LICENSE','MANUAL','TUTORIAL','VERSION',
+
+]
 
 sanity_check_paths = {
     'files': ['bin/%s' % x for x in executables],
     'dirs': [],
+}
+
+modextrapaths = {'PATH':'scripts'
 }
 
 moduleclass = 'bio'
