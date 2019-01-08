@@ -8,7 +8,7 @@ description = """This is a comprehensive update to Shaun Purcells PLINK command-
 
 toolchain = {'name': 'dummy', 'version': ''}
 
-sources = ['plink_linux_x86_64.zip']
+sources = ['plink1_linux_x86_64.zip']
 source_urls = ['http://s3.amazonaws.com/plink1-assets/%(version)s/']
 
 dependencies = [
@@ -19,7 +19,7 @@ keepsymlinks = True
 
 
 sanity_check_paths = {
-	'files': ['plink','prettify'],
+	'files': ['plink'],
 	'dirs': [],
 }
 

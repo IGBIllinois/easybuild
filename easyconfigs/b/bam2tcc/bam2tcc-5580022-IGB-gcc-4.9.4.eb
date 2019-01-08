@@ -1,0 +1,36 @@
+easyblock = 'CMakeCp'
+
+name = 'bam2tcc'
+version = '5580022'
+commit = version
+
+homepage = 'https://github.com/pachterlab/bam2tcc'
+description = """This utility converts genome alignments in SAM/BAM format to transcript compatibility counts (TCCs) as output by transcriptome pseudoalignment methods such as kallisto."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/pachterlab/bam2tcc/archive']
+sources = ['%s.tar.gz' % commit]
+
+builddependencies = [('CMake', '3.7.2')]
+
+dependencies = [('seqan','2.3.2')
+]
+
+separate_build_dir = True
+
+preconfigopts = 'export SeqAn_DIR=$EBROOTSEQAN/lib/cmake &&'
+
+files_to_copy = [(['src/bam2tcc','src/debug'],'bin')]
+sanity_check_paths = {
+        'files': ['bin/bam2tcc'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

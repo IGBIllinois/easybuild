@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'gevalt'
+version = '2.0'
+versionsuffix = "-Java-1.8.0_152"
+
+homepage = 'http://acgt.cs.tau.ac.il/gevalt/'
+description = """GEVALT (GEnotype Visualization and ALgorithmic Tool) is designed to simplify and expedite the process of genotype analysis and disease association tests by providing a common interface to several common tasks relating to such analyses. """
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['gevaltLinux.zip']
+source_urls = ['http://acgt.cs.tau.ac.il/gevalt/uhgd45gb6s/']
+
+dependencies = [('Java','1.8.0_152'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['Gevalt.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+modaliases = {'gevalt': 'java -jar %(installdir)s/Gevalt.jar'}
+moduleclass = 'bio'

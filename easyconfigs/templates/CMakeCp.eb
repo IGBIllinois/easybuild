@@ -19,13 +19,13 @@ dependencies = [
 separate_build_dir = True
 patches = []
 
-files_to_copy = ['']
+files_to_copy = ['*']
 sanity_check_paths = {
     'files': [],
     'dirs': []
 }
 
-modextrapaths = {'PATH':''}
+modextrapaths = {}
 
 moduleclass = 'bio'
 
