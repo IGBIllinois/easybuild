@@ -1,4 +1,4 @@
-name = 'Python'
+ame = 'Python'
 version = '3.6.1'
 
 homepage = 'http://python.org/'
@@ -45,7 +45,7 @@ exts_list = [
     ('appdirs', '1.4.3', {
 	'source_urls': ['https://pypi.python.org/packages/source/a/appdirs/']
     }),
-    ('setuptools', '34.3.3', {
+    ('setuptools', '40.6.3', {
 	'source_tmpl': '%(name)s-%(version)s.zip',
         'source_urls': ['https://pypi.python.org/packages/source/s/setuptools/'],
     }),

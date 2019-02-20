@@ -1,27 +1,32 @@
 easyblock = 'ConfigureMake'
 
 name = 'OpenMPI'
-version = '2.1.0'
+version = '4.0.0'
 
 homepage = 'http://www.open-mpi.org/'
-description = """The Open MPI Project is an open source MPI-2 implementation."""
+description = """The Open MPI Project is an open source MPI-3 implementation."""
 
-toolchain = {'name': 'GCC', 'version': '7.3.0-2.28'}
+toolchain = {'name': 'GCC', 'version': '8.2.0-2.32'}
 
 source_urls = ['http://www.open-mpi.org/software/ompi/v%(version_major_minor)s/downloads']
 sources = [SOURCELOWER_TAR_GZ]
+checksums = ['36f10daa3f1b1d37530f686bf7f70966b2a13c0bc6e2e05aebc7e85e3d21b10d']
 
-checksums = ['c058052b53d209c7521079e3d2da613b']
+# needed for --with-verbs
+osdependencies = [('rdma-core-devel','slurm-devel-ohpc')
+]
 
-dependencies = [('hwloc', '1.11.6')]
+dependencies = [
+#    ('zlib', '1.2.11'),
+    ('hwloc', '2.0.2')
+]
 
-configopts = '--enable-shared --enable-mpi-thread-multiple --with-verbs=no '
+configopts = '--enable-shared --with-verbs '
 configopts += '--enable-mpirun-prefix-by-default '  # suppress failure modes in relation to mpirun path
 configopts += '--with-hwloc=$EBROOTHWLOC '  # hwloc support
-configopts += '--disable-dlopen '  # statically link component, don't do dynamic loading
-
+configopts += '--enable-mpi1-compatibility '
 # to enable SLURM integration (site-specific)
-configopts += '--with-slurm --with-pmi=/usr/include/slurm --with-pmi-libdir=/usr'
+#configopts += '--with-slurm --with-pmi=/usr/include/slurm --with-pmi-libdir=/usr'
 
 libs = ["mpi_mpifh", "mpi", "ompitrace", "open-pal", "open-rte"]
 sanity_check_paths = {
@@ -32,3 +37,4 @@ sanity_check_paths = {
 }
 
 moduleclass = 'mpi'
+

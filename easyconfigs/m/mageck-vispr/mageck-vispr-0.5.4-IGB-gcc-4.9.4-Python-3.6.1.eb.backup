@@ -1,0 +1,30 @@
+easyblock = 'PythonPackage'
+
+name = 'mageck-vispr'
+version = '0.5.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://bitbucket.org/liulab/mageck-vispr'
+description = """MAGeCK-VISPR is a comprehensive quality control, analysis and visualization workflow for CRISPR/Cas9 screens."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ["v%(version)s.tar.gz"]
+source_urls = ["https://bitbucket.org/liulab/mageck-vispr/get/"]
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import mageck_vispr"', "")
+
+sanity_check_paths = {
+        'files': ['bin/mageck-vispr'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

@@ -30,3 +30,7 @@ sanity_check_paths = {
 moduleclass = 'bio'
 
 modextrapaths = {'AUGUSTUS_CONFIG_PATH':'config'}
+
+modloadmsg = "NOTICE: Please set the AUGUSTUS_CONFIG_PATH to a location in your home directory.\n";
+modloadmsg += "An example is 'export AUGUSTUS_CONFIG_PATH=/home/a-m/username/augustus'\n";
+

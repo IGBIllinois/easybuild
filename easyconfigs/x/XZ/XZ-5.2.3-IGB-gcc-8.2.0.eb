@@ -1,0 +1,33 @@
+easyblock = 'ConfigureMake'
+
+name = 'XZ'
+version = '5.2.3'
+
+homepage = 'http://tukaani.org/xz/'
+description = "xz: XZ utilities"
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = ['http://tukaani.org/xz/']
+
+#patches = ['XZ-%(version)s_compat-libs.patch']
+
+builddependencies = [
+	#('Autotools', '20150215', '',True),
+	#('gettext', '0.19.8', '', True),
+	#('binutils', '2.28', '', True),
+	#('Autotools','20150215'),
+	#('gettext','0.19.8'),
+	#('binutils','2.28'),
+]
+
+# may become useful in non-x86 archs
+# configopts = ' --disable-assembler '
+
+sanity_check_paths = {
+    'files': ["bin/xz", "bin/lzmainfo"],
+    'dirs': []
+}
+
+moduleclass = 'tools'

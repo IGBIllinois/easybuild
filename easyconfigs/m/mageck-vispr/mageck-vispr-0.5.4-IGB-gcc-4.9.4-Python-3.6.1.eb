@@ -1,0 +1,47 @@
+easyblock = 'Bundle'
+
+name = 'mageck-vispr'
+version = '0.5.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://bitbucket.org/liulab/mageck-vispr'
+description = """MAGeCK-VISPR is a comprehensive quality control, analysis and visualization workflow for CRISPR/Cas9 screens."""
+
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = []
+source_urls = []
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+    ('mageck-vispr', '0.5.4', {
+        'source_tmpl': 'v%(version)s.tar.gz',
+        'source_urls': ['https://bitbucket.org/liulab/mageck-vispr/get/'],
+	'modulename': 'mageck_vispr',
+	'patches': ['mageck-vispr-0.5.4.patch'],
+    }),
+
+    ('snakemake', '5.4.2', {
+        'source_tmpl': 'v%(version)s.tar.gz',
+        'source_urls': ['https://bitbucket.org/snakemake/snakemake/get/'],
+        'modulename': 'snakemake'
+    }),
+
+]
+
+
+exts_filter = ('', "")
+
+sanity_check_paths = {
+        'files': ['bin/mageck-vispr'],
+        'dirs': [],
+}
+
+modextrapaths = {'PYTHONPATH':'lib/python3.6/site-packages'}
+
+moduleclass = 'bio'

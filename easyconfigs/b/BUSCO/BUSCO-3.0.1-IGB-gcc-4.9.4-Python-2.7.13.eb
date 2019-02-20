@@ -50,3 +50,6 @@ postinstallcmds = [('cp -fR config sample_data scripts %(installdir)s/')]
 
 modextrapaths = {'PATH':'scripts'}
 moduleclass = 'bio'
+
+modloadmsg = "NOTICE: An example BUSCO config file is located at %(installdir)s/config/config.ini\n";
+

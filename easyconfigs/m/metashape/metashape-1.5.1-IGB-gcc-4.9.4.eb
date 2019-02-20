@@ -1,0 +1,46 @@
+easyblock = 'Tarball'
+
+name = 'metashape'
+version = '1.5.1'
+
+homepage = 'https://www.agisoft.com/'
+description = """photogrammetric
+processing of digital images and 3D spatial data generation"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['metashape_1_5_1_amd64.tar.gz']
+source_urls = ['http://download.agisoft.com/']
+
+dependencies = [('Python', '3.6.1')
+]
+
+keepsymlinks = True
+
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+    ('Metashape', '1.5.1', {
+        'source_urls': ['http://download.agisoft.com/'],
+        'source_tmpl': 'Metashape-1.5.1-cp35.cp36.cp37-abi3-linux_x86_64.whl',
+	'unpack_sources': False,
+	'use_pip': True,
+	'modulename': 'Metashape',
+    }),
+]
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+
+sanity_check_paths = {
+	'files': ['metashape'],
+	'dirs': ['lib/python3.6/site-packages/Metashape'],
+}
+
+modextrapaths = {'PATH':'',
+	'LD_LIBRARY_PATH':'',
+	'PYTHONPATH':'lib/python3.6/site-packages',
+}
+
+moduleclass = 'bio'

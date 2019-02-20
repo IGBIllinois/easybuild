@@ -1,0 +1,30 @@
+easyblock = 'Tarball'
+
+name = 'chopchop'
+version = '20190211'
+versionsuffix = '-Python-2.7.13'
+commit = '59d7f17'
+
+homepage = 'https://bitbucket.org/valenlab/chopchop'
+description = """CHOPCHOP is a python script that allows quick and customizable design of guide RNA. We support selecting target sites for CRISPR/Cas9, CRISPR/Cpf1 or TALEN with wide range of customization. We even support C2c2 for isoform targeting."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.tar.gz' % commit]
+source_urls = ['https://bitbucket.org/valenlab/chopchop/get/']
+
+dependencies = [('Python','2.7.13'),
+	('Bowtie','1.2.2'),
+	('Biopython','1.68','-Python-2.7.13'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['chopchop.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':['','svm_light']}
+
+moduleclass = 'bio'

@@ -1,0 +1,30 @@
+easyblock = 'PythonPackage'
+
+name = 'hapflk'
+version = '1.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://forge-dga.jouy.inra.fr/projects/hapflk'
+description = """hapflk is a software implementing the hapFLK and FLK tests for the detection of selection signatures based on multiple population genotyping data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ["hapflk-%(version)s.tar.gz"]
+source_urls = ["https://forge-dga.jouy.inra.fr/attachments/download/8067/"]
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/hapflk'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,32 @@
+easyblock = 'PythonPackage'
+
+name = 'cocoapi'
+version = '20190218'
+versionsuffix = '-Python-%(pyver)s'
+commit = 'ed842bf'
+
+homepage = 'https://github.com/cocodataset/cocoapi'
+description = """OCO is a large image dataset designed for object detection, segmentation, person keypoints detection, stuff segmentation, and caption generation."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ["%s.tar.gz" % commit]
+source_urls = ["https://github.com/cocodataset/cocoapi/archive/"]
+
+start_dir = "PythonAPI"
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+exts_filter = ('python -c "import pycocotools"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python3.6/site-packages/pycocotools-2.0-py3.6-linux-x86_64.egg'],
+}
+
+moduleclass = 'bio'

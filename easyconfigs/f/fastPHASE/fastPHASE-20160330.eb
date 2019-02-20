@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'fastPHASE'
+version = '20160330'
+
+homepage = 'http://scheet.org/software.html'
+description = """fastPHASE is a program to estimate missing genotypes and unobserved haplotypes. """
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ['Linuxfp.tar.gz']
+source_urls = ['http://scheet.org/code/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['fastPHASE'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+postinstallcmds = ["chmod 775 %(installdir)s/fastPHASE"]
+
+moduleclass = 'bio'

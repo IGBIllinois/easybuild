@@ -7,28 +7,50 @@ versionsuffix = '-Java-%(javaver)s'
 homepage = 'https://www.nextflow.io/'
 description = """Nextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages. """
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = {'name': 'dummy', 'version': ''}
 
-sources = ['nextflow']
+sources = ['nextflow-%(version)s-all']
 source_urls = ['https://github.com/nextflow-io/nextflow/releases/download/v%(version)s/']
 
-dependencies = [('Java','1.8.0_121')
+dependencies = [('Java','1.8.0_121'),
+	('graphviz','2.40.1','-IGB-gcc-4.9.4'),
+	('Python','3.6.1','-IGB-gcc-4.9.4'),
 ]
+
+
+exts_defaultclass = "PythonPackage"
+
+exts_list = [
+	('nf-core', '1.4', {
+       'source_urls': ['https://pypi.python.org/packages/source/n/nf-core']
+    }),
+
+]
+exts_filter = ("", '')
 
 keepsymlinks = True
 
 sanity_check_paths = {
-	'files': ['nextflow'],
+	'files': ['bin/nextflow'],
 	'dirs': [],
 }
 
-postinstallcmds = ['chmod 775 %(installdir)s/nextflow']
+install_cmd = "mkdir -p %(installdir)s/bin && "
+install_cmd += "mv nextflow-%(version)s-all %(installdir)s/bin/nextflow"
 
-modextrapaths = {'PATH': '',
-		'NXF_HOME': 'config',
+#postinstallcmds = ['mv %(installdir)s/nextflow-%(version)s-all %(installdir)s/nextflow']
+postinstallcmds = ['chmod 775 %(installdir)s/bin/nextflow']
+
+
+modextrapaths = {'NXF_HOME': 'config',
+	 'PYTHONPATH':'lib/python3.6/site-packages',
 }
 
 modextravars = {'NXF_EXECUTOR': 'SLURM',
 		'NXF_TEMP': '/tmp'}
+
+modloadmsg = "Please set the environmental variable NXF_HOME to a directory in your home directory.  Without this parameter, nextflow will not work.\n"
+modloadmsg += "An example is 'export NXF_HOME=/home/a-m/username/nextflow'.\n"
+
 
 moduleclass = 'bio'

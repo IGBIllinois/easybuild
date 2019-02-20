@@ -1,0 +1,16 @@
+diff -ru liulab-mageck-vispr-32eef630a8b4.orig/mageck_vispr/version.py liulab-mageck-vispr-32eef630a8b4/mageck_vispr/version.py
+--- liulab-mageck-vispr-32eef630a8b4.orig/mageck_vispr/version.py	2019-02-15 13:53:36.554512000 -0600
++++ liulab-mageck-vispr-32eef630a8b4/mageck_vispr/version.py	2019-02-15 13:53:50.597644000 -0600
+@@ -1 +1 @@
+-__version__ = "0.5.3"
++__version__ = "0.5.4"
+diff -ru liulab-mageck-vispr-32eef630a8b4.orig/requirements.txt liulab-mageck-vispr-32eef630a8b4/requirements.txt
+--- liulab-mageck-vispr-32eef630a8b4.orig/requirements.txt	2019-02-15 13:53:36.550712000 -0600
++++ liulab-mageck-vispr-32eef630a8b4/requirements.txt	2019-02-15 13:53:43.716259000 -0600
+@@ -1,5 +1,5 @@
+ fastqc ==0.11.4
+-mageck >=0.5.3
++mageck >=0.5.4
+ vispr >=0.4.11
+ snakemake >=3.6.0
+ cutadapt >=1.9.1
