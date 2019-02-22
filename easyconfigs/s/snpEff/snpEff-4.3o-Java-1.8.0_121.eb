@@ -26,7 +26,7 @@ sanity_check_paths = {
 }
 
 
-modaliases = {'trimmomatic': 'java -jar %(installdir)s/snpEff/snpEff.jar',
+modaliases = {'snpEff': 'java -jar %(installdir)s/snpEff/snpEff.jar',
 	'SnpSift': 'java -jar %(installdir)s/snpEff/snpEff/SnpSift.jar',
 	'clinEff': 'java -jar %(installdir)s/snpEff/clinEff/clinEff.jar'
 }
