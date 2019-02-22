@@ -12,6 +12,7 @@ easyblock = 'Tarball'
 name = 'IllinoisDataBank'
 version = '1.0'
 versionsuffix = "-Python-%(pyver)s"
+commit = '8671c3d'
 
 homepage = 'https://databank.illinois.edu/'
 description = "The Illinois Data Bank is a public access repository for publishing research data from the University of Illinois at Urbana-Champaign"
@@ -20,16 +21,35 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 toolchainopts = {'optarch': True, 'pic': True}
 
 dependencies = [
-	('Python','2.7.13'),
+	('Python','3.6.1'),
 ]
 source_urls = ['https://github.com/medusa-project/databank-client/archive/']
-sources = ['master.tar.gz']
+sources = ['%s.tar.gz' % commit]
+
 
 sanity_check_paths = {
-	'files': ["illinois_data_bank_datafile.py"],
+	'files': ["databank_api_client_v2.py"],
 	'dirs': [],
 }
 
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+    ('tuspy', '0.2.4', {
+        'source_tmpl': 'tuspy-%(version)s.tar.gz',
+        'source_urls': ['https://pypi.python.org/packages/source/t/tuspy/'],
+	'use_pip': True,
+	'modulename': 'tusclient'
+    }),	
+]
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
 moduleclass = 'base'
 
-modextrapaths = {'PATH': ''}
+modextrapaths = {'PATH': '',
+'PYTHONPATH':'lib/python3.6/site-packages'
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/databank_api_client_v2.py']
