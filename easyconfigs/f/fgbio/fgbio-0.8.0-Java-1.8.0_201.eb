@@ -1,0 +1,28 @@
+easyblock = 'Binary'
+
+name = 'fgbio'
+version = '0.6.0'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = 'http://fulcrumgenomics.github.io/fgbio/'
+description = """fgbio is a command line toolkit for working with genomic and particularly next generation sequencing data."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['fgbio-%(version)s.jar']
+source_urls = ['https://github.com/fulcrumgenomics/fgbio/releases/download/%(version)s/']
+
+dependencies = [('Java','1.8.0_201'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['fgbio-%(version)s.jar'],
+	'dirs': [],
+}
+
+modaliases = {'fgbio': 'java -Xmx4g -jar %(installdir)s/fgbio-%(version)s.jar'}
+modextrapaths = {}
+
+moduleclass = 'bio'

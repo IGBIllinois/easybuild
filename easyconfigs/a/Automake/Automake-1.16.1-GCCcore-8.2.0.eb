@@ -18,7 +18,7 @@ version = "1.16.1"
 homepage = 'http://www.gnu.org/software/automake/automake.html'
 description = "Automake: GNU Standards-compliant Makefile generator"
 
-toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchain = {'name': 'GCCcore', 'version': '8.2.0'}
 
 source_urls = [GNU_SOURCE]
 sources = [SOURCELOWER_TAR_GZ]
