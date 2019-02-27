@@ -1,0 +1,33 @@
+easyblock = 'MakeCp'
+
+name = 'VASP-E'
+version = '20190225'
+
+homepage = 'http://www.cse.lehigh.edu/~chen/software.htm'
+description = """VASP and VASP-E explore the idea that a solid geometric representation of molecular structures can be used to automatically deconstruct proteins into functional elements for the study of binding specificity."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['VASP.tgz']
+source_urls = ['http://www.cse.lehigh.edu/~chen/software/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+buildopts = "-C codeRelease/vaspRelease && make -C codeRelease/surfProcessingRelease "
+
+with_configure = False
+
+files_to_copy = [(['codeRelease/vaspRelease/debug/vasp','codeRelease/surfProcessingRelease/debug/surfProcessing'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/vasp','bin/surfProcessing'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
