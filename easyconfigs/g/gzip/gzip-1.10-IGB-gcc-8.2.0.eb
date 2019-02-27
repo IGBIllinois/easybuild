@@ -13,6 +13,7 @@ sources = [SOURCE_TAR_GZ]
 
 builddependencies = [('binutils', '2.32','',('GCCcore','8.2.0'))]
 
+dependencies = [('tar','1.32')]
 sanity_check_paths = {
     'files': ["bin/gunzip", "bin/gzip", "bin/uncompress"],
     'dirs': [],

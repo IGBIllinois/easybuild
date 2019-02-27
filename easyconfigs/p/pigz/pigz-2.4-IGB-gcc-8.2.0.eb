@@ -22,7 +22,9 @@ source_urls = ['https://github.com/madler/pigz/archive/']
 sources = ['v%(version)s.tar.gz']
 
 # README recommends zlib 1.2.6 or higher
-dependencies = [('zlib', '1.2.11')]
+dependencies = [('zlib', '1.2.11'),
+	('tar','1.32')
+]
 
 buildopts = ' CC=$CC'
 

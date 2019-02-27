@@ -12,4 +12,6 @@ toolchainopts = {'pic': True}
 sources = [SOURCE_TAR_GZ]
 source_urls = ['http://www.bzip.org/%(version)s']
 
+dependencies = [('tar','1.32')
+]
 moduleclass = 'tools'

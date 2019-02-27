@@ -1,0 +1,20 @@
+easyblock = 'ConfigureMake'
+
+name = 'tar'
+version = '1.32'
+
+homepage = 'http://www.gnu.org/software/tar/tar.html'
+description = "tar: The GNU tape archiver"
+
+source_urls = [GNU_SOURCE]
+sources = ['tar-%s.tar.bz2' % version]
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sanity_check_paths = {
+    'files': ['bin/tar'],
+    'dirs': []
+}
+
+moduleclass = 'tools'
+

@@ -11,7 +11,9 @@ toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 source_urls = ['https://launchpad.net/pbzip2/1.1/1.1.13/+download/']
 sources = [SOURCE_TAR_GZ]
 
-dependencies = [('bzip2','1.0.6')]
+dependencies = [('bzip2','1.0.6'),
+('tar','1.32'),
+]
 
 skipsteps = ['configure']
 
