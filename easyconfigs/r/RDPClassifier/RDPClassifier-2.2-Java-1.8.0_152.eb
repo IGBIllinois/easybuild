@@ -28,5 +28,7 @@ modextrapaths = {
 }
 
 modaliases = {'classifier': 'java -jar %(installdir)s/rdp_classifier-2.2.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+modloadmsg = """To execute RDPClassifier run 'classifier'.  This command executes 'java -jar %(installdir)s/dist/classifier-2.2.jar'\n"""
 
 moduleclass = 'bio'

@@ -1,0 +1,32 @@
+easyblock = 'PythonPackage'
+
+name = 'nanopack'
+version = '1.0.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/wdecoster/nanopack'
+description = """Easily install all my long read processing and analysis scripts simultaneously."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('minimap','2.16','-Python-3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('', "")
+
+sanity_check_paths = {
+        'files': ['bin/NanoPlot'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

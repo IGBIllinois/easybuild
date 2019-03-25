@@ -28,4 +28,5 @@ modextrapaths = {}
 modaliases = {'beagle': 'java -jar %(installdir)s/beagle.%(version)s.jar'}
 modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
 
+modloadmsg = """To execute beagle run 'beagle'.  This command executes 'java -jar %(installdir)s/beagle.%(version)s.jar'\n"""
 moduleclass = 'bio'

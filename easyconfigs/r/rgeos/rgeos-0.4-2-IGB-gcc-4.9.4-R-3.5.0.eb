@@ -1,0 +1,31 @@
+easyblock = 'RPackage'
+
+name = 'rgeos'
+version = '0.4-2'
+
+homepage = 'https://cran.r-project.org/web/packages/%(name)s/index.html'
+description = """nterface to Geometry Engine - Open Source (GEOS) using the C API for topology operations on geometries."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = [
+	'http://cran.r-project.org/src/contrib/',
+	'http://cran.r-project.org/src/contrib/Archive/$(name)s/',
+]
+sources = ['%(name)s_%(version)s.tar.gz']
+
+r = 'R'
+rver = '3.5.0'
+versionsuffix = '-%s-%s' % (r,rver)
+
+dependencies = [
+	(r,rver),
+	('geos','3.7.1')
+]
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['%(name)s'],
+}
+
+moduleclass = 'lib'

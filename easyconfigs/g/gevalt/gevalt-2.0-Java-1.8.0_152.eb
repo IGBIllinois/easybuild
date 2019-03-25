@@ -25,4 +25,8 @@ sanity_check_paths = {
 modextrapaths = {'PATH':''}
 
 modaliases = {'gevalt': 'java -jar %(installdir)s/Gevalt.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+modloadmsg = """To execute gevalt run 'gevalt'.  This command executes 'java -jar %(installdir)s/Gevalt.jar'\n"""
+
 moduleclass = 'bio'

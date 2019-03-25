@@ -1,0 +1,30 @@
+easyblock = 'PythonPackage'
+
+name = 'synapseclient'
+version = '1.9.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://www.synapse.org/'
+description = """Synapse is an open source software platform that data scientists can use to carry out, track, and communicate their research in real time."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/synapse'],
+        'dirs': [],
+}
+
+moduleclass = 'tools'

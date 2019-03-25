@@ -21,6 +21,7 @@ sanity_check_paths = {
 }
 
 modaliases = {'picard': 'java -jar %(installdir)s/picard.jar'}
-#modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+modloadmsg = """To execute picard run 'picard'.  This command executes 'java -jar %(installdir)s/picard.jar'\n"""
 
 moduleclass = 'bio'

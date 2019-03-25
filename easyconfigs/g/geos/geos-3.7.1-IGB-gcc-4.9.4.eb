@@ -1,0 +1,28 @@
+easyblock = 'ConfigureMake'
+
+name = 'geos'
+version = '3.7.1'
+
+homepage = 'http://trac.osgeo.org/geos'
+description = """GEOS (Geometry Engine - Open Source) is a C++ port of the JTS Topology Suite"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['http://download.osgeo.org/geos/']
+sources = ['geos-%(version)s.tar.bz2']
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/geos-config'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

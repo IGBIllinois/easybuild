@@ -22,7 +22,11 @@ sanity_check_paths = {
 	'dirs': [],
 }
 
-modaliases = {'fgbio': 'java -Xmx4g -jar %(installdir)s/fgbio-%(version)s.jar'}
+modaliases = {'fgbio': 'java -Xmx16g -jar %(installdir)s/fgbio-%(version)s.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+modloadmsg = """To execute fgbio run 'fgbio'.  This command executes 'java -Xmx16g -jar %(installdir)s/fgbio-%(version)s.jar'\n"""
+
+
 modextrapaths = {}
 
 moduleclass = 'bio'

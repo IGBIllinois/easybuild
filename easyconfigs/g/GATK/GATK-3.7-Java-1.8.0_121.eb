@@ -39,4 +39,9 @@ sanity_check_paths = {
     'dirs': ["resources"],
 }
 modaliases = {'gatk': 'java -jar %(installdir)s/GenomeAnalysisTK.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+modloadmsg = """To execute GATK run 'gatk'.  This command executes 'java -jar %(installdir)s/GenomeAnalysisTK.jar'\n"""
+
+
 moduleclass = 'bio'

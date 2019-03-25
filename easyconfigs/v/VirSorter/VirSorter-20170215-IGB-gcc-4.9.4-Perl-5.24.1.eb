@@ -29,6 +29,7 @@ sanity_check_paths = {
 
 modextrapaths = {'PATH': ['', 'Scripts']}
 modaliases = {'%(namelower)s': 'wrapper_phage_contigs_sorter_iPlant.pl'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
 
 moduleclass = 'bio'
 

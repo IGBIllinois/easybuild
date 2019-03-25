@@ -24,4 +24,9 @@ sanity_check_paths = {
 	'dirs': [],
 }
 modaliases = {'pilon': 'java -jar %(installdir)s/pilon-%(version)s.jar'}
+
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+modloadmsg = """To execute pilon run 'pilon'.  This command executes 'java -jar %(installdir)s/pilon-%(version)s.jar'\n"""
+
+
 moduleclass = 'bio'
