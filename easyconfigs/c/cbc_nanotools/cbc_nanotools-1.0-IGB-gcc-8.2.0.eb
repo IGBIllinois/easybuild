@@ -1,0 +1,24 @@
+easyblock = 'Bundle'
+
+name = 'cbc_nanotools'
+version = '1.0'
+
+homepage = 'cbc_nanotools'
+description = """Bundle of nanopack, qcat, and downpore"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+
+dependencies = [('downpore','0.3.3','',True),
+	('nanopack','1.0.0','-Python-3.7.2'),
+	('qcat','1.0.1','-Python-3.7.2')
+
+]
+
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
+
+

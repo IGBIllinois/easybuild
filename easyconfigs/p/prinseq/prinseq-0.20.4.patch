@@ -1,0 +1,27 @@
+diff -ru prinseq-lite-0.20.4.orig/prinseq-graphs-noPCA.pl prinseq-lite-0.20.4/prinseq-graphs-noPCA.pl
+--- prinseq-lite-0.20.4.orig/prinseq-graphs-noPCA.pl	2019-03-27 16:38:35.472558306 -0500
++++ prinseq-lite-0.20.4/prinseq-graphs-noPCA.pl	2019-03-27 16:38:47.489733859 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ #===============================================================================
+ #   Author: Robert SCHMIEDER, Computational Science Research Center @ SDSU, CA
+diff -ru prinseq-lite-0.20.4.orig/prinseq-graphs.pl prinseq-lite-0.20.4/prinseq-graphs.pl
+--- prinseq-lite-0.20.4.orig/prinseq-graphs.pl	2019-03-27 16:38:35.484558481 -0500
++++ prinseq-lite-0.20.4/prinseq-graphs.pl	2019-03-27 16:38:56.174860737 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ #===============================================================================
+ #   Author: Robert SCHMIEDER, Computational Science Research Center @ SDSU, CA
+diff -ru prinseq-lite-0.20.4.orig/prinseq-lite.pl prinseq-lite-0.20.4/prinseq-lite.pl
+--- prinseq-lite-0.20.4.orig/prinseq-lite.pl	2019-03-27 16:38:35.698561607 -0500
++++ prinseq-lite-0.20.4/prinseq-lite.pl	2019-03-27 16:39:02.642955227 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ #===============================================================================
+ #   Author: Robert SCHMIEDER, Computational Science Research Center @ SDSU, CA

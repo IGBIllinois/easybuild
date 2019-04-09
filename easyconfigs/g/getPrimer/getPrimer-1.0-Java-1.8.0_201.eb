@@ -1,0 +1,32 @@
+easyblock = 'JAR'
+
+name = 'getPrimer'
+version = '1.0'
+versionsuffix = "-Java-1.8.0_201"
+
+homepage = 'https://github.com/IGBIllinois/getPrimer'
+description = """Downloads primers from the database into a text file"""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ['getPrimer.jar']
+source_urls = ['https://github.com/IGBIllinois/getPrimer/releases/download/1.0/']
+
+dependencies = [('Java','1.8.0_201')
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['getPrimer.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+#Creates bash alias for java program
+modaliases = {'%(name)s': 'java -jar %(installdir)s/%(version)s.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+moduleclass = 'bio'

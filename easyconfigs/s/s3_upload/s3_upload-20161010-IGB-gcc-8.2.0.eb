@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 's3_upload'
+version = '20161010'
+commit = '8bc5c62'
+homepage = 'https://bitbucket.org/nrgene/nrgene-ops-public'
+description = """s3 upload scripts"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % commit]
+source_urls = ['https://bitbucket.org/nrgene/nrgene-ops-public/get/']
+
+dependencies = [('awscli','1.16.113','-Python-3.7.2'),
+	('pigz','2.4'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['s3_gz_upload.sh','s3_gz_fetch.sh'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'tools'

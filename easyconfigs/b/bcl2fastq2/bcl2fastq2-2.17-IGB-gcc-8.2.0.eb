@@ -1,0 +1,32 @@
+easyblock = 'ConfigureMake'
+
+name = 'bcl2fastq2'
+version = '2.17'
+
+homepage = 'https://support.illumina.com/downloads/bcl2fastq-conversion-software-v2-20.html'
+description = """The bcl2fastq2 Conversion Software v2.20.0 can be used to convert BCL files from MiniSeq, MiSeq, NextSeq, HiSeq, and NovaSeq sequening systems. For conversion of data generated on Illumina sequencing systems using versions of RTA earlier than RTA 1.18.54, use bcl2fastq v1.8.4."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [{
+        'filename': "bcl2fastq2-v2.17.1.14.tar.zip",
+        #'source_urls': "ftp://webdata2:webdata2@ussd-ftp.illumina.com/downloads/software/bcl2fastq",
+        'extract_cmd': 'unzip %s && tar -xf bcl2fastq2-v2.17.1.14.tar.gz'
+}]
+
+
+start_dir = 'bcl2fastq/src'
+configopts = '--force-builddir'
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/bcl2fastq'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
