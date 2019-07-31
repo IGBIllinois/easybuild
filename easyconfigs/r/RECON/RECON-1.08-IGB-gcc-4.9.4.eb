@@ -1,0 +1,36 @@
+easyblock = 'MakeCp'
+
+name = 'RECON'
+version = '1.08'
+versionsuffix = '-Perl-5.24.1'
+
+homepage = 'http://eddylab.org/software/recon/'
+description = """a package for automated de novo identification of repeat families from genomic sequences"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(name)s-%(version)s.tar.gz']
+source_urls = ['http://www.repeatmasker.org/RepeatModeler/']
+
+dependencies = [('Perl','5.24.1')
+]
+
+patches = ['%(name)s-%(version)s.patch']
+
+keepsymlinks = True
+
+with_configure = False
+start_dir = 'src'
+
+buildopts = " && make install "
+files_to_copy = ['bin','scripts','00README','COPYRIGHT','LICENSE']
+
+sanity_check_paths = {
+	'files': ['bin/edgeredef','bin/eledef','bin/eleredef','bin/famdef','bin/imagespread'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'scripts'
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,33 @@
+easyblock = 'Tarball'
+
+name = 'phyloFlash'
+version = '3.3'
+
+homepage = 'https://github.com/HRGV/phyloFlash'
+description = """phyloFlash is a pipeline to rapidly reconstruct the SSU rRNAs and explore phylogenetic composition of an Illumina (meta)genomic or transcriptomic dataset."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['pf3.3b1r.tar.gz']
+source_urls = ['https://github.com/HRGV/phyloFlash/archive/']
+
+dependencies = [('Perl','5.24.1'),
+	('SPAdes','3.11.1','-Python-3.6.1'),
+	('VSEARCH','2.4.3'),
+	('MAFFT','7.310'),
+	('BBMap','38.36','-Java-1.8.0_152',True),
+	('BEDTools','2.26.0'),
+	('Bowtie','1.2.2'),
+	('R','3.5.0'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['phyloFlash.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

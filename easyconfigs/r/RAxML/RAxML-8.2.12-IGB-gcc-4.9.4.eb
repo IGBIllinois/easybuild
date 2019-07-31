@@ -1,0 +1,27 @@
+easyblock = 'MakeCp'
+
+name = 'RAxML'
+version = '8.2.12'
+
+homepage = 'https://github.com/stamatak/standard-RAxML'
+description = "RAxML search algorithm for maximum likelihood based inference of phylogenetic trees."
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchainopts = {'usempi': True}
+
+sources = ['v%(version)s.zip']
+source_urls = ['https://github.com/stamatak/standard-RAxML/archive/']
+
+buildopts = '-f Makefile.AVX2.HYBRID.gcc CC="$CC"'
+
+files_to_copy = [(["raxmlHPC-HYBRID-AVX2"], "bin"), "usefulScripts", "README", "manual"]
+
+sanity_check_paths = {
+    'files': ["bin/raxmlHPC-HYBRID-AVX2"],
+    'dirs': [],
+}
+
+postinstallcmds = ['ln -s %(installdir)s/bin/raxmlHPC-HYBRID-AVX2 %(installdir)s/bin/raxmlHPC']
+
+moduleclass = 'bio'
+

@@ -1,0 +1,30 @@
+easyblock = 'PythonPackage'
+
+name = 'awscli'
+version = '1.16.113'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://aws.amazon.com/cli/'
+description = """The AWS Command Line Interface (CLI) is a unified tool to manage your AWS services. With just one tool to download and configure, you can control multiple AWS services from the command line and automate them through scripts."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/aws'],
+        'dirs': [],
+}
+
+moduleclass = 'tools'

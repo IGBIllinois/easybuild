@@ -1,0 +1,35 @@
+easyblock = 'PerlModule'
+
+name = 'Grinder'
+version = '0.5.4'
+versionsuffix = '-Perl-5.24.1'
+
+homepage = 'https://sourceforge.net/projects/biogrinder/'
+description = """Grinder is a versatile open-source bioinformatic tool to create simulated omic shotgun and amplicon sequence libraries for all main sequencing platforms."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://download.sourceforge.net/biogrinder/']
+sources = ['%(name)s-%(version)s.tar.gz']
+
+dependencies = [
+	('Perl','5.24.1'),
+	('BioPerl','1.7.1','-Perl-5.24.1'),
+	('R','3.5.0'),
+]
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/grinder'],
+        'dirs': [],
+}
+
+runtest = False
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

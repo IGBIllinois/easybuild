@@ -1,0 +1,32 @@
+easyblock = 'JAR'
+
+name = 'cromwell'
+version = '39'
+versionsuffix = "-Java-1.8.0_152"
+
+homepage = 'https://github.com/broadinstitute/cromwell'
+description = """Scientific workflow engine designed for simplicity & scalability. Trivially transition between one off use cases to massive scale production environments"""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ['cromwell-%(version)s.jar']
+source_urls = ['https://github.com/broadinstitute/cromwell/releases/download/%(version)s/']
+
+dependencies = [('Java','1.8.0_152')
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['cromwell-39.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+#Creates bash alias for java program
+modaliases = {'%(name)s': 'java -jar %(installdir)s/cromwell-%(version)s.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+moduleclass = 'tools'

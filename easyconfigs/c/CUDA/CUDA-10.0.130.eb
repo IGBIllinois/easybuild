@@ -17,9 +17,8 @@ source_urls = [
 sources = ['%(namelower)s_%(version)s_410.48_linux']
 
 modextrapaths = {
-	'CUDA_ROOT':'',
-	'CUDA_HOME':'',
+        'CUDA_ROOT':'',
+        'CUDA_HOME':'',
 }
 
 moduleclass = 'system'
-

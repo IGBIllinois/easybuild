@@ -1,0 +1,39 @@
+easyblock = 'Bundle'
+
+name = 'bio-rocker'
+version = '1.2.0'
+rubyver = '2.4.2'
+versionsuffix = '-Ruby-%s' % rubyver
+
+
+homepage = 'https://github.com/lmrodriguezr/rocker'
+description = """Accurately detecting functional genes in metagenomes."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+
+dependencies = [
+        ('Ruby', rubyver),
+	('R','3.5.0'),
+	('Grinder','0.5.4','-Perl-5.24.1'),
+]
+
+exts_default_options = {
+    'source_urls': ['https://rubygems.org/downloads/'],
+    'source_tmpl': '%(name)s-%(version)s.gem',
+}
+
+exts_defaultclass = "RubyGem"
+exts_list = [
+	('bio-rocker', '1.2.0'),
+
+]
+
+
+sanity_check_paths = {
+        'files': ['bin/ROCker'],
+        'dirs': [],
+}
+
+modextrapaths = {'GEM_PATH': ''}
+moduleclass = 'bio'

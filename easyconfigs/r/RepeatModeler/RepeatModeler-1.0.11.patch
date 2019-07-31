@@ -1,0 +1,153 @@
+diff -ru RepeatModeler-open-1.0.11.orig/BuildDatabase RepeatModeler-open-1.0.11/BuildDatabase
+--- RepeatModeler-open-1.0.11.orig/BuildDatabase	2019-06-03 10:35:35.929145000 -0500
++++ RepeatModeler-open-1.0.11/BuildDatabase	2019-06-03 10:35:47.373158239 -0500
+@@ -1,4 +1,4 @@
+-#!/u1/local/bin/perl
++#!/usr/bin/env /perl
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) BuildDatabase.pl
+diff -ru RepeatModeler-open-1.0.11.orig/configure RepeatModeler-open-1.0.11/configure
+--- RepeatModeler-open-1.0.11.orig/configure	2019-06-03 10:35:35.962113000 -0500
++++ RepeatModeler-open-1.0.11/configure	2019-06-03 10:38:33.842189400 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/env perl
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) configure
+diff -ru RepeatModeler-open-1.0.11.orig/MultAln.pm RepeatModeler-open-1.0.11/MultAln.pm
+--- RepeatModeler-open-1.0.11.orig/MultAln.pm	2019-06-03 10:35:35.961209000 -0500
++++ RepeatModeler-open-1.0.11/MultAln.pm	2019-06-03 10:35:59.969688774 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl 
++#!/usr/bin/env perl 
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) MultAln.pm
+diff -ru RepeatModeler-open-1.0.11.orig/NeedlemanWunschGotohAlgorithm.pm RepeatModeler-open-1.0.11/NeedlemanWunschGotohAlgorithm.pm
+--- RepeatModeler-open-1.0.11.orig/NeedlemanWunschGotohAlgorithm.pm	2019-06-03 10:35:35.962899000 -0500
++++ RepeatModeler-open-1.0.11/NeedlemanWunschGotohAlgorithm.pm	2019-06-03 10:36:06.606725465 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl -w
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) NeedlemanWunschGotohAlgorithm.pm
+diff -ru RepeatModeler-open-1.0.11.orig/Refiner RepeatModeler-open-1.0.11/Refiner
+--- RepeatModeler-open-1.0.11.orig/Refiner	2019-06-03 10:35:35.961684000 -0500
++++ RepeatModeler-open-1.0.11/Refiner	2019-06-03 10:36:26.414612951 -0500
+@@ -1,4 +1,4 @@
+-#!/u1/local/bin/perl
++#!/usr/bin/env perl
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) Refiner
+diff -ru RepeatModeler-open-1.0.11.orig/RepeatClassifier RepeatModeler-open-1.0.11/RepeatClassifier
+--- RepeatModeler-open-1.0.11.orig/RepeatClassifier	2019-06-03 10:35:35.923978000 -0500
++++ RepeatModeler-open-1.0.11/RepeatClassifier	2019-06-03 10:36:40.543494689 -0500
+@@ -1,4 +1,4 @@
+-#!/u1/local/bin/perl
++#!/usr/bin/env perl
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) RepeatClassifier
+diff -ru RepeatModeler-open-1.0.11.orig/RepeatModeler RepeatModeler-open-1.0.11/RepeatModeler
+--- RepeatModeler-open-1.0.11.orig/RepeatModeler	2019-06-03 10:35:35.925224000 -0500
++++ RepeatModeler-open-1.0.11/RepeatModeler	2019-06-03 10:36:54.527746289 -0500
+@@ -1,4 +1,4 @@
+-#!/u1/local/bin/perl
++#!/usr/bin/env perl
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) RepeatModeler
+diff -ru RepeatModeler-open-1.0.11.orig/RepeatUtil.pm RepeatModeler-open-1.0.11/RepeatUtil.pm
+--- RepeatModeler-open-1.0.11.orig/RepeatUtil.pm	2019-06-03 10:35:35.925888000 -0500
++++ RepeatModeler-open-1.0.11/RepeatUtil.pm	2019-06-03 10:37:11.039828713 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) RepeatUtil.pm
+diff -ru RepeatModeler-open-1.0.11.orig/RepModelConfig.pm.tmpl RepeatModeler-open-1.0.11/RepModelConfig.pm.tmpl
+--- RepeatModeler-open-1.0.11.orig/RepModelConfig.pm.tmpl	2019-06-03 10:35:35.962502000 -0500
++++ RepeatModeler-open-1.0.11/RepModelConfig.pm.tmpl	2019-06-03 10:37:20.479885000 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) RepModeleConfig.pm
+diff -ru RepeatModeler-open-1.0.11.orig/SeedAlignmentCollection.pm RepeatModeler-open-1.0.11/SeedAlignmentCollection.pm
+--- RepeatModeler-open-1.0.11.orig/SeedAlignmentCollection.pm	2019-06-03 10:35:35.926522000 -0500
++++ RepeatModeler-open-1.0.11/SeedAlignmentCollection.pm	2019-06-03 10:37:28.481739000 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -w
++#!/usr/bin/env perl -w
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) SeedAlignmentCollection.pm
+diff -ru RepeatModeler-open-1.0.11.orig/SeedAlignment.pm RepeatModeler-open-1.0.11/SeedAlignment.pm
+--- RepeatModeler-open-1.0.11.orig/SeedAlignment.pm	2019-06-03 10:35:35.963306000 -0500
++++ RepeatModeler-open-1.0.11/SeedAlignment.pm	2019-06-03 10:37:37.665445359 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl -w
++#!/usr/bin/env perl -w
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) SeedAlignment.pm
+diff -ru RepeatModeler-open-1.0.11.orig/SequenceSimilarityMatrix.pm RepeatModeler-open-1.0.11/SequenceSimilarityMatrix.pm
+--- RepeatModeler-open-1.0.11.orig/SequenceSimilarityMatrix.pm	2019-06-03 10:35:35.963758000 -0500
++++ RepeatModeler-open-1.0.11/SequenceSimilarityMatrix.pm	2019-06-03 10:37:43.713987391 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) SequenceSimilarityMatrix.pm
+diff -ru RepeatModeler-open-1.0.11.orig/TRFMask RepeatModeler-open-1.0.11/TRFMask
+--- RepeatModeler-open-1.0.11.orig/TRFMask	2019-06-03 10:35:35.928623000 -0500
++++ RepeatModeler-open-1.0.11/TRFMask	2019-06-03 10:37:52.896619000 -0500
+@@ -1,4 +1,4 @@
+-#!/u1/local/bin/perl
++#!/usr/bin/env perl
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) TRFMask
+diff -ru RepeatModeler-open-1.0.11.orig/util/dfamConsensusTool.pl RepeatModeler-open-1.0.11/util/dfamConsensusTool.pl
+--- RepeatModeler-open-1.0.11.orig/util/dfamConsensusTool.pl	2019-06-03 10:35:35.919354000 -0500
++++ RepeatModeler-open-1.0.11/util/dfamConsensusTool.pl	2019-06-03 10:38:04.817835261 -0500
+@@ -1,4 +1,4 @@
+-#!/u1/local/bin/perl
++#!/usr/bin/env perl
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) dfamConsensusTool
+diff -ru RepeatModeler-open-1.0.11.orig/util/Linup RepeatModeler-open-1.0.11/util/Linup
+--- RepeatModeler-open-1.0.11.orig/util/Linup	2019-06-03 10:35:35.921578000 -0500
++++ RepeatModeler-open-1.0.11/util/Linup	2019-06-03 10:38:11.601501589 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/env perl
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) Linup
+diff -ru RepeatModeler-open-1.0.11.orig/util/renameIds.pl RepeatModeler-open-1.0.11/util/renameIds.pl
+--- RepeatModeler-open-1.0.11.orig/util/renameIds.pl	2019-06-03 10:35:35.920192000 -0500
++++ RepeatModeler-open-1.0.11/util/renameIds.pl	2019-06-03 10:38:18.929811799 -0500
+@@ -1,4 +1,4 @@
+-#!/u1/local/bin/perl
++#!/usr/bin/env perl
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) renameIDs
+diff -ru RepeatModeler-open-1.0.11.orig/util/viewMSA.pl RepeatModeler-open-1.0.11/util/viewMSA.pl
+--- RepeatModeler-open-1.0.11.orig/util/viewMSA.pl	2019-06-03 10:35:35.920920000 -0500
++++ RepeatModeler-open-1.0.11/util/viewMSA.pl	2019-06-03 10:38:25.730227059 -0500
+@@ -1,4 +1,4 @@
+-#!/u1/local/bin/perl
++#!/usr/bin/env perl
+ ##---------------------------------------------------------------------------##
+ ##  File:
+ ##      @(#) viewMSA

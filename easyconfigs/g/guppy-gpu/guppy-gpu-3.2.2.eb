@@ -1,0 +1,31 @@
+easyblock = 'Rpm'
+
+name = 'guppy-gpu'
+version = '3.2.2'
+
+homepage = 'https://community.nanoporetech.com/posts/pre-release-of-stand-alone'
+description = """Guppy is a stand-alone data bioinformatic toolkit that provides Oxford Nanopore Technologies basecalling algorithm, along with a number of post-processing tools. """
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ['ont-guppy-%(version)s-1.el7.x86_64.rpm']
+source_urls = ['https://mirror.oxfordnanoportal.com/software/analysis/']
+
+dependencies = [('HDF5','1.8.12','-IGB-gcc-4.9.4'),
+	('ZeroMQ','4.2.2','-IGB-gcc-4.9.4'),
+	('CUDA','10.0.130'),
+	
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['opt/ont/guppy/bin/guppy_aligner'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'opt/ont/guppy/bin',
+	'LD_LIBRARY_PATH':'opt/ont/guppy/lib'}
+
+moduleclass = 'bio'

@@ -1,0 +1,35 @@
+easyblock = 'GitCloneMakeCp'
+
+name = 'STAR-Fusion'
+version = '1.6.0'
+git_commit = 'e0b92f6'
+
+homepage = 'https://github.com/STAR-Fusion/STAR-Fusion/wiki'
+description = """STAR-Fusion is a component of the Trinity Cancer Transcriptome Analysis Toolkit (CTAT). STAR-Fusion uses the STAR aligner to identify candidate fusion transcripts supported by Illumina reads."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['https://github.com/STAR-Fusion/STAR-Fusion.git']
+
+dependencies = [('STAR','2.6.1b'),
+	('Perl','5.24.1'),
+	('SAMtools','1.7'),
+]
+
+start_dir = '%(name)s'
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+        'files': ['STAR-Fusion'],
+        'dirs': [],
+}
+
+modextrapaths = {'PATH':'',
+	'PERL5LIB':'PerlLib',
+}
+
+
+moduleclass = 'bio'
+
+

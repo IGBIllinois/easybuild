@@ -15,7 +15,8 @@ sources = []
 
 dependencies = [('Perl','5.24.1'),
 		('trf','4.0.9','',True),
-		('HMMER','3.1b2')
+		('HMMER','3.1b2'),
+		('RMBlast','2.6.0'),
 ]
 
 configopts = ''

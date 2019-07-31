@@ -34,6 +34,7 @@ dependencies = [
     ('GMP', '6.1.2'),  # for igraph
     ('cairo','1.14.8'),
 	('HDF5','1.8.18'),
+	('graphviz','2.40.1'),
 ]
 
 name_tmpl = '%(name)s_%(version)s.tar.gz'

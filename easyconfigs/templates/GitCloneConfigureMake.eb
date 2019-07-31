@@ -13,6 +13,7 @@ sources = ['https://github.com/username/reponame.git']
 
 dependencies = []
 
+start_dir = '%(name)s'
 configopts = ''
 sanity_check_paths = {
         'files': [],

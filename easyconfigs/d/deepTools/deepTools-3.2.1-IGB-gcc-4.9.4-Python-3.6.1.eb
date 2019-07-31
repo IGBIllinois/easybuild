@@ -1,0 +1,55 @@
+easyblock = 'PythonPackage'
+
+name = 'deepTools'
+version = '3.2.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/fidelram/deepTools'
+description = """deepTools addresses the challenge of handling the large amounts of data that are now routinely generated from DNA sequencing centers. deepTools contains useful modules to process the mapped reads data for multiple quality checks, creating normalized coverage files in standard bedGraph and bigWig file formats, that allow comparison between different files (for example, treatment and control). Finally, using such normalized and standardized files, deepTools can create many publication-ready visualizations to identify enrichments and for functional annotations of the genome."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = [PYPI_SOURCE]
+
+use_pip = True
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+('pyBigWig', '0.3.15', {
+        'source_urls': ["https://pypi.python.org/packages/source/p/pyBigWig"],
+	'source_tmpl': SOURCE_TAR_GZ,
+	'use_pip': True,
+	'modulename' : 'pyBigWig',
+}),
+
+('retrying', '1.3.3', {
+        'source_urls': ["https://pypi.python.org/packages/source/r/retrying"],
+        'use_pip': True,
+}),
+
+('plotly', '3.9.0', {
+        'source_urls': ["https://pypi.python.org/packages/source/p/plotly"],
+        'use_pip': True,
+	'modulename': 'plotly.plotly',
+}),
+
+
+('py2bit', '0.3.0', {
+        'source_urls': ["https://pypi.python.org/packages/source/p/py2bit"],
+        'use_pip': True,
+}),
+
+('deeptoolsintervals', '0.1.7', {
+        'source_urls': ["https://pypi.python.org/packages/source/d/deeptoolsintervals"],
+        'use_pip': True,
+}),
+]
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+moduleclass = 'bio'

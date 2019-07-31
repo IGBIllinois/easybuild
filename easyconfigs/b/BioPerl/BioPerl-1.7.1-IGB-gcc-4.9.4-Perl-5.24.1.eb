@@ -33,6 +33,12 @@ exts_list = [
 		'source_tmpl': 'Bio-SearchIO-blastxml-1.70.tar.gz',
 		'source_urls': ['https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/'],
 	}),
+        ('Bio::Phylo', '2.0.1', {
+                'source_tmpl': 'Bio-Phylo-v2.0.1.tar.gz',
+                'source_urls': ['https://cpan.metacpan.org/authors/id/R/RV/RVOSA/'],
+		'runtest': False,
+        }),
+
 
 ]
 

@@ -1,0 +1,46 @@
+easyblock = 'ConfigureMake'
+name = 'R'
+version = "3.6.0"
+versionsuffix = '-test'
+
+homepage = 'http://www.r-project.org/'
+description = """R is a free software environment for statistical computing and graphics."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://cran.us.r-project.org/src/base/R-%(version_major)s']
+
+#preconfigopts = 'CFLAGS=-std=gnu99 BLAS_LIBS="$LIBBLAS" LAPACK_LIBS="$LIBLAPACK" && '
+configopts = "--with-lapack --with-blas --with-pic --enable-threads --with-x=no --enable-R-shlib --with-cairo --with-libpng --with-jpeglib --with-libtiff --with-tcltk"
+configopts += " --with-recommended-packages=yes"
+
+builddependencies = [('Java','1.8.0_152','',True),
+]
+dependencies = [
+	('libreadline', '6.3'),
+	('ncurses', '6.1'),
+	('bzip2', '1.0.6'),
+	('XZ', '5.2.3'),
+	('zlib', '1.2.11'),
+	('SQLite', '3.17.0'),
+	('PCRE', '8.40'),
+	('cURL', '7.53.1'),  # for RCurl
+	('libxml2', '2.9.7'),  # for XML
+	('cairo','1.14.8'),
+	('libpng','1.6.29'),
+	('libjpeg-turbo','1.5.1'),
+	('LibTIFF','4.0.7'),
+	('Tcl','8.6.6'),
+	('Tk','8.6.6'),
+	('MariaDB','10.1.31'),
+	('udunits','2.2.26'),
+
+
+]
+
+modextrapaths = {'LD_LIBRARY_PATH':'lib64/R/lib'
+}
+
+moduleclass = 'lang'
+

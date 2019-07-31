@@ -1,0 +1,37 @@
+easyblock = 'Tarball'
+
+name = 'RepeatModeler'
+version = '1.0.11'
+versionsuffix = '-Perl-5.24.1'
+
+homepage = 'http://www.repeatmasker.org/RepeatModeler/'
+description = """1.0.11"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(name)s-open-%(version)s.tar.gz']
+source_urls = ['http://www.repeatmasker.org/RepeatModeler/']
+
+patches = ['%(name)s-%(version)s.patch']
+
+dependencies = [('Perl','5.24.1'),
+	('trf','4.0.9','',True),
+	('RepeatMasker','4.0.7','-Perl-5.24.1'),
+	('RepeatScout','1.0.5'),
+	('RMBlast','2.6.0'),
+	('RECON','1.08','-Perl-5.24.1'),
+
+
+	
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['RepeatModeler','RepeatClassifier'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':['','util']}
+
+moduleclass = 'bio'

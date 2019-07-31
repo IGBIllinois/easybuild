@@ -1,0 +1,38 @@
+easyblock = 'Tarball'
+
+name = 'snpEff'
+version = '4.3t'
+
+homepage = 'http://sourceforge.net/projects/snpeff/'
+description = """SnpEff is a variant annotation and effect prediction tool. 
+ It annotates and predicts the effects of genetic variants (such as amino acid changes)."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+java = 'Java'
+javaver = '1.8.0_152'
+versionsuffix = '-%s-%s' % (java, javaver)
+
+source_urls = [SOURCEFORGE_SOURCE]
+sources = [('%s_v%s_core.zip' % (name, version.replace('.', '_')))]
+
+dependencies = [(java, javaver)]
+
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['clinEff','snpEff']
+}
+
+
+modaliases = {'snpEff': 'java -jar %(installdir)s/snpEff/snpEff.jar',
+	'SnpSift': 'java -jar %(installdir)s/snpEff/snpEff/SnpSift.jar',
+	'clinEff': 'java -jar %(installdir)s/snpEff/clinEff/clinEff.jar'
+}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+modloadmsg = """To execute snpEff run 'snpEff'.  This command executes 'java -jar %(installdir)s/snpEff/snpEff.jar'\n"""
+modloadmsg += """To execute SnpSift run 'SnpSift'.  This command executes 'java -jar %(installdir)s/snpEff/SnpSift.jar'\n"""
+modloadmsg += """To execute clinEff run 'clinEff'.  This command executes 'java -jar %(installdir)s/clinEff/ClinEff.jar'\n"""
+
+
+moduleclass = 'bio'

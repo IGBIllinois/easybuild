@@ -1,0 +1,38 @@
+easyblock = 'PythonPackage'
+
+name = 'CONCOCT'
+version = '1.0.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/BinPro/CONCOCT'
+description = """A program for unsupervised binning of metagenomic contigs by using nucleotide composition, coverage data in multiple samples and linkage data from paired end reads."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ["%(version)s.tar.gz"]
+source_urls = ["https://github.com/BinPro/CONCOCT/archive/"]
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('Biopython','1.68','-Python-3.6.1'),
+	('GSL','2.3'),
+	('BEDTools','2.26.0'),
+	('SAMtools','1.7'),
+	('Bowtie2','2.3.2'),
+	('parallel','20170622'),
+	
+
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/concoct'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,33 @@
+easyblock = 'GitCloneCMakeMake'
+
+name = 'plass'
+version = '2-c7e35'
+git_commit = '506c620a369e0028e70672165b2bcf776b8a1ad1'
+
+homepage = 'https://github.com/soedinglab/plass'
+description = """Plass (Protein-Level ASSembler) is a software to assemble short read sequencing data on a protein level. The main purpose of Plass is the assembly of complex metagenomic datasets."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['https://github.com/soedinglab/plass.git']
+
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = []
+
+separate_build_dir = True
+start_dir = 'plass'
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/plass'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

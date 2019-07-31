@@ -1,0 +1,85 @@
+Only in GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts: v.1.0
+Only in GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts: v.1.1
+Only in GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts: v.2.0
+Only in GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts: v.3.0
+diff -ru GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-1.pl GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-1.pl
+--- GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-1.pl	2019-06-07 10:14:41.634803000 -0500
++++ GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-1.pl	2019-06-07 10:16:46.809563426 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ ###########################################################################################################
+ # GBS-SNP-CROP: GBS SNP Calling Reference Optional Pipeline
+diff -ru GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-2.pl GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-2.pl
+--- GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-2.pl	2019-06-07 10:14:41.630551000 -0500
++++ GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-2.pl	2019-06-07 10:16:52.505123000 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ ###########################################################################################################
+ # GBS-SNP-CROP: GBS SNP Calling Reference Optional Pipeline
+diff -ru GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-3.pl GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-3.pl
+--- GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-3.pl	2019-06-07 10:14:41.628878000 -0500
++++ GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-3.pl	2019-06-07 10:16:57.369450000 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ ###########################################################################################################
+ # GBS-SNP-CROP: GBS SNP Calling Reference Optional Pipeline
+diff -ru GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-4.pl GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-4.pl
+--- GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-4.pl	2019-06-07 10:14:41.632380000 -0500
++++ GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-4.pl	2019-06-07 10:17:02.009732414 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ ###########################################################################################################
+ # GBS-SNP-CROP: GBS SNP Calling Reference Optional Pipeline
+diff -ru GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-5.pl GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-5.pl
+--- GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-5.pl	2019-06-07 10:14:41.633285000 -0500
++++ GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-5.pl	2019-06-07 10:17:08.169348000 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ ###########################################################################################################
+ # GBS-SNP-CROP: GBS SNP Calling Reference Optional Pipeline
+diff -ru GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-6.pl GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-6.pl
+--- GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-6.pl	2019-06-07 10:14:41.635644000 -0500
++++ GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-6.pl	2019-06-07 10:17:13.529595373 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ ###########################################################################################################
+ # GBS-SNP-CROP: GBS SNP Calling Reference Optional Pipeline
+diff -ru GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-7.pl GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-7.pl
+--- GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-7.pl	2019-06-07 10:14:41.629646000 -0500
++++ GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-7.pl	2019-06-07 10:17:19.545883521 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ ###########################################################################################################
+ # GBS-SNP-CROP: GBS SNP Calling Reference Optional Pipeline
+diff -ru GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-8.pl GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-8.pl
+--- GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-8.pl	2019-06-07 10:14:41.634014000 -0500
++++ GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-8.pl	2019-06-07 10:17:24.631624436 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ ###########################################################################################################
+ # GBS-SNP-CROP: GBS SNP Calling Reference Optional Pipeline
+diff -ru GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-9.pl GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-9.pl
+--- GBS-SNP-CROP-v.4.0.orig/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-9.pl	2019-06-07 10:14:41.631511000 -0500
++++ GBS-SNP-CROP-v.4.0/GBS-SNP-CROP-scripts/v.4.0/GBS-SNP-CROP-9.pl	2019-06-07 10:17:30.105717000 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ 
+ ###########################################################################################################
+ # GBS-SNP-CROP: GBS SNP Calling Reference Optional Pipeline

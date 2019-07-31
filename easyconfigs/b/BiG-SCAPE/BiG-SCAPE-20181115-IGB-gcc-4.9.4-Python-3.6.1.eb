@@ -1,0 +1,32 @@
+easyblock = 'Tarball'
+
+name = 'BiG-SCAPE'
+version = '20181115'
+versionsuffix = '-Python-3.6.1'
+commit = '2356cb16'
+
+homepage = 'https://git.wageningenur.nl/medema-group/BiG-SCAPE'
+description = """BiG-SCAPE (Biosynthetic Gene Similarity Clustering and Prospecting Engine) is a software package, written in Python, that constructs sequence similarity networks of Biosynthetic Gene Clusters (BGCs) and groups them into Gene Cluster Families (GCFs)"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.zip' % commit]
+source_urls = ['https://git.wageningenur.nl/medema-group/BiG-SCAPE/-/archive/']
+
+dependencies = [('Python','3.6.1'),
+	('Biopython','1.68','-Python-3.6.1'),
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bigscape.py'],
+	'dirs': [],
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/*.py']
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
