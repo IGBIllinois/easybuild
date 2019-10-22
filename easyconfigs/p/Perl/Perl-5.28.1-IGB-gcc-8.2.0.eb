@@ -1482,7 +1482,10 @@ exts_list = [
         'source_tmpl': 'File-chmod-0.42.tar.gz',
         'source_urls': ['https://cpan.metacpan.org/authors/id/X/XE/XENO/'],
     }),
-
+    ('Archive::Zip', '1.64', {
+        'source_tmpl': 'Archive-Zip-1.64.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/P/PH/PHRED/'],
+    }),
 ]
 
 moduleclass = 'lang'

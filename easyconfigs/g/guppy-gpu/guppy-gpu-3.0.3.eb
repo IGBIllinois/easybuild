@@ -11,8 +11,13 @@ toolchain = {'name': 'dummy', 'version': ''}
 sources = ['ont-guppy-%(version)s-1.el7.x86_64.rpm']
 source_urls = ['https://mirror.oxfordnanoportal.com/software/analysis/']
 
+<<<<<<< HEAD
+dependencies = [('HDF5','1.8.12','-IGB-gcc-8.2.0'),
+	('ZeroMQ','4.3.1','-IGB-gcc-8.2.0'),
+=======
 dependencies = [('HDF5','1.8.12','-IGB-gcc-4.9.4'),
 	('ZeroMQ','4.2.2','-IGB-gcc-4.9.4'),
+>>>>>>> a67be0fba6faf134d68939c5a5b06e318900ce21
 	('CUDA','10.0.130'),
 	
 
