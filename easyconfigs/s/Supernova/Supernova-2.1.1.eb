@@ -8,6 +8,8 @@ description = """Supernova is a software package for de novo assembly from Chrom
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
+dependencies = [('bcl2fastq2','2.20','-IGB-gcc-8.2.0')
+]
 sources = ['%(namelower)s-%(version)s.tar.gz']
 source_urls = ['http://cf.10xgenomics.com/releases/assembly/']
 keepsymlinks = True
