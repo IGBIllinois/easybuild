@@ -1,0 +1,9 @@
+diff -ru ITSx_1.1.1.orig/ITSx ITSx_1.1.1/ITSx
+--- ITSx_1.1.1.orig/ITSx	2019-05-23 13:27:55.970347000 -0500
++++ ITSx_1.1.1/ITSx	2019-05-23 13:28:03.932251322 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ # ITSx ITS Extractor
+ #use Devel::Size qw(size total_size);
+ 

@@ -12,6 +12,8 @@ sources = ['%(version)s.tar.gz']
 source_urls = ['https://github.com/IGBIllinois/memprof/archive/']
 
 dependencies = [
+	('gnuplot', '5.0.6', '-IGB-gcc-4.9.4'),
+	('ImageMagick','7.0.5-5','-IGB-gcc-4.9.4'),
 ]
 
 keepsymlinks = True

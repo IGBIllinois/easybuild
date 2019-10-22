@@ -1,0 +1,30 @@
+easyblock = 'PythonPackage'
+
+name = 'ncbi-genome-download'
+version = '0.2.9'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/kblin/ncbi-genome-download'
+description = """Some script to download bacterial and fungal genomes from NCBI after they restructured their FTP a while ago."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+exts_filter = ('', "")
+
+sanity_check_paths = {
+        'files': ['bin/ncbi-genome-download'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

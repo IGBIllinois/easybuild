@@ -1,0 +1,27 @@
+easyblock = 'Conda'
+
+name = "pb-assembly"
+version = "0.0.6"
+
+homepage = 'https://github.com/PacificBiosciences/pb-assembly'
+description = "PacBio Assembly Tool Suite"
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+requirements = "%(name)s=%(version)s"
+channels = ['bioconda', 'defaults']
+
+dependencies = []
+builddependencies = [('Anaconda3', '5.1.0')]
+
+
+sanity_check_paths = {
+    'files': ['bin/pbindex','bin/pbmerge'],
+    'dirs': []
+}
+
+moduleclass = 'bio'
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"

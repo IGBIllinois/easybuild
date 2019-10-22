@@ -39,4 +39,3 @@ moduleclass = 'bio'
 
 allow_prepend_abs_path = True
 
-modextrapaths = {'BLASTDB': '/home/mirror/ncbi/blastdb/latest'}

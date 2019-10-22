@@ -1,0 +1,34 @@
+easyblock = 'Tarball'
+
+name = 'GBS-SNP-CROP'
+version = '4.0'
+
+homepage = 'https://github.com/halelab/GBS-SNP-CROP'
+description = """The GBS SNP Calling Reference Optional Pipeline (GBS-SNP-CROP) is executed via a sequence of seven Perl scripts that integrate custom parsing and filtering procedures with well-known, vetted bioinformatic tools, giving the user full access to all intermediate files."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v.%(version)s.tar.gz']
+source_urls = ['https://github.com/halelab/GBS-SNP-CROP/archive/']
+
+patches = ['%(name)s-%(version)s.patch']
+
+dependencies = [('Perl','5.24.1'),
+	('Java','1.8.0_152','',True),
+	#('Trimmomatic','0.38','-Java-1.8.0_152',True),
+	('PEAR','0.9.8'),
+	('VSEARCH','2.4.3'),
+	('BWA','0.7.17'),
+	('SAMtools','1.7'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['GBS-SNP-CROP-scripts/v.%(version)s/GBS-SNP-CROP-1.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': 'GBS-SNP-CROP-scripts/v.%(version)s'}
+
+moduleclass = 'bio'

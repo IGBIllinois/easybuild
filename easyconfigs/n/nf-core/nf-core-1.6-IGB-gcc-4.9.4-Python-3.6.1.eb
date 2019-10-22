@@ -1,0 +1,42 @@
+easyblock = 'Bundle'
+
+name = 'nf-core'
+version = '1.6'
+versionsuffix = '-Python-3.6.1'
+
+homepage = 'https://github.com/nf-core/tools'
+description = """A python package with helper tools for the nf-core community."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+
+
+dependencies = [('nextflow','19.07.0','-Java-1.8.0_152',True),
+	('Python','3.6.1'),
+]
+
+
+exts_defaultclass = "PythonPackage"
+
+exts_list = [
+	('nf-core', '1.6', {
+       'source_urls': ['https://pypi.python.org/packages/source/n/nf-core']
+    }),
+
+]
+exts_filter = ("", '')
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/nf-core'],
+	'dirs': [],
+}
+
+
+
+modextrapaths = {'PYTHONPATH':'lib/python3.6/site-packages',
+}
+
+
+moduleclass = 'bio'

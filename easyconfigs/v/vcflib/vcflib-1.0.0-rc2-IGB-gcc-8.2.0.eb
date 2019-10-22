@@ -1,0 +1,36 @@
+easyblock = 'GitCloneMakeCp'
+
+name = 'vcflib'
+version = '1.0.0-rc2'
+git_commit = '5b0f4d5'
+
+homepage = 'https://github.com/vcflib/vcflib'
+description = """a simple C++ library for parsing and manipulating VCF files, + many command-line utilities"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['https://github.com/vcflib/vcflib.git']
+
+dependencies = [('bzip2','1.0.6'),
+	('XZ','5.2.3')
+
+]
+
+buildopts = 'openmp'
+
+start_dir = 'vcflib'
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+        'files': ['bin/vcfindex'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

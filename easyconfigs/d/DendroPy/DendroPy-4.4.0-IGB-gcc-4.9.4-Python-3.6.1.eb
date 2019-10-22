@@ -1,0 +1,32 @@
+easyblock = 'PythonPackage'
+
+name = 'DendroPy'
+version = '4.4.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://dendropy.org/'
+description = """DendroPy is a Python library for phylogenetic computing. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+use_pip = True
+
+sanity_check_paths = {
+        'files': ['bin/sumtrees.py','bin/sumlabels.py'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

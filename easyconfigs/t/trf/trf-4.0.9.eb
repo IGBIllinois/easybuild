@@ -21,6 +21,8 @@ sanity_check_paths = {
 	'dirs': [],
 }
 
+postinstallcmds = ['ln -s %(installdir)s/trf409.linux64 %(installdir)s/trf']
+
 modextrapaths = {'PATH': ''}
 
 moduleclass = 'bio'

@@ -1,0 +1,33 @@
+easyblock = 'PythonPackage'
+
+name = 'pairtools'
+version = '0.3.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/mirnylab/pairtools'
+description = """pairtools is a simple and fast command-line framework to process sequencing data from a Hi-C experiment."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ["v%(version)s.tar.gz"]
+source_urls = ["https://github.com/mirnylab/pairtools/archive/"]
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('coreutils','8.28'),
+	('tabix','0.2.6'),
+	('SAMtools','1.9'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/pairtools'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

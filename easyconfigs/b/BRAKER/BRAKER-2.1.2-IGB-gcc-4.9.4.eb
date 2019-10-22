@@ -1,0 +1,38 @@
+easyblock = 'Tarball'
+
+name = 'BRAKER'
+version = '2.1.2'
+
+homepage = 'https://github.com/Gaius-Augustus/BRAKER'
+description = """BRAKER2 is an extension of BRAKER1 which allows for fully automated training of the gene prediction tools GeneMark-EX and AUGUSTUS from RNA-Seq and/or protein homology information, and that integrates the extrinsic evidence from RNA-Seq and protein homology information into the prediction."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/Gaius-Augustus/BRAKER/archive/']
+
+dependencies = [
+	('augustus', '3.3.2'),
+	('GeneMark-ES', '4.33', '-Perl-5.24.1'),
+	('BamTools', '2.5.1'),
+	('SAMtools', '1.9'),
+	('GenomeThreader', '1.7.1', '', True),
+	('exonerate', '2.2.0'),
+	('BLAST+', '2.9.0'),
+	('Perl', '5.24.1'),
+	('Python', '3.6.1'),
+	('Biopython', '1.68', '-Python-3.6.1'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['scripts'],
+}
+
+modextrapaths = {
+	'PATH': 'scripts',
+}
+
+moduleclass = 'bio'

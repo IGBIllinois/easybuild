@@ -1,0 +1,37 @@
+easyblock = 'CMakeMake'
+
+name = 'octopus'
+version = '0.6.3-beta'
+
+homepage = 'https://github.com/luntergroup/octopus'
+description = """Octopus is a mapping-based variant caller that implements several calling models within a unified haplotype-aware framework. Octopus takes inspiration from particle filtering by constructing a tree of haplotypes and dynamically pruning and extending the tree based on haplotype posterior probabilities in a sequential manner. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/luntergroup/octopus/archive/']
+sources = ["v%(version)s.tar.gz"]
+
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = [('Boost','1.69.0'),
+	('HTSlib','1.9'),
+	('GMP','6.1.2'),
+
+]
+
+separate_build_dir = True
+
+
+configopts = '-DHTSLIB_ROOT=$EBROOTHTSLIB'
+sanity_check_paths = {
+        'files': ['octopus'],
+        'dirs': [],
+}
+
+modextrapaths = {'PATH':''
+}
+
+
+moduleclass = 'bio'
+
+

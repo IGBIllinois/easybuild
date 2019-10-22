@@ -41,8 +41,7 @@ install_cmd += "mv nextflow-%(version)s-all %(installdir)s/bin/nextflow"
 #postinstallcmds = ['mv %(installdir)s/nextflow-%(version)s-all %(installdir)s/nextflow']
 postinstallcmds = ['chmod 775 %(installdir)s/bin/nextflow']
 
-modextrapaths = {'NXF_HOME': 'config',
-	'PYTHONPATH':'lib/python3.6/site-packages',
+modextrapaths = {'PYTHONPATH':'lib/python3.6/site-packages',
 }
 
 modextravars = {'NXF_EXECUTOR': 'SLURM',

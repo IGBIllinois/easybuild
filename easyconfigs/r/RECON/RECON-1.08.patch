@@ -1,0 +1,18 @@
+diff -ru RECON-1.08.orig/scripts/MSPCollect.pl RECON-1.08/scripts/MSPCollect.pl
+--- RECON-1.08.orig/scripts/MSPCollect.pl	2019-06-03 11:03:24.670521000 -0500
++++ RECON-1.08/scripts/MSPCollect.pl	2019-06-03 11:03:36.550705000 -0500
+@@ -1,4 +1,4 @@
+-#! /usr/bin/perl
++#! /usr/bin/env perl
+ 
+ if (!@ARGV) {
+     die "usage: MSPCollect BLAST_output_file\n";
+diff -ru RECON-1.08.orig/scripts/recon.pl RECON-1.08/scripts/recon.pl
+--- RECON-1.08.orig/scripts/recon.pl	2019-06-03 11:03:24.670951000 -0500
++++ RECON-1.08/scripts/recon.pl	2019-06-03 11:03:48.901746000 -0500
+@@ -1,4 +1,4 @@
+-#! /usr/bin/perl
++#! /usr/bin/env perl
+ 
+ $path = "";
+ 

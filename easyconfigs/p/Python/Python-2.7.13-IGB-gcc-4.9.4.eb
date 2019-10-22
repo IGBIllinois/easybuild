@@ -226,7 +226,7 @@ exts_list = [
         'source_urls': ['https://pypi.python.org/packages/source/p/PyYAML'],
         'modulename': 'yaml',
     }),
-    ('PyVCF', '0.6.8'', {
+    ('PyVCF', '0.6.8', {
         'source_urls': ['https://pypi.python.org/packages/source/p/PyVCF'],
         'modulename': 'vcf',
     }),

@@ -1,0 +1,52 @@
+easyblock = "ConfigureMake"
+
+name = 'augustus'
+version = '3.3.2'
+
+homepage = 'http://bioinf.uni-greifswald.de/augustus/'
+description = """AUGUSTUS is a program that predicts genes in eukaryotic genomic sequences. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchainopts = {'pic': True,}
+
+source_urls = [
+    'https://github.com/Gaius-Augustus/Augustus/archive/',
+]
+sources = ['%(version)s.tar.gz']
+patches = [
+    '%(name)s-%(version)s_fix-hardcoding.patch',
+    '%(name)s-%(version)s_additional_fix_hardcoding.patch',
+]
+
+dependencies = [
+	('zlib','1.2.11'),
+    ('Boost', '1.63.0'),
+    ('GSL', '2.3'),
+    ('SAMtools', '1.9'),
+    ('HTSlib', '1.9'),
+    ('BCFtools', '1.9'),
+    ('lpsolve', '5.5.2.5'),
+    ('SuiteSparse', '5.4.0', '-METIS-5.1.0'),
+    ('BamTools','2.5.1'),
+    ('SQLite', '3.17.0'),
+]
+
+skipsteps = ['configure']
+
+# prebuildopts = "unset LDFLAGS && unset LIBS && "
+buildopts = 'COMPGENEPRED=true SQLITE=true ZIPINPUT=true '
+installopts = 'INSTALLDIR=%(installdir)s '
+
+sanity_check_paths = {
+    'files': ['bin/augustus', 'bin/bam2hints', 'bin/espoca', 'bin/etraining',
+              'bin/fastBlockSearch', 'bin/filterBam', 'bin/getSeq', 'bin/homGeneMapping', 'bin/joingenes',
+              'bin/load2sqlitedb', 'bin/prepareAlign'],
+    'dirs': ['config', 'scripts'],
+}
+
+modextrapaths = {'PATH': 'scripts'}
+modextravars = {'AUGUSTUS_CONFIG_PATH': '%(installdir)s/config', 'AUGUSTUS_BIN_PATH': '%(installdir)s/bin', 'AUGUSTUS_SCRIPTS_PATH': '%(installdir)s/scripts'}
+
+modloadmsg = "NOTICE: Please set the AUGUSTUS_CONFIG_PATH to a location in your home directory.\n";
+modloadmsg += "An example is 'export AUGUSTUS_CONFIG_PATH=/home/a-m/username/augustus'\n";
+

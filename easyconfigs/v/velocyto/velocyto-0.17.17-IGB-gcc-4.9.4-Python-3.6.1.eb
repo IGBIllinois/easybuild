@@ -1,0 +1,30 @@
+easyblock = 'PythonPackage'
+
+name = 'velocyto'
+version = '0.17.17'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/velocyto-team/velocyto.py'
+description = """Velocyto is a library for the analysis of RNA velocity."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/velocyto-team/velocyto.py/archive/']
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/velocyto'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

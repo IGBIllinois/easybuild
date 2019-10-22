@@ -1,0 +1,32 @@
+easyblock = 'Tarball'
+
+name = 'LEfSe'
+version = '20180219'
+versionsuffix = '-Python-%(pyver)s'
+commit = '82605a2'
+
+homepage = 'https://bitbucket.org/nsegata/lefse'
+description = """LEfSe"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+bitbucket_account = 'nsegata'
+sources = ['%s.tar.gz' % commit]
+source_urls = [BITBUCKET_SOURCE]
+
+dependencies = [('R','3.5.0'),
+	('Python','2.7.13'),
+	('rpy2','2.8.6','-Python-2.7.13-R-3.5.0'),
+	
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['lefse.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

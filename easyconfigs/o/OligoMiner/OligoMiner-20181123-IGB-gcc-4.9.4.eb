@@ -1,0 +1,33 @@
+easyblock = 'Tarball'
+
+name = 'OligoMiner'
+version = '20181123'
+commit = '0b49ecf'
+
+homepage = 'https://github.com/brianbeliveau/OligoMiner'
+description = """A rapid, flexible environment for the design of genome-scale oligonucleotide in situ hybridization probes"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.tar.gz' % commit]
+source_urls = ['https://github.com/brianbeliveau/OligoMiner/archive/']
+
+dependencies = [('Python','2.7.13'),
+	('Biopython','1.68','-Python-%(pyver)s'),
+	('Bowtie2','2.3.2'),
+	('Jellyfish','2.2.6'),
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bedToFastq.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+postinstallcmds = ['chmod 775 %(installdir)s/*.py']
+
+moduleclass = 'bio'

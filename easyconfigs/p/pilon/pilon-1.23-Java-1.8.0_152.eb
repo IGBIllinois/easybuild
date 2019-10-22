@@ -1,0 +1,32 @@
+easyblock = 'JAR'
+
+name = 'pilon'
+version = '1.23'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = 'https://github.com/broadinstitute/pilon'
+description = """Pilon is a software tool which can be used to:
+
+- Automatically improve draft assemblies
+- Find variation among strains, including large event detection"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['%(name)s-%(version)s.jar']
+source_urls = ['https://github.com/broadinstitute/pilon/releases/download/v%(version)s/']
+
+dependencies = [
+	('Java', '1.8.0_152', '', True),
+]
+
+sanity_check_paths = {
+	'files': ['%(name)s-%(version)s.jar'],
+	'dirs': [],
+}
+modaliases = {'pilon': 'java -jar %(installdir)s/pilon-%(version)s.jar'}
+
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+modloadmsg = """To execute pilon run 'pilon'.  This command executes 'java -jar %(installdir)s/pilon-%(version)s.jar'\n"""
+
+
+moduleclass = 'bio'

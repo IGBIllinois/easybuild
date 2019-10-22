@@ -1,0 +1,32 @@
+easyblock = 'ConfigureMake'
+
+name = 'udunits'
+version = '2.2.26'
+
+homepage = 'http://www.unidata.ucar.edu/software/udunits/'
+description = """UDUNITS supports conversion of unit specifications between formatted and binary forms,
+ arithmetic manipulation of units, and conversion of values between compatible scales of measurement."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'opt': True, 'pic': True}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = ['ftp://ftp.unidata.ucar.edu/pub/udunits']
+
+
+dependencies = [('expat','2.2.0')]
+
+sanity_check_paths = {
+    'files': [
+        'bin/udunits2',
+        'include/converter.h',
+        'include/udunits2.h',
+        'include/udunits.h',
+        'lib/libudunits2.a',
+        'lib/libudunits2.%s' % SHLIB_EXT,
+    ],
+    'dirs': ['share'],
+}
+
+
+moduleclass = 'phys'

@@ -16,6 +16,7 @@ builddependencies = [
 dependencies = [
     ('MariaDB', '5.5.58'),
     ('libxml2','2.9.4'),
+	('DB','18.1.32'),
 ]
 
 exts_list = [

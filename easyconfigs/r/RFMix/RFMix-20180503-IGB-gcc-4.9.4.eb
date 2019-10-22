@@ -1,0 +1,34 @@
+easyblock = 'ConfigureMake'
+
+name = 'RFMix'
+version = '20180503'
+commit = '9505bfa'
+
+homepage = 'https://github.com/slowkoni/rfmix'
+description = """A discriminative method for local ancestry inference"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/slowkoni/rfmix/archive/']
+sources = ['%s.tar.gz' % commit]
+
+builddependencies = [('Autotools','20150215')
+]
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+preconfigopts = "autoreconf --force --install &&"
+
+
+sanity_check_paths = {
+	'files': ['bin/rfmix','bin/simulate'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,27 @@
+easyblock = 'Binary'
+
+name = 'vg'
+version = '1.15.0'
+
+homepage = 'https://github.com/vgteam/vg'
+description = """variation graph data structures, interchange formats, alignment, genotyping, and variant calling methods"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['%(name)s']
+source_urls = ['https://github.com/vgteam/vg/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+
+
+sanity_check_paths = {
+	'files': ['vg'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''
+}
+
+moduleclass = 'bio'

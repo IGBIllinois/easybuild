@@ -20,7 +20,7 @@ builddependencies = [
 # enable C++ interface
 configopts = '--enable-cxx'
 
-runtest = 'check'
+#runtest = 'check'
 
 sanity_check_paths = {
     'files': ['lib/libgmp.%s' % SHLIB_EXT, 'include/gmp.h'],

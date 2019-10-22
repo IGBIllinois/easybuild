@@ -1,0 +1,32 @@
+easyblock = 'PythonPackage'
+
+name = 'sourcetracker'
+version = '2.0.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/biota/sourcetracker2'
+description = """Bayesian community-wide culture-independent microbial source tracking"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('biom-format','2.1.6','-Python-3.6.1'),
+
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/sourcetracker2'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

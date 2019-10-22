@@ -1,0 +1,33 @@
+easyblock = 'CMakeMake'
+
+name = 'SalmonTools'
+version = '20190604'
+commit = '23eac84'
+
+homepage = 'https://github.com/COMBINE-lab/SalmonTools'
+description = """Useful tools for working with Salmon output"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/COMBINE-lab/SalmonTools/archive/']
+sources = ["%s.tar.gz" % commit]
+
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = [('Salmon','0.14.1')
+]
+
+separate_build_dir = True
+
+sanity_check_paths = {
+        'files': ['bin/salmontools'],
+        'dirs': [],
+}
+
+modextrapaths = {'PATH':'scripts'
+}
+
+
+moduleclass = 'bio'
+
+

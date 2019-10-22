@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'RepeatScout'
+version = '1.0.5'
+
+homepage = 'http://www.repeatmasker.org/RepeatModeler/'
+description = """De Novo Repeat Finder,"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(name)s-%(version)s.tar.gz']
+source_urls = ['http://www.repeatmasker.org/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['build_lmer_table','compare-out-to-gff.prl','filter-stage-1.prl','filter-stage-2.prl','merge-lmer-tables.prl','RepeatScout'],'bin'),'README']
+
+sanity_check_paths = {
+	'files': ['bin/RepeatScout'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

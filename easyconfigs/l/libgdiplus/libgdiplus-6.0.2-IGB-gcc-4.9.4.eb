@@ -1,0 +1,38 @@
+easyblock = 'ConfigureMake'
+
+name = 'libgdiplus'
+version = '6.0.2'
+
+homepage = 'https://github.com/mono/libgdiplus'
+description = """An Open Source implementation of the GDI+ API"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/mono/libgdiplus/archive/']
+sources = ['%(version)s.tar.gz']
+
+builddependencies = [('Autotools','20150215'),
+	('pkg-config','0.29.2')
+]
+
+dependencies = [('Mono','6.0.0.319'),
+	('cairo','1.14.8'),
+	('libjpeg-turbo','1.5.1'),
+	('libpng','1.6.29'),
+	('LibTIFF','4.0.7'),
+]
+
+preconfigopts = 'PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/lib64/pkgconfig/:/usr/share/pkgconfig" && '
+preconfigopts += './autogen.sh && '
+sanity_check_paths = {
+        'files': ['lib/libgdiplus.so'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

@@ -1,0 +1,31 @@
+easyblock = 'Tarball'
+
+name = 'AMPHORA2'
+version = '20190104'
+commit = 'fd23b72'
+
+homepage = 'https://github.com/martinwu/AMPHORA2'
+description = """An Automated Phylogenomic Inference Pipeline for Bacterial and Archaeal Sequences."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.tar.gz' % commit]
+source_urls = ['https://github.com/martinwu/AMPHORA2/archive/']
+
+dependencies = [('BioPerl','1.7.1','-Perl-5.24.1'),
+	('HMMER','3.2.1'),
+	('RAxML','8.2.12'),
+	('EMBOSS','6.6.0','-Java-1.8.0_121'),
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['Scripts/MarkerAlignTrim.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'Scripts'}
+
+moduleclass = 'bio'

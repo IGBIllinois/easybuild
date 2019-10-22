@@ -1,0 +1,32 @@
+easyblock = 'JAR'
+
+name = 'VarScan'
+version = '2.3.9'
+versionsuffix = "-Java-1.8.0_152"
+
+homepage = ''
+description = """ """
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ['%(name)s.v%(version)s.jar']
+source_urls = ['http://prdownloads.sourceforge.net/%(namelower)s']
+
+dependencies = [('Java','1.8.0_152')
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['%(name)s.v%(version)s.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+#Creates bash alias for java program
+modaliases = {'%(name)s': 'java -jar %(installdir)s/%(name)s.v%(version)s.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+moduleclass = 'bio'

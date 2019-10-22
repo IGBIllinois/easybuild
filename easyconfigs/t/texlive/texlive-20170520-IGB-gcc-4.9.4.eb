@@ -8,14 +8,19 @@ description = """TeX Live is an easy way to get up and running with the TeX docu
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-source_urls = ['http://mirror.hmc.edu/ctan/systems/texlive/Source/']
+source_urls = ['ftp://tug.org/historic/systems/texlive/2017/']
 sources = ["texlive-%(version)s-source.tar.xz"]
 
-dependencies = []
+dependencies = [('poppler','0.70.1'),
+	('zlib','1.2.11'),
+
+]
 
 osdependencies = ['libXaw-devel']
 
-configopts = '--enable-build-in-source-tree '
+preconfigopts = "CFLAGS='-std=c++11' "
+configopts = '--enable-build-in-source-tree --with-system-poppler'
+
 sanity_check_paths = {
         'files': ['bin/x86_64-pc-linux-gnu/tex'],
         'dirs': [],

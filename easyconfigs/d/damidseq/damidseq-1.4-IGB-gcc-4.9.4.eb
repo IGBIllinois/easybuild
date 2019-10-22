@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'damidseq'
+version = '1.4'
+
+homepage = 'http://owenjm.github.io/damidseq_pipeline/'
+description = """Processing DamID-seq data involves extending single-end reads, aligning the reads to the genome and determining the coverage, similar to processing regular ChIP-seq datasets."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/owenjm/damidseq_pipeline/archive/']
+
+dependencies = [('Bowtie2','2.3.2'),
+	('SAMtools','1.7'),
+	('Perl','5.24.1'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['damidseq_pipeline'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
