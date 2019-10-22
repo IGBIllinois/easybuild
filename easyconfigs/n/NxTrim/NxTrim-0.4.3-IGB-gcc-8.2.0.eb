@@ -1,0 +1,30 @@
+easyblock = 'MakeCp'
+
+name = 'NxTrim'
+version = '0.4.3'
+
+homepage = 'https://github.com/sequencing/NxTrim'
+description = """Software to remove Nextera Mate Pair junction adapters and categorise reads according to the orientation implied by the adapter location. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/sequencing/NxTrim/archive/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['nxtrim'], 'bin'),'example','docs','scripts','Changelog','LICENSE.txt','README.md']
+
+sanity_check_paths = {
+	'files': ['bin/nxtrim'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

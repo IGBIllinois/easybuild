@@ -1,0 +1,44 @@
+easyblock = 'Bundle'
+
+name = 'nanopack'
+version = '1.0.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/wdecoster/nanopack'
+description = """Easily install all my long read processing and analysis scripts simultaneously."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+#sources = [SOURCELOWER_TAR_GZ]
+#source_urls = [PYPI_LOWER_SOURCE]
+
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('minimap','2.16','-Python-3.7.2'),
+	('Biopython','1.73','-Python-3.7.2'),
+
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+('nanopack', '1.0.0', {
+        'source_urls': ['https://pypi.python.org/packages/source/n/nanopack'],
+	'use_pip': False,
+	'zipped_egg': False
+    }),
+
+]
+
+
+exts_filter = ('', "")
+
+sanity_check_paths = {
+        'files': ['bin/NanoPlot'],
+        'dirs': [],
+}
+
+modextrapaths = {'PYTHONPATH':'lib/python3.7/site-packages'
+
+}
+moduleclass = 'bio'

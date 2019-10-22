@@ -1,0 +1,22 @@
+easyblock = "PythonPackage"
+
+name = "MultiQC"
+version = "1.5"
+versionsuffix = "-Python-%(pyver)s"
+
+homepage = "http://multiqc.info/"
+description = """MultiQC searches a given directory for analysis logs and compiles a HTML report. Its a general use tool, perfect for summarising the output from numerous bioinformatics tools."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/ewels/MultiQC/archive/']
+
+dependencies = [('Python', '3.7.2')]
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['bin','lib/python3.7/site-packages/']
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'downpore'
+version = '0.3.3'
+
+homepage = 'https://github.com/jteutenberg/downpore'
+description = """A suite of tools for use in genome assembly and consensus. """
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['downpore.gz']
+source_urls = ['https://github.com/jteutenberg/downpore/releases/download/%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['downpore'],
+	'dirs': [],
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/downpore']
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

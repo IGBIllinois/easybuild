@@ -1,0 +1,31 @@
+name = 'Mono'
+version = '6.0.0.319'
+
+homepage = 'http://www.mono-project.com/'
+description = """An open source, cross-platform, implementation of C# and the CLR that is
+ binary compatible with Microsoft.NET."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = []
+sources = [{'filename': 'mono-%(version)s.tar.gz',
+	'git_config': {
+		'url': 'https://github.com/mono',
+		'repo_name': 'mono',
+		'commit': '5220378',
+		'recursive': True,
+
+	},
+}]
+
+builddependencies = [
+    ('Autotools', '20150215'),
+    ('CMake', '3.12.1'),
+    ('gettext', '0.19.8'),
+]
+
+preconfigopts = './autogen.sh && '
+configopts = "--with-large-heap=yes --without-x"
+
+moduleclass = 'lang'
+

@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'Jalview'
+version = '2.11.0'
+versionsuffix = '-Java-1.8.0_152'
+
+homepage = 'http://www.jalview.org/'
+description = """"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['Jalview-OFFLINE_unix_archive_2_11_0-j8.tar.gz']
+source_urls = ['http://www.jalview.org/getdown/release/install4j/1.8/']
+
+dependencies = [('Java','1.8.0_152'),
+	
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['Jalview'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

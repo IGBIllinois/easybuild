@@ -1,0 +1,30 @@
+diff -ru FastQC-orig/fastqc FastQC/fastqc
+--- FastQC-orig/fastqc	2017-07-17 10:47:47.584079732 -0500
++++ FastQC/fastqc	2017-07-17 10:48:06.931127180 -0500
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/env perl
+ use warnings;
+ use strict;
+ use FindBin qw($RealBin);
+@@ -157,11 +157,11 @@
+ 	}
+ 	
+ 	push @java_args ,"-Dfastqc.threads=$threads";
+-	my $memory = 250 * $threads;
++	my $memory = 15000 * $threads;
+ 	unshift @java_args,"-Xmx${memory}m";
+ }
+ else {
+-	unshift @java_args,'-Xmx250m';
++	unshift @java_args,'-Xmx15000m';
+ }
+ 
+ if ($kmer_size) {
+@@ -392,4 +392,4 @@
+     Any bugs in fastqc should be reported either to simon.andrews@babraham.ac.uk
+     or in www.bioinformatics.babraham.ac.uk/bugzilla/
+                    
+-    
+\ No newline at end of file
++    

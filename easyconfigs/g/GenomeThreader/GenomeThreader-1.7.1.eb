@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'GenomeThreader'
+version = '1.7.1'
+
+homepage = 'http://genomethreader.org/'
+description = """GenomeThreader is a software tool to compute gene structure predictions. The gene structure predictions are calculated using a similarity-based approach where additional cDNA/EST and/or protein sequences are used to predict gene structures via spliced alignments. GenomeThreader was motivated by disabling limitations in GeneSeqer, a popular gene prediction program which is widely used for plant genome annotation."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['gth-%(version)s-Linux_x86_64-64bit.tar.gz']
+source_urls = ['http://genomethreader.org/distributions']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['bin'],
+}
+
+modextrapaths = {
+	'PATH': 'bin'
+}
+
+moduleclass = 'bio'

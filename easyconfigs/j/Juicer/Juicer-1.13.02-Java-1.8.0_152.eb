@@ -1,0 +1,33 @@
+easyblock = 'JAR'
+
+name = 'Juicer'
+version = '1.13.02'
+versionsuffix = "-Java-1.8.0_152"
+
+homepage = 'https://github.com/aidenlab/juicer'
+description = """Juicer is a platform for analyzing kilobase resolution Hi-C data. In this distribution, we include the pipeline for generating Hi-C maps from fastq raw data files and command line tools for feature annotation on the Hi-C maps."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ['juicer_tools_%(version)s.jar']
+source_urls = ['https://s3.amazonaws.com/hicfiles.tc4ga.com/public/juicer/']
+
+dependencies = [('Java','1.8.0_152'),
+	('CUDA','8.0.61','-IGB-gcc-4.9.4')
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['juicer_tools_%(version)s.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+#Creates bash alias for java program
+modaliases = {'juicer': 'java -jar %(installdir)s/juicer_tools_%(version)s.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+moduleclass = 'bio'

@@ -1,0 +1,39 @@
+easyblock = 'ModuleOnly'
+
+name = 'McCortex'
+version = '1.0.1'
+
+homepage = 'https://github.com/mcveanlab/mccortex'
+description = """Multi-sample de novo assembly and variant calling using Linked de bruijn graphs. Variant calling with and without a reference genome. Between closely related samples or highly diverged ones. From bacterial to mammalian genomes. Minimal configuration. And it's free."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [{
+	'filename': 'mccortex-1.0.1.tar.gz',
+	'git_config': {
+		'url': 'https://github.com/mcveanlab',
+		'repo_name': 'mccortex',
+		'tag': 'mccortex-1.0.1',
+		'recursive': True,
+	}
+}]
+
+dependencies = [
+	('zlib', '1.2.11'),
+	('Perl', '5.24.1'),
+]
+
+sanity_check_paths = {
+        'files': ['bin/mccortex'],
+        'dirs': ['bin'],
+}
+
+modextrapaths = {
+	'PATH': 'bin'
+}
+keeppreviousinstall = True
+
+
+moduleclass = 'bio'
+
+

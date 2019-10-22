@@ -1,0 +1,57 @@
+easyblock = 'Bundle'
+
+name = 'velocyto.R'
+version = '20190527'
+versionsuffix = '-R-%(rver)s'
+commit = 'd779034'
+
+homepage = 'https://github.com/velocyto-team/velocyto.R'
+description = """RNA velocity estimation in R"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+
+dependencies = [
+        ('R', '3.4.2'),
+	('Boost','1.63.0'),
+	('HDF5','1.8.18'),
+	
+
+]
+
+exts_defaultclass = "RPackage"
+#exts_filter = ("R -q --no-save")
+exts_filter = ("R -q --no-save", "library(%(ext_name)s)")
+
+exts_default_options = {
+    'source_urls': ['https://cran.r-project.org/src/contrib/',
+	'http://www.bioconductor.org/packages/3.6/bioc/src/contrib/'
+
+],
+    'source_tmpl': '%(name)s_%(version)s.tar.gz',
+}
+
+exts_list = [
+	('hdf5r','1.2.0', {
+	        'installopts': '--configure-args="--with-hdf5=$EBROOTHDF5/bin/h5pcc"',
+		'preinstallopts': "unset LIBS && ",
+	}),
+	('igraph','1.2.4.1'),
+	('pcaMethods','1.70.0'),
+	('velocyto.R','20190527', {
+		'source_urls': ['https://github.com/velocyto-team/velocyto.R/archive/'],
+		'source_tmpl': '%s.tar.gz' % commit,
+	}),
+
+]
+
+
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['velocyto.R','pcaMethods','igraph'],
+}
+
+modextrapaths = {'R_LIBS': ''}
+
+moduleclass = 'bio'

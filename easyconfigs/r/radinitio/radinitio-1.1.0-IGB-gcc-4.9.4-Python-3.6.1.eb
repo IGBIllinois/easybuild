@@ -1,0 +1,31 @@
+easyblock = 'PythonPackage'
+
+name = 'radinitio'
+version = '1.1.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://catchenlab.life.illinois.edu/radinitio/'
+description = """RADinitio is a simulation pipeline for the assessment of RADseq experiments. Genetic data are forward simulated for a population of individuals from a designated reference genome."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('GSL','2.3'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/radinitio'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

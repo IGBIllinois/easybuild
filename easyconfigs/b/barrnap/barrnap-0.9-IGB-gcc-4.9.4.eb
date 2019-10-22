@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'barrnap'
+version = '0.9'
+
+homepage = 'https://github.com/tseemann/barrnap'
+description = """Barrnap predicts the location of ribosomal RNA genes in genomes. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/tseemann/barrnap/archive/']
+
+dependencies = [('BEDTools','2.26.0'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['bin/barrnap'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

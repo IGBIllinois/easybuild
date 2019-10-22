@@ -19,7 +19,7 @@ dependencies = [
     ('HarfBuzz', '1.4.6'),
 ]
 
-builddependencies = [('GObject-Introspection', '1.49.1', '-Python-3.6.1')]
+builddependencies = [('GObject-Introspection', '1.49.1', '-Python-3.7.2')]
 
 configopts = "--disable-silent-rules --enable-introspection=yes --enable-static --enable-shared "
 

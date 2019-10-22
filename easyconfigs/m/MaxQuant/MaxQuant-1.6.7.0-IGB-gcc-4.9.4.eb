@@ -1,0 +1,34 @@
+easyblock = 'Tarball'
+
+name = 'MaxQuant'
+version = '1.6.7.0'
+
+homepage = 'http://www.coxdocs.org/doku.php?id=maxquant:start'
+description = """MaxQuant is a proteomics software package designed for analyzing large mass-spectrometric data sets. It is specifically aimed at high-resolution MS data. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['MaxQuant_%(version)s.zip']
+source_urls = ['']
+
+dependencies = [('Mono','6.0.0.319'),
+	('libgdiplus','6.0.2'),
+#	('GTK+','2.24.31','-Python-3.6.1'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['MaxQuant.exe'],
+	'dirs': [],
+}
+
+modextrapaths = {'LD_LIBRARY_PATH':'bin'
+}
+
+modaliases = {'MaxQuant': 'mono %(installdir)s/bin/MaxQuantGui.exe',
+	'MaxQuantCmd': 'mono %(installdir)s/bin/MaxQuantCmd.exe'
+}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+moduleclass = 'bio'

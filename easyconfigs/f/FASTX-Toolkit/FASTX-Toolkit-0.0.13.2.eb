@@ -1,0 +1,34 @@
+easyblock = 'ConfigureMake'
+
+name = 'FASTX-Toolkit'
+version = '0.0.13.2'
+
+homepage = 'http://hannonlab.cshl.edu/fastx_toolkit/'
+description = """The FASTX-Toolkit is a collection of command line tools for 
+ Short-Reads FASTA/FASTQ files preprocessing."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchainopts = {'pic': True}
+
+source_urls = ['http://hannonlab.cshl.edu/fastx_toolkit/']
+sources = ['fastx_toolkit-%(version)s.tar.bz2']
+
+dependencies = [('libgtextutils', '0.7')]
+
+#preconfigopts = "export GTEXTUTILS_CFLAGS='${EBROOTLIBGTEXTUTILS}/include' && export GTEXTUTILS_LIB='${EBROOTLIBGTEXTUTILS}/lib' && "
+
+sanity_check_paths = {
+    'files':
+        ['bin/fastx_%s' % x for x in
+            ['clipper', 'trimmer', 'quality_stats', 'artifacts_filter', 'reverse_complement',
+             'collapser', 'uncollapser', 'renamer', 'barcode_splitter.pl', 'nucleotide_distribution_graph.sh',
+             'nucleotide_distribution_line_graph.sh']] +
+        ['bin/fasta_%s' % x for x in
+            ['clipping_histogram.pl', 'formatter', 'nucleotide_changer']] +
+        ['bin/fastq_%s' % x for x in
+            ['quality_boxplot_graph.sh', 'quality_converter', 'to_fasta', 'quality_filter',
+             'quality_trimmer', 'masker']],
+    'dirs': ['.']
+}
+
+moduleclass = 'bio'

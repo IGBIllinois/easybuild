@@ -1,0 +1,46 @@
+easyblock = 'MakeCp'
+
+name = 'minimap'
+version = '2.16'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/lh3/minimap2'
+description = """Minimap is an experimental tool to efficiently find multiple approximate mapping positions between two sets of long sequences, 
+such as between reads and reference genomes, between genomes and between long noisy reads. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/lh3/minimap2/archive/']
+
+dependencies = [('Python','3.7.2')
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [
+	(['minimap2'],'bin'),'LICENSE.txt','README.md']
+
+sanity_check_paths = {
+	'files': ['bin/minimap2'],
+	'dirs': [],
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+    ('mappy', '2.16', {
+        'source_tmpl': 'mappy-%(version)s.tar.gz',
+        'source_urls': ['https://pypi.python.org/packages/source/m/mappy/'],
+    }),
+
+]
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+
+modextrapaths = {'PYTHONPATH': 'lib/python3.7/site-packages'}
+
+moduleclass = 'bio'
