@@ -2,7 +2,7 @@ easyblock = 'Tarball'
 
 name = 'clusterflow'
 version = '0.5'
-versionsuffix = '-Perl-5.25.1'
+versionsuffix = '-Perl-5.24.1'
 
 homepage = 'http://clusterflow.io/'
 description = """Cluster Flow is workflow manager designed to run bioinformatics pipelines. It is operated through a single command cf, which can be used to launch, configure, monitor and cancel pipelines."""

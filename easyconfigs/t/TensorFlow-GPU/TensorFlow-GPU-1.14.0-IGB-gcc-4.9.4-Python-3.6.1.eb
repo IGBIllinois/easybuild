@@ -60,6 +60,11 @@ exts_list = [
         'source_urls': ["https://pypi.python.org/packages/source/b/beautifulsoup4/"],
         'source_tmpl': SOURCE_TAR_GZ,
 }),
+	('wrapt', '1.11.2', {
+        'modulename': 'wrapt',
+        'source_urls': ["https://pypi.python.org/packages/source/w/wrapt"],
+        'source_tmpl': SOURCE_TAR_GZ,
+}),
 
 ]
 

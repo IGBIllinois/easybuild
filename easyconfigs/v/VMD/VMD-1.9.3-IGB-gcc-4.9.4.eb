@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'VMD'
+version = '1.9.3'
+
+homepage = 'https://www.ks.uiuc.edu/Research/vmd/'
+description = """VMD is a molecular visualization program for displaying, animating, and analyzing large biomolecular systems using 3-D graphics and built-in scripting. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['vmd-1.9.3.bin.LINUXAMD64-CUDA8-OptiX4-OSPRay111p1.opengl.tar.gz']
+source_urls = ['']
+
+dependencies = [('CUDA','8.0.61','',True),
+	('Python','3.6.1')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/vmd.sh'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

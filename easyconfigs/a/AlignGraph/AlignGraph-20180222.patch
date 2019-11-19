@@ -1,0 +1,22 @@
+Binary files AlignGraph.orig/AlignGraph/AlignGraph and AlignGraph/AlignGraph/AlignGraph differ
+Binary files AlignGraph.orig/Eval-AlignGraph/Eval-AlignGraph and AlignGraph/Eval-AlignGraph/Eval-AlignGraph differ
+diff --new-file -ru AlignGraph.orig/Makefile AlignGraph/Makefile
+--- AlignGraph.orig/Makefile	1969-12-31 18:00:00.000000000 -0600
++++ AlignGraph/Makefile	2019-11-15 14:10:18.672174000 -0600
+@@ -0,0 +1,16 @@
++
++CXX = g++
++
++
++all: AlignGraph/AlignGraph Eval-AlignGraph/Eval-AlignGraph
++
++
++AlignGraph/AlignGraph: AlignGraph/AlignGraph.cpp
++	$(CXX) -o AlignGraph/AlignGraph AlignGraph/AlignGraph.cpp -lpthread
++
++Eval-AlignGraph/Eval-AlignGraph: Eval-AlignGraph/Eval-AlignGraph.cpp
++	$(CXX) -o Eval-AlignGraph/Eval-AlignGraph Eval-AlignGraph/Eval-AlignGraph.cpp -lpthread
++
++clean:
++	$(RM) AlignGraph/AlignGraph Eval-AlignGraph/Eval-AlignGraph
++

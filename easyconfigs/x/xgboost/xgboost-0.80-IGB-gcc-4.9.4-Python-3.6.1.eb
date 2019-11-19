@@ -17,7 +17,7 @@ unpack_sources = False
 
 dependencies = [
         ('Python', '3.6.1'),
-	('CUDA','9.1.85'),
+	('CUDA','9.1.85','',True),
 ]
 
 exts_defaultclass = "PythonPackage"

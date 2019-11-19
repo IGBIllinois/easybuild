@@ -1,0 +1,36 @@
+easyblock = 'MakeCp'
+
+name = 'GROM'
+version = '1.0.3'
+
+homepage = 'https://osf.io/6rtws/'
+description = """Comprehensive genome variant (SNV, indel, SV, CNV) detection."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+sources = ['GROM-v%(version)s.zip']
+source_urls = ['']
+
+#patches = ['GROM-%(version)s.patch']
+
+dependencies = [('ncurses','6.0'),
+	('bzip2','1.0.6'),
+	('XZ','5.2.3'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['bin/GROM','test_data']
+
+sanity_check_paths = {
+	'files': ['bin/GROM'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

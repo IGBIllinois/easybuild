@@ -1,0 +1,37 @@
+easyblock = 'MakeCp'
+
+name = 'Platypus'
+version = '20180622'
+versionsuffix = '-Python-%(pyver)s'
+commit = '3e72641'
+
+homepage = 'https://github.com/andyrimmer/Platypus'
+description = """The Platypus variant caller. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/andyrimmer/Platypus/archive/']
+sources = ['%s.zip' % commit]
+
+
+dependencies = [('Python','2.7.13'),
+	('HTSlib','1.9'),
+	('Cython','0.27.3','-Python-2.7.13'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['bin/Platypus.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'scripts'
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/bin/*.py']
+moduleclass = 'bio'

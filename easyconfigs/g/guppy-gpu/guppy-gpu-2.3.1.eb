@@ -13,7 +13,7 @@ source_urls = ['https://mirror.oxfordnanoportal.com/software/analysis/']
 
 dependencies = [('HDF5','1.8.12','-IGB-gcc-4.9.4'),
 	('ZeroMQ','4.2.2','-IGB-gcc-4.9.4'),
-	('CUDA','9.1.85','-IGB-gcc-4.9.4'),
+	('CUDA','9.1.85'),
 	
 
 ]

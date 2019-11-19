@@ -1,0 +1,31 @@
+easyblock = "CMakeMakeCp"
+
+name = 'bam-readcount'
+version = '0.8.0'
+
+homepage = 'https://github.com/genome/bam-readcount'
+description = """The purpose of this program is to generate metrics at single nucleotide positions."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/genome/bam-readcount/archive/']
+sources = ['v%(version)s.tar.gz']
+
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = [
+]
+
+separate_build_dir = True
+patches = []
+
+files_to_copy = ['bin']
+sanity_check_paths = {
+    'files': ['bin/bam-readcount'],
+    'dirs': []
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
+

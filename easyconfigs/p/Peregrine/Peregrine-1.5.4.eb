@@ -1,0 +1,28 @@
+easyblock = 'ModuleOnly'
+
+name = "Peregrine"
+version = "1.5.4"
+
+homepage = 'https://github.com/cschin/Peregrine'
+description = "Peregrine & SHIMMER Genome Assembly Toolkit"
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+dependencies = []
+osdependencies = [('openssl-devel', 'libssl-dev', 'libopenssl-devel')]
+
+sanity_check_paths = {
+    'files': ['bin/pg_run.py'],
+    'dirs': []
+}
+
+modextrapaths = {
+    'PYTHONPATH': ['lib/python3.7/site-packages','lib_pypy','lib-python','site-packages'],
+    'CONDA_ENV': ''
+}
+
+moduleclass = 'bio'
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"

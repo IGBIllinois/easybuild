@@ -1,0 +1,46 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2015 Virginia Bioinformatics Institute at Virginia Tech
+# Authors::   Dominik L. Borkowski <dominik.borkowski@gmail.com>
+# License::   MIT/GPL
+# $Id$
+#
+##
+
+easyblock = 'PythonPackage'
+
+name = 'MACS2'
+version = '2.2.5'
+
+homepage = 'https://github.com/taoliu/MACS/'
+description = "Model Based Analysis for ChIP-Seq data"
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ["v%(version)s.tar.gz"]
+source_urls = ["https://github.com/taoliu/MACS/archive/"]
+
+python = 'Python'
+pyver = '3.6.1'
+pyshortver = '.'.join(pyver.split('.')[0:2])
+pylibdir = 'lib/python%s/site-packages' % pyshortver
+versionsuffix = "-%s-%s" % (python, pyver)
+
+dependencies = [
+    (python, pyver),
+]
+
+options = {'modulename': name}
+
+# specify that this asyblock should run a full sanity check, rather than just trying to load the module
+full_sanity_check = True
+
+sanity_check_paths = {
+    'files': ['bin/macs2'],
+    'dirs': [],
+}
+
+sanity_check_commands = [('%(namelower)s --version')]
+
+moduleclass = 'bio'

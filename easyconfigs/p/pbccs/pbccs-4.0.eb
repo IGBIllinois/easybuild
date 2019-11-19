@@ -1,0 +1,29 @@
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+# Author: Pablo Escobar Lopez
+# sciCORE - University of Basel
+# SIB Swiss Institute of Bioinformatics 
+
+easyblock = 'Conda'
+
+name = 'pbccs'
+version = '4.0'
+
+homepage = 'https://github.com/PacificBiosciences/ccs'
+description = """ccs takes multiple subreads of the same SMRTbell molecule and combines them using a statistical model to produce one highly accurate consensus sequence, also called HiFi read, with base quality values."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+# Need to download the environment file and add the name to it, because the env file is broken
+
+dependencies = []
+builddependencies = [('Anaconda3', '5.1.0')]
+
+channels = ['bioconda']
+requirements = 'pbccs'
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'

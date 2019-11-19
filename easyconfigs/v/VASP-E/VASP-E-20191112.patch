@@ -1,0 +1,29 @@
+diff -ru VASPreleasePack.orig/codeRelease/surfProcessingRelease/Makefile VASPreleasePack/codeRelease/surfProcessingRelease/Makefile
+--- VASPreleasePack.orig/codeRelease/surfProcessingRelease/Makefile	2019-11-14 08:50:53.824581000 -0600
++++ VASPreleasePack/codeRelease/surfProcessingRelease/Makefile	2019-11-14 08:51:30.143541000 -0600
+@@ -58,8 +58,9 @@
+ ###################
+ CC = gcc
+ CXX = g++
+-CPPFLAGS = -g -pedantic -pedantic-errors -Wall -Wno-deprecated -Wparentheses 
+-CFLAGS = -g 
++CPPFLAGS = -g -pedantic -Wall -Wno-deprecated -Wparentheses
++CFLAGS = -g
++
+ 
+ ###################
+ #directory settings
+diff -ru VASPreleasePack.orig/codeRelease/vaspRelease/Makefile VASPreleasePack/codeRelease/vaspRelease/Makefile
+--- VASPreleasePack.orig/codeRelease/vaspRelease/Makefile	2019-11-14 08:50:53.959754000 -0600
++++ VASPreleasePack/codeRelease/vaspRelease/Makefile	2019-11-14 08:51:50.487510000 -0600
+@@ -58,8 +58,8 @@
+ 
+ CC = gcc -m64
+ CXX = g++ -m64
+-CPPFLAGS = -g -pedantic -pedantic-errors -Wall -Wno-deprecated 
+-CFLAGS = -g 
++CPPFLAGS = -g -pedantic -pedantic-errors -Wall -Wno-depecrated
++CFLAGS = -g -fPIC
+ 
+ ######################
+ # directory settings #

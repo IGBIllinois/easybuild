@@ -1,4 +1,4 @@
-easyblock = "CMakeCp"
+easyblock = "CMakeMakeCp"
 
 name = ''
 version = ''
@@ -11,7 +11,7 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 source_urls = ['']
 sources = ['v%(version)s.tar.gz']
 
-builddependencies = [('CMake', '3.7.2')]
+builddependencies = [('CMake', '3.12.1')]
 
 dependencies = [
 ]

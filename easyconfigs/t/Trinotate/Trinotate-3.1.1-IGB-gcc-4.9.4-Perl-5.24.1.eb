@@ -19,7 +19,7 @@ dependencies = [
 	('TMHMM', '2.0c'),
 	('RNAmmer','1.2', '-Perl-5.24.1'),
 	('BLAST+','2.6.0'),
-	('HMMER','3.1b2'),
+	('HMMER','2.3.2'),
 ]
 
 keepsymlinks = True

@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'igv'
+version = '2.7.2'
+versionsuffix = '-Java-11.0.5'
+
+homepage = 'http://software.broadinstitute.org/software/igv/'
+description = """The Integrative Genomics Viewer (IGV) is a high-performance visualization tool for interactive exploration of large, integrated genomic datasets. It supports a wide variety of data types, including array-based and next-generation sequence data, and genomic annotations."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['IGV_%(version)s.zip']
+source_urls = ['http://data.broadinstitute.org/igv/projects/downloads/2.7/']
+
+dependencies = [('Java','11.0.5')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['igvtools','igv.sh'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

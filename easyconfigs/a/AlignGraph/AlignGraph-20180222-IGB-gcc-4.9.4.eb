@@ -1,0 +1,35 @@
+easyblock = 'MakeCp'
+
+name = 'AlignGraph'
+version = '20180222'
+commit = 'abffcea'
+
+homepage = 'https://github.com/baoe/AlignGraph'
+description = """AlignGraph is a software that extends and joins contigs or scaffolds by reassembling them with help provided by a reference genome of a closely related organism."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.tar.gz' % commit]
+source_urls = ['https://github.com/baoe/AlignGraph/archive/']
+
+patches = [('AlignGraph-%(version)s.patch',1)]
+
+dependencies = [('Bowtie2','2.3.5.1'),
+	('MUMmer','3.23'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['AlignGraph/AlignGraph','Eval-AlignGraph/Eval-AlignGraph'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/AlignGraph','bin/Eval-AlignGraph'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
