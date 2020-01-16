@@ -2,7 +2,7 @@ easyblock = 'RPackage'
 
 name = ''
 version = ''
-versionsuffix = '-%s-%s' % (r,rver)
+versionsuffix = '-R-%(rver)s'
 
 homepage = 'https://cran.r-project.org/web/packages/%(name)s/index.html'
 description = """"""
@@ -18,12 +18,14 @@ sources = ['%(name)s_%(version)s.tar.gz']
 
 
 dependencies = [
-	(R,'3.3.3'),
+	('R','3.3.3'),
 ]
 
 sanity_check_paths = {
 	'files': [],
 	'dirs': ['%(name)s'],
 }
+
+modextrapaths = {'R_LIBS': ''}
 
 moduleclass = 'lib'

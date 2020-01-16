@@ -8,15 +8,15 @@ description = """rpy2 is a redesign and rewrite of rpy. It is providing a low-le
 interface to R from Python, a proposed high-level interface, including wrappers to 
 graphical libraries, as well as R-like structures and functions. """
 
-toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 source_urls = ['https://pypi.python.org/packages/source/r/%(name)s']
 sources = [SOURCE_TAR_GZ]
 
 python = 'Python'
-pyver = '3.6.1'
+pyver = '3.7.2'
 pyshortver = '.'.join(pyver.split('.')[:2])
-rver = '3.5.0'
+rver = '3.6.0'
 versionsuffix = '-%s-%s-R-%s' % (python, pyver, rver)
 
 use_pip = True
@@ -26,9 +26,21 @@ dependencies = [
     ('R', rver),
 ]
 
+exts_defaultclass = "PythonPackage"
+exts_list = [
+    ('cffi', '1.13.2', {
+        'modulename': '_cffi_backend',
+        'source_urls': [PYPI_SOURCE],
+        'source_tmpl': SOURCE_TAR_GZ,
+    }),
+
+
+]
+exts_filter = ('', "")
+
 sanity_check_paths = {
     'files': [],
-    'dirs': ['lib/python3.6/site-packages/rpy2'],
+    'dirs': ['lib/python3.7/site-packages/rpy2'],
 }
 
 moduleclass = 'lang'

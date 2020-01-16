@@ -1,0 +1,43 @@
+easyblock = 'PythonPackage'
+
+name = 'PEAKachu'
+version = '0.1.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/tbischler/PEAKachu'
+description = """Peak calling tool for CLIP-seq data"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ["v%(version)s.tar.gz"]
+source_urls = ["https://github.com/tbischler/PEAKachu/archive/"]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Biopython','1.76','-Python-3.7.2'),
+	('rpy2','3.2.4','-Python-3.7.2-R-3.6.0'),
+
+]
+
+use_pip = False
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+    ('bcbio-gff', '0.6.6', {
+        'modulename': 'BCBio',
+        'source_urls': [PYPI_SOURCE],
+        'source_tmpl': SOURCE_TAR_GZ,
+    }),
+
+
+]
+
+
+exts_filter = ('', "")
+
+sanity_check_paths = {
+        'files': ['bin/peakachu'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

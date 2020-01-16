@@ -23,13 +23,13 @@ in Python by an international team of developers. It is a distributed collaborat
 develop Python libraries and applications which address the needs of current and future work in
 bioinformatics. """
 
-toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 source_urls = ['http://biopython.org/DIST']
 sources = ['%(namelower)s-%(version)s.tar.gz']
 
 dependencies = [
-    ('Python', '3.6.1')
+    ('Python', '3.7.2')
 ]
 
 sanity_check_paths = {

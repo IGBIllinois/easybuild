@@ -1,0 +1,34 @@
+easyblock = 'MakeCp'
+
+name = 'piranha'
+version = '1.2.1'
+
+homepage = 'http://smithlabresearch.org/software/piranha/'
+description = """iranha is a peak-caller for CLIP- and RIP-Seq data. It takes input in BED or BAM format and identifies regions of statistically significant read enrichment. Additional covariates may optionally be provided to further inform the peak-calling process. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['http://smithlabresearch.org/downloads/']
+sources = ['piranha-%(version)s.tar.gz']
+
+with_configure = True
+
+dependencies = [('GSL','2.3')
+]
+
+files_to_copy = ['bin','README.TXT','scripts']
+
+configopts = ''
+buildopts = '&& make install'
+sanity_check_paths = {
+        'files': ['bin/Piranha'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

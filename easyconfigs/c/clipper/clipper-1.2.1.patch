@@ -1,0 +1,12 @@
+diff -ru clipper-1.2.1.orig/clipper/src/readsToWiggle.pyx clipper-1.2.1/clipper/src/readsToWiggle.pyx
+--- clipper-1.2.1.orig/clipper/src/readsToWiggle.pyx	2020-01-16 11:10:41.480929000 -0600
++++ clipper-1.2.1/clipper/src/readsToWiggle.pyx	2020-01-16 11:11:26.956123000 -0600
+@@ -76,7 +76,7 @@
+                         continue
+                     if cigop == 0: #Exact matches only, doing this because it duplicates HTSeq behavior
+                         explicit_locations[cur_pos - tx_start].add(read)
+-sc
++
+             continue
+ 
+         read_len = len(read.positions)

@@ -1,0 +1,31 @@
+easyblock = 'RPackage'
+
+name = 'RCAS'
+version = '1.5.4'
+versionsuffix = '-R-%(rver)s'
+
+homepage = 'https://github.com/BIMSBbioinfo/RCAS'
+
+description = """RCAS is an R/Bioconductor package designed as a generic reporting tool for the functional analysis of transcriptome-wide regions of interest detected by high-throughput experiments."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = [
+	'https://github.com/BIMSBbioinfo/RCAS/archive/',
+]
+sources = ['%(version)s.tar.gz']
+
+
+dependencies = [
+	('R','3.3.3'),
+	('HTSlib','1.9')
+]
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['%(name)s'],
+}
+
+modextrapaths = {'R_LIBS': ''}
+
+moduleclass = 'bio'

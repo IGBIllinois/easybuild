@@ -1,0 +1,30 @@
+easyblock = 'PythonPackage'
+
+name = 'umi-tools'
+version = '1.0.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/CGATOxford/UMI-tools'
+description = """Tools for handling Unique Molecular Identifiers in NGS data sets"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/CGATOxford/UMI-tools/archive/']
+
+dependencies = [
+        ('Python', '3.7.2'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/umi_tools'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
