@@ -11,7 +11,12 @@ toolchain = {'name': 'dummy', 'version': 'dummy'}
 sources = ['%(name)s-%(version)s.tar.gz']
 source_urls = ['']
 
+<<<<<<< HEAD
+dependencies = [('bcl2fastq2','2.20','-IGB-gcc-8.2.0')
+
+=======
 dependencies = [
+>>>>>>> a67be0fba6faf134d68939c5a5b06e318900ce21
 ]
 
 keepsymlinks = True

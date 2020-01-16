@@ -22,6 +22,7 @@ dependencies = [
     ('GMP', '6.1.2'),
     ('libffi', '3.2.1'),
     ('libjpeg-turbo', '1.5.1'),
+    ('MariaDB', '10.1.31'),
     # OS dependency should be preferred if the os version is more recent then this version,
     # it's nice to have an up to date openssl for security reasons
     # ('OpenSSL', '1.0.2h'),
@@ -138,7 +139,18 @@ exts_list = [
    ('patsy','0.5.1', {
         'source_urls': ['https://pypi.python.org/packages/source/p/patsy'],
     }),
-
+    ('mysqlclient', '1.4.2.post1', {
+        'source_urls': ['https://pypi.python.org/packages/source/m/mysqlclient'],
+        'modulename': 'MySQLdb',
+        'source_tmpl': 'mysqlclient-%(version)s.tar.gz',
+    }),
+    ('crypto', '1.4.1', {
+        'source_urls': ['https://pypi.python.org/packages/source/c/crypto'],
+    }),
+    ('pycrypto', '2.6.1', {
+        'source_urls': ['https://pypi.python.org/packages/source/p/pycrypto'],
+        'modulename': 'Crypto',
+    }),
 ]
 
 moduleclass = 'lang'

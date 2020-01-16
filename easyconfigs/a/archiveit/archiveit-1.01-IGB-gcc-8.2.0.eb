@@ -1,7 +1,7 @@
 easyblock = 'Tarball'
 
 name = 'archiveit'
-version = '1.0'
+version = '1.01'
 
 homepage = 'https://github.com/IGBIllinois/archiveit'
 description = """Active Archive Scripts"""
