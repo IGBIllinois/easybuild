@@ -8,7 +8,9 @@ description = "Peregrine & SHIMMER Genome Assembly Toolkit"
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
-dependencies = []
+dependencies = [
+	('Anaconda3', '5.1.0')
+]
 osdependencies = [('openssl-devel', 'libssl-dev', 'libopenssl-devel')]
 
 sanity_check_paths = {
@@ -17,8 +19,9 @@ sanity_check_paths = {
 }
 
 modextrapaths = {
-    'PYTHONPATH': ['lib/python3.7/site-packages','lib_pypy','lib-python','site-packages'],
-    'CONDA_ENV': ''
+    # 'PYTHONPATH': ['lib/python3.7/site-packages','lib_pypy','lib-python','site-packages'],
+    # 'CONDA_ENV': '',
+    # 'CONDA_DEFAULT_ENV': ''
 }
 
 moduleclass = 'bio'

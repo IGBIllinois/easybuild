@@ -1,4 +1,4 @@
-ame = 'Python'
+name = 'Python'
 version = '3.6.1'
 
 homepage = 'http://python.org/'
@@ -32,6 +32,7 @@ dependencies = [
 
 # order is important!
 # package versions updated May 28th 2015
+exts_default_options = {'source_urls': [PYPI_SOURCE]}
 exts_list = [
     ('six', '1.10.0', {
 	'source_urls': ['https://pypi.python.org/packages/source/s/six/']
@@ -127,11 +128,17 @@ exts_list = [
     }),
     ('Jinja2', '2.10', {
         'source_urls': ['https://pypi.python.org/packages/source/j/Jinja2'],
+        'modulename': 'jinja2',
     }),
     ('pydicom', '1.0.2', {
 	'source_tmpl': 'v%(version)s.tar.gz',
         'source_urls': ['https://github.com/pydicom/pydicom/archive/'],
     }),
+    ('gast', '0.3.2', {
+        'source_urls': ['https://pypi.python.org/packages/source/g/gast'],
+    }),
+    ('astor', '0.8.0'),
+    ('termcolor', '1.1.0'),
 ]
 
 moduleclass = 'lang'

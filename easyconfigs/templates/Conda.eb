@@ -1,0 +1,31 @@
+easyblock = 'Conda'
+
+name = ''
+version = ''
+
+homepage = ''
+description = """"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+source_urls = ['']
+sources = [SOURCE_TAR_GZ]
+
+dependencies = [('Anaconda3','5.1.0'),
+]
+
+channels = ['bioconda', 'conda-forge']
+environment_file = ""
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

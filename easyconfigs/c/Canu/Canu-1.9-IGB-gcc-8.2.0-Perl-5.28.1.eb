@@ -1,0 +1,36 @@
+easyblock = 'MakeCp'
+
+name = 'Canu'
+version = '1.9'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/marbl/canu'
+description = """Canu is a fork of the Celera Assembler, designed for high-noise single-molecule sequencing (such as the PacBio RS II or Oxford Nanopore MinION)."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/marbl/canu/archive/']
+
+dependencies = [
+	('Perl', '5.28.1'),
+]
+
+start_dir = 'src'
+
+files_to_copy = [
+	(['Linux-amd64/bin/*'],'bin'),
+	(['Linux-amd64/lib/*'],'lib'),
+	(['Linux-amd64/share/*'],'share'),
+]
+
+sanity_check_paths = {
+	'files': ['bin/canu'],
+	'dirs': ['bin']
+}
+
+modextrapaths = {
+	'PERL5LIB': 'lib/site_perl/canu'
+}
+
+moduleclass = 'bio'

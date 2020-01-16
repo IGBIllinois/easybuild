@@ -1,0 +1,30 @@
+easyblock = 'PythonPackage'
+
+name = 'megalodon'
+version = '1.0.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/nanoporetech/megalodon/'
+description = """Megalodon is a research tool for per-read and aggregated modified base and sequence variant calling by anchoring the information rich basecalling neural network output to a reference genome/transriptome."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ["%(version)s.tar.gz"]
+source_urls = ["https://github.com/nanoporetech/megalodon/archive/"]
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/megalodon'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

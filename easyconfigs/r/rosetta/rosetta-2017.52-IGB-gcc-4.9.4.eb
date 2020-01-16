@@ -21,7 +21,7 @@ sanity_check_paths = {
         'dirs': [],
 }
 
-modextrapaths = {
+modextrapaths = {'PATH':'main/source/bin'
 }
 
 keeppreviousinstall = True

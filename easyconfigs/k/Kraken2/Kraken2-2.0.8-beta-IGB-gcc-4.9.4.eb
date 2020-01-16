@@ -30,7 +30,7 @@ sanity_check_paths = {
 	'dirs': [],
 }
 
-modextrapaths = {'KRAKEN_DIR':'bin'
+modextrapaths = {'KRAKEN2_DIR':'bin'
 }
 
 moduleclass = 'bio'

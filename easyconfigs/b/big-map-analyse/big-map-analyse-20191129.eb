@@ -1,0 +1,41 @@
+easyblock = 'ModuleOnly'
+
+name = 'big-map-analyse'
+version = '20191129'
+commit = 'c5b3d7f'
+
+homepage = 'https://github.com/KoenvdBerg/BiG-MAP'
+description = """This is the Github repository for the Biosynthetic Gene cluster Meta’omics abundance Profiler"""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+#sources = ['%s.tar.gz' % commit]
+#source_urls = ["https://github.com/KoenvdBerg/BiG-MAP/archive/"]
+
+sources = [{
+	'source_urls': ['https://github.com/KoenvdBerg/BiG-MAP/archive/'],
+	'filename': '%s.tar.gz' % commit,
+	'extract_cmd': 'tar xfvz %s.tar.gz' % commit,
+}]
+
+dependencies = [
+	('Anaconda3','5.0.1'),
+]
+
+
+custom_file = 'BiG-MAP_process.yml'
+
+sanity_check_paths = {
+        'files': ['src/BiG-MAP.analyse.py'],
+        'dirs': ['bin'],
+}
+
+modextrapaths = {'CONDA_ENV':'',
+	'CONDA_DEFAULT_ENV':'',
+	'PATH':'src',
+}
+
+
+moduleclass = 'bio'
+
+
