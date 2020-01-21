@@ -19,7 +19,7 @@ sources = [{
 }]
 
 dependencies = [
-	('Anaconda3','5.0.1'),
+	('Anaconda3','2019.10'),
 ]
 
 
