@@ -1,0 +1,42 @@
+easyblock = 'Conda'
+
+name = 'big-map2-process'
+version = '20200124'
+commit = '928a441'
+
+homepage = 'https://github.com/HAugustijn/BiG-MAP2'
+description = """This is the Github repository for the Biosynthetic Gene cluster Meta’omics abundance Profiler"""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ['%s.tar.gz' % commit]
+source_urls = ["https://github.com/HAugustijn/BiG-MAP/archive/"]
+
+#sources = [{
+#	'source_urls': ['https://github.com/HAugustijn/BiG-MAP2/archives/'],
+#	'filename': '%s.tar.gz' % commit,
+#	'extract_cmd': 'tar xfvz %s.tar.gz' % commit,
+#}]
+
+dependencies = [
+	('Anaconda3','2019.10'),
+]
+
+
+#custom_file = 'BiG-MAP_process.yml'
+environment_file = 'BiG-MAP_process.yml'
+
+sanity_check_paths = {
+        'files': ['src/BiG-MAP.family.py'],
+        'dirs': ['bin'],
+}
+
+modextrapaths = {'CONDA_ENV':'',
+	'CONDA_DEFAULT_ENV':'',
+	'PATH':'src',
+}
+
+
+moduleclass = 'bio'
+
+

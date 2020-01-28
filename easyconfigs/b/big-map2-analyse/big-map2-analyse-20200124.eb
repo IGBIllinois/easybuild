@@ -1,19 +1,19 @@
 easyblock = 'ModuleOnly'
 
-name = 'big-map-process'
-version = '20191129'
-commit = 'c5b3d7f'
+name = 'big-map2-analyse'
+version = '20200124'
+commit = '928a441'
 
-homepage = 'https://github.com/KoenvdBerg/BiG-MAP'
+homepage = 'https://github.com/HAugustijn/BiG-MAP2'
 description = """This is the Github repository for the Biosynthetic Gene cluster Meta’omics abundance Profiler"""
 
 toolchain = {'name': 'dummy', 'version': ''}
 
 #sources = ['%s.tar.gz' % commit]
-#source_urls = ["https://github.com/KoenvdBerg/BiG-MAP/archive/"]
+#source_urls = ["https://github.com/HAugustijn/BiG-MAP2/archive/"]
 
 sources = [{
-	'source_urls': ['https://github.com/KoenvdBerg/BiG-MAP/archive/'],
+	'source_urls': ['https://github.com/HAugustijn/BiG-MAP2/archive/'],
 	'filename': '%s.tar.gz' % commit,
 	'extract_cmd': 'tar xfvz %s.tar.gz' % commit,
 }]
@@ -26,7 +26,7 @@ dependencies = [
 custom_file = 'BiG-MAP_process.yml'
 
 sanity_check_paths = {
-        'files': ['src/BiG-MAP.family.py'],
+        'files': ['src/BiG-MAP.analyse.py'],
         'dirs': ['bin'],
 }
 
