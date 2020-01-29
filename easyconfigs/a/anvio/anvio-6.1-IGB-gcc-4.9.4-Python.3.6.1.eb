@@ -1,0 +1,39 @@
+easyblock = 'PythonPackage'
+
+name = 'anvio'
+version = '6.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://merenlab.org/software/anvio/'
+description = """Anvi’o is an open-source, community-driven analysis and visualization platform for ‘omics data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ["v%(version)s.tar.gz"]
+source_urls = ["https://github.com/merenlab/anvio/archive/"]
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('SAMtools','1.7'),
+	('Prodigal','2.6.3','',True),
+	('SQLite','3.17.0'),
+	('GSL','2.3'),
+	('HDF5','1.8.18'),
+	('Biopython','1.68','-Python-3.6.1'),
+	('HMMER','3.2.1'),
+
+
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('', "")
+
+sanity_check_paths = {
+        'files': ['bin/anvi-self-test'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
