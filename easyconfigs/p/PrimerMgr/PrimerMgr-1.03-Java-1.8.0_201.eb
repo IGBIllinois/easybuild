@@ -1,0 +1,32 @@
+easyblock = 'JAR'
+
+name = 'PrimerMgr'
+version = '1.03'
+versionsuffix = "-Java-1.8.0_201"
+
+homepage = 'https://github.com/IGBIllinois/primerMgr'
+description = """Biotech Center Primer Manager Database"""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ['PrimerMgr.jar']
+source_urls = ['https://github.com/IGBIllinois/primerMgr/releases/download/1.03/']
+
+dependencies = [('Java','1.8.0_201')
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['PrimerMgr.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+#Creates bash alias for java program
+modaliases = {'%(name)s': 'java -jar %(installdir)s/PrimerMgr.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+moduleclass = 'bio'
