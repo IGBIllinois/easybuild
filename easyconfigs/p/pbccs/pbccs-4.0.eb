@@ -16,7 +16,7 @@ toolchain = {'name': 'dummy', 'version': ''}
 # Need to download the environment file and add the name to it, because the env file is broken
 
 dependencies = []
-builddependencies = [('Anaconda3', '5.1.0')]
+builddependencies = [('Miniconda2', '4.7.12.1')]
 
 channels = ['bioconda']
 requirements = 'pbccs'
