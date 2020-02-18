@@ -1,0 +1,33 @@
+easyblock = 'MakeCp'
+
+name = 'stringtie'
+version = '2.1.1'
+
+homepage = 'https://github.com/gpertea/stringtie'
+description = """Transcript assembly and quantification for RNA-Seq """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/gpertea/stringtie/archive/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+buildopts = "release" 
+
+files_to_copy = [(['stringtie'],'bin'),'LICENSE','README.md']
+
+sanity_check_paths = {
+	'files': ['bin/stringtie'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

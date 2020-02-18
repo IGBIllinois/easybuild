@@ -1,0 +1,34 @@
+easyblock = 'PythonPackage'
+
+name = 'bamm-suite'
+version = '20191127'
+commit = 'fbec3b3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/soedinglab/bamm-suite'
+description = """BaMM-suite is the motif finding suite developed by the Soedinglab."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ["%s.zip" % commit]
+source_urls = ["https://github.com/soedinglab/bamm-suite/archive/"]
+
+start_dir = 'bamm-suite-py'
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('CMake','3.12.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/bamm','bin/db_search','bin/meme2models'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,31 @@
+easyblock = 'ModuleOnly'
+
+name = 'bcl'
+version = '4.0.0'
+
+homepage = 'http://www.meilerlab.org/index.php/bclcommons/show/b_apps_id/1'
+description = """"""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+source_urls = ['']
+sources = ['bcl-4.0.0-Linux-x86_64.sh']
+
+dependencies = [
+
+]
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bcl.exe'],
+        'dirs': [],
+}
+
+modextrapaths = {'PATH':'',
+	'LD_LIBRARY_PATH':'',
+}
+
+keeppreviousinstall = True
+moduleclass = 'bio'
+
+

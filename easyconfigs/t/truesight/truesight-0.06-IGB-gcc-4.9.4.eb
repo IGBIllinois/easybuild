@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'truesight'
+version = '0.06'
+
+homepage = 'none'
+description = """none"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['truesight-%(version)s.tar.gz']
+source_urls = ['']
+
+dependencies = [('Perl','5.24.1'),
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/tune.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

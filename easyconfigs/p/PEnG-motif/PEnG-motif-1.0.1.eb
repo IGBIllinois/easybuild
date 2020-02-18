@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'PEnG-motif'
+version = '1.0.1'
+
+homepage = 'https://github.com/soedinglab/PEnG-motif'
+description = """PEnG-motif is an open-source software package for searching statistically overrepresented motifs (position specific weight matrices, PWMs) in a set of DNA sequences."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['peng_motif_linux_amd64.zip']
+source_urls = ['https://github.com/soedinglab/PEnG-motif/releases/download/%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['peng_motif'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
