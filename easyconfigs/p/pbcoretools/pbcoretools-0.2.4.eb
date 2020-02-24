@@ -1,0 +1,27 @@
+easyblock = 'Conda'
+
+name = "pbcoretools"
+version = "0.2.4"
+
+homepage = 'https://github.com/pacificbiosciences/pbcoretools/'
+description = "The pbcoretools package provides Python CLIs for interacting with PacBio data files and writing bioinformatics applications."
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+requirements = "%(name)s=%(version)s"
+channels = ['bioconda', 'defaults']
+
+dependencies = []
+builddependencies = [('Miniconda3','4.6.14')]
+
+
+sanity_check_paths = {
+    'files': ['bin/pbservice','bin/pbvalidate'],
+    'dirs': []
+}
+
+moduleclass = 'bio'
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
