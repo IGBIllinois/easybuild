@@ -25,4 +25,6 @@ modextrapaths = {'PATH':'smrtcmds/bin'
 keeppreviousinstall = True
 moduleclass = 'bio'
 
+####Install Notes
+###To install, run ./smrtlink_8.0.0.80529.run --smrttools-only -i --rootdir /home/apps/software/smrtlink/8.0.0.80529
 
