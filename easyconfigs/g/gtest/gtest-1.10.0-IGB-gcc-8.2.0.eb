@@ -1,0 +1,24 @@
+easyblock = 'CMakeMake'
+
+name = 'gtest'
+version = '1.10.0'
+
+homepage = 'https://github.com/google/googletest'
+description = "Googles C++ test framework"
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/google/googletest/archive/']
+sources = ['release-%(version)s.tar.gz']
+
+builddependencies = [('CMake', '3.12.1')]
+
+separate_build_dir = True
+
+sanity_check_paths = {
+    'files': ['lib/libgmock.a', 'lib/libgmock_main.a', 'lib/libgtest.a', 'lib/libgtest_main.a'],
+    'dirs': ['include/gmock', 'include/gtest'],
+}
+
+moduleclass = 'tools'
+

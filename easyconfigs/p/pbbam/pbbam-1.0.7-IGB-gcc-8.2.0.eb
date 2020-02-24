@@ -1,0 +1,38 @@
+easyblock = 'CMakeMake'
+
+name = 'pbbam'
+version = '1.0.7'
+
+homepage = 'https://github.com/PacificBiosciences/pbbam'
+description = """The pbbam software package provides components to create, query, & edit PacBio BAM files and associated indices. These components include a core C++ library, bindings for additional languages, and command-line utilities."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/PacificBiosciences/pbbam/archive/']
+sources = ['v%(version)s.tar.gz']
+
+builddependencies = [('CMake','3.12.1'),
+
+]
+
+dependencies = [('gtest','1.10.0'),
+		('Boost','1.69.0'),
+		('HTSlib','1.10.2'),
+		
+
+]
+
+separate_build_dir = True
+
+sanity_check_paths = {
+        'files': ['bin/bam2sam','bin/pbindex'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

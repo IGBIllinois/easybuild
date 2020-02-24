@@ -1,0 +1,30 @@
+easyblock = 'MesonNinja'
+
+name = ''
+version = ''
+
+homepage = ''
+description = """"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['']
+sources = ['']
+
+builddependencies = [
+    ('Meson', '0.51.2', '-Python-3.7.2'),
+    ('Ninja', '1.9.0'),
+]
+
+dependencies = [
+]
+
+configopts = ""
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': [],
+}
+
+moduleclass = 'bio'
+
