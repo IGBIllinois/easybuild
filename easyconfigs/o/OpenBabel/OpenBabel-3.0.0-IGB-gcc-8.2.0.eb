@@ -1,0 +1,39 @@
+easyblock = 'CMakeMake'
+
+name = 'OpenBabel'
+version = '3.0.0'
+#versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://openbabel.org'
+description = """Open Babel is a chemical toolbox designed to speak the many
+ languages of chemical data. It's an open, collaborative project allowing anyone
+ to search, convert, analyze, or store data from molecular modeling, chemistry,
+ solid-state materials, biochemistry, or related areas."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'optarch': True}
+
+source_urls = ['https://github.com/openbabel/openbabel/releases/download/openbabel-3-0-0/']
+sources = ['openbabel-%(version)s-source.tar.bz2']
+
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = [
+    ('zlib', '1.2.11'),
+    ('libxml2', '2.9.7'),
+    ('Eigen', '3.3.3'),
+]
+
+separate_build_dir = True
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/obabel'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'chem'
+
