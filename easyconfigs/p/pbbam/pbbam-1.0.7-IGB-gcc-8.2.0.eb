@@ -1,4 +1,4 @@
-easyblock = 'CMakeMake'
+easyblock = 'MesonNinja'
 
 name = 'pbbam'
 version = '1.0.7'
@@ -11,13 +11,16 @@ toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 source_urls = ['https://github.com/PacificBiosciences/pbbam/archive/']
 sources = ['v%(version)s.tar.gz']
 
-builddependencies = [('CMake','3.12.1'),
+builddependencies = [
+    ('Meson', '0.51.2', '-Python-3.7.2'),
+    ('Ninja', '1.9.0'),
 
 ]
 
 dependencies = [('gtest','1.10.0'),
 		('Boost','1.69.0'),
 		('HTSlib','1.10.2'),
+		('SAMtools','1.10'),
 		
 
 ]
@@ -25,7 +28,7 @@ dependencies = [('gtest','1.10.0'),
 separate_build_dir = True
 
 sanity_check_paths = {
-        'files': ['bin/bam2sam','bin/pbindex'],
+        'files': ['bin/bam2sam','bin/pbindex','bin/pbbamify','bin/pbindexdump','bin/pbmerge','lib/libpbbam.so'],
         'dirs': [],
 }
 
