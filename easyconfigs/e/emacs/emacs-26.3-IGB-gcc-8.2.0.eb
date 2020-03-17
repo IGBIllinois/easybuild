@@ -1,0 +1,35 @@
+easyblock = 'ConfigureMake'
+
+name = 'emacs'
+version = '26.3'
+
+homepage = 'http://www.gnu.org/software/emacs/'
+description = """GNU Emacs is an extensible, customizable text editor--and more.
+ At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming
+ language with extensions to support text editing."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = [GNU_SOURCE]
+sources = [SOURCELOWER_TAR_GZ]
+
+dependencies = [('zlib','1.2.11'),
+	('libpng','1.6.29'),
+	('libjpeg-turbo','1.5.1'),
+	('ncurses','6.1')
+
+]
+
+configopts = '--with-gif=no --with-tiff=no --with-x-toolkit=no --with-xpm=no --with-gnutls=no'
+sanity_check_paths = {
+	'files': ["bin/emacs", "bin/emacs-%(version)s", "bin/emacsclient", "bin/etags"],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'tools'
+
+
