@@ -1,0 +1,29 @@
+easyblock = 'Tarball'
+
+name = 'Rust'
+version = '1.41.1'
+
+homepage = 'https://www.rust-lang.org'
+description = """Rust is a systems programming language that runs blazingly fast, prevents segfaults,
+ and guarantees thread safety."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+source_urls = ['https://static.rust-lang.org/dist/']
+sources = ['rust-%(version)s-x86_64-unknown-linux-gnu.tar.gz']
+
+builddependencies = [ 
+]
+
+sanity_check_paths = {
+    'files': ['cargo/bin/cargo', 'rustc/bin/rustc'],
+    'dirs': [],
+}
+
+
+modextrapaths = {'PATH':['cargo/bin','rustc/bin']
+}
+
+
+moduleclass = 'lang'
+

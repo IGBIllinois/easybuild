@@ -1,7 +1,7 @@
 easyblock = 'Tarball'
 
 name = 'prokka'
-version = '1.13'
+version = '1.14.6'
 versionsuffix = '-Perl-%(perlver)s'
 
 homepage = 'https://github.com/tseemann/prokka'
@@ -12,16 +12,17 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 sources = ['v%(version)s.tar.gz']
 source_urls = ['https://github.com/tseemann/prokka/archive/']
 
-patches = ['prokka-%(version)s.patch']
+#patches = ['prokka-%(version)s.patch']
 
 dependencies = [('Perl','5.24.1'),
 		('BioPerl','1.7.1','-Perl-5.24.1'),
 		('Java','1.8.0_152','',True),
-		('tbl2asn','20200203','',True),
+		('tbl2asn','20180516','',True),
 		('RNAmmer','1.2','-Perl-5.24.1'),
 		('BLAST+','2.6.0'),
 		('Prodigal','2.6.3','',True),
 		('parallel','20170622'),
+		('SignalP','4.1','',True)
 ]
 
 keepsymlinks = True
@@ -32,14 +33,20 @@ sanity_check_paths = {
 }
 
 modextrapaths = {'PATH':['binaries/linux','binaries/common']}
-#modextrapaths = {'PATH':['binaries/common']}
 
 postinstallcmds = ['rm -fr $(installdir)s/binaries/linux/tbl2asn',
 	'rm -fr $(installdir)s/binaries/linux/blastp',
 	'rm -fr $(installdir)s/binaries/linux/makeblastdb',
 	'rm -fr $(installdir)s/binaries/linux/hmmpress',
 	'rm -fr $(installdir)s/binaries/linux/hmmscan',
-	'rm -fr $(installdir)s/binaries/linux/prodigal',
+	'rm -fr $(installdir)s/binaries/linux/prodigal'
+	
 ]
 
+
 moduleclass = 'bio'
+
+
+####NOTE###
+#After install, load the module and run 'prokka --setupdb'"
+

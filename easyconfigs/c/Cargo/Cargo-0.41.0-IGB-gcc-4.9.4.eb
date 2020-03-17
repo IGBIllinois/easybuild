@@ -1,0 +1,37 @@
+easyblock = 'ConfigureMake'
+
+name = 'Cargo'
+version = '0.41.0'
+
+homepage = 'https://crates.io/'
+description = "The Rust package manager"
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = [
+    'https://github.com/rust-lang/cargo/archive/',
+]
+sources = [
+    '%(version)s.tar.gz',
+]
+
+dependencies = [
+    ('Rust', '1.30.0'),
+]
+builddependencies = [
+    ('CMake', '3.12.1'),
+    ('cURL', '7.53.1'),
+]
+
+buildopts = 'VERBOSE=1'
+# rust-installer is a git submodule, but not included in the sources pulled from GitHub
+# see also https://github.com/rust-lang/cargo/issues/2130
+preinstallopts = "cp -a %(builddir)s/rust-installer*/* %(builddir)s/cargo-%(version)s/src/rust-installer && "
+
+sanity_check_paths = {
+    'files': ['bin/cargo'],
+    'dirs': ['etc', 'lib/rustlib', 'share'],
+}
+
+moduleclass = 'tools'
+

@@ -1,0 +1,31 @@
+easyblock = 'PythonPackage'
+
+name = 'epic2'
+version = '0.0.41'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/biocore-ntnu/epic2'
+description = """epic2 is an ultraperformant reimplementation of SICER. It focuses on speed, low memory overhead and ease of use."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/epic2'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
