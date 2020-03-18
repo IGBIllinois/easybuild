@@ -1,3 +1,0 @@
-easybuild==3.9.4
-pycodestyle
-pep8
