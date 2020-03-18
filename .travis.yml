@@ -5,6 +5,7 @@ python:
 install:
     - pip install -r requirements.txt
 
+before_script:
+    - alias lmod=""
 script:
-    - alias lmod='echo "" > /dev/null'
     - if find easyconfigs -name "*.eb" -exec eb --check-style {} 2>&1 \; | grep "[FAIL]"; then exit 1; fi
