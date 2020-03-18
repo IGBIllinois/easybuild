@@ -6,4 +6,4 @@ install:
     - pip install -r requirements.txt
 
 script:
-    - if find easyconfigs -name "*.eb" -exec eb --check-style {} 2>&1 \; | grep "error"; then exit 1; fi
+    - if find easyconfigs -name "*.eb" -exec eb --check-style {} 2>&1 \; | grep "[FAIL]"; then exit 1; fi
