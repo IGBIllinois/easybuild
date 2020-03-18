@@ -2,10 +2,6 @@ language: python
 python:
     - "2.7"
 
-install:
-    - pip install -r requirements.txt
 
-before_script:
-    - alias lmod=""
 script:
-    - if find easyconfigs -name "*.eb" -exec eb --check-style {} 2>&1 \; | grep "[FAIL]"; then exit 1; fi
+    - if find . -name "*.eb" -exec python -c "__import__('compiler').parse(open('{}').read())" 2>&1 \; | grep \"SyntaxError\"; then exit 1; fi
