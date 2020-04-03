@@ -1,0 +1,23 @@
+easyblock = 'Conda'
+
+name = 'HOPS'
+version = '0.33'
+
+homepage = 'https://github.com/rhuebler/HOPS'
+description = """HOPS is a java pipeline which focuses on screening MALT data for the presence of a user-specified list of target species. The pipeline essentially exists to make it easier to use MALT and MaltExtract in unison."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+channels = ['bioconda', 'conda-forge']
+
+requirements = 'hops'
+
+dependencies = []
+builddependencies = [('Anaconda3', '5.0.1')]
+
+sanity_check_paths = {
+	'files': ['bin/hops'],
+	'dirs': []
+}
+
+moduleclass = 'bio'

@@ -1,11 +1,11 @@
 easyblock = 'PythonPackage'
 
-name = ''
-version = ''
+name = 'scoary'
+version = '1.6.16'
 versionsuffix = '-Python-%(pyver)s'
 
-homepage = ''
-description = """"""
+homepage = 'https://github.com/AdmiralenOla/Scoary'
+description = """Scoary is designed to take the gene_presence_absence.csv file from Roary as well as a traits file created by the user and calculate the assocations between all genes in the accessory genome and the traits. It reports a list of genes sorted by strength of association per trait."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
@@ -20,11 +20,10 @@ exts_defaultclass = "PythonPackage"
 exts_list = []
 
 use_pip = True
-
 exts_filter = ('python -c "import %(ext_name)s"', "")
 
 sanity_check_paths = {
-        'files': [],
+        'files': ['bin/scoary'],
         'dirs': [],
 }
 

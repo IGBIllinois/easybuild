@@ -3,8 +3,8 @@ easyblock = 'Tarball'
 name = 'truesight'
 version = '0.06'
 
-homepage = 'none'
-description = """none"""
+homepage = 'https://experts.illinois.edu/en/publications/truesight-self-training-algorithm-for-splice-junction-detection-u'
+description = """A Self-training Algorithm for Splice Junction Detection using RNA-seq."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
