@@ -1,0 +1,39 @@
+easyblock = 'Tarball'
+
+name = 'roary'
+version = '3.13.0'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://sanger-pathogens.github.io/Roary/'
+description = """Roary is a high speed stand alone pan genome pipeline, which takes annotated assemblies in GFF3 format (produced by Prokka (Seemann, 2014)) and calculates the pan genome."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/sanger-pathogens/Roary/archive/']
+
+dependencies = [
+	('Perl','5.24.1'),
+	('BEDTools','2.26.0'),
+	('CD-HIT','4.6.6'),
+	('BLAST+','2.7.1'),
+	('MCL','14.137'),
+	('parallel','20170622'),
+	('PRANK','170427'),
+	('MAFFT','7.310'),
+	('FastTree','2.1.10'),
+	('BioPerl','1.7.1','-Perl-5.24.1'),
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/roary'],
+	'dirs': [],
+}
+
+modextrapaths = {'PERL5LIB':'lib',
+}
+
+moduleclass = 'bio'

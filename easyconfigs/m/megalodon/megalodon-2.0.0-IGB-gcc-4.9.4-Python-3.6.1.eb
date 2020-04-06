@@ -14,6 +14,7 @@ source_urls = ["https://github.com/nanoporetech/megalodon/archive/"]
 
 dependencies = [
         ('Python', '3.6.1'),
+	('guppy-gpu','3.5.2','',True),
 ]
 
 exts_defaultclass = "PythonPackage"
