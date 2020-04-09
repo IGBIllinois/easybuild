@@ -1,0 +1,35 @@
+easyblock = 'PythonPackage'
+
+name = 'pymol'
+version = '2.3.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://pymol.org'
+description = """PyMOL is a user-sponsored molecular visualization system on an open-source foundation, maintained and distributed by Schrödinger."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/schrodinger/pymol-open-source/archive/']
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('libpng','1.6.29'),
+	('freetype','2.7.1'),
+	('libxml2','2.9.4'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = False
+#buildcmd = "--use-msgpackc=no"
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/pymol'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
