@@ -10,7 +10,7 @@
 easyblock = 'MakeCp'
 
 name = 'Bowtie2'
-version = '2.1.0'
+version = '2.4.1'
 
 homepage = 'http://bowtie-bio.sourceforge.net/bowtie2/index.shtml'
 description = """ Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads 
@@ -24,18 +24,22 @@ toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 sources = ['%(namelower)s-%(version)s-source.zip']
 source_urls = [('http://sourceforge.net/projects/bowtie-bio/files/%(namelower)s/%(version)s', 'download')]
 
-dependencies = [('tbb','2019_U3'),]
+dependencies = [('tbb','2019_U3'),
+	('Python','3.7.2'),
+]
 
 files_to_copy = [
-    (["bowtie2", "bowtie2-align", "bowtie2-build","bowtie2-inspect"], 'bin'),
+    (["bowtie2", "bowtie2-align-l", "bowtie2-align-s", "bowtie2-build", "bowtie2-build-l", "bowtie2-build-s",
+      "bowtie2-inspect", "bowtie2-inspect-l", "bowtie2-inspect-s"], 'bin'),
     "doc", "example", "scripts", "MANUAL", "MANUAL.markdown", "NEWS"]
 
 sanity_check_paths = {
-    'files': ["bin/bowtie2-align", "bin/bowtie2-build", "bin/bowtie2-inspect"],
+    'files': ["bin/bowtie2-align-l", "bin/bowtie2-build", "bin/bowtie2-inspect"],
     'dirs': [],
 }
 
-modextrapaths = {'PATH': 'scripts'}
+# to add script folder to path just uncomment this line
+# modextrapaths = {'PATH': 'scripts'}
 
 moduleclass = 'bio'
 
