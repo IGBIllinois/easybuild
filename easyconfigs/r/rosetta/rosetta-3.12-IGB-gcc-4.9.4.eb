@@ -1,4 +1,4 @@
-easyblock = 'ModuleOnly'
+easyblock = 'Tarball'
 
 name = 'rosetta'
 version = '3.12'
@@ -9,15 +9,15 @@ description = """The Rosetta software suite includes algorithms for computationa
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 source_urls = ['https://www.rosettacommons.org/downloads/academic/2017/wk52']
-sources = [SOURCE_TAR_GZ]
+sources = ['rosetta_bin_linux_%(version)s_bundle.tgz']
 
-dependencies = [('Python','2.7.13')
+dependencies = [('Python','3.6.1')
 
 ]
 
 configopts = ''
 sanity_check_paths = {
-        'files': [],
+        'files': ['main/source/bin/rosettaDNA.static.linuxgccrelease'],
         'dirs': [],
 }
 

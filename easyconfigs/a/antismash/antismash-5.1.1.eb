@@ -1,0 +1,30 @@
+easyblock = 'Conda'
+
+name = 'antismash'
+version = '5.1.1'
+
+homepage = 'https://bitbucket.org/antismash/antismash/'
+description = """antiSMASH allows the rapid genome-wide identification, annotation and analysis of secondary metabolite biosynthesis gene clusters in bacterial and fungal genomes. It integrates and cross-links with a large number of in silico secondary metabolite analysis tools that have been published earlier."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+#sources = ['antismash-%(version)s.tar.gz']
+#source_urls = ['https://dl.secondarymetabolites.org/releases/%(version)s/']
+
+# Need to download the environment file and add the name to it, because the env file is broken
+
+channels = ['bioconda', 'conda-forge']
+
+requirements = "antismash"
+
+dependencies = []
+builddependencies = [("Miniconda3","4.7.12.1")]
+
+
+sanity_check_paths = {
+    'files': ['bin/antismash'],
+    'dirs': ['lib']
+}
+
+moduleclass = 'bio'
+

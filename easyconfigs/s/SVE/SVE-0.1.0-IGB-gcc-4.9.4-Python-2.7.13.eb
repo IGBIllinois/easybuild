@@ -1,0 +1,36 @@
+easyblock = 'CMakePythonPackage'
+
+name = 'SVE'
+version = '0.1.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/TheJacksonLaboratory/SVE'
+description = """SVE is a python script based execution engine for Structural Variation (SV) detection and can be used for any levels of data inputs, raw FASTQs, aligned BAMs, or variant call format (VCFs), and generates a unified VCF as its output."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/TheJacksonLaboratory/SVE/archive/']
+
+builddependencies = [
+	('CMake','3.12.1')
+]
+dependencies = [
+        ('Python', '2.7.13'),
+	('root','6.14.06','-Python-%(pyver)s'),
+	('R','3.3.3'),
+	('libXft','2.3.2'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
