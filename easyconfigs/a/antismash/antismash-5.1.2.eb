@@ -1,7 +1,7 @@
 easyblock = 'Conda'
 
 name = 'antismash'
-version = '5.1.1'
+version = '5.1.2'
 
 homepage = 'https://bitbucket.org/antismash/antismash/'
 description = """antiSMASH allows the rapid genome-wide identification, annotation and analysis of secondary metabolite biosynthesis gene clusters in bacterial and fungal genomes. It integrates and cross-links with a large number of in silico secondary metabolite analysis tools that have been published earlier."""
@@ -13,13 +13,12 @@ toolchain = {'name': 'dummy', 'version': ''}
 
 # Need to download the environment file and add the name to it, because the env file is broken
 
-channels = ['bioconda', 'conda-forge']
+channels = ['bioconda','conda-forge']
 
 requirements = "antismash"
 
-dependencies = []
-builddependencies = [("Miniconda3","4.7.12.1")]
-
+dependencies = [('Java','1.8.0_152')]
+builddependencies = [('Anaconda3', '5.0.1')]
 
 sanity_check_paths = {
     'files': ['bin/antismash'],

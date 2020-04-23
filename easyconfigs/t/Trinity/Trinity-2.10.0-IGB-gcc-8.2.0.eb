@@ -36,6 +36,7 @@ dependencies = [
 	('Python','3.7.2'),
 	('Bowtie2','2.4.1'),
 	('Jellyfish','2.2.10'),
+	('SAMtools','1.10'),
 ]
 
 modextrapaths = {'PATH':'trinityrnaseq'

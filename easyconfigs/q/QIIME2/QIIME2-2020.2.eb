@@ -1,0 +1,30 @@
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+# Author: Pablo Escobar Lopez
+# sciCORE - University of Basel
+# SIB Swiss Institute of Bioinformatics 
+
+easyblock = 'Conda'
+
+name = 'QIIME2'
+version = '2020.2'
+
+homepage = 'https://qiime2.org/'
+description = """QIIME is an open-source bioinformatics pipeline for performing microbiome analysis
+ from raw DNA sequencing data."""
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+# Need to download the environment file and add the name to it, because the env file is broken
+environment_file = "~/github/easybuild/easyconfigs/q/QIIME2/qiime2-%(version)s-py36-linux-conda.yml"
+
+
+dependencies = []
+builddependencies = [('Miniconda3','4.7.12.1')]
+
+sanity_check_commands = ['qiime info']
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
