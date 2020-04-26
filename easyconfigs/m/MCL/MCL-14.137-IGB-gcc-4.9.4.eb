@@ -13,8 +13,10 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 source_urls = ['http://micans.org/%(namelower)s/src/']
 sources = ['%(namelower)s-%(version_major)s-%(version_minor)s.tar.gz']
 
+configopts = "--enable-blast "
+
 sanity_check_paths = {
-    'files': ['bin/mcl'],
+    'files': ['bin/mcl','bin/mcxdeblast'],
     'dirs': ['share']
 }
 
