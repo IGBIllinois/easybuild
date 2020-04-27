@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'qgrs'
+version = '1.0'
+
+homepage = 'https://github.com/freezer333/qgrs-cpp'
+description = """C++ implementation of QGRS mapping algorithm - described here. This program differs from the actual algorithm used by QGRS Mapper recarding overlapping motifs and the maximum length of the motif."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/freezer333/qgrs-cpp/archive/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['bin/qgrs'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

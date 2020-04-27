@@ -1,0 +1,40 @@
+easyblock = 'MakeCp'
+
+name = 'Mothur'
+version = '1.44.1'
+
+homepage = 'http://www.mothur.org/'
+description = """Mothur is a single piece of open-source, expandable software
+ to fill the bioinformatics needs of the microbial ecology community."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'usempi': True}
+
+source_urls = ['https://github.com/mothur/mothur/archive/']
+sources = ['%(version)s.tar.gz']
+
+dependencies = [
+    ('Boost', '1.69.0'),
+    ('libreadline', '6.3'),
+    ('ncurses', '6.1'),
+    ('bzip2', '1.0.6'),
+    ('zlib', '1.2.11'),
+    ('HDF5','1.8.18'),
+    ('GSL','2.5'),
+]
+
+skipsteps = ['configure']
+
+buildopts = "64BIT_VERSION=yes USEREADLINE=yes USEMPI=yes USE_COMPRESSION=yes USEBOOST=yes USEHDF5=yes ";
+buildopts += "BOOST_LIBRARY_DIR=$EBROOTBOOST/lib BOOST_INCLUDE_DIR=$EBROOTBOOST/include HDF5_LIBRARY_DIR=$EBROOTHDF5/lib ";
+buildopts += "HDF5_INCLUDE_DIR=$EBROOTHDF5/include GSL_LIBRARY_DIR=$EBROOTGSL/lib GSL_INCLUDE_DIR=$EBROOT/include ";
+
+files_to_copy = [(['mothur'],'bin'),'LICENSE.md','README.md','CITATION.md']
+
+sanity_check_paths = {
+        'files': ['bin/mothur'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
+

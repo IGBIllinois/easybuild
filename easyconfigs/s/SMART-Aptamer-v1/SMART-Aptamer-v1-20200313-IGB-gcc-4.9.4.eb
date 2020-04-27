@@ -1,0 +1,36 @@
+easyblock = 'ModuleOnly'
+
+name = 'SMART-Aptamer-v1'
+version = '20200313'
+commit = '014c194'
+
+homepage = 'https://github.com/songjiajia2018/SMART-Aptamer-v1'
+description = """"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/songjiajia2018/SMART-Aptamer-v1/archive/']
+sources = ['%s.zip' % commit]
+
+dependencies = [('Perl','5.24.1'),
+	('R','3.5.0'),
+	('BLAST+','2.7.1'),
+	('MCL','14.137'),
+	('ViennaRNA','2.4.2'),
+	('qgrs','1.0'),
+
+]
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/SMART-cluster'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+keeppreviousinstall = True
+moduleclass = 'bio'
+
+

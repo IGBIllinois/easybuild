@@ -33,4 +33,6 @@ sanity_check_paths = {
 	'dirs': ['share'],
 }
 
+modloadmsg = "To increase performance, use the --tmp-dir parameter to use the /scratch directory for the tmp files.  spades.py --tmp-dir /scratch/$SLURM_JOB_ID\n"
+
 moduleclass = 'bio'
