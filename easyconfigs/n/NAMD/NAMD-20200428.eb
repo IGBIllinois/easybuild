@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'NAMD'
+version = '20200428'
+
+homepage = 'https://www.ks.uiuc.edu/Research/namd/'
+description = """is a parallel molecular dynamics code designed for high-performance simulation of large biomolecular systems."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['NAMD_Git-2020-04-28_Linux-x86_64-multicore.tar.gz']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['namd2'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
