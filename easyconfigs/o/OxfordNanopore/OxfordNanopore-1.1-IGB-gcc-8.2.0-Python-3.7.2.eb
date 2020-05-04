@@ -15,7 +15,7 @@ sources = [{
         'git_config': {
                 'url': 'https://github.com/IGBIllinois',
                 'repo_name': 'OxfordNanopore_Pipeline',
-                'commit': 'e0882f4',
+                'commit': '41e9756',
                 'recursive': True,
         },
 }]

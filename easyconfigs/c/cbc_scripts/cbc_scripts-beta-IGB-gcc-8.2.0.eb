@@ -1,4 +1,4 @@
-easyblock = 'ModuleOnly'
+easyblock = 'Tarball'
 
 name = 'cbc_scripts'
 version = 'beta'
@@ -8,8 +8,14 @@ description = """DNA services at the Biotech center include short read sequencin
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-source_urls = ['https://github.com/IGBIllinois/CBC_scripts/archive/']
-sources = ['beta.tar.gz']
+sources = [{
+        'filename': 'cbc_scripts-%(version)s.tar.gz',
+        'git_config': {
+                'url': 'https://github.com/IGBIllinois',
+                'repo_name': 'CBC_scripts',
+                'tag': 'master',
+        },
+}]
 
 dependencies = [('Perl','5.28.1'),
 	('bcl2fastq2','2.20'),
@@ -26,12 +32,11 @@ dependencies = [('Perl','5.28.1'),
 
 configopts = ''
 sanity_check_paths = {
-        'files': ['fluidigmPrimerSort.pl'],
+        'files': ['bin/fluidigmPrimerSort.pl'],
         'dirs': [],
 }
 
-modextrapaths = {'PATH':''
-}
+modextrapaths = {}
 
 
 keeppreviousinstall = True
