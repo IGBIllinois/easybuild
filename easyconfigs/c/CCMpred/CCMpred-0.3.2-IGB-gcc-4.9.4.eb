@@ -1,0 +1,41 @@
+easyblock = "CMakeMakeCp"
+
+name = 'CCMpred'
+version = '0.3.2'
+
+homepage = 'https://github.com/soedinglab/CCMpred'
+description = """CCMpred is a C implementation of a Markov Random Field pseudo-likelihood maximization for learning protein residue-residue contacts as made popular by Ekeberg et al. [1] and Balakrishnan and Kamisetty [2]."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [{'filename': 'CCMpred-%(version)s.tar.gz',
+	'git_config': {
+		'url': 'https://github.com/soedinglab',
+		'repo_name': 'CCMpred',
+		'tag': 'v%(version)s',
+		'recursive': True,
+
+	},
+}]
+
+configopts = "-DWITH_CUDA=OFF"
+
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = [('ncurses','6.0'),
+
+]
+
+separate_build_dir = True
+patches = []
+
+files_to_copy = ['bin','lib']
+sanity_check_paths = {
+    'files': ['bin/ccmpred'],
+    'dirs': []
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
+
