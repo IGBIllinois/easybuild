@@ -1,0 +1,32 @@
+easyblock = 'CMakeMake'
+
+name = 'msgpack'
+version = '3.2.1'
+
+homepage = 'https://github.com/msgpack/msgpack-c'
+description = """It's like JSON but smaller and faster."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/msgpack/msgpack-c/archive/']
+sources = ['cpp-%(version)s.tar.gz']
+
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = []
+
+separate_build_dir = True
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['lib/libmsgpackc.so.2.0.0'],
+        'dirs': ['include'],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'lib'
+
+

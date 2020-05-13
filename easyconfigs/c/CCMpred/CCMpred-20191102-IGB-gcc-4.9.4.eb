@@ -1,7 +1,7 @@
 easyblock = "CMakeMakeCp"
 
 name = 'CCMpred'
-version = '0.3.2'
+version = '20191102'
 
 homepage = 'https://github.com/soedinglab/CCMpred'
 description = """CCMpred is a C implementation of a Markov Random Field pseudo-likelihood maximization for learning protein residue-residue contacts as made popular by Ekeberg et al. [1] and Balakrishnan and Kamisetty [2]."""
@@ -12,17 +12,23 @@ sources = [{'filename': 'CCMpred-%(version)s.tar.gz',
 	'git_config': {
 		'url': 'https://github.com/soedinglab',
 		'repo_name': 'CCMpred',
-		'tag': 'v%(version)s',
+		'commit': '688e4ba',
 		'recursive': True,
 
 	},
 }]
 
-configopts = "-DWITH_CUDA=OFF"
+preconfigopts = "CC=$EBROOTGCC/bin/gcc CXX=$EBROOTGCC/bin/g++ && "
 
-builddependencies = [('CMake', '3.12.1')]
+#configopts = "-DWITH_CUDA=OFF"
+
+builddependencies = [('CMake', '3.17.2')]
 
 dependencies = [('ncurses','6.0'),
+	('Biopython','1.76','-Python-3.6.1'),
+	('CUDA','9.1.85','',True),
+	('msgpack','3.2.1'),
+	('jansson','2.6'),
 
 ]
 
