@@ -1,0 +1,48 @@
+easyblock = 'PythonPackage'
+
+name = 'TAPE'
+version = '0.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/songlab-cal/tape'
+description = """Tasks Assessing Protein Embeddings (TAPE), a set of five biologically relevant semi-supervised learning tasks spread across different domains of protein biology."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/songlab-cal/tape/archive/']
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('Biopython','1.76','-Python-%(pyver)s'),
+	('PyTorch','1.4.0','-Python-%(pyver)s'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+('tensorbloardX', '2.0', {
+    	'modulename': 'tensorboardX',
+        'source_urls': ['https://pypi.python.org/packages/source/t/tensorboardX/'],
+        'source_tmpl': 'tensorboardX-%(version)s-py2.py3-none-any.whl',
+        'unpack_sources': False,
+        'use_pip': True,
+    }),
+('lmdb', '0.98', {
+        'modulename': 'lmdb',
+        'source_urls': ['https://pypi.python.org/packages/source/l/lmdb/'],
+        'source_tmpl': 'lmdb-%(version)s.tar.gz',
+        'unpack_sources': False,
+        'use_pip': True,
+    }),
+]
+
+use_pip = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/tape-eval'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

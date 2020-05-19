@@ -1,0 +1,29 @@
+easyblock = 'ConfigureMake'
+
+name = 'htop'
+version = '2.2.0'
+
+homepage = 'https://hisham.hm/htop/'
+description = """This is htop, an interactive process viewer for Unix systems. It is a text-mode application (for console or X terminals) and requires ncurses. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://hisham.hm/htop/releases/%(version)s/']
+sources = [SOURCE_TAR_GZ]
+
+dependencies = [('ncurses','6.0'),
+]
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/htop'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'tools'
+
+

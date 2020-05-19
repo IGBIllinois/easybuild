@@ -1,0 +1,37 @@
+easyblock = 'MakeCp'
+
+name = 'maxbin2'
+version = '2.2.7'
+
+homepage = 'https://sourceforge.net/projects/maxbin2'
+description = """MaxBin2 is the next-generation of MaxBin (https://sourceforge.net/projects/maxbin/) that supports multiple samples at the same time. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['MaxBin-%(version)s.tar.gz']
+source_urls = [SOURCEFORGE_SOURCE]
+
+dependencies = [('Bowtie2','2.3.5.1'),
+	('Perl','5.24.1'),
+]
+
+keepsymlinks = True
+patches = ['maxbin2-%(version)s.patch']
+
+with_configure = False
+
+files_to_copy = [(['src/MaxBin'],''),'heatmap.r','run_MaxBin.pl','_sepReads.pl',
+'README.txt','COPYRIGHT','ChangeLog','marker.hmm','bacar_marker.hmm','_getabund.pl','_getmarker.pl','setting'
+]
+
+start_dir = 'src'
+
+sanity_check_paths = {
+	'files': ['MaxBin'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''
+}
+
+moduleclass = 'bio'
