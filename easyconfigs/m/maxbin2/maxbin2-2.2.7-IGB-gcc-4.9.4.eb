@@ -13,10 +13,15 @@ source_urls = [SOURCEFORGE_SOURCE]
 
 dependencies = [('Bowtie2','2.3.5.1'),
 	('Perl','5.24.1'),
+	('HMMER','3.2.1'),
+	('FragGeneScan','1.31'),
+	('idba-ud','1.1.3'),
+
+	
 ]
 
 keepsymlinks = True
-patches = ['maxbin2-%(version)s.patch']
+fix_perl_shebang_for = ['*.pl']
 
 with_configure = False
 

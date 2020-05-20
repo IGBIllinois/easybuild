@@ -1,0 +1,34 @@
+easyblock = 'MakeCp'
+
+name = 'FragGeneScan'
+version = '1.31'
+
+homepage = 'https://omics.informatics.indiana.edu/FragGeneScan/'
+description = """FragGeneScan is an application for finding (fragmented) genes in short reads."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['FragGeneScan%(version)s.tar.gz']
+source_urls = [SOURCEFORGE_SOURCE]
+
+dependencies = [('Perl','5.24.1'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+prebuildopts = "make clean && "
+buildopts = "fgs"
+fix_perl_shebang_for = ['bin/run_FragGeneScan.pl']
+
+files_to_copy = [(['FragGeneScan','run_FragGeneScan.pl'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/FragGeneScan','bin/run_FragGeneScan.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
