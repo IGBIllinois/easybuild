@@ -1,0 +1,18 @@
+diff -ru tape-neurips2019-master.orig/setup.py tape-neurips2019-master/setup.py
+--- tape-neurips2019-master.orig/setup.py	2020-05-20 09:54:50.280556000 -0500
++++ tape-neurips2019-master/setup.py	2020-05-20 10:14:55.263898000 -0500
+@@ -1,5 +1,5 @@
+ # -*- coding: utf-8 -*-
+-from setuptools import setup
++from setuptools import setup, find_packages
+ 
+ 
+ with open('README.md', 'r') as rf:
+@@ -17,6 +17,7 @@
+     author_email='roshan_rao@berkeley.edu, nickbhat@berkeley.edu, nthomas@berkeley.edu',
+     url='https://github.com/nickbhat/tape',
+     license=LICENSE,
++    packages=find_packages(),
+     install_requires=[
+         'tensorflow-gpu<1.14.0',  # https://github.com/IDSIA/sacred/issues/493
+         'numpy',

@@ -20,6 +20,8 @@ exts_defaultclass = "PythonPackage"
 exts_list = []
 
 use_pip = True
+use_pip_for_deps = True
+pip_ignore_installed = True
 
 exts_filter = ('python -c "import %(ext_name)s"', "")
 

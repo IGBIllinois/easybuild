@@ -1,0 +1,32 @@
+easyblock = 'JAR'
+
+name = 'beagle'
+version = '5.1'
+versionsuffix = "-Java-1.8.0_152"
+
+homepage = 'https://faculty.washington.edu/browning/beagle/beagle.html'
+description = """Beagle is a software package for phasing genotypes and for imputing ungenotyped markers. Version 5.0 has new, fast algorithms for genotype phasing and imputation. """
+
+toolchain = {'name': 'dummy', 'version': ''}
+
+sources = ['beagle.18May20.d20.jar']
+source_urls = ['https://faculty.washington.edu/browning/beagle/']
+
+dependencies = [('Java','1.8.0_152')
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['beagle.18May20.d20.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+modaliases = {'beagle': 'java -jar %(installdir)s/beagle.18May20.d20.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+modloadmsg = """To execute beagle run 'beagle'.  This command executes 'java -jar %(installdir)s/beagle.%(version)s.jar'\n"""
+moduleclass = 'bio'
