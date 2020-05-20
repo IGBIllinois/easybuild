@@ -6,15 +6,14 @@ version = ''
 homepage = ''
 description = """"""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = {'name': 'dummy', 'version': ''}
 
-source_urls = ['']
-sources = [SOURCE_TAR_GZ]
-
-dependencies = [('Anaconda3','5.1.0'),
+dependencies = [('Miniconda3','4.7.12.1'),
 ]
 
-channels = ['bioconda', 'conda-forge']
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
 environment_file = ""
 
 sanity_check_paths = {

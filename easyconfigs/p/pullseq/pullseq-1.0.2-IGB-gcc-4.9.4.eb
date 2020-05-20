@@ -1,0 +1,33 @@
+easyblock = 'ConfigureMake'
+
+name = 'pullseq'
+version = '1.0.2'
+
+homepage = 'https://github.com/bcthomas/pullseq'
+description = """Utility program for extracting sequences from a fasta/fastq file"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/bcthomas/pullseq/archive/']
+sources = ['%(version)s.tar.gz']
+
+builddependencies = [('Autotools','20150215'),
+	('PCRE','8.40'),
+]
+
+dependencies = []
+
+preconfigopts = './bootstrap && autoconf && '
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/pullseq'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

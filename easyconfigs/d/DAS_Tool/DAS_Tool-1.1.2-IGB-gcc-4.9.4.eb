@@ -1,0 +1,33 @@
+easyblock = 'Tarball'
+
+name = 'DAS_Tool'
+version = '1.1.2'
+
+homepage = 'https://github.com/cmks/DAS_Tool'
+description = """DAS Tool is an automated method that integrates the results of a flexible number of binning algorithms to calculate an optimized, non-redundant set of bins from a single assembly."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/cmks/DAS_Tool/archive/']
+
+dependencies = [('R','3.5.0'),
+	('Ruby','2.4.2'),
+	('Prodigal','2.6.3','',True),
+	('coreutils','8.28'),
+	('DIAMOND','0.9.24'),
+	('pullseq','1.0.2'),
+	('BLAST+','2.7.1'),
+	
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['DAS_Tool'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
