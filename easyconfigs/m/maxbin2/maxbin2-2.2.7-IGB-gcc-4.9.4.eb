@@ -24,15 +24,12 @@ keepsymlinks = True
 fix_perl_shebang_for = ['*.pl']
 
 with_configure = False
+buildopts = " -C src"
+files_to_copy = ['*']
 
-files_to_copy = [(['src/MaxBin'],''),'heatmap.r','run_MaxBin.pl','_sepReads.pl',
-'README.txt','COPYRIGHT','ChangeLog','marker.hmm','bacar_marker.hmm','_getabund.pl','_getmarker.pl','setting'
-]
-
-start_dir = 'src'
 
 sanity_check_paths = {
-	'files': ['MaxBin'],
+	'files': ['src/MaxBin'],
 	'dirs': [],
 }
 
