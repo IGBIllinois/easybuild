@@ -1,0 +1,32 @@
+easyblock = 'Tarball'
+
+name = 'sentieon'
+version = '201911'
+
+homepage = 'https://www.sentieon.com/'
+description = """A fast and accurate solution to variant calling from next-generation sequence data"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = ['sentieon-genomics-%(version)s.tar.gz']
+source_urls = ['https://s3.amazonaws.com/sentieon-release/software/']
+
+dependencies = [('Python','2.7.13','-IGB-gcc-4.9.4')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/sentieon'],
+	'dirs': [],
+}
+
+group = 'sentieon'
+license_server = 'capnjack.ncsa.illinois.edu'
+license_server_port = '8989'
+
+modextrapaths = {'PATH':'libexec'}
+modextravars = {'SENTIEON_LICENSE':'capnjack.ncsa.illinois.edu:8989'}
+moduleclass = 'bio'
+
+
