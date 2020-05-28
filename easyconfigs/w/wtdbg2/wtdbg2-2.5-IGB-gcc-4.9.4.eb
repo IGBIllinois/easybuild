@@ -1,0 +1,33 @@
+easyblock = 'MakeCp'
+
+name = 'wtdbg2'
+version = '2.5'
+
+homepage = 'https://github.com/ruanjue/wtdbg2'
+description = """Wtdbg2 is a de novo sequence assembler for long noisy reads produced by PacBio or Oxford Nanopore Technologies (ONT). It assembles raw reads without error correction and then builds the consensus from intermediate assembly output."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/ruanjue/wtdbg2/archive/']
+
+dependencies = [('Perl','5.24.1'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+fix_perl_shebang_for = ['scripts/*.pl']
+
+files_to_copy = ['scripts',(['kbm2','pgzf','wtdbg2','wtdbg-cns','wtpoa-cns'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/wtdbg2'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'scripts'
+}
+
+moduleclass = 'bio'
