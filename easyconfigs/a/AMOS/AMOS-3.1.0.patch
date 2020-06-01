@@ -1,0 +1,11 @@
+diff -ru amos-3.1.0.original/src/Align/find-tandem.cc amos-3.1.0/src/Align/find-tandem.cc
+--- amos-3.1.0.original/src/Align/find-tandem.cc	2020-06-01 09:32:45.421665000 -0500
++++ amos-3.1.0/src/Align/find-tandem.cc	2020-06-01 09:33:07.928539000 -0500
+@@ -7,6 +7,7 @@
+ #include <vector>
+ #include <ctime>
+ #include <sys/time.h>
++#include <getopt.h>
+ using namespace std;
+ 
+ const int OFFSET_TABLE_SIZE = 100;
