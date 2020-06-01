@@ -1,4 +1,4 @@
-easyblock = 'CMakeCp'
+easyblock = 'CMakeMakeCp'
 
 name = 'bax2bam'
 version = '20171114'

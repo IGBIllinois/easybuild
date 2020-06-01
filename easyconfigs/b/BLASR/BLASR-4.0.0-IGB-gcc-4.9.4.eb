@@ -1,4 +1,4 @@
-easyblock = 'CMakeCp'
+easyblock = 'CMakeMakeCp'
 
 name = 'BLASR'
 version = '4.0.0'

@@ -1,4 +1,4 @@
-easyblock = 'MakeInstall'
+easyblock = 'ConfigureMake'
 
 name = 'centrifuge'
 version = '1.0.4-beta'
@@ -14,6 +14,8 @@ sources = ['v%(version)s.tar.gz']
 source_urls = ['https://github.com/infphilo/centrifuge/archive/']
 
 patches = [('centrifuge-1.0.4.patch',1)]
+
+skipsteps = ['configure']
 
 dependencies = [('Python','2.7.13')
 ]

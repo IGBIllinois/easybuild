@@ -1,4 +1,4 @@
-easyblock = 'CMakeCp'
+easyblock = 'CMakeMakeCp'
 
 name = 'bam2tcc'
 version = '5580022'

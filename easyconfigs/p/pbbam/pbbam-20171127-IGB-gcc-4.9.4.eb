@@ -1,4 +1,4 @@
-easyblock = 'CMakeCp'
+easyblock = 'CMakeMakeCp'
 
 name = 'pbbam'
 version = '20171127'
