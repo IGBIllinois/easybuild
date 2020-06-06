@@ -16,7 +16,6 @@ sources = ['%s.zip' % commit]
 
 dependencies = [('Python','2.7.13'),
 	('HTSlib','1.9'),
-	('Cython','0.27.3','-Python-2.7.13'),
 ]
 
 keepsymlinks = True

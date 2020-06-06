@@ -15,8 +15,6 @@ source_urls = ['https://github.com/PacificBiosciences/GenomicConsensus/archive']
 dependencies = [
         ('Python', '2.7.13'),
 	('ConsensusCore', '1.0.1', versionsuffix),
-	('h5py','2.7.0',versionsuffix),
-	('Cython','0.27.3',versionsuffix),
 ]
 
 patches = ['GenomicConsensus-3.0.2.patch']

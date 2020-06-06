@@ -15,8 +15,6 @@ source_urls = ["https://pypi.python.org/packages/source/r/rgt/"]
 dependencies = [
         ('Python', '2.7.13'),
 	('Biopython','1.68','-Python-2.7.13'),
-	('Cython','0.27.3','-Python-2.7.13'),
-	('Pysam','0.13.0','-Python-2.7.13'),
 	('HTSeq','0.9.1','-Python-2.7.13'),
 
 ]

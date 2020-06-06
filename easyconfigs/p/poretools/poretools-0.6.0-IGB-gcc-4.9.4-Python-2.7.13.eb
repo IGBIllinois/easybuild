@@ -13,7 +13,6 @@ sources = ['v%(version)s.tar.gz']
 source_urls = ['https://github.com/arq5x/poretools/archive/']
 
 dependencies = [
-	('h5py', '2.7.0', '%(versionsuffix)s'),
 	('Python', '2.7.13'),
 ]
 

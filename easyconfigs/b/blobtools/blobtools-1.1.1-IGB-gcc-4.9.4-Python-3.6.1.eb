@@ -14,7 +14,6 @@ source_urls = ['https://github.com/DRL/blobtools/archive']
 
 dependencies = {
 	('Python', '3.6.1'),
-	('Pysam','0.13.0','-Python-3.6.1'),
 }
 
 

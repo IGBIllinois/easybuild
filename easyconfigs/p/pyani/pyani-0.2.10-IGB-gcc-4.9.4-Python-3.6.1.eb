@@ -1,0 +1,34 @@
+easyblock = 'PythonPackage'
+
+name = 'pyani'
+version = '0.2.10'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/widdowquinn/pyani'
+description = """Python module for average nucleotide identity analyses"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('Biopython','1.76','-Python-3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+use_pip_for_deps = False
+pip_ignore_installed = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/average_nucleotide_identity.py'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
