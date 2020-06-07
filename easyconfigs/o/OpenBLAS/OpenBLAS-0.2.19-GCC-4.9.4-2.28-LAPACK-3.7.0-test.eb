@@ -3,27 +3,27 @@ easyblock = 'ConfigureMake'
 name = 'OpenBLAS'
 version = '0.2.19'
 
-lapackver = '3.7.0'
-versionsuffix = '-LAPACK-%s-test' % lapackver
+local_lapackver = '3.7.0'
+versionsuffix = '-LAPACK-%s-test' % local_lapackver
 
 homepage = 'http://xianyi.github.com/OpenBLAS/'
 description = """OpenBLAS is an optimized BLAS library based on GotoBLAS2 1.13 BSD version."""
 
 toolchain = {'name': 'GCC', 'version': '4.9.4-2.28'}
 
-lapack_src = 'lapack-%s.tgz' % lapackver
-large_src = 'large.tgz'
-timing_src = 'timing.tgz'
+local_lapack_src = 'lapack-%s.tgz' % local_lapackver
+local_large_src = 'large.tgz'
+local_timing_src = 'timing.tgz'
 
-lapack_unpack_cmd = 'cd %(name)s-%(version)s; rm -rf lapack-netlib;'
-lapack_unpack_cmd += 'mkdir lapack-netlib;'
-lapack_unpack_cmd += 'tar -C lapack-netlib --strip-components=1 -zxf %s; cd -'
+local_lapack_unpack_cmd = 'cd %(name)s-%(version)s; rm -rf lapack-netlib;'
+local_lapack_unpack_cmd += 'mkdir lapack-netlib;'
+local_lapack_unpack_cmd += 'tar -C lapack-netlib --strip-components=1 -zxf %s; cd -'
 
 sources = [
     'v%(version)s.tar.gz',
-    (lapack_src, lapack_unpack_cmd),
-    large_src,
-    timing_src,
+    (local_lapack_src, local_lapack_unpack_cmd),
+    local_large_src,
+    local_timing_src,
 ]
 source_urls = [
     # order matters, trying to download the LAPACK tarball from GitHub causes trouble
@@ -33,8 +33,8 @@ source_urls = [
 ]
 
 patches = [
-    (large_src, '.'),
-    (timing_src, '.'),
+    (local_large_src, '.'),
+    (local_timing_src, '.'),
     'OpenBLAS-%(version)s_LAPACK-3.7.0-fixes.patch',
 ]
 

@@ -21,7 +21,7 @@ version = '0.7'
 homepage = 'http://hannonlab.cshl.edu/fastx_toolkit/'
 description = """ligtextutils is a dependency of fastx-toolkit and is provided via the same upstream"""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 toolchainopts = {'pic': True}
 
 source_urls = ['https://github.com/agordon/libgtextutils/releases/download/%(version)s']

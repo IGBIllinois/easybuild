@@ -2,14 +2,14 @@ easyblock = 'Tarball'
 
 name = 'ROSE'
 version = '20150210'
-commit = '1a9bb86'
+local_commit = '1a9bb86'
 versionsuffix = "-Python-2.7.13"
 homepage = 'http://younglab.wi.mit.edu/super_enhancer_code.html'
 description = """To create stitched enhancers, and to separate super-enhancers from typical enhancers using sequencing data (.bam)"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['%s.tar.gz' % commit]
+sources = ['%s.tar.gz' % local_commit]
 source_urls = ['https://bitbucket.org/young_computation/rose/get/']
 
 dependencies = [('Python','2.7.13'),

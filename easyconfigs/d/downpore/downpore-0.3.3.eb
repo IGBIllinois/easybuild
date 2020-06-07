@@ -6,7 +6,7 @@ version = '0.3.3'
 homepage = 'https://github.com/jteutenberg/downpore'
 description = """A suite of tools for use in genome assembly and consensus. """
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['downpore.gz']
 source_urls = ['https://github.com/jteutenberg/downpore/releases/download/%(version)s/']

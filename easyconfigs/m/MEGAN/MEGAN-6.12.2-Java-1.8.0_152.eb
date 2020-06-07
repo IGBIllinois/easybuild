@@ -6,7 +6,7 @@ versionsuffix = "-Java-1.8.0_152"
 homepage = 'http://ab.inf.uni-tuebingen.de/software/megan6/'
 description = """MEGAN6 is a comprehensive toolbox for interactively analyzing microbiome data. All the interactive tools you need in one application."""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 source_urls = ['']
 sources = [SOURCE_TAR_GZ]

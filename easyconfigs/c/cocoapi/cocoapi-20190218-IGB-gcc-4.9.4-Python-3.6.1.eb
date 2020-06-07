@@ -3,14 +3,14 @@ easyblock = 'PythonPackage'
 name = 'cocoapi'
 version = '20190218'
 versionsuffix = '-Python-%(pyver)s'
-commit = 'ed842bf'
+local_commit = 'ed842bf'
 
 homepage = 'https://github.com/cocodataset/cocoapi'
 description = """OCO is a large image dataset designed for object detection, segmentation, person keypoints detection, stuff segmentation, and caption generation."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ["%s.tar.gz" % commit]
+sources = ["%s.tar.gz" % local_commit]
 source_urls = ["https://github.com/cocodataset/cocoapi/archive/"]
 
 start_dir = "PythonAPI"

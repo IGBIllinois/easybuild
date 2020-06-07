@@ -10,7 +10,7 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 sources = ['v%(version)s.tar.gz']
 source_urls = ['https://github.com/mgbellemare/Arcade-Learning-Environment/archive']
 
-use_pip = True
+local_use_pip = True
 configopts = '-DUSE_RLGLUE=OFF -DBUILD_EXAMPLES=ON'
 
 dependencies = [

@@ -8,8 +8,8 @@ description = "OpenBLAS is an optimized BLAS library based on GotoBLAS2 1.13 BSD
 
 toolchain = {'name': 'gompi', 'version': '8.2.0'}
 
-large_src = 'large.tgz'
-timing_src = 'timing.tgz'
+local_large_src = 'large.tgz'
+local_timing_src = 'timing.tgz'
 
 source_urls = [
     # order matters, trying to download the large.tgz/timing.tgz LAPACK tarballs from GitHub causes trouble
@@ -18,8 +18,8 @@ source_urls = [
 ]
 sources = ['v%(version)s.tar.gz']
 patches = [
-    (large_src, '.'),
-    (timing_src, '.'),
+    (local_large_src, '.'),
+    (local_timing_src, '.'),
 ]
 checksums = [
     '0950c14bd77c90a6427e26210d6dab422271bc86f9fc69126725833ecdaa0e85',  # v0.3.5.tar.gz

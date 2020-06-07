@@ -1,4 +1,4 @@
-easyblock = 'MakeInstall'
+easyblock = 'ConfigureMake'
 
 name = 'centrifuge'
 version = '1.0.3-beta'

@@ -6,7 +6,7 @@ version = '2.3.2'
 homepage = 'https://mathgen.stats.ox.ac.uk/impute/impute_v2.html'
 description = """IMPUTE2 is freely available for academic use. To see rules for non-academic use, please read the LICENCE file, which is included with each software download. """
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 sources = ['impute_v%(version)s_x86_64_static.tgz']
 source_urls = ['https://mathgen.stats.ox.ac.uk/impute/']

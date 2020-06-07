@@ -6,14 +6,14 @@ version = '0.5.3'
 homepage = 'http://snver.sourceforge.net/'
 description = """SNVer is a statistical tool for calling common and rare variants in analysis of pool or individual next-generation sequencing data. It reports one single overall p-value for evaluating the significance of a candidate locus being a variant, based on which multiplicity control can be obtained. """
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = [SOURCE_TAR_GZ]
 source_urls = [SOURCEFORGE_SOURCE]
 
-java = 'Java'
-javaver = '1.8.0_121'
-versionsuffix = '-%s-%s' % (java, javaver)
+local_java = 'Java'
+local_javaver = '1.8.0_121'
+versionsuffix = '-%s-%s' % (local_java, local_javaver)
 
 dependencies = [('Java','1.8.0_121')
 ]

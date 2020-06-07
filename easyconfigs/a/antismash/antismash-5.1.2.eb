@@ -6,7 +6,7 @@ version = '5.1.2'
 homepage = 'https://bitbucket.org/antismash/antismash/'
 description = """antiSMASH allows the rapid genome-wide identification, annotation and analysis of secondary metabolite biosynthesis gene clusters in bacterial and fungal genomes. It integrates and cross-links with a large number of in silico secondary metabolite analysis tools that have been published earlier."""
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 #sources = ['antismash-%(version)s.tar.gz']
 #source_urls = ['https://dl.secondarymetabolites.org/releases/%(version)s/']

@@ -2,14 +2,14 @@ easyblock = 'MakeCp'
 
 name = 'AlignGraph'
 version = '20180222'
-commit = 'abffcea'
+local_commit = 'abffcea'
 
 homepage = 'https://github.com/baoe/AlignGraph'
 description = """AlignGraph is a software that extends and joins contigs or scaffolds by reassembling them with help provided by a reference genome of a closely related organism."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['%s.tar.gz' % commit]
+sources = ['%s.tar.gz' % local_commit]
 source_urls = ['https://github.com/baoe/AlignGraph/archive/']
 
 patches = [('AlignGraph-%(version)s.patch',1)]

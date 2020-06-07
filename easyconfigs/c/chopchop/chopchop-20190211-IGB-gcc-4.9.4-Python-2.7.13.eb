@@ -3,14 +3,14 @@ easyblock = 'Tarball'
 name = 'chopchop'
 version = '20190211'
 versionsuffix = '-Python-2.7.13'
-commit = '59d7f17'
+local_commit = '59d7f17'
 
 homepage = 'https://bitbucket.org/valenlab/chopchop'
 description = """CHOPCHOP is a python script that allows quick and customizable design of guide RNA. We support selecting target sites for CRISPR/Cas9, CRISPR/Cpf1 or TALEN with wide range of customization. We even support C2c2 for isoform targeting."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['%s.tar.gz' % commit]
+sources = ['%s.tar.gz' % local_commit]
 source_urls = ['https://bitbucket.org/valenlab/chopchop/get/']
 
 dependencies = [('Python','2.7.13'),

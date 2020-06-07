@@ -21,7 +21,7 @@ dependencies = [
 ]
 
 sanity_check_paths = {
-    'files': ['bin/orthomcl%s' % bin for bin in ['AdjustFasta', 'BlastParser', 'DropSchema', 'DumpPairsFiles',
+    'files': ['local_bin/orthomcl%s' % local_bin for local_bin in ['AdjustFasta', 'BlastParser', 'DropSchema', 'DumpPairsFiles',
                                                  'ExtractProteinIdsFromGroupsFile', 'ExtractProteinPairsFromGroupsFile',
                                                  'FilterFasta', 'InstallSchema', 'LoadBlast', 'MclToGroups', 'Pairs',
                                                  'ReduceFasta', 'ReduceGroups', 'RemoveIdenticalGroups', 'Singletons',

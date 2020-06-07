@@ -3,7 +3,7 @@ easyblock = 'MakeCp'
 name = 'Platypus'
 version = '20180622'
 versionsuffix = '-Python-%(pyver)s'
-commit = '3e72641'
+local_commit = '3e72641'
 
 homepage = 'https://github.com/andyrimmer/Platypus'
 description = """The Platypus variant caller. """
@@ -11,7 +11,7 @@ description = """The Platypus variant caller. """
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 source_urls = ['https://github.com/andyrimmer/Platypus/archive/']
-sources = ['%s.zip' % commit]
+sources = ['%s.zip' % local_commit]
 
 
 dependencies = [('Python','2.7.13'),

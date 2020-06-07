@@ -6,7 +6,7 @@ version = '4.1'
 homepage = 'http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?signalp'
 description = """Signal peptide and cleavage sites in gram+, gram- and eukaryotic amino acid sequences"""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['%(namelower)s-%(version)sf.Linux.tar.gz']
 

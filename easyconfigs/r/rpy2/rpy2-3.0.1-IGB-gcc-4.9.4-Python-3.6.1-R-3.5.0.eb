@@ -10,20 +10,20 @@ graphical libraries, as well as R-like structures and functions. """
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-source_urls = ['https://pypi.python.org/packages/source/r/%(name)s']
+source_urls = ['https://pypi.local_python.org/packages/source/r/%(name)s']
 sources = [SOURCE_TAR_GZ]
 
-python = 'Python'
-pyver = '3.6.1'
-pyshortver = '.'.join(pyver.split('.')[:2])
-rver = '3.5.0'
-versionsuffix = '-%s-%s-R-%s' % (python, pyver, rver)
+local_python = 'Python'
+local_pyver = '3.6.1'
+local_pyshortver = '.'.join(local_pyver.split('.')[:2])
+local_rver = '3.5.0'
+versionsuffix = '-%s-%s-R-%s' % (local_python, local_pyver, local_rver)
 
 use_pip = True
 
 dependencies = [
-    (python, pyver),
-    ('R', rver),
+    (local_python, local_pyver),
+    ('R', local_rver),
 ]
 
 sanity_check_paths = {

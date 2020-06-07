@@ -7,7 +7,7 @@ homepage = 'http://hannonlab.cshl.edu/fastx_toolkit/'
 description = """The FASTX-Toolkit is a collection of command line tools for 
  Short-Reads FASTA/FASTQ files preprocessing."""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 toolchainopts = {'pic': True}
 
 source_urls = ['http://hannonlab.cshl.edu/fastx_toolkit/']

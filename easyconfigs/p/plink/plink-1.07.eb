@@ -6,7 +6,7 @@ version = '1.07'
 homepage = 'https://www.cog-genomics.org/plink2'
 description = """This is a comprehensive update to Shaun Purcells PLINK command-line program, developed by Christopher Chang with support from the NIH-NIDDKs Laboratory of Biological Modeling, the Purcell Lab at Mount Sinai School of Medicine, and others. """
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 sources = ['plink1_linux_x86_64.zip']
 source_urls = ['http://s3.amazonaws.com/plink1-assets/%(version)s/']

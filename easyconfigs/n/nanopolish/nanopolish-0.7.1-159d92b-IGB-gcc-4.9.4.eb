@@ -2,14 +2,14 @@ easyblock = "MakeCp"
 
 name = "nanopolish"
 version = "0.7.1"
-commit = "159d92b"
-versionsuffix = "-%s" % commit
+local_commit = "159d92b"
+versionsuffix = "-%s" % local_commit
 homepage = "https://github.com/jts/nanopolish"
 description = """Software package for signal-level analysis of Oxford Nanopore sequencing data."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['%s.tar.gz' % commit]
+sources = ['%s.tar.gz' % local_commit]
 source_urls = ['https://github.com/jts/nanopolish/archive/']
 
 dependencies = [

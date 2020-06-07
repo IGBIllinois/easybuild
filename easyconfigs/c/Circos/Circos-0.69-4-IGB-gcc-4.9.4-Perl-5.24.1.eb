@@ -13,11 +13,11 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 source_urls = ['http://circos.ca/distribution/']
 sources = [SOURCELOWER_TGZ]
 
-perl = 'Perl'
-perlver = '5.24.1'
-versionsuffix = '-%s-%s' % (perl, perlver)
+local_perl = 'Perl'
+local_perlver = '5.24.1'
+versionsuffix = '-%s-%s' % (local_perl, local_perlver)
 dependencies = [
-    (perl, perlver),
+    (local_perl, local_perlver),
     ('GD', '2.66', versionsuffix),
 ]
 
@@ -28,6 +28,6 @@ sanity_check_paths = {
 
 modextrapaths = {'PERL5LIB': 'lib'}
 
-sanity_check_commands = [('perl', '-e "use Circos"')]
+sanity_check_commands = [('local_perl', '-e "use Circos"')]
 
 moduleclass = 'bio'

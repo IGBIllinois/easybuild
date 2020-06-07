@@ -21,7 +21,7 @@ skipsteps = ['configure']
 installopts = 'installDir=%(installdir)s/bin'
 
 sanity_check_paths = {
-    'files': ["bin/%s" % binfile for binfile in ["lastz", "lastz_D"]],
+    'files': ["bin/%s" % local_binfile for local_binfile in ["lastz", "lastz_D"]],
     'dirs': ["bin"]
 }
 

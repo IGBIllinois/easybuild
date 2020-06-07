@@ -6,7 +6,7 @@ version = '1.2.3'
 homepage = 'https://github.com/bxlab/metaWRAP'
 description = """MetaWRAP also includes a novel bin reassembly module, which allows to drastically improve the quality of a set of bins by extracting the reads belonging to each bin, and reassembling the bins with a more permissive, non-metagenomic assembler."""
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 #source_urls = ['']
 #sources = [SOURCE_TAR_GZ]

@@ -2,7 +2,7 @@ easyblock = 'MakeCp'
 
 name = 'CNVnator'
 version = '0.3.3'
-commit = version
+local_commit = version
 
 homepage = 'https://github.com/abyzovlab/CNVnator'
 description = """a tool for CNV discovery and genotyping from depth-of-coverage by mapped reads"""

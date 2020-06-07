@@ -6,7 +6,7 @@ version = '4.0.9'
 homepage = 'http://tandem.bu.edu/trf/trf.html'
 description = """Tandem Repeats Finder is a program to locate and display tandem repeats in DNA sequences. """
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['trf409.linux64']
 source_urls = ['http://tandem.bu.edu/trf/']

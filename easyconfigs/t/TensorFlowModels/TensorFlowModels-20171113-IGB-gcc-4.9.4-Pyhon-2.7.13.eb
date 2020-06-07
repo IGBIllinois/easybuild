@@ -3,7 +3,7 @@ easyblock = 'Bundle'
 name = 'TensorFlowModels'
 version = '20171113'
 versionsuffix = "-Python-%(pyver)s"
-commit = 'd07447a'
+local_commit = 'd07447a'
 
 homepage = 'https://github.com/tensorflow/models'
 description = """This repository contains a number of different models implemented in TensorFlow:"""
@@ -11,7 +11,7 @@ description = """This repository contains a number of different models implement
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 #source_urls = ['https://github.com/tensorflow/models/archive/']
-#sources = ['%s.zip' % commit]
+#sources = ['%s.zip' % local_commit]
 
 dependencies = [('Tensorflow-GPU','1.2.1','-Python-%(pyver)s'),
 	('Python','2.7.13'),

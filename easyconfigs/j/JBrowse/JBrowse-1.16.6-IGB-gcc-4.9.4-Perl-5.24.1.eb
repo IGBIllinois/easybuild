@@ -2,7 +2,7 @@ easyblock = 'Tarball'
 
 name = 'JBrowse'
 version = '1.16.6'
-perlver = '5.24.1'
+local_perlver = '5.24.1'
 
 homepage = 'https://jbrowse.org'
 description = """JBrowse is a fast, scalable genome browser built completely with JavaScript and HTML5. It can run on your desktop, or be embedded in your website."""
@@ -13,7 +13,7 @@ sources = ['%(name)s-%(version)s-desktop-linux-x64.zip']
 source_urls = ['https://github.com/GMOD/jbrowse/releases/download/%(version)s-release']
 
 dependencies = [
-	('Perl', perlver),
+	('Perl', local_perlver),
 	('GTK+', '2.24.31', '-Python-3.6.1'),
 ]
 

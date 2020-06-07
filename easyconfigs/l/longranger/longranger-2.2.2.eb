@@ -6,7 +6,7 @@ version = '2.2.2'
 homepage = 'http://support.10xgenomics.com/genome-exome/software/pipelines/latest/what-is-long-ranger'
 description = """Long Ranger is a set of analysis pipelines that processes Chromium sequencing output to align reads and call and phase SNPs, indels, and structural variants. There are five main pipelines, each triggered by a longranger command"""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 # Download manually
 sources = ['%(name)s-%(version)s.tar.gz']

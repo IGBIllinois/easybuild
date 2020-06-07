@@ -2,14 +2,14 @@ easyblock = 'Tarball'
 
 name = 'FEELnc'
 version = '20180117'
-commit = '9489347'
+local_commit = '9489347'
 
 homepage = 'https://github.com/tderrien/FEELnc'
 description = """This document is intended to give a technical description of the FEELnc pipeline in order to annotate long non-coding RNAs (lncRNAs) based on reconstructed transcripts from RNA-seq data (either with or without a reference genome). """
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['%s.tar.gz' % commit]
+sources = ['%s.tar.gz' % local_commit]
 source_urls = ['https://github.com/tderrien/FEELnc/archive/']
 
 dependencies = [('Perl','5.24.1'),

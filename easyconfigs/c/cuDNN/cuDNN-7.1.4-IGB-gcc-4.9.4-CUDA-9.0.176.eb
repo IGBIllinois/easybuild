@@ -7,9 +7,9 @@ easyblock = 'Tarball'
 
 name = 'cuDNN'
 version = '7.1.4'
-cuda_version = '9.0.176'
+local_cuda_version = '9.0.176'
 
-versionsuffix = '-CUDA-%s' % cuda_version
+versionsuffix = '-CUDA-%s' % local_cuda_version
 
 homepage = 'https://developer.nvidia.com/cudnn'
 description = """The NVIDIA CUDA Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for
@@ -21,7 +21,7 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 # Download link: https://developer.nvidia.com/rdp/cudnn-download
 sources = ['%(namelower)s-9.0-linux-x64-v%(version_major_minor)s.tgz']
 
-dependencies = [('CUDA', cuda_version)]
+dependencies = [('CUDA', local_cuda_version)]
 
 sanity_check_paths = {
     'files': ['include/cudnn.h', 'lib64/libcudnn_static.a'],

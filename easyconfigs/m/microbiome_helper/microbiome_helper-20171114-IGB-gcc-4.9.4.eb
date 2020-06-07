@@ -2,7 +2,7 @@ easyblock = 'Tarball'
 
 name = 'microbiome_helper'
 version = '20171114'
-commit = '151b105'
+local_commit = '151b105'
 
 homepage = 'https://github.com/LangilleLab/microbiome_helper'
 description = """An assortment of scripts to help process and automate various microbiome and metagenomic bioinformatic tools. We provide workflows, tutorials and a virtual box image to help researchers process microbial data."""
@@ -10,7 +10,7 @@ description = """An assortment of scripts to help process and automate various m
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 source_urls = ['https://github.com/LangilleLab/microbiome_helper/archive/']
-sources = ['%s.zip' % commit]
+sources = ['%s.zip' % local_commit]
 
 dependencies = [('Perl','5.24.1'),
 		('Python','2.7.13'),

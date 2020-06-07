@@ -2,8 +2,8 @@ easyblock = 'Bundle'
 
 name = 'bio-rocker'
 version = '1.2.0'
-rubyver = '2.4.2'
-versionsuffix = '-Ruby-%s' % rubyver
+local_rubyver = '2.4.2'
+versionsuffix = '-Ruby-%s' % local_rubyver
 
 
 homepage = 'https://github.com/lmrodriguezr/rocker'
@@ -13,7 +13,7 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 
 dependencies = [
-        ('Ruby', rubyver),
+        ('Ruby', local_rubyver),
 	('R','3.5.0'),
 	('Grinder','0.5.4','-Perl-5.24.1'),
 ]

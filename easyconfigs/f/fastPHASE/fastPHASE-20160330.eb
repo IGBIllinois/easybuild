@@ -6,7 +6,7 @@ version = '20160330'
 homepage = 'http://scheet.org/software.html'
 description = """fastPHASE is a program to estimate missing genotypes and unobserved haplotypes. """
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 sources = ['Linuxfp.tar.gz']
 source_urls = ['http://scheet.org/code/']

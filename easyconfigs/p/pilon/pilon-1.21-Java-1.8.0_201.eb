@@ -10,7 +10,7 @@ description = """Pilon is a software tool which can be used to:
 - Automatically improve draft assemblies
 - Find variation among strains, including large event detection"""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['%(name)s-%(version)s.jar']
 source_urls = ['https://github.com/broadinstitute/pilon/releases/download/v%(version)s/']

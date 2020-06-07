@@ -6,7 +6,7 @@ version = '1.1.5'
 homepage = 'https://support.10xgenomics.com/de-novo-assembly/software/overview/latest/welcome'
 description = """Supernova is a software package for de novo assembly from Chromium Linked-Reads that are made from a single whole-genome library from an individual DNA source. A key feature of Supernova is that it creates diploid assemblies, thus separately representing maternal and paternal chromosomes over very long distances."""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['%(namelower)s-%(version)s.tar.gz']
 source_urls = ['http://cf.10xgenomics.com/releases/assembly/']

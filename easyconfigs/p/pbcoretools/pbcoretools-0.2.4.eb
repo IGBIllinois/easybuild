@@ -6,7 +6,7 @@ version = "0.2.4"
 homepage = 'https://github.com/pacificbiosciences/pbcoretools/'
 description = "The pbcoretools package provides Python CLIs for interacting with PacBio data files and writing bioinformatics applications."
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 requirements = "%(name)s=%(version)s"
 channels = ['bioconda', 'defaults']

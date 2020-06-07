@@ -2,7 +2,7 @@ easyblock = 'CMakeMakeCp'
 
 name = 'BLASR'
 version = '4.0.0'
-commit = '8d086d7'
+local_commit = '8d086d7'
 
 homepage = 'https://github.com/PacificBiosciences/blasr'
 description = """ BLASR (Basic Local Alignment with Successive Refinement) rapidly maps 
@@ -33,10 +33,10 @@ configopts = "-DHDF5_LIBRARIES=${EBROOTHDF5}/lib/ -DHDF5_INCLUDE_DIRS='${EBROOTH
 
 parallel = 2
 
-binaries = ['blasr', 'sawriter', 'toAfg']
-libraries = ['external/pbbam/build/lib/libpbam.so']
-files_to_copy = [(binaries, 'bin'),
-	(libraries,'lib')
+local_binaries = ['blasr', 'sawriter', 'toAfg']
+local_libraries = ['external/pbbam/build/lib/libpbam.so']
+files_to_copy = [(local_binaries, 'bin'),
+	(local_libraries,'lib')
 ]
 
 

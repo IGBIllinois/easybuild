@@ -34,8 +34,8 @@ dependencies = [
     ('cairo','1.14.8'),
 ]
 
-name_tmpl = '%(name)s_%(version)s.tar.gz'
-ext_options = {
+local_name_tmpl = '%(name)s_%(version)s.tar.gz'
+local_ext_options = {
     'source_urls': [
         'http://cran.r-project.org/src/contrib/Archive/%(name)s',  # package archive
         'http://cran.r-project.org/src/contrib/',  # current version of packages
@@ -44,7 +44,7 @@ ext_options = {
         'http://bioconductor.org/packages/3.4/data/annotation/src/contrib/',
         'http://bioconductor.org/packages/3.4/data/experiment/src/contrib/',
     ],
-    'source_tmpl': name_tmpl,
+    'source_tmpl': local_name_tmpl,
 }
 
 
@@ -63,9 +63,9 @@ exts_list = [
     'stats4',
     'tools',
     'utils',
-('gtable', '0.2.0', ext_options),
-('data.table','1.10.4',ext_options),
-('gridExtra','2.2.1',ext_options)
+('gtable', '0.2.0', local_ext_options),
+('data.table','1.10.4',local_ext_options),
+('gridExtra','2.2.1',local_ext_options)
 ]
 
 moduleclass = 'lang'

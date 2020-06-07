@@ -6,7 +6,7 @@ version = '2.0'
 homepage = 'https://github.com/marbl/MashMap'
 description = """MashMap implements a fast and approximate algorithm for computing local alignment boundaries between long DNA sequences. It can be useful for mapping genome assembly or long reads (PacBio/ONT) to reference genome(s)."""
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 source_urls = ['https://github.com/marbl/MashMap/releases/download/v%(version)s/']
 sources = ['mashmap-Linux64-v%(version)s.tar.gz']

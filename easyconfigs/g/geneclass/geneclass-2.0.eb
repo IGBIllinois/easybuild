@@ -6,7 +6,7 @@ version = '2.0'
 homepage = 'http://www1.montpellier.inra.fr/CBGP/software/GeneClass/'
 description = """GeneClass2 is a program employing multilocus genotypes to select or exclude populations as origins of individuals (Assignment and Migrants Detection). This is a completely rewritten new version that includes pop100gene features."""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 source_urls = ['']
 sources = [SOURCE_TAR_GZ]

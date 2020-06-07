@@ -2,7 +2,7 @@ easyblock = 'CMakeMakeCp'
 
 name = 'bax2bam'
 version = '20171114'
-commit = '3c276a5'
+local_commit = '3c276a5'
 
 homepage = 'https://github.com/PacificBiosciences/bax2bam'
 description = """ bax2bam converts the legacy PacBio basecall format (bax.h5) into the BAM
@@ -12,7 +12,7 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 
 source_urls = ['https://github.com/PacificBiosciences/bax2bam/archive/']
-sources = ['%s.zip' % commit]
+sources = ['%s.zip' % local_commit]
 
 
 builddependencies = [('CMake','3.7.2')]

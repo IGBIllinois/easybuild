@@ -2,14 +2,14 @@ easyblock = 'MakeCp'
 
 name = 'gffread'
 version = 'ba7535f'
-commit = version
+local_commit = version
 
 homepage = 'http://ccb.jhu.edu/software/stringtie/gff.shtml'
 description = """The program gffread can be used to validate, filter, convert and perform various other operations on GFF files"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['%s.tar.gz' % commit,
+sources = ['%s.tar.gz' % local_commit,
 'v0.10.3.tar.gz'
 ]
 source_urls = ['https://github.com/gpertea/gffread/archive/',

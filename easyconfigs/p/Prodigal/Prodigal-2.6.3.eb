@@ -6,7 +6,7 @@ version = '2.6.3'
 homepage = 'https://github.com/hyattpd/prodigal'
 description = """Fast, reliable protein-coding gene prediction for prokaryotic genomes."""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['prodigal.linux']
 source_urls = ['https://github.com/hyattpd/prodigal/releases/download/v%(version)s']

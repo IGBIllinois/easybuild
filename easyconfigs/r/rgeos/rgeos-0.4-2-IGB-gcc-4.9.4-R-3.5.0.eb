@@ -15,11 +15,11 @@ source_urls = [
 sources = ['%(name)s_%(version)s.tar.gz']
 
 r = 'R'
-rver = '3.5.0'
-versionsuffix = '-%s-%s' % (r,rver)
+local_rver = '3.5.0'
+versionsuffix = '-%s-%s' % (r,local_rver)
 
 dependencies = [
-	(r,rver),
+	(r,local_rver),
 	('geos','3.7.1')
 ]
 

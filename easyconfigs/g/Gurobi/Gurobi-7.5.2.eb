@@ -6,7 +6,7 @@ version = '7.5.2'
 homepage = 'http://www.gurobi.com/'
 description = """The Gurobi Optimizer was designed from the ground up to be the fastest, most powerful solver available for your LP, QP, QCP, and MIP (MILP, MIQP, and MIQCP) problems."""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['gurobi%(version)s_linux64.tar.gz']
 source_urls = ['http://packages.gurobi.com/7.5/']

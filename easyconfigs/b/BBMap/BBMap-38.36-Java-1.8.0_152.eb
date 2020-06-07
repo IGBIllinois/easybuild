@@ -7,7 +7,7 @@ versionsuffix = '-Java-1.8.0_152'
 homepage = 'https://jgi.doe.gov/data-and-tools/bbtools/'
 description = """BBTools is a suite of fast, multithreaded bioinformatics tools designed for analysis of DNA and RNA sequence data."""
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 sources = ['BBMap_%(version)s.tar.gz']
 source_urls = ['http://sourceforge.net/projects/bbmap/files/']

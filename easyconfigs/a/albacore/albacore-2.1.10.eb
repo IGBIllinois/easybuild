@@ -6,7 +6,7 @@ version = '2.1.10'
 homepage = 'https://nanoporetech.com/'
 description = """Local basecalling for MinKNOW"""
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 sources = ["ont_albacore-2.1.10-cp36-cp36m-manylinux1_x86_64.whl"]
 source_urls = ["https://mirror.oxfordnanoportal.com/software/analysis/"]

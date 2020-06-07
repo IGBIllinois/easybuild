@@ -7,7 +7,7 @@ homepage = 'http://www.gnu.org/software/coreutils/'
 description = """Patch takes a patch file containing a difference listing produced by the diff
  program and applies those differences to one or more original files, producing patched versions."""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 source_urls = [GNU_SOURCE]
 sources = [SOURCELOWER_TAR_XZ]

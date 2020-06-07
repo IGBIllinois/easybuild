@@ -2,7 +2,7 @@ easyblock = 'CMakeMakeCp'
 
 name = 'bam2tcc'
 version = '5580022'
-commit = version
+local_commit = version
 
 homepage = 'https://github.com/pachterlab/bam2tcc'
 description = """This utility converts genome alignments in SAM/BAM format to transcript compatibility counts (TCCs) as output by transcriptome pseudoalignment methods such as kallisto."""
@@ -10,7 +10,7 @@ description = """This utility converts genome alignments in SAM/BAM format to tr
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 source_urls = ['https://github.com/pachterlab/bam2tcc/archive']
-sources = ['%s.tar.gz' % commit]
+sources = ['%s.tar.gz' % local_commit]
 
 builddependencies = [('CMake', '3.7.2')]
 

@@ -16,14 +16,14 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 sources = [SOURCE_TAR_GZ]
 source_urls = ['https://github.com/downloads/taoliu/MACS/']
 
-python = 'Python'
-pyver = '2.7.13'
-pyshortver = '.'.join(pyver.split('.')[:2])
+local_python = 'Python'
+local_pyver = '2.7.13'
+local_pyshortver = '.'.join(local_pyver.split('.')[:2])
 
-versionsuffix = "-%s-%s" % (python, pyver)
+versionsuffix = "-%s-%s" % (local_python, local_pyver)
 
 dependencies = [
-    (python, pyver),
+    (local_python, local_pyver),
 ]
 
 options = {'modulename': 'MACS14'}

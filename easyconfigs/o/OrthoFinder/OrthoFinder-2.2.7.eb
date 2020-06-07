@@ -7,7 +7,7 @@ version = '2.2.7'
 homepage = 'https://github.com/davidemms/OrthoFinder'
 description = """OrthoFinder is a fast, accurate and comprehensive platform for comparative genomics. It finds orthologs and orthogroups, infers rooted gene trees for all orthogroups and identifies all of the gene duplcation events in those gene trees. """
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['OrthoFinder-%(version)s.tar.gz']
 source_urls = ['https://github.com/davidemms/OrthoFinder/releases/download/v%(version)s/']

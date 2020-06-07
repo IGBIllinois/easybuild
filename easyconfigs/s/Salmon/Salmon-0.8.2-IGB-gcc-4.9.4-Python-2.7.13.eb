@@ -17,9 +17,9 @@ patches = [
     'Salmon-%(version)s_skip-included-Jellyfish.patch',
 ]
 
-python = 'Python'
-pyver = '2.7.13'
-versionsuffix = '-%s-%s' % (python, pyver)
+local_python = 'Python'
+local_pyver = '2.7.13'
+versionsuffix = '-%s-%s' % (local_python, local_pyver)
 
 dependencies = [
     ('Boost', '1.63.0', versionsuffix),

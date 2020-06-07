@@ -6,7 +6,7 @@ version = '201911'
 homepage = 'https://www.sentieon.com/'
 description = """A fast and accurate solution to variant calling from next-generation sequence data"""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['sentieon-genomics-%(version)s.tar.gz']
 source_urls = ['https://s3.amazonaws.com/sentieon-release/software/']

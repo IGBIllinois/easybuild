@@ -2,14 +2,14 @@ easyblock = 'ConfigureMake'
 
 name = 'ea-utils'
 version = '1.04.807'
-commit = '27a4809'
+local_commit = '27a4809'
 
 homepage = 'http://expressionanalysis.github.io/ea-utils/'
 description = """Command-line tools for processing biological sequencing data. Barcode demultiplexing, adapter trimming, etc. Primarily written to support an Illumina based pipeline - but should work with any FASTQs."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['%s.tar.gz' % commit]
+sources = ['%s.tar.gz' % local_commit]
 source_urls = ['https://github.com/ExpressionAnalysis/ea-utils/archive/']
 
 dependencies = [('GSL','2.3'),

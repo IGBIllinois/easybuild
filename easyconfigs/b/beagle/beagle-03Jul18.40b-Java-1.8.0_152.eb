@@ -7,7 +7,7 @@ versionsuffix = "-Java-1.8.0_152"
 homepage = 'https://faculty.washington.edu/browning/beagle/beagle.html'
 description = """Beagle is a software package for phasing genotypes and for imputing ungenotyped markers. Version 5.0 has new, fast algorithms for genotype phasing and imputation. """
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 sources = ['beagle.%(version)s.jar']
 source_urls = ['https://faculty.washington.edu/browning/beagle/']

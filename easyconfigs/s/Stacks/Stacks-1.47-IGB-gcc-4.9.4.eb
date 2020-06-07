@@ -22,7 +22,7 @@ dependencies = [
 
 sanity_check_paths = {
     'files': [
-        'bin/%s' % binfile for binfile in [
+        'bin/%s' % local_binfile for local_binfile in [
             'sstacks', 'ustacks', 'cstacks', 'pstacks',
         ]
     ],

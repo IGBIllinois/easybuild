@@ -2,14 +2,14 @@ easyblock = "CMakeMake"
 
 name = 'Sibelia'
 version = '3.0.7'
-commit = "f2bc132"
+local_commit = "f2bc132"
 homepage = 'https://github.com/bioinf/Sibelia'
 description = """Sibelia is a tool for finding synteny blocks in closely related genomes, like different strains of the same bacterial species."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 
-sources = ['%s.tar.gz' % commit]
+sources = ['%s.tar.gz' % local_commit]
 source_urls = ['https://github.com/bioinf/Sibelia/archive']
 
 builddependencies = [('CMake', '3.7.2')]
@@ -20,7 +20,7 @@ dependencies = [
 separate_build_dir = True
 srcdir = '../%(name)s-f2bc132bc13a56214cced5c3feba31a80d99a335/src'
 
-files_to_copy = ['']
+local_files_to_copy = ['']
 sanity_check_paths = {
     'files': ['bin/Sibelia'],
     'dirs': ['bin','lib']

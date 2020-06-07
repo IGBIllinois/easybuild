@@ -2,7 +2,7 @@ easyblock = 'MesonNinja'
 
 name = 'pacbio-toolbox'
 version = '20200220'
-commit = '290c5e7'
+local_commit = '290c5e7'
 
 homepage = 'https://github.com/armintoepfer/pacbio-toolbox'
 description = """none"""
@@ -10,7 +10,7 @@ description = """none"""
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 source_urls = ['https://github.com/armintoepfer/pacbio-toolbox/archive/']
-sources = ['%s.tar.gz' % commit]
+sources = ['%s.tar.gz' % local_commit]
 
 builddependencies = [
     ('Meson', '0.51.2', '-Python-3.7.2'),

@@ -6,7 +6,7 @@ version = "0.0.8"
 homepage = 'https://github.com/PacificBiosciences/pb-assembly'
 description = "PacBio Assembly Tool Suite"
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 requirements = "%(name)s=%(version)s"
 channels = ['bioconda', 'defaults']

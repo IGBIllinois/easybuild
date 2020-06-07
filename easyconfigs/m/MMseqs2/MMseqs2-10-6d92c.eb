@@ -6,7 +6,7 @@ version = '10-6d92c'
 homepage = 'https://github.com/soedinglab/MMseqs2'
 description = """MMseqs2 (Many-against-Many sequence searching) is a software suite to search and cluster huge protein and nucleotide sequence sets. """
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['MMseqs2-Linux-SSE4_1.tar.gz']
 source_urls = ['https://github.com/soedinglab/MMseqs2/releases/download/%(version)s/']

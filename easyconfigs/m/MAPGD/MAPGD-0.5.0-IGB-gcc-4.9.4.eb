@@ -2,7 +2,7 @@ easyblock = 'ConfigureMake'
 
 name = 'MAPGD'
 version = '0.5.0'
-commit = 'ae63fec'
+local_commit = 'ae63fec'
 
 homepage = 'https://github.com/LynchLab/MAPGD'
 description = """MAPGD is a series of related programs that estimate allele frequency, heterozygosity, Hardy-Weinberg disequilibrium, linkage disequilibrium and identity-by-descent (IBD) coefficients from population genomic data using a statistically rigorous maximum likelihood approach."""
@@ -10,7 +10,7 @@ description = """MAPGD is a series of related programs that estimate allele freq
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 source_urls = ['https://github.com/LynchLab/MAPGD/archive/']
-sources = ['%s.tar.gz' % commit]
+sources = ['%s.tar.gz' % local_commit]
 
 dependencies = [('GSL','2.3'),
 	('HTSlib','1.5'),

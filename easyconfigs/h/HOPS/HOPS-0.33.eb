@@ -6,7 +6,7 @@ version = '0.33'
 homepage = 'https://github.com/rhuebler/HOPS'
 description = """HOPS is a java pipeline which focuses on screening MALT data for the presence of a user-specified list of target species. The pipeline essentially exists to make it easier to use MALT and MaltExtract in unison."""
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 channels = ['bioconda', 'conda-forge']
 

@@ -2,13 +2,13 @@ easyblock = 'Tarball'
 
 name = 'Assemblytics'
 version = 'df5361f'
-commit = version
+local_commit = version
 homepage = 'http://assemblytics.com/'
 description = """Analyze your assembly by comparing it to a reference genome"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['%s.tar.gz' % commit]
+sources = ['%s.tar.gz' % local_commit]
 source_urls = ['https://github.com/MariaNattestad/Assemblytics/archive']
 
 patches = ['Assemblytics-%(version)s.patch']

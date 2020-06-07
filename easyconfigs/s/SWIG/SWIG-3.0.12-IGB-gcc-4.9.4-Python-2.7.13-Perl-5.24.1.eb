@@ -13,15 +13,15 @@ toolchainopts = {'pic': True}
 source_urls = [SOURCEFORGE_SOURCE]
 sources = [SOURCELOWER_TAR_GZ]
 
-python = 'Python'
-pythonversion = '2.7.13'
-perl = 'Perl'
-perlversion = '5.24.1'
-versionsuffix = '-%s-%s-%s-%s' % (python, pythonversion, perl, perlversion)
+local_python = 'Python'
+local_pythonversion = '2.7.13'
+local_perl = 'Perl'
+local_perlversion = '5.24.1'
+versionsuffix = '-%s-%s-%s-%s' % (local_python, local_pythonversion, local_perl, local_perlversion)
 
 dependencies = [
-    (python, pythonversion),
-    (perl, perlversion),
+    (local_python, local_pythonversion),
+    (local_perl, local_perlversion),
     ('PCRE', '8.40'),
 ]
 

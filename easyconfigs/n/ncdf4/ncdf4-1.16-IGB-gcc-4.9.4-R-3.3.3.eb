@@ -17,12 +17,12 @@ source_urls = [
 sources = ['%(name)s_%(version)s.tar.gz']
 
 r = 'R'
-rver = '3.3.3'
+local_rver = '3.3.3'
 
-versionsuffix = '-%s-%s' % (r, rver)
+versionsuffix = '-%s-%s' % (r, local_rver)
 
 dependencies = [
-    (r, rver),
+    (r, local_rver),
     ('netCDF','4.4.1.1'),
 ]
 

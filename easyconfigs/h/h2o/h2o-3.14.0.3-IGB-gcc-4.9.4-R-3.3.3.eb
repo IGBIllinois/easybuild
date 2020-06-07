@@ -15,11 +15,11 @@ source_urls = [
 sources = ['%(name)s_%(version)s.tar.gz']
 
 r = 'R'
-rver = '3.3.3'
-versionsuffix = '-%s-%s' % (r,rver)
+local_rver = '3.3.3'
+versionsuffix = '-%s-%s' % (r,local_rver)
 
 dependencies = [
-	(r,rver),
+	(r,local_rver),
 	('Java','1.8.0_121','',True),
 	('Tensorflow-GPU','1.2.1','-Python-3.6.1')
 ]

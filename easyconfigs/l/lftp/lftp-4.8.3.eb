@@ -6,7 +6,7 @@ version = '4.8.3'
 homepage = 'https://lftp.yar.ru/'
 description = """FTP is a sophisticated file transfer program supporting a number of network protocols (ftp, http, sftp, fish, torrent). """
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 source_urls = ['https://github.com/lavv17/lftp/archive/']
 sources = ['v%(version)s.tar.gz']

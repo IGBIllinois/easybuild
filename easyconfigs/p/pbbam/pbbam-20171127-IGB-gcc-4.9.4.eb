@@ -2,7 +2,7 @@ easyblock = 'CMakeMakeCp'
 
 name = 'pbbam'
 version = '20171127'
-commit = '8c52e79' 
+local_commit = '8c52e79' 
 
 homepage = 'https://github.com/PacificBiosciences/pbbam'
 description = """The pbbam software package provides components to create, query, & edit PacBio BAM files and associated indices. These components include a core C++ library, bindings for additional languages, and command-line utilities."""
@@ -10,7 +10,7 @@ description = """The pbbam software package provides components to create, query
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 source_urls = ['https://github.com/PacificBiosciences/pbbam/archives/']
-sources = ['%s.tar.gz' % commit]
+sources = ['%s.tar.gz' % local_commit]
 
 builddependencies = [('CMake','3.7.2'),
 

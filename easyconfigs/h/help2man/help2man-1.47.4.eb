@@ -6,7 +6,7 @@ version = '1.47.4'
 homepage = 'https://www.gnu.org/software/help2man/'
 description = """help2man produces simple manual pages from the --help and --version output of other commands."""
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 source_urls = [GNU_SOURCE]
 sources = [SOURCE_TAR_XZ]

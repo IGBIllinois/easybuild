@@ -3,14 +3,14 @@ easyblock = 'PythonPackage'
 name = 'pgmpy'
 version = '20180320'
 versionsuffix = '-Python-%(pyver)s'
-commit = "e45f746"
+local_commit = "e45f746"
 
 homepage = 'https://github.com/pgmpy/pgmpy'
 description = """pgmpy is a python library for working with Probabilistic Graphical Models."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['%s.tar.gz' % commit ]
+sources = ['%s.tar.gz' % local_commit ]
 source_urls = ['https://github.com/pgmpy/pgmpy/archive/']
 
 dependencies = [

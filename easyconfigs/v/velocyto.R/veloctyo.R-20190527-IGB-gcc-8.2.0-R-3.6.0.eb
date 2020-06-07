@@ -3,7 +3,7 @@ easyblock = 'Bundle'
 name = 'velocyto.R'
 version = '20190527'
 versionsuffix = '-R-%(rver)s'
-commit = 'd779034'
+local_commit = 'd779034'
 
 homepage = 'https://github.com/velocyto-team/velocyto.R'
 description = """RNA velocity estimation in R"""
@@ -40,7 +40,7 @@ exts_list = [
 	('pcaMethods','1.70.0'),
 	('velocyto.R','20190527', {
 		'source_urls': ['https://github.com/velocyto-team/velocyto.R/archive/'],
-		'source_tmpl': '%s.tar.gz' % commit,
+		'source_tmpl': '%s.tar.gz' % local_commit,
 	}),
 
 ]

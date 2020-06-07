@@ -7,7 +7,7 @@ versionsuffix = '-Java-1.8.0_152-2.8tb'
 homepage = 'https://cytoscape.org/'
 description = """Cytoscape is an open source software platform for visualizing complex networks and integrating these with any type of attribute data."""
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 sources = ['cytoscape-%(version)s.tar.gz']
 source_urls = ['https://github.com/cytoscape/cytoscape/releases/download/%(version)s/']

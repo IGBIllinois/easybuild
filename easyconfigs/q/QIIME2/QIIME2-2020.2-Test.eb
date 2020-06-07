@@ -13,7 +13,7 @@ homepage = 'https://qiime2.org/'
 description = """QIIME is an open-source bioinformatics pipeline for performing microbiome analysis
  from raw DNA sequencing data."""
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 
 

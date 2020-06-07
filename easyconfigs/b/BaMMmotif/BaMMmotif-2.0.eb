@@ -6,7 +6,7 @@ version = '2.0'
 homepage = 'https://github.com/soedinglab/BaMMmotif2'
 description = """Bayesian Markov Model motif discovery software (version 2)."""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['BaMMmotif_Linux.tar.gz']
 source_urls = ['https://github.com/soedinglab/BaMMmotif2/releases/download/v%(version)s/']

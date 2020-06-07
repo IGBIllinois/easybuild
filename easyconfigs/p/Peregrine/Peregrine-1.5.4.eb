@@ -6,7 +6,7 @@ version = "1.5.4"
 homepage = 'https://github.com/cschin/Peregrine'
 description = "Peregrine & SHIMMER Genome Assembly Toolkit"
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 dependencies = [
 	('Anaconda3', '5.1.0')

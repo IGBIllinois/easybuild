@@ -13,15 +13,15 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 source_urls = ['https://sourceforge.net/projects/rpy/files/rpy/%(version)s']
 sources = [SOURCE_TAR_GZ]
 
-python = 'Python'
-pyver = '2.7.13'
-pyshortver = '.'.join(pyver.split('.')[:2])
-rver = '2.15.3'
-versionsuffix = '-%s-%s-R-%s' % (python, pyver, rver)
+local_python = 'Python'
+local_pyver = '2.7.13'
+local_pyshortver = '.'.join(local_pyver.split('.')[:2])
+local_rver = '2.15.3'
+versionsuffix = '-%s-%s-R-%s' % (local_python, local_pyver, local_rver)
 
 dependencies = [
-    (python, pyver),
-    ('R', rver),
+    (local_python, local_pyver),
+    ('R', local_rver),
 ]
 
 patches = ['rpy-1.0.3.patch']

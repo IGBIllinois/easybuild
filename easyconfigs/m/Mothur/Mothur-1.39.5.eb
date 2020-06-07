@@ -7,7 +7,7 @@ homepage = 'http://www.mothur.org/'
 description = """Mothur is a single piece of open-source, expandable software
  to fill the bioinformatics needs of the microbial ecology community."""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 source_urls = ['https://github.com/mothur/mothur/releases/download/v%(version)s/']
 sources = ['Mothur.linux_64_static.zip']

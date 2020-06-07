@@ -6,7 +6,7 @@ version = '1.1.0'
 homepage = 'https://support.10xgenomics.com/single-cell-atac/software/pipelines/latest/what-is-cell-ranger-atac'
 description = """Cell Ranger ATAC is a set of analysis pipelines that process Chromium Single Cell ATAC data. """
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['%(name)s-%(version)s.tar.gz']
 source_urls = ['']

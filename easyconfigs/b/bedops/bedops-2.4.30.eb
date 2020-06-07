@@ -6,7 +6,7 @@ version = '2.4.30'
 homepage = 'https://bedops.readthedocs.io/en/latest/'
 description = """BEDOPS is an open-source command-line toolkit that performs highly efficient and scalable Boolean and other set operations, statistical calculations, archiving, conversion and other management of genomic data of arbitrary scale. """
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['bedops_linux_x86_64-v%(version)s.tar.bz2']
 source_urls = ['https://github.com/bedops/bedops/releases/download/v%(version)s/']

@@ -12,7 +12,7 @@ easyblock = 'Tarball'
 name = 'IllinoisDataBank'
 version = '1.0'
 versionsuffix = "-Python-%(pyver)s"
-commit = '8671c3d'
+local_commit = '8671c3d'
 
 homepage = 'https://databank.illinois.edu/'
 description = "The Illinois Data Bank is a public access repository for publishing research data from the University of Illinois at Urbana-Champaign"
@@ -24,7 +24,7 @@ dependencies = [
 	('Python','3.6.1'),
 ]
 source_urls = ['https://github.com/medusa-project/databank-client/archive/']
-sources = ['%s.tar.gz' % commit]
+sources = ['%s.tar.gz' % local_commit]
 
 
 sanity_check_paths = {

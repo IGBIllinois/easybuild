@@ -1,4 +1,4 @@
-easyblock = 'PythonPackagePip'
+easyblock = 'PythonPackage'
 
 name = 'jupyterlab'
 version = '0.35.6'

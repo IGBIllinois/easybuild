@@ -21,14 +21,14 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 source_urls = ['https://gitlab.com/ezlab/busco/-/archive/078252e00399550d7b0e8941cd4d986c8e868a83']
 sources = ['busco-078252e00399550d7b0e8941cd4d986c8e868a83.tar.gz']
 
-python = 'Python'
-pyver = '2.7.13'
-pyshortver = '.'.join(pyver.split('.')[0:2])
-pylibdir = 'lib/python%s/site-packages' % pyshortver
-versionsuffix = "-%s-%s" % (python, pyver)
+local_python = 'Python'
+local_pyver = '2.7.13'
+local_pyshortver = '.'.join(local_pyver.split('.')[0:2])
+local_pylibdir = 'lib/local_python%s/site-packages' % local_pyshortver
+versionsuffix = "-%s-%s" % (local_python, local_pyver)
 
 dependencies = [
-    (python, pyver),
+    (local_python, local_pyver),
     ('augustus','3.2.3'),
     ('R','3.3.3'),
     ('BLAST+','2.6.0'),
@@ -44,7 +44,7 @@ sanity_check_paths = {
     'files': [],
     'dirs': ['lib/python2.7/site-packages/busco']
 }
-#sanity_check_commands = [('python', '-c "import busco;"')]
+#sanity_check_commands = [('local_python', '-c "import busco;"')]
 
 postinstallcmds = [('cp -fR config sample_data scripts %(installdir)s/')]
 

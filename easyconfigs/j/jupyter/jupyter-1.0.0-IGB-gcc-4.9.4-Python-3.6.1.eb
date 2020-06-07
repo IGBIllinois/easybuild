@@ -1,4 +1,4 @@
-easyblock = 'PythonPackagePip'
+easyblock = 'PythonPackage'
 
 name = 'jupyter'
 version = '1.0.0'

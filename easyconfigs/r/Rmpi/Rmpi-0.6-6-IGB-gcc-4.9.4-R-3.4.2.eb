@@ -16,13 +16,13 @@ source_urls = [
 sources = ['%(name)s_%(version)s.tar.gz']
 
 r = 'R'
-rver = '3.4.2'
-versionsuffix = '-%s-%s' % (r,rver)
+local_rver = '3.4.2'
+versionsuffix = '-%s-%s' % (r,local_rver)
 
 install_args = ["--with-Rmpi-type=OPENMPI "]
 
 dependencies = [
-	(r,rver),
+	(r,local_rver),
 	('OpenMPI','2.1.0'),
 ]
 

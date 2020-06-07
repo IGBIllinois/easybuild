@@ -3,14 +3,14 @@ easyblock = 'Tarball'
 name = 'BiG-SCAPE'
 version = '1.0.1'
 versionsuffix = '-Python-3.6.1'
-commit = 'e86a689d'
+local_commit = 'e86a689d'
 
 homepage = 'https://git.wageningenur.nl/medema-group/BiG-SCAPE'
 description = """BiG-SCAPE (Biosynthetic Gene Similarity Clustering and Prospecting Engine) is a software package, written in Python, that constructs sequence similarity networks of Biosynthetic Gene Clusters (BGCs) and groups them into Gene Cluster Families (GCFs)"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['%s.zip' % commit]
+sources = ['%s.zip' % local_commit]
 source_urls = ['https://git.wageningenur.nl/medema-group/BiG-SCAPE/-/archive/']
 
 dependencies = [('Python','3.6.1'),

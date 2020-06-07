@@ -21,7 +21,7 @@ dependencies = [
 	('cuDNN','7.0.5','-CUDA-9.0.176'),
 ]
 
-use_pip = True
+local_use_pip = True
 
 
 exts_list = [
@@ -30,14 +30,14 @@ exts_list = [
         'source_urls': ['https://pypi.python.org/packages/source/t/torch/'],
         'source_tmpl': 'torch-%(version)s-cp36-cp36m-manylinux1_x86_64.whl',
         'unpack_sources': False,
-        'use_pip': True,
+        'local_use_pip': True,
     }),
     ('torchvision', '0.2.2.post3', {
     	'modulename': 'torchvision',
         'source_urls': ['https://pypi.python.org/packages/source/t/torchvision/'],
         'source_tmpl': 'torchvision-%(version)s-py2.py3-none-any.whl',
         'unpack_sources': False,
-        'use_pip': True,
+        'local_use_pip': True,
     }),
 
     ('cffi', '1.12.2', {
@@ -45,7 +45,7 @@ exts_list = [
         'source_urls': ['https://pypi.python.org/packages/source/c/cffi/'],
         'source_tmpl': 'cffi-%(version)s-cp36-cp36m-manylinux1_x86_64.whl',
         'unpack_sources': False,
-        'use_pip': True,
+        'local_use_pip': True,
     }),
 ]
 

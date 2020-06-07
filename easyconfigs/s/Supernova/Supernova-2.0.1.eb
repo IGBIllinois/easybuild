@@ -6,7 +6,7 @@ version = '2.0.1'
 homepage = 'https://support.10xgenomics.com/de-novo-assembly/software/overview/latest/welcome'
 description = """Supernova"""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['%(namelower)s-%(version)s.tar.gz']
 source_urls = ['http://cf.10xgenomics.com/releases/assembly/']

@@ -21,20 +21,20 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 sources = ["v%(version)s.tar.gz"]
 source_urls = ["https://github.com/taoliu/MACS/archive/"]
 
-python = 'Python'
-pyver = '3.6.1'
-pyshortver = '.'.join(pyver.split('.')[0:2])
-pylibdir = 'lib/python%s/site-packages' % pyshortver
-versionsuffix = "-%s-%s" % (python, pyver)
+local_python = 'Python'
+local_pyver = '3.6.1'
+local_pyshortver = '.'.join(local_pyver.split('.')[0:2])
+local_pylibdir = 'lib/local_python%s/site-packages' % local_pyshortver
+versionsuffix = "-%s-%s" % (local_python, local_pyver)
 
 dependencies = [
-    (python, pyver),
+    (local_python, local_pyver),
 ]
 
 options = {'modulename': name}
 
 # specify that this asyblock should run a full sanity check, rather than just trying to load the module
-full_sanity_check = True
+local_full_sanity_check = True
 
 sanity_check_paths = {
     'files': ['bin/macs2'],

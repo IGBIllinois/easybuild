@@ -20,7 +20,7 @@ keepsymlinks = True
 skipsteps = ['configure']
 installopts = 'PREFIX=%(installdir)s'
 
-files_to_copy = ['*']
+local_files_to_copy = ['*']
 
 sanity_check_paths = {
 	'files': ['bin/AdapterRemoval'],

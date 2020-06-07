@@ -20,14 +20,14 @@ keepsymlinks = True
 
 with_configure = False
 
-squidver = '1.5.11'
-prebuildopts = 'cd squid-%s && make && cd .. && ' % squidver
+local_squidver = '1.5.11'
+prebuildopts = 'cd squid-%s && make && cd .. && ' % local_squidver
 
 files_to_copy = ['*']
 
 sanity_check_paths = {
 	'files': ['scan-yeast','snoscan'],
-	'dirs': ['squid-%s' % squidver],
+	'dirs': ['squid-%s' % local_squidver],
 }
 
 modextrapaths = {

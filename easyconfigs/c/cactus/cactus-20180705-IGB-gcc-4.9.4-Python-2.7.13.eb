@@ -2,7 +2,7 @@ easyblock = 'ModuleOnly'
 
 name = 'cactus'
 version = '20180705'
-git_commit = '2722314'
+local_git_commit = '2722314'
 versionsuffix = "-Python-2.7.13"
 homepage = 'https://github.com/ComparativeGenomicsToolkit/cactus'
 description = """Cactus is a reference-free whole-genome multiple alignment program."""

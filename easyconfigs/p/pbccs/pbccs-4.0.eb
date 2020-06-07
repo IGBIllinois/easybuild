@@ -11,7 +11,7 @@ version = '4.0'
 homepage = 'https://github.com/PacificBiosciences/ccs'
 description = """ccs takes multiple subreads of the same SMRTbell molecule and combines them using a statistical model to produce one highly accurate consensus sequence, also called HiFi read, with base quality values."""
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 # Need to download the environment file and add the name to it, because the env file is broken
 

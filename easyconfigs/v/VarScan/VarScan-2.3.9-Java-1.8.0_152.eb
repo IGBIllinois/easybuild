@@ -7,7 +7,7 @@ versionsuffix = "-Java-1.8.0_152"
 homepage = ''
 description = """ """
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 sources = ['%(name)s.v%(version)s.jar']
 source_urls = ['http://prdownloads.sourceforge.net/%(namelower)s']

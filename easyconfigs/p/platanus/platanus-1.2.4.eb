@@ -7,7 +7,7 @@ homepage = 'http://platanus.bio.titech.ac.jp/platanus-assembler'
 description = """Platanus is a novel de novo sequence assembler that can reconstruct genomic sequences of
 highly heterozygous diploids from massively parallel shotgun sequencing data."""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['platanus']
 source_urls = ['']
@@ -17,7 +17,7 @@ dependencies = [
 
 keepsymlinks = True
 
-with_configure = False
+local_with_configure = False
 
 
 sanity_check_paths = {

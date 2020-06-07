@@ -2,7 +2,7 @@ easyblock = 'PythonPackage'
 
 name = 'bamm-suite'
 version = '20191127'
-commit = 'fbec3b3'
+local_commit = 'fbec3b3'
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://github.com/soedinglab/bamm-suite'
@@ -10,7 +10,7 @@ description = """BaMM-suite is the motif finding suite developed by the Soedingl
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ["%s.zip" % commit]
+sources = ["%s.zip" % local_commit]
 source_urls = ["https://github.com/soedinglab/bamm-suite/archive/"]
 
 start_dir = 'bamm-suite-py'

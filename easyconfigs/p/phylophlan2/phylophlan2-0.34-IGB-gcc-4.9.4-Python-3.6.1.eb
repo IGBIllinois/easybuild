@@ -3,14 +3,14 @@ easyblock = 'Tarball'
 name = 'phylophlan2'
 version = '0.34'
 versionsuffix = '-Python-3.6.1'
-commit = '14755d3'
+local_commit = '14755d3'
 
 homepage = 'https://bitbucket.org/nsegata/phylophlan/wiki/phylophlan2'
 description = """PhyloPhlAn is an integrated pipeline for large-scale phylogenetic profiling of genomes and metagenomes."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['%s.zip' % commit]
+sources = ['%s.zip' % local_commit]
 source_urls = ['https://bitbucket.org/nsegata/phylophlan/get']
 
 dependencies = [('Python','3.6.1'),

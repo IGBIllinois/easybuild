@@ -15,11 +15,11 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 source_urls = ['http://204.178.9.49/pub/graphviz/stable/SOURCES/']
 sources = [SOURCELOWER_TAR_GZ]
 
-python = 'Python'
-pyver = '2.7.13'
-versionsuffix = '-%s-%s' % (python, pyver)
+local_python = 'Python'
+local_pyver = '2.7.13'
+versionsuffix = '-%s-%s' % (local_python, local_pyver)
 
-glibsuff = '-GLib-2.44.1'
+local_glibsuff = '-GLib-2.44.1'
 
 dependencies = [
     ('cairo', '1.14.8'),
@@ -30,7 +30,7 @@ dependencies = [
     ('libpng', '1.6.29'),
     ('Pango', '1.40.6'),
     ('Perl', '5.24.1'),
-    (python, pyver),
+    (local_python, local_pyver),
     ('zlib', '1.2.11'),
 ]
 
@@ -52,7 +52,7 @@ sanity_check_paths = {
 
 
 modextrapaths = {
-    'PYTHONPATH': 'lib/graphviz/python',
+    'PYTHONPATH': 'lib/graphviz/local_python',
     'CLASSPATH': 'lib/graphviz/java/org/graphviz',
     'LD_LIBRARY_PATH': 'lib/graphviz/java',
 }

@@ -6,7 +6,7 @@ version = '3.4.3'
 homepage = 'https://community.nanoporetech.com/posts/pre-release-of-stand-alone'
 description = """Guppy is a stand-alone data bioinformatic toolkit that provides Oxford Nanopore Technologies basecalling algorithm, along with a number of post-processing tools. """
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 sources = ['ont-guppy-%(version)s-1.el7.x86_64.rpm']
 source_urls = ['https://mirror.oxfordnanoportal.com/software/analysis/']

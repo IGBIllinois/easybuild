@@ -6,7 +6,7 @@ version = '2.9.9'
 homepage = 'https://github.com/Illumina/strelka'
 description = """Strelka2 is a fast and accurate small variant caller optimized for analysis of germline variation in small cohorts and somatic variation in tumor/normal sample pairs. """
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['strelka-%(version)s.centos6_x86_64.tar.bz2']
 source_urls = ['https://github.com/Illumina/strelka/releases/download/v%(version)s/']

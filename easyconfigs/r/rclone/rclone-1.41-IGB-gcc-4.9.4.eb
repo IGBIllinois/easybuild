@@ -6,7 +6,7 @@ version = '1.41'
 homepage = 'https://rclone.org/'
 description = """Rclone is a command line program to sync files and directories to and from different cloud storage"""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['rclone-v%(version)s-linux-amd64.zip']
 source_urls = ['https://github.com/ncw/rclone/releases/download/v%(version)s/']

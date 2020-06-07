@@ -7,7 +7,7 @@ versionsuffix = "-Java-1.8.0_201"
 homepage = 'https://github.com/IGBIllinois/getPrimer'
 description = """Downloads primers from the database into a text file"""
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 sources = ['getPrimer.jar']
 source_urls = ['https://github.com/IGBIllinois/getPrimer/releases/download/1.0/']

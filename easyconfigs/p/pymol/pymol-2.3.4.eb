@@ -6,7 +6,7 @@ version = '2.3.4'
 homepage = 'https://pymol.org/2/'
 description = """PyMOL is a user-sponsored molecular visualization system on an open-source foundation, maintained and distributed by Schrödinger."""
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 sources = ['PyMOL-%(version)s_121-Linux-x86_64-py27.tar.bz2']
 source_urls = ['https://pymol.org/installers/']

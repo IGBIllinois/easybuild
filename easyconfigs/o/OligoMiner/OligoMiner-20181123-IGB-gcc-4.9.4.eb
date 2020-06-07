@@ -2,14 +2,14 @@ easyblock = 'Tarball'
 
 name = 'OligoMiner'
 version = '20181123'
-commit = '0b49ecf'
+local_commit = '0b49ecf'
 
 homepage = 'https://github.com/brianbeliveau/OligoMiner'
 description = """A rapid, flexible environment for the design of genome-scale oligonucleotide in situ hybridization probes"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['%s.tar.gz' % commit]
+sources = ['%s.tar.gz' % local_commit]
 source_urls = ['https://github.com/brianbeliveau/OligoMiner/archive/']
 
 dependencies = [('Python','2.7.13'),

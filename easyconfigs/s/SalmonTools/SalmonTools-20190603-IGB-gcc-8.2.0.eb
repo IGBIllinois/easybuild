@@ -2,7 +2,7 @@ easyblock = 'CMakeMake'
 
 name = 'SalmonTools'
 version = '20190604'
-commit = '23eac84'
+local_commit = '23eac84'
 
 homepage = 'https://github.com/COMBINE-lab/SalmonTools'
 description = """Useful tools for working with Salmon output"""
@@ -10,7 +10,7 @@ description = """Useful tools for working with Salmon output"""
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 source_urls = ['https://github.com/COMBINE-lab/SalmonTools/archive/']
-sources = ["%s.tar.gz" % commit]
+sources = ["%s.tar.gz" % local_commit]
 
 builddependencies = [('CMake', '3.12.1')]
 

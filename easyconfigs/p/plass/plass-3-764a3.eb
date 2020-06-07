@@ -6,7 +6,7 @@ version = '3-764a3'
 homepage = 'https://github.com/soedinglab/plass'
 description = """Plass (Protein-Level ASSembler) is a software to assemble short read sequencing data on a protein level. """
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['plass-linux-sse41.tar.gz']
 source_urls = ['https://github.com/soedinglab/plass/releases/download/%(version)s/']

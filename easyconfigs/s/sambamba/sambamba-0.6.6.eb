@@ -6,7 +6,7 @@ version = '0.6.6'
 homepage = 'http://lomereiter.github.io/sambamba/'
 description = """sambamba view allows to efficiently filter SAM/BAM/CRAM files for alignments satisfying various conditions, as well as access its SAM header and information about reference sequences."""
 
-toolchain = {'name': 'dummy', 'version': ''}
+toolchain = SYSTEM
 
 sources = ['sambamba_v%(version)s_linux.tar.bz2']
 source_urls = ['https://github.com/lomereiter/sambamba/releases/download/v%(version)s/']

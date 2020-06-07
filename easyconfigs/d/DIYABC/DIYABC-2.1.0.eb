@@ -6,7 +6,7 @@ version = '2.1.0'
 homepage = 'http://www1.montpellier.inra.fr/CBGP/diyabc/index.php'
 description = """a user-friendly approach to Approximate Bayesian Computation for inference on population history using molecular markers"""
 
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = SYSTEM
 
 sources = ['%(name)s-%(version)s.zip']
 source_urls = ['http://www1.montpellier.inra.fr/CBGP/diyabc/download/']

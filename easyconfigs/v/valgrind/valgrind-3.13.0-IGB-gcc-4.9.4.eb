@@ -23,12 +23,12 @@ source_urls = ['ftp://sourceware.org/pub/valgrind/']
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-binaries = [
+local_binaries = [
     'callgrind_annotate', 'callgrind_control', 'cg_annotate', 'cg_diff',
     'cg_merge', 'ms_print', 'valgrind', 'valgrind-listener', 'vgdb'
 ]
 sanity_check_paths = {
-    'files': ['bin/%s' % x for x in binaries],
+    'files': ['bin/%s' % x for x in local_binaries],
     'dirs': []
 }
 

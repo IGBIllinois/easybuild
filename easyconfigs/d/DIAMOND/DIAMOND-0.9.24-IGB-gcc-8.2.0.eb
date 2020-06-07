@@ -2,7 +2,7 @@ easyblock = 'CMakeMake'
 
 name = 'DIAMOND'
 version = '0.9.24'
-commit = 'b6dee73'
+local_commit = 'b6dee73'
 
 homepage = 'https://github.com/bbuchfink/diamond'
 description = """Accelerated BLAST compatible local sequence aligner"""
@@ -10,7 +10,7 @@ description = """Accelerated BLAST compatible local sequence aligner"""
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 
-sources = ['%s.tar.gz' % commit]
+sources = ['%s.tar.gz' % local_commit]
 source_urls = ['https://github.com/bbuchfink/diamond/archive/']
 
 separate_build_dir = True
