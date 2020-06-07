@@ -6,7 +6,7 @@ version = ''
 homepage = ''
 description = """"""
 
-toolchain = {'name': 'system', 'version': ''}
+toolchain = SYSTEM
 
 dependencies = [('Miniconda3','4.7.12.1'),
 ]
