@@ -62,7 +62,7 @@ exts_list = [
         'source_urls': ["https://pypi.python.org/packages/source/b/beautifulsoup4/"],
         'source_tmpl': SOURCE_TAR_GZ,
 }),
-        ('tensorflow-gpu', '2.2.0', {
+        ('tensorflow-gpu', version, {
                 'modulename': 'tensorflow',
                 'source_urls': [PYPI_SOURCE],
                 'source_tmpl': 'tensorflow_gpu-%(version)s-cp36-cp36m-manylinux2010_x86_64.whl',

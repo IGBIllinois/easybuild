@@ -1,0 +1,43 @@
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+# Author: Pablo Escobar Lopez
+# sciCORE - University of Basel
+# SIB Swiss Institute of Bioinformatics
+
+easyblock = 'MakeCp'
+
+name = 'STAR'
+version = '2.7.4a'
+
+homepage = 'https://github.com/alexdobin/STAR'
+description = "STAR aligns RNA-seq reads to a reference genome using uncompressed suffix arrays."
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'openmp': True}
+
+source_urls = ['https://github.com/alexdobin/STAR/archive/']
+sources = ['%(version)s.tar.gz']
+
+dependencies = [
+    ('zlib', '1.2.11'),
+]
+
+start_dir = 'source'
+
+buildopts = ' STAR && make STARlong'
+
+parallel = 1
+
+files_to_copy = [
+    (['source/STAR', 'source/STARlong'], 'bin'),
+    'CHANGES.md', 'doc', 'extras', 'LICENSE', 'README.md', 'RELEASEnotes.md',
+]
+
+sanity_check_paths = {
+    'files': ["bin/STAR", "bin/STARlong"],
+    'dirs': [],
+}
+
+modloadmsg = "Please use the outTmpDir parameter with STAR to point to the nodes local /scratch directory.  Without this parameter, the program causes issues with our shared filesystem.\n"
+modloadmsg += "We will kill your job if you do not use the --outTmpDir parameter.\n"
+modloadmsg += "STAR --outTmpDir /scratch/$SLURM_JOB_ID ...\n"
+moduleclass = 'bio'

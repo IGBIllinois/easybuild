@@ -1,4 +1,4 @@
-easyblock = 'PythonPackage'
+easyblock = 'PythonBundle'
 
 name = 'Tensorflow-GPU'
 version = '1.14.0'
@@ -9,15 +9,7 @@ description = "An open-source software library for Machine Intelligence"
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-local_pymaj = '3'
-local_pymin = '6'
-local_pyminor = '1'
-local_pymajmin = local_pymaj + local_pymin
 
-source_urls = [PYPI_SOURCE]
-sources = [
-    'tensorflow_gpu-%%(version)s-cp%(local_pymajmin)s-cp%(local_pymajmin)sm-manylinux1_x86_64.whl' % {'local_pymajmin': local_pymajmin},
-]
 
 dependencies = [
 	('Python', '3.6.1'),
@@ -29,42 +21,78 @@ dependencies = [
 use_pip = True
 unpack_sources = False
 
-exts_filter = ('python --version', "")
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
 
 exts_defaultclass = "PythonPackage"
 exts_list = [
 
-        ('protobuf', '3.9.0', {
-        'modulename': 'protobuf',
-        'source_urls': ["https://pypi.python.org/packages/source/p/protobuf/"],
-        'source_tmpl': SOURCE_TAR_GZ,
-}),
+	('protobuf', '3.9.0', {
+		'modulename': 'google.protobuf',
+	        'source_urls': ["https://pypi.python.org/packages/source/p/protobuf/"],
+        	'source_tmpl': SOURCE_TAR_GZ,
+	}),
 
 	('google', '2.0.2', {
-        'modulename': 'google',
-        'source_urls': ["https://pypi.python.org/packages/source/g/google/"],
-        'source_tmpl': SOURCE_TAR_GZ,
-}),
-        ('mock', '3.0.5', {
-        'modulename': 'mock',
-        'source_urls': ["https://pypi.python.org/packages/source/m/mock/"],
-        'source_tmpl': SOURCE_TAR_GZ,
-}),
+        	'modulename': 'google',
+	        'source_urls': ["https://pypi.python.org/packages/source/g/google/"],
+        	'source_tmpl': SOURCE_TAR_GZ,
+	}),
+        
+	('mock', '3.0.5', {
+        	'modulename': 'mock',
+	        'source_urls': ["https://pypi.python.org/packages/source/m/mock/"],
+        	'source_tmpl': SOURCE_TAR_GZ,
+	}),
         ('tensorflow-tensorboard', '1.5.1', {
-        'modulename': 'tensorflow_tensorboard',
-        'source_urls': ["https://pypi.python.org/packages/source/t/tensorflow_tensorboard/"],
-        'source_tmpl': "tensorflow_tensorboard-0.4.0rc1-py3-none-any.whl",
-}),
+		'modulename': 'tensorboard.main',
+	        'source_urls': ["https://pypi.python.org/packages/source/t/tensorflow_tensorboard/"],
+        	'source_tmpl': "tensorflow_tensorboard-%(version)s-py3-none-any.whl",
+	}),
         ('beautifulsoup4', '4.7.1', {
-        'modulename': 'beatifulsoup',
-        'source_urls': ["https://pypi.python.org/packages/source/b/beautifulsoup4/"],
-        'source_tmpl': SOURCE_TAR_GZ,
-}),
+        	'modulename': 'bs4',
+	        'source_urls': ["https://pypi.python.org/packages/source/b/beautifulsoup4/"],
+        	'source_tmpl': SOURCE_TAR_GZ,
+	}),
 	('wrapt', '1.11.2', {
-        'modulename': 'wrapt',
-        'source_urls': ["https://pypi.python.org/packages/source/w/wrapt"],
-        'source_tmpl': SOURCE_TAR_GZ,
-}),
+        	'modulename': 'wrapt',
+	        'source_urls': ["https://pypi.python.org/packages/source/w/wrapt"],
+        	'source_tmpl': SOURCE_TAR_GZ,
+	}),
+        ('tensorflow-gpu', version, {
+                'modulename': 'tensorflow',
+                'source_urls': [PYPI_SOURCE],
+                'source_tmpl': 'tensorflow_gpu-%(version)s-cp36-cp36m-manylinux1_x86_64.whl',
+        }),
+        ('tensorboard', version, {
+                'source_tmpl': 'tensorboard-%(version)s-py3-none-any.whl',
+        }),
+	('tensorboard-plugin-wit','1.6.0.post3', {
+		'source_tmpl': 'tensorboard_plugin_wit-%(version)s-py3-none-any.whl',
+	}),
+	('tensorflow-estimator',version, {
+		'modulename': 'tensorflow_estimator',
+		'source_tmpl': 'tensorflow_estimator-1.14.0-py2.py3-none-any.whl',
+	}),
+	('grpcio', '1.28.1', {
+                'modulename': 'grpc',
+        }),
+        ('google-pasta', '0.2.0', {
+                'modulename': 'pasta',
+        }),
+        ('soupsieve','2.0.1', {
+        }),
+        ('bleach','1.5.0', {
+        }),
+        ('html5lib','0.9999999', {
+        }),
+
 
 ]
 
