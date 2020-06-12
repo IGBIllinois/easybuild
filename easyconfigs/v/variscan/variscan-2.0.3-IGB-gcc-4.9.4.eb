@@ -1,0 +1,33 @@
+easyblock = 'ConfigureMake'
+
+name = 'variscan'
+version = '2.0.3'
+
+homepage = 'http://www.ub.edu/softevol/variscan/'
+description = """VariScan is a software package for the analysis of DNA sequence polymorphisms at the whole genome scale. Among other features,"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['http://www.ub.es/softevol/variscan/']
+sources = [SOURCE_TAR_GZ]
+
+builddependencies = [('Autotools','20150215'),
+]
+
+dependencies = []
+
+preconfigopts = 'sh ./autogen.sh && '
+prebuildopts = 'make clean && '
+buildopts = 'install-am'
+sanity_check_paths = {
+        'files': ['bin/variscan'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

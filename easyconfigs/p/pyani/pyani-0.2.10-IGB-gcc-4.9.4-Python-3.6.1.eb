@@ -15,14 +15,16 @@ source_urls = [PYPI_LOWER_SOURCE]
 dependencies = [
         ('Python', '3.6.1'),
 	('Biopython','1.76','-Python-3.6.1'),
+	('BLAST+','2.7.1'),
+	('MUMmer','4.0.0beta2'),
+
 ]
 
 exts_defaultclass = "PythonPackage"
 exts_list = []
 
 use_pip = True
-use_pip_for_deps = False
-pip_ignore_installed = True
+sanity_pip_check = True
 
 exts_filter = ('python -c "import %(ext_name)s"', "")
 
