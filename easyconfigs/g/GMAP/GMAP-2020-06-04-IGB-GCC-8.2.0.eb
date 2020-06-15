@@ -1,0 +1,29 @@
+easyblock = 'ConfigureMake'
+
+name = 'GMAP'
+version = '2020-06-04'
+
+homepage = 'http://research-pub.gene.com/gmap/'
+description = """A Genomic Mapping and Alignment Program for mRNA and EST Sequences, and
+GSNAP: Genomic Short-read Nucleotide Alignment Program"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['http://research-pub.gene.com/gmap/src/']
+sources = ['gmap-gsnap-%(version)s.tar.gz']
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/gmap','bin/gsnap'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

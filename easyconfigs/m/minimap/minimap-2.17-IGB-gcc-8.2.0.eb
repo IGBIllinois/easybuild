@@ -1,0 +1,32 @@
+easyblock = 'MakeCp'
+
+name = 'minimap'
+version = '2.17'
+
+homepage = 'https://github.com/lh3/minimap'
+description = """Minimap is an experimental tool to efficiently find multiple approximate mapping positions between two sets of long sequences, 
+such as between reads and reference genomes, between genomes and between long noisy reads. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/lh3/minimap2/archive/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [
+	(['minimap2'],'bin'),'LICENSE.txt','README.md']
+
+sanity_check_paths = {
+	'files': ['bin/minimap2'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
