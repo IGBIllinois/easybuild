@@ -1,6 +1,6 @@
 easyblock = 'PythonBundle'
 
-name = 'Tensorflow-GPU'
+name = 'Tensorflow'
 version = '2.2.0'
 versionsuffix = '-Python-%(pyver)s'
 
@@ -62,10 +62,10 @@ exts_list = [
         'source_urls': ["https://pypi.python.org/packages/source/b/beautifulsoup4/"],
         'source_tmpl': SOURCE_TAR_GZ,
 }),
-        ('tensorflow-gpu', version, {
+        ('tensorflow', version, {
                 'modulename': 'tensorflow',
                 'source_urls': [PYPI_SOURCE],
-                'source_tmpl': 'tensorflow_gpu-%(version)s-cp36-cp36m-manylinux2010_x86_64.whl',
+                'source_tmpl': 'tensorflow-%(version)s-cp36-cp36m-manylinux2010_x86_64.whl',
         }),
         ('tensorboard', '2.2.1', {
                 'source_tmpl': 'tensorboard-%(version)s-py3-none-any.whl',

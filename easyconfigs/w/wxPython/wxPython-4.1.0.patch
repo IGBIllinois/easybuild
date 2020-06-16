@@ -1,0 +1,12 @@
+diff -ru wxPython-4.1.0.original/setup.py wxPython-4.1.0/setup.py
+--- wxPython-4.1.0.original/setup.py	2020-06-15 16:27:25.455768000 -0500
++++ wxPython-4.1.0/setup.py	2020-06-15 16:30:04.835891891 -0500
+@@ -130,7 +130,7 @@
+                 'message and the wxWidgets and Phoenix build steps in the future.\n')
+ 
+             # Use the same Python that is running this script.
+-            cmd = ['"{}"'.format(sys.executable), '-u', 'build.py', 'build']
++            cmd = ['"{}"'.format(sys.executable), '-u', 'build.py', 'build', '--gtk2']
+             cmd = ' '.join(cmd)
+             runcmd(cmd)
+ 

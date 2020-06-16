@@ -1,0 +1,71 @@
+easyblock = 'PythonBundle'
+
+name = 'deeplabcut'
+version = '2.1.8.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://www.mousemotorlab.org/deeplabcut'
+description = '''Markerless pose estimation of user-defined features with deep learning for all animals '''
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('Tensorflow-GPU','1.13.1','-Python-3.6.1'),
+	('wxPython','4.1.0','-Python-3.6.1'),
+	('Tk','8.6.6'),
+	
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	(name, version, {
+		'source_tmpl': 'deeplabcut-%(version)s-py3-none-any.whl',
+	}),
+	('click','7.1.2'),
+	('easydict','1.9'),
+	('intel-openmp','2020.0.133', {
+		'source_tmpl': 'intel_openmp-%(version)s-py2.py3-none-manylinux1_x86_64.whl',
+		'modulename': 'deeplabcut',
+	}),
+	
+	('moviepy','1.0.1'),
+	('imageio-ffmpeg','0.4.2'),
+	('proglog','0.1.9'),
+	('patsy','0.5.1'),
+	('ruamel.yaml','0.16.10'),
+	('statsmodels','0.11.1'),
+	('ruamel.yaml.clib','0.2.0', {
+		'modulename': 'ruamel.yaml',
+	}),
+	('matplotlib','3.0.3', {
+		'source_tmpl': 'matplotlib-%(version)s-cp36-cp36m-manylinux1_x86_64.whl',
+	}),
+	('opencv-python','3.4.9.33', {
+		'source_tmpl': 'opencv_python-%(version)s-cp36-cp36m-manylinux1_x86_64.whl',
+		'modulename': 'cv2',
+	}),
+	('PyYAML','5.3.1', {
+		'modulename': 'yaml',
+	}),
+	('numpy','1.16.4', {
+		'source_tmpl': 'numpy-%(version)s.zip',
+		'unpack_sources': True,
+        }),
+
+	
+	
+]
+
+moduleclass = 'bio'

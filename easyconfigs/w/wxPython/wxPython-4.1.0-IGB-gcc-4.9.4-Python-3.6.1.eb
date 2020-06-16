@@ -1,0 +1,38 @@
+easyblock = 'PythonPackage'
+
+name = 'wxPython'
+version = '4.1.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://www.wxpython.org/'
+description = """the cross-platform GUI toolkit for the Python language. With wxPython software developers can create truly native user interfaces for their Python applications, that run with little or no modifications on Windows, Macs and Linux or other unix-like systems. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('GTK+','2.24.31','-Python-3.6.1'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+patches = ['wxPython-%(version)s.patch']
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/wxget'],
+        'dirs': [],
+}
+
+modextrapaths = {'LD_LIBRARY_PATH':'lib/python3.6/site-packages/wx'}
+
+moduleclass = 'vis'
