@@ -57,7 +57,6 @@ dependencies:
 - deblur=1.1.0
 - decorator=4.4.1
 - defusedxml=0.6.0
-- deicode
 - dendropy=4.4.0
 - dnaio=0.4.1
 - emperor=1.0.0
@@ -342,8 +341,7 @@ dependencies:
 - zipp=3.0.0
 - zlib=1.2.11
 - zstd=1.4.4
+- deicode
 - dbotu_q2
 - qurro
-- songbird
-
 

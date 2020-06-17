@@ -16,33 +16,36 @@ dependencies = [
         ('Python', '3.6.1'),
 	('Biopython','1.76','-Python-%(pyver)s'),
 	('PyTorch','1.4.0','-Python-%(pyver)s'),
+	('awscli','1.16.113','-Python-%(pyver)s'),
+	('tensorboardX','2.0','-Python-%(pyver)s'),
 ]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
 
 exts_defaultclass = "PythonPackage"
 exts_list = [
-('tensorbloardX', '2.0', {
-    	'modulename': 'tensorboardX',
-        'source_urls': ['https://pypi.python.org/packages/source/t/tensorboardX/'],
-        'source_tmpl': 'tensorboardX-%(version)s-py2.py3-none-any.whl',
-        'unpack_sources': False,
-        'use_pip': True,
-    }),
-('lmdb', '0.98', {
-        'modulename': 'lmdb',
-        'source_urls': ['https://pypi.python.org/packages/source/l/lmdb/'],
-        'source_tmpl': 'lmdb-%(version)s.tar.gz',
-        'unpack_sources': False,
-        'use_pip': True,
-    }),
+	('lmdb', '0.98'),
 ]
 
 use_pip = True
 
 exts_filter = ('python -c "import %(ext_name)s"', "")
 
+postinstallcmds = ["cp -r %%(builddir)s/tape-%%(version)s/%s %%(installdir)s" %f for f in ['download_data.sh','download_data_aws.sh','cleanup_results.sh','LICENSE']]
+
 sanity_check_paths = {
-        'files': ['bin/tape-eval'],
+        'files': ['bin/tape-eval','download_data.sh','download_data_aws.sh','cleanup_results.sh','LICENSE'],
         'dirs': [],
 }
 
 moduleclass = 'bio'
+

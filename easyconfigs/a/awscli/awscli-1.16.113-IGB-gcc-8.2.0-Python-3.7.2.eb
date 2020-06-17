@@ -1,4 +1,4 @@
-easyblock = 'PythonPackage'
+easyblock = 'PythonBundle'
 
 name = 'awscli'
 version = '1.16.113'
@@ -9,18 +9,36 @@ description = """The AWS Command Line Interface (CLI) is a unified tool to manag
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-sources = [SOURCELOWER_TAR_GZ]
-source_urls = [PYPI_LOWER_SOURCE]
 
 dependencies = [
         ('Python', '3.7.2'),
 ]
 
-exts_defaultclass = "PythonPackage"
-exts_list = []
-
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
 
 exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	(name,version),
+	('botocore','1.12.103'),
+	('boto3','1.9.103'),
+	('rsa','3.4.2'),
+	('pyasn1','0.4.8'),
+	('colorama','0.3.9'),
+	('s3transfer','0.2.0'),
+
+]
+
+
 
 sanity_check_paths = {
         'files': ['bin/aws'],

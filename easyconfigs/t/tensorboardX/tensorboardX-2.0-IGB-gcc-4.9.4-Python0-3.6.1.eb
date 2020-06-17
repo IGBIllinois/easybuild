@@ -1,7 +1,7 @@
 easyblock = 'PythonPackage'
 
 name = 'tensorboardX'
-version = '1.9'
+version = '2.0'
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://github.com/lanpa/tensorboardX'
@@ -14,7 +14,7 @@ source_urls = [PYPI_LOWER_SOURCE]
 
 dependencies = [
         ('Python', '3.6.1'),
-	('PyTorch','0.4.0','-Python-3.6.1'),
+	('PyTorch','1.4.0','-Python-%(pyver)s'),
 ]
 
 use_pip = True
@@ -35,6 +35,7 @@ exts_list = [
                 'source_tmpl': 'protobuf-%(version)s-cp36-cp36m-manylinux1_x86_64.whl',
         }),
 ]
+
 
 exts_filter = ('python -c "import %(ext_name)s"', "")
 

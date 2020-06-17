@@ -1,0 +1,54 @@
+easyblock = 'Tarball'
+
+name = 'unirep'
+version = '20200303'
+versionsuffix = '-Python-%(pyver)s'
+local_commit = '95735d4'
+
+homepage = 'https://github.com/churchlab/UniRep'
+description = """UniRep, a mLSTM "babbler" deep representation learner for protein engineering informatics."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.zip' % local_commit]
+source_urls = ['https://github.com/churchlab/UniRep/archive/']
+
+dependencies = [('Python','3.6.1'),
+	('Tensorflow-GPU','1.13.1','-Python-3.6.1'),
+	('awscli','1.16.113','-Python-3.6.1'),
+
+
+]
+
+keepsymlinks = True
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+    'use_pip': True,
+    'unpack_sources': False,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+        ('numpy','1.15.4', {
+                'source_tmpl': 'numpy-%(version)s.zip',
+                'unpack_sources': True,
+        }),
+
+]
+
+
+sanity_check_paths = {
+	'files': ['unirep.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'',
+	'PYTHONPATH':'lib/python3.6/site-packages'
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/*.py']
+
+
+moduleclass = 'bio'

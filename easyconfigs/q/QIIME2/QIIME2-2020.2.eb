@@ -23,7 +23,7 @@ environment_file = "~/github/easybuild/easyconfigs/q/QIIME2/qiime2-%(version)s-p
 dependencies = []
 builddependencies = [('Miniconda3','4.7.12.1')]
 
-sanity_check_commands = ['qiime info']
+sanity_check_commands = ['qiime dev refresh-cache && qiime info']
 
 modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
 modloadmsg += "module purge\n"

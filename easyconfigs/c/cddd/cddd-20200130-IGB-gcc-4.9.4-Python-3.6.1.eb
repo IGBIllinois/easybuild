@@ -1,0 +1,38 @@
+easyblock = 'PythonPackage'
+
+name = 'cddd'
+version = '20200130'
+versionsuffix = '-Python-%(pyver)s'
+local_commit = '516576d'
+
+homepage = 'https://github.com/jrwnter/cddd'
+description = """Continuous and Data-Driven Descriptors"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.zip' % local_commit]
+source_urls = ["https://github.com/jrwnter/cddd/archive/"]
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('Tensorflow-GPU','1.13.1','-Python-%(pyver)s'),
+	('rdkit','2020_03_3','-Python-%(pyver)s'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+postinstallcmds = ["cp -r %%(builddir)s/cddd-516576db7d214014747ff87a4002176bdd887209/%s %%(installdir)s" %f for f in ['download_default_model.sh','LICENSE']]
+
+sanity_check_paths = {
+        'files': ['bin/cddd','download_default_model.sh'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
