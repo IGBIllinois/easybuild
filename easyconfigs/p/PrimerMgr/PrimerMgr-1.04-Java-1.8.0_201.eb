@@ -1,7 +1,7 @@
-easyblock = 'JAR'
+easyblock = 'Tarball'
 
 name = 'PrimerMgr'
-version = '1.03'
+version = '1.04'
 versionsuffix = "-Java-1.8.0_201"
 
 homepage = 'https://github.com/IGBIllinois/primerMgr'
@@ -9,7 +9,7 @@ description = """Biotech Center Primer Manager Database"""
 
 toolchain = SYSTEM
 
-sources = ['PrimerMgr.jar']
+sources = ['PrimerMgr.zip']
 source_urls = ['https://github.com/IGBIllinois/primerMgr/releases/download/%(version)s/']
 
 dependencies = [('Java','1.8.0_201')
@@ -19,14 +19,13 @@ dependencies = [('Java','1.8.0_201')
 keepsymlinks = True
 
 sanity_check_paths = {
-	'files': ['PrimerMgr.jar'],
+	'files': ['PrimerMgr.jar','PrimerMgr.sh'],
 	'dirs': [],
 }
 
-modextrapaths = {}
+postinstallcmds = ['chmod 775 %(installdir)s/PrimerMgr.sh']
 
-#Creates bash alias for java program
-modaliases = {'%(name)s': 'java -jar %(installdir)s/PrimerMgr.jar'}
-modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+modextrapaths = {'PATH':''
+}
 
 moduleclass = 'bio'

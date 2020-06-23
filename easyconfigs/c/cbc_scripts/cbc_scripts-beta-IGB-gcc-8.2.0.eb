@@ -29,6 +29,7 @@ dependencies = [('Perl','5.28.1'),
 	('gnuplot','4.6.7'),
 	('Bowtie2','2.1.0'),
 	('fastp','0.20.1'),
+	('PrimerMgr','1.04','-Java-1.8.0_201',True),
 ]
 
 configopts = ''
