@@ -1,0 +1,36 @@
+easyblock = 'PythonPackage'
+
+name = 'BamM'
+version = '1.7.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://ecogenomics.github.io/BamM/'
+description = """The primary motivation for building BamM was to replaace PySam in GroopM. Not saying PySam is bad, it's just that GroopM doesn't need all the PySam features and what it does need can be done way way faster in C-land."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ["https://github.com/Ecogenomics/BamM/archive/"]
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('BWA','0.7.17'),
+	('SAMtools','1.9'),	
+
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/bamFlags','bin/bamm'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
