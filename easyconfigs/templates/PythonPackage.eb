@@ -16,6 +16,12 @@ dependencies = [
         ('Python', '3.6.1'),
 ]
 
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
 exts_defaultclass = "PythonPackage"
 exts_list = []
 

@@ -21,14 +21,14 @@ prebuildopts = "make clean && "
 buildopts = "fgs"
 fix_perl_shebang_for = ['bin/run_FragGeneScan.pl']
 
-files_to_copy = [(['FragGeneScan','run_FragGeneScan.pl'],'bin')]
+files_to_copy = ['FragGeneScan','run_FragGeneScan.pl','train','example']
 
 sanity_check_paths = {
-	'files': ['bin/FragGeneScan','bin/run_FragGeneScan.pl'],
+	'files': ['FragGeneScan','run_FragGeneScan.pl'],
 	'dirs': [],
 }
 
-modextrapaths = {
+modextrapaths = {'PATH':'',
 }
 
 moduleclass = 'bio'

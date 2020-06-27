@@ -48,7 +48,27 @@ exts_list = [
 		'source_tmpl': 'jupyter_core-%(version)s.tar.gz',
 	}),
 	('nbconvert','5.6.1'),
-	('ipykernel','5.3.0'),	
+	('ipykernel','5.3.0'),
+	('nbformat','5.0.7'),
+	('prometheus-client','0.8.0', {
+		'source_tmpl': 'prometheus_client-%(version)s.tar.gz',
+	}),
+	('Send2Trash','1.5.0'),
+	('pytoml','0.1.21'),
+	('flit-core','2.3.0', {
+		'source_tmpl': 'flit_core-%(version)s.tar.gz',
+	}),
+	('flit','2.3.0'),
+	('terminado','0.8.3'),
+	('bleach','3.1.5'),
+	('defusedxml','0.6.0'),
+	('entrypoints','0.3'),
+	('mistune','0.8.4'),		
+	('pandocfilters','1.4.2'),
+	('testpath','0.4.4'),
+	('json5','0.9.5'),
+	('certipy','0.1.3'),
+	
 ]
 
 
