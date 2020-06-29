@@ -2,7 +2,7 @@ easyblock = 'JAR'
 
 name = ''
 version = ''
-versionsuffix = "-Java-1.8.0_152"
+versionsuffix = "-Java-%(javaver)s"
 
 homepage = ''
 description = """ """

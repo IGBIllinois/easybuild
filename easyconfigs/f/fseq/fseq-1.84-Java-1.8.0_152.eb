@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'fseq'
+version = '1.84'
+versionsuffix = "-Java-%(javaver)s"
+
+homepage = 'http://fureylab.web.unc.edu/software/fseq/'
+description = """Tag sequencing using high-throughput sequencing technologies are now regularly employed to identify specific sequence features such as transcription factor binding sites (ChIP-seq) or regions of open chromatin (DNase-seq)."""
+
+toolchain = SYSTEM
+
+sources = ['%(name)s_%(version)s.tgz']
+source_urls = ['http://html-large-files-dept-fureylab.cloudapps.unc.edu/fureylabfiles/fseq/']
+
+dependencies = [('Java','1.8.0_152'),
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/fseq'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
