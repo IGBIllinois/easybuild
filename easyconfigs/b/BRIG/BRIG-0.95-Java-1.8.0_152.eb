@@ -1,0 +1,32 @@
+easyblock = 'Tarball'
+
+name = 'BRIG'
+version = '0.95'
+versionsuffix = "-Java-%(javaver)s"
+
+homepage = 'http://brig.sourceforge.net/'
+description = """BRIG is a free cross-platform (Windows/Mac/Unix) application that can display circular comparisons between a large number of genomes, with a focus on handling genome assembly data."""
+
+toolchain = SYSTEM
+
+sources = ['BRIG-%(version)s-dist.zip']
+source_urls = [SOURCEFORGE_SOURCE]
+
+dependencies = [('Java','1.8.0_152'),
+	('BLAST+','2.7.1','-IGB-gcc-4.9.4'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['BRIG.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+#Creates bash alias for java program
+modaliases = {'%(name)s': 'java -jar %(installdir)s/BRIG.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+moduleclass = 'bio'

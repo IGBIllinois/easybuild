@@ -1,0 +1,54 @@
+easyblock = 'Tarball'
+
+name = 'mitofates'
+version = '1.2'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'http://mitf.cbrc.jp/MitoFates/program.html'
+description = """MitoFates predicts mitochondrial presequence, a cleavable localization signal located in N-terminal, and its cleaved position. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['MitoFates_%(version)s.tar.gz']
+source_urls = ['http://mitf.cbrc.jp/MitoFates/program/']
+
+dependencies = [('Perl','5.24.1'),
+]
+
+keepsymlinks = True
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_filter = ("perldoc -lm %(ext_name)s ", "")
+exts_defaultclass = "PerlModule"
+exts_list = [
+	('Math::Cephes','0.5305', {
+		'source_urls': ['https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF'],
+		'source_tmpl': 'Math-Cephes-%(version)s.tar.gz',
+	}),
+	('Perl6::Slurp','0.051005', {
+		'source_urls': ['https://cpan.metacpan.org/authors/id/D/DC/DCONWAY'],
+		'source_tmpl': 'Perl6-Slurp-%(version)s.tar.gz',
+	}),
+	
+]
+
+
+sanity_check_paths = {
+	'files': ['MitoFates.pl'],
+	'dirs': [],
+}
+
+fix_perl_shebang_for = ['MitoFates.pl','bin/*.pl']
+
+postinstallcmds = ['chmod 775 %(installdir)s/MitoFates.pl','chmod 775 %(installdir)s/bin/*.pl']
+
+modextrapaths = {
+	'PATH':'',
+	'PERL5LIB': 'lib/perl5/site_perl/%(perlver)s/',
+}
+
+moduleclass = 'bio'
