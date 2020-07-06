@@ -27,6 +27,7 @@ exts_list = [
 	('optuna','1.5.0'),
 	('jax','0.1.71'),
 	('jaxlib','0.1.50',{
+		'source_urls': 'https://storage.googleapis.com/jax-releases/cuda100',
 		'source_tmpl': 'jaxlib-%(version)s-cp36-none-manylinux2010_x86_64.whl',
 	}),
 	('alembic','1.4.2'),
@@ -39,7 +40,9 @@ exts_list = [
 	('opt-einsum','3.2.1', {
 		'source_tmpl': 'opt_einsum-%(version)s.tar.gz',
 	}),
-	('cmd2','1.1.0'),
+	('cmd2','1.1.0', {
+		'source_tmpl': 'cmd2-%(version)s-py3-none-any.whl',
+	}),
 	('PrettyTable','0.7.2', {
 		'source_tmpl': 'prettytable-%(version)s.tar.gz'
 	}),
