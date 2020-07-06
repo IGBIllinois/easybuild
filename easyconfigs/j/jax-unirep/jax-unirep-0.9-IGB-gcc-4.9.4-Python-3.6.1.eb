@@ -14,6 +14,7 @@ source_urls = ["https://github.com/ElArkk/jax-unirep/archive/"]
 
 dependencies = [
         ('Python', '3.6.1'),
+	('CUDA','10.0.130','',True),
 ]
 
 exts_default_options = {

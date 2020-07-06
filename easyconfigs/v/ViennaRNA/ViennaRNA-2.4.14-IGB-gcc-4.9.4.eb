@@ -1,0 +1,28 @@
+easyblock = 'ConfigureMake'
+
+name = 'ViennaRNA'
+version = '2.4.14'
+
+homepage = 'https://www.tbi.univie.ac.at/RNA/'
+description = """The ViennaRNA Package consists of a C code library and several stand-alone programs for the prediction and comparison of RNA secondary structures. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://www.tbi.univie.ac.at/RNA/download/sourcecode/2_4_x/']
+sources = ['ViennaRNA-%(version)s.tar.gz']
+
+dependencies = [('Perl','5.24.1')]
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/RNAduplex','bin/RNApaln'],
+        'dirs': [],
+}
+
+modextrapaths = {'PERL5LIB':'lib/perl5/site_perl/%(perlver)s'
+}
+
+
+moduleclass = 'bio'
+
+
