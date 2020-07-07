@@ -1,4 +1,4 @@
-easyblock = 'PythonPackage'
+easyblock = 'PythonBundle'
 
 name = 'jax-unirep'
 version = '0.9'
@@ -9,8 +9,6 @@ description = """Reimplementation of the UniRep protein featurization model in J
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ["v%(version)s-alpha.tar.gz"]
-source_urls = ["https://github.com/ElArkk/jax-unirep/archive/"]
 
 dependencies = [
         ('Python', '3.6.1'),
@@ -25,11 +23,16 @@ exts_default_options = {
 exts_defaultclass = "PythonPackage"
 exts_list = [
 	('optuna','1.5.0'),
-	('jax','0.1.71'),
-	('jaxlib','0.1.50',{
-		'source_urls': 'https://storage.googleapis.com/jax-releases/cuda100',
+	('opt-einsum','3.2.1', {
+		'source_tmpl': 'opt_einsum-%(version)s.tar.gz',
+	}),
+	('absl-py','0.9.0', {
+		'modulename': 'absl',
+	}),
+	('jaxlib','0.1.51', {
 		'source_tmpl': 'jaxlib-%(version)s-cp36-none-manylinux2010_x86_64.whl',
 	}),
+	('jax','0.1.72'),
 	('alembic','1.4.2'),
 	('cliff','3.3.0'),
 	('cmaes','0.5.1'),
@@ -52,6 +55,10 @@ exts_list = [
 	('pyperclip','1.8.0'),
 	('python-editor','1.0.4', {
 		'modulename': 'editor',
+	}),
+	(name,version, {
+		'source_tmpl': 'v%(version)s-alpha.tar.gz',
+		'source_urls': ['https://github.com/ElArkk/jax-unirep/archive/'],
 	}),
 ]
 

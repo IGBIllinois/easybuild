@@ -2,4 +2,5 @@
 *.zip
 *.tgz
 *.jar
+*.whl
 
