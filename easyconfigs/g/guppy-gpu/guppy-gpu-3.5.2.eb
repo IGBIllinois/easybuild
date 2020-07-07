@@ -26,3 +26,6 @@ sanity_check_paths = {
 modextrapaths = {}
 
 moduleclass = 'bio'
+
+##Notes
+## Add the following to eb command "--filter-env-vars=LD_LIBRARY_PATH,LIBRARY_PATH" when building
