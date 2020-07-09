@@ -1,0 +1,32 @@
+easyblock = 'MakeCp'
+
+name = 'apollo'
+version = '20200510'
+local_commit = '85a4ca3'
+
+homepage = 'https://github.com/CMU-SAFARI/Apollo'
+description = """A Sequencing-Technology-Independent, Scalable, and Accurate Assembly Polishing Algorithm"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/CMU-SAFARI/Apollo/archive/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['bin/apollo'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
