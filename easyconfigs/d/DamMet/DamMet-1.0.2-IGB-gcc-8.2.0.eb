@@ -1,0 +1,36 @@
+easyblock = 'ConfigureMake'
+
+name = 'DamMet'
+version = '1.0.2'
+
+homepage = 'https://github.com/KHanghoj/DamMet'
+description = """DamMet is probabilistic model for mapping ancient methylomes using sequencing data underlying an ancient specimen. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/KHanghoj/DamMet/archive/']
+
+builddependencies = [
+	('CMake','3.12.1'),
+]
+
+dependencies = [
+	('HTSlib','1.9'),
+]
+
+keepsymlinks = True
+
+skipsteps = ['configure','install']
+
+buildopts = "PREFIX=%(installdir)s"
+
+sanity_check_paths = {
+	'files': ['DamMet'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''
+}
+
+moduleclass = 'bio'

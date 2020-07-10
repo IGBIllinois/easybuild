@@ -1,0 +1,39 @@
+easyblock = 'ConfigureMake'
+
+name = 'Mash'
+version = '2.2.2'
+
+homepage = 'https://github.com/marbl/Mash'
+description = """Fast genome and metagenome distance estimation using MinHash"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/marbl/Mash/archive/']
+sources = ['v%(version)s.tar.gz']
+
+patches = ['Mash-%(version)s.patch']
+
+builddependencies = [
+	('Autotools', '20180311','',('GCC','8.2.0-2.32')),
+]
+dependencies = [
+	('GSL','2.5'),
+	('capnproto','0.8.0'),
+
+]
+
+preconfigopts = './bootstrap.sh && '
+
+configopts = '--with-gsl=$EBROOTGSL --with-capnp=$EBROOTCAPNPROTO'
+sanity_check_paths = {
+        'files': ['bin/mash'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

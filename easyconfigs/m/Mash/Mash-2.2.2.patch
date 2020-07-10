@@ -1,0 +1,16 @@
+diff -ru Mash-2.2.2.original/Makefile.in Mash-2.2.2/Makefile.in
+--- Mash-2.2.2.original/Makefile.in	2020-07-10 14:25:09.323893000 -0500
++++ Mash-2.2.2/Makefile.in	2020-07-10 14:25:45.357163000 -0500
+@@ -5,9 +5,9 @@
+ 
+ ifeq ($(UNAME_S),Darwin)
+ 	CXXFLAGS += -mmacosx-version-min=10.7 -stdlib=libc++
+-else
+-	CXXFLAGS += -include src/mash/memcpyLink.h -Wl,--wrap=memcpy
+-	CFLAGS += -include src/mash/memcpyLink.h
++#else
++#	CXXFLAGS += -include src/mash/memcpyLink.h -Wl,--wrap=memcpy
++#	CFLAGS += -include src/mash/memcpyLink.h
+ endif
+ 
+ SOURCES=\

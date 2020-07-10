@@ -1,0 +1,33 @@
+easyblock = 'CMakeMake'
+
+name = 'capnproto'
+version = '0.8.0'
+
+homepage = 'https://capnproto.org/'
+description = """Cap’n Proto is an insanely fast data interchange format and capability-based RPC system. Think JSON, except binary. Or think Protocol Buffers, except faster."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/capnproto/capnproto/archive/']
+sources = ['v%(version)s.tar.gz']
+
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = []
+
+separate_build_dir = True
+
+sanity_check_paths = {
+        'files': ['bin/capnp'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+postinstallcmds = ['ln -s %(installdir)s/lib64 %(installdir)s/lib']
+
+moduleclass = 'lib'
+
+hidden = True
+
