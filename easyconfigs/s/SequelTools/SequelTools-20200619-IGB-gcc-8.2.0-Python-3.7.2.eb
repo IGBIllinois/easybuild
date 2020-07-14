@@ -1,0 +1,34 @@
+easyblock = 'Tarball'
+
+name = 'SequelTools'
+version = '20200619'
+versionsuffix = '-Python-%(pyver)s'
+local_commit = '9c48750'
+
+
+homepage = 'https://github.com/ISUgenomics/SequelTools'
+description = """SequelTools is a fast and easy to install command-line program that provides a collection of tools for working with multiple SMRTcells of BAM format PacBio Sequel raw sequece data. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit ]
+source_urls = ['https://github.com/ISUgenomics/SequelTools/archive/']
+
+dependencies = [('Python','3.7.2'),
+	('R','3.6.0'),
+]
+
+fix_python_shebang_for = ['Scripts/*.py']
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['Scripts/SequelTools.sh'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'Scripts'}
+
+postinstallcmds = ['chmod 775 %(installdir)s/Scripts/*']
+
+moduleclass = 'bio'
