@@ -1,0 +1,48 @@
+easyblock = 'MakeCp'
+
+name = 'lumpy-sv'
+version = '0.3.0'
+
+homepage = 'https://github.com/arq5x/lumpy-sv'
+description = """A probabilistic framework for structural variant discovery."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [{'filename': 'lumpy-sv-%(version)s.tar.gz',
+	'git_config': {
+		'url': 'https://github.com/arq5x',
+		'repo_name': 'lumpy-sv',
+		'tag':'%(version)s',
+		'recursive': True,
+	},
+
+}]
+
+builddependencies = [('Autotools','20150215'),
+		
+]
+dependencies = [('cURL','7.53.1'),
+	('Python','2.7.13'),
+	('SAMtools','0.1.20'),
+	('sambamba','0.6.6','',True),
+
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['bin','data','lib','lumpy_tests','scripts','test','README.md','LICENSE']
+
+sanity_check_paths = {
+	'files': ['bin/lumpy','bin/lumpyexpress','bin/lumpy_filter'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'scripts'
+}
+
+fix_python_shebang_for = ['scripts/*.py']
+
+postinstallcmds = ['chmod 775 %(installdir)s/scripts/*']
+moduleclass = 'bio'

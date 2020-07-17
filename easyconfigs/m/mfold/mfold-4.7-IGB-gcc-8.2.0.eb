@@ -1,0 +1,28 @@
+easyblock = 'ConfigureMake'
+
+name = 'mfold'
+version = '4.7'
+
+homepage = 'http://unafold.rna.albany.edu/?q=mfold'
+description = """The mfold web server is one of the oldest web servers in computational molecular biology."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['http://unafold.rna.albany.edu/download/']
+sources = ['mfold_util-%(version)s.tar.gz']
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/mutplot'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

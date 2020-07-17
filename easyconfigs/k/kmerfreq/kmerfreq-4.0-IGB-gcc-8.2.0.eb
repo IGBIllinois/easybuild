@@ -1,0 +1,32 @@
+easyblock = 'MakeCp'
+
+name = 'kmerfreq'
+version = '4.0'
+local_commit = '90fca00'
+
+homepage = 'https://github.com/fanagislab/kmerfreq'
+description = """kmerfreq count K-mer (with size K) frequency from the input sequence data, typically sequencing reads data, and reference genome data is also applicable. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/fanagislab/kmerfreq/archive/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['kmerfreq'],'bin'),'ReadMe.txt','test']
+
+sanity_check_paths = {
+	'files': ['bin/kmerfreq'],
+	'dirs': ['test'],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

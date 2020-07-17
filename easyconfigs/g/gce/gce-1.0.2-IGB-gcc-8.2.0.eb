@@ -1,0 +1,38 @@
+easyblock = 'MakeCp'
+
+name = 'gce'
+version = '1.0.2'
+local_commit = '4ad645b'
+
+homepage = 'https://github.com/fanagislab/GCE'
+description = """GCE (genomic charactor estimator) is a bayes model based method to estimate the 
+genome size, genomic repeat content and the heterozygsis rate of the sequencing
+sample"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/fanagislab/GCE/archive/']
+
+dependencies = [('kmerfreq','4.0'),
+
+]
+
+start_dir = 'gce-%(version)s'
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['gce'],'bin'),'README.txt','test','Update.log']
+
+sanity_check_paths = {
+	'files': ['bin/gce'],
+	'dirs': ['test'],
+}
+
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

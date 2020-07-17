@@ -16,6 +16,7 @@ source_urls = ['https://github.com/ISUgenomics/SequelTools/archive/']
 
 dependencies = [('Python','3.7.2'),
 	('R','3.6.0'),
+	('SAMtools','1.10'),
 ]
 
 fix_python_shebang_for = ['Scripts/*.py']
