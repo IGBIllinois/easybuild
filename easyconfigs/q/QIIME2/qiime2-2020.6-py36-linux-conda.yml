@@ -410,7 +410,9 @@ dependencies:
   - zipp=3.1.0
   - zlib=1.2.11
   - zstd=1.4.4
+  - xmltodict
   - pip:
       - pyqt5-sip==4.19.18
       - pyqtchart==5.12
       - pyqtwebengine==5.12.1
+      - git+https://github.com/bokulich-lab/RESCRIPt.git

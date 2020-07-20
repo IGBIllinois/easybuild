@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'multigeneblast'
+version = '1.1.13'
+
+homepage = 'http://multigeneblast.sourceforge.net'
+description = """MultiGeneBlast is an open source tool for identification of homologs of multigene modules such as operons and gene clusters. It is based on a reformatting of the FASTA headers of NCBI GenBank protein entries, using which it can track down their source nucleotide and coordinates.
+"""
+
+toolchain = SYSTEM
+
+sources = ['multigeneblast_%(version)s_linux64.tar.gz']
+source_urls = [SOURCEFORGE_SOURCE]
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
