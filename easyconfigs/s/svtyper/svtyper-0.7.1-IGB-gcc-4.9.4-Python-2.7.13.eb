@@ -1,0 +1,43 @@
+easyblock = 'PythonPackage'
+
+name = 'svtyper'
+version = '0.7.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/hall-lab/svtyper'
+description = """SVTyper performs breakpoint genotyping of structural variants (SVs) using whole genome sequencing data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '2.7.13'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('toolz','0.10.0'),
+	('cytoolz','0.10.1'),
+	('pysam','0.16.0.1'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/svtyper'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

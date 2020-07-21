@@ -1,0 +1,70 @@
+easyblock = 'PythonPackage'
+
+name = 'svtools'
+version = '0.5.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/hall-lab/svtools'
+description = """Comprehensive utilities to explore structural variations in genomes"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('svtyper','0.7.1','-Python-%(pyver)s'),
+	('CNVnator','0.3.3','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('logzero','1.5.0'),
+	('crcmod','1.7'),
+	('googleapis-common-protos','1.52.0', {
+		'modulename': 'googleapis.common.protos',
+	}),
+	('google-auth','1.19.2', {
+		'modulename': 'google.auth',
+	}),
+	('google-cloud-storage','1.29.0', {
+		'modulename': 'google.cloud.storage',
+	}),
+	('google-compute-engine','2.8.13', {
+		'modulename': 'google.compute.engine',
+	}),
+	('google-cloud-core','1.3.0', {
+		'modulename': 'google.cloud.core',
+	}),
+	('google-resumable-media','0.5.1', {
+		'modulename': 'google.resumable.media',
+	}),
+	('google-api-core','1.21.0', {
+		'modulename': 'google.api.core',
+	}),
+	('cachetools','3.1.1'),
+	('pyasn1','0.4.8'),
+	('pyasn1-modules','0.2.8'),
+	('rsa','3.4.2'),
+	('boto','2.49.0'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('', "")
+
+sanity_check_paths = {
+        'files': ['bin/svtools'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
