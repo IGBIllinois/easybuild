@@ -8,8 +8,15 @@ description = """Command-line scripts and pipelines to perform downstream analys
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-sources = ['cbc_pacbio-master.tar.gz']
-source_urls = ['https://github.com/IGBIllinois/cbc_pacbio/archive/']
+
+sources = [{
+        'filename': 'cbc_pacbio-%(version)s.tar.gz',
+        'git_config': {
+                'url': 'https://github.com/IGBIllinois',
+                'repo_name': 'cbc_pacbio',
+                'tag': 'beta',
+        },
+}]
 
 dependencies = [('Perl','5.28.1'),
 	('tar','1.32'),

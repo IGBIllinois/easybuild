@@ -1,0 +1,34 @@
+easyblock = 'Tarball'
+
+name = 's3_posting'
+version = 'beta'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/IGBIllinois/s3_posting'
+description = """Posts data to AWS S3 bucket through linux command line"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [{
+        'filename': 's3_posting-%(version)s.tar.gz',
+        'git_config': {
+                'url': 'https://github.com/IGBIllinois',
+                'repo_name': 's3_posting',
+                'tag': 'beta',
+        },
+}]
+
+dependencies = [('Python','3.7.2'),
+	('awscli','1.16.113','-Python-3.7.2')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/upload.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PYTHONPATH':'lib'}
+
+moduleclass = 'tools'
