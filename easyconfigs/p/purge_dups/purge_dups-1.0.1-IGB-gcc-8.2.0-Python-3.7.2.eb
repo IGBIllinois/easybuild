@@ -1,0 +1,36 @@
+easyblock = 'MakeCp'
+
+name = 'purge_dups'
+version = '1.0.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/dfguan/purge_dups'
+description = """purge haplotigs and overlaps in an assembly based on read depth"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/dfguan/purge_dups/archive/']
+
+dependencies = [('Python','3.7.2'),
+	('minimap','2.17'),
+	('zlib','1.2.11'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+buildopts = "-C src"
+
+files_to_copy = ['bin','scripts','README.md','LICENSE','purge_dupspipeline.png']
+
+sanity_check_paths = {
+	'files': ['bin/purge_dups'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'scripts'
+}
+
+moduleclass = 'bio'

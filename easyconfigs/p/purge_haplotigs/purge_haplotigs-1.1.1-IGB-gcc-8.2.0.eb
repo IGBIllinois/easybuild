@@ -1,0 +1,37 @@
+easyblock = 'Tarball'
+
+name = 'purge_haplotigs'
+version = '1.1.1'
+
+homepage = 'https://bitbucket.org/mroachawri/purge_haplotigs'
+description = """A simple pipeline for reassigning primary contigs that should be labelled as haplotigs."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://bitbucket.org/mroachawri/purge_haplotigs/get/']
+
+dependencies = [('BEDTools','2.28.0'),
+	('SAMtools','1.10'),
+	('minimap','2.17'),
+	('Perl','5.28.1'),
+	('R','3.6.0'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/purge_haplotigs'],
+	'dirs': [],
+}
+
+modextrapaths = {'PERL5LIB':'lib',
+	'PATH':'scripts',
+
+}
+
+fix_perl_shebang_for = ['scripts/*.pl']
+
+postinstallcmds = ['chmod +x %(installdir)s/scripts/*.pl']
+
+moduleclass = 'bio'
