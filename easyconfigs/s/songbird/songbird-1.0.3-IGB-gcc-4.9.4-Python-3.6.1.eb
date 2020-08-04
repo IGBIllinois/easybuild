@@ -1,0 +1,44 @@
+easyblock = 'PythonPackage'
+
+name = 'songbird'
+version = '1.0.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/biocore/songbird'
+description = """Establishing microbial composition measurement standards with reference frames"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('Tensorflow','1.15.2','-Python-%(pyver)s'),
+	('biom-format','2.1.6','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('patsy','0.5.1'),
+]
+
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/songbird'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
