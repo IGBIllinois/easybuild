@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'EDirect'
+version = '20160310'
+
+homepage = 'https://www.ncbi.nlm.nih.gov/books/NBK179288/'
+description = """Entrez Direct (EDirect) provides access to the NCBI's suite of interconnected databases (publication, sequence, structure, gene, variation, expression, etc.) from a UNIX terminal window. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['edirect.tar.gz']
+source_urls = ['ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/']
+
+dependencies = [('Perl','5.24.1'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['edirect.pl'],
+	'dirs': [],
+}
+
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
