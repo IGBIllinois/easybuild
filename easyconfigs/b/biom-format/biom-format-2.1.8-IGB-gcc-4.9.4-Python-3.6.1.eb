@@ -1,21 +1,20 @@
 easyblock = 'PythonPackage'
 
-name = 'songbird'
-version = '1.0.3'
+name = 'biom-format'
+version = '2.1.8'
 versionsuffix = '-Python-%(pyver)s'
 
-homepage = 'https://github.com/biocore/songbird'
-description = """Establishing microbial composition measurement standards with reference frames"""
+homepage = 'http://biom-format.org/'
+description = """The BIOM file format (canonically pronounced biome) is designed to be a general-use
+format for representing biological sample by observation contingency tables."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = [SOURCELOWER_TAR_GZ]
+sources = ['biom-format-%(version)s-1.tar.gz']
 source_urls = [PYPI_LOWER_SOURCE]
 
 dependencies = [
         ('Python', '3.6.1'),
-	('Tensorflow','1.15.2','-Python-%(pyver)s'),
-	('biom-format','2.1.8','-Python-%(pyver)s'),
 ]
 
 
@@ -26,19 +25,20 @@ exts_default_options = {
 
 exts_defaultclass = "PythonPackage"
 exts_list = [
-	('patsy','0.5.1'),
-	('pandas','0.25.3'),
+	('click','7.1.2'),
 ]
-
 
 use_pip = True
 sanity_pip_check = True
 unpack_sources = False
 
+options = {'modulename': 'biom',
+}
+
 exts_filter = ('python -c "import %(ext_name)s"', "")
 
 sanity_check_paths = {
-        'files': ['bin/songbird'],
+        'files': ['bin/biom'],
         'dirs': [],
 }
 
