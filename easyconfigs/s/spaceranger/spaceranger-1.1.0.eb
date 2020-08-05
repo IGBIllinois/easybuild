@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'spaceranger'
+version = '1.1.0'
+
+homepage = 'https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/what-is-space-ranger'
+description = """Space Ranger is a set of analysis pipelines that process Visium spatial RNA-seq output and brightfield and fluorescence microscope images in order to detect tissue, align reads, generate feature-spot matrices, perform clustering and gene expression analysis, and place spots in spatial context on the slide image."""
+
+toolchain = SYSTEM
+
+sources = ['spaceranger-%(version)s.tar.gz']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['spaceranger'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
