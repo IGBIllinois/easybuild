@@ -1,0 +1,26 @@
+easyblock = 'Rpm'
+
+name = 'bcl-convert'
+version = '3.6.3'
+
+homepage = 'https://support.illumina.com/sequencing/sequencing_software/bcl-convert.html?langsel=/us/'
+description = """The Illumina BCL Convert"""
+
+toolchain = SYSTEM
+
+sources = ['bcl-convert-%(version)s-1.el7.x86_64.rpm']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['usr/bin/bcl-convert'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'usr/bin'}
+
+moduleclass = 'bio'
