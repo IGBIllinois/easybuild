@@ -1,4 +1,4 @@
-easyblock = 'Bundle'
+easyblock = 'PythonBundle'
 
 name = 'PyTorch'
 version = '1.0.1.post2'
@@ -17,11 +17,20 @@ exts_filter = ("python -c 'import %(ext_name)s'", '')
 
 dependencies = [
 	('Python','3.6.1'),
-	('CUDA','9.0.176'),
-	('cuDNN','7.0.5','-CUDA-9.0.176'),
+	('CUDA','9.0.176','',True),
+	('cuDNN','7.1.4','-CUDA-9.0.176',True),
 ]
 
-local_use_pip = True
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
 
 
 exts_list = [
@@ -29,27 +38,20 @@ exts_list = [
 	'modulename': 'torch',
         'source_urls': ['https://pypi.python.org/packages/source/t/torch/'],
         'source_tmpl': 'torch-%(version)s-cp36-cp36m-manylinux1_x86_64.whl',
-        'unpack_sources': False,
-        'local_use_pip': True,
     }),
     ('torchvision', '0.2.2.post3', {
     	'modulename': 'torchvision',
         'source_urls': ['https://pypi.python.org/packages/source/t/torchvision/'],
         'source_tmpl': 'torchvision-%(version)s-py2.py3-none-any.whl',
-        'unpack_sources': False,
-        'local_use_pip': True,
     }),
 
     ('cffi', '1.12.2', {
         'modulename': 'cffi',
         'source_urls': ['https://pypi.python.org/packages/source/c/cffi/'],
         'source_tmpl': 'cffi-%(version)s-cp36-cp36m-manylinux1_x86_64.whl',
-        'unpack_sources': False,
-        'local_use_pip': True,
     }),
 ]
 
-modextrapaths = {'PYTHONPATH': ['lib/python%(pyshortver)s/site-packages']}
 
 sanity_check_paths = {
     'files': [],

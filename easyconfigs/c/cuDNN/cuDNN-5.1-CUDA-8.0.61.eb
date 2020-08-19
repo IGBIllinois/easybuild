@@ -15,17 +15,13 @@ homepage = 'https://developer.nvidia.com/cudnn'
 description = """The NVIDIA CUDA Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for
     deep neural networks."""
 
-toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchain = SYSTEM
 
 # Nvidia developer registration required.
 # Download link: https://developer.nvidia.com/rdp/cudnn-download
-sources = ['%(namelower)s-8.0-linux-x64-v%(version)s.tgz']
+sources = ['cudnn-8.0-linux-x64-v%(version)s.tgz']
 
 dependencies = [('CUDA', local_cuda_version)]
-
-checksums = [
-    '406f4ac7f7ee8aa9e41304c143461a69',    # cudnn-8.0-linux-x64-v5.1.tgz, Apr 27 2017 download
-]
 
 sanity_check_paths = {
     'files': ['include/cudnn.h', 'lib64/libcudnn_static.a'],

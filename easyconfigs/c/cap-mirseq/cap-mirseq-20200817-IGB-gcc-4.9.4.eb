@@ -1,0 +1,44 @@
+easyblock = 'Tarball'
+
+name = 'cap-mirseq'
+version = '20200817'
+
+homepage = 'http://bioinformaticstools.mayo.edu/research/cap-mirseq/'
+description = """CAP-miRSeq: A comprehensive analysis pipeline for deep microRNA sequencing"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['CAP-miRSEQ.tgz']
+source_urls = ['http://bioinformaticstools.mayo.edu/downloads/cap-mirna/']
+
+dependencies = [('Java','1.8.0_152','',True),
+	('R','3.3.3'),
+	('GATK','3.8-1-0','-Java-1.8.0_152',True),
+	('Bowtie','1.2.2'),
+	('randfold','2.0.1'),
+	('squid','1.9g'),
+	('ViennaRNA','2.4.14'),
+	('BEDTools','2.26.0'),
+	('FastQC','0.11.8','-Java-1.8.0_152',True),
+	('HTSeq','0.9.1','-Python-2.7.13'),
+	('SAMtools','0.1.20'),
+	('cutadapt','1.14','-Python-2.7.13'),
+	('picard','1.77','-Java-1.8.0_152',True),
+	('VCFtools','0.1.15','-Perl-5.24.1'),
+	('Python','2.7.13'),
+	
+]
+
+keepsymlinks = True
+
+fix_perl_shebang_for = ['scripts/*.pl']
+
+sanity_check_paths = {
+	'files': ['scripts/CAP-miRseq.sh'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'scripts'
+}
+
+moduleclass = 'bio'

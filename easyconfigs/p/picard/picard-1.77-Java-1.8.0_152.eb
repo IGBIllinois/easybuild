@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'picard'
+version = '1.77'
+versionsuffix = '-Java-%(javaver)s'
+
+
+homepage = 'http://broadinstitute.github.io/picard/'
+description = """A set of tools (in Java) for working with next generation sequencing data in the BAM
+  (http://samtools.github.io/hts-specs) format."""
+
+toolchain = SYSTEM
+
+source_urls = [SOURCEFORGE_SOURCE]
+sources = ['picard-tools-%(version)s.zip']
+
+dependencies = [('Java', '1.8.0_152')]
+
+sanity_check_paths = {
+    'files': ["picard-tools-%(version)s/picard-%(version)s.jar"],
+    'dirs': [],
+}
+
+modaliases = {'picard': 'java -jar %(installdir)s/picard-tools-%(version)s/picard-%(version)s.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+modloadmsg = """To execute picard run 'picard'.  This command executes 'java -jar %(installdir)s/picard-%(version)s.jar'\n"""
+
+moduleclass = 'bio'

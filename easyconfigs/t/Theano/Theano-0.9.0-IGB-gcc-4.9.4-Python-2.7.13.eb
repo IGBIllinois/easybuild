@@ -14,8 +14,8 @@ source_urls = [PYPI_SOURCE]
 sources = [SOURCE_TAR_GZ]
 
 dependencies = [('Python', '2.7.13'),
-		('CUDA','8.0.61'),
-		('cuDNN','5.1','-CUDA-8.0.61'),
+		('CUDA','8.0.61','',True),
+		('cuDNN','5.1','-CUDA-8.0.61',True),
 		('pygpu','0.6.5',versionsuffix),
 		('PyCUDA','2017.1',versionsuffix),
 		('scikit-cuda','0.5.1',versionsuffix),
@@ -23,8 +23,16 @@ dependencies = [('Python', '2.7.13'),
 
 builddependencies = [('nose-parameterized', '0.6.0', versionsuffix)]
 
-# The tests take very long to finish (they are installed too)
-runtest = 'nosetests theano'
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
 
 sanity_check_paths = {
     'files': ['bin/theano-cache', 'bin/theano-nose'],

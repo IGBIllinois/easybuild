@@ -11,8 +11,8 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 dependencies = [
 	('Python', '3.6.1'),
-	('CUDA','8.0.61'),
-	('cuDNN','5.1','-CUDA-8.0.61'),
+	('CUDA','8.0.61','',True),
+	('cuDNN','5.1','-CUDA-8.0.61',True),
    
 ]
 

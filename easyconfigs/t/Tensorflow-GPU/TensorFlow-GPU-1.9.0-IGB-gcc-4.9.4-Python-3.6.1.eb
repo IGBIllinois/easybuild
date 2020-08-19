@@ -1,7 +1,7 @@
 easyblock = 'PythonBundle'
 
 name = 'Tensorflow-GPU'
-version = '1.5.1'
+version = '1.9.0'
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://www.tensorflow.org/'
@@ -62,7 +62,15 @@ exts_list = [
 	('soupsieve','2.0.1'),
         ('bleach','1.5.0'),
         ('html5lib','0.9999999'),
-
+        ('tensorboard', version, {
+                'source_tmpl': 'tensorboard-%(version)s-py3-none-any.whl',
+        }),
+	('grpcio','1.31.0', {
+		'modulename': 'grpc',
+	}),
+	('setuptools','39.1.0', {
+		'source_tmpl': 'setuptools-%(version)s.zip',
+	}),
 ]
 
 sanity_check_paths = {
