@@ -19,7 +19,7 @@ sources = [{
 }]
 
 dependencies = [('Python','3.7.2'),
-	('awscli','1.16.113','-Python-3.7.2')
+	('awscli','1.18.96','-Python-3.7.2')
 ]
 
 keepsymlinks = True
@@ -32,3 +32,5 @@ sanity_check_paths = {
 modextrapaths = {'PYTHONPATH':'lib'}
 
 moduleclass = 'tools'
+
+keeppreviousinstall = True

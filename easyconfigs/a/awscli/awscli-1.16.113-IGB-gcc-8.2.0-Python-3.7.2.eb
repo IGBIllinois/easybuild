@@ -35,6 +35,9 @@ exts_list = [
 	('pyasn1','0.4.8'),
 	('colorama','0.3.9'),
 	('s3transfer','0.2.0'),
+	('PyYAML','3.13', {
+		'modulename': 'yaml',
+	}),
 
 ]
 
