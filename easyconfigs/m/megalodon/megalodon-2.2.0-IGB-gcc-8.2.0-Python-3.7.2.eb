@@ -1,0 +1,57 @@
+easyblock = 'PythonPackage'
+
+name = 'megalodon'
+version = '2.2.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/nanoporetech/megalodon/'
+description = """Megalodon is a research tool for per-read and aggregated modified base and sequence variant calling by anchoring the information rich basecalling neural network output to a reference genome/transriptome."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ["%(version)s.tar.gz"]
+source_urls = ["https://github.com/nanoporetech/megalodon/archive/"]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('ont-fast5-api','3.1.5','-Python-3.7.2'),
+	('guppy-gpu','4.0.15','',True),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('mappy','2.16'),
+	('pyguppyclient','0.0.6'),
+	('flatbuffers','1.11', {
+		'source_tmpl': 'flatbuffers-%(version)s-py2.py3-none-any.whl',
+	}),
+	('pyzmq','17.1.2', {
+		'modulename': 'zmq',
+	}),
+	('ont-pyguppy-client-lib','4.0.15', {
+		'modulename': 'megalodon',
+		'source_tmpl': 'ont_pyguppy_client_lib-%(version)s-cp37-cp37m-manylinux2010_x86_64.whl',
+	}),
+
+
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+
+sanity_check_paths = {
+        'files': ['bin/megalodon'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

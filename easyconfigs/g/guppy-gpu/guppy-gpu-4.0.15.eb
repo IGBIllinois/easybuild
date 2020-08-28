@@ -1,0 +1,31 @@
+easyblock = 'Tarball'
+
+name = 'guppy-gpu'
+version = '4.0.15'
+
+homepage = 'https://community.nanoporetech.com/posts/pre-release-of-stand-alone'
+description = """Guppy is a stand-alone data bioinformatic toolkit that provides Oxford Nanopore Technologies basecalling algorithm, along with a number of post-processing tools. """
+
+toolchain = SYSTEM
+
+sources = ['ont-guppy_%(version)s_linux64.tar.gz']
+source_urls = ['https://mirror.oxfordnanoportal.com/software/analysis/']
+
+dependencies = [('CUDA','10.0.130'),
+	
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/guppy_aligner'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
+
+##Notes
+## Add the following to eb command "--filter-env-vars=LD_LIBRARY_PATH,LIBRARY_PATH" when building
