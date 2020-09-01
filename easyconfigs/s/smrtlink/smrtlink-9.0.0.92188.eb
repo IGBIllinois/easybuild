@@ -1,0 +1,35 @@
+easyblock = 'ModuleOnly'
+
+name = 'smrtlink'
+version = '9.0.0.92188'
+
+homepage = 'https://www.pacb.com/support/software-downloads/'
+description = """PacBio’s open-source SMRT Analysis software suite is designed for use with Single Molecule, Real-Time (SMRT) Sequencing data. You can analyze, visualize, and manage your data through an intuitive GUI or command-line interface."""
+
+toolchain = SYSTEM
+
+source_urls = ['https://downloads.pacbcloud.com/public/software/installers/']
+sources = ['%(name)s_%(version)s.zip']
+
+dependencies = []
+
+#cmds_map = [('.*', "mkdir %(installdir)s/current"),
+#('.*', "./smrtlink_%(version)s.run --smrttools-only -u --rootdir %(installdir)s")]
+
+files_to_copy = []
+
+sanity_check_paths = {
+        'files': ['smrtcmds/bin/pbindex'],
+        'dirs': [],
+}
+
+modextrapaths = {'PATH':'smrtcmds/bin'
+}
+
+moduleclass = 'bio'
+
+keeppreviousinstall = True
+
+####Install Notes
+###To install, run ./smrtlink_8.0.0.80529.run --smrttools-only -i --rootdir /home/apps/software/smrtlink/8.0.0.80529
+
