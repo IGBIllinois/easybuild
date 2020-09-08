@@ -1,0 +1,34 @@
+easyblock = 'Conda'
+
+name = 'ipyrad'
+version = '0.9.57'
+
+homepage = 'https://ipyrad.readthedocs.io/en/latest/'
+description = """Welcome to ipyrad, an interactive assembly and analysis toolkit for restriction-site associated DNA (RAD-seq) and related data types. Please explore the documentation to find out more about the features of ipyrad."""
+
+toolchain = SYSTEM
+
+dependencies = [('Miniconda3','4.7.12.1'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': ['bin/ipyrad'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

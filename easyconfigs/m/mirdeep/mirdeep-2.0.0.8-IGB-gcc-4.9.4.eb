@@ -24,7 +24,9 @@ with_configure = False
 
 skipsteps = ['build']
 
-files_to_copy = [(['src/*.pl'],'bin')]
+files_to_copy = [(['src/*.pl','Rfam_for_miRDeep.fa'],'bin'),
+	'CREDITS','DISCLAIMER'
+]
 
 sanity_check_paths = {
 	'files': ['bin/miRDeep2.pl'],
