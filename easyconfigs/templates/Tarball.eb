@@ -6,7 +6,7 @@ version = ''
 homepage = ''
 description = """"""
 
-toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 sources = ['v%(version)s.tar.gz']
 source_urls = ['']

@@ -25,6 +25,10 @@ modextrapaths = {
 }
 
 
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
 moduleclass = 'bio'
 
 

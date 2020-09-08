@@ -7,13 +7,13 @@ versionsuffix = '-Python-%(pyver)s'
 homepage = ''
 description = """"""
 
-toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 sources = [SOURCELOWER_TAR_GZ]
 source_urls = [PYPI_LOWER_SOURCE]
 
 dependencies = [
-        ('Python', '3.6.1'),
+        ('Python', '3.7.2'),
 ]
 
 
