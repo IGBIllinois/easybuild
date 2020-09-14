@@ -13,17 +13,22 @@ sources = ['%(namelower)s-%(version)s.src.tar.Z']
 
 patches = ['RNAmmer-1.2.patch']
 
+builddependencies = [
+	('HMMER','2.3.2'),
+]
+
 dependencies = [
 	('Perl','5.24.1'),
-	('HMMER','2.3.2'),
 ]
 
 keepsymlinks = True
 
 sanity_check_paths = {
-	'files': ['rnammer'],
+	'files': ['rnammer','hmmsearch2'],
 	'dirs': [],
 }
+
+postinstallcmds = ["cp $EBROOTHMMER/bin/hmmsearch %(installdir)s/hmmsearch2"]
 
 modextrapaths = {
 	'PATH': '',

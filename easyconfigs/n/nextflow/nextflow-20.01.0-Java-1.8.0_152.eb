@@ -40,6 +40,6 @@ modextravars = {'NXF_EXECUTOR': 'SLURM',
 		'NXF_TEMP': '/tmp'}
 
 modloadmsg = "Please set the environmental variable NXF_HOME to a directory in your home directory.  Without this parameter, nextflow will not work.\n"
-modloadmsg += "An example is 'export NXF_HOME=/home/a-m/username/nextflow'.\n"
+modloadmsg += "An example is 'export NXF_HOME=$HOME/nextflow'.\n"
 
 moduleclass = 'bio'
