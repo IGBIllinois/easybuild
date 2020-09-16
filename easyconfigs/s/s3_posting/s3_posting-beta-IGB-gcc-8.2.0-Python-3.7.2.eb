@@ -25,8 +25,8 @@ dependencies = [('Python','3.7.2'),
 keepsymlinks = True
 
 sanity_check_paths = {
-	'files': ['bin/upload.py'],
-	'dirs': [],
+	'files': ['bin/upload.py','bin/generate_url.py','bin/test_profile.py'],
+	'dirs': ['lib/s3_posting'],
 }
 
 modextrapaths = {'PYTHONPATH':'lib'}
