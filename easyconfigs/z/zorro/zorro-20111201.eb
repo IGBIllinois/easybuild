@@ -1,0 +1,27 @@
+easyblock = 'Binary'
+
+name = 'zorro'
+version = '20111201'
+
+homepage = 'https://sourceforge.net/projects/probmask/files/'
+description = """A probabilistic alignment masking program"""
+
+toolchain = SYSTEM
+
+sources = ['zorro_linux_x86_64']
+source_urls = ['http://download.sourceforge.net/probmask/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['zorro_linux_x86_64'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+postinstallcmds = ['ln -s %(installdir)s/zorro_linux_x86_64 %(installdir)s/zorro']
+
+moduleclass = 'bio'
