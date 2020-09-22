@@ -22,6 +22,6 @@ sanity_check_paths = {
 }
 
 modextrapaths = {'PATH':''}
-postinstallcmds = ['ln -s %(installdir)s/zorro_linux_x86_64 %(installdir)s/zorro']
+postinstallcmds = ['ln -s %(installdir)s/zorro_linux_x86_64 %(installdir)s/zorro','chmod 775 %(installdir)s/zorro_linux_x86_64']
 
 moduleclass = 'bio'

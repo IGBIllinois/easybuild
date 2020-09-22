@@ -1,0 +1,42 @@
+easyblock = 'PythonPackage'
+
+name = 'nltk'
+version = '3.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/nltk/nltk'
+description = """NLTK -- the Natural Language Toolkit -- is a suite of open source Python modules, data sets, and tutorials supporting research and development in Natural Language Processing."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['nltk-%(version)s.zip']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('regex','2020.7.14'),
+	('click','7.1.2'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/nltk'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/nltk'],
+}
+
+moduleclass = 'tools'
