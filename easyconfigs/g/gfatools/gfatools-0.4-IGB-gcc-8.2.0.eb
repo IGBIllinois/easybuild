@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'gfatools'
+version = '0.4'
+
+homepage = 'https://github.com/lh3/gfatools'
+description = """gfatools is a set of tools for manipulating sequence graphs in the GFA or the rGFA format. It has implemented parsing, subgraph and conversion to FASTA/BED."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/lh3/gfatools/archive/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['gfatools'],'bin'),'README.md','NEWS.md','doc','test']
+
+sanity_check_paths = {
+	'files': ['bin/gfatools'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
