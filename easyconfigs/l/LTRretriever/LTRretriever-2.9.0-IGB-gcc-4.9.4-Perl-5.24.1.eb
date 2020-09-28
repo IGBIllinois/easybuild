@@ -1,0 +1,35 @@
+easyblock = 'Tarball'
+
+name = 'LTRretriever'
+version = '2.9.0'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/oushujun/LTR_retriever'
+description = """LTR_retriever is a command line program (in Perl) for accurate identification of LTR retrotransposons (LTR-RTs) from outputs of LTRharvest, LTR_FINDER, MGEScan 3.0.0, LTR_STRUC, and LtrDetector, and generates non-redundant LTR-RT library for genome annotations."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/oushujun/LTR_retriever/archive/']
+
+dependencies = [('Perl','5.24.1'),
+	('trf','4.0.9','',True),
+	('RMBlast','2.9.0'),
+	('BLAST','2.2.26','-Linux_x86_64',True),
+	('CD-HIT','4.6.6'),
+	('HMMER','3.2.1'),
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['LTR_retriever'],
+	'dirs': ['bin'],
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/bin/*']
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

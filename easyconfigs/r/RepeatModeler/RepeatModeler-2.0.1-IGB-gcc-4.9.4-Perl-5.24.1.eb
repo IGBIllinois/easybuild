@@ -12,14 +12,18 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 sources = ['%(name)s-%(version)s.tar.gz']
 source_urls = ['http://www.repeatmasker.org/RepeatModeler/']
 
-fix_perl_shebang_for = ['BuildDatabase','LTRPipeline','configure','Refiner','RepeatClassifier','RepeatModuler','TRFMask','util/*']
+fix_perl_shebang_for = ['BuildDatabase','LTRPipeline','configure','Refiner','RepeatClassifier','RepeatModuler','TRFMask','util/*','*.pm']
 
 dependencies = [('Perl','5.24.1'),
 	('trf','4.0.9','',True),
-	('RepeatMasker','4.0.7','-Perl-5.24.1'),
+	('RepeatMasker','4.1.1','-Perl-5.24.1'),
 	('RepeatScout','1.0.5'),
-	('RMBlast','2.6.0'),
+	('RMBlast','2.9.0'),
 	('RECON','1.08','-Perl-5.24.1'),
+	('genometools','1.5.10'),
+	('LTRretriever','2.9.0','-Perl-5.24.1'),
+	('MAFFT','7.310'),
+	('NINJA','0.97'),
 
 
 	
@@ -33,5 +37,7 @@ sanity_check_paths = {
 }
 
 modextrapaths = {'PATH':['','util']}
+
+postinstallcmds = ["cd %(installdir)s && perl ./configure -ninja_dir=$EBROOTNINJA/bin -recon_dir=$EBROOTRECON/bin -trf_prgm=$EBROOTTRF/trf -genometools_dir=$EBROOTGENOMETOOLS/bin -ltr_retriever_dir=$EBROOTLTRRETRIEVER -mafft_dir=$EBROOTMAFFT/bin -rmblast_dir=$EBROOTRMBLAST/bin -repeatmasker_dir=$EBROOTREPEATMASKER -rscout_dir=$EBROOTREPEATSCOUT/bin -cdhit_dir=$EBROOTCDMINHIT/bin"]
 
 moduleclass = 'bio'

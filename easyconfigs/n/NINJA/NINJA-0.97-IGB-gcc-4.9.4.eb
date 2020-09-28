@@ -1,0 +1,33 @@
+easyblock = 'MakeCp'
+
+name = 'NINJA'
+version = '0.97'
+
+homepage = 'https://github.com/TravisWheelerLab/NINJA'
+description = """Nearly Infinite Neighbor Joining Application"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s-cluster_only.tar.gz']
+source_urls = ['https://github.com/TravisWheelerLab/NINJA/archive/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+start_dir = 'NINJA'
+
+files_to_copy = ['README',(['Ninja'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/Ninja'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
