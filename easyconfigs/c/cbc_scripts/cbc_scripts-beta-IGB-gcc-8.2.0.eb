@@ -40,7 +40,6 @@ sanity_check_paths = {
 
 modextrapaths = {}
 
-force_download = true
 moduleclass = 'bio'
 
 

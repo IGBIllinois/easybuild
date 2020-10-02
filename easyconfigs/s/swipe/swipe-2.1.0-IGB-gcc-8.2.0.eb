@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'swipe'
+version = '2.1.0'
+
+homepage = 'https://dna.uio.no/swipe/'
+description = """SWIPE is a tool for performing rapid local alignment searches in amino acid or nucleotide sequence databases. It is a highly optimized implementation of the Smith-Waterman algoritm using SIMD parallel computing technology available on common CPUs."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/torognes/swipe/archive/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['swipe','mpiswipe'],'bin'),'README','CHANGES','COPYING']
+
+sanity_check_paths = {
+	'files': ['bin/swipe'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
