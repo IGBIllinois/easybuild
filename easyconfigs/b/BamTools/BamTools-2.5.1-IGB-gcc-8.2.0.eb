@@ -1,0 +1,17 @@
+name = 'BamTools'
+version = '2.5.1'
+
+homepage = 'https://github.com/pezmaster31/bamtools'
+description = """BamTools provides both a programmers API and an end-users toolkit for handling BAM files."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/pezmaster31/bamtools/archive']
+
+builddependencies = [('CMake', '3.12.1')]
+
+files_to_copy = ["bin", "lib", "include", "docs", "LICENSE", "README"]
+
+moduleclass = 'bio'
+

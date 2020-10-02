@@ -23,11 +23,29 @@ dependencies = [
 	
 ]
 
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
 exts_defaultclass = "PythonPackage"
 exts_list = []
 
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
 
-exts_filter = ('', "")
+options = {'modulename':'mrcnn'
+
+}
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_list = [
+	('imagecodecs','2020.5.30', {
+		'source_tmpl': 'imagecodecs-%(version)s-cp36-cp36m-manylinux2010_x86_64.whl',
+	}),
+]
 
 sanity_check_paths = {
         'files': [],

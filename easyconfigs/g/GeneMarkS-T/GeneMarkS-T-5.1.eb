@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'GeneMarkS-T'
+version = '5.1'
+
+homepage = 'http://topaz.gatech.edu/GeneMark/'
+description = """"""
+
+toolchain = SYSTEM
+
+sources = ['gmst_linux_64.tar.gz','gm_key_64.gz']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['gmhmmp','gmst.pl','Gibbs3','probuild'],
+	'dirs': [],
+}
+
+license_file = 'gm_key_64'
+ 
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

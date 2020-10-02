@@ -1,0 +1,48 @@
+easyblock = 'Tarball'
+
+name = 'rnaquast'
+version = '2.1.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/ablab/rnaquast'
+description = """rnaQUAST is a tool for evaluating RNA-Seq assemblies using reference genome and gene database. In addition, rnaQUAST is also capable of estimating gene database coverage by raw reads and de novo quality assessment using third-party software."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/ablab/rnaquast/archive/']
+
+dependencies = [('Python','3.7.2'),
+	('gffutils','0.10.1','-Python-%(pyver)s'),
+	('BLAST+','2.10.1'),
+	('GMAP','2020-06-04'),
+	('HMMER','3.3.1'),
+	('GeneMarkS-T','5.1','',True),
+	('STAR','2.7.4a'),
+	('BUSCO','4.1.4','-Python-%(pyver)s'),
+
+
+]
+
+keepsymlinks = True
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('joblib','0.16.0')
+]
+
+sanity_check_paths = {
+	'files': ['rnaQUAST.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'',
+	'PYTHONPATH': 'lib/python%(pyshortver)s/site-packages',
+}
+
+moduleclass = 'bio'

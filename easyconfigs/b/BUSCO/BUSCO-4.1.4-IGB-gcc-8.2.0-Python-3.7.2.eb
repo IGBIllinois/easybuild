@@ -1,0 +1,47 @@
+easyblock = 'PythonPackage'
+
+name = 'BUSCO'
+version = '4.1.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://busco.ezlab.org/'
+description = """Assessing genome assembly and annotation completeness with Benchmarking Universal Single-Copy Orthologs (BUSCO)"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['busco-%(version)s.tar.gz']
+source_urls = ['https://gitlab.com/ezlab/busco/-/archive/%(version)s/']
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Biopython','1.76','-Python-%(pyver)s'),
+	('R','3.6.0'),
+	('BLAST+','2.10.1'),
+	('Prodigal','2.6.3','',True),
+	('SEPP','4.3.10','-Python-%(pyver)s'),
+	('augustus','3.3.3'),
+
+	
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/busco'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

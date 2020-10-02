@@ -1,0 +1,46 @@
+easyblock = 'PythonPackage'
+
+name = 'gffutils'
+version = '0.10.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = ''
+description = """"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Biopython','1.76','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('simplejson','3.17.2'),
+	('argcomplete','1.12.1'),
+	('argh','0.26.2'),
+	('pyfaidx','0.5.9.1'),
+
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/gffutils-cli'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/gffutils'],
+}
+
+moduleclass = 'bio'
