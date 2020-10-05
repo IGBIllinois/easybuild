@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'ANNOVAR'
+version = '2019Oct24'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'http://annovar.openbioinformatics.org/en/latest/'
+description = """ANNOVAR is an efficient software tool to utilize update-to-date information to functionally annotate genetic variants detected from diverse genomes (including human genome hg18, hg19, hg38, as well as mouse, worm, fly, yeast and many others)."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['annovar.latest.tar.gz']
+source_urls = ['http://www.openbioinformatics.org/annovar/download/0wgxR2rIVP/']
+
+dependencies = [('Perl','5.28.1'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['variants_reduction.pl','table_annovar.pl'],
+	'dirs': ['example','humandb'],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

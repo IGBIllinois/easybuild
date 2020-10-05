@@ -2,7 +2,7 @@ easyblock = 'PythonPackage'
 
 name = 't3f'
 version = '1.1.0'
-versionsuffix = '-Python-%(pyver)s-TF-2.2.0'
+versionsuffix = '-Python-%(pyver)s-TF-2.0.3'
 
 homepage = 'https://t3f.readthedocs.io/en/latest/index.html'
 description = """t3f is a library for working with Tensor Train decomposition. """
@@ -14,7 +14,7 @@ source_urls = [PYPI_LOWER_SOURCE]
 
 dependencies = [
         ('Python', '3.6.1'),
-	('Tensorflow-GPU','2.2.0','-Python-3.6.1'),
+	('Tensorflow-GPU','2.0.3','-Python-3.6.1'),
 ]
 
 exts_default_options = {

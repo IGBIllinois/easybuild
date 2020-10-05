@@ -21,7 +21,7 @@ dependencies = [
 	('FastTree', '2.1.10'),
 	('genometools', '1.5.10'),
 	('Infernal', '1.1.2'),
-	('Trimmomatic', '0.36', '-Java-1.8.0_121', True),
+	('Trimmomatic', '0.36', '-Java-1.8.0_152', True),
 	('Perl', '5.24.1'),
 	('VSEARCH', '2.4.3'),
 ]

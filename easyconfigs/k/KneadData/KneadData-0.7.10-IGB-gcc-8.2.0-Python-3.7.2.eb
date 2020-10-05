@@ -14,7 +14,7 @@ source_urls = [PYPI_LOWER_SOURCE]
 
 dependencies = [
         ('Python', '3.7.2'),
-	('Trimmomatic', '0.38', '-Java-1.8.0_152', True),
+	('Trimmomatic', '0.33', '-Java-1.8.0_152', True),
 	('Bowtie2', '2.4.1'),
 ]
 
