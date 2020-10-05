@@ -1,0 +1,44 @@
+easyblock = 'CMakeMake'
+
+name = 'metaviralSPAdes'
+version = '20200721'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/ablab/spades/tree/metaviral_publication'
+description = """It contains script for viral assembly from metagenomes (assembler/metaviralspades.py), which is based on metaplasmidSPAdes."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+
+sources = [{'filename': 'metaviralSPAdes-%(version)s.tar.gz',
+	'git_config': {
+		'url': 'https://github.com/ablab',
+		'repo_name': 'spades',
+		'commit': '4a9900b',
+	},
+}]
+
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = [
+	('Python','3.7.2'),
+	('zlib','1.2.11'),
+	('bzip2','1.0.6'),
+]
+
+separate_build_dir = True
+start_dir = 'assembler/src'
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/spades.py','bin/metaviralspades.py','bin/metaplasmidspades.py'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+
