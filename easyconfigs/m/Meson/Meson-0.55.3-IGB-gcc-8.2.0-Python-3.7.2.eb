@@ -1,0 +1,48 @@
+easyblock = 'PythonPackage'
+
+name = 'Meson'
+version = '0.55.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://mesonbuild.com'
+description = "Meson is a cross-platform build system designed to be both as fast and as user friendly as possible."
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = [PYPI_LOWER_SOURCE]
+sources = [SOURCELOWER_TAR_GZ]
+
+builddependencies = [
+    ('binutils', '2.32'),
+]
+
+dependencies = [
+	('Python', '3.7.2'),
+	('Ninja', '1.9.0'),
+	('git','2.28.0'),
+]
+
+
+options = {'modulename': 'mesonbuild'}
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+
+sanity_check_paths = {
+    'files': ['bin/meson'],
+    'dirs': ['lib/python%(pyshortver)s/site-packages'],
+}
+
+moduleclass = 'tools'

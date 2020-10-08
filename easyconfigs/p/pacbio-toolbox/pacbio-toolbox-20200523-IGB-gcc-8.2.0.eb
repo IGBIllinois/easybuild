@@ -1,0 +1,36 @@
+easyblock = 'MesonNinja'
+
+name = 'pacbio-toolbox'
+version = '20200523'
+local_commit = '3cd2cbc'
+
+homepage = 'https://github.com/armintoepfer/pacbio-toolbox'
+description = """none"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/armintoepfer/pacbio-toolbox/archive/']
+sources = ['%s.tar.gz' % local_commit]
+
+builddependencies = [
+	('Meson', '0.55.3', '-Python-3.7.2'),
+	('Ninja', '1.9.0'),
+	('CMake','3.12.1'),
+]
+
+dependencies = [
+	('Boost','1.69.0'),
+	('HTSlib','1.9'),
+	('gtest','1.10.0'),
+	('pbbam','1.0.7'),
+]
+
+configopts = ""
+
+sanity_check_paths = {
+    'files': ['bin/exactpass','bin/subsamplezmws','bin/filterprimer'],
+    'dirs': [],
+}
+
+moduleclass = 'bio'
+
