@@ -1,0 +1,46 @@
+easyblock = 'PythonPackage'
+
+name = 'biom-format'
+version = '2.1.8'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://biom-format.org/'
+description = """The BIOM file format (canonically pronounced biome) is designed to be a general-use
+format for representing biological sample by observation contingency tables."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['biom-format-%(version)s-1.tar.gz']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('h5py','2.10.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('click','7.1.2'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+options = {'modulename': 'biom',
+}
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/biom'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

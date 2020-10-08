@@ -1,0 +1,34 @@
+easyblock = 'Conda'
+
+name = 'GenomicConsensus'
+version = '2.3.3'
+
+homepage = 'https://github.com/PacificBiosciences/GenomicConsensus'
+description = """The GenomicConsensus package provides the variantCaller tool, which allows you to apply the Quiver or Arrow algorithm to mapped PacBio reads to get consensus and variant calls."""
+
+toolchain = SYSTEM
+
+dependencies = [('Miniconda3','4.7.12.1'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': ['bin/variantCaller'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

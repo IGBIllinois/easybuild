@@ -1,7 +1,7 @@
 easyblock = 'PythonPackage'
 
 name = 'h5py'
-version = '2.9.0'
+version = '2.10.0'
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://github.com/arq5x/poretools'
@@ -13,8 +13,22 @@ sources = ['%(name)s-%(version)s.tar.gz']
 source_urls = ['https://pypi.python.org/packages/source/h/h5py/']
 
 dependencies = [
-        ('HDF5', '1.8.12'),
+        ('HDF5', '1.8.18'),
         ('Python', '3.7.2'),
 ]
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
 
 moduleclass = 'bio'
