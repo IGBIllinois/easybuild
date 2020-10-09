@@ -14,7 +14,7 @@ source_urls = [PYPI_LOWER_SOURCE]
 
 dependencies = [
         ('Python', '3.7.2'),
-	('Bowtie2','2.4.1'),
+	('Bowtie2','2.4.2'),
 	('Biopython','1.76','-Python-%(pyver)s'),
 	('biom-format','2.1.8','-Python-%(pyver)s'),
 	('DendroPy','4.4.0','-Python-%(pyver)s'),

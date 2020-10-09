@@ -31,4 +31,6 @@ keeppreviousinstall = True
 moduleclass = 'bio'
 
 modloadmsg = "This requires singularity.  You need to manually load the singularity module with 'module load singularity/3.4.1' for this program to work\n"
+modloadmsg += "Please use the temp parameter with parabricks to point to the nodes local /scratch directory.  Without this parameter, the program causes issues with our shared filesystem.\n"
+
 

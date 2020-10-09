@@ -1,0 +1,66 @@
+easyblock = 'PythonBundle'
+
+name = 'PyTorch'
+version = '1.6.0'
+versionsuffix = "-Python-%(pyver)s"
+
+homepage = 'http://pytorch.org'
+description = """Tensors and Dynamic neural networks in Python
+with strong GPU acceleration."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchainopts = {'pic': True}
+
+
+dependencies = [
+	('Python','3.6.1'),
+	('CUDA','10.0.130','',True),
+	('cuDNN','7.6.1.34','-CUDA-10.0.130',True),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('torch', version, {
+	'modulename': 'torch',
+        'source_urls': ['https://pypi.python.org/packages/source/t/torch/'],
+        'source_tmpl': 'torch-%(version)s-cp36-cp36m-manylinux1_x86_64.whl',
+        'unpack_sources': False,
+        'local_use_pip': True,
+    }),
+    ('torchvision', '0.7.0', {
+    	'modulename': 'torchvision',
+        'source_urls': ['https://pypi.python.org/packages/source/t/torchvision/'],
+        'source_tmpl': 'torchvision-%(version)s-cp36-cp36m-manylinux1_x86_64.whl',
+        'unpack_sources': False,
+        'local_use_pip': True,
+    }),
+
+    ('cffi', '1.14.3', {
+        'modulename': 'cffi',
+        'source_urls': ['https://pypi.python.org/packages/source/c/cffi/'],
+        'source_tmpl': 'cffi-%(version)s-cp36-cp36m-manylinux1_x86_64.whl',
+        'unpack_sources': False,
+        'local_use_pip': True,
+    }),
+]
+
+#modextrapaths = {'PYTHONPATH': ['lib/python%(pyshortver)s/site-packages']}
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['lib/python%(pyshortver)s/site-packages/torch']
+}
+
+
+moduleclass = 'bio'
