@@ -19,13 +19,13 @@ versionsuffix = '-%s-%s' % (local_java, local_javaver)
 dependencies = [(local_java, local_javaver)]
 
 modloadmsg = """Please limit the number of trimmomatic jobs to 3 at a time.  Using more creates a lot of stress on the shared filesystem on the cluster\n"""
-modloadmsg += """To execute Trimmomatic run 'trimmomatic'.  This command executes 'local_java -jar %(installdir)s/trimmoatic-%(version)s.jar'\n"""
+modloadmsg += """To execute Trimmomatic run 'trimmomatic'.  This command executes 'java -jar %(installdir)s/trimmoatic-%(version)s.jar'\n"""
 sanity_check_paths = {
     'files': ["trimmomatic-%(version)s.jar"],
     'dirs': [""],
 }
 
-modaliases = {'trimmomatic': 'local_java -jar %(installdir)s/trimmomatic-%(version)s.jar'}
+modaliases = {'trimmomatic': 'java -jar %(installdir)s/trimmomatic-%(version)s.jar'}
 modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
 
 moduleclass = 'bio'

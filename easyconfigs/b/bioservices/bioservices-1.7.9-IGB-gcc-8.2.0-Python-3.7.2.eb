@@ -1,0 +1,65 @@
+easyblock = 'PythonPackage'
+
+name = 'bioservices'
+version = '1.7.9'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/cokelaer/bioservices'
+description = """Bioservices is a Python package that provides access to many Bioinformatices Web Services (e.g., UniProt) and a framework to easily implement Web Services wrappers (based on WSDL/SOAP or REST protocols)."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('libxml2','2.9.7'),
+	('libxslt','1.1.33'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('colorama','0.4.4', {
+		'source_tmpl': 'colorama-%(version)s-py2.py3-none-any.whl',
+	}),
+	('colorlog','4.4.0'),
+	('beautifulsoup4','4.9.3', {
+		'modulename': 'bs4',
+	}),
+	('easydev','0.10.1'),
+	('grequests','0.6.0'),
+	('lxml','4.5.2'),
+	('requests-cache','0.5.2'),
+	('suds-jurko','0.6', {
+		'source_tmpl': 'suds-jurko-%(version)s.zip',
+		'modulename': 'suds',
+	}),
+	('greenlet','0.4.17'),
+	('zope.event','4.5.0'),
+	('zope.interface','5.1.2'),
+	('gevent','20.9.0'),
+	('wrapt','1.12.1'),
+	('xmltodict','0.12.0'),
+	('soupsieve','2.0.1'),
+	
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/bioservices'],
+}
+
+moduleclass = 'bio'
