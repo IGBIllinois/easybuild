@@ -47,7 +47,8 @@ modextrapaths = {'PYTHONPATH':'lib/python3.6/site-packages',
 modextravars = {'NXF_EXECUTOR': 'SLURM',
 		'NXF_TEMP': '/tmp'}
 
-modloadmsg = "Please set the environmental variable NXF_HOME to a directory in your home directory.  Without this parameter, nextflow will not work.\n"
+modloadmsg = "NOTICE: Please limit the number of nextflow jobs to 3 at a time.  Using more creates a lot of stress on the shared filesystem on the cluster\n"
+modloadmsg += "Please set the environmental variable NXF_HOME to a directory in your home directory.  Without this parameter, nextflow will not work.\n"
 modloadmsg += "An example is 'export NXF_HOME=$HOME/nextflow'.\n"
 
 moduleclass = 'bio'

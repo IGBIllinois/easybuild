@@ -7,15 +7,15 @@ versionsuffix = '-Python-%(pyver)s'
 homepage = 'https://github.com/cokelaer/bioservices'
 description = """Bioservices is a Python package that provides access to many Bioinformatices Web Services (e.g., UniProt) and a framework to easily implement Web Services wrappers (based on WSDL/SOAP or REST protocols)."""
 
-toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 sources = [SOURCELOWER_TAR_GZ]
 source_urls = [PYPI_LOWER_SOURCE]
 
 dependencies = [
-        ('Python', '3.7.2'),
-	('libxml2','2.9.7'),
-	('libxslt','1.1.33'),
+        ('Python', '3.6.1'),
+	('libxml2','2.9.4'),
+	('libxslt','1.1.29'),
 ]
 
 
@@ -30,7 +30,7 @@ exts_list = [
 		'source_tmpl': 'colorama-%(version)s-py2.py3-none-any.whl',
 	}),
 	('colorlog','4.4.0'),
-	('beautifulsoup4','4.9.3', {
+	('beautifulsoup4','4.9.1', {
 		'modulename': 'bs4',
 	}),
 	('easydev','0.10.1'),
