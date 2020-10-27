@@ -1,0 +1,37 @@
+easyblock = 'ConfigureMake'
+
+name = 'abyss'
+version = '2.2.5'
+
+homepage = 'https://github.com/bcgsc/abyss'
+description = """ABySS is a de novo sequence assembler intended for short paired-end reads and large genomes."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/bcgsc/abyss/archive/']
+sources = ['%(version)s.tar.gz']
+
+builddependencies = [
+	('Autotools','20180311','',('GCC','8.2.0-2.32')),
+]
+dependencies = [
+	('sparsehash','2.0.3'),
+	('Boost','1.69.0'),
+	('SQLite','3.17.0'),
+]
+
+preconfigopts = './autogen.sh && '
+configopts = '--with-sparsehash --with-boost=$EBROOTBOOST/include --with-mpi=$EBROOTOPENMPI --with-sqlite=$EBROOTSQLITE'
+
+sanity_check_paths = {
+        'files': ['bin/ABYSS','bin/ABYSS-P'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

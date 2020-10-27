@@ -1,0 +1,26 @@
+diff -ru fastStructure-1.0.orig/chooseK.py fastStructure-1.0/chooseK.py
+--- fastStructure-1.0.orig/chooseK.py	2020-10-26 18:16:10.992221000 -0500
++++ fastStructure-1.0/chooseK.py	2020-10-26 18:16:23.639659000 -0500
+@@ -1,3 +1,5 @@
++#!/usr/bin/env python
++
+ import numpy as np
+ import getopt
+ import vars.utils as utils
+diff -ru fastStructure-1.0.orig/distruct.py fastStructure-1.0/distruct.py
+--- fastStructure-1.0.orig/distruct.py	2020-10-26 18:16:10.990677000 -0500
++++ fastStructure-1.0/distruct.py	2020-10-26 18:16:34.036291000 -0500
+@@ -1,3 +1,5 @@
++#!/usr/bin/env python
++
+ import numpy as np
+ import matplotlib.pyplot as plot
+ import colorsys
+diff -ru fastStructure-1.0.orig/structure.py fastStructure-1.0/structure.py
+--- fastStructure-1.0.orig/structure.py	2020-10-26 18:16:11.015976000 -0500
++++ fastStructure-1.0/structure.py	2020-10-26 18:16:42.616076000 -0500
+@@ -1,3 +1,4 @@
++#!/usr/bin/env python
+ 
+ import numpy as np
+ import fastStructure 

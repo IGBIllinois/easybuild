@@ -1,0 +1,42 @@
+easyblock = 'CmdCp'
+
+name = 'fastStructure'
+version = '1.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://rajanil.github.io/fastStructure/'
+description = """fastStructure is an algorithm for inferring population structure from large SNP genotype data. It is based on a variational Bayesian framework for posterior inference and is written in Python2.x. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ["v%(version)s.tar.gz"]
+source_urls = ["https://github.com/rajanil/fastStructure/archive/"]
+
+patches = ['fastStructure-%(version)s.patch']
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('GSL','2.3'),
+]
+
+
+cmds_map = [('.*','python setup.py build_ext -f --inplace'),
+]
+
+files_to_copy = ['*']
+
+
+postinstallcmds = ["chmod 775 %(installdir)s/*.py"]
+
+sanity_check_paths = {
+        'files': ['structure.py'],
+        'dirs': [],
+}
+
+modextrapaths = {'PATH':'',
+	'PYTHONPATH':'var',
+	'LD_LIBRARY_PATH':'',
+}
+
+
+moduleclass = 'bio'

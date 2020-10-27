@@ -17,7 +17,7 @@ requirements = '%(name)s=%(version)s'
 environment_file = ""
 
 sanity_check_paths = {
-        'files': ['pblayout','pbmm2','ipa'],
+        'files': ['bin/pblayout','bin/pbmm2','bin/ipa'],
         'dirs': [],
 }
 
