@@ -1,0 +1,53 @@
+easyblock = 'PythonPackage'
+
+name = 'detectron2'
+version = '0.2.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/facebookresearch/detectron2/'
+description = """Detectron2 is Facebook AI Research's next generation software system that implements state-of-the-art object detection algorithms"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ["v%(version)s.tar.gz"]
+source_urls = ["https://github.com/facebookresearch/detectron2/archive/"]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('CUDA','11.1.0','',True),
+	('PyTorch','1.7.0','-Python-%(pyver)s'),
+	('Tensorflow-GPU','2.3.1','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('fvcore','0.1.1.post20200716'),
+	('portalocker','2.0.0'),
+	('tabulate','0.8.7'),
+	('yacs','0.1.7'),
+	('cloudpickle','1.5.0'),
+	('pycocotools','2.0.1'),
+	('pydot','1.4.1'),
+	
+
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/detectron2'],
+}
+
+moduleclass = 'bio'
+

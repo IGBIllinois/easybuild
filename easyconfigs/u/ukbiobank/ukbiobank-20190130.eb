@@ -1,0 +1,25 @@
+easyblock = 'Binary'
+
+name = 'ukbiobank'
+version = '20190130'
+
+homepage = 'https://biobank.ndph.ox.ac.uk/showcase/download.cgi'
+description = """Biobank download software"""
+
+toolchain = SYSTEM
+
+sources = ['ukbmd5','ukbconv','ukbunpack','ukbfetch','ukblink','gfetch']
+source_urls = ['https://biobank.ctsu.ox.ac.uk/showcase/util/']
+
+dependencies = [
+]
+
+
+sanity_check_paths = {
+	'files': ['ukbmd5','ukbconv','ukbunpack','ukbfetch','ukblink','gfetch'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

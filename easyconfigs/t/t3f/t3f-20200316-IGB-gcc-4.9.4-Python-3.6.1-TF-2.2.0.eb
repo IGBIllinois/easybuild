@@ -1,0 +1,40 @@
+easyblock = 'PythonPackage'
+
+name = 't3f'
+version = '20200316'
+local_commit = 'b9694eb'
+versionsuffix = '-Python-%(pyver)s-TF-2.2.0'
+
+homepage = 'https://t3f.readthedocs.io/en/latest/index.html'
+description = """t3f is a library for working with Tensor Train decomposition. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/Bihaqo/t3f/archive/']
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('Tensorflow-GPU','2.2.0','-Python-3.6.1'),
+]
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python3.6/site-packages/t3f'],
+}
+
+moduleclass = 'lib'
