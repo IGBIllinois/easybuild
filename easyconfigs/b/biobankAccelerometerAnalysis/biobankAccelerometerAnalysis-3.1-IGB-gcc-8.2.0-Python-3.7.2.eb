@@ -1,0 +1,56 @@
+easyblock = 'Tarball'
+
+name = 'biobankAccelerometerAnalysis'
+version = '3.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/activityMonitoring/biobankAccelerometerAnalysis'
+description = """A tool to extract meaningful health information from large accelerometer datasets. The software generates time-series and summary metrics useful for answering key questions such as how much time is spent in sleep, sedentary behaviour, or doing physical activity."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ["v%(version)s.tar.gz"]
+source_urls = ["https://github.com/activityMonitoring/biobankAccelerometerAnalysis/archive/"]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Java','1.8.0_152','',True),
+]
+
+
+exts_default_options = {
+	'source_urls': [PYPI_SOURCE],
+	'sanity_pip_check': True,
+	'use_pip': True,
+	'unpack_sources': False,
+
+}
+
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('accelerometer',version, {
+		'source_url': 'https://github.com/activityMonitoring/biobankAccelerometerAnalysis/archive/',
+		'source_tmpl': 'v%(version)s.tar.gz',
+	}),
+	('scikit-learn','0.21.2', {
+		'modulename': 'sklearn',
+	}),
+]
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/accelerometer'],
+}
+
+fix_python_shebang_for = ['accProcess.py','accPlot.py','utilities/*.py']
+postinstallcmds = ['chmod 775 %(installdir)s/*.py %(installdir)s/utilities/*.py']
+
+modextrapaths = {'PATH': ['','utilities']
+
+}
+
+moduleclass = 'bio'

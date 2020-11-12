@@ -1,0 +1,11 @@
+if (file.exists('/private_stores/mirror/R/cran')) {
+        suppressMessages(options("repos" = c(CRAN="file:///private_stores/mirror/R/cran")))
+}
+
+if (file.exists('/private_stores/mirror/R/bioconductor')) {
+	suppressMessages(options(BIOCONDUCTOR_ONLINE_VERSION_DIAGNOSIS=FALSE))
+	suppressMessages(options(BIOCINSTALLER_ONLINE_DCF = FALSE))
+	suppressMessages(options(BioC_mirror = "file:///private_stores/mirror/R/bioconductor"))
+}
+
+

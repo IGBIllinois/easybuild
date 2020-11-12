@@ -1,0 +1,85 @@
+easyblock = 'PerlModule'
+
+name = 'AGAT'
+version = '0.5.1'
+versionsuffix = '-Perl-%(perlver)s'
+homepage = 'https://github.com/NBISweden/AGAT'
+description = """Suite of tools to handle gene annotations in any GTF/GFF format. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/NBISweden/AGAT/archive/']
+sources = ['v%(version)s.tar.gz']
+
+dependencies = [
+	('Perl','5.28.1'),
+	('BioPerl','1.7.2','-Perl-%(perlver)s'),
+	('R','4.0.3')
+]
+
+configopts = ''
+runtest = False
+options = {'modulename': 'AGAT::Utilities' }
+
+exts_defaultclass = 'PerlModule'
+
+exts_list = [
+	('Clone','0.45', {
+		'source_tmpl': 'Clone-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/']
+	}),
+	('Graph::Directed','0.9708', {
+		'source_tmpl': 'Graph-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/E/ET/ETJ/']
+	}),
+	('LWP::UserAgent','6.49', {
+		'source_tmpl': 'libwww-perl-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/O/OA/OALDERS/']
+	}),
+	('Statistics::R','0.34', {
+		'source_tmpl': 'Statistics-R-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/F/FA/FANGLY/']
+	}),
+	('JSON','4.02', {
+		'source_tmpl': 'JSON-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/']
+	}),
+	('Carp','1.50', {
+		'source_tmpl': 'Carp-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/X/XS/XSAWYERX/']
+	}),
+	('Sort::Naturally','1.03', {
+		'source_tmpl': 'Sort-Naturally-%(version)s.tar.gz',
+                'source_urls': ['https://cpan.metacpan.org/authors/id/B/BI/BINGOS/']
+	}),
+	('File::Share','0.25', {
+		'source_tmpl': 'File-Share-%(version)s.tar.gz',
+                'source_urls': ['https://cpan.metacpan.org/authors/id/I/IN/INGY/']
+	}),
+	('File::ShareDir::Install','0.13', {
+		'source_tmpl': 'File-ShareDir-Install-%(version)s.tar.gz',
+                'source_urls': ['https://cpan.metacpan.org/authors/id/E/ET/ETHER/']
+	}),
+	('Heap::Fibonacci','0.80', {
+		'source_tmpl': 'Heap-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/J/JM/JMM/']
+	}),
+
+
+]
+
+exts_filter = ("perldoc -lm %(ext_name)s ", "")
+
+
+sanity_check_paths = {
+        'files': ['bin/agat_convert_bed2gff.pl'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

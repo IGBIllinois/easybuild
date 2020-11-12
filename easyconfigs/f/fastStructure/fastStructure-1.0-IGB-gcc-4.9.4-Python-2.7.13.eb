@@ -20,7 +20,8 @@ dependencies = [
 ]
 
 
-cmds_map = [('.*','python setup.py build_ext -f --inplace'),
+cmds_map = [('.*','cd vars; python setup.py build_ext -f --inplace'),
+	('.*','cd ..; python setup.py build_ext -f --inplace'),
 ]
 
 files_to_copy = ['*']
@@ -34,8 +35,8 @@ sanity_check_paths = {
 }
 
 modextrapaths = {'PATH':'',
-	'PYTHONPATH':'var',
-	'LD_LIBRARY_PATH':'',
+	'PYTHONPATH':['','vars','lib/python%(pyshortver)s/site-packages'],
+	'LD_LIBRARY_PATH':['','vars'],
 }
 
 
