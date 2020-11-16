@@ -12,7 +12,7 @@ sources = ['V%(version)s.tar.gz']
 source_urls = ['https://bitbucket.org/tasseladmin/tassel-5-standalone/get']
 
 local_java = 'Java'
-local_javaver = '1.8.0_121'
+local_javaver = '1.8.0_152'
 versionsuffix = '-%s-%s' % (local_java, local_javaver)
 dependencies = [(local_java, local_javaver)]
 

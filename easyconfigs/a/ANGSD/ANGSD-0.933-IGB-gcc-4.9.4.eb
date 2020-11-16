@@ -1,0 +1,33 @@
+easyblock = 'MakeCp'
+
+name = 'ANGSD'
+version = '0.933'
+
+homepage = 'https://github.com/ANGSD/angsd/'
+description = """ANGSD is a software for analyzing next generation sequencing data. The software can handle a number of different input types from mapped reads to imputed genotype probabilities. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/ANGSD/angsd/archive/']
+
+dependencies = [
+	('HTSlib','1.9'),
+
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['angsd','doc','misc','R','scripts','test','RES']
+
+sanity_check_paths = {
+	'files': ['angsd'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'',
+}
+
+moduleclass = 'bio'
