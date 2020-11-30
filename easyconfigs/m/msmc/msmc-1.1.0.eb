@@ -1,0 +1,29 @@
+easyblock = 'Binary'
+
+name = 'msmc'
+version = '1.1.0'
+
+homepage = 'https://github.com/stschiff/msmc'
+description = """This software implements MSMC, a method to infer population size and gene flow from multiple genome sequences """
+
+toolchain = SYSTEM
+
+sources = ['msmc_%(version)s_linux64bit']
+source_urls = ['https://github.com/stschiff/msmc/releases/download/v1.1.0/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+install_cmd = "mkdir %(installdir)s/bin && "
+install_cmd += "cp -a msmc_%(version)s_linux64bit %(installdir)s/bin/msmc"
+
+sanity_check_paths = {
+	'files': ['bin/msmc'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

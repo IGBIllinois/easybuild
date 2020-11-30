@@ -1,0 +1,38 @@
+easyblock = 'Binary'
+
+name = 'GAMS'
+version = '32.2.0'
+
+homepage = 'https://www.gams.com/'
+description = """The General Algebraic Modeling System (GAMS) is a high-level modeling system for mathematical programming and optimization. 
+It consists of a language compiler and a stable of integrated high-performance solvers."""
+
+toolchain = SYSTEM
+
+sources = ['linux_x64_64_sfx.exe']
+source_urls = ['https://d37drm4t2jghv5.cloudfront.net/distributions/32.2.0/linux/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+install_cmd = "chmod 775 linux_x64_64_sfx.exe && "
+install_cmd += "./linux_x64_64_sfx.exe -d %(installdir)s"
+
+sanity_check_paths = {
+	'files': ['gams32.2_linux_x64_64_sfx/gams'],
+	'dirs': [],
+}
+
+license_file = "/home/a-m/easybuild/licenses/GAMS/gamslice-32.2.0.txt"
+
+postinstallcmds = ['cp /home/a-m/easybuild/licenses/GAMS/gamslice-32.2.0.txt %(installdir)s/gams32.2_linux_x64_64_sfx/gamslice.txt']
+
+
+modextrapaths = {'PATH':'gams32.2_linux_x64_64_sfx'}
+
+moduleclass = 'numlib'
+
+group = "khanna1_lab"
+
