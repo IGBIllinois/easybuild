@@ -20,7 +20,7 @@ keepsymlinks = True
 with_configure = False
 
 files_to_copy = [
-	(['minimap2'],'bin'),'LICENSE.txt','README.md']
+	(['minimap2'],'bin'),(['*.h'],'include'),(['*.a'],'lib'),'LICENSE.txt','README.md']
 
 sanity_check_paths = {
 	'files': ['bin/minimap2'],
