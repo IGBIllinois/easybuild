@@ -32,6 +32,10 @@ postinstallcmds = ['cp /home/a-m/easybuild/licenses/GAMS/gamslice-32.2.0.txt %(i
 
 modextrapaths = {'PATH':'gams32.2_linux_x64_64_sfx'}
 
+
+modloadmsg = "Please use the scrdir parameter with GAMS to point to the nodes local /scratch directory.  Without this parameter, the program causes issues with our shared filesystem.\n"
+modloadmsg += "gams srcdir=/scratch/$SLURM_JOB_ID ...\n"
+
 moduleclass = 'numlib'
 
 group = "khanna1_lab"

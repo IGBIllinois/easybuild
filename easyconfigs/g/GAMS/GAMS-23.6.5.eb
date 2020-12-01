@@ -26,4 +26,7 @@ license_file = "gamslice.txt"
 
 modextrapaths = {'PATH':''}
 
+modloadmsg = "Please use the scrdir parameter with GAMS to point to the nodes local /scratch directory.  Without this parameter, the program causes issues with our shared filesystem.\n"
+modloadmsg += "gams srcdir=/scratch/$SLURM_JOB_ID ...\n"
+
 moduleclass = 'numlib'
