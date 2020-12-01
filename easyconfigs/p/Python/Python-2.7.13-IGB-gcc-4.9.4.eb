@@ -232,5 +232,7 @@ exts_list = [
     }),
 ]
 
+modextravars = {'PYTHONWARNINGS':'ignore:DEPRECATION'}
+
 moduleclass = 'lang'
 

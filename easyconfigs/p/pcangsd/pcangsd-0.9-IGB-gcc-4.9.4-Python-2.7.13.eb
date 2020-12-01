@@ -14,7 +14,7 @@ source_urls = ['https://github.com/Rosemeis/pcangsd/archive/']
 
 dependencies = [
 	('Python','2.7.13'),
-	('numba','0.34.0','-Python-%(pyver)s'),
+	('numba','0.35.0','-Python-%(pyver)s'),
 
 ]
 

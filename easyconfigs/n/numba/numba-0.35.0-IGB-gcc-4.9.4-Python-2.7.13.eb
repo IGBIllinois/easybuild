@@ -1,7 +1,7 @@
 easyblock = 'PythonBundle'
 
 name = 'numba'
-version = '0.34.0'
+version = '0.35.0'
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'http://numba.pydata.org/'
