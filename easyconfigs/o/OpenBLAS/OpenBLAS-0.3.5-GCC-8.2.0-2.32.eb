@@ -42,5 +42,12 @@ sanity_check_paths = {
     'dirs': [],
 }
 
+postinstallcmds = [
+'ln -s %(installdir)s/lib/libopenblas.so %(installdir)s/lib/libblas.so',
+'ln -s %(installdir)s/lib/libopenblas.so %(installdir)s/lib/libblas.so.3',
+'ln -s %(installdir)s/lib/libopenblas.so %(installdir)s/lib/liblapack.so',
+'ln -s %(installdir)s/lib/libopenblas.so %(installdir)s/lib/liblapack.so.3'
+]
+
 moduleclass = 'numlib'
 
