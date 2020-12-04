@@ -15,6 +15,11 @@ source_urls = ['https://github.com/picrust/picrust2/archive/']
 dependencies = [
         ('Python', '3.7.2'),
 	('biom-format','2.1.8','-Python-%(pyver)s'),
+	('HMMER','3.3.1'),
+	('R','4.0.3'),
+	('epa-ng','0.3.8'),
+	('gappa','0.6.1'),
+
 ]
 
 

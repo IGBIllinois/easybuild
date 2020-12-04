@@ -1,0 +1,33 @@
+easyblock = "MakeCp"
+
+name = 'epa-ng'
+version = '0.3.8'
+
+homepage = 'https://github.com/Pbdas/epa-ng'
+description = """EPA-ng is a complete rewrite of the Evolutionary Placement Algorithm (EPA), previously implemented in RAxML. It uses libpll and pll-modules to perform maximum likelihood-based phylogenetic placement of genetic sequences on a user-supplied reference tree and alignment."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/Pbdas/epa-ng/archive/']
+sources = ['v%(version)s.tar.gz']
+
+builddependencies = [('CMake', '3.12.1'),
+	('Bison','3.3.2'),
+	('flex','2.6.4'),
+]
+
+dependencies = [
+]
+
+patches = []
+
+files_to_copy = ['*']
+sanity_check_paths = {
+    'files': ['bin/epa-ng'],
+    'dirs': []
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
+

@@ -13,9 +13,9 @@ description = """
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 dependencies = [
-    ('Autoconf', '2.69'),    # 20120424
-    ('Automake', '1.16.1'),  # 20180311
-    ('libtool', '2.4.6'),    # 20150215
+    ('Autoconf', '2.69'),
+    ('Automake', '1.16.1'),
+    ('libtool', '2.4.6'),
 ]
 
 # Pure bundle -- no need to specify 'binutils' used when building GCCcore

@@ -30,7 +30,7 @@ configopts += "-DMYSQL_MAINTAINER_MODE=OFF "  # disabled to not treat warnings a
 configopts += "-DWITH_PCRE=bundled "  # using an external PCRE is broken, see https://bugs.exim.org/show_bug.cgi?id=2173
 configopts += "-DWITH_ZLIB=system "
 configopts += "-DWITH_EMBEDDED_SERVER=OFF "  # for libmysqld.so & co
-configopts += "-DWITHOUT_SERVER=ON "
+#configopts += "-DWITHOUT_SERVER=ON "
 configopts += "-DWITH_SAFEMALLOC=OFF "  # Disable memory debugger with jemalloc
 
 sanity_check_paths = {

@@ -1,0 +1,50 @@
+easyblock = 'PythonPackage'
+
+name = 'py2cytoscape'
+version = '0.7.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/cytoscape/py2cytoscape'
+description = """py2cytoscape is a collection of utilities to use Cytoscape and Cytoscape.js from Python. Network visualization feature is still limited in Python, but with this tool, you can access both of Cytoscape and Cytoscape.js as network visualization engines for your Python code!"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+builddependencies = [
+	('Autotools','20180311','',('GCC','8.2.0-2.32')),
+	('Bison','3.3.2'),
+	('flex','2.6.4','',('GCCcore','8.2.0')),
+]
+dependencies = [
+        ('Python', '3.7.2'),
+	('libtool','2.4.6'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('pydot','1.4.1'),
+	('pydotplus','2.0.2'),
+	('python-igraph','0.8.3'),
+
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/py2cytoscape'],
+}
+
+moduleclass = 'bio'
