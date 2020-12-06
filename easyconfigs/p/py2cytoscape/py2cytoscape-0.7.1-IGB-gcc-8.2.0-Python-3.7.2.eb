@@ -13,13 +13,13 @@ sources = [SOURCELOWER_TAR_GZ]
 source_urls = [PYPI_LOWER_SOURCE]
 
 builddependencies = [
-	('Autotools','20180311','',('GCC','8.2.0-2.32')),
-	('Bison','3.3.2'),
+	('Autotools','20180311','',('GCCcore','8.2.0')),
+	('Bison','3.3.2','',('GCCcore','8.2.0')),
 	('flex','2.6.4','',('GCCcore','8.2.0')),
 ]
 dependencies = [
         ('Python', '3.7.2'),
-	('libtool','2.4.6'),
+	('libxml2','2.9.7'),
 ]
 
 
@@ -32,7 +32,10 @@ exts_defaultclass = "PythonPackage"
 exts_list = [
 	('pydot','1.4.1'),
 	('pydotplus','2.0.2'),
-	('python-igraph','0.8.3'),
+	('texttable','1.6.3'),
+	('python-igraph','0.8.3', {
+		'modulename': 'igraph'
+	}),
 
 ]
 

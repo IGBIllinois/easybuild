@@ -1,21 +1,18 @@
-easyblock = 'PythonPackage'
+easyblock = 'PythonBundle'
 
 name = 'jupyterlab'
-version = '1.0.4'
+version = '2.2.9'
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'http://jupyter.org/'
 description = """Project Jupyter exists to develop open-source software, open-standards, and services for interactive computing across dozens of programming languages."""
 
-toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
-
-sources = [SOURCELOWER_TAR_GZ]
-source_urls = [PYPI_LOWER_SOURCE]
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 dependencies = [
-        ('Python', '3.6.1'),
-	('R','3.3.3'),
-	('nodejs','10.16.2'),
+        ('Python', '3.7.2'),
+	('R','4.0.3'),
+	('nodejs','14.15.0'),
 	('pandoc','2.2.3.2','',True),
 ]
 
@@ -24,9 +21,9 @@ exts_default_options = {
     'sanity_pip_check': True,
 }
 
-exts_defaultclass = "PythonPackage"
 exts_list = [
-	('jupyterlab_server','1.0.0'),
+	(name,version),
+	('jupyterlab_server','1.2.0'),
 	('notebook','6.1.5'),
 	('tornado','6.1'),
 	('argon2-cffi','20.1.0', {
@@ -34,7 +31,7 @@ exts_list = [
 	}),
 	('json5','0.9.5'),
 	('pyrsistent','0.17.3'),
-	('jsonschema','3.2.0'),
+	('jsonschema','3.1.1'),
 	('pyzmq','20.0.0', {
 		'modulename': 'zmq'
 	}),
@@ -88,10 +85,19 @@ exts_list = [
 		'source_tmpl': 'python-editor-%(version)s.tar.gz',
 		'modulename': 'editor',
 	}),
-	('jupyterhub','1.0.0'),
-	('jupyter-tensorboard','0.1.9', {
+	('jupyterhub','1.2.2'),
+	('jupyter-tensorboard','0.2.0', {
 		'source_tmpl': 'jupyter_tensorboard-%(version)s.tar.gz'
 	}),
+	('python-json-logger','2.0.1'),
+	('ruamel.yaml.clib','0.2.2'),
+	('ruamel.yaml','0.16.12'),
+	('webencodings','0.5.1'),
+	('jupyter-telemetry','0.1.0', {
+		'source_tmpl': 'jupyter_telemetry-%(version)s.tar.gz'
+	}),
+	('attrs','20.3.0'),
+	('cffi','1.14.4'),
 ]
 
 use_pip = True
@@ -107,7 +113,7 @@ modextravars = {'JUPYTER_PATH':'%(installdir)s/share/jupyter',
 'XDG_RUNTIME_DIR':'',
 }
 
-postinstallcmds = ['mkdir -p %(installdir)s/etc/jupyter']
+#postinstallcmds = ['mkdir -p %(installdir)s/etc/jupyter']
 
 moduleclass = 'tools'
 
