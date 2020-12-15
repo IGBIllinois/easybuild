@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'mspminer'
+version = '2.0'
+
+homepage = 'https://www.enterome.com/downloads/'
+description = """MSPminer reconstitutes Metagenomic Species Pan-genomes by binning co-abundant genes across metagenomic samples."""
+
+toolchain = SYSTEM
+
+sources = ['mspminer-bin-V2.zip']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['mspminer'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+postinstallcmds = ['chmod 775 %(installdir)s/mspminer']
+
+moduleclass = 'bio'

@@ -35,13 +35,19 @@ exts_list = []
 
 use_pip = True
 sanity_pip_check = True
-unpack_sources = False
+unpack_sources = True
 
 exts_filter = ('python -c "import %(ext_name)s"', "")
 
 sanity_check_paths = {
         'files': ['bin/busco'],
-        'dirs': [],
+        'dirs': ['scripts','config','test_data'],
 }
 
+postinstallcmds = [('cp -fR config test_data scripts %(installdir)s/')]
+
+modextrapaths = {'PATH':'scripts'}
+
 moduleclass = 'bio'
+
+modloadmsg = "NOTICE: An example BUSCO config file is located at %(installdir)s/config/config.ini\n";

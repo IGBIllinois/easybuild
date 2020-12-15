@@ -26,4 +26,6 @@ sanity_check_paths = {
 
 modextrapaths = {}
 
+postinstallcmds = ['chmod 775 %(installdir)s/bin/msmc']
+
 moduleclass = 'bio'

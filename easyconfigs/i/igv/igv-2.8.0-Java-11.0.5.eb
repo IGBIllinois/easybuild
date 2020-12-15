@@ -12,6 +12,8 @@ toolchain = SYSTEM
 sources = ['IGV_%(version)s.zip']
 source_urls = ['http://data.broadinstitute.org/igv/projects/downloads/2.8/']
 
+patches = ['igv-%(version)s.patch']
+
 dependencies = [('Java','11.0.5')
 ]
 

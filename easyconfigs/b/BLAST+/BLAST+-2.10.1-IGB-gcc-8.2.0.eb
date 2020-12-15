@@ -28,6 +28,7 @@ source_urls = ['http://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/%(version)s
 dependencies = [('Boost', '1.69.0'),
 		('bzip2','1.0.6'),
 		('zlib','1.2.11'),
+		('Perl','5.28.1'),
 ]
 
 configopts = '--with-boost=$EBROOTBOOST --with-64 --with-openmp --with-lfs --without-gbench --with-bin-release --without-debug --without-gui'
