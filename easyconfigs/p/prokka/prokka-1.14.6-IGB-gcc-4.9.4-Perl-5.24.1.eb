@@ -17,7 +17,7 @@ source_urls = ['https://github.com/tseemann/prokka/archive/']
 dependencies = [('Perl','5.24.1'),
 		('BioPerl','1.7.1','-Perl-5.24.1'),
 		('Java','1.8.0_152','',True),
-		('tbl2asn','20180516','',True),
+		('tbl2asn','20200707','',True),
 		('RNAmmer','1.2','-Perl-5.24.1'),
 		('BLAST+','2.6.0'),
 		('Prodigal','2.6.3','',True),
@@ -39,7 +39,8 @@ postinstallcmds = ['rm -fr $(installdir)s/binaries/linux/tbl2asn',
 	'rm -fr $(installdir)s/binaries/linux/makeblastdb',
 	'rm -fr $(installdir)s/binaries/linux/hmmpress',
 	'rm -fr $(installdir)s/binaries/linux/hmmscan',
-	'rm -fr $(installdir)s/binaries/linux/prodigal'
+	'rm -fr $(installdir)s/binaries/linux/prodigal',
+	'rm -fr $(installdir)s/binaries/linux/proka',
 	
 ]
 

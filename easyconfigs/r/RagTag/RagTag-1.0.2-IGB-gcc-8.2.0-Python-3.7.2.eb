@@ -1,0 +1,47 @@
+easyblock = 'PythonPackage'
+
+name = 'RagTag'
+version = '1.0.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/malonge/RagTag'
+description = """RagTag, the successor to RaGOO, is a command line tool for reference-guided genome assembly improvement. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ["v%(version)s.tar.gz"]
+source_urls = ["https://github.com/malonge/RagTag/archive/"]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('minimap','2.17'),
+
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+options = {'modulename': 'ragtag_utilities'
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('sortedcontainers','2.3.0'),
+	('intervaltree','3.1.0'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/ragtag.py'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

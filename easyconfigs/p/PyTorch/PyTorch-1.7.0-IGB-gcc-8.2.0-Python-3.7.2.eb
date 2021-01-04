@@ -14,8 +14,8 @@ toolchainopts = {'pic': True}
 
 dependencies = [
 	('Python','3.7.2'),
-	('CUDA','11.1.0','',True),
-	('cuDNN','8.0.4.30','-CUDA-11.1.0',True),
+	('CUDA','10.1.105','',True),
+	('cuDNN','8.0.4.30','-CUDA-10.1.105',True),
 ]
 
 use_pip = True

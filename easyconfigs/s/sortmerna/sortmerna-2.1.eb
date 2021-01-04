@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'sortmerna'
+version = '2.1'
+
+homepage = 'https://bioinfo.lifl.fr/RNA/sortmerna/'
+description = """SortMeRNA is a program tool for filtering, mapping and OTU-picking NGS reads in metatranscriptomic and metagenomic data. The core algorithm is based on approximate seeds and allows for fast and sensitive analyses of nucleotide sequences. """
+
+toolchain = SYSTEM
+
+sources = ['sortmerna-%(version)s-linux-64-multithread.tar.gz']
+source_urls = ['http://bioinfo.lifl.fr/RNA/sortmerna/code/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['sortmerna'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

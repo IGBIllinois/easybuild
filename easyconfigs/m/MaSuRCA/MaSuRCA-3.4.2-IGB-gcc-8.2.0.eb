@@ -1,4 +1,4 @@
-easyblock = 'ConfigureMake'
+easyblock = 'CmdCp'
 
 name = 'MaSuRCA'
 version = '3.4.2'
@@ -23,9 +23,10 @@ dependencies = [
     ('zlib', '1.2.11'),
 ]
 
-buildopts = "install-special"
-skipsteps = ['install']
-start_dir = "global-1"
+cmds_map = [('.*', "./install.sh")]
+
+files_to_copy = ['*']
+
 
 sanity_check_paths = {
     'files': ['bin/masurca'],
@@ -33,7 +34,7 @@ sanity_check_paths = {
 }
 
 modextrapaths = {
-	'PATH': 'CA/Linux-amd64/bin'
+	'PATH': 'CA8/Linux-amd64/bin'
 }
 
 moduleclass = 'bio'

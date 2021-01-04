@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'consed'
+version = '29.0'
+
+homepage = 'http://www.phrap.org/consed/consed.html'
+description = """A Finishing Package (BAM File Viewer, Assembly Editor, Autofinish, Autoreport, Autoedit, and Align Reads To Reference Sequence) """
+
+toolchain = SYSTEM
+
+sources = ['consed_linux.tar.gz']
+source_urls = ['http://www.phrap.org/consed/distributions/%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

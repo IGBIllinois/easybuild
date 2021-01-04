@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'phrap'
+version = '1.090518'
+
+homepage = 'http://www.phrap.org/consed/consed.html#howToGet'
+description = """A Finishing Package (BAM File Viewer, Assembly Editor, Autofinish, Autoreport, Autoedit, and Align Reads To Reference Sequence) """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['distrib.tar.gz']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['calf_merge','cluster','cross_match','loco','phrap','phrapview','swat'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/phrap'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
