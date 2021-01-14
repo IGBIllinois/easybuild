@@ -7,8 +7,8 @@ description = """Doxygen is a documentation system for C++, C, Java, Objective-C
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-sources = ['%(namelower)s-%(version)s.src.tar.gz']
-source_urls = ['http://ftp.stack.nl/pub/users/dimitri/']
+sources = ['Release_1_8_13.tar.gz']
+source_urls = ['https://github.com/doxygen/doxygen/archive/']
 
 builddependencies = [
     ('CMake', '3.12.1'),

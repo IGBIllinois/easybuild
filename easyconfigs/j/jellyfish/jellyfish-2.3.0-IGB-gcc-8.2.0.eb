@@ -1,0 +1,28 @@
+easyblock = 'ConfigureMake'
+
+name = 'jellyfish'
+version = '2.3.0'
+
+homepage = 'https://github.com/gmarcais/Jellyfish'
+description = """Jellyfish is a tool for fast, memory-efficient counting of k-mers in DNA. A k-mer is a substring of length k, and counting the occurrences of all such substrings is a central step in many analyses of DNA sequence. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['jellyfish-%(version)s.tar.gz']
+source_urls = ['https://github.com/gmarcais/Jellyfish/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+
+sanity_check_paths = {
+	'files': ['bin/jellyfish'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

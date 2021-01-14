@@ -1,0 +1,32 @@
+easyblock = 'Tarball'
+
+name = 'SquiggleKit'
+version = '20200922'
+local_commit = 'f446aba'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/Psy-Fer/SquiggleKit'
+description = """A toolkit for accessing and manipulating nanopore signal data"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/Psy-Fer/SquiggleKit/archive/']
+
+dependencies = [
+	('Python','3.7.2'),
+	('ont-fast5-api','3.1.5','-Python-%(pyver)s'),
+
+]
+
+keepsymlinks = True
+
+
+sanity_check_paths = {
+	'files': ['fast5_fetcher.py'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

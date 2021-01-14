@@ -29,4 +29,6 @@ sanity_check_paths = {
 	'dirs': ['bin', 'share'],
 }
 
+postinstallcmds = ['cp -r %(builddir)s/arcs-%(version)s/Examples %(installdir)s/']
+
 moduleclass = 'bio'

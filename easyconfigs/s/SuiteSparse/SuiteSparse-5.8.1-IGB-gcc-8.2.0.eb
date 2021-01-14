@@ -29,3 +29,7 @@ prebuildopts = "sed -i 's/-openmp/-fopenmp/g' SuiteSparse_config/SuiteSparse_con
 prebuildopts += "export LD_LIBRARY_PATH=%(builddir)s/SuiteSparse-%(version)s/lib:$LD_LIBRARY_PATH && "
 
 moduleclass = 'numlib'
+
+hidden = True
+
+parallel = 1

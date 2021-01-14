@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'BBMap'
+version = '38.87'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = 'https://jgi.doe.gov/data-and-tools/bbtools/'
+description = """BBTools is a suite of fast, multithreaded bioinformatics tools designed for analysis of DNA and RNA sequence data."""
+
+toolchain = SYSTEM
+
+sources = ['BBMap_%(version)s.tar.gz']
+source_urls = ['http://sourceforge.net/projects/bbmap/files/']
+
+dependencies = [('Java','1.8.0_201')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bbmap.sh'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
