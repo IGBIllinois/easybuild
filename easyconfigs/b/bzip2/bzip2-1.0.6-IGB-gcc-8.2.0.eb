@@ -14,4 +14,9 @@ source_urls = ['http://www.bzip.org/%(version)s']
 
 dependencies = [('tar','1.32')
 ]
+
+modextrapaths = {'BZIP2_LIBRARIES': 'lib',
+	'BZIP2_INCLUDE_DIR': 'include',
+}
+
 moduleclass = 'tools'

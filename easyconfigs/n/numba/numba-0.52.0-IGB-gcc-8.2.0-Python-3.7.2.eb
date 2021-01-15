@@ -1,4 +1,4 @@
-easyblock = 'Bundle'
+easyblock = 'PythonBundle'
 
 name = 'numba'
 version = '0.52.0'
@@ -11,32 +11,34 @@ description = """Numba is an Open Source NumPy-aware optimizing compiler for Pyt
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 toolchainopts = {'pic': True}
 
-# this is a bundle of Python packages
-exts_defaultclass = 'PythonPackage'
-exts_filter = ('python -c "import %(ext_name)s"', '')
 
 dependencies = [
     ('Python', '3.7.2'),
-    ('LLVM', '6.0.0'),
+    ('LLVM', '10.0.1'),
 ]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
 
 exts_list = [
-    ('llvmlite', '0.23.0', {
-        'source_urls': ['https://pypi.python.org/packages/source/l/llvmlite/'],
-    }),
-    (name, version, {
-        'source_urls': ['https://pypi.python.org/packages/source/n/numba/'],
-    }),
+    ('llvmlite', '0.35.0'),
+    (name, version),
 ]
-
-# specify that Bundle easyblock should run a full sanity check, rather than just trying to load the module
-local_full_sanity_check = True
 
 sanity_check_paths = {
     'files': ['bin/numba', 'bin/pycc'],
     'dirs': ['lib/python%(pyshortver)s/site-packages'],
 }
 
-modextrapaths = {'PYTHONPATH': ['lib/python%(pyshortver)s/site-packages']}
 
 moduleclass = 'lang'

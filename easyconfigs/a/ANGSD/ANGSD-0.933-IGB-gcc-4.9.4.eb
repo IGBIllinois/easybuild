@@ -27,7 +27,7 @@ sanity_check_paths = {
 	'dirs': [],
 }
 
-modextrapaths = {'PATH':'',
+modextrapaths = {'PATH':['','misc'],
 }
 
 moduleclass = 'bio'

@@ -1,0 +1,44 @@
+easyblock = 'CmdCp'
+
+name = 'SPAdes'
+version = '3.15.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://cab.spbu.ru/software/spades/'
+description = """SPAdes . St. Petersburg genome assembler . is intended for both standard isolates and single-cell MDA bacteria assemblies."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['SPAdes-%(version)s.tar.gz']
+source_urls = ['http://cab.spbu.ru/files/release%(version)s/']
+
+dependencies = [
+	('Python','3.7.2'),
+	('zlib', '1.2.11'),
+	('bzip2', '1.0.6'),
+]
+
+builddependencies = [
+	('CMake', '3.12.1'),
+]
+
+#separate_build_dir = True
+#srcdir = '../%(name)s-%(version)s/assembler/src'
+
+#cmds_map = [('.*','BZIP2_LIBRARIES=%EBROOTBZIP2/lib BZIP2_INCLUDE_DIR=%EBROOTBZIP2/include PREFIX=%(installdir)s ./spades_compile.sh')]
+cmds_map = [('.*','PREFIX=%(installdir)s ./spades_compile.sh')]
+files_to_copy = [
+	(['build_spades/bin'],'bin'),
+	(['build_spades/share'],'share'),
+	(['build_spades/include'],'include'),
+	(['build_spades/lib'],'lib'),
+]
+
+sanity_check_paths = {
+	'files': ['bin/spades.py'],
+	'dirs': ['share'],
+}
+
+modloadmsg = "To increase performance, use the --tmp-dir parameter to use the /scratch directory for the tmp files.  spades.py --tmp-dir /scratch/$SLURM_JOB_ID\n"
+
+moduleclass = 'bio'

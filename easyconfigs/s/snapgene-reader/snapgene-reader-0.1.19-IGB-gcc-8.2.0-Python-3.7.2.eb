@@ -1,21 +1,20 @@
 easyblock = 'PythonPackage'
 
-name = 'umap-learn'
-version = '0.4.6'
+name = 'snapgene-reader'
+version = '0.1.19'
 versionsuffix = '-Python-%(pyver)s'
 
-homepage = ''
-description = """"""
+homepage = 'https://github.com/Edinburgh-Genome-Foundry/SnapGeneReader'
+description = """SnapGene Reader is a Python library to parse Snapgene *.dna files into dictionaries or Biopython SeqRecords"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-sources = [SOURCELOWER_TAR_GZ]
+sources = ['snapgene_reader-%(version)s-py3-none-any.whl']
 source_urls = [PYPI_LOWER_SOURCE]
 
 dependencies = [
         ('Python', '3.7.2'),
-	('numba','0.52.0','-Python-%(pyver)s'),
-	
+	('Biopython','1.76','-Python-%(pyver)s'),
 ]
 
 
@@ -31,13 +30,11 @@ use_pip = True
 sanity_pip_check = True
 unpack_sources = False
 
-options = {'modulename': 'umap'}
-
 exts_filter = ('python -c "import %(ext_name)s"', "")
 
 sanity_check_paths = {
         'files': [],
-        'dirs': ['lib/python%(pyshortver)s/site-packages/umap'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/snapgene_reader'],
 }
 
-moduleclass = 'math'
+moduleclass = 'bio'

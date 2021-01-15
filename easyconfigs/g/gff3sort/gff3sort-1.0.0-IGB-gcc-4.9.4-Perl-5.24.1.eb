@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'gff3sort'
+version = '1.0.0'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/billzt/gff3sort'
+description = """A Perl Script to sort gff3 files and produce suitable results for tabix tools"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/billzt/gff3sort/archive/']
+
+dependencies = [
+	('Perl','5.24.1'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['gff3sort.pl','check-disorder.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {'PERL5LIB':'Sort','PATH':''}
+
+moduleclass = 'bio'
