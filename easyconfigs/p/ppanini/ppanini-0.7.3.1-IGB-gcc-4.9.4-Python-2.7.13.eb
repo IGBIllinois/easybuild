@@ -1,0 +1,40 @@
+easyblock = 'PythonPackage'
+
+name = 'ppanini'
+version = '0.7.3.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/biobakery/biobakery/wiki/ppanini'
+description = """PPANINI (Prioritization and Prediction of functional Annotation for Novel and Important genes via automated data Network Integration) is a computational pipeline that ranks genes by employing a combination of community parameters such as prevalence and abundance across samples."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('Biopython','1.68','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/ppanini'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/ppanini'],
+}
+
+moduleclass = 'bio'

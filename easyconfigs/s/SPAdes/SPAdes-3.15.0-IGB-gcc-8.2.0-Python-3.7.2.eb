@@ -1,4 +1,4 @@
-easyblock = 'CmdCp'
+easyblock = 'CMakeMake'
 
 name = 'SPAdes'
 version = '3.15.0'
@@ -22,21 +22,18 @@ builddependencies = [
 	('CMake', '3.12.1'),
 ]
 
-#separate_build_dir = True
-#srcdir = '../%(name)s-%(version)s/assembler/src'
+local_parallel = "4"
 
-#cmds_map = [('.*','BZIP2_LIBRARIES=%EBROOTBZIP2/lib BZIP2_INCLUDE_DIR=%EBROOTBZIP2/include PREFIX=%(installdir)s ./spades_compile.sh')]
-cmds_map = [('.*','PREFIX=%(installdir)s ./spades_compile.sh')]
-files_to_copy = [
-	(['build_spades/bin'],'bin'),
-	(['build_spades/share'],'share'),
-	(['build_spades/include'],'include'),
-	(['build_spades/lib'],'lib'),
-]
+separate_build_dir = True
+start_dir = 'src'
+buildopts = '-j ' + local_parallel
+
+#cmds_map = [(".*","export PREFIX=%(installdir)s && ./spades_compile.sh --threads " + local_parallel)]
+#files_to_copy = []
 
 sanity_check_paths = {
 	'files': ['bin/spades.py'],
-	'dirs': ['share'],
+	'dirs': [],
 }
 
 modloadmsg = "To increase performance, use the --tmp-dir parameter to use the /scratch directory for the tmp files.  spades.py --tmp-dir /scratch/$SLURM_JOB_ID\n"

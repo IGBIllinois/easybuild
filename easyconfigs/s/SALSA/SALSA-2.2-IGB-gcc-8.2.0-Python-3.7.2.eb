@@ -1,0 +1,48 @@
+easyblock = 'MakeCp'
+
+name = 'SALSA'
+version = '2.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/marbl/SALSA'
+description = """A tool to scaffold long read assemblies with Hi-C"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/marbl/SALSA/archive/']
+
+dependencies = [
+	('Python','3.7.2'),
+	('Boost','1.69.0'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['*.py','break_contigs','correct_links'],'bin'),'README.md','LICENSE']
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+    ('networkx', '1.11', {
+    }),
+]
+
+
+sanity_check_paths = {
+	'files': ['bin/break_contigs','bin/correct_links'],
+	'dirs': [],
+}
+
+modextrapaths = {'PYTHONPATH':'lib/python%(pyshortver)s/site-packages'
+}
+
+moduleclass = 'bio'

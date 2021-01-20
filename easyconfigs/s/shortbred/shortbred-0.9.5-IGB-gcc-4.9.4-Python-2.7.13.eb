@@ -1,0 +1,46 @@
+easyblock = 'PythonPackage'
+
+name = 'shortbred'
+version = '0.9.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/biobakery/shortbred'
+description = """ShortBRED is a pipeline to take a set of protein sequences, reduce them to a set of unique identifying strings ("markers"), and then search for these markers in metagenomic data and determine the presence and abundance of the protein families of interest."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/biobakery/shortbred/archive/']
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('Biopython','1.68','-Python-%(pyver)s'),
+	('BLAST+','2.2.31'),
+	('USEARCH','6.1.544','',True),
+	('MUSCLE','3.8.31'),
+	('CD-HIT','4.6.6'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+options = {'modulename': False }
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/shortbred_identify.py','bin/shortbred_quantify.py'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
