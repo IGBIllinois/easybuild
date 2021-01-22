@@ -1,0 +1,60 @@
+easyblock = 'Tarball'
+
+name = 'ProtHint'
+version = '2.5.0'
+
+homepage = 'https://github.com/gatech-genemark/ProtHint'
+description = """ProtHint is a pipeline for predicting and scoring hints (in the form of introns, start and stop codons) in the genome of interest by mapping and spliced aligning predicted genes to a database of reference protein sequences."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/gatech-genemark/ProtHint/archive/']
+
+dependencies = [('Perl','5.28.1'),
+	('GeneMark-ES','4.62','-Perl-%(perlver)s'),
+	('DIAMOND','2.0.6'),
+	('Python','3.7.2'),
+]
+
+keepsymlinks = True
+
+exts_defaultclass = 'PerlModule'
+
+exts_list = [
+	('MCE::Mutex','1.874', {
+		'source_tmpl': 'MCE-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/M/MA/MARIOROY/']
+	}),
+	('threads','2.21', {
+		'source_tmpl': 'threads-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/J/JD/JDHEDDEN/'],
+	}),
+	('Thread::Queue','3.13', {
+		'source_tmpl': 'Thread-Queue-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/J/JD/JDHEDDEN/'],
+	}),
+	('YAML','1.30', {
+		'source_tmpl': 'YAML-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/T/TI/TINITA/']
+	}),
+	('Math::Utils','1.14', {
+		'source_tmpl': 'Math-Utils-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/J/JG/JGAMBLE/']
+	})
+]
+
+exts_filter = ("perldoc -lm %(ext_name)s ", "")
+
+postinstallcmds = ['rm -f %(installdir)s/depedencies/diamond']
+
+sanity_check_paths = {
+	'files': ['bin/prothint.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PERL5LIB': ['lib/perl5/site_perl/%(perlver)s','lib/perl5/site_perl/%(perlver)s/x86_64-linux-thread-multi'],
+	'PATH':'dependencies',
+}
+
+moduleclass = 'bio'

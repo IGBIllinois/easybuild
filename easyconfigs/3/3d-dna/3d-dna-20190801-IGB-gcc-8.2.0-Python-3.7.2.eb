@@ -1,0 +1,34 @@
+easyblock = 'Tarball'
+
+name = '3d-dna'
+version = '20190801'
+versionsuffix = '-Python-%(pyver)s'
+
+local_commit = '529ccf4'
+
+homepage = 'https://github.com/aidenlab/3d-dna'
+description = """De novo assembly of the Aedes aegypti genome using Hi-C yields chromosome-length scaffolds"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/aidenlab/3d-dna/archive/']
+
+dependencies = [
+	('Python','3.7.2'),
+	('coreutils','8.28'),
+	('parallel','20200822'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['run-asm-pipeline.sh'],
+	'dirs': [],
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/run-asm-pipeline.sh %(installdir)s/run-asm-pipeline-post-review.sh']
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

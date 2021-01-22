@@ -1,0 +1,37 @@
+easyblock = 'Tarball'
+
+name = 'GeneMark-ES'
+version = '4.62'
+versionsuffix = "-Perl-%(perlver)s"
+
+homepage = 'http://exon.gatech.edu/GeneMark/'
+description = """Novel genomes can be analyzed by the program GeneMark-ES utilizing unsupervised training."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['gm_et_linux_64.tar.gz','gm_key_64.gz']
+
+dependencies = [('Perl','5.28.1')
+]
+
+
+keepsymlinks = True
+start_dir = 'gmes_petap'
+
+sanity_check_paths = {
+	'files': ['gmhmme3'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+}
+
+fix_perl_shebang_for = ['*.pl']
+
+postinstallcmds = ['cp -f %(builddir)s/gm_key_64 %(installdir)s/gm_key_64','rm -f %(installdir)s/gm_key']
+
+modloadmsg = "Before running GeneMark-ES for the first time you need to copy the license key to your home folder.\n"
+modloadmsg += "cp -fR %(installdir)s/gm_key_64 ~/.gm_key_64\n"
+
+moduleclass = 'bio'

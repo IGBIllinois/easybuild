@@ -1,0 +1,47 @@
+easyblock = 'Tarball'
+
+name = 'Juicer'
+version = '1.5.7'
+
+homepage = 'https://github.com/aidenlab/juicer'
+description = """Juicer is a platform for analyzing kilobase resolution Hi-C data. In this distribution, we include the pipeline for generating Hi-C maps from fastq raw data files and command line tools for feature annotation on the Hi-C maps."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [
+	{
+		'source_urls': ['https://github.com/aidenlab/juicer/archive/'],
+		'filename': '%(version)s.tar.gz',
+		'download_filename': '%(version)s.tar.gz'
+	},
+	{
+		'source_urls': 'https://s3.amazonaws.com/hicfiles.tc4ga.com/public/juicer/',
+		'filename': 'juicer_tools_1.22.01.jar',
+		'download_filename': 'juicer_tools_1.22.01.jar',
+		'extract_cmd': 'cp %s .'
+	}
+]
+
+dependencies = [
+	('Perl','5.28.1'),
+	('Java','1.8.0_201','',True),
+        ('CUDA','8.0.61','',True)
+
+]
+
+keepsymlinks = True
+
+fix_perl_shebang_for = ['SLURM/scripts/*.pl']
+
+sanity_check_paths = {
+	'files': ['juicer_tools.jar'],
+	'dirs': [],
+}
+
+postinstallcmds = ['cp -f %(builddir)s/juicer_tools_1.22.01.jar %(installdir)s/juicer_tools.jar',
+	'chmod 664 %(installdir)s/README.md %(installdir)s/LICENSE'
+]
+
+modextrapaths = {}
+
+moduleclass = 'bio'

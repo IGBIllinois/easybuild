@@ -1,0 +1,56 @@
+easyblock = 'MakeCp'
+
+name = 'purge_dups'
+version = '20201029'
+versionsuffix = '-Python-%(pyver)s'
+local_commit = '60e4a6e'
+
+homepage = 'https://github.com/dfguan/purge_dups'
+description = """purge haplotigs and overlaps in an assembly based on read depth"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/dfguan/purge_dups/archive/']
+
+dependencies = [('Python','3.7.2'),
+	('minimap','2.17'),
+	('zlib','1.2.11'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+buildopts = "-C src"
+
+files_to_copy = ['bin','scripts','README.md','LICENSE','purge_dupspipeline.png']
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'unpack_sources': True,
+    'use_pip': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('runner', '0.0.0', {
+		'source_tmpl': 'master.zip',
+		'source_urls': ['https://github.com/dfguan/runner/archive/']
+	}),
+]
+
+
+sanity_check_paths = {
+	'files': ['bin/purge_dups'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'scripts',
+	'PYTHONPATH': 'lib/python%(pyshortver)s/site-packages'
+}
+
+moduleclass = 'bio'
