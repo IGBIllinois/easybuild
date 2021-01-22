@@ -20,6 +20,7 @@ dependencies = [
 	('Prodigal','2.6.3','',True),
 	('SEPP','4.3.10','-Python-%(pyver)s'),
 	('augustus','3.3.3'),
+	('HMMER','3.3.1'),
 
 	
 ]

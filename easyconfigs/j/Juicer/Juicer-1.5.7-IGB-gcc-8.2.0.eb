@@ -15,7 +15,7 @@ sources = [
 		'download_filename': '%(version)s.tar.gz'
 	},
 	{
-		'source_urls': 'https://s3.amazonaws.com/hicfiles.tc4ga.com/public/juicer/',
+		'source_urls': ['https://s3.amazonaws.com/hicfiles.tc4ga.com/public/juicer/'],
 		'filename': 'juicer_tools_1.22.01.jar',
 		'download_filename': 'juicer_tools_1.22.01.jar',
 		'extract_cmd': 'cp %s .'
