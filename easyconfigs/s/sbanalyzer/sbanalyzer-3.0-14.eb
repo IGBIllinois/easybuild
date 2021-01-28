@@ -1,0 +1,26 @@
+easyblock = 'Rpm'
+
+name = 'sbanalyzer'
+version = '3.0-14'
+
+homepage = 'https://www.shorelinebiome.com/sbanalyzer-software/'
+description = """Shoreline Biome’s unique microbiome kits are the key to generating long-read next-generation sequencing data necessary to discriminate microbial strains from any sample. """
+
+toolchain = SYSTEM
+
+sources = ['sbanalyzer-3.0-14.x86_64.rpm']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['opt/sbanalyzer/bin/sbanalyzer'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': 'opt/sbanalyzer/bin/'}
+
+moduleclass = 'bio'

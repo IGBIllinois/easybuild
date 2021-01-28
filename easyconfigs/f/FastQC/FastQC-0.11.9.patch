@@ -1,0 +1,17 @@
+diff -ru FastQC.original/fastqc FastQC/fastqc
+--- FastQC.original/fastqc	2021-01-28 11:16:36.492552479 -0600
++++ FastQC/fastqc	2021-01-28 11:18:04.869873209 -0600
+@@ -185,11 +185,11 @@
+ 	}
+ 	
+ 	push @java_args ,"-Dfastqc.threads=$threads";
+-	my $memory = 250 * $threads;
++	my $memory = 15000 * $threads;
+ 	unshift @java_args,"-Xmx${memory}m";
+ }
+ else {
+-	unshift @java_args,'-Xmx250m';
++	unshift @java_args,'-Xmx15000m';
+ }
+ 
+ if ($kmer_size) {

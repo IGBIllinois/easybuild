@@ -1,0 +1,26 @@
+easyblock = 'Rpm'
+
+name = ''
+version = ''
+
+homepage = ''
+description = """"""
+
+toolchain = SYSTEM
+
+sources = ['']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
