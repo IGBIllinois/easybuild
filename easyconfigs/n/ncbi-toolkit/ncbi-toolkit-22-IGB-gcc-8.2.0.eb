@@ -1,0 +1,44 @@
+easyblock = 'ConfigureMake'
+
+name = 'ncbi-toolkit'
+version = '22'
+
+homepage = 'http://ncbi.github.io/cxx-toolkit/'
+description = """The NCBI Toolkit is a collection of utilities developed for the
+  production and distribution of GenBank, Entrez, BLAST, and related services
+  by the National Center for Biotechnology Information."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools++/2019/Mar_28_2019/']
+sources = ['ncbi_cxx--22_0_0.tar.gz']
+
+dependencies = [
+	#('Boost', '1.69.0'),
+	('SAMtools', '1.11'),
+	('HTSlib', '1.11'),
+	('Python', '3.7.2'),
+	('libxslt', '1.1.33'),
+	('DB','18.1.32'),
+	('zlib','1.2.11'),
+]
+
+#preconfigopts = 'export CFLAGS="$CFLAGS -wd3377" && export CXXFLAGS="$CXXFLAGS -wd3377" && '
+#preconfigopts = 'export LIBS="$LIBS -lstdc++" && '
+
+#configopts = '--with-boost=$EBROOTBOOST --with-python=$EBROOTPYTHON '
+configopts = '--without-boost --with-python=$EBROOTPYTHON '
+configopts += '--with-libxml=$EBROOTLIBXML2 --with-libxslt=$EBROOTLIBXSLT '
+configopts += '--with-dll --with-bin-release --with-mt --with-z=$EBROOTZLIB '
+configopts += '--without-debug --without-ccache'
+
+buildopts = 'SAMTOOLS=$EBROOTSAMTOOLS SAMTOOLS_INCLUDE="-I$EBROOTSAMTOOLS/include/bam -I$EBROOTHTSLIB/include" '
+buildopts += 'SAMTOOLS_LIBS="-L$EBROOTSAMTOOLS/lib -lbam -L$EBROOTHTSLIB/lib -lhts"'
+
+sanity_check_paths = {
+    'files': ['bin/blastn', 'bin/blastp', 'bin/blastx', 'bin/table2asn'],
+    'dirs': []
+}
+
+moduleclass = 'bio'
+
