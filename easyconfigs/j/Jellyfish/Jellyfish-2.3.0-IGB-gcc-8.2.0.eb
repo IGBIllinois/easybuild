@@ -1,6 +1,6 @@
 easyblock = 'ConfigureMake'
 
-name = 'jellyfish'
+name = 'Jellyfish'
 version = '2.3.0'
 
 homepage = 'https://github.com/gmarcais/Jellyfish'
