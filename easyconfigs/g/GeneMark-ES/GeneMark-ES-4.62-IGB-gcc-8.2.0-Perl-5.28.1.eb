@@ -9,14 +9,41 @@ description = """Novel genomes can be analyzed by the program GeneMark-ES utiliz
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-sources = ['gm_et_linux_64.tar.gz','gm_key_64.gz']
+sources = ['gmes_linux_64.tar.gz','gm_key_64.gz']
 
 dependencies = [('Perl','5.28.1')
 ]
 
 
 keepsymlinks = True
-start_dir = 'gmes_petap'
+
+exts_defaultclass = 'PerlModule'
+
+exts_list = [
+	('Data::Dumper','2.173', {
+		'source_tmpl': 'Data-Dumper-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/X/XS/XSAWYERX/']
+	}),
+	('YAML','1.30', {
+		'source_tmpl': 'YAML-%(version)s.tar.gz',
+                'source_urls': ['https://cpan.metacpan.org/authors/id/T/TI/TINITA/']
+	}),
+	('Hash::Merge','0.302', {
+		'source_tmpl': 'Hash-Merge-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/H/HE/HERMES/'],
+	}),
+	('Logger::Simple','2.0', {
+		'source_tmpl': 'Logger-Simple-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/T/TS/TSTANLEY/']
+	}),
+	('Parallel::ForkManager','2.02', {
+		'source_tmpl': 'Parallel-ForkManager-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/Y/YA/YANICK/'],
+	}),
+]
+
+exts_filter = ("perldoc -lm %(ext_name)s ", "")
+
 
 sanity_check_paths = {
 	'files': ['gmhmme3'],
@@ -25,6 +52,7 @@ sanity_check_paths = {
 
 modextrapaths = {
 	'PATH': '',
+	'PERL5LIB': ['lib/perl5/site_perl/%(perlver)s','lib/perl5/site_perl/%(perlver)s/x86_64-linux-thread-multi'],
 }
 
 fix_perl_shebang_for = ['*.pl']

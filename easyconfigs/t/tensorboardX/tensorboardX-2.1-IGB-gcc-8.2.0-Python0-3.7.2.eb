@@ -1,0 +1,47 @@
+easyblock = 'PythonPackage'
+
+name = 'tensorboardX'
+version = '2.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/lanpa/tensorboardX'
+description = """TensorBoardX lets you watch Tensors Flow without Tensorflow"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ["tensorboardX-%(version)s-py2.py3-none-any.whl"]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('PyTorch','1.7.0','-Python-%(pyver)s'),
+]
+
+use_pip = True
+unpack_sources = False
+sanity_pip_check = True
+
+options = {'modulename': '%(name)s'}
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+        ('protobuf', '3.12.0', {
+                'modulename': 'google.protobuf',
+                'source_tmpl': 'protobuf-%(version)s-cp37-cp37m-manylinux1_x86_64.whl',
+        }),
+]
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/tensorboardX'],
+}
+
+moduleclass = 'vis'

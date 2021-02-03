@@ -1,0 +1,79 @@
+easyblock = 'Tarball'
+
+name = 'BRAKER'
+version = '2.1.5'
+
+homepage = 'https://github.com/Gaius-Augustus/BRAKER'
+description = """BRAKER2 is an extension of BRAKER1 which allows for fully automated training of the gene prediction tools GeneMark-EX and AUGUSTUS from RNA-Seq and/or protein homology information, and that integrates the extrinsic evidence from RNA-Seq and protein homology information into the prediction."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/Gaius-Augustus/BRAKER/archive/']
+
+dependencies = [
+	('augustus', '3.3.3'),
+	('GeneMark-ES', '4.62', '-Perl-%(perlver)s'),
+	('BamTools', '2.5.1'),
+	('SAMtools', '1.10'),
+	('GenomeThreader', '1.7.1', '', True),
+	('exonerate', '2.2.0'),
+	('BLAST+', '2.10.1'),
+	('Perl', '5.28.1'),
+	('Python', '3.7.2'),
+	('Biopython', '1.76', '-Python-%(pyver)s'),
+]
+
+keepsymlinks = True
+
+exts_defaultclass = 'PerlModule'
+
+exts_list = [
+        ('Module::Load::Conditional','0.74', {
+                'source_tmpl': 'Module-Load-Conditional-%(version)s.tar.gz',
+                'source_urls': ['https://cpan.metacpan.org/authors/id/B/BI/BINGOS/']
+        }),
+        ('Parallel::ForkManager','2.02', {
+                'source_tmpl': 'Parallel-ForkManager-%(version)s.tar.gz',
+                'source_urls': ['https://cpan.metacpan.org/authors/id/Y/YA/YANICK/'],
+        }),
+	('Scalar::Util::Numeric','0.40', {
+		'source_tmpl': 'Scalar-Util-Numeric-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/C/CH/CHOCOLATE/'],
+	}),
+	('Scalar::List::Utils','1.55', {
+		'modulename' : 'List::Util',
+		'source_tmpl': 'Scalar-List-Utils-%(version)s.tar.gz',
+                'source_urls': ['https://cpan.metacpan.org/authors/id/P/PE/PEVANS/'],
+	}),
+	('File::Which','1.23', {
+		'source_tmpl': 'File-Which-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/'],
+
+	}),
+	('PathTools','3.75', {
+		'modulename': 'Cwd',
+		'source_tmpl': 'PathTools-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/X/XS/XSAWYERX/'],
+
+	}),
+	('Term::ANSIColor','5.01', {
+		'source_tmpl': 'Term-ANSIColor-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/R/RR/RRA/'],
+	}),
+]
+
+exts_filter = ("perldoc -lm %(ext_name)s ", "")
+
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['scripts'],
+}
+
+modextrapaths = {
+	'PATH': 'scripts',
+	'PERL5LIB': ['lib/perl5/site_perl/%(perlver)s','lib/perl5/site_perl/%(perlver)s/x86_64-linux-thread-multi'],
+}
+
+moduleclass = 'bio'
