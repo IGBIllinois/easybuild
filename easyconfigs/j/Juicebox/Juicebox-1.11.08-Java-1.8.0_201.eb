@@ -30,4 +30,6 @@ modextrapaths = {}
 modaliases = {'%(namelower)s': 'java -jar %(installdir)s/Juicebox_%(version)s.jar'}
 modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
 
+modloadmsg = """To execute Juicebox, run 'juicebox'.  This requires X11 to run"""
+
 moduleclass = 'bio'

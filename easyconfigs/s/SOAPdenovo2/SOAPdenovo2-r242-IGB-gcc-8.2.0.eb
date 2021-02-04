@@ -1,0 +1,33 @@
+easyblock = 'MakeCp'
+
+name = 'SOAPdenovo2'
+version = 'r242'
+
+homepage = 'https://github.com/aquaskyline/SOAPdenovo2'
+description = """SOAPdenovo is a novel short-read assembly method that can build a de novo draft assembly for the human-sized genomes. The program is specially designed to assemble Illumina GA short reads. It creates new opportunities for building reference sequences and carrying out accurate analyses of unexplored genomes in a cost effective way."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/aquaskyline/SOAPdenovo2/archive/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+
+files_to_copy = [(['SOAPdenovo-127mer', 'SOAPdenovo-63mer', 'SOAPdenovo-fusion'], 'bin'),'example.config','INSTALL','LICENSE','README.md','VERSION']
+
+sanity_check_paths = {
+    'files': ['bin/SOAPdenovo-63mer', 'bin/SOAPdenovo-127mer', 'bin/SOAPdenovo-fusion'],
+    'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
