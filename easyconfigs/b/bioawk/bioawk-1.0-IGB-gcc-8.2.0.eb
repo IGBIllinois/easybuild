@@ -1,0 +1,34 @@
+easyblock = 'MakeCp'
+
+name = 'bioawk'
+version = '1.0'
+
+homepage = 'https://github.com/lh3/bioawk'
+description = """Bioawk is an extension to Brian Kernighan's awk, adding the support of several common biological data formats, including optionally gzip'ed BED, GFF, SAM, VCF, FASTA/Q and TAB-delimited formats with column names."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/lh3/bioawk/archive/']
+
+builddependencies = [
+	('Bison','3.3.2'),
+]
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['bioawk','maketab'],'bin'),'README.md']
+
+sanity_check_paths = {
+	'files': ['bin/bioawk','bin/maketab'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
