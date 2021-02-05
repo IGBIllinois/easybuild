@@ -42,6 +42,6 @@ postinstallcmds = ['cp -f %(builddir)s/juicer_tools_1.22.01.jar %(installdir)s/j
 	'chmod 664 %(installdir)s/README.md %(installdir)s/LICENSE'
 ]
 
-modextrapaths = {}
+modextrapaths = {'PATH':'SLURM/scripts'}
 
 moduleclass = 'bio'
