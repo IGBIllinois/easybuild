@@ -1,0 +1,42 @@
+easyblock = 'PythonPackage'
+
+name = 'OBITools3'
+version = '3.0.0b42'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://git.metabarcoding.org/obitools/obitools3'
+description = """The OBITools3: A package for the management of analyses and data in DNA metabarcoding   """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['archive.tar.gz']
+source_urls = ['https://git.metabarcoding.org/obitools/obitools3/repository/v%(version)s/']
+
+builddependencies = [
+	('CMake','3.12.1'),
+]
+dependencies = [
+        ('Python', '3.7.2'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/obi'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

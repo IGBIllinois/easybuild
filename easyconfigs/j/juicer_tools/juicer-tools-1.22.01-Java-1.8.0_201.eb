@@ -1,0 +1,37 @@
+easyblock = 'JAR'
+
+name = 'juicer_tools'
+version = '1.22.01'
+versionsuffix = "-Java-%(javaver)s"
+
+homepage = 'https://github.com/aidenlab/juicer'
+description = """ """
+
+toolchain = SYSTEM
+
+sources = [{
+                'source_urls': ['https://s3.amazonaws.com/hicfiles.tc4ga.com/public/juicer/'],
+                'filename': 'juicer_tools_%(version)s.jar',
+                'download_filename': 'juicer_tools_%(version)s.jar',
+                'extract_cmd': 'cp %s .'
+        }
+]
+
+dependencies = [('Java','1.8.0_201')
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['juicer_tools_%(version)s.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+#Creates bash alias for java program
+modaliases = {'%(name)s': 'java -jar %(installdir)s/juicer_tools_%(version)s.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+moduleclass = 'bio'

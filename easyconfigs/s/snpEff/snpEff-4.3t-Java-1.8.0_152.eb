@@ -30,9 +30,9 @@ modaliases = {'snpEff': 'local_java -jar %(installdir)s/snpEff/snpEff.jar',
 	'clinEff': 'local_java -jar %(installdir)s/snpEff/clinEff/clinEff.jar'
 }
 modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
-modloadmsg = """To execute snpEff run 'snpEff'.  This command executes 'local_java -jar %(installdir)s/snpEff/snpEff.jar'\n"""
-modloadmsg += """To execute SnpSift run 'SnpSift'.  This command executes 'local_java -jar %(installdir)s/snpEff/SnpSift.jar'\n"""
-modloadmsg += """To execute clinEff run 'clinEff'.  This command executes 'local_java -jar %(installdir)s/clinEff/ClinEff.jar'\n"""
+modloadmsg = """To execute snpEff run 'snpEff'.  This command executes 'java -jar %(installdir)s/snpEff/snpEff.jar'\n"""
+modloadmsg += """To execute SnpSift run 'SnpSift'.  This command executes 'java -jar %(installdir)s/snpEff/SnpSift.jar'\n"""
+modloadmsg += """To execute clinEff run 'clinEff'.  This command executes 'java -jar %(installdir)s/clinEff/ClinEff.jar'\n"""
 
 
 moduleclass = 'bio'

@@ -1,20 +1,22 @@
 easyblock = 'MakeCp'
 
 name = 'SALSA'
-version = '2.2'
+version = '20191001'
 versionsuffix = '-Python-%(pyver)s'
+local_commit = '974589f'
 
 homepage = 'https://github.com/marbl/SALSA'
 description = """A tool to scaffold long read assemblies with Hi-C"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['v%(version)s.tar.gz']
+sources = ['%s.tar.gz' % local_commit]
 source_urls = ['https://github.com/marbl/SALSA/archive/']
 
 dependencies = [
 	('Python','2.7.13'),
 	('Boost','1.63.0','-Python-%(pyver)s'),
+	('coreutils','8.28'),
 	('juicer_tools','1.22.01','-Java-1.8.0_201',True),
 ]
 
@@ -22,7 +24,7 @@ keepsymlinks = True
 
 with_configure = False
 
-files_to_copy = [(['*.py','break_contigs','correct_links','break_contigs_start'],'bin'),'README.md','LICENSE']
+files_to_copy = [(['*.py','break_contigs','correct_links','break_contigs_start','*.sh'],'bin'),'README.md','LICENSE']
 
 exts_filter = ('python -c "import %(ext_name)s"', "")
 
@@ -45,7 +47,7 @@ sanity_check_paths = {
 
 fix_python_shebang_for = {'bin/*.py'}
 
-postinstallcmds = ['chmod 775 %(installdir)s/bin/*.py']
+postinstallcmds = ['chmod 775 %(installdir)s/bin/*.py','chmod 775 %(installdir)s/bin/*.sh']
 
 modextrapaths = {'PYTHONPATH':'lib/python%(pyshortver)s/site-packages'
 }
