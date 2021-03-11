@@ -1,0 +1,49 @@
+easyblock = 'PythonPackage'
+
+name = 'MATLAB-python'
+version = '2020b'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://www.mathworks.com/help/matlab/matlab-engine-for-python.html'
+description = """The MATLAB Engine API for Python provides a package for Python to call MATLAB as a computational engine. The engine supports the reference implementation (CPython) for Python versions 2.7, 3.5, and 3.6."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+
+dependencies = [
+	('MATLAB','2020b'),
+        ('Python', '3.7.2'),
+	('jupyterlab','2.2.9','-Python-%(pyver)s'),
+]
+
+
+prebuildopts = 'cd $EBROOTMATLAB/extern/engines/python && '
+buildopts = '--build-base=%(builddir)s install --prefix=%(installdir)s'
+skipsteps = ['install']
+
+options = {'modulename': 'matlab.engine'}
+
+exts_default_options = {
+	'source_urls': [PYPI_SOURCE],
+	'sanity_pip_check': True,
+  	'use_pip': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('metakernel','0.27.5'),
+	('wurlitzer','2.0.1'),
+	('matlab-kernel','0.16.11', {
+		'source_tmpl': 'matlab_kernel-%(version)s.tar.gz'
+	}),
+
+]
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/matlab'],
+}
+
+moduleclass = 'math'
