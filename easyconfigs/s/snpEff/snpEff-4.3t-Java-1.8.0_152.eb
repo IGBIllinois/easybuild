@@ -25,9 +25,9 @@ sanity_check_paths = {
 }
 
 
-modaliases = {'snpEff': 'local_java -jar %(installdir)s/snpEff/snpEff.jar',
-	'SnpSift': 'local_java -jar %(installdir)s/snpEff/snpEff/SnpSift.jar',
-	'clinEff': 'local_java -jar %(installdir)s/snpEff/clinEff/clinEff.jar'
+modaliases = {'snpEff': 'java -jar %(installdir)s/snpEff/snpEff.jar',
+	'SnpSift': 'java -jar %(installdir)s/snpEff/snpEff/SnpSift.jar',
+	'clinEff': 'java -jar %(installdir)s/snpEff/clinEff/clinEff.jar'
 }
 modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
 modloadmsg = """To execute snpEff run 'snpEff'.  This command executes 'java -jar %(installdir)s/snpEff/snpEff.jar'\n"""

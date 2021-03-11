@@ -26,7 +26,7 @@ license_server = 'license-server.igb.illinois.edu'
 license_server_port = '8989'
 
 modextrapaths = {'PATH':'libexec'}
-modextravars = {'SENTIEON_LICENSE':'license.sever.igb.illinois.edu:8989'}
+modextravars = {'SENTIEON_LICENSE':'license-server.igb.illinois.edu:8989'}
 moduleclass = 'bio'
 
 
