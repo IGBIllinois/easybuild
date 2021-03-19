@@ -1,0 +1,23 @@
+Only in RAILS-1.5.1.original/bin: .DS_Store
+diff -ru RAILS-1.5.1.original/bin/runRAILSminimap.sh RAILS-1.5.1/bin/runRAILSminimap.sh
+--- RAILS-1.5.1.original/bin/runRAILSminimap.sh	2021-03-18 08:39:01.726352000 -0500
++++ RAILS-1.5.1/bin/runRAILSminimap.sh	2021-03-18 08:39:25.141089000 -0500
+@@ -7,7 +7,6 @@
+ fi
+ 
+ ###Change line below to point to path of executables
+-export PATH=/gsc/btl/linuxbrew/bin:$PATH
+ echo Resolving ambiguous bases -Ns- in $1 assembly using long sequences $2
+ #-------------------------
+ echo reformatting file $1
+diff -ru RAILS-1.5.1.original/bin/runRAILS.sh RAILS-1.5.1/bin/runRAILS.sh
+--- RAILS-1.5.1.original/bin/runRAILS.sh	2021-03-18 08:39:01.725280000 -0500
++++ RAILS-1.5.1/bin/runRAILS.sh	2021-03-18 08:39:37.164229000 -0500
+@@ -5,7 +5,6 @@
+         exit 1
+ fi
+ ###Change line below to point to path of bwa executables
+-export PATH=/gsc/btl/linuxbrew/bin:$PATH
+ echo Resolving ambiguous bases -Ns- in $1 assembly using long sequences $2
+ echo reformatting file $1
+ ### WARNING: MAKE SURE YOUR INPUT FASTA IS ONE SEQUENCE PER LINE, WITH NO LINE BREAKS!

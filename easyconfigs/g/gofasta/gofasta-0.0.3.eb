@@ -1,0 +1,28 @@
+easyblock = 'Binary'
+
+name = 'gofasta'
+version = '0.0.3'
+
+homepage = 'https://github.com/cov-ert/gofasta'
+description = """Gofasta uses a slightly modified version of the bit-level coding scheme for nucleotides by Emmanuel Paradis (described here, and implemented in the R package ape)."""
+
+toolchain = SYSTEM
+
+sources = ['gofasta-linux-amd64']
+source_urls = ['https://github.com/cov-ert/gofasta/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+install_cmd = 'mkdir %(installdir)s/bin && cp %(builddir)s/gofasta-linux-amd64 %(installdir)s/bin/gofasta'
+
+sanity_check_paths = {
+	'files': ['bin/gofasta'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

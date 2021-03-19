@@ -1,0 +1,58 @@
+easyblock = 'PythonPackage'
+
+name = 'snakemake'
+version = '6.0.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://snakemake.readthedocs.io/en/stable/'
+description = """The Snakemake workflow management system is a tool to create reproducible and scalable data analyses. Workflows are described via a human readable, Python based language. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('jupyterlab','2.2.9','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('ConfigArgParse','1.4', {
+		'modulename': 'configargparse',
+	}),
+	('amply','0.1.4'),
+	('smmap','3.0.5'),
+	('gitdb','4.0.5'),
+	('datrie','0.8.2'),
+	('GitPython','3.1.14', {
+		'modulename': 'git',
+	}),
+	('psutil','5.8.0'),
+	('PuLP','2.4'),
+	('ratelimiter','1.2.0.post0'),
+	('smart-open','4.2.0', {
+		'source_tmpl': 'smart_open-%(version)s.tar.gz',
+	}),
+	('toposort','1.6'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/snakemake'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

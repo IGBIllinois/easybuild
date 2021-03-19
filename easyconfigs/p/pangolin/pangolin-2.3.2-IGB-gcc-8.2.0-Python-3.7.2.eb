@@ -1,0 +1,56 @@
+easyblock = 'PythonPackage'
+
+name = 'pangolin'
+version = '2.3.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/cov-lineages/pangolin'
+description = """Phylogenetic Assignment of Named Global Outbreak LINeages"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/cov-lineages/pangolin/archive/']
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Biopython','1.76','-Python-%(pyver)s'),
+	('snakemake','6.0.5','-Python-%(pyver)s'),
+	('minimap','2.17'),
+	('gofasta','0.0.3','',True),
+		
+	
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('amply','0.1.4'),
+	('PuLP','2.4'),
+	('scikit-learn','0.23.1', {
+		'modulename': 'sklearn',
+	}),
+	('pangoLEARN','2021-02-21',{
+		'source_tmpl': '%(version)s.tar.gz',
+		'source_urls': ['https://github.com/cov-lineages/pangoLEARN/archive/'],
+		'modulename': False,
+	}),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/pangolin'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/pangolin'],
+}
+
+moduleclass = 'bio'
