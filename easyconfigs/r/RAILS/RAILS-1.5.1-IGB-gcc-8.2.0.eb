@@ -1,0 +1,31 @@
+easyblock = 'Tarball'
+
+name = 'RAILS'
+version = '1.5.1'
+
+homepage = 'https://github.com/bcgsc/RAILS'
+description = """RAILS and Cobbler are genomics application for scaffolding and automated finishing of genome assemblies with long DNA sequences. They can be used to scaffold & finish high-quality draft genome assemblies with any long, preferably high-quality, sequences such as scaftigs/contigs from another genome draft."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/bcgsc/RAILS/archive/']
+
+patches = ['RAILS-%(version)s.patch']
+
+dependencies = [
+	('Perl','5.28.1'),
+	('minimap','2.17'),
+	('SAMtools','1.11'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/RAILS'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

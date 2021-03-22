@@ -1,0 +1,36 @@
+easyblock = 'Tarball'
+
+name = 'pagit'
+version = '1.0'
+
+homepage = 'https://www.sanger.ac.uk/tool/pagit/'
+description = """Tools to generate automatically high quality sequence by ordering contigs, closing gaps, correcting sequence errors and transferring annotation."""
+
+toolchain = SYSTEM
+
+sources = ['PAGIT.V1.64bit.tgz']
+source_urls = ['ftp://ftp.sanger.ac.uk/pub/resources/software/pagit/']
+
+dependencies = [
+]
+
+start_dir = 'PAGIT'
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/act'],
+	'dirs': ['RATT','ICORN','ABACAS'],
+}
+
+
+modextrapaths = {
+	'PATH': ['bin/pileup_v0.5','bin/pileup_v0.5/ssaha2','IMAGE','ABACAS','ICORN','RATT'],
+	'RATT_HOME': 'RATT',
+	'RATT_CONFIG': 'RATT/RATT.config',
+	'ICORN_HOME': 'ICORN',
+	'PILEUP_HOME': 'bin/pileup_v0.5',
+	'PERL5LIB': 'lib',
+}
+
+moduleclass = 'bio'
