@@ -4,4 +4,5 @@
 *.jar
 *.whl
 *.rpm
+*.run
 gamslice.txt
