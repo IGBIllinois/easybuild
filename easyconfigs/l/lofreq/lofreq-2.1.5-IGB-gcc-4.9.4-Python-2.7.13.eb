@@ -1,0 +1,38 @@
+easyblock = 'ConfigureMake'
+
+name = 'lofreq'
+version = '2.1.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://csb5.github.io/lofreq/'
+description = """:oFreq* (i.e. LoFreq version 2) is a fast and sensitive variant-caller for inferring SNVs and indels from next-generation sequencing data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://github.com/CSB5/lofreq/archive/refs/tags/']
+sources = ['v%(version)s.tar.gz']
+
+builddependencies = [
+	('Autotools', '20150215')
+]
+dependencies = [
+	('Python','2.7.13'),
+	('HTSlib','1.9'),
+	('zlib','1.2.11'),
+]
+
+preconfigopts = './bootstrap && '
+configopts = '--with-htslib=$EBROOTHTSLIB'
+sanity_check_paths = {
+        'files': ['bin/lofreq'],
+        'dirs': [],
+}
+
+modextrapaths = {
+	'PYTHONPATH': 'lib/python%(pyshortver)s/site-packages'
+}
+
+
+moduleclass = 'bio'
+
+
