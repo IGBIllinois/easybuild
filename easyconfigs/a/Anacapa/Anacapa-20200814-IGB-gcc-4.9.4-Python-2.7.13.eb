@@ -1,0 +1,40 @@
+easyblock = 'Tarball'
+
+name = 'Anacapa'
+version = '20200814'
+versionsuffix = '-Python-%(pyver)s'
+local_commit = 'e2be382'
+
+homepage = 'https://github.com/limey-bean/Anacapa'
+description = """Anacapa is an eDNA toolkit that allows users to build comprehensive reference databases and assign taxonomy to raw multilocus metabarcode sequence data. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/limey-bean/Anacapa/archive/']
+
+dependencies = [
+	('Python','2.7.13'),
+	('Biopython','1.68','-Python-%(pyver)s'),
+	('cutadapt','1.14','-Python-%(pyver)s'),
+	('FASTX-Toolkit','0.0.14'),
+	('Bowtie2','2.3.2'),
+	('MUSCLE','3.8.31'),
+	('R','3.4.2'),
+	
+]
+
+keepsymlinks = True
+
+start_dir = 'Anacapa_db'
+
+sanity_check_paths = {
+	'files': ['anacapa_QC_dada2.sh','anacapa_classifier.sh'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':['','scripts']}
+
+postinstallcmds = ['cp $EBROOTMUSCLE/bin/muscle %(installdir)s']
+
+moduleclass = 'bio'
