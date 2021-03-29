@@ -1,0 +1,36 @@
+easyblock = 'ConfigureMake'
+
+name = 'ATK'
+version = '2.24.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://developer.gnome.org/ATK/stable/'
+description = """
+ ATK provides the set of accessibility interfaces that are implemented by other
+ toolkits and applications. Using the ATK interfaces, accessibility tools have
+ full access to view and control running applications.
+"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = [FTPGNOME_SOURCE]
+sources = [SOURCELOWER_TAR_XZ]
+
+dependencies = [
+	('Python', '3.7.2'),
+    ('GLib', '2.49.5'),
+    ('GObject-Introspection', '1.49.1', versionsuffix)
+]
+
+configopts = "--enable-introspection=yes"
+
+modextrapaths = {
+    'XDG_DATA_DIRS': 'share',
+}
+
+sanity_check_paths = {
+    'files': ['lib/libatk-1.0.%s' % SHLIB_EXT],
+    'dirs': [],
+}
+
+moduleclass = 'vis'

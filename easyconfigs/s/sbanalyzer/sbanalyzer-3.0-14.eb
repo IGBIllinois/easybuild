@@ -24,3 +24,9 @@ sanity_check_paths = {
 modextrapaths = {'PATH': 'opt/sbanalyzer/bin/'}
 
 moduleclass = 'bio'
+
+#NOTES
+#After installation.  Manually add the GTK+ module dependency to this module in /home/apps/modules
+#if not ( isloaded("GTK+/2.24.31-IGB-gcc-8.2.0-Python-3.7.2") ) then
+#    load("GTK+/2.24.31-IGB-gcc-8.2.0-Python-3.7.2")
+#end
