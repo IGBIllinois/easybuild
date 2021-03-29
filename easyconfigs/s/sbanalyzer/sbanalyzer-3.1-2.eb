@@ -1,7 +1,7 @@
 easyblock = 'Rpm'
 
 name = 'sbanalyzer'
-version = '3.0-14'
+version = '3.1-2'
 
 homepage = 'https://www.shorelinebiome.com/sbanalyzer-software/'
 description = """Shoreline Biome’s unique microbiome kits are the key to generating long-read next-generation sequencing data necessary to discriminate microbial strains from any sample. """
