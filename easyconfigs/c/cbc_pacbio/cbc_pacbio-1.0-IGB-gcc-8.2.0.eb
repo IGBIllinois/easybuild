@@ -1,0 +1,46 @@
+easyblock = 'Tarball'
+
+name = 'cbc_pacbio'
+version = '1.0'
+
+homepage = 'https://github.com/IGBIllinois/cbc_pacbio'
+description = """Command-line scripts and pipelines to perform downstream analyses of Sequel II subreads"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+
+sources = [{
+        'filename': 'cbc_pacbio-%(version)s.tar.gz',
+        'git_config': {
+                'url': 'https://github.com/IGBIllinois',
+                'repo_name': 'cbc_pacbio',
+                'tag': 'v%(version)s',
+        },
+}]
+
+dependencies = [('Perl','5.28.1'),
+	('tar','1.32'),
+	('pigz','2.4'),
+	('pbzip2','1.1.13'),
+	('MultiQC','1.7','-Python-3.7.2'),
+	('FastQC','0.11.7'),
+	('seqtk','1.2'),
+	('SAMtools','1.10'),
+	('gnuplot','4.6.7'),
+	('smrtlink','8.0.0.80529','',True),
+	('pbbam','1.0.7'),
+	('seqkit','0.15.0','',True),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/ccs_demult.sh'],
+	'dirs': [],
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/bin/*']
+
+modextrapaths = {}
+
+moduleclass = 'bio'
