@@ -1,0 +1,28 @@
+easyblock = 'Binary'
+
+name = 'basespace-cli'
+version = '1.3.1'
+
+homepage = 'https://developer.basespace.illumina.com/docs/content/documentation/cli/cli-overview'
+description = """You can work with your BaseSpace Sequence Hub data using the command line interface (CLI). The BaseSpace Sequence Hub CLI supports scripting and programmatic access to BaseSpace Sequence Hub for automation, bulk operations, and other routine functions. It can be used independently or in conjunction with BaseMount. """
+
+toolchain = SYSTEM
+
+sources = ['bs']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+
+sanity_check_paths = {
+	'files': ['bs'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+postinstallcmds = ['chmod 775 %(installdir)s/bs']
+
+moduleclass = 'tools'
