@@ -1,0 +1,25 @@
+name = 'libdrm'
+version = '2.4.99'
+
+homepage = 'https://dri.freedesktop.org'
+description = """Direct Rendering Manager runtime library."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = ['https://dri.freedesktop.org/libdrm/']
+sources = [SOURCELOWER_TAR_GZ]
+checksums = ['597fb879e2f45193431a0d352d10cd79ef61a24ab31f44320168583e10cb6302']
+
+builddependencies = [
+    ('binutils', '2.28'),
+    ('pkg-config', '0.29.2'),
+]
+dependencies = [
+#    ('X11', '20190717'),
+    ('libpciaccess', '0.13.4'),
+]
+
+# installing manpages requires an extra build dependency (docbook xsl)
+configopts = '--disable-manpages'
+
+moduleclass = 'lib'

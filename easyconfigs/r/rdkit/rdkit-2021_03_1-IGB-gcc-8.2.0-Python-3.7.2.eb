@@ -1,0 +1,46 @@
+easyblock = 'CMakeMake'
+
+name = 'rdkit'
+version = '2021_03_1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/rdkit/rdkit'
+description = """RDKit is a collection of cheminformatics and machine-learning software written in C++ and Python."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'cstd': 'c++11'}
+
+source_urls = ['https://github.com/rdkit/rdkit/archive/']
+sources = ['Release_%(version)s.tar.gz']
+
+builddependencies = [('CMake', '3.12.1'),
+	('pkg-config','0.29.2'),
+	('Eigen','3.3.3'),
+
+]
+
+dependencies = [('Python','3.7.2'),
+	('Boost','1.69.0'),
+	('Boost.Python','1.69.0','-Python-%(pyver)s'),
+	('cairo','1.14.8'),
+]
+
+separate_build_dir = True
+
+configopts = "-DPy_ENABLE_SHARED=1 -DRDK_INSTALL_STATIC_LIBS=OFF -DRDK_INSTALL_INTREE=OFF "
+configopts += "-DRDK_BUILD_INCHI_SUPPORT=ON "
+configopts += "-DBoost_INCLUDE_DIR=$EBROOTBOOST/include -DBoost_LIBRARY_DIR_RELEASE=$EBROOTBOOST/lib "
+
+sanity_check_commands = ["python -c 'import rdkit.rdBase'"]
+
+sanity_check_paths = {
+    'files': ['lib/libRDKitFMCS.%s' % SHLIB_EXT, 'lib/libRDKitOptimizer.%s' % SHLIB_EXT,
+              'lib/libRDKitSubgraphs.%s' % SHLIB_EXT, 'lib/libRDKitRDBoost.%s' % SHLIB_EXT],
+    'dirs': ['include/rdkit', 'lib/python%(pyshortver)s/site-packages/rdkit'],
+}
+
+modextrapaths = {'PYTHONPATH': 'lib/python%(pyshortver)s/site-packages'}
+
+moduleclass = 'chem'
+
+

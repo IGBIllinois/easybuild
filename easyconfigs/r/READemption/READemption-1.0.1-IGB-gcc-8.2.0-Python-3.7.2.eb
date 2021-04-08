@@ -1,0 +1,44 @@
+easyblock = 'PythonPackage'
+
+name = 'READemption'
+version = '1.0.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://reademption.readthedocs.io/en/latest/'
+description = """READemption is a pipeline for the computational evaluation of RNA-Seq data. It was originally developed to process dRNA-Seq reads (as introduced by Sharma et al., Nature, 2010 (Pubmed)) originating from bacterial samples."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Biopython','1.76','-Python-%(pyver)s'),
+	('R','4.0.3'),
+	('segemehl','0.3.4'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+options = {'modulename': 'reademptionlib' }
+
+sanity_check_paths = {
+        'files': ['bin/reademption'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/reademptionlib'],
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,40 @@
+easyblock = 'CMakeMake'
+
+name = 'colmap'
+version = '20210330'
+local_commit = '82f2a45'
+
+homepage = 'https://github.com/colmap/colmap/tree/dev'
+description = """COLMAP is a general-purpose Structure-from-Motion (SfM) and Multi-View Stereo (MVS) pipeline with a graphical and command-line interface. It offers a wide range of features for reconstruction of ordered and unordered image collections."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+
+source_urls = ['https://github.com/colmap/colmap/archive/']
+sources = ['%s.tar.gz' % local_commit]
+
+builddependencies = [('CMake', '3.17.2')]
+
+dependencies = [
+	('CUDA', '9.1.85', '', True),
+	('ceres-solver', '1.14.0'),
+	('Boost', '1.63.0'),
+	('FreeImage', '3.18.0'),
+	('glew', '2.1.0'),
+]
+
+separate_build_dir = True
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/colmap'],
+        'dirs': ['bin'],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'vis'
+
+

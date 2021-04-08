@@ -1,0 +1,22 @@
+easyblock = 'CMakeMake'
+
+name = 'Eigen'
+version = '3.3.9'
+
+homepage = 'http://eigen.tuxfamily.org/index.php?title=Main_Page'
+description = """Eigen is a C++ template library for linear algebra:
+ matrices, vectors, numerical solvers, and related algorithms."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+builddependencies = [('CMake', '3.17.2')]
+
+source_urls = ['https://gitlab.com/libeigen/%(namelower)s/-/archive/%(version)s/']
+sources = ['%(namelower)s-%(version)s.tar.gz']
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['include', 'share'],
+}
+
+moduleclass = 'math'
