@@ -1,0 +1,46 @@
+easyblock = 'PythonPackage'
+
+name = 'drep'
+version = '3.2.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://drep.readthedocs.io/en/latest/'
+description = """dRep is a python program which performs rapid pair-wise comparison of genome sets. One of it’s major purposes is for genome de-replication, but it can do a lot more."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Biopython','1.76','-Python-%(pyver)s'),
+	('CheckM','1.1.3','-Python-%(pyver)s'),
+	('Mash','2.2.2'),
+	('MUMmer','4.0.0beta2'),
+	('FastANI','1.32','',True),
+	('ANIcalculator','1.0','',True),
+
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/dRep'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

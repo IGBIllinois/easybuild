@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'ANIcalculator'
+version = '1.0'
+
+homepage = 'https://ani.jgi.doe.gov/html/anicalculator.php'
+description = """"""
+
+toolchain = SYSTEM
+
+sources = ['ANIcalculator_v1.tgz']
+source_urls = ['https://ani.jgi.doe.gov/download_files/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['ANIcalculator'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+postinstallcmds = ['chmod 775 %(installdir)s/ANIcalculator %(installdir)s/nsimscan']
+
+moduleclass = 'bio'

@@ -1,0 +1,42 @@
+easyblock = 'PythonPackage'
+
+name = 'TEtranscripts'
+version = '2.2.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/mhammell-laboratory/TEtranscripts'
+description = """TEtranscripts and TEcount takes RNA-seq (and similar data) and annotates reads to both genes & transposable elements. TEtranscripts then performs differential analysis using DESeq2."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/mhammell-laboratory/TEtranscripts/archive/refs/tags/']
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('R','4.0.3'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+options = {'modulename': 'TEToolkit' }
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/TEcount','bin/TEtranscripts'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
