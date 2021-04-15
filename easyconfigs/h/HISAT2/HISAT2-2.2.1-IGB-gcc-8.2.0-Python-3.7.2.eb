@@ -1,0 +1,40 @@
+easyblock = 'MakeCp'
+
+name = 'HISAT2'
+version = '2.2.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://ccb.jhu.edu/software/hisat2/index.shtml'
+description = """HISAT2 is a fast and sensitive alignment program for mapping next-generation sequencing reads
+ (both DNA and RNA) against the general human population (as well as against a single reference genome)."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/DaehwanKimLab/hisat2/archive/refs/tags/']
+
+
+dependencies = [
+	('Python', '3.7.2'),
+]
+
+#buildopts = "USE_SRA=1 NCBI_NGS_DIR=$EBROOTNGS NCBI_VDB_DIR=$EBROOTNCBIMINVDB"
+
+local_executables = ['hisat2', 'hisat2-align-l', 'hisat2-align-s', 'hisat2-build', 'hisat2-build-l', 'hisat2-build-new', 'hisat2-build-s','hisat2-inspect', 'hisat2-inspect-s', 'hisat2-inspect-l','hisat2-repeat','extract_exons.py','extract_splice_sites.py','hisat2_extract_exons.py',
+'hisat2_extract_snps_haplotypes_UCSC.py','hisat2_extract_snps_haplotypes_VCF.py','hisat2_extract_splice_sites.py','hisat2_read_statistics.py','hisat2_simulate_reads.py']
+
+
+
+files_to_copy = [(local_executables, 'bin'),'scripts','example','LICENSE','MANUAL','TUTORIAL','VERSION',
+
+]
+
+sanity_check_paths = {
+    'files': ['bin/%s' % x for x in local_executables],
+    'dirs': ['scripts','example'],
+}
+
+modextrapaths = {'PATH':'scripts'
+}
+
+moduleclass = 'bio'

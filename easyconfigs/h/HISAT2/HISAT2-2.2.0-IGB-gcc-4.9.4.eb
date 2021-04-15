@@ -9,8 +9,8 @@ description = """HISAT2 is a fast and sensitive alignment program for mapping ne
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['%(namelower)s-%(version)s-source.zip']
-source_urls = ['']
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/DaehwanKimLab/hisat2/archive/refs/tags/']
 
 
 dependencies = [

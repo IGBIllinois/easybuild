@@ -1,0 +1,44 @@
+easyblock = 'ConfigureMake'
+
+name = 'ncbi-vdb'
+version = '2.11.0'
+
+homepage = 'https://github.com/ncbi/ncbi-vdb'
+description = """The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for
+ using data in the INSDC Sequence Read Archives."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/ncbi/ncbi-vdb/archive/']
+sources = ['%(version)s.tar.gz']
+
+dependencies = [
+	('libxml2', '2.9.7'),
+	('file', '5.40'),  # provides libmagic
+	('HDF5', '1.8.18'),
+	('NGS', '2.11.0'),
+	('bzip2','1.0.6'),
+	
+]
+
+# add addtional libraries needed to statically link HDF5 from EB
+preconfigopts = "sed -i 's/-lhdf5 -Wl,-Bdynamic/-lhdf5 -Wl,-Bdynamic -lmpi -lsz/' setup/konfigure.perl &&"
+
+# override default of using $HOME/ncbi-outdir
+configopts = "--build-prefix=%(builddir)s "
+configopts += "--with-ngs-sdk-prefix=$EBROOTNGS --with-ngs-java-prefix=$EBROOTNGS "
+configopts += "--with-hdf5-prefix=$EBROOTHDF5 --with-xml2-prefix=$EBROOTLIBXML2"
+
+# replace hardcoded optimization flags with EB settings
+prebuildopts = "find build/ -name \"Makefile*\" -exec sed -i 's/-O3/$(EBFLAGS)/g' {} + && EBFLAGS=\"$CFLAGS\" "
+preinstallopts = 'EBFLAGS="$CFLAGS" '
+
+sanity_check_paths = {
+    'files': ['include/ncbi-vdb/NGS.hpp', ('lib/libncbi-vdb.%s' % SHLIB_EXT, 'lib64/libncbi-vdb.%s' % SHLIB_EXT),
+              ('lib/libncbi-wvdb.%s' % SHLIB_EXT, 'lib64/libncbi-wvdb.%s' % SHLIB_EXT),
+              ('lib/libncbi-ngs-c++.a', 'lib64/libncbi-ngs-c++.a'), ('lib/libncbi-vdb.a', 'lib64/libncbi-vdb.a'),
+              ('lib/libncbi-wvdb.a', 'lib64/libncbi-wvdb.a')],
+    'dirs': [],
+}
+
+moduleclass = 'bio'
