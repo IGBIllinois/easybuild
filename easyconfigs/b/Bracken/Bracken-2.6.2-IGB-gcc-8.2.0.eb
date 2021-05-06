@@ -1,0 +1,36 @@
+easyblock = 'MakeCp'
+
+name = 'Bracken'
+version = '2.6.2'
+
+homepage = 'https://github.com/jenniferlu717/Bracken'
+description = """Bracken is a companion program to Kraken 1 or Kraken 2 While Kraken classifies reads to multiple levels in the taxonomic tree, Bracken allows estimation of abundance at a single level using those classifications (e.g. Bracken can estimate abundance of species within a sample)."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/jenniferlu717/Bracken/archive/refs/tags/']
+
+dependencies = [
+	('Kraken2','2.1.1'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+buildopts = '-C src'
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['bracken-build'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': ['','analysis_scripts']
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/analysis_scripts/combine_bracken_outputs.py']
+
+moduleclass = 'bio'
