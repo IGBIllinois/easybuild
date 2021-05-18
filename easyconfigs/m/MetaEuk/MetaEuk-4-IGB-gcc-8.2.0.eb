@@ -1,0 +1,34 @@
+easyblock = 'CMakeMake'
+
+name = 'MetaEuk'
+version = '4'
+
+homepage = 'https://github.com/soedinglab/metaeuk'
+description = """MetaEuk is a modular toolkit designed for large-scale gene discovery and annotation in eukaryotic metagenomic contigs. MetaEuk combines the fast and sensitive homology search capabilities of MMseqs2 with a dynamic programming procedure to recover optimal exons sets."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+
+source_urls = ['https://github.com/soedinglab/metaeuk/archive/refs/tags/']
+sources = ['4-a0f584d.tar.gz']
+
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = []
+
+separate_build_dir = True
+
+configopts = '-DCMAKE_BUILD_TYPE=Release '
+
+sanity_check_paths = {
+        'files': ['bin/metaeuk'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

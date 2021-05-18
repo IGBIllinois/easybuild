@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'CLUMPP'
+version = '1.1.2'
+
+homepage = 'https://rosenberglab.stanford.edu/clumpp.html'
+description = """CLUMPP is a program that deals with label switching and multimodality problems in population-genetic cluster analyses."""
+
+toolchain = SYSTEM
+
+sources = ['CLUMPP_Linux64.%(version)s.tar.gz']
+source_urls = ['https://rosenberglab.stanford.edu/software/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['CLUMPP'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

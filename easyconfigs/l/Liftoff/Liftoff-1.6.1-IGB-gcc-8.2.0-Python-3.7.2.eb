@@ -1,0 +1,58 @@
+easyblock = 'PythonPackage'
+
+name = 'Liftoff'
+version = '1.6.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/agshumate/Liftoff'
+description = """Liftoff is a tool that accurately maps annotations in GFF or GTF between assemblies of the same, or closely-related species."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/agshumate/Liftoff/archive/refs/tags/']
+
+
+builddependencies = [
+	('Autotools', '20180311','',('GCC','8.2.0-2.32')),
+]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Biopython','1.76','-Python-%(pyver)s'),
+	('gffutils','0.10.1','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('interlap','0.2.6'),
+	('parasail','1.2.1'),
+	('pyfaidx','0.5.8'),
+	('ujson','3.2.0'),
+	('networkx','2.4'),
+	('sortedcontainers','2.4.0'),
+	('hypothesis','6.12.1'),
+	('numpy','1.19.0', {
+		'source_tmpl': 'numpy-%(version)s.zip',
+		'unpack_sources': True,
+	}),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/liftoff'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

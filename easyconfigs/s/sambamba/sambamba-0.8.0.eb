@@ -1,0 +1,29 @@
+easyblock = 'Tarball'
+
+name = 'sambamba'
+version = '0.8.0'
+
+homepage = 'http://lomereiter.github.io/sambamba/'
+description = """sambamba view allows to efficiently filter SAM/BAM/CRAM files for alignments satisfying various conditions, as well as access its SAM header and information about reference sequences."""
+
+toolchain = SYSTEM
+
+sources = ['sambamba-%(version)s-linux-amd64-static.gz']
+source_urls = ['https://github.com/biod/sambamba/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['sambamba-%(version)s-linux-amd64-static'],
+	'dirs': [],
+}
+
+postinstallcmds = ["ln -s %(installdir)s/sambamba-%(version)s-linux-amd64-static %(installdir)s/sambamba", 
+	"chmod 775 %(installdir)s/sambamba-%(version)s-linux-amd64-static"
+]
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
