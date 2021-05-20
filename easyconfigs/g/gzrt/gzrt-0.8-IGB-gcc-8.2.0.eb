@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'gzrt'
+version = '0.8'
+
+homepage = 'https://www.aaronrenn.com/arenn/hacking/gzrt/gzrt.html'
+description = """ So you thought you had your files backed up - until it came time to restore. Then you found out that you had bad sectors and you've lost almost everything because gzip craps out 10% of the way through your archive. The gzip Recovery Toolkit has a program - gzrecover - that attempts to skip over bad data in a gzip archive. This saved me from exactly the above situation. Hopefully it will help you as well. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(name)s-%(version)s.tar.gz']
+source_urls = ['https://www.aaronrenn.com/arenn/hacking/gzrt/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['gzrecover'],'bin'),'ChangeLog','README']
+
+sanity_check_paths = {
+	'files': ['bin/gzrecover'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'tools'

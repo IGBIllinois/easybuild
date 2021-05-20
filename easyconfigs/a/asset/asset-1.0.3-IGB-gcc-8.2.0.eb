@@ -1,0 +1,37 @@
+easyblock = 'MakeCp'
+
+name = 'asset'
+version = '1.0.3'
+
+homepage = 'https://github.com/dfguan/asset'
+description = """Assembly evaluation tool"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/dfguan/asset/archive/refs/tags/']
+
+dependencies = [
+	('zlib','1.2.11'),
+	('minimap','2.17'),
+	('BWA','0.7.17'),
+	('SAMtools','1.11'),
+
+]
+
+keepsymlinks = True
+
+with_configure = False
+start_dir = 'src'
+
+files_to_copy = [(['10x','acc','ast_10x','ast_bion','ast_bion_bnx','ast_hic','ast_hic2','ast_pb','col_conts','detgaps','pchlst','pchlst0','split_fa','union','union_brks'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/acc'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

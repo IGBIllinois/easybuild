@@ -18,10 +18,18 @@ dependencies = [('CUDA','8.0.61','',True),
 keepsymlinks = True
 
 sanity_check_paths = {
-	'files': ['bin/vmd.sh'],
+	'files': ['bin/vmd.sh','LINUXAMD64/vmd_LINUXAMD64'],
 	'dirs': [],
 }
 
-modextrapaths = {}
+modextravars = {
+	'VMDDIR': '%(installdir)s',
+}
+modextrapaths = {
+	'LD_LIBRARY_PATH': 'lib/redistrib/lib_LINUXAMD64',
+	'PATH': 'LINUXAMD64'
+}
+
+
 
 moduleclass = 'bio'

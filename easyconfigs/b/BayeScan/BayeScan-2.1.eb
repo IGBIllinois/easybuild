@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'BayeScan'
+version = '2.1'
+
+homepage = 'http://cmpg.unibe.ch/software/BayeScan'
+description = """This program, BayeScan aims at identifying candidate loci under natural selection from genetic data, using differences in allele frequencies between populations. BayeScan is based on the multinomial-Dirichlet model. """
+
+toolchain = SYSTEM
+
+sources = ['BayeScan%(version)s.zip']
+source_urls = ['http://cmpg.unibe.ch/software/BayeScan/files/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['binaries/BayeScan2.1_linux64bits'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': 'binaries'}
+
+postinstallcmds = ['chmod 775 %(installdir)s/binaries/BayeScan2.1_linux64bits']
+
+moduleclass = 'bio'

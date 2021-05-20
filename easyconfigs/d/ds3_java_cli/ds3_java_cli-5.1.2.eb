@@ -8,13 +8,16 @@ description = """Command line utilities for Bioarchive"""
 
 toolchain = SYSTEM
 
-sources = ['ds3_java_cli-5.1.2.tar']
+sources = ['ds3_java_cli-5.1.2.tar','archive_environment.tar']
+postinstallcmds = ['cp %(builddir)s/bin/archive_environment.py %(installdir)s/bin']
 source_urls = ['https://github.com/SpectraLogic/ds3_java_cli/releases']
 
-dependencies = [('Java','11.0.5'), ]
+
+dependencies = [('Java','11.0.5'), ('Python','3.6.1-IGB-gcc-4.9.4')]
 
 keepsymlinks = True
 
 modextrapaths = {}
+modluafooter = "execute{cmd='source $HOME/.archive/credentials', modeA={'load'}}"
 
 moduleclass = 'bio'

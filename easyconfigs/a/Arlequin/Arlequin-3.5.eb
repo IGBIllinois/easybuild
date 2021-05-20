@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'Arlequin'
+version = '3.5'
+
+homepage = 'http://cmpg.unibe.ch/software/arlequin35/Arlequin35.html'
+description = """An Integrated Software for Population Genetics Data Analysis"""
+
+toolchain = SYSTEM
+
+sources = ['arlecore_linux.zip']
+source_urls = ['http://cmpg.unibe.ch/software/arlequin35/linux/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['arlecore3522_64bit'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+postinstallcmds = ['chmod 755 %(installdir)s/arlecore3522_64bit %(installdir)s/LaunchArlecore.sh']
+
+moduleclass = 'bio'

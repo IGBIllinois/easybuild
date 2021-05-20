@@ -15,6 +15,7 @@ source_urls = [PYPI_LOWER_SOURCE]
 dependencies = [
         ('Python', '3.7.2'),
 	('Biopython','1.76','-Python-%(pyver)s'),
+	('R','4.0.3'),
 ]
 
 
