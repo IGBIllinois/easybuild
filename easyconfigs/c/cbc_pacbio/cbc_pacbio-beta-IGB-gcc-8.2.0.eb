@@ -27,7 +27,7 @@ dependencies = [('Perl','5.28.1'),
 	('seqtk','1.2'),
 	('SAMtools','1.10'),
 	('gnuplot','4.6.7'),
-	('smrtlink','8.0.0.80529','',True),
+	('smrtlink','10.0.0.108728','',True),
 	('pbbam','1.0.7'),
 	('seqkit','0.15.0','',True),
 ]
