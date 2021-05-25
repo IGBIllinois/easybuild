@@ -1,0 +1,39 @@
+easyblock = 'CMakeMake'
+
+name = 'vcflib'
+version = '1.0.2'
+
+homepage = 'https://github.com/vcflib/vcflib'
+description = """a simple C++ library for parsing and manipulating VCF files, + many command-line utilities"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['vcflib-%(version)s-src.tar.gz']
+source_urls = ['https://github.com/vcflib/vcflib/releases/download/v1.0.2/']
+
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = [
+	('bzip2','1.0.6'),
+	('XZ','5.2.3'),
+	('tabixpp','1.1.0'),
+	('Python','3.7.2'),
+	('Perl','5.28.1'),
+]
+
+
+separate_build_dir = True
+configopts = '-DOPENMP=ON'
+
+sanity_check_paths = {
+        'files': ['bin/vcfindex'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

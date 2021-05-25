@@ -1,0 +1,35 @@
+easyblock = 'ConfigureMake'
+
+name = 'tabixpp'
+version = '1.1.0'
+
+homepage = 'https://github.com/ekg/tabixpp'
+description = """This is a C++ wrapper around tabix project which abstracts some of the details of opening and jumping in tabix-indexed files."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/ekg/tabixpp/archive/refs/tags/']
+
+dependencies = [
+	('HTSlib','1.12'),
+]
+
+keepsymlinks = True
+
+patches = ['tabixpp-%(version)s.patch']
+
+skipsteps = ['configure']
+
+
+preinstallopts = 'PREFIX=%(installdir)s'
+
+sanity_check_paths = {
+    'files': ['bin/tabix++', 'lib/libtabixpp.%s' % SHLIB_EXT],
+    'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

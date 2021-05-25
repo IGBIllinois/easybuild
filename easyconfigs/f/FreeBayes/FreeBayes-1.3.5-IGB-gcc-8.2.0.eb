@@ -3,39 +3,37 @@ easyblock = 'MesonNinja'
 name = 'FreeBayes'
 version = '1.3.5'
 
-homepage = 'https://github.com/freebayes/freebayes'
-description = """freebayes is a Bayesian genetic variant detector designed to find small polymorphisms, specifically SNPs (single-nucleotide polymorphisms), indels (insertions and deletions), MNPs (multi-nucleotide polymorphisms), and complex events (composite insertion and substitution events) smaller than the length of a short-read sequencing alignment."""
+homepage = 'https://github.com/ekg/freebayes'
+description = """FreeBayes is a Bayesian genetic variant detector designed to find small polymorphisms, specifically SNPs (single-nucleotide polymorphisms), indels (insertions and deletions), MNPs (multi-nucleotide polymorphisms), and complex events (composite insertion and substitution events) smaller than the length of a short-read sequencing alignment."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-source_urls = ['https://github.com/freebayes/freebayes/releases/download/v%(version)s/']
-sources = ['freebayes-%(version)s-src.tar.gz']
+source_urls = ['https://github.com/freebayes/freebayes/archive/refs/tags/']
+sources = ['v%(version)s.tar.gz']
 
 builddependencies = [
-	('Meson', '0.51.2', '-Python-3.7.2'),
-	('Ninja', '1.9.0'),
+        ('Meson', '0.51.2', '-Python-3.7.2'),
+        ('Ninja', '1.9.0'),
 	('CMake','3.12.1'),
-	
 ]
 
 dependencies = [
+	('vcflib','1.0.2'),
+	('VCFtools','0.1.16','-Perl-5.28.1'),
 	('SAMtools','1.12'),
 	('parallel','20200822'),
-	('zlib','1.2.11'),
-	('bzip2','1.0.6'),
-	('XZ','5.2.3'),
+	
 ]
 
-configopts = ""
-
 sanity_check_paths = {
-    'files': ['bin/freebayes','bin/bamleftalign'],
-    'dirs': [],
+        'files': [],
+        'dirs': [],
 }
 
-postinstallcmds = ['cp -fR %(builddir)s/freebayes/scripts %(installdir)s']
+modextrapaths = {
+}
 
-modextrapaths = {'PATH':'scripts'}
 
 moduleclass = 'bio'
+
 

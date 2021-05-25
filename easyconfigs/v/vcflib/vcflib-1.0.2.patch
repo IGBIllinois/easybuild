@@ -1,0 +1,12 @@
+diff -ru vcflib.original/CMakeLists.txt vcflib/CMakeLists.txt
+--- vcflib.original/CMakeLists.txt	2021-05-21 12:33:33.595458000 -0500
++++ vcflib/CMakeLists.txt	2021-05-21 13:16:04.210567000 -0500
+@@ -74,7 +74,7 @@
+   fastahack/*.h*
+   filevercmp/*.h*)
+ 
+-add_library(vcflib STATIC
++add_library(vcflib SHARED
+     src/Variant.h
+     src/split.h
+     src/pdflib.hpp

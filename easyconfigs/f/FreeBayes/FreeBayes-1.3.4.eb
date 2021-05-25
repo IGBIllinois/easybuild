@@ -1,0 +1,31 @@
+easyblock = 'Binary'
+
+name = 'FreeBayes'
+version = '1.3.4'
+
+homepage = 'https://github.com/freebayes/freebayes'
+description = """a haplotype-based variant detector"""
+
+toolchain = SYSTEM
+
+sources = ['freebayes-%(version)s-linux-static-AMD64.gz']
+source_urls = ['https://github.com/freebayes/freebayes/releases/download/v%(version)s/']
+
+extract_sources = True
+install_cmd = 'mv %(builddir)s/freebayes-%(version)s-linux-static-AMD64 %(installdir)s/freebayes'
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['freebayes'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': ''}
+
+postinstallcmds = ['chmod 775 %(installdir)s/freebayes']
+
+moduleclass = 'bio'
