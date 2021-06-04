@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'snpEff'
+version = '5.0e'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = 'http://sourceforge.net/projects/snpeff/'
+description = """SnpEff is a variant annotation and effect prediction tool. 
+ It annotates and predicts the effects of genetic variants (such as amino acid changes)."""
+
+toolchain = SYSTEM
+
+source_urls = ['https://snpeff.blob.core.windows.net/versions/']
+sources = [('%s_v%s_core.zip' % (name, version.replace('.', '_')))]
+
+dependencies = [('Java','15.0.1')]
+
+
+sanity_check_paths = {
+    'files': ['snpEff.jar','SnpSift.jar'],
+    'dirs': []
+}
+
+
+modextrapaths = {'PATH':['exec','scripts']}
+
+moduleclass = 'bio'

@@ -1,0 +1,39 @@
+diff -ruN freebayes.original/meson.build freebayes/meson.build
+--- freebayes.original/meson.build	2021-05-26 09:47:11.175908000 -0500
++++ freebayes/meson.build	2021-05-26 10:04:18.156932000 -0500
+@@ -7,7 +7,7 @@
+ # If one is missing it should pick up the sources from git submodules.
+ 
+ project('freebayes', ['cpp', 'c'],
+-        version : '1.3.4',
++        version : '1.3.5',
+         default_options : ['warning_level=1', 'cpp_std=c++14', 'optimization=3'])
+ 
+ cc = meson.get_compiler('cpp')
+@@ -16,10 +16,17 @@
+ lzma_dep = dependency('liblzma')
+ thread_dep = dependency('threads')
+ 
+-htslib_dep = dependency('htslib', required : false)
+-tabixpp_dep = cc.find_library('tabixpp', required : false)
+-vcflib_dep = dependency('libvcflib', required : false)
+-seqlib_dep = dependency('libseqlib', required : false)
++if get_option('prefer_system_deps')
++  htslib_dep = dependency('htslib', required : false)
++  tabixpp_dep = cc.find_library('tabixpp', required : false)
++  vcflib_dep = dependency('libvcflib', required : false)
++  seqlib_dep = dependency('libseqlib', required : false)
++else
++  htslib_dep = dependency('', required : false)
++  tabixpp_dep = dependency('', required : false)
++  vcflib_dep = dependency('', required : false)
++  seqlib_dep = dependency('', required : false)
++endif
+ 
+ # for setting a warning_level on the external code in custom_* targets below
+ warn_quiet = ['warning_level=0']
+diff -ruN freebayes.original/meson_options.txt freebayes/meson_options.txt
+--- freebayes.original/meson_options.txt	1969-12-31 18:00:00.000000000 -0600
++++ freebayes/meson_options.txt	2021-05-26 09:47:43.365113000 -0500
+@@ -0,0 +1 @@
++option('prefer_system_deps', type : 'boolean', value : true)

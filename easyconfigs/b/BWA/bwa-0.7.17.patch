@@ -1,0 +1,11 @@
+diff -ru bwa-0.7.17.original/Makefile bwa-0.7.17/Makefile
+--- bwa-0.7.17.original/Makefile	2021-05-26 09:30:23.325057000 -0500
++++ bwa-0.7.17/Makefile	2021-05-26 09:30:32.509985000 -0500
+@@ -1,6 +1,6 @@
+ CC=			gcc
+ #CC=			clang --analyze
+-CFLAGS=		-g -Wall -Wno-unused-function -O2
++CFLAGS=		-g -Wall -Wno-unused-function -O2 -fPIC
+ WRAP_MALLOC=-DUSE_MALLOC_WRAPPERS
+ AR=			ar
+ DFLAGS=		-DHAVE_PTHREAD $(WRAP_MALLOC)

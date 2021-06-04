@@ -6,26 +6,28 @@ version = '1.3.4'
 homepage = 'https://github.com/freebayes/freebayes'
 description = """a haplotype-based variant detector"""
 
-toolchain = SYSTEM
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 sources = ['freebayes-%(version)s-linux-static-AMD64.gz']
 source_urls = ['https://github.com/freebayes/freebayes/releases/download/v%(version)s/']
 
 extract_sources = True
-install_cmd = 'mv %(builddir)s/freebayes-%(version)s-linux-static-AMD64 %(installdir)s/freebayes'
+install_cmd = 'mkdir %(installdir)s/bin && mv %(builddir)s/freebayes-%(version)s-linux-static-AMD64 %(installdir)s/bin/freebayes'
 
 dependencies = [
+	('Python','3.7.2'),
+	('parallel','20200822'),
 ]
 
 keepsymlinks = True
 
 sanity_check_paths = {
-	'files': ['freebayes'],
+	'files': ['bin/freebayes'],
 	'dirs': [],
 }
 
-modextrapaths = {'PATH': ''}
+modextrapaths = {'PATH': 'scripts'}
 
-postinstallcmds = ['chmod 775 %(installdir)s/freebayes']
+postinstallcmds = ['chmod 775 %(installdir)s/bin/freebayes']
 
 moduleclass = 'bio'

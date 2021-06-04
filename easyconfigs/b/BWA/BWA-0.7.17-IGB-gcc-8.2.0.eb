@@ -1,20 +1,4 @@
-##
-# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
-#
-# Copyright:: Copyright 2012-2014 Cyprus Institute / CaSToRC, Uni.Lu/LCSB, NTUA
-# Authors::   George Tsouloupas <g.tsouloupas@cyi.ac.cy>, Fotis Georgatos <fotis@cern.ch>
-# License::   MIT/GPL
-# $Id$
-#
-# This work implements a part of the HPCBIOS project and is a component of the policy:
-# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html
-# 
-# Version >= 0.7.15
-# Author: Adam Huffman
-# The Francis Crick Institute 
-# 
-# Note that upstream development is mainly at: https://github.com/lh3/bwa 
-##
+easyblock = 'MakeCp'
 
 name = 'BWA'
 version = '0.7.17'
@@ -24,10 +8,36 @@ description = """Burrows-Wheeler Aligner (BWA) is an efficient program that alig
  relatively short nucleotide sequences against a long reference sequence such as the human genome."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
-toolchainopts = {'optarch': True, 'pic': True}
+toolchainopts = {'pic': True}
 
 source_urls = ['https://github.com/lh3/%(namelower)s/archive/']
 sources = ['v%(version)s.tar.gz']
 
-moduleclass = 'bio'
+patches = ['bwa-%(version)s.patch']
 
+dependencies = [
+]
+
+keepsymlinks = True
+
+prebuildopts = 'export CFLAGS="$CFLAGS -fcommon" && '
+
+with_configure = False
+
+files_to_copy = [
+	(['bwa','qualfa2fq.pl','xa2multi.pl'],'bin'),
+	'README.md',
+	(['libbwa.a'],'lib'),
+	(['bwa.1'],'man/man1'),
+	(['*.h'],'include/bwa'),
+]
+
+sanity_check_paths = {
+        'files': ['bin/bwa','bin/qualfa2fq.pl','bin/xa2multi.pl'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

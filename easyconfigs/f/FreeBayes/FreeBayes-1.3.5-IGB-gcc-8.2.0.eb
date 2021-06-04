@@ -8,8 +8,17 @@ description = """FreeBayes is a Bayesian genetic variant detector designed to fi
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-source_urls = ['https://github.com/freebayes/freebayes/archive/refs/tags/']
-sources = ['v%(version)s.tar.gz']
+source_urls = []
+sources = [{'filename': 'FreeBayes-1.3.5.tar.gz',
+	'git_config': {
+		'url': 'https://github.com/freebayes/',
+		'repo_name': 'freebayes',
+		'tag': 'v%(version)s',
+		'recursive': True,
+	},
+}]
+
+patches = ['FreeBayes-%(version)s.patch']
 
 builddependencies = [
         ('Meson', '0.51.2', '-Python-3.7.2'),
@@ -22,15 +31,18 @@ dependencies = [
 	('VCFtools','0.1.16','-Perl-5.28.1'),
 	('SAMtools','1.12'),
 	('parallel','20200822'),
+	('SeqLib','1.2.0'),
 	
 ]
 
+postinstallcmds = ['cp -fR %(builddir)s/freebayes/scripts %(installdir)s/scripts']
+
 sanity_check_paths = {
-        'files': [],
+        'files': ['bin/freebayes','scripts/freebayes-parallel'],
         'dirs': [],
 }
 
-modextrapaths = {
+modextrapaths = {'PATH': 'scripts'
 }
 
 
