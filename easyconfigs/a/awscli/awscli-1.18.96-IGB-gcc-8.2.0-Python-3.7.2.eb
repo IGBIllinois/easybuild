@@ -29,6 +29,8 @@ exts_default_options = {
 exts_defaultclass = "PythonPackage"
 exts_list = [
 	(name,version),
+	('jmespath','0.10.0'),
+	('docutils','0.15.2'),
 	('botocore','1.17.19'),
 	('boto3','1.14.19'),
 	('rsa','3.4.2'),

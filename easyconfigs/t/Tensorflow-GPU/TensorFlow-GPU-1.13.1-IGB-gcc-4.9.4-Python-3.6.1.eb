@@ -78,6 +78,13 @@ exts_list = [
 	('tensorboard',version, {
 		'source_tmpl': 'tensorboard-%(version)s-py3-none-any.whl',
 	}),
+	('tensorpack','0.10.1', {
+		'source_tmpl': 'tensorpack-%(version)s-py2.py3-none-any.whl',
+	}),
+	('msgpack-numpy','0.4.6.post0'),
+        ('psutil','5.7.0'),
+        ('tabulate','0.8.7'),
+
 	
 ]
 
