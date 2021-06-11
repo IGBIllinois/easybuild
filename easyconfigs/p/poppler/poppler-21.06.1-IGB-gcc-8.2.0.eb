@@ -1,0 +1,36 @@
+easyblock = 'CMakeMake'
+
+name = 'poppler'
+version = '21.06.1'
+
+homepage = 'https://poppler.freedesktop.org/'
+description = """Poppler is a PDF rendering library based on the xpdf-3.0 code
+ base."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://poppler.freedesktop.org/']
+sources = [SOURCELOWER_TAR_XZ]
+
+separate_build_dir = True
+
+builddependencies = [
+    ('pkg-config', '0.29.2'),
+    ('binutils', '2.32'),
+    ('CMake', '3.17.2'),
+    ('cairo', '1.14.8'),
+    ('libjpeg-turbo', '1.5.1'),
+    ('libpng', '1.6.29'),
+    ('LibTIFF', '4.0.7'),
+]
+
+
+configopts = "-DCMAKE_BUILD_TYPE=release -DENABLE_GOBJECT_INTROSPECTION=OFF -DENABLE_QT5=OFF -DENABLE_LIBOPENJPEG=none -DENABLE_LIBCURL=OFF -DENABLE_XPDF_HEADERS=ON -DENABLE_BOOST=OFF"
+
+sanity_check_paths = {
+    'files': ['bin/pdfinfo'],
+    'dirs': []
+}
+
+moduleclass = 'vis'
+

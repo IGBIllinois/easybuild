@@ -1,0 +1,29 @@
+easyblock = 'Tarball'
+
+name = 'figaro'
+version = '1.1.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/Zymo-Research/figaro'
+description = """An efficient and objective tool for optimizing microbiome rRNA gene trimming parameters."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ["%(version)s.tar.gz"]
+source_urls = ["https://github.com/Zymo-Research/figaro/archive/refs/tags/"]
+
+dependencies = [
+        ('Python', '3.7.2'),
+]
+
+sanity_check_paths = {
+        'files': ['figaro.py'],
+        'dirs': [],
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/figaro.py']
+
+fix_python_shebang_for = ['figaro.py']
+
+modextrapaths = {'PATH':''}
+moduleclass = 'bio'

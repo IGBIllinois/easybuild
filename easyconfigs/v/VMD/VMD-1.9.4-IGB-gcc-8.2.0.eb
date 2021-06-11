@@ -1,18 +1,18 @@
 easyblock = 'Tarball'
 
 name = 'VMD'
-version = '1.9.3'
+version = '1.9.4a38'
 
 homepage = 'https://www.ks.uiuc.edu/Research/vmd/'
 description = """VMD is a molecular visualization program for displaying, animating, and analyzing large biomolecular systems using 3-D graphics and built-in scripting. """
 
-toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-sources = ['vmd-1.9.3.bin.LINUXAMD64-CUDA8-OptiX4-OSPRay111p1.opengl.tar.gz']
+sources = ['vmd-%(version)s.bin.LINUXAMD64-CUDA10-OptiX600-RTX-OSPRay170.opengl.tar.gz']
 source_urls = ['']
 
-dependencies = [('CUDA','8.0.61','',True),
-	('Python','3.6.1')
+dependencies = [('CUDA','10.1.105','',True),
+	('Python','3.7.2')
 ]
 
 keepsymlinks = True

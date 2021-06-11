@@ -1,0 +1,36 @@
+easyblock = 'CMakeMake'
+
+name = 'GROMACS'
+version = '2021.2'
+versionsuffix = '-CUDA-%(cudaver)s'
+
+homepage = 'https://www.gromacs.org/'
+description = """GROMACS is a versatile package to perform molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+
+source_urls = ['https://ftp.gromacs.org/gromacs/']
+sources = ['gromacs-%(version)s.tar.gz']
+
+builddependencies = [('CMake', '3.17.2')]
+
+dependencies = [
+	('CUDA','11.1.0','',True),
+]
+
+separate_build_dir = True
+
+configopts = '-DGMX_GPU=CUDA'
+sanity_check_paths = {
+        'files': ['bin/GMXRC'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

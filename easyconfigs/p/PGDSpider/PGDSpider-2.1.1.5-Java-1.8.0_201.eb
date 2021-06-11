@@ -1,0 +1,37 @@
+easyblock = 'Tarball'
+
+name = 'PGDSpider'
+version = '2.1.1.5'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = 'http://www.cmpg.unibe.ch/software/PGDSpider/'
+description = """PGDSpider is a powerful automated data conversion tool for population genetic and genomics programs. It facilitates the data exchange possibilities between programs for a vast range of data types (e.g. DNA, RNA, NGS, microsatellite, SNP, RFLP, AFLP, multi-allelic data, allele frequency or genetic distances)."""
+
+toolchain = SYSTEM
+
+sources = ['PGDSpider_%(version)s.zip']
+source_urls = ['http://www.cmpg.unibe.ch/software/PGDSpider/']
+
+patches = ['PGDSpider-%(version)s.patch']
+
+dependencies = [
+	('Java','1.8.0_201')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['PGDSpider2.jar','PGDSpider2.sh'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+postinstallcmds = ['chmod 775 %(installdir)s/PGDSpider2.sh']
+
+#Creates bash alias for java program
+modaliases = {'%(namelower)s': 'java -jar %(installdir)s/PGDSpider2-cli.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+modloadmsg = """To execute PGDSpider2-cli.jar run 'pgdspider'.  This command executes 'java -jar %(installdir)s/snpEff/PGDSpider2-cli.jar'\n"""
+moduleclass = 'bio'

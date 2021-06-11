@@ -1,0 +1,33 @@
+easyblock = 'CMakeMake'
+
+name = 'GROMACS'
+version = '2021.2'
+
+homepage = 'https://www.gromacs.org/'
+description = """GROMACS is a versatile package to perform molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+
+source_urls = ['https://ftp.gromacs.org/gromacs/']
+sources = ['gromacs-%(version)s.tar.gz']
+
+builddependencies = [('CMake', '3.17.2')]
+
+dependencies = []
+
+separate_build_dir = True
+
+configopts = '-DGMX_SIMD=AVX_256'
+sanity_check_paths = {
+        'files': ['bin/gmx','bin/GMXRC'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+
