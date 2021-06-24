@@ -1,0 +1,42 @@
+easyblock = 'PythonPackage'
+
+name = 'Loter'
+version = '20210413'
+versionsuffix = '-Python-%(pyver)s'
+local_commit = 'cdf8257'
+
+homepage = 'https://github.com/bcm-uga/Loter'
+description = """Loter is a Python (and soon R) package for local ancestry inference [1] and haplotype phasing [2]"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/bcm-uga/Loter/archive/']
+
+dependencies = [
+        ('Python', '3.7.2'),
+]
+
+
+start_dir = 'python-package'
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/loter_cli'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/loter'],
+}
+
+moduleclass = 'bio'

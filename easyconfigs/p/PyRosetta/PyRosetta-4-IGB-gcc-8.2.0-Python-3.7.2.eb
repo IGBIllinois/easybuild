@@ -1,0 +1,39 @@
+easyblock = 'PythonPackage'
+
+name = 'PyRosetta'
+version = '4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://www.pyrosetta.org/'
+description = """PyRosetta is an interactive Python-based interface to the powerful Rosetta molecular modeling suite. It enables users to design their own custom molecular modeling algorithms using Rosetta sampling methods and energy functions."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = ['http://levinthal:paradox@graylab.jhu.edu/download/PyRosetta4/archive/release/PyRosetta4.Release.python37.linux.wheel/latest.html']
+
+dependencies = [
+        ('Python', '3.7.2'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

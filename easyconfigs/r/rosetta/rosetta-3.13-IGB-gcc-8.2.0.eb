@@ -1,0 +1,39 @@
+easyblock = 'CMakeMake'
+
+name = 'rosetta'
+version = '3.13'
+
+homepage = 'https://www.rosettacommons.org/'
+description = """The Rosetta software suite includes algorithms for computational modeling and analysis of protein structures. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+#Username: Academic_User
+#Password: Xry3x4
+source_urls = ['https://www.rosettacommons.org/downloads/academic/%(version)s/']
+sources = ['rosetta_src_%(version)s_bundle.tgz']
+
+
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = [('Python','3.7.2')
+
+]
+
+start_dir = 'main/source'
+
+separate_build_dir = True
+
+sanity_check_paths = {
+        'files': [''],
+        'dirs': [],
+}
+
+modextrapaths = {'PATH':'main/source/bin'
+}
+
+
+
+moduleclass = 'bio'
+
+
