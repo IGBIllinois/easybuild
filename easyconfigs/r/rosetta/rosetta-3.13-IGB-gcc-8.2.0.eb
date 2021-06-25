@@ -14,25 +14,27 @@ source_urls = ['https://www.rosettacommons.org/downloads/academic/%(version)s/']
 sources = ['rosetta_src_%(version)s_bundle.tgz']
 
 
-builddependencies = [('CMake', '3.12.1')]
-
-dependencies = [('Python','3.7.2')
-
+builddependencies = [
+	('CMake', '3.12.1'),
 ]
 
-start_dir = 'main/source'
+dependencies = [
+]
 
-separate_build_dir = True
+start_dir = 'source/cmake/build_release'
+
+separate_build_dir = False
+
+preconfigopts = '../make_project.py all && '
+
 
 sanity_check_paths = {
-        'files': [''],
+        'files': ['bin/rosetta_scripts'],
         'dirs': [],
 }
 
-modextrapaths = {'PATH':'main/source/bin'
+modextrapaths = {
 }
-
-
 
 moduleclass = 'bio'
 

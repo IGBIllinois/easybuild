@@ -1,7 +1,7 @@
 easyblock = 'PythonPackage'
 
 name = 'PyRosetta'
-version = '4'
+version = '2021.25'
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'http://www.pyrosetta.org/'
@@ -9,11 +9,14 @@ description = """PyRosetta is an interactive Python-based interface to the power
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-sources = [SOURCELOWER_TAR_GZ]
-source_urls = ['http://levinthal:paradox@graylab.jhu.edu/download/PyRosetta4/archive/release/PyRosetta4.Release.python37.linux.wheel/latest.html']
+#Username: levinthal
+#Password: paradox
+sources = ['pyrosetta-%(version)s+release.a320e4c-cp37-cp37m-linux_x86_64.whl']
+source_urls = ['https://graylab.jhu.edu/download/PyRosetta4/archive/release/PyRosetta4.Release.python37.linux.wheel/']
 
 dependencies = [
         ('Python', '3.7.2'),
+	('rosetta','3.13'),
 ]
 
 
@@ -33,7 +36,7 @@ exts_filter = ('python -c "import %(ext_name)s"', "")
 
 sanity_check_paths = {
         'files': [],
-        'dirs': [],
+        'dirs': ['lib/python%(pyshorter)s/site-packages/pyrosetta'],
 }
 
 moduleclass = 'bio'
