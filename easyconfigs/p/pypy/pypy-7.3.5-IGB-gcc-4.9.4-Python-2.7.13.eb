@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'pypy'
+version = '7.3.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://www.pypy.org'
+description = """A fast, compliant alternative implementation of Python"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['pypy%(pyshortver)s-v%(version)s-linux64.tar.bz2']
+source_urls = ['https://downloads.python.org/pypy/']
+
+dependencies = [
+	('Python','2.7.13'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/pypy'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
