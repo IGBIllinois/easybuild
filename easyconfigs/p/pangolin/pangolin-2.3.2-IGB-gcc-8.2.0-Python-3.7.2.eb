@@ -56,4 +56,4 @@ sanity_check_paths = {
 moduleclass = 'bio'
 
 #Notes
-#pangoLearn needs to be updated regularly.  Just need to run "eb pangolin-2.3.2-IGB-gcc-8.2.0-Python-3.7.2.eb --rebuild --skip" to update it.
+#pangoLearn needs to be updated regularly.  Just need to run "eb pangolin-2.3.2-IGB-gcc-8.2.0-Python-3.7.2.eb --rebuild --force-download" to update it.

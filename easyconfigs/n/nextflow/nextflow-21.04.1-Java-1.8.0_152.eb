@@ -1,0 +1,41 @@
+easyblock = 'Binary'
+
+name = 'nextflow'
+version = '21.04.1'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = 'https://www.nextflow.io/'
+description = """Nextflow enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages. """
+
+toolchain = SYSTEM
+
+sources = ['nextflow']
+source_urls = ['https://github.com/nextflow-io/nextflow/releases/download/v%(version)s-edge/']
+
+
+dependencies = [('Java','1.8.0_152'),
+]
+
+
+
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/nextflow'],
+	'dirs': [],
+}
+
+install_cmd = "mkdir -p %(installdir)s/bin && "
+install_cmd += "mv nextflow %(installdir)s/bin/nextflow"
+
+postinstallcmds = ['chmod 775 %(installdir)s/bin/nextflow']
+
+modextravars = {'NXF_EXECUTOR': 'SLURM',
+		'NXF_TEMP': '/tmp'}
+
+modloadmsg = "NOTICE: Please limit the number of nextflow jobs to 3 at a time.  Using more creates a lot of stress on the shared filesystem on the cluster\n"
+modloadmsg += "Please set the environmental variable NXF_HOME to a directory in your home directory.  Without this parameter, nextflow will not work.\n"
+modloadmsg += "An example is 'export NXF_HOME=$HOME/nextflow'.\n"
+
+moduleclass = 'bio'
