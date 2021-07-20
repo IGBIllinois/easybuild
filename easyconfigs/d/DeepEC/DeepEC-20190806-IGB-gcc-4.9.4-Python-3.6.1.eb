@@ -1,0 +1,37 @@
+easyblock = 'Tarball'
+
+name = 'DeepEC'
+version = '20190806'
+versionsuffix = '-Python-%(pyver)s'
+
+local_commit = 'adf79c9'
+
+homepage = 'https://bitbucket.org/kaistsystemsbiology/deepec'
+description = """DeepEC"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%s.zip' % local_commit]
+source_urls = ['https://bitbucket.org/kaistsystemsbiology/deepec/get/']
+
+dependencies = [
+	('Python','3.6.1'),
+	('Tensorflow-GPU','1.5.1','-Python-%(pyver)s'),
+	('Biopython','1.76','-Python-%(pyver)s'),
+	('DIAMOND','0.9.24'),
+	
+]
+
+keepsymlinks = True
+
+fix_python_shebang_for = ['deepec.py']
+
+sanity_check_paths = {
+	'files': ['deepec.py'],
+	'dirs': [],
+}
+
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

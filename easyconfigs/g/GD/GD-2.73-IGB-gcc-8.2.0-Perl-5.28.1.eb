@@ -1,0 +1,42 @@
+easyblock = 'PerlModule'
+
+name = 'GD'
+version = '2.73'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'http://search.cpan.org/~lds/GD/'
+description = """GD.pm - Interface to Gd Graphics Library"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['http://cpan.metacpan.org/authors/id/R/RU/RURBAN/']
+sources = [SOURCE_TAR_GZ]
+
+dependencies = [
+    ('Perl', '5.28.1'),
+    ('libgd', '2.2.4'),
+    ('libpng', '1.6.29'),
+    ('libjpeg-turbo', '1.5.1'),
+]
+
+exts_defaultclass = "PerlModule"
+
+exts_list = [
+	('GD::Text::Align', '0.86', {
+		'source_tmpl': 'GDTextUtil-%(version)s.tar.gz',
+		'source_urls': ['http://search.cpan.org/CPAN/authors/id/M/MV/MVERB/'],
+	}),
+        ('GD::Graph','1.54', {
+                'source_tmpl': 'GDGraph-%(version)s.tar.gz',
+                'source_urls': ['https://cpan.metacpan.org/authors/id/R/RU/RUZ/']
+        }),
+	('GD::Graph::boxplot', '1.00', {
+		'source_tmpl': 'GDGraph-boxplot-%(version)s.tar.gz',
+		'source_urls': ['http://search.cpan.org/CPAN/authors/id/G/GA/GAFFER/'],
+	}),
+]
+
+
+exts_filter = ("perldoc -lm %(ext_name)s ", "")
+
+moduleclass = 'bio'
