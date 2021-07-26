@@ -1,0 +1,40 @@
+easyblock = 'Tarball'
+
+name = 'npm'
+version = 'v7.20.0'
+
+homepage = 'https://github.com/npm/cli'
+description = """the package manager for JavaScript"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/npm/cli/archive/refs/tags/']
+
+
+
+sanity_check_paths = {
+	'files': ['bin/npm'],
+	'dirs': [''],
+}
+
+
+modextrapaths = {
+	'PATH': '',
+}
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+
+exts_list = [
+]
+

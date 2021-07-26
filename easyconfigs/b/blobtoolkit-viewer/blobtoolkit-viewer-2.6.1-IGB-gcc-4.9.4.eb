@@ -1,0 +1,24 @@
+easyblock = 'Tarball'
+
+name = 'blobtoolkit-viewer'
+version = '2.6.1'
+versionsuffix = ''
+
+homepage = 'https://github.com/blobtoolkit/viewer'
+description = """BlobToolKit API and viewer code"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/blobtoolkit/viewer/archive/refs/tags/']
+
+dependencies = {
+	('npm', 'v7.20.0'),
+	('nodejs', '10.16.2'), 
+}
+
+
+sanity_check_paths = {
+	'files': ['utils/cli'],
+	'dirs': [''],
+}

@@ -1,22 +1,21 @@
 easyblock = 'MakeCp'
 
-name = 'mirdeep'
-version = '2.0.0.8'
+name = 'mirdeep2'
+version = '0.1.3'
 
-homepage = 'https://www.mdc-berlin.de/8551903/en/'
+homepage = 'https://github.com/rajewsky-lab/mirdeep2'
 description = """miRDeep2 is a completely overhauled tool which discovers microRNA genes by analyzing sequenced RNAs. """
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['mirdeep2_0_0_8.zip']
-source_urls = ['https://www.mdc-berlin.de/45995549/en/research/research_teams/systems_biology_of_gene_regulatory_elements/projects/miRDeep/']
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/rajewsky-lab/mirdeep2/archive/refs/tags/']
 
 dependencies = [('Perl','5.24.1'),
 	('ViennaRNA','2.4.2'),
 	('randfold','2.0.1')
 ]
 
-patches = ['mirdeep-%(version)s.patch']
 
 keepsymlinks = True
 
@@ -24,8 +23,11 @@ with_configure = False
 
 skipsteps = ['build']
 
-files_to_copy = [(['src/*.pl','Rfam_for_miRDeep.fa'],'bin'),
-	'CREDITS','DISCLAIMER'
+files_to_copy = [(['src/*.pl'],'bin'),
+	'Rfam_for_miRDeep.fa',
+	'CREDITS',
+	'DISCLAIMER',
+	'LICENSE'
 ]
 
 sanity_check_paths = {
@@ -33,8 +35,10 @@ sanity_check_paths = {
 	'dirs': [],
 }
 
+fix_perl_shebang_for = ['bin/*.pl']
+
 postinstallcmds = ['touch %(installdir)s/install_successful', 'chmod 775 %(installdir)s/bin/*.pl']
-modextrapaths = {'PATH':''
+modextrapaths = {
 }
 
 moduleclass = 'bio'
