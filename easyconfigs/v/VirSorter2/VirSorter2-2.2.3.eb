@@ -13,7 +13,7 @@ dependencies = [('Miniconda3','4.7.12.1'),
 ]
 
 channels = ['defaults','bioconda', 'conda-forge']
-requirements = 'virsorter=%(version)s'
+requirements = 'virsorter=%(version)s screed hmmer'
 
 environment_file = ""
 

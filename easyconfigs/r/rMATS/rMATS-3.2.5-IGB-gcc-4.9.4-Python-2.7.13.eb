@@ -25,6 +25,8 @@ sanity_check_paths = {
 	'dirs': ['bin', 'MATS'],
 }
 
-modextrapaths = {}
+fix_python_shebang_for = ['RNASeq-MATS.py','bin/*.py']
+
+modextrapaths = {'PATH':''}
 
 moduleclass = 'bio'

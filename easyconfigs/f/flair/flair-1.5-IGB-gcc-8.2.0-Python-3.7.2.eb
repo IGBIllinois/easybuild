@@ -1,0 +1,54 @@
+easyblock = 'Tarball'
+
+name = 'flair'
+version = '1.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/BrooksLabUCSC/flair/'
+description = """FLAIR (Full-Length Alternative Isoform analysis of RNA) for the correction, isoform definition, and alternative splicing analysis of noisy reads. FLAIR has primarily been used for nanopore cDNA, native RNA, and PacBio sequencing reads."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/BrooksLabUCSC/flair/archive/refs/tags/']
+
+dependencies = [
+	('Python','3.7.2'),
+	('minimap','2.21'),
+	('BEDTools','2.28.0'),
+	('SAMtools','1.12'),
+]
+
+keepsymlinks = True
+
+exts_default_options = {
+	'source_urls': [PYPI_SOURCE],
+	'sanity_pip_check': True,
+	'use_pip': True,
+	'unpack_sources': False
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('sortedcontainers','2.4.0'),
+	('intervaltree','3.1.0'),
+	('kerneltree','0.0.5'),
+	('pybedtools','0.8.2'),
+]
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+	'files': ['flair.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'',
+	'PYTHONPATH':'lib/python%(pyshortver)s/site-packages',
+}
+
+fix_python_shebang_for = ['bin/*.py','flair.py']
+
+postinstallcmds = ['chmod 775 %(installdir)s/flair.py','chmod 775 %(installdir)s/bin/*']
+
+moduleclass = 'bio'
