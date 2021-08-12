@@ -14,6 +14,7 @@ source_urls = ['https://github.com/nanoporetech/tombo/archive/']
 
 dependencies = [
         ('Python', '3.6.1'),
+	('rpy2','2.9.0','-Python-%(pyver)s-R-3.3.3'),
 ]
 
 exts_defaultclass = "PythonPackage"

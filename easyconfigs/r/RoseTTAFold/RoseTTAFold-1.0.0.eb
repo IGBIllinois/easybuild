@@ -20,16 +20,15 @@ dependencies = [('Miniconda3','4.7.12.1'),
 ]
 
 #channels = ['defaults','bioconda', 'conda-forge']
-#requirements = '%(name)s=%(version)s'
+#requirements = 'folder-linux'
 
-environment_file = "RoseTTAFold-linux.yml"
 
 sanity_check_paths = {
-        'files': [],
+        'files': ['run_pyrosetta_ver.sh','run_e2e_ver.sh'],
         'dirs': [],
 }
 
-modextrapaths = {
+modextrapaths = {'PATH': ''
 }
 
 
@@ -39,4 +38,5 @@ modloadmsg += "module load %(name)s/%(version)s\n"
 
 moduleclass = 'bio'
 
+keeppreviousinstall = True
 

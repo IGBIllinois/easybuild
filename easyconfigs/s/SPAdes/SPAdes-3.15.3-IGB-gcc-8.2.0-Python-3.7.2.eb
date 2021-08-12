@@ -1,0 +1,41 @@
+easyblock = 'CMakeMake'
+
+name = 'SPAdes'
+version = '3.15.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://cab.spbu.ru/software/spades/'
+description = """SPAdes . St. Petersburg genome assembler . is intended for both standard isolates and single-cell MDA bacteria assemblies."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['SPAdes-%(version)s.tar.gz']
+source_urls = ['http://cab.spbu.ru/files/release%(version)s/']
+
+dependencies = [
+	('Python','3.7.2'),
+	('zlib', '1.2.11'),
+	('bzip2', '1.0.6'),
+]
+
+builddependencies = [
+	('CMake', '3.12.1'),
+]
+
+local_parallel = "4"
+
+separate_build_dir = True
+start_dir = 'src'
+buildopts = '-j ' + local_parallel
+
+#cmds_map = [(".*","export PREFIX=%(installdir)s && ./spades_compile.sh --threads " + local_parallel)]
+#files_to_copy = []
+
+sanity_check_paths = {
+	'files': ['bin/spades.py'],
+	'dirs': [],
+}
+
+modloadmsg = "To increase performance, use the --tmp-dir parameter to use the /scratch directory for the tmp files.  spades.py --tmp-dir /scratch/$SLURM_JOB_ID\n"
+
+moduleclass = 'bio'
