@@ -1,0 +1,36 @@
+easyblock = 'ConfigureMake'
+
+name = 'NCO'
+version = '5.0.1'
+
+homepage = "http://nco.sourceforge.net"
+description = """manipulates and analyzes data stored in netCDF-accessible formats, including DAP, HDF4, and HDF5"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['http://nco.sourceforge.net/src']
+sources = [SOURCELOWER_TAR_GZ]
+
+builddependencies = [
+    ('Bison', '3.3.2'),
+    ('flex', '2.6.4'),
+]
+
+dependencies = [
+    ('udunits', '2.2.26'),
+    ('expat', '2.2.0'),
+    ('ANTLR', '2.7.7'),
+    ('libdap', '3.20.7'),
+    ('GSL', '2.5'),
+    ('netCDF', '4.7.2'),
+]
+
+sanity_check_paths = {
+    'files': ['bin/nc%s' % x for x in ('ap2', 'atted', 'bo', 'diff', 'ea', 'ecat', 'es',
+                                       'flint', 'ks', 'pdq', 'ra', 'rcat', 'rename', 'wa')] +
+             ['lib/libnco.a', 'lib/libnco.%s' % SHLIB_EXT ],
+    'dirs': [],
+}
+
+moduleclass = 'tools'
+

@@ -33,7 +33,7 @@ exts_filter = ('python -c "import %(ext_name)s"', "")
 
 sanity_check_paths = {
         'files': [],
-        'dirs': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
 }
 
 moduleclass = 'bio'

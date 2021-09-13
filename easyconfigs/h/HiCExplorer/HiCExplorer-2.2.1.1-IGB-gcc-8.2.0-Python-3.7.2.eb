@@ -1,0 +1,70 @@
+easyblock = 'PythonPackage'
+
+name = 'HiCExplorer'
+version = '2.2.1.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://hicexplorer.readthedocs.io/en/latest/index.html'
+description = """HiCExplorer addresses the common tasks of Hi-C data analysis from processing to visualization."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['HiCExplorer-%(version)s-py3-none-any.whl']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Biopython','1.76','-Python-%(pyver)s'),
+	('cooler','0.8.2','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+
+	('argcomplete','1.12.3'),
+	('argh','0.26.2'),
+	('matplotlib','3.3.1', {
+		'source_tmpl': 'matplotlib-%(version)s-cp37-cp37m-manylinux1_x86_64.whl'
+	}),
+	('numexpr','2.7.3'),
+	('gffutils','0.10.1'),
+	('pybedtools','0.8.2'),
+	('Unidecode','1.3.1', {
+		'modulename': 'unidecode'
+	}),
+	('sortedcontainers','2.4.0'),
+	('tables','3.6.1', {
+		'source_tmpl': 'tables-%(version)s-cp37-cp37m-manylinux1_x86_64.whl',
+	}),
+	('pyBigWig','0.3.18', {
+		'modulename': 'pybigwig'
+	}),
+	('pyGenomeTracks','3.6', {
+		'modulename': 'pygenometracks'
+	}),
+	('hic2cool','0.8.3'),
+	('HiCMatrix','15', {
+		'modulename': 'hicmatrix'
+	}),
+	('intervaltree','2.1.0'),
+	('psutil','5.8.0'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

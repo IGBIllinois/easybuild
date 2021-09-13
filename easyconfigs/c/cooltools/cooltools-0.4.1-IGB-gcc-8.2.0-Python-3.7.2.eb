@@ -1,0 +1,49 @@
+easyblock = 'PythonPackage'
+
+name = 'cooltools'
+version = '0.4.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/open2c/cooltools'
+description = """The tools for your .cools"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('cooler','0.8.11','-Python-%(pyver)s'),
+	('numba','0.52.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('bioframe','0.2.0', {
+		'source_tmpl': 'bioframe-%(version)s-py2.py3-none-any.whl',
+	}),
+	('tables','3.6.1', {
+		'source_tmpl': 'tables-%(version)s-cp37-cp37m-manylinux1_x86_64.whl'
+	}),
+	('numexpr','2.7.3'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/cooltools'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/cooltools'],
+}
+
+moduleclass = 'bio'

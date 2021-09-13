@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'hhsuite'
+version = '3.3.0'
+
+homepage = 'https://github.com/soedinglab/hh-suite'
+description = """The HH-suite is an open-source software package for sensitive protein sequence searching based on the pairwise alignment of hidden Markov models"""
+
+toolchain = SYSTEM
+
+sources = ['hhsuite-%(version)s-SSE2-Linux.tar.gz']
+source_urls = ['https://github.com/soedinglab/hh-suite/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/hhalign'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

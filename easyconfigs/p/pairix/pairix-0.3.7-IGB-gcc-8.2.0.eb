@@ -1,0 +1,33 @@
+easyblock = 'MakeCp'
+
+name = 'pairix'
+version = '0.3.7'
+
+homepage = 'https://github.com/4dn-dcic/pairix'
+description = """Pairix is a tool for indexing and querying on a block-compressed text file containing pairs of genomic coordinates."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/4dn-dcic/pairix/archive/refs/tags/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['bin','util','samples','test','LICENSE.txt','VERSION.txt','README.md']
+
+fix_perl_shebang_for = ['util/*.pl']
+
+sanity_check_paths = {
+	'files': ['bin/pairix','bin/bgzip','bin/pairs_merger','bin/streamer_1d'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'util'
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,28 @@
+easyblock = 'Rpm'
+
+name = 'singularity'
+version = '3.8.1'
+
+homepage = 'https://sylabs.io/singularity/'
+description = """Singularity provides a single universal on-ramp from developers’ workstations to local resources, the cloud, and all the way to edge."""
+
+toolchain = SYSTEM
+
+sources = ['singularity-%(version)s-1.el7.x86_64.rpm']
+source_urls = ['https://download-cc-rdu01.fedoraproject.org/pub/epel/7/x86_64/Packages/s/']
+
+force = True
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

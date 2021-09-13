@@ -1,0 +1,30 @@
+easyblock = 'ConfigureMake'
+
+name = 'ANTLR'
+version = '2.7.7'
+#versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://www.antlr2.org/'
+description = """ANTLR, ANother Tool for Language Recognition, (formerly PCCTS)
+ is a language tool that provides a framework for constructing recognizers,
+ compilers, and translators from grammatical descriptions containing
+ Java, C#, C++, or Python actions."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['http://www.antlr2.org/download/']
+sources = [SOURCELOWER_TAR_GZ]
+patches = ['ANTLR-2.7.7.patch']
+
+dependencies = [
+]
+
+configopts = '--disable-examples --disable-csharp '
+
+sanity_check_paths = {
+    'files': ['bin/antlr', 'bin/antlr-config'],
+    'dirs': ['include'],
+}
+
+moduleclass = 'tools'
+
