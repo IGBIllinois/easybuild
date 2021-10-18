@@ -1,0 +1,28 @@
+easyblock = 'ConfigureMake'
+
+name = 'Chromonomer'
+version = '1.13'
+
+homepage = 'https://catchenlab.life.illinois.edu/chromonomer/'
+description = """Chromonomer is a program designed to integrate a genome assembly with a genetic map. Chromonomer tries very hard to identify and remove markers that are out of order in the genetic map, when considered against their local assembly order; and to identify scaffolds that have been incorrectly assembled according to the genetic map, and split those scaffolds."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['http://catchenlab.life.illinois.edu/chromonomer/source/']
+sources = [SOURCELOWER_TAR_GZ]
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/chromonomer'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

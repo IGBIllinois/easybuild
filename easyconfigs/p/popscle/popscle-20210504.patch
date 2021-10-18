@@ -1,0 +1,11 @@
+diff -ru popscle-da70fc78da385ef049e0e890342acfd62842cae0.original/CMakeLists.txt popscle-da70fc78da385ef049e0e890342acfd62842cae0/CMakeLists.txt
+--- popscle-da70fc78da385ef049e0e890342acfd62842cae0.original/CMakeLists.txt	2021-10-07 13:16:41.323181000 -0500
++++ popscle-da70fc78da385ef049e0e890342acfd62842cae0/CMakeLists.txt	2021-10-07 13:17:03.258608000 -0500
+@@ -130,6 +130,6 @@
+     message(FATAL_ERROR "libcrypto library not found")
+ endif()
+ 
+-target_link_libraries(popscle ${HTS_LIBRARIES} ${ZLIB} ${BZIP2} ${LZMA} ${CURLLIB} ${CRYPTOLIB})
++target_link_libraries(popscle ${HTS_LIBRARIES} ${ZLIB} ${BZIP2} ${LZMA} ${CURLLIB} ${CRYPTOLIB} ${CMAKE_DL_LIBS})
+ 
+ install(TARGETS popscle RUNTIME DESTINATION bin)

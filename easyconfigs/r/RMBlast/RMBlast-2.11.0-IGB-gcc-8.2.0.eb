@@ -1,0 +1,38 @@
+easyblock = 'ConfigureMake'
+
+name = 'RMBlast'
+version = '2.11.0'
+
+homepage = 'http://www.repeatmasker.org/RMBlast.html'
+description = """RMBlast is a RepeatMasker compatible version of the standard NCBI blastn program. The primary difference between this distribution and the NCBI distribution is the addition of a new program "rmblastn" for use with RepeatMasker and RepeatModeler."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/%(version)s/',
+]
+sources = ['ncbi-blast-%(version)s+-src.tar.gz'
+]
+
+dependencies = [
+	('Boost', '1.69.0'),
+	('bzip2','1.0.6'),
+	('zlib','1.2.11'),
+]
+
+patches = [('isb-%(version)s+-rmblast.patch',2)]
+
+configopts = '--with-mt --without-debug --without-krb5 --without-openssl --with-projects=scripts/projects/rmblastn/project.lst '
+configopts += '--with-64 --with-openmp --with-lfs --without-gbench --with-bin-release --without-gui'
+
+sanity_check_paths = {
+        'files': ['bin/rmblastn'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

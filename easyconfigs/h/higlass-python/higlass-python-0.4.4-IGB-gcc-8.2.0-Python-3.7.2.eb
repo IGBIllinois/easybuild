@@ -1,0 +1,79 @@
+easyblock = 'PythonPackage'
+
+name = 'higlass-python'
+version = '0.4.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/higlass/higlass-python'
+description = """Python bindings to the HiGlass for tile serving, view config generation, and Jupyter Notebook + Lab integration."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('jupyterlab','2.2.9','-Python-%(pyver)s'),
+	('awscli','1.18.96','-Python-%(pyver)s'),
+	('cooler','0.8.11','-Python-%(pyver)s'),
+	('HDF5','1.8.18'),
+	
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+options = {
+	'modulename': 'higlass'
+}
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('negspy','0.2.24'),
+	('pybbi','0.3.0', {
+		'modulename': 'bbi'
+	}),
+	('pydantic','1.8.2'),
+	('sortedcontainers','2.4.0'),
+	('cached-property','1.5.2'),
+	('h5py','3.4.0'),
+	('clodius','0.17.0'),
+	('cytoolz','0.10.1'),
+	('MarkupSafe','2.0.1'),
+	('Jinja2','3.0.1'),
+	('Werkzeug','2.0.1'),
+	('Flask','2.0.1'),
+	('Flask-Cors','3.0.10'),
+	('fusepy','3.0.1', {
+		'modulename': 'fuse'
+	}),
+	('dill','0.3.4', {
+		'source_tmpl': 'dill-%(version)s-py2.py3-none-any.whl',
+	}),
+	('sh','1.14.2'),
+	('click','8.0.1'),
+	('diskcache','5.2.1'),
+	('tenacity','8.0.1'),
+	('itsdangerous','2.0.1'),
+	('simple-httpfs','0.4.12'),
+	('slugid','2.0.0'),
+	('multiprocess','0.70.12.2', {
+		'source_tmpl': 'multiprocess-%(version)s-py37-none-any.whl'
+	}),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/higlass'],
+}
+
+moduleclass = 'bio'

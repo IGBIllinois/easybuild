@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'any2fasta'
+version = '0.4.2'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/tseemann/any2fasta'
+description = """Convert various sequence formats to FASTA"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/tseemann/any2fasta/archive/refs/tags/']
+
+dependencies = [
+	('Perl','5.28.1'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['any2fasta'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

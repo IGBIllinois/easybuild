@@ -1,0 +1,34 @@
+easyblock = 'ConfigureMake'
+
+name = 'ivar'
+version = '1.3.1'
+
+homepage = 'https://github.com/andersen-lab/ivar'
+description = """iVar is a computational package that contains functions broadly useful for viral amplicon-based sequencing. Additional tools for metagenomic sequencing are actively being incorporated into iVar."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/andersen-lab/ivar/archive/refs/tags/']
+sources = ['v%(version)s.tar.gz']
+
+builddependencies = [
+	('Autotools', '20180311','',('GCC','8.2.0-2.32')),
+]
+dependencies = [
+	('HTSlib','1.12'),
+]
+
+preconfigopts = './autogen.sh && '
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/ivar'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

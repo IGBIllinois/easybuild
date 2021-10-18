@@ -1,0 +1,31 @@
+easyblock = 'Tarball'
+
+name = 'mlst'
+version = '2.19.0'
+versionsuffix = '-Perl-5.28.1'
+
+homepage = 'https://github.com/tseemann/mlst'
+description = """Scan contig files against traditional PubMLST typing schemes"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/tseemann/mlst/archive/refs/tags/']
+
+dependencies = [
+	('Perl','5.28.1'),
+	('any2fasta','0.4.2','-Perl-%(perlver)s'),
+	('BLAST+','2.10.1'),
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/mlst'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

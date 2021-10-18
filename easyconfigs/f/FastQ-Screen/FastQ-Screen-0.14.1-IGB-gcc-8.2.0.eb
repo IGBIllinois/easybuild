@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'FastQ-Screen'
+version = '0.14.1'
+
+homepage = 'https://www.bioinformatics.babraham.ac.uk/projects/fastq_screen/'
+description = """FastQ Screen allows you to screen a library of sequences in FastQ format against a set of sequence databases so you can see if the composition of the library matches with what you expect."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/StevenWingett/FastQ-Screen/archive/refs/tags/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+fix_perl_shebang_for = ['fastq_screen']
+
+sanity_check_paths = {
+	'files': ['fastq_screen'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

@@ -43,13 +43,13 @@ exts_list = [
 		'source_tmpl': 'tables-%(version)s-cp37-cp37m-manylinux1_x86_64.whl',
 	}),
 	('pyBigWig','0.3.18', {
-		'modulename': 'pybigwig'
+		'modulename': 'pyBigWig'
 	}),
-	('pyGenomeTracks','3.6', {
+	('pyGenomeTracks','2.1', {
 		'modulename': 'pygenometracks'
 	}),
-	('hic2cool','0.8.3'),
-	('HiCMatrix','15', {
+	('hic2cool','0.5.1'),
+	('HiCMatrix','7', {
 		'modulename': 'hicmatrix'
 	}),
 	('intervaltree','2.1.0'),
@@ -63,8 +63,8 @@ unpack_sources = False
 exts_filter = ('python -c "import %(ext_name)s"', "")
 
 sanity_check_paths = {
-        'files': [],
-        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+        'files': ['bin/hicexplorer'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(namelower)s'],
 }
 
 moduleclass = 'bio'

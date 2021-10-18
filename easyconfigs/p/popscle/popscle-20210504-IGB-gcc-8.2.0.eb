@@ -1,0 +1,43 @@
+easyblock = 'CMakeMake'
+
+name = 'popscle'
+version = '20210504'
+local_commit = 'da70fc7'
+
+homepage = 'https://github.com/statgen/popscle'
+description = """popscle is a suite of population scale analysis tools for single-cell genomics data. The key software tools in this repository includes demuxlet (version 2) and freemuxlet, a genotyping-free method to deconvolute barcoded cells by their identities while detecting doublets."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+
+source_urls = ['https://github.com/statgen/popscle/archive/']
+sources = ['%s.tar.gz' % local_commit]
+
+patches = ['popscle-%(version)s.patch']
+
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = [
+	('HTSlib','1.10.2'),
+	('bzip2','1.0.6'),
+	('XZ','5.2.3')
+]
+
+separate_build_dir = True
+
+configopts = '-DHTS_INCLUDE_DIRS=$EBROOTHTSLIB/include/  -DHTS_LIBRARIES=$EBROOTHTSLIB/lib/libhts.a '
+configopts += '-DBZIP2_INCLUDE_DIRS=$EBROOTBZIP2/include/ -DBZIP2_LIBRARIES=$EBROOTBZIP2/lib/libbz2.a '
+configopts += '-DLZMA_INCLUDE_DIRS=$EBROOTXZ/include/ -DLZMA_LIBRARIES=$EBROOTXZ/lib/liblzma.a '
+
+sanity_check_paths = {
+        'files': ['bin/popscle'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+
