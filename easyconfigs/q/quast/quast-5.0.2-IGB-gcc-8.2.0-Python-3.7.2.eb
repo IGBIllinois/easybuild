@@ -1,0 +1,44 @@
+easyblock = 'PythonPackage'
+
+name = 'quast'
+version = '5.0.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://sourceforge.net/projects/quast/'
+description = """QUAST performs fast and convenient quality evaluation and comparison of genome assemblies. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [SOURCEFORGE_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Java','1.8.0_152','',True),
+]
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+
+install_target = "install_full"
+
+exts_filter = ('', "")
+
+sanity_check_paths = {
+        'files': ['bin/quast.py'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/quast_libs'],
+}
+
+postinstallcmds = ['wget https://raw.githubusercontent.com/ablab/quast/master/external_tools/red/linux_64/Red -O %(installdir)s/lib/python%(pyshortver)s/site-packages/quast_libs/Red']
+
+moduleclass = 'bio'

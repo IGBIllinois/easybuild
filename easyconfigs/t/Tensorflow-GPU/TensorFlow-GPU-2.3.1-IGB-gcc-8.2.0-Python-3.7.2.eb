@@ -29,6 +29,7 @@ exts_default_options = {
 }
 
 exts_list = [
+	('html5lib','0.9999999'),
         ('astunparse', '1.6.3', {
         'source_urls': [PYPI_SOURCE],
         'source_tmpl': SOURCE_TAR_GZ,
@@ -108,10 +109,7 @@ exts_list = [
 	}),
 	('soupsieve','2.0.1', {
 	}),
-	('bleach','1.5.0', {
-	}),
-	('html5lib','0.9999999', {
-	}),
+	('bleach','1.5.0'),
 	('tensorpack','0.10.1', {
 		'source_tmpl': 'tensorpack-%(version)s-py2.py3-none-any.whl',
 	}),

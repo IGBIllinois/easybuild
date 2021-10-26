@@ -1,0 +1,53 @@
+easyblock = 'PythonBundle'
+
+name = 'anvio'
+version = '7.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://merenlab.org/software/anvio/'
+description = """Anvi’o is an open-source, community-driven analysis and visualization platform for ‘omics data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+dependencies = [
+        ('Python', '3.6.1'),
+	('SAMtools','1.9'),
+	('Prodigal','2.6.3','',True),
+	('SQLite','3.17.0'),
+	('GSL','2.3'),
+	('HDF5','1.8.18'),
+	('Biopython','1.76','-Python-%(pyver)s'),
+	('HMMER','3.2.1'),
+	('numba','0.34.0','-Python-%(pyver)s'),
+
+
+]
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('Django','3.2.8'),
+	(name,version, {
+		'source_urls': ['https://github.com/merenlab/anvio/archive/refs/tags/'],
+		'source_tmpl': 'v%(version)s.tar.gz'
+	})
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+
+sanity_check_paths = {
+        'files': ['bin/anvi-self-test'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
