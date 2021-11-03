@@ -1,0 +1,51 @@
+easyblock = 'Tarball'
+
+name = 'Pacasus'
+version = '1.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/swarris/Pacasus'
+description = """Tool for detecting and cleaning PacBio / Nanopore long reads after whole genome amplification."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [{
+    'filename': 'Pecasus-1.2.tar.gz',
+    'git_config': {
+        'url': 'https://github.com/swarris',
+        'repo_name': 'Pacasus',
+        'tag': '1.2',
+	'recursive': True
+    },
+}]
+
+dependencies = [
+	('Python','2.7.13'),
+	('Biopython','1.68','-Python-%(pyver)s'),
+]
+
+keepsymlinks = True
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+    'use_pip': True,
+    'unpack_soruces': False
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+]
+
+fix_python_shebang_for = ['pacasus.py','pypaswas/pypaswas.py']
+
+sanity_check_paths = {
+	'files': ['pacasus.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'',
+	'PYTHONPATH': 'lib/python/%(pyshortver)s/site-packages'
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,44 @@
+easyblock = 'Tarball'
+
+name = 'RepeatModeler'
+version = '2.0.2a'
+versionsuffix = '-Perl-5.24.1'
+
+homepage = 'http://www.repeatmasker.org/RepeatModeler/'
+description = """RepeatModeler is a de novo transposable element (TE) family identification and modeling package. At the heart of RepeatModeler are three de-novo repeat finding programs ( RECON, RepeatScout and LtrHarvest/Ltr_retriever ) which employ complementary computational methods for identifying repeat element boundaries and family relationships from sequence data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['%(name)s-%(version)s.tar.gz']
+source_urls = ['http://www.repeatmasker.org/RepeatModeler/']
+
+fix_perl_shebang_for = ['BuildDatabase','LTRPipeline','configure','Refiner','RepeatClassifier','RepeatModuler','TRFMask','util/*.pl','*.pm']
+
+dependencies = [('Perl','5.24.1'),
+	('trf','4.0.9','',True),
+	('RepeatMasker','4.1.1','-Perl-5.24.1'),
+	('RepeatScout','1.0.5'),
+	('RMBlast','2.9.0'),
+	('RECON','1.08','-Perl-5.24.1'),
+	('genometools','1.5.10'),
+	('LTRretriever','2.9.0','-Perl-5.24.1'),
+	('MAFFT','7.310'),
+	('NINJA','0.97'),
+	('kentUtils','353'),
+
+
+	
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['RepeatModeler','RepeatClassifier'],
+	'dirs': ['util'],
+}
+
+modextrapaths = {'PATH':['','util']}
+
+#postinstallcmds = ["cd %(installdir)s && perl ./configure -ninja_dir=$EBROOTNINJA/bin -recon_dir=$EBROOTRECON/bin -trf_prgm=$EBROOTTRF/trf -genometools_dir=$EBROOTGENOMETOOLS/bin -ltr_retriever_dir=$EBROOTLTRRETRIEVER -mafft_dir=$EBROOTMAFFT/bin -rmblast_dir=$EBROOTRMBLAST/bin -repeatmasker_dir=$EBROOTREPEATMASKER -rscout_dir=$EBROOTREPEATSCOUT/bin -cdhit_dir=$EBROOTCDMINHIT/bin -ucsctools_dir $EBROOTKENTUTILS/bin"]
+
+moduleclass = 'bio'

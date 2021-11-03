@@ -13,6 +13,8 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 source_urls = ['http://genometools.org/pub/binary_distributions']
 sources = ['gt-%(version)s-Linux_x86_64-64bit-complete.tar.gz']
 
+buildopts = 'threads=yes'
+
 dependencies = [
 	('cairo', '1.14.8'),
 	('Pango', '1.40.6'),
