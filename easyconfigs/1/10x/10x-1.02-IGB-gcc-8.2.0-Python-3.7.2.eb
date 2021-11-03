@@ -1,0 +1,43 @@
+easyblock = 'Tarball'
+
+name = '10x'
+version = '1.02'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/IGBIllinois/10x_Pipeline'
+description = """Pipeline to process and package results from 10x Genomics instruments for delivery."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [{
+	'filename': '10x_Pipeline-%(version)s.tar.gz',
+	'git_config': {
+		'url': 'https://github.com/IGBIllinois',
+		'repo_name': '10x_Pipeline',
+		'tag': 'v%(version)s',
+		'recursive': True,
+	},
+}]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('pbzip2','1.1.13'),
+	('MariaDB','10.1.31'),
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+exts_filter = ('', "")
+
+sanity_check_paths = {
+        'files': ['bin/generate10xReport'],
+        'dirs': [],
+}
+
+modextrapaths = {'PYTHONPATH':'lib/python3.6/site-packages'
+}
+
+
+moduleclass = 'bio'
