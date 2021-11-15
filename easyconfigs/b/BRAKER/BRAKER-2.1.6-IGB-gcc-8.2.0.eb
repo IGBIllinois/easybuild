@@ -12,16 +12,18 @@ sources = ['v%(version)s.tar.gz']
 source_urls = ['https://github.com/Gaius-Augustus/BRAKER/archive/']
 
 dependencies = [
-	('augustus', '3.3.3'),
+	('augustus', '3.4.0'),
 	('GeneMark-ES', '4.62', '-Perl-%(perlver)s'),
 	('BamTools', '2.5.1'),
-	('SAMtools', '1.10'),
+	('SAMtools', '1.12'),
 	('GenomeThreader', '1.7.1', '', True),
 	('exonerate', '2.2.0'),
 	('BLAST+', '2.10.1'),
 	('Perl', '5.28.1'),
 	('Python', '3.7.2'),
 	('Biopython', '1.76', '-Python-%(pyver)s'),
+	('ProtHint','2.6.0'),
+	('cdbfasta','20181005'),
 ]
 
 keepsymlinks = True

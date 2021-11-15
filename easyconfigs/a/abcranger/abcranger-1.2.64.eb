@@ -1,0 +1,28 @@
+easyblock = 'Binary'
+
+name = 'abcranger'
+version = '1.2.64'
+
+homepage = 'https://github.com/diyabc/abcranger'
+description = """Random forests methodologies for ABC model choice and ABC Bayesian parameter inference ("""
+
+toolchain = SYSTEM
+
+sources = ['abcranger-linux-v%(version)s']
+source_urls = ['https://github.com/diyabc/abcranger/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['abcranger-linux-v%(version)s'],
+	'dirs': [],
+}
+
+postinstallcmds = ['ln -s %(installdir)s/abcranger-linux-v%(version)s %(installdir)s/abcranger']
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

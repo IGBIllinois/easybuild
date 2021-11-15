@@ -33,7 +33,7 @@ components = [
         'easyblock': 'MakeCp',
         'start_dir': 'rmats-turbo-%(version)s/rMATS_C',
         'buildopts': "%s" % local_buildopts,
-        'files_to_copy': [(['rMATSexe', '../rmats.py'], 'bin')],
+        'files_to_copy': ['../rMATS_C','../rmats.py','../rMATS_P','../rMATS_R'],
     }),
     ('rmats-turbo-python', version, {
         'easyblock': 'PythonPackage',
@@ -47,17 +47,18 @@ components = [
 ]
 
 modextrapaths = {
-    'PYTHONPATH': ['lib/python%(pyshortver)s/site-packages']
+	'PATH': '',
+	'PYTHONPATH': ['lib/python%(pyshortver)s/site-packages']
 }
 
-postinstallcmds = ["chmod a+x %(installdir)s/bin/rmats.py"]
+postinstallcmds = ["chmod a+x %(installdir)s/rmats.py"]
 
 sanity_check_commands = [
     'rmats.py --version',
 ]
 
 sanity_check_paths = {
-    'files': ['bin/rMATSexe', 'bin/rmats.py'],
+    'files': ['rMATS_C/rMATSexe', 'rmats.py'],
     'dirs': [],
 }
 

@@ -1,0 +1,34 @@
+easyblock = 'Conda'
+
+name = 'alevin-fry'
+version = '0.4.2'
+
+homepage = 'https://github.com/COMBINE-lab/alevin-fry'
+description = """alevin-fry is a suite of tools for the rapid, accurate and memory-frugal processing single-cell and single-nucleus sequencing data. """
+
+toolchain = SYSTEM
+
+dependencies = [('Miniconda3','4.7.12.1'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': ['bin/alevin-fry'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

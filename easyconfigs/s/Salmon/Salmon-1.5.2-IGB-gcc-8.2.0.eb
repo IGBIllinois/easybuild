@@ -1,0 +1,30 @@
+easyblock = 'CMakeMake'
+
+name = 'Salmon'
+version = '1.5.2'
+
+homepage = 'https://github.com/COMBINE-lab/salmon'
+description = """Salmon is a wicked-fast program to produce a highly-accurate,
+ transcript-level quantification estimates from RNA-seq data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True, 'openmp': True}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/COMBINE-lab/salmon/archive/']
+
+dependencies = [
+	('Boost', '1.69.0'),
+	('tbb', '2019_U4'),
+	('Jellyfish', '2.2.10'),
+	('XZ','5.2.3'),
+	('jemalloc','5.1.0'),
+	
+]
+builddependencies = [('CMake', '3.12.1')]
+
+modextravars = {'SALMON_NO_VERSION_CHECK':'1'}
+
+parallel = 1
+
+moduleclass = 'bio'

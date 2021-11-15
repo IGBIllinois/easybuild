@@ -1,0 +1,45 @@
+easyblock = 'PythonPackage'
+
+name = 'PICRUSt2'
+version = '2.4.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/picrust/picrust2'
+description = """PICRUSt2 (Phylogenetic Investigation of Communities by Reconstruction of Unobserved States) is a software for predicting functional abundances based only on marker gene sequences."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/picrust/picrust2/archive/']
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('biom-format','2.1.8','-Python-%(pyver)s'),
+	('HMMER','3.3.1'),
+	('R','4.0.3'),
+	('epa-ng','0.3.8'),
+	('gappa','0.6.1'),
+
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/picrust2_pipeline.py'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/picrust2'],
+}
+
+moduleclass = 'bio'

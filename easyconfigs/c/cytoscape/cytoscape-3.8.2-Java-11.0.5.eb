@@ -1,0 +1,32 @@
+easyblock = 'Tarball'
+
+name = 'cytoscape'
+version = '3.8.2'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = 'https://cytoscape.org/'
+description = """Cytoscape is an open source software platform for visualizing complex networks and integrating these with any type of attribute data."""
+
+toolchain = SYSTEM
+
+sources = ['cytoscape-unix-%(version)s.tar.gz']
+source_urls = ['https://github.com/cytoscape/cytoscape/releases/download/%(version)s/']
+
+dependencies = [('Java','11.0.5'),
+]
+
+keepsymlinks = True
+
+
+sanity_check_paths = {
+	'files': ['cytoscape.sh'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+modloadmsg = "To run cytoscape, you need to set the environment variable JAVA_OPTS with the -Xms and -Xmx parameters to reserve the appropriate amount of memory for java.\n"
+modloadmsg += "An example is below.  This reserves 15000MB (15GB)\n";
+modloadmsg += "export JAVA_OPTS=\"-Xms15000M -Xmx15000M\"\n";
+
+moduleclass = 'tools'
