@@ -1,0 +1,36 @@
+easyblock = "CMakeMakeCp"
+
+name = 'flexbar'
+version = '3.5.0'
+
+homepage = 'https://github.com/seqan/flexbar'
+description = """The program Flexbar preprocesses high-throughput sequencing data efficiently. 
+It demultiplexes barcoded runs and removes adapter sequences. Moreover, trimming and filtering features are provided. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/seqan/flexbar/archive/']
+sources = ['v%(version)s.tar.gz']
+
+# CMake > 3 required. CMake >= 3.4 recommended
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = [
+    ('zlib', '1.2.11'),
+    ('bzip2', '1.0.6'),
+    ('seqan','2.4.0'),
+    ('tbb','2019_U3'),
+]
+
+separate_build_dir = True
+#patches = ['flexbar-%(version)s.patch']
+
+files_to_copy = ['flexbar']
+sanity_check_paths = {
+    'files': ['flexbar'],
+    'dirs': []
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
