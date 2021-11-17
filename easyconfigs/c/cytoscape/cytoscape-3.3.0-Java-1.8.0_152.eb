@@ -1,7 +1,7 @@
 easyblock = 'Tarball'
 
 name = 'cytoscape'
-version = '3.8.2'
+version = '3.3.0'
 versionsuffix = '-Java-%(javaver)s'
 
 homepage = 'https://cytoscape.org/'
@@ -16,7 +16,7 @@ sources = ['cytoscape-unix-%(version)s.tar.gz',
 ]
 source_urls = ['https://github.com/cytoscape/cytoscape/releases/download/%(version)s/']
 
-dependencies = [('Java','11.0.5'),
+dependencies = [('Java','1.8.0_152'),
 ]
 
 keepsymlinks = True

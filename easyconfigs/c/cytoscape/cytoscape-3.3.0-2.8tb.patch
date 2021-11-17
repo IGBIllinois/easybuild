@@ -1,7 +1,0 @@
-diff -ru --new-file cytoscape-unix-3.3.0.orig/Cytoscape.vmoptions cytoscape-unix-3.3.0/Cytoscape.vmoptions
---- cytoscape-unix-3.3.0.orig/Cytoscape.vmoptions	1969-12-31 18:00:00.000000000 -0600
-+++ cytoscape-unix-3.3.0/Cytoscape.vmoptions	2018-12-10 12:51:00.446271000 -0600
-@@ -0,0 +1,2 @@
-+-Xms2800000M
-+-Xmx2800000M
-
