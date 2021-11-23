@@ -1,0 +1,44 @@
+easyblock = "CMakeMakeCp"
+
+name = 'HAPO-G'
+version = '1.2'
+
+homepage = 'https://github.com/institut-de-genomique/HAPO-G'
+description = """Hapo-G (pronounced like apogee) is a tool that aims to improve the quality of genome assemblies by polishing the consensus with accurate reads."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/institut-de-genomique/HAPO-G/archive/refs/tags/']
+sources = ['%(version)s.tar.gz']
+
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = [
+	('Python','3.7.2'),
+	('Biopython','1.76','-Python-%(pyver)s'),
+	('HTSlib','1.12'),
+	('SAMtools','1.12'),
+	('BWA','0.7.17'),
+	('cURL','7.53.1'),
+]
+
+separate_build_dir = False
+
+start_dir = 'src'
+
+patches = ['HAPO-G-%(version)s.patch']
+
+files_to_copy = ['../*']
+
+sanity_check_paths = {
+    'files': ['bin/hapog','hapog.py'],
+    'dirs': []
+}
+
+postinstallcmds = ['mkdir %(installdir)s/bin','cp %(installdir)s/src/hapog %(installdir)s/bin/hapog']
+modextrapaths = {
+	'PATH':''
+}
+
+moduleclass = 'bio'
+

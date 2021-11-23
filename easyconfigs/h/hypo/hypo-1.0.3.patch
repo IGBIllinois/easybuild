@@ -1,0 +1,18 @@
+--- hypo_github.original/CMakeLists.txt	2021-11-22 15:36:15.182542000 -0600
++++ hypo_github/CMakeLists.txt	2021-11-22 16:00:02.353650000 -0600
+@@ -86,13 +86,13 @@
+     endif()
+ else()
+     message("Installing from Source")
+-    set(htslib_root ${PROJECT_SOURCE_DIR}/external/install/htslib)
++    set(htslib_root /home/apps/software/HTSlib/1.12-IGB-gcc-8.2.0)
+     set(htslib_static_dir ${htslib_root}/lib)
+     find_library(HTSFOUND hts PATHS ${htslib_static_dir})
+     if (NOT HTSFOUND)
+         message(STATUS "   Assuming htslib version 1.10 or higher is installed.")
+         find_library(HTS hts)
+-        find_path(HTSLIB_INCLUDE_DIR NAMES htslib/kseq.h HINTS "${HTSLIB_INSTALL_DIR}")
++        find_path(HTSLIB_INCLUDE_DIR NAMES htslib/kseq.h HINTS "${htslib_root}/include")
+         if (HTS AND HTSLIB_INCLUDE_DIR)
+             message(STATUS "   htslib and headers found: ${HTS} and ${HTSLIB_INCLUDE_DIR}")
+             include_directories(${HTSLIB_INCLUDE_DIR})

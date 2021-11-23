@@ -1,0 +1,36 @@
+easyblock = "CMakeMakeCp"
+
+name = 'hypo'
+version = '1.0.3'
+
+homepage = 'https://github.com/kensung-lab/hypo'
+description = """HyPo--a Hybrid Polisher-- utilises short as well as long reads within a single run to polish a long reads assembly of small and large genomes. I"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/kensung-lab/hypo/releases/download/v%(version)s/']
+sources = ['hypo-v%(version)s.tar.gz']
+
+builddependencies = [('CMake', '3.12.1')]
+
+
+dependencies = [
+	('zlib','1.2.11'),
+	('HTSlib','1.12'),
+]
+
+configopts = '-DCMAKE_BUILD_TYPE=Release -Doptimise_for_native=ON'
+
+separate_build_dir = True
+patches = ['hypo-%(version)s.patch']
+
+files_to_copy = ['*']
+sanity_check_paths = {
+    'files': ['bin/hypo'],
+    'dirs': []
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
+

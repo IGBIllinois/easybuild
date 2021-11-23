@@ -1,0 +1,13 @@
+diff -ru HAPO-G-1.2.original/src/CMakeLists.txt HAPO-G-1.2/src/CMakeLists.txt
+--- HAPO-G-1.2.original/src/CMakeLists.txt	2021-11-22 11:07:14.449536000 -0600
++++ HAPO-G-1.2/src/CMakeLists.txt	2021-11-22 11:13:41.436165000 -0600
+@@ -65,3 +65,9 @@
+ target_link_libraries(hapog z)
+ target_link_libraries(hapog lzma)
+ target_link_libraries(hapog bz2)
++target_link_libraries(hapog pthread)
++target_link_libraries(hapog curl)
++target_link_libraries(hapog crypto)
++
++
++
