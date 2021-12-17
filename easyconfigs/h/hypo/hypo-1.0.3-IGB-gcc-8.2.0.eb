@@ -17,6 +17,7 @@ builddependencies = [('CMake', '3.12.1')]
 dependencies = [
 	('zlib','1.2.11'),
 	('HTSlib','1.12'),
+	('KMC','3.1.1','',True),
 ]
 
 configopts = '-DCMAKE_BUILD_TYPE=Release -Doptimise_for_native=ON'

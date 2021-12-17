@@ -16,6 +16,9 @@ dependencies = [
 	('Java', '15.0.1', '', True),
 	('Perl','5.28.1'),
 	('Python','3.7.2'),
+	('SignalP','4.1','',True),
+	('phobius','1.01','',True),
+	('TMHMM','2.0c','',True),
 ]
 
 keepsymlinks = True

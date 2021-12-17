@@ -16,7 +16,7 @@ dependencies = [
 	('Perl', '5.24.1'),
 	('TransDecoder', '5.5.0', '-Perl-5.24.1'),
 	('SignalP','4.1','',True),
-	('TMHMM', '2.0c'),
+	('TMHMM', '2.0c','',True),
 	('RNAmmer','1.2', '-Perl-5.24.1'),
 	('BLAST+','2.7.1'),
 	('HMMER','3.2.1'),

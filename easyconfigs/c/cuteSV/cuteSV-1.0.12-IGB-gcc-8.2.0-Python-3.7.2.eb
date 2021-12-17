@@ -1,0 +1,43 @@
+easyblock = 'PythonPackage'
+
+name = 'cuteSV'
+version = '1.0.12'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/tjiangHIT/cuteSV'
+description = """A sensitive, fast and scalable long-read-based SV detection approach. cuteSV uses tailored methods to collect the signatures of various types of SVs and employs a clustering-and-refinement method to analyze the signatures to implement sensitive SV detection."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Biopython','1.76','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('cigar','0.1.3'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+options = {'modulename': 'cuteSV' }
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

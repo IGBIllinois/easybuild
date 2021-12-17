@@ -1,0 +1,32 @@
+easyblock = 'MakeCp'
+
+name = 'last'
+version = '1257'
+
+homepage = 'https://gitlab.com/mcfrith/last/'
+description = """LAST is designed for moderately large data (e.g. genomes, DNA reads,
+proteomes). """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['last-%(version)s.tar.gz']
+source_urls = ['https://gitlab.com/mcfrith/last/-/archive/%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['bin','data','doc','examples','test','README.rst','COPYING.txt']
+
+sanity_check_paths = {
+	'files': ['bin/lastal'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

@@ -3,10 +3,10 @@ easyblock = 'Tarball'
 name = 'TMHMM'
 version = '2.0c'
 
-homepage = 'http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?tmhmm'
-description = """Transmembrane helices in proteins"""
+homepage = 'https://services.healthtech.dtu.dk/service.php?TMHMM-2.0'
+description = """Prediction of transmembrane helices in proteins"""
 
-toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchain = SYSTEM
 
 sources = ['%(namelower)s-%(version)s.Linux.tar.gz']
 

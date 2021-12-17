@@ -1,0 +1,31 @@
+easyblock = "CMakeMakeCp"
+
+name = 'Sniffles'
+version = '1.0.12b'
+
+homepage = 'https://github.com/fritzsedlazeck/Sniffles'
+description = """Sniffles is a structural variation caller using third generation sequencing (PacBio or Oxford Nanopore). It detects all types of SVs (10bp+) using evidence from split-read alignments, high-mismatch regions, and coverage analysis. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/fritzsedlazeck/Sniffles/archive/refs/tags/']
+sources = ['v%(version)s.tar.gz']
+
+builddependencies = [('CMake', '3.12.1')]
+
+dependencies = [
+]
+
+separate_build_dir = True
+patches = []
+
+files_to_copy = ['*',(['../Sniffles-%(version)s/bin/sniffles-core-1.0.12/*'],'bin')]
+sanity_check_paths = {
+    'files': ['bin/sniffles'],
+    'dirs': []
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
+

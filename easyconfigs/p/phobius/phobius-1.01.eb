@@ -1,0 +1,30 @@
+easyblock = 'Tarball'
+
+name = 'phobius'
+version = '1.01'
+
+homepage = 'https://phobius.sbc.su.se/data.html'
+description = """A combined transmembrane topology and signal peptide predictor"""
+
+toolchain = SYSTEM
+
+sources = ['phobius101_linux.tar.gz']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+fix_perl_shebang_for = ['phobius.pl']
+
+sanity_check_paths = {
+	'files': ['phobius.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+postinstallcmds = ['chmod 775 %(installdir)s/decodeanhmm %(installdir)s/decodeanhmm.64bit %(installdir)s/OPSD_SHEEP %(installdir)s/phobius.pl']
+
+moduleclass = 'bio'

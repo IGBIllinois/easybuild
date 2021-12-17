@@ -1,0 +1,45 @@
+easyblock = 'PythonPackage'
+
+name = 'NanoSV'
+version = '1.2.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/mroosmalen/nanosv'
+description = """NanoSV is a software package that can be used to identify structural genomic variations in long-read sequencing data, such as data produced by Oxford Nanopore Technologies’ MinION, GridION or PromethION instruments, or Pacific Biosciences RSII or Sequel sequencers."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('BWA','0.7.17'),
+	('minimap','2.21'),
+	('last','1257'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('configparser','5.2.0'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+options = {'modulename': False }
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(namelower)s'],
+}
+
+moduleclass = 'bio'
