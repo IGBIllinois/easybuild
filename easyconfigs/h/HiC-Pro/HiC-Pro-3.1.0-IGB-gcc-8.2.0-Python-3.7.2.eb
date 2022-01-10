@@ -1,51 +1,59 @@
-easyblock = 'ConfigureMake'
+easyblock = 'MakeCp'
 
 name = 'HiC-Pro'
-version = '2.9.0'
-versionsuffix = '-Python-2.7.13'
+version = '3.1.0'
+versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://github.com/nservant/HiC-Pro'
 description = """HiC-Pro was designed to process Hi-C data, from raw fastq files (paired-end Illumina data) to the normalized contact maps. Since version 2.7.0, HiC-Pro supports the main Hi-C protocols, including digestion protocols as well as protocols that do not require restriction enzyme such as DNase Hi-C."""
 
-toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 source_urls = ['https://github.com/nservant/HiC-Pro/archive/']
 sources = ['v%(version)s.tar.gz']
 
-dependencies = [('Python','2.7.13'),
-	('R','3.3.3'),
-	('Bowtie2','2.3.2'),
-	('SAMtools','1.5'),
+dependencies = [('Python','3.7.2'),
+	('R','4.1.2'),
+	('Bowtie2','2.4.2'),
+	('SAMtools','1.12'),
 	('coreutils','8.28'),
 	
 
 ]
 
 
-skipsteps = ['configure','install']
 
-patches = ['HiC-Pro-2.9.0.patch']
+patches = ['HiC-Pro-%(version)s.patch']
 
-buildopts = "CONFIG_SYS=%(builddir)s/HiC-Pro-%(version)s/config-install.txt INSTALL_PATH=/home/apps/software/HiC-Pro/2.9.0-IGB-gcc-4.9.4-Python-2.7.13/"
+#prebuildopts = "make configure && "
+
+buildopts = "CONFIG_SYS='%(builddir)s/HiC-Pro-%(version)s/config-install.txt' prefix='%(installdir)s'"
+
+files_to_copy = ['*']
+
+exts_default_options = {
+	'source_urls': [PYPI_SOURCE],
+	'sanity_pip_check': True,
+	'use_pip': True,
+	'unpack_sources': False
+}
 
 exts_defaultclass = "PythonPackage"
 exts_list = [
-    ('bx-python', '0.7.3', {
-        'source_urls': ['https://pypi.python.org/packages/source/b/bx-python'],
-        'source_tmpl': 'bx-python-%(version)s.tar.gz',
-	'buildopts': ''
-    }),
+	('bx-python', '0.8.13', {
+		'modulename': False,
+	}),
 
 ]
-exts_filter = ('python -c ""', "")
-
+exts_filter = ('python -c "import %(ext_name)s"', "")
 
 sanity_check_paths = {
         'files': ['bin/HiC-Pro'],
         'dirs': [],
 }
 
-modextrapaths = {'PATH':'scripts'
+modextrapaths = {'PATH':'scripts',
+	'PYTHONPATH': 'lib/python%(pyshortver)s/site-packages/'
 }
 
 postinstallcmds = ['cp %(installdir)s/config-install.txt %(installdir)s/config-system.txt']

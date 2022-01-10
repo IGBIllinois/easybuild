@@ -1,0 +1,32 @@
+easyblock = 'MakeCp'
+
+name = 'Filtlong'
+version = '0.2.1'
+
+homepage = 'https://github.com/rrwick/Filtlong'
+description = """Filtlong is a tool for filtering long reads by quality. It can take a set of long reads and produce a smaller, better subset. It uses both read length (longer is better) and read identity (higher is better) when choosing which reads pass the filter."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/rrwick/Filtlong/archive/refs/tags/']
+
+dependencies = [
+	('Python','3.7.2'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['bin/filtlong'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'scripts'
+}
+
+moduleclass = 'bio'

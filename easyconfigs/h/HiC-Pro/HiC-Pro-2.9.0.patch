@@ -14,7 +14,7 @@ diff -ru HiC-Pro-2.9.0.orig/config-install.txt HiC-Pro-2.9.0/config-install.txt
 +SAMTOOLS_PATH = /home/apps/software/SAMtools/1.5-IGB-gcc-4.9.4/bin
 +R_PATH = /home/apps/software/R/3.3.3-IGB-gcc-4.9.4/bin
 +PYTHON_PATH = /home/apps/software/Python/2.7.13-IGB-gcc-4.9.4/bin
-+CLUSTER_SYS = SLRUM
++CLUSTER_SYS = SLURM
 diff -ru HiC-Pro-2.9.0.orig/Makefile HiC-Pro-2.9.0/Makefile
 --- HiC-Pro-2.9.0.orig/Makefile	2017-12-08 08:57:37.308123216 -0600
 +++ HiC-Pro-2.9.0/Makefile	2017-12-08 09:52:01.984497653 -0600

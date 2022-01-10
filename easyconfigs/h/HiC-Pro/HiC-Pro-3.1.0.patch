@@ -1,0 +1,12 @@
+diff -ru HiC-Pro-3.1.0.original/Makefile HiC-Pro-3.1.0/Makefile
+--- HiC-Pro-3.1.0.original/Makefile	2021-12-20 09:05:15.890120000 -0600
++++ HiC-Pro-3.1.0/Makefile	2021-12-20 09:29:18.258968000 -0600
+@@ -15,7 +15,7 @@
+ RUNNER=$(shell whoami)
+ 
+ #install : config_check mapbuilder readstrimming iced cp
+-install : config_check mapbuilder readstrimming cp
++install : mapbuilder readstrimming
+ 
+ ######################################
+ ## Config file

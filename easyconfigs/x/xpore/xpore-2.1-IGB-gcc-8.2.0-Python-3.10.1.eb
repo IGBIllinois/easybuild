@@ -1,0 +1,50 @@
+easyblock = 'PythonPackage'
+
+name = 'xpore'
+version = '2.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://xpore.readthedocs.io/en/latest/index.html'
+description = """xPore is a Python package for identification of differentail RNA modifications from Nanopore sequencing data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCE_PY3_WHL]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.10.1'),
+	('h5py','3.6.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('datacache','1.1.5'),
+	('gtfparse','1.2.1'),
+	('memoized-property','1.0.3'),
+	('serializable','0.2.1'),
+	('tinytimer','0.0.0'),
+	('typechecks','0.1.0'),
+	('pyensembl','1.9.4'),
+]
+
+unversioned_packages = ['tinytimer']
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

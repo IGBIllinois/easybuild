@@ -20,7 +20,8 @@ sanity_check_paths = {
 }
 
 
-#modextrapaths = {'LD_LIBRARY_PATH':'runtime/glnxa64'
-#}
+modextrapaths = {'LD_LIBRARY_PATH':['runtime/glnxa64','sys/os/glnxa64/temp/']
+
+}
 moduleclass = 'math'
 
