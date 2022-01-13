@@ -1,0 +1,31 @@
+easyblock = 'Tarball'
+
+name = 'EAT'
+version = '1.0.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/Rostlab/EAT'
+description = """Embedding-based annotation transfer (EAT) uses Euclidean distance between vector representations (embeddings) of proteins to transfer annotations from a set of labeled lookup protein embeddings to query protein embeddings."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/Rostlab/EAT/archive/refs/tags/']
+
+dependencies = [
+	('Python','3.7.2'),
+	('bio-embeddings','0.2.2','-Python-%(pyver)s')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['eat.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+postinstallcmds = ['chmod 775 %(installdir)s/*.py']
+
+moduleclass = 'bio'

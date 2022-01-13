@@ -15,7 +15,8 @@ source_urls = [PYPI_LOWER_SOURCE]
 
 dependencies = [
         ('Python', '3.6.1'),
-	('minimap','2.16','-Python-3.6.1'),
+	('minimap','2.16','-Python-%(pyver)s'),
+	('Biopython','1.68','-Python-%(pyver)s'),
 ]
 
 exts_defaultclass = "PythonPackage"

@@ -1,0 +1,68 @@
+easyblock = 'PythonPackage'
+
+name = 'bio-embeddings'
+version = '0.2.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/sacdallago/bio_embeddings'
+description = """Quickly predict protein structure and function from sequence via embeddings:"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['bio_embeddings-%(version)s-py3-none-any.whl']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('h5py','3.6.0','-Python-%(pyver)s'),
+	('Biopython','1.79','-Python-%(pyver)s'),
+	('umap-learn','0.5.2','-Python-%(pyver)s'),
+	('PyTorch','1.9.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': False,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('atomicwrites','1.4.0'),
+	('smart-open','5.2.1', {
+		'source_tmpl': 'smart_open-%(version)s-py3-none-any.whl'
+	}),
+	('gensim','3.8.3'),
+	('humanize','3.13.1'),
+	('lock','2018.3.25.2110'),
+	('tenacity','8.0.1'),
+	('plotly','5.5.0'),
+	('text-unidecode','1.3'),
+	('python-slugify','5.0.2', {
+		'modulename': 'slugify'
+	}),
+	('ruamel.yaml.clib','0.2.6', {
+		'modulename': 'ruamel.yaml'
+	}),
+	('ruamel.yaml','0.17.20'),
+
+	('scikit-learn','0.24.2', {
+                'modulename': 'sklearn',
+        }),
+	('importlib-metadata','4.10.0', {
+		'source_tmpl': 'importlib_metadata-%(version)s-py3-none-any.whl'
+	}),
+]
+
+use_pip = True
+sanity_pip_check = False
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/bio_embeddings'],
+}
+
+moduleclass = 'bio'

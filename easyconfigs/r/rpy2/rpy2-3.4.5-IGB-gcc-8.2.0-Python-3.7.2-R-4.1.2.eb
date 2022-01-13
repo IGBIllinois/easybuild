@@ -1,7 +1,8 @@
 easyblock = 'PythonPackage'
 
 name = 'rpy2'
-version = '3.2.4'
+version = '3.4.5'
+versionsuffix = '-Python-%(pyver)s-R-%(rver)s'
 
 homepage = 'http://rpy.sourceforge.net/'
 description = """rpy2 is a redesign and rewrite of rpy. It is providing a low-level 
@@ -10,19 +11,14 @@ graphical libraries, as well as R-like structures and functions. """
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-source_urls = ['https://pypi.local_python.org/packages/source/r/%(name)s']
-sources = [SOURCE_TAR_GZ]
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
 
-local_python = 'Python'
-local_pyver = '3.7.2'
-local_pyshortver = '.'.join(local_pyver.split('.')[:2])
-local_rver = '3.6.0'
-versionsuffix = '-%s-%s-R-%s' % (local_python, local_pyver, local_rver)
-
+use_pip = True
 
 dependencies = [
-    (local_python, local_pyver),
-    ('R', local_rver),
+	('Python','3.7.2'),
+	('R','4.1.2'),
 ]
 
 exts_default_options = {
@@ -30,21 +26,10 @@ exts_default_options = {
     'sanity_pip_check': True,
 }
 
-
 exts_defaultclass = "PythonPackage"
 exts_list = [
-    ('cffi', '1.13.2', {
-        'modulename': '_cffi_backend',
-        'source_urls': [PYPI_SOURCE],
-        'source_tmpl': SOURCE_TAR_GZ,
-    }),
-	('simplegeneric','0.8.1', {
-                'source_tmpl': 'simplegeneric-%(version)s.zip'
-        }),
-
-
-
 ]
+
 use_pip = True
 sanity_pip_check = True
 unpack_sources = False
@@ -54,7 +39,7 @@ exts_filter = ('python -c "import %(ext_name)s"', "")
 
 sanity_check_paths = {
     'files': [],
-    'dirs': ['lib/python3.7/site-packages/rpy2'],
+    'dirs': ['lib/python%(pyshortver)s/site-packages/rpy2'],
 }
 
 moduleclass = 'lang'

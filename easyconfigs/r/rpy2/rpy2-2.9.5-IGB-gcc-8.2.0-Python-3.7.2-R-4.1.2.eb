@@ -1,0 +1,50 @@
+easyblock = 'PythonPackage'
+
+name = 'rpy2'
+version = '2.9.5'
+versionsuffix = '-Python-%(pyver)s-R-%(rver)s'
+
+homepage = 'http://rpy.sourceforge.net/'
+description = """rpy2 is a redesign and rewrite of rpy. It is providing a low-level 
+interface to R from Python, a proposed high-level interface, including wrappers to 
+graphical libraries, as well as R-like structures and functions. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+use_pip = True
+
+dependencies = [
+	('Python','3.7.2'),
+	('R','4.1.2'),
+]
+
+exts_default_options = {
+	'exts_subdir': 'R',
+}
+
+exts_defaultclass = "RPackage"
+exts_list = [
+	('ggplot2','2.2.1', {
+                'source_urls': ['https://cran.r-project.org/src/contrib/Archive/ggplot2/'],
+                'source_tmpl': 'ggplot2_%(version)s.tar.gz',
+		'exts_filter': ("R -q --no-save", "library(%(name)s)")
+        }),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['lib/python%(pyshortver)s/site-packages/rpy2'],
+}
+
+modextrapaths = {'R_LIBS_SITE': 'R' 
+}
+moduleclass = 'lang'
