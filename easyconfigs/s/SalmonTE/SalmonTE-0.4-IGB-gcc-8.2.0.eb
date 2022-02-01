@@ -1,0 +1,30 @@
+easyblock = 'Tarball'
+
+name = 'SalmonTE'
+version = '0.4'
+
+homepage = 'http://liuzlab.org/salmonte/'
+description = """SalmonTE is an ultra-Fast and Scalable Quantification Pipeline of Transpose Element (TE) Abundances from Next Generation Sequencing Data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/hyunhwan-jeong/SalmonTE/archive/refs/tags/']
+
+dependencies = [
+	('Python','3.7.2'),
+	('R','4.0.3'),
+	('snakemake','6.0.5','-Python-%(pyver)s'),
+]
+
+keepsymlinks = True
+
+
+sanity_check_paths = {
+	'files': ['SalmonTE.py','SalmonTE_Stats.R'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': ''}
+
+moduleclass = 'bio'

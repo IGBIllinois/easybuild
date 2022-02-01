@@ -1,0 +1,32 @@
+easyblock = 'Tarball'
+
+name = 'GATK'
+version = '4.2.4.1'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = 'https://software.broadinstitute.org/gatk'
+description = """Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.
+"""
+
+toolchain = SYSTEM
+
+sources = ['gatk-%(version)s.zip']
+source_urls = ['https://github.com/broadinstitute/gatk/releases/download/%(version)s/']
+
+dependencies = [('Java','1.8.0_201')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['gatk-package-%(version)s-local.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+#Creates bash alias for java program
+modaliases = {'%(namelower)s': 'java -jar %(installdir)s/gatk-package-%(version)s-local.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+moduleclass = 'bio'

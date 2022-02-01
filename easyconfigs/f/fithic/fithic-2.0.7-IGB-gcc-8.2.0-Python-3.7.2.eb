@@ -1,0 +1,41 @@
+easyblock = 'PythonPackage'
+
+name = 'fithic'
+version = '2.0.7'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/ay-lab/fithic'
+description = """Fit-Hi-C (or FitHiC) was initially developed by Ferhat Ay, Timothy Bailey, and William Noble January 19th, 2014. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('sortedcontainers','2.4.0'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/fithic'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

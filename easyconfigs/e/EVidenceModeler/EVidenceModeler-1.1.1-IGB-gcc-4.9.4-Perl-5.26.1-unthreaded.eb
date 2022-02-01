@@ -1,0 +1,31 @@
+easyblock = 'Tarball'
+
+name = 'EVidenceModeler'
+version = '1.1.1'
+versionsuffix = '-Perl-%(perlver)s-unthreaded'
+
+homepage = 'https://evidencemodeler.github.io/'
+description = """The EVidenceModeler (aka EVM) software combines ab intio gene predictions and protein and transcript alignments into weighted consensus gene structures. EVM provides a flexible and intuitive framework for combining diverse evidence types into a single automated gene structure annotation system."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/EVidenceModeler/EVidenceModeler/archive/refs/tags/']
+
+dependencies = [
+	('Perl','5.26.1','-unthreaded'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['evidence_modeler.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':('','EvmUtils'),
+	'PERL5LIB': 'PerlLib'
+
+}
+
+moduleclass = 'bio'

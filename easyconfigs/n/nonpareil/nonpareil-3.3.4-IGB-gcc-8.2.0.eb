@@ -1,0 +1,36 @@
+easyblock = 'ConfigureMake'
+
+name = 'nonpareil'
+version = '3.3.4'
+
+homepage = 'https://github.com/lmrodriguezr/nonpareil'
+description = """Estimate average coverage and create Nonpareil curves for metagenomic datasets."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/lmrodriguezr/nonpareil/archive/refs/tags/']
+
+dependencies = [
+	('R','4.1.2'),
+]
+
+patches = ['nonpareil-%(version)s.patch']
+
+keepsymlinks = True
+
+skipsteps = ['configure']
+
+installopts = 'prefix=%(installdir)s'
+
+#files_to_copy = [(['nonpareil'],'bin'),'README.md','docs','utils']
+
+sanity_check_paths = {
+	'files': ['bin/nonpareil'],
+	'dirs': [],
+}
+
+modextrapaths = {'R_LIBS_SITE':'R'
+}
+
+moduleclass = 'bio'

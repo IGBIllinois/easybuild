@@ -16,6 +16,7 @@ dependencies = [
         ('Python', '3.7.2'),
 	('Biopython','1.76','-Python-%(pyver)s'),
 	('jupyterlab','2.2.9','-Python-%(pyver)s'),
+	('GhostScript','9.55.0'),
 
 ]
 

@@ -1,0 +1,35 @@
+easyblock = 'Tarball'
+
+name = 'parabricks'
+version = '3.7.0'
+
+homepage = 'https://developer.nvidia.com/clara-parabricks'
+description = """NVIDIA Clara™ Parabricks is a computational framework supporting genomics applications from DNA to RNA. It employs NVIDIA’s CUDA, HPC, AI, and data analytics stacks to build GPU accelerated libraries, pipelines, and reference application workflows for primary, secondary, and tertiary analysis."""
+
+toolchain = SYSTEM
+
+source_urls = ['']
+sources = [SOURCE_TAR_GZ]
+
+dependencies = [('singularity','3.8.1'),
+
+]
+
+#install_cmd = "./installer.py --install-location %(installdir)s --container=singularity"
+
+sanity_check_paths = {
+        'files': ['parabricks/pbrun'],
+        'dirs': [],
+}
+
+modextrapaths = {'PATH': 'parabricks'
+}
+
+
+keeppreviousinstall = True
+moduleclass = 'bio'
+
+modloadmsg = "This requires singularity.  You need to manually load the singularity module with 'module load singularity/3.4.1' for this program to work\n"
+modloadmsg += "Please use the temp parameter with parabricks to point to the nodes local /scratch directory.  Without this parameter, the program causes issues with our shared filesystem.\n"
+
+

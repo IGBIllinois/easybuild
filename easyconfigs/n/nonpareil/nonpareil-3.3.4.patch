@@ -1,0 +1,28 @@
+Only in nonpareil-3.3.4.original: globals.mk
+diff -ru nonpareil-3.3.4.original/Makefile nonpareil-3.3.4/Makefile
+--- nonpareil-3.3.4.original/Makefile	2022-01-28 10:59:10.037983000 -0600
++++ nonpareil-3.3.4/Makefile	2022-01-28 11:14:25.709224000 -0600
+@@ -3,7 +3,15 @@
+ # @update Dec 16 2013
+ # @author Luis M. Rodriguez-R <lmrodriguez at gmail dot com>
+ 
+-include globals.mk
++cpp=g++
++mpicpp=mpic++
++CPPFLAGS=-Wall -std=c++11
++mpiflags=-DENVEOMICS_MULTI_NODE
++
++R=R
++prefix?=/usr/local
++bindir=$(prefix)/bin
++mandir=$(prefix)/man/man1
+ 
+ enveomics=enveomics/
+ universal=$(enveomics)universal.o
+@@ -46,4 +54,5 @@
+ 	if [ -e nonpareil ] ; then install -m 0755 nonpareil $(bindir)/ ; fi
+ 	if [ -e nonpareil-mpi ] ; then install -m 0755 nonpareil-mpi $(bindir)/ ; fi
+ 	cp docs/_build/man/nonpareil.1 $(mandir)/nonpareil.1
+-	$(R) CMD INSTALL utils/Nonpareil
++	mkdir $(prefix)/R
++	$(R) CMD INSTALL -l $(prefix)/R utils/Nonpareil
