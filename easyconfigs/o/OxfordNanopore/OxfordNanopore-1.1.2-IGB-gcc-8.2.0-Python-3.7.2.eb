@@ -1,7 +1,7 @@
 easyblock = 'Tarball'
 
 name = 'OxfordNanopore'
-version = '1.1'
+version = '1.1.2'
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://github.com/IGBIllinois/OxfordNanopore_Pipeline'
@@ -15,7 +15,7 @@ sources = [{
         'git_config': {
                 'url': 'https://github.com/IGBIllinois',
                 'repo_name': 'OxfordNanopore_Pipeline',
-		'tag': 'v%(version)s',
+                'tag': 'v%(version)s',
                 'recursive': True,
         },
 }]
@@ -25,6 +25,7 @@ dependencies = [('Python','3.7.2'),
 	('Biopython','1.73','-Python-3.7.2'),
 	('Perl','5.28.1'),
 	('gnuplot','4.6.7'),
+	('seqkit','0.15.0','',True),
 
 ]
 
