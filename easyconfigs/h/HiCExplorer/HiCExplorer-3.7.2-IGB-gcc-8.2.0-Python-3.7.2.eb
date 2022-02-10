@@ -1,0 +1,94 @@
+easyblock = 'PythonPackage'
+
+name = 'HiCExplorer'
+version = '3.7.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://hicexplorer.readthedocs.io/en/latest/index.html'
+description = """HiCExplorer addresses the common tasks of Hi-C data analysis from processing to visualization."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/deeptools/HiCExplorer/archive/refs/tags/']
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Biopython','1.76','-Python-%(pyver)s'),
+	('cooler','0.8.11','-Python-%(pyver)s'),
+	('jupyterlab','2.2.9','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+
+	('argcomplete','1.12.3'),
+	('argh','0.26.2'),
+	('matplotlib','3.3.1', {
+		'source_tmpl': 'matplotlib-%(version)s-cp37-cp37m-manylinux1_x86_64.whl'
+	}),
+	('numexpr','2.7.3'),
+	('gffutils','0.10.1'),
+	('pybedtools','0.8.2'),
+	('Unidecode','1.3.1', {
+		'modulename': 'unidecode'
+	}),
+	('sortedcontainers','2.4.0'),
+	('tables','3.6.1', {
+		'source_tmpl': 'tables-%(version)s-cp37-cp37m-manylinux1_x86_64.whl',
+	}),
+	('pyBigWig','0.3.18', {
+		'modulename': 'pyBigWig'
+	}),
+	('pyGenomeTracks','3.6', {
+		'modulename': 'pygenometracks'
+	}),
+	('hic2cool','0.8.3'),
+	('HiCMatrix','16', {
+		'modulename': 'hicmatrix',
+		'source_urls': ['https://github.com/deeptools/HiCMatrix/archive/refs/tags/'],
+		'source_tmpl': '%(version)s.tar.gz'
+	}),
+	('intervaltree','3.1.0'),
+	('psutil','5.8.0'),
+	('cleanlab','1.0'),
+	('fit-nbinom','1.1', {
+		'source_tmpl': 'fit_nbinom-%(version)s.tar.gz'
+	}),
+	('graphviz','0.19.1', {
+		'source_tmpl': SOURCE_PY3_WHL,
+	}),
+	('py4j','0.10.9.3'),
+	('hyperopt','0.2.7'),
+	('scikit-learn','1.0.2', {
+		'modulename': 'sklearn',
+		'source_tmpl': 'scikit_learn-%(version)s-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
+	}),
+	('imbalanced-learn','0.9.0', {
+		'modulename': False
+	}),
+	('krbalancing','0.5.0b0', {
+		'source_tmpl': 'krbalancing-%(version)s-cp37-cp37m-manylinux2010_x86_64.whl'
+	}),
+	('tqdm','4.62.3'),
+
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/hicexplorer'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(namelower)s'],
+}
+
+moduleclass = 'bio'

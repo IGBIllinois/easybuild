@@ -1,0 +1,97 @@
+easyblock = 'Tarball'
+
+name = 'blobtools2'
+version = '2.6.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/blobtoolkit/blobtools2/archive/refs/tags'
+description = """Application for the visualisation of (draft) genome assemblies using TAGC (Taxon-annotated Gc-Coverage) plots"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [{
+	'source_urls': ['https://github.com/blobtoolkit/blobtools2/archive/refs/tags'],
+	'filename': '%(version)s.tar.gz',
+	'download_filename': '%(version)s.tar.gz'
+
+},
+{
+	'source_urls': ['https://github.com/blobtoolkit/viewer/archive/refs/tags'],
+	'filename': 'blobtoolkit-viewer-%(version)s.tar.gz',
+	'download_filename': '%(version)s.tar.gz'
+
+
+}
+]
+
+dependencies = {
+	('Python', '3.7.2'),
+	('nodejs','14.15.0'),
+}
+
+
+sanity_check_paths = {
+	'files': ['blobtools'],
+	'dirs': ['viewer'],
+}
+
+postinstallcmds = ['wget -qN ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz -P %(installdir)s/data/',
+'tar xf %(installdir)s/data/taxdump.tar.gz -C %(installdir)s/data/ nodes.dmp names.dmp',
+'export PYTHONPATH=$PYTHONPATH:%(installdir)s/lib && cd %(installdir)s && %(installdir)s/blobtools nodesdb --nodes %(installdir)s/data/nodes.dmp --names %(installdir)s/data/names.dmp']
+
+
+modextrapaths = {
+	'PATH': '',
+	'PYTHONPATH':'lib/python%(pyshortver)s/site-packages',
+}
+
+
+exts_default_options = {
+	'source_urls': [PYPI_SOURCE],
+	'sanity_pip_check': True,
+	'use_pip': True,
+	'unpack_sources': False
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+
+exts_list = [
+        ('tolkein', '0.4.0'),
+	('pysam','0.16.0.1'),
+	('coveralls','2.0.0'),
+	('docopt','0.6.2'),
+	('mock','4.0.2'),
+	('psutil','5.8.0'),
+	('pycodestyle','2.6.0'),
+	('pydocstyle','5.0.2'),
+	('lazy-object-proxy','1.4.3'),
+	('typed-ast','1.4.3', {
+		'source_tmpl': 'typed_ast-%(version)s.tar.gz'
+	}),
+	('astroid','2.4.2'),
+	('isort','4.3.21'),
+	('mccabe','0.6.1'),
+	('pylint','2.5.3'),
+	('more-itertools','8.12.0'),
+	('pytest','6.0.0'),
+	('coverage','5.5'),
+	('pytest-cov','2.10.0'),
+	('pytest-mock','3.1.1'),
+	('EasyProcess','1.1'),
+	('PyVirtualDisplay','2.1'),
+	('selenium','3.141.0'),
+	('tqdm','4.59.0'),
+	('ujson','4.0.2'),
+	('PyYAML','5.4.1', {
+		'modulename': 'yaml'
+	}),
+]
+
+postinstallcmds = ['cp -fR %(builddir)s/viewer-%(version)s %(installdir)s/viewer',
+	'cd %(installdir)s/viewer && npm install'
+]
+

@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'wombat'
+version = '20210107'
+
+homepage = 'http://didgeridoo.une.edu.au/km/wombat.php'
+description = """WOMBAT is a program to facilitate analyses fitting a linear, mixed model via restricted maximum likelihood (REML)."""
+
+toolchain = SYSTEM
+
+sources = ['wombat-%(version)s.tar.gz']
+source_urls = []
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['wombat'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

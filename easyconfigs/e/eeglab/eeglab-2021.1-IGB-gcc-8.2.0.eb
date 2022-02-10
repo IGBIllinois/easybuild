@@ -1,0 +1,59 @@
+easyblock = 'Tarball'
+
+name = 'eeglab'
+version = '2021.1'
+
+homepage = 'https://sccn.ucsd.edu/eeglab/index.php'
+description = """EEGLAB is an interactive Matlab toolbox for processing continuous and event-related EEG, MEG and other electrophysiological data incorporating independent component analysis (ICA), time/frequency analysis, artifact rejection, event-related statistics, and several useful modes of visualization of the averaged and single-trial data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [{
+		'filename': 'eeglab-%(version)s.tar.gz',
+		'git_config': {
+			'url': 'https://github.com/sccn/',
+			'repo_name': 'eeglab',
+			'commit': 'eb18587',
+			'recursive': True,
+		}
+	},
+	{
+		'filename': 'erplab8.30.zip',
+		'source_urls': ['https://github.com/lucklab/erplab/releases/download/8.30/'],
+		'download_filename': 'erplab8.30.zip'
+	},
+	{
+		'filename': 'loadcurry.tar.gz',
+		'git_config': {
+			'url': 'https://github.com/mattpontifex',
+			'repo_name': 'loadcurry',
+			'commit': 'a85dc2d'
+		}
+	},
+	{
+		'filename': 'neuroscanio1.3.tar.gz',
+		'source_urls': ['https://github.com/sccn/neuroscanio/archive/refs/tags/'],
+		'download_filename': 'v1.3.tar.gz'
+
+	}
+]
+
+dependencies = [
+	('MATLAB','2020b'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['eeglab.m','eeglab.prj'],
+	'dirs': ['plugins/erplab8.30','plugins/loadcurry3.3.0','plugins/neuroscanio-1.3'],
+}
+
+modextrapaths = {'MATLABPATH':''}
+
+postinstallcmds = ['cp -fR %(builddir)s/erplab8.30 %(installdir)s/plugins/',
+	'cp -fR %(builddir)s/loadcurry/loadcurry3.3.0 %(installdir)s/plugins/',
+	'cp -fR %(builddir)s/neuroscanio-1.3 %(installdir)s/plugins/'
+]
+
+moduleclass = 'bio'
