@@ -25,4 +25,4 @@ modextrapaths = {
 keeppreviousinstall = True
 moduleclass = 'bio'
 
-
+modloadmsg = "Please follow our guide on how to run alphafold at https://help.igb.illinois.edu/Biocluster_Alphafold\n"

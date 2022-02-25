@@ -1,0 +1,30 @@
+easyblock = 'Binary'
+
+name = 'diyabc'
+version = '1.1.28'
+
+homepage = 'https://github.com/diyabc/diyabc'
+description = """DIYABC RF V1.0"""
+
+toolchain = SYSTEM
+
+sources = ['diyabc-RF-linux-v%(version)s-14e1552']
+source_urls = ['https://github.com/diyabc/diyabc/releases/download/v1.1.28-14e1552/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['diyabc'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+postinstallcmds = ['mv %(installdir)s/diyabc-RF-linux-v%(version)s-14e1552 %(installdir)s/diyabc',
+	'chmod 775 %(installdir)s/diyabc'
+]
+
+moduleclass = 'bio'

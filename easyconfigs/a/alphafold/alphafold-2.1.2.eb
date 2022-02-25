@@ -27,6 +27,7 @@ postinstallcmds = ['chmod 775 %(installdir)s/bin/run_singularity.py']
 keeppreviousinstall = True
 moduleclass = 'bio'
 
+modloadmsg = "Please follow our guide on how to run alphafold at https://help.igb.illinois.edu/Biocluster_Alphafold\n"
 
 ##Installation
 # create alphafold singularity image
