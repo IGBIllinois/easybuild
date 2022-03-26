@@ -1,0 +1,53 @@
+easyblock = 'PythonPackage'
+
+name = 'Circlator'
+version = '1.5.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://sanger-pathogens.github.io/circlator/'
+description = """A tool to circularize genome assemblies. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ["v%(version)s.tar.gz"]
+source_urls = ["https://github.com/sanger-pathogens/circlator/archive/"]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('BWA','0.7.17'),
+	('Prodigal','2.6.3','',True),
+	('SAMtools','1.12'),
+	('MUMmer','4.0.0beta2'),
+	('Canu','2.1.1','-Perl-5.28.1'),
+	('SPAdes','3.15.3','-Python-%(pyver)s'),
+]
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('et-xmlfile','1.1.0',{
+		'source_tmpl': 'et_xmlfile-%(version)s.tar.gz'
+	}),
+	('openpyxl','3.0.9'),
+	('pyfastaq','3.17.0'),
+	('pymummer','0.11.0'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/circlator'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(namelower)s'],
+}
+
+moduleclass = 'bio'
+
+

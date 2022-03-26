@@ -1,0 +1,33 @@
+easyblock = 'MakeCp'
+
+name = 'ngsF'
+version = '1.2.0'
+
+homepage = 'https://github.com/fgvieira/ngsF'
+description = """ngsF is a program to estimate per-individual inbreeding coefficients under a probabilistic framework that takes the uncertainty of genotype's assignation into account. It avoids calling genotypes by using genotype likelihoods or posterior probabilities."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/fgvieira/ngsF/archive/refs/tags/']
+
+dependencies = [
+	('GSL','2.5'),
+	('zlib','1.2.11'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['ngsF','ngsF.sh'],'bin'),'examples','htslib','LICENSE','README.md']
+
+sanity_check_paths = {
+	'files': ['bin/ngsF','bin/ngsF.sh'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

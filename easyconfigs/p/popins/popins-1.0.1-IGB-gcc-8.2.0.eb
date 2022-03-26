@@ -1,0 +1,39 @@
+easyblock = 'MakeCp'
+
+name = 'popins'
+version = '1.0.1'
+
+homepage = 'https://github.com/bkehr/popins'
+description = """Population-scale detection of novel-sequence insertions."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/bkehr/popins/archive/refs/tags/']
+
+dependencies = [
+	('seqan','2.2.0'),
+	('BWA','0.7.17'),
+	('velvet','1.2.10','-kmer_121'),
+	('SAMtools','1.12'),
+	('sickle','1.33')
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['popins'],'bin'),
+	'LICENSE',
+	'README.md'
+]
+
+sanity_check_paths = {
+	'files': ['bin/popins'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

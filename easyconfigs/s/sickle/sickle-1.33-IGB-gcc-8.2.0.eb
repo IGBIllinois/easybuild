@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'sickle'
+version = '1.33'
+
+homepage = 'https://github.com/najoshi/sickle/'
+description = """A windowed adaptive trimming tool for FASTQ files using quality"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/najoshi/sickle/archive/refs/tags/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['LICENSE','README.md','test',(['sickle'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/sickle'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

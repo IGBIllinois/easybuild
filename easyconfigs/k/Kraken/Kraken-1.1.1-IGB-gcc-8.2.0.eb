@@ -1,0 +1,35 @@
+easyblock = 'MakeCp'
+
+name = 'Kraken'
+version = '1.1.1'
+
+homepage = 'https://ccb.jhu.edu/software/kraken/'
+description = """Kraken is a system for assigning taxonomic labels to short DNA sequences, usually obtained through metagenomic studies. Previous attempts by other bioinformatics software to accomplish this task have often used sequence alignment or machine learning techniques that were quite slow, leading to the development of less sensitive but much faster abundance estimation programs. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/DerrickWood/kraken/archive/refs/tags/']
+
+dependencies = [('Jellyfish','1.1.12')
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+buildopts = "-C src/"
+
+files_to_copy = [(['src/classify','src/db_shrink','src/db_sort','src/kmer_estimator','src/make_seqid_to_taxid_map','src/set_lcas'],'bin'),
+	([('scripts/*')],'bin')
+]
+
+sanity_check_paths = {
+	'files': ['bin/classify','bin/db_shrink'],
+	'dirs': [],
+}
+
+modextrapaths = {'KRAKEN_DIR':'bin'
+}
+
+moduleclass = 'bio'

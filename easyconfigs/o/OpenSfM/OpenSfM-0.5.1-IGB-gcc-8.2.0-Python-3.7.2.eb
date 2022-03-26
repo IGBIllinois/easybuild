@@ -1,0 +1,73 @@
+easyblock = 'PythonPackage'
+
+name = 'OpenSfM'
+version = '0.5.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://opensfm.org/'
+description = """OpenSfM is a Structure from Motion library written in Python. The library serves as a processing pipeline for reconstructing camera poses and 3D scenes from multiple images."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [{'filename': 'opensfm-%(version)s.tar.gz',
+	'git_config': {
+		'url': 'https://github.com/mapillary',
+		'repo_name': 'OpenSfM',
+		'commit': '9268047',
+		'recursive': True,
+
+	},
+}]
+
+builddependencies = [
+	('CMake','3.17.2')
+]
+dependencies = [
+        ('Python', '3.7.2'),
+	('OpenCV','4.5.2','-Python-%(pyver)s'),
+	('ceres-solver','1.14.0')
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('pyproj','1.9.6'),
+	('cloudpickle','0.4.0'),
+	('ExifRead','2.1.2'),
+	('PyYAML','5.4', {
+                'modulename': 'yaml'
+        }),
+	('click','8.0.4'),
+	('itsdangerous','2.1.1'),
+	('Flask','1.1.2', {
+		'modulename': False
+	}),
+	('fpdf2','2.4.6', {
+		'modulename': 'fpdf'
+	}),
+	('joblib','0.14.1'),
+	('networkx','1.11'),
+	('pytest','3.0.7'),
+	('Sphinx','3.4.3'),
+	('xmltodict','0.10.2'),
+	('repoze.lru','0.7'),
+
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/opensfm'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(namelower)s'],
+}
+
+moduleclass = 'vis'

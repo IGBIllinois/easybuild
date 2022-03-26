@@ -21,7 +21,8 @@ sanity_check_paths = {
 	'dirs': [],
 }
 
-postinstallcmds = ['ln -s %(installdir)s/abcranger-linux-v%(version)s %(installdir)s/abcranger']
+postinstallcmds = ['chmod 775 %(installdir)s/abcranger-linux-v%(version)s',
+	'ln -s %(installdir)s/abcranger-linux-v%(version)s %(installdir)s/abcranger']
 
 modextrapaths = {'PATH':''}
 

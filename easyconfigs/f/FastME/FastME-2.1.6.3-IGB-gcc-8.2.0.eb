@@ -1,0 +1,32 @@
+easyblock = 'ConfigureMake'
+
+name = 'FastME'
+version = '2.1.6.3'
+
+homepage = 'http://www.atgc-montpellier.fr/fastme/binaries.php'
+description = """FastME provides distance algorithms to infer phylogenies. FastME is based on balanced minimum evolution, which is the very principle of NJ. FastME improves over NJ by performing topological moves using fast, sophisticated algorithms."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://gite.lirmm.fr/atgc/FastME/-/archive/v%(version)s/']
+sources = ["FastME-v%(version)s.tar.gz"]
+
+builddependencies = [
+	('Autotools', '20180311','',('GCC','8.2.0-2.32')),
+]
+
+dependencies = []
+
+preconfigopts = 'autoreconf -i -f ; '
+sanity_check_paths = {
+        'files': ['bin/fastme'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

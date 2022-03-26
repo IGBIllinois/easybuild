@@ -1,0 +1,35 @@
+easyblock = 'CMakeMake'
+
+name = 'Bifrost'
+version = '1.0.4'
+
+homepage = 'https://github.com/pmelsted/bifrost'
+description = """Parallel construction, indexing and querying of colored and compacted de Bruijn graphs"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+
+source_urls = ['https://github.com/pmelsted/bifrost/archive/refs/tags/']
+sources = ['v%(version)s.tar.gz']
+
+builddependencies = [('CMake', '3.17.2')]
+
+dependencies = [
+	('zlib','1.2.11'),
+]
+
+separate_build_dir = True
+
+configopts = '-DMAX_KMER_SIZE=64'
+sanity_check_paths = {
+        'files': ['bin/Bifrost'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

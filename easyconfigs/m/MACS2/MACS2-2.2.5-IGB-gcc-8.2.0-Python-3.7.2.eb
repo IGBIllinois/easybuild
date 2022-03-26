@@ -1,0 +1,41 @@
+easyblock = 'PythonPackage'
+
+name = 'MACS2'
+version = '2.2.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/taoliu/MACS/'
+description = "Model Based Analysis for ChIP-Seq data"
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ["v%(version)s.tar.gz"]
+source_urls = ["https://github.com/taoliu/MACS/archive/"]
+
+dependencies = [
+    ('Python', '3.7.2'),
+]
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+options = {'modulename': False }
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'
+

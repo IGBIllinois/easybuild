@@ -1,0 +1,37 @@
+easyblock = 'MakeCp'
+
+name = 'popins2'
+version = '20220127'
+
+homepage = 'https://github.com/kehrlab/PopIns2'
+description = """Population-scale detection of non-reference sequence variants using colored de Bruijn Graphs"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['popins2-%(version)s.tar.gz']
+
+dependencies = [
+	('Bifrost','1.0.4'),
+	('BWA','0.7.17'),
+	('SAMtools','1.12'),
+	('sickle','1.33'),
+
+]
+
+keepsymlinks = True
+
+prebuildopts = "mkdir build && "
+
+with_configure = False
+
+files_to_copy = [(['popins2'],'bin'),'LICENSE','README.md']
+
+sanity_check_paths = {
+	'files': ['bin/popins2'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

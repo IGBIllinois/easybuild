@@ -1,0 +1,38 @@
+easyblock = 'CMakeMake'
+
+name = 'ceres-solver'
+version = '2.0.0'
+
+homepage = 'http://ceres-solver.org'
+description = """Ceres Solver is an open source C++ library for modeling and solving large, complicated optimization problems."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+
+source_urls = ['http://ceres-solver.org/']
+sources = [SOURCE_TAR_GZ]
+
+builddependencies = [('CMake', '3.17.2')]
+
+dependencies = [
+	('Eigen','3.4.0'),
+	('glog','0.5.0'),
+	('SuiteSparse','5.8.1'),
+]
+
+separate_build_dir = True
+
+preconfigopts = ''
+
+sanity_check_paths = {
+        'files': ['lib64/libceres.a'],
+        'dirs': ['include/ceres'],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'math'
+
+

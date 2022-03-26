@@ -1,0 +1,32 @@
+easyblock = 'MakeCp'
+
+name = 'velvet'
+version = '1.2.10'
+versionsuffix = '-kmer_121'
+homepage = 'https://www.ebi.ac.uk/~zerbino/velvet/'
+description = """Velvet is a de novo genomic assembler specially designed for short read sequencing technologies, such as Solexa or 454, developed by Daniel Zerbino and Ewan Birney at the European Bioinformatics Institute (EMBL-EBI), near Cambridge, in the United Kingdom. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['velvet_%(version)s.tgz']
+source_urls = ['https://www.ebi.ac.uk/~zerbino/velvet/']
+
+dependencies = [
+]
+
+buildopts = "OPENMP=1 MAXKMERLENGTH=121"
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['velvetg','velveth'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''
+}
+
+moduleclass = 'bio'

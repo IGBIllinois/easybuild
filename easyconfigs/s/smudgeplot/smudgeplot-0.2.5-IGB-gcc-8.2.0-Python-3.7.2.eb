@@ -1,0 +1,36 @@
+easyblock = 'ConfigureMake'
+
+name = 'smudgeplot'
+version = '0.2.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/KamilSJaron/smudgeplot'
+description = """This tool extracts heterozygous kmer pairs from kmer count databases and performs gymnastics with them."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/KamilSJaron/smudgeplot/archive/refs/tags/']
+
+dependencies = [
+	('Python','3.7.2'),
+	('R','4.1.2'),
+	('KMC','3.2.1','',True),
+
+]
+
+patches = ['smudgeplot-%(version)s.patch']
+
+skipsteps = ['configure','install']
+
+buildopts = 'INSTALL_PREFIX=%(installdir)s '
+
+sanity_check_paths = {
+	'files': ['bin/smudgeplot.py','bin/smudgeplot_plot.R'],
+	'dirs': [],
+}
+
+modextrapaths = {'R_LIBS':'R'
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,38 @@
+easyblock = 'MakeCp'
+
+name = 'ngsF-HMM'
+version = '20200722'
+local_commit = '2df9690'
+
+homepage = 'https://github.com/fgvieira/ngsF-HMM'
+description = """ngsF-HMM is a program to estimate per-individual inbreeding tracts using a two-state Hidden Markov Model (HMM). """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/fgvieira/ngsF-HMM/archive/']
+
+dependencies = [
+	('GSL','2.5'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['ngsF-HMM','ngsF-HMM.sh'],'bin'),'scripts','examples','README.md','LICENSE']
+
+sanity_check_paths = {
+	'files': ['bin/ngsF-HMM'],
+	'dirs': [],
+}
+
+fix_perl_shebang_for = ['scripts/convert_ibd.pl']
+
+postinstallcmds = ['chmod 775 %(installdir)s/scripts/convert_ibd.pl']
+
+modextrapaths = {'PATH':'scripts'
+
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'KMC'
+version = '3.2.1'
+
+homepage = 'https://github.com/refresh-bio/KMC'
+description = """KMC is a disk-based programm for counting k-mers from (possibly gzipped) FASTQ/FASTA files. The homepage of the KMC project is http://sun.aei.polsl.pl/kmc"""
+
+toolchain = SYSTEM
+
+sources = ['KMC%(version)s.linux.tar.gz']
+source_urls = ['https://github.com/refresh-bio/KMC/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/kmc','bin/kmc_dump','bin/kmc_tools'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
