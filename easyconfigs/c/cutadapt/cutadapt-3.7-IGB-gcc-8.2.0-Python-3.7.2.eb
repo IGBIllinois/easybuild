@@ -28,7 +28,9 @@ exts_list = [
 	('xopen','1.4.0', {
 		'source_tmpl': 'xopen-%(version)s-py3-none-any.whl',
 	}),
-	('dnaio','0.7.1'),
+	('dnaio','0.7.1', {
+		'source_tmpl': 'dnaio-%(version)s-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl',
+	}),
 	(name,version)
 ]
 
