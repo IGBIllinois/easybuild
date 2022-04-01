@@ -1,0 +1,26 @@
+name: Build Status
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Test Python Syntax
+      run: if find . -name "*.eb" -exec python -c "__import__('compiler').parse(open('{}').read())" 2>&1 \; | grep "SyntaxError"; then exit 1; fi
+
+    - name: Test EasyBuild Syntax
+      run: if find . -name "*.py" -exec python -c "__import__('compiler').parse(open('{}').read())" 2>&1 \; | grep "SyntaxError"; then exit 1; fi
+
+    - name: Test Bash Syntax
+      run: if find . -name "*.sh" -exec /bin/bash -n {} \; | grep "syntax error"; then exit 1; fi
+
+
