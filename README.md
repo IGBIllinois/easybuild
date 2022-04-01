@@ -1,6 +1,6 @@
 # Easyconfigs
 
-[![Build Status](https://www.travis-ci.com/IGBIllinois/easybuild.svg?branch=master)](https://www.travis-ci.com/IGBIllinois/easybuild)
+[![Build Status](https://github.com/IGBIllinois/easybuild/actions/workflows/main.yml/badge.svg)](https://github.com/IGBIllinois/easybuild/actions/workflows/main.yml)
 
 IGB Biocluster Easybuild Easyconfigs
 * These are used on the IGB Biocluster (http://biocluster.igb.illinois.edu)
