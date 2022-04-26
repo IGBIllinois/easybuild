@@ -1,0 +1,54 @@
+Linux version
+
+Using ReadLine,Boost,HDF5
+mothur v.1.47.0
+Last updated: 1/21/22
+by
+Patrick D. Schloss
+
+Department of Microbiology & Immunology
+
+University of Michigan
+http://www.mothur.org
+
+When using, please cite:
+Schloss, P.D., et al., Introducing mothur: Open-source, platform-independent, community-supported software for describing and comparing microbial communities. Appl Environ Microbiol, 2009. 75(23):7537-41.
+
+Distributed under the GNU General Public License
+
+Type 'help()' for information on the commands that are available
+
+For questions and analysis support, please visit our forum at https://forum.mothur.org
+
+Type 'quit()' to exit program
+
+[NOTE]: Setting random seed to 19760620.
+
+Interactive Mode
+
+
+
+mothur > exit
+/*****************************************************************************/
+Unable to open exit. Trying MOTHUR_FILES directory /home/apps/software/Mothur/1.47.0-IGB-gcc-8.2.0/bin//exit.
+Unable to open /home/apps/software/Mothur/1.47.0-IGB-gcc-8.2.0/bin//exit. Trying mothur's executable directory /home/apps/software/Mothur/1.47.0-IGB-gcc-8.2.0/bin//exit.
+Unable to open /home/apps/software/Mothur/1.47.0-IGB-gcc-8.2.0/bin//exit.
+[ERROR]: unable to open /home/apps/software/Mothur/1.47.0-IGB-gcc-8.2.0/bin//exit batch file, please correct.
+/*****************************************************************************/
+
+mothur > quit()
+
+
+It took 2 seconds to run 0 commands from /home/apps/software/Mothur/1.47.0-IGB-gcc-8.2.0/bin//exit batch file.
+
+Logfile : mothur.1649284399.logfile
+
+
+
+************************************************************
+************************************************************
+************************************************************
+Detected 1 [ERROR] messages, please review.
+************************************************************
+************************************************************
+************************************************************

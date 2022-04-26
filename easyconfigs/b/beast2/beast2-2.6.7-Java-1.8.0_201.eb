@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'beast2'
+version = '2.6.7'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = 'https://www.beast2.org/'
+description = """BEAST 2 is a cross-platform program for Bayesian phylogenetic analysis of molecular sequences. It estimates rooted, time-measured phylogenies using strict or relaxed molecular clock models."""
+
+toolchain = SYSTEM
+
+sources = ['BEAST.v%(version)s.Linux.tgz']
+source_urls = ['https://github.com/CompEvol/beast2/releases/download/v%(version)s/']
+
+dependencies = [
+	('Java','1.8.0_201')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/beast'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

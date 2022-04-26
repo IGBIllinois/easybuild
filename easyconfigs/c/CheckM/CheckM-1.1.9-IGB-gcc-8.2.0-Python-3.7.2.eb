@@ -1,0 +1,64 @@
+easyblock = 'PythonPackage'
+
+name = 'CheckM'
+version = '1.1.9'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://ecogenomics.github.io/CheckM'
+description = """CheckM provides a set of tools for assessing the quality of genomes recovered from isolates, single cells, or metagenomes."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [{
+		'source_urls': ['https://pypi.python.org/packages/source/c/checkm-genome/'],
+		'filename' : 'checkm-genome-%(version)s.tar.gz'
+	},
+	{
+		'source_urls': ['https://data.ace.uq.edu.au/public/CheckM_databases/'],
+		'filename' : 'checkm_data_2015_01_16.tar.gz',
+		'download_filename': 'checkm_data.tar.gz',
+		'extract_cmd': 'mkdir %(builddir)s/data; tar -xf %s -C %(builddir)s/data'
+	}
+]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('HMMER','3.3.1'),
+	('Prodigal','2.6.3','',True),
+	('pplacer','1.1.alpha19','-Python-%(pyver)s')
+]
+
+exts_default_options = {
+	'source_urls': [PYPI_SOURCE],
+	'sanity_pip_check': True,
+	'unpack_sources': False,
+}
+
+exts_defaultclass = 'PythonPackage'
+
+exts_list = [
+    ('ScreamingBackpack', '0.2.333'),
+    ('DendroPy', '4.5.1'),
+
+]
+
+use_pip = True
+sanity_pip_check = True
+
+sanity_check_paths = {
+        'files': ['bin/checkm'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/checkm'],
+}
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+postinstallcmds = ["cp -fR %(builddir)s/data %(installdir)s/data"]
+
+sanity_check_commands = ['checkm data setRoot %(installdir)s/data']
+
+
+moduleclass = 'bio'
+
+modloadmsg = "CheckM databases located in %(installdir)s/data\n"
+
+

@@ -1,0 +1,35 @@
+easyblock = 'CmdCp'
+
+name = 'CLASS2'
+version = '2.1.7'
+
+homepage = 'http://ccb.jhu.edu/people/florea/research/CLASS2/'
+description = """CLASS2 is a fast and accurate program for transcript assembly of RNA-seq reads aligned to a reference genome. CLASS2 uses the splice graph model to represent a gene and its splice variants, and a dynamic programming optimization algorithm to score and select a subset of transcripts most likely present in the sample. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['CLASS-%(version)s.tar.gz']
+source_urls = ['https://sourceforge.net/projects/splicebox/files/']
+
+dependencies = [
+
+]
+
+keepsymlinks = True
+
+cmds_map = [('.*',"sh ./build.sh")]
+
+
+files_to_copy = [(['addXS','class','clnb','grader','junc'],'bin'),
+	(['liblpsolve55.a','liblpsolve55.so'],'lib'),
+'README.md','VERSION',]
+
+sanity_check_paths = {
+	'files': ['bin/class'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
