@@ -25,4 +25,5 @@ sanity_check_paths = {
     'dirs': [],
 }
 
+postinstallcmds = ['ln -s %(installdir)s/FastTree %(installdir)s/fasttree']
 moduleclass = 'bio'

@@ -1,0 +1,114 @@
+easyblock = 'Tarball'
+
+name = 'proteinfer'
+version = '20220411'
+versionsuffix = '-Python-%(pyver)s'
+local_commit = 'ad7feda'
+
+homepage = 'https://github.com/google-research/proteinfer'
+description = """ProteInfer is an approach for predicting the functional properties of protein sequences using deep neural networks."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [{'filename': 'proteinfer.tar.gz',
+	'git_config': {
+		'url': 'https://github.com/google-research/',
+		'repo_name': 'proteinfer',
+		'commit': local_commit,
+		'recursive': True
+
+	},
+}]
+dependencies = [
+        ('Python', '3.6.1'),
+	('CUDA','10.0.130','',True),
+	('cuDNN','7.6.1.34','-CUDA-10.0.130',True),
+	('Biopython','1.76','-Python-%(pyver)s'),
+	('Tensorflow-GPU','1.14.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+	'source_urls': [PYPI_SOURCE],
+	'sanity_pip_check': True,
+	'use_pip': True,
+	'unpack_sources': False
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('tensorflow-hub','0.9.0', {
+		'modulename': 'tensorflow_hub',
+		'source_tmpl': 'tensorflow_hub-%(version)s-py2.py3-none-any.whl'
+	}),
+	('absl-py','0.7.1', {
+		'modulename': 'absl'
+	}),
+	('astor','0.7.1', {
+		'source_tmpl': 'astor-%(version)s-py2.py3-none-any.whl'
+	}),
+	('backports.weakref','1.0.post1'),
+	('funcsigs','1.0.2', {
+		'source_tmpl': 'funcsigs-%(version)s-py2.py3-none-any.whl'
+	}),
+	('gast','0.2.2'),
+	('grpcio','1.19.0', {
+		'modulename': False
+	}),
+	('h5py','2.9.0'),
+	('Keras-Applications','1.0.8', {
+		'source_tmpl': 'Keras_Applications-%(version)s-py3-none-any.whl'
+	}),
+	('Keras-Preprocessing','1.0.9', {
+		'source_tmpl': 'Keras_Preprocessing-%(version)s-py2.py3-none-any.whl'
+	}),
+	('Markdown','3.0.1'),
+	('mock','2.0.0'),
+	('numpy','1.16.5', {
+		'source_tmpl': 'numpy-%(version)s.zip',
+		'unpack_sources': True,
+	}),
+	('Cython','0.29.16'),
+	('pandas','1.1.2'),
+	('pbr','5.1.3'),
+	('retrying','1.3.3'),
+	('plotly','4.11.0'),
+	('descartes','1.1.0'),
+	('palettable','3.3.0'),
+	('mizani','0.7.1'),
+	('plotnine','0.7.0'),
+	('python-dateutil','2.8.0', {
+		'modulename': 'dateutil'
+	}),
+	('pytz','2018.9'),
+	('flit-core','3.6.0', {
+		'source_tmpl': 'flit_core-%(version)s-py3-none-any.whl',
+		'modulename': 'flit_core'
+	}),
+	('threadpoolctl','3.1.0'),
+	
+	('scikit-learn','0.23.2', {
+		'modulename': 'sklearn'
+	}),
+	('six','1.12.0'),
+	('termcolor','1.1.0'),
+	('tqdm','4.62.2'),
+	('Werkzeug','0.15.1'),
+	
+]
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+fix_python_shebang_for = ['*.py']
+
+sanity_check_paths = {
+        'files': ['proteinfer.py'],
+        'dirs': [],
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/*.py']
+
+modextrapaths = {'PATH': '',
+	'PYTHONPATH': 'lib/python%(pyshortver)s/site-packages'
+}
+moduleclass = 'bio'
