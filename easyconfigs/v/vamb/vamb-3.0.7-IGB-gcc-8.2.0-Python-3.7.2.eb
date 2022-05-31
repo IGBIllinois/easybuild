@@ -1,0 +1,43 @@
+easyblock = 'PythonPackage'
+
+name = 'vamb'
+version = '3.0.7'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/RasmussenLab/vamb'
+description = """Vamb is a metagenomic binner which feeds sequence composition information from a contig catalogue and co-abundance information from BAM files into a variational autoencoder and clusters the latent representation. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/RasmussenLab/vamb/archive/refs/tags/']
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('PyTorch','1.11.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('pysam','0.19.1'),
+
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'
