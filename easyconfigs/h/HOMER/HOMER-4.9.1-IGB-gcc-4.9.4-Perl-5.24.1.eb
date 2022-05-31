@@ -27,12 +27,14 @@ modloadmsg = """
 Please set the environmental variable HOMER_DATA to a directory in your home folder.
 This will be the location of the HOMER databases. An example is below.
 export HOMER_DATA='/home/a-m/username/homer_data'
+Then run 'configureHomer.pl' to install databases'
 """
 
-modextravars = {'HOMER_DATA':'%(installdir)s/data'
+modextravars = {'HOMER_DATA':'%(installdir)s/data',
 }
 
-modextrapaths = {'PERL5LIB':'bin'
+modextrapaths = {'PERL5LIB':'bin',
+	'PATH':''
 }
 
 postinstallcmds = ['chmod 775 %(installdir)s/configureHomer.pl',

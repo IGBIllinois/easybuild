@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'TSEBRA'
+version = '1.0.3'
+
+homepage = 'https://github.com/Gaius-Augustus/TSEBRA'
+description = """TSEBRA is a combiner tool that selects transcripts from gene predictions based on the support by extrisic evidence in form of introns and start/stop codons. It was developed to combine BRAKER11 and BRAKER22 predicitons to increase their accuracies."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/Gaius-Augustus/TSEBRA/archive/refs/tags/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/tsebra.py'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
