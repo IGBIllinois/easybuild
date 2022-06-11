@@ -19,6 +19,7 @@ dependencies = [
 	('SignalP','4.1','',True),
 	('phobius','1.01','',True),
 	('TMHMM','2.0c','',True),
+	('pftoolsV3','3.2.12'),
 ]
 
 keepsymlinks = True

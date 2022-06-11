@@ -1,0 +1,55 @@
+easyblock = 'PythonPackage'
+
+name = 'iRep'
+version = '20191228'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/christophertbrown/iRep'
+description = """iRep is a method for determining replication rates for bacteria from single time point metagenomics sequencing and draft-quality genomes."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [{
+	'filename': 'iRep-%(version)s.tar.gz',
+	'git_config': {
+		'url': 'https://github.com/christophertbrown/',
+		'repo_name': 'iRep',
+		'commit': 'a3e3592',
+	},
+
+
+}]
+dependencies = [
+        ('Python', '3.7.2'),
+	('Biopython','1.79','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('ctbBio','0.47', {
+		'modulename': False
+	}),
+	('asteval','0.9.27'),
+	('uncertainties','3.1.6'),
+	('lmfit','1.0.3'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+options = {'modulename': 'iRep' }
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/iRep','bin/bPTR','bin/gc_skew.py','bin/iRep_filter.py'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

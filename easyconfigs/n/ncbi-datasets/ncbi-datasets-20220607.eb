@@ -1,0 +1,27 @@
+easyblock = 'Binary'
+
+name = 'ncbi-datasets'
+version = '20220607'
+
+homepage = 'https://www.ncbi.nlm.nih.gov/datasets/'
+description = """Install and use the NCBI Datasets command line tools"""
+
+toolchain = SYSTEM
+
+sources = ['datasets','dataformat']
+source_urls = ['https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['datasets','dataformat'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

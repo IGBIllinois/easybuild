@@ -1,0 +1,60 @@
+##
+# This is a contribution from SIB Swiss Institute of Bioinformatics
+# Homepage:     https://www.sib.swiss/research-infrastructure/competence-centers/vital-it
+#
+# Authors::     Sebastien Moretti <sebastien.moretti@sib.swiss>
+#
+##
+easyblock = 'CMakeMake'
+
+name = 'pftoolsV3'
+version = '3.2.12'
+
+homepage = 'https://github.com/sib-swiss/pftools3'
+description = """A suite of tools to build and search generalized profiles (protein and DNA)."""
+software_license = 'LicenseGPLv2'
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/sib-swiss/pftools3/archive/refs/tags/']
+
+builddependencies = [
+    ('binutils', '2.32'),
+    ('CMake',      '3.17.2'),
+    ('pkg-config', '0.29.2'),
+]
+
+dependencies = [
+    ('Perl',          '5.28.1'),
+    ('PCRE2',         '10.35'),
+    ('libharu',       '2.3.0'),
+    ('zlib',          '1.2.11'),
+    ('libgd',         '2.2.4'),
+    ('libpng',        '1.6.29'),
+    ('libjpeg-turbo', '1.5.1'),
+]
+
+configure_cmd = 'cmake -DCMAKE_INSTALL_PREFIX:PATH=%(installdir)s -DCMAKE_BUILD_TYPE=Release '
+configure_cmd += '-DUSE_GRAPHICS=OFF -DUSE_PDF=ON '
+configure_cmd += '-DUSE_AFFINITY=OFF '  # Disable affinity for some old architectures
+configure_cmd += '../pftools3-%(version)s'
+
+runtest = 'test'
+
+sanity_check_paths = {
+    'files': [
+        'bin/ptof', 'bin/htop', 'bin/6ft', 'bin/2ft', 'bin/pfdump', 'bin/pfscan', 'bin/pfsearch',
+        'bin/pfscanV3', 'bin/pfsearchV3',
+    ],
+    'dirs': ['share/doc', 'share/man'],
+}
+
+sanity_check_commands = [
+    'pfsearchV3 --help',
+    'pfscanV3 --help',
+]
+
+moduleclass = 'bio'
+
+

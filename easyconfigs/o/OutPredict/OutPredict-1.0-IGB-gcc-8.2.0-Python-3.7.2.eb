@@ -1,0 +1,40 @@
+easyblock = 'Tarball'
+
+name = 'OutPredict'
+version = '1.0.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/jacirrone/OutPredict'
+description = """This repository contains OutPredict, a python developed Method for Predicting Out-of-sample Data in Time Series and Steady State data as well as to predict Causal connections from transcription factors to genes."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/jacirrone/OutPredict/archive/refs/tags/']
+
+dependencies = [
+        ('Python', '3.7.2'),
+]
+
+start_dir = 'OP_3'
+
+exts_default_options = {
+	'source_urls': [PYPI_SOURCE],
+	'sanity_pip_check': True,
+	'use_pip': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+sanity_check_paths = {
+        'files': ['OutPredict.py'],
+        'dirs': [],
+}
+
+
+modextrapaths = {'PYTHONPATH': ''
+}
+
+
+moduleclass = 'bio'
