@@ -12,7 +12,8 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 source_urls = ['https://github.com/IGBIllinois/HOMER/archive']
 sources = ['%s.tar.gz' % local_commit]
 
-dependencies = [('Perl','5.24.1')
+dependencies = [('Perl','5.24.1'),
+	('R','3.3.3'),
 ]
 
 
