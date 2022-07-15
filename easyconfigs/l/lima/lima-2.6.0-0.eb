@@ -1,0 +1,34 @@
+easyblock = 'Conda'
+
+name = 'lima'
+version = '2.6.0-0'
+
+homepage = 'https://lima.how/'
+description = """lima is the standard tool to identify barcode and primer sequences in PacBio single-molecule sequencing data. It powers the Demultiplex Barcodes, Iso-Seq, and Mark PCR Duplicates GUI-based analysis applications."""
+
+toolchain = SYSTEM
+
+dependencies = [('Miniconda3','4.7.12.1'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': ['bin/lima'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

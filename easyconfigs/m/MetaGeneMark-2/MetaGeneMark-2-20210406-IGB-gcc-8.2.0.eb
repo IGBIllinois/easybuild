@@ -1,0 +1,42 @@
+easyblock = 'MakeCp'
+
+name = 'MetaGeneMark-2'
+version = '20210406'
+
+homepage = 'https://github.com/gatech-genemark/MetaGeneMark-2'
+description = """MetaGeneMark-2 is an unsupervised metagenomic gene finder. It improves on MetaGeneMark by adding models for better gene start prediction, as well as automatic selection of genetic code (4 or 11). """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [{'filename': 'metagenemark-2-%(version)s.tar.gz',
+	'git_config': {
+		'url': 'https://github.com/gatech-genemark',
+		'repo_name': 'MetaGeneMark-2',
+		'commit': 'fec56cd',
+	},
+
+}]
+
+dependencies = [
+	('Boost','1.69.0')
+]
+
+keepsymlinks = True
+
+with_configure = False
+start_dir = 'src'
+buildopts = '-f Makefile.macos'
+
+files_to_copy = [(['gmhmmp2','run_mgm.pl','mgm2_11.mod','mgm2_4.mod'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/gmhmmp2','bin/run_mgm.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/bin/run_mgm.pl']
+
+moduleclass = 'bio'

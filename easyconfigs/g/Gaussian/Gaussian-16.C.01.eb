@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'Gaussian'
+version = '16.C.01'
+
+homepage = 'https://gaussian.com/gaussian16/'
+description = """Gaussian 16 is the latest in the Gaussian series of programs. It provides state-of-the-art capabilities for electronic structure modeling. Gaussian 16 is licensed for a wide variety of computer systems. All versions of Gaussian 16 contain every scientific/modeling feature, and none imposes any artificial limitations on calculations other than your computing resources and patience."""
+
+toolchain = SYSTEM
+
+sources = ['E64-114X.tbz']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['g16'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'chem'

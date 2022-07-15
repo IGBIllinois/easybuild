@@ -1,0 +1,34 @@
+easyblock = 'Conda'
+
+name = 'isoseq3'
+version = '3.7.0-0'
+
+homepage = 'https://github.com/PacificBiosciences/IsoSeq'
+description = """IsoSeq v3 contains the newest tools to identify transcripts in PacBio single-molecule sequencing data. Starting in SMRT Link v6.0.0, those tools power the IsoSeq GUI-based analysis application. """
+
+toolchain = SYSTEM
+
+dependencies = [('Miniconda3','4.7.12.1'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': ['bin/isoseq3'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+
