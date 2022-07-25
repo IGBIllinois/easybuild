@@ -1,0 +1,63 @@
+easyblock = 'Tarball'
+
+name = 'nrgene'
+version = '2.1.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = ''
+description = """This userguide will assist sequence providers in preparing their computer or server for using the NRGene-Files-Uploader (hereafter, NFU) to upload sequence data to NRGene’s AWS S3 cloud storage."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['files_uploader_%(version)s.tar.gz']
+source_urls = []
+
+dependencies = [
+	('Python','3.7.2'),
+	('awscli','1.18.96','-Python-%(pyver)s')
+]
+
+keepsymlinks = True
+
+exts_default_options = {
+    'source_urls': [PYPI_LOWER_SOURCE],
+    'sanity_pip_check': False,
+    'use_pip': True,
+    'unpack_sources': False
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('iniconfig','1.1.1'),
+	('PyYAML','5.3.1', {
+		'modulename': 'yaml'
+	}),
+	('requests','2.24.0'),
+	('pytest-dependency','0.5.1'),
+	('hurry.filesize','0.9'),
+	('PyMySQL','0.10.1'),
+	('keyboard','0.13.5', {
+		'source_tmpl': 'keyboard-%(version)s-py3-none-any.whl'
+	})
+]
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+fix_python_shebang_for = ['src/nrgene_upload.py']
+
+sanity_check_paths = {
+	'files': ['src/nrgene_upload.py'],
+	'dirs': [],
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/src/nrgene_upload.py',
+	'mkdir -p %(installdir)s/shared/logs',
+]
+
+modextrapaths = {
+	'PATH': 'src',
+	'PYTHONPATH': 'lib/python%(pyshortver)s/site-packages'
+}
+
+moduleclass = 'bio'
