@@ -1,0 +1,93 @@
+easyblock = 'PythonPackage'
+
+name = 'sleap'
+version = '1.2.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://sleap.ai/'
+description = """SLEAP is an open source deep-learning based framework for multi-animal pose tracking. It can be used to track any type or number of animals and includes an advanced labeling/training GUI for active learning and proofreading."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['sleap-%(version)s-py3-none-any.whl']
+source_urls = [PYPI_LOWER_SOURCE]
+
+builddependencies = [
+        ('CMake','3.17.2'),
+]
+dependencies = [
+        ('Python', '3.7.2'),
+	('Tensorflow','2.8.2','-Python-%(pyver)s'),
+	('OpenCV','4.5.2','-Python-%(pyver)s'),
+	('h5py','3.6.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	
+	('attrs','21.2.0', {
+		'modulename': 'attr'
+	}),
+	('scikit-learn','1.0.2', {
+		'modulename': 'sklearn'
+	}),
+	('cattrs','1.1.1', {
+		'modulename': 'cattr'
+	}),
+	('Shapely','1.8.2'),
+	('imgaug','0.4.0'),
+	('imgstore','0.2.9'),
+	('jsmin','3.0.1'),
+	('jsonpickle','1.2'),
+	('opencv-python-headless','4.5.4.60', {
+		'source_tmpl': 'opencv_python_headless-%(version)s-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl',
+		'modulename': 'cv2'
+	}),
+	('pykalman','0.9.5'),
+	('Shiboken2','5.14.1', {
+		'source_tmpl': 'shiboken2-%(version)s-%(version)s-cp35.cp36.cp37.cp38-abi3-manylinux1_x86_64.whl'
+	}),
+	('PySide2','5.14.1', {
+		'source_tmpl': 'PySide2-%(version)s-%(version)s-cp35.cp36.cp37.cp38-abi3-manylinux1_x86_64.whl',
+		'modulename': 'PySide2'
+	}),
+	('python-rapidjson','1.8', {
+		'modulename': 'rapidjson'
+	}),
+	('qimage2ndarray','1.8.3', {
+		'modulename': False
+	}),
+	('commonmark','0.9.1'),
+	('colorama','0.4.5'),
+	('rich','10.16.1'),
+	('scikit-video','1.1.11', {
+		'modulename': 'skvideo'
+	}),
+	('efficientnet','1.0.0'),
+	('image-classifier','1.0.0', {
+		'source_tmpl': 'image_classifiers-%(version)s-py3-none-any.whl',
+		'modulename': False
+	}),
+	('segmentation-models','1.0.1', {
+		'source_tmpl': 'segmentation_models-%(version)s-py3-none-any.whl'
+	}),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

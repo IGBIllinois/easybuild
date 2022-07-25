@@ -1,0 +1,47 @@
+easyblock = 'PythonPackage'
+
+name = 'LRBinner'
+version = '0.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/anuradhawick/LRBinner'
+description = """Binning Error-Prone Long Reads Using Auto Encoders"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/anuradhawick/LRBinner/archive/refs/tags/']
+
+patches = ["LRBinner-%(version)s.patch"]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Biopython','1.79','-Python-%(pyver)s'),
+	('PyTorch','1.11.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+    'unpack_sources': False
+
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = True
+
+options = {'modulename': False }
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/LRBinner'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

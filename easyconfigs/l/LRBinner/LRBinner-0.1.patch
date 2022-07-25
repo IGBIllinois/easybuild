@@ -1,0 +1,15 @@
+diff -ruN LRBinner-0.1.original/setup.py LRBinner-0.1/setup.py
+--- LRBinner-0.1.original/setup.py	2022-07-18 08:39:03.362422000 -0500
++++ LRBinner-0.1/setup.py	2022-07-18 08:39:13.488738000 -0500
+@@ -54,7 +54,8 @@
+         "tabulate",
+         "seaborn",
+         "setuptools",
+-        "pytorch"],
++        "torch"],
+     python_requires='>=3.7',
+     cmdclass={  'build': SHBuild }
+-)
+\ No newline at end of file
++)
++

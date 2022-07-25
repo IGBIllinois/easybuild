@@ -1,0 +1,97 @@
+easyblock = 'PythonBundle'
+
+name = 'deeplabcut'
+version = '2.2.1.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://www.mousemotorlab.org/deeplabcut'
+description = '''Markerless pose estimation of user-defined features with deep learning for all animals '''
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+builddependencies = [
+	('CMake','3.17.2'),
+]
+dependencies = [
+        ('Python', '3.7.2'),
+	('CUDA','11.3.0','',True),
+	('cuDNN','8.2.1.32','-CUDA-11.3.0',True),
+	('Tensorflow','2.9.1','-Python-%(pyver)s'),
+	('numba','0.55.2','-Python-%(pyver)s'),
+	('wxPython','4.1.0','-Python-%(pyver)s'),
+	('OpenCV','4.5.2','-Python-%(pyver)s'),
+	('Tk','8.6.6'),
+	
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	(name, version, {
+		'source_tmpl': 'deeplabcut-%(version)s-py3-none-any.whl',
+	}),
+	('networkx','2.6.2'),
+	('scikit-learn','1.0.2', {
+		'source_tmpl': 'scikit_learn-%(version)s-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl',
+		'modulename': 'sklearn'
+	}),
+	('click','7.1.2'),
+	('easydict','1.9'),
+	('intel-openmp','2020.0.133', {
+		'source_tmpl': 'intel_openmp-%(version)s-py2.py3-none-manylinux1_x86_64.whl',
+		'modulename': 'deeplabcut',
+	}),
+	
+	('moviepy','1.0.1'),
+	('imageio-ffmpeg','0.4.2'),
+	('proglog','0.1.9'),
+	('patsy','0.5.2'),
+	('ruamel.yaml','0.16.10'),
+	('statsmodels','0.13.1', {
+		'source_tmpl': 'statsmodels-%(version)s-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
+	}),
+	('ruamel.yaml.clib','0.2.0', {
+		'modulename': 'ruamel.yaml',
+	}),
+	#('matplotlib','3.0.3', {
+	#	'source_tmpl': 'matplotlib-%(version)s-cp36-cp36m-manylinux1_x86_64.whl',
+	#}),
+	('PyYAML','5.3.1', {
+		'modulename': 'yaml',
+	}),
+	#('numpy','1.18.5', {
+	#	'source_tmpl': 'numpy-%(version)s.zip',
+	#	'unpack_sources': True,
+        #}),
+	('filterpy','1.4.5', {
+		'source_tmpl': 'filterpy-%(version)s.zip'
+	}),
+	('Shapely','1.8.2'),
+	('opencv-python-headless','4.6.0.66', {
+		'modulename': 'cv2'
+	}),
+	('imgaug','0.4.0'),
+	('numexpr','2.8.3'),
+	('tables','3.7.0', {
+		'source_tmpl': 'tables-%(version)s-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
+	}),
+	('tf-slim','1.1.0', {
+		'source_tmpl': 'tf_slim-%(version)s-py2.py3-none-any.whl',
+		'modulename': 'tf_slim'
+	}),
+
+	
+	
+]
+
+moduleclass = 'bio'

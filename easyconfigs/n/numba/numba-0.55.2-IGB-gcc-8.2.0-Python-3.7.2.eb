@@ -1,0 +1,46 @@
+easyblock = 'PythonBundle'
+
+name = 'numba'
+version = '0.55.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://numba.pydata.org/'
+description = """Numba is an Open Source NumPy-aware optimizing compiler for Python sponsored by Continuum Analytics,
+ Inc. It uses the remarkable LLVM compiler infrastructure to compile Python syntax to machine code."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True}
+
+
+dependencies = [
+    ('Python', '3.7.2'),
+    ('LLVM', '10.0.1'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+
+exts_list = [
+    ('llvmlite', '0.38.1', {
+		'source_tmpl': 'llvmlite-%(version)s-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
+	}),
+    (name, version),
+]
+
+sanity_check_paths = {
+    'files': ['bin/numba', 'bin/pycc'],
+    'dirs': ['lib/python%(pyshortver)s/site-packages'],
+}
+
+
+moduleclass = 'lang'
