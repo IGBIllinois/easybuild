@@ -1,0 +1,31 @@
+easyblock = 'Tarball'
+
+name = 'GUSHR'
+version = '20200928'
+versionsuffix = '-Java-%(javaver)s'
+
+local_commit = 'ee26d5c'
+
+homepage = 'https://github.com/Gaius-Augustus/GUSHR'
+description = """Assembly-free construction of UTRs from short read RNA-Seq data on the basis of coding sequence annotation."""
+
+toolchain = SYSTEM
+
+sources = ['%s.tar.gz' % local_commit ]
+source_urls = ['https://github.com/Gaius-Augustus/GUSHR/archive/']
+
+dependencies = [
+	('Java','1.8.0_201','',True)
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['gushr.py','GeMoMa-1.6.2.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''
+}
+
+moduleclass = 'bio'

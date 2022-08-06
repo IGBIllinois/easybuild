@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'hifiasm-meta'
+version = '0.3'
+
+homepage = 'https://github.com/xfengnefx/hifiasm-meta'
+description = """A hifiasm fork for metagenome assembly using Hifi reads"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['hamtv%(version)s.tar.gz']
+source_urls = ['https://github.com/xfengnefx/hifiasm-meta/archive/refs/tags/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['hifiasm_meta'],'bin'),'README.md','README_ha.md','LICENSE']
+
+sanity_check_paths = {
+	'files': ['bin/hifiasm_meta'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,56 @@
+easyblock = 'PythonPackage'
+
+name = 'alfa'
+version = '1.1.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/biocompibens/ALFA'
+description = """ALFA provides a global overview of features distribution composing NGS dataset(s). """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('pybedtools','0.8.2','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': False,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('python-utils','3.3.3'),
+	('progressbar2','3.39.3', {
+		'modulename': 'progressbar'
+	}),
+	('matplotlib','3.0.3', {
+		'source_tmpl': 'matplotlib-%(version)s-cp37-cp37m-manylinux1_x86_64.whl'
+	}),
+	('numpy','1.15.4', {
+                'source_tmpl': 'numpy-%(version)s.zip',
+                'unpack_sources': True,
+		'runtest': False,
+		'sanity_pip_check': False
+        }),
+	('pysam','0.15.4'),
+
+]
+
+use_pip = True
+sanity_pip_check = False
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/alfa'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

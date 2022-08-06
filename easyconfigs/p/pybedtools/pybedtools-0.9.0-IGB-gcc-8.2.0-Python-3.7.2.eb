@@ -1,0 +1,40 @@
+easyblock = 'PythonPackage'
+
+name = 'pybedtools'
+version = '0.9.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://daler.github.io/pybedtools/main.html'
+description = """pybedtools is a Python package that wraps BEDTools, so you will need both installed."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('BEDTools','2.28.0'),
+]
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+
+moduleclass = 'bio'
