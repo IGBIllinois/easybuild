@@ -1,0 +1,35 @@
+easyblock = 'PythonBundle'
+
+name = 'fastmiso'
+version = '0.5.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://miso.readthedocs.io/en/fastmiso/index.html'
+description = '''MISO (Mixture-of-Isoforms) is a probabilistic framework that quantitates the expression level of alternatively spliced genes from RNA-Seq data, and identifies differentially regulated isoforms or exons across samples. '''
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+dependencies = [
+        ('Python', '2.7.13'),
+	('SAMtools','1.9'),
+	('BEDTools','2.26.0'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+    ('misopy', version, {
+    }),
+]
+
+moduleclass = 'bio'

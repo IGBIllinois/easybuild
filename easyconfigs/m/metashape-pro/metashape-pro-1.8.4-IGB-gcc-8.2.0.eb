@@ -26,3 +26,5 @@ modextrapaths = {'PATH':''}
 postinstallcmds = ['chmod 775 %(installdir)s/metashape %(installdir)s/metashape.sh']
 
 moduleclass = 'vis'
+
+group = 'leakey_lab'

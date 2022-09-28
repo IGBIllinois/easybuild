@@ -1,24 +1,20 @@
 easyblock = 'PythonPackage'
 
-name = 'phylophlan'
-version = '3.0.1'
+name = 'humann'
+version = '3.1.1'
 versionsuffix = '-Python-%(pyver)s'
 
-homepage = 'https://github.com/biobakery/phylophlan'
-description = """PhyloPhlAn 3.0 is an integrated pipeline for large-scale phylogenetic profiling of genomes and metagenomes."""
+homepage = 'https://github.com/biobakery/humann/'
+description = """HUMAnN (the HMP Unified Metabolic Analysis Network) is a method for efficiently and accurately profiling the abundance of microbial metabolic pathways and other molecular functions from metagenomic or metatranscriptomic sequencing data."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 sources = ['%(version)s.tar.gz']
-source_urls = ['https://github.com/biobakery/phylophlan/archive/']
+source_urls = ['https://github.com/biobakery/humann/archive/refs/tags/']
 
 dependencies = [
         ('Python', '3.7.2'),
-	('Biopython','1.76','-Python-%(pyver)s'),
-	('DendroPy','4.4.0','-Python-%(pyver)s'),
-	('BLAST+','2.10.1'),
 	('DIAMOND','0.9.36'),
-	('FastTree','2.1.11'),
 ]
 
 
@@ -37,8 +33,8 @@ unpack_sources = False
 exts_filter = ('python -c "import %(ext_name)s"', "")
 
 sanity_check_paths = {
-        'files': ['bin/phylophlan'],
-        'dirs': ['lib/python%(pyshortver)s/site-packages/phylophlan'],
+        'files': ['bin/humann'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/humann'],
 }
 
 moduleclass = 'bio'

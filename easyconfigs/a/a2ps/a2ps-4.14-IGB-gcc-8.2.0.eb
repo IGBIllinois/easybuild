@@ -1,0 +1,27 @@
+easyblock = 'ConfigureMake'
+
+name = 'a2ps'
+version = '4.14'
+
+homepage = 'http://www-inf.enst.fr/~demaille/a2ps/'
+description = """a2ps-4.14: Formats an ascii file for printing on a postscript printer"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = [GNU_SOURCE]
+
+dependencies = [
+    ('gettext', '0.19.8'),
+    ('gperf', '3.1'),
+]
+
+preconfigopts = 'env EMACS=no'
+configopts = '--with-gnu-gettext'
+
+sanity_check_paths = {
+    'files': ['bin/a2ps'],
+    'dirs': [],
+}
+
+moduleclass = 'tools'

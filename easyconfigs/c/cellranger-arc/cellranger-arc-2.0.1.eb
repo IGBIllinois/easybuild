@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'cellranger-arc'
+version = '2.0.1'
+
+homepage = 'https://support.10xgenomics.com/single-cell-multiome-atac-gex/software/pipelines/latest/what-is-cell-ranger-arc'
+description = """Cell Ranger ARC is a set of analysis pipelines that process Chromium Single Cell Multiome ATAC + Gene Expression sequencing data to generate a variety of analyses pertaining to gene expression, chromatin accessibility and their linkage."""
+
+toolchain = SYSTEM
+
+sources = ['%(name)s-%(version)s.tar.gz']
+source_urls = ['']
+
+dependencies = [
+('bcl2fastq2','2.20'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['cellranger-arc'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

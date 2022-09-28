@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'mmquant'
+version = '1.0.4'
+
+homepage = 'https://bioinformaticshome.com/tools/rna-seq/descriptions/mmquant.html'
+description = """A tool to quantiy gene expression. The mmquant algorithm handles multiply mapping reads, i.e., duplicated genes by constructing merged genes. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://bitbucket.org/mzytnicki/multi-mapping-counter/get/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['mmquant','mmquant_static'],'bin'),'README.md']
+
+sanity_check_paths = {
+	'files': ['bin/mmquant'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

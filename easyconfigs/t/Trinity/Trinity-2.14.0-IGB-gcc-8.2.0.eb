@@ -1,0 +1,48 @@
+
+name = 'Trinity'
+version = '2.14.0'
+
+homepage = 'http://trinityrnaseq.github.io/'
+description = """Trinity represents a novel method for the efficient and robust de novo reconstruction
+ of transcriptomes from RNA-Seq data. Trinity combines three independent software modules: Inchworm,
+ Chrysalis, and Butterfly, applied sequentially to process large volumes of RNA-Seq reads."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'optarch': True}
+
+sources = ['trinityrnaseq-v%(version)s.FULL.tar.gz']
+source_urls = ['https://github.com/trinityrnaseq/trinityrnaseq/releases/download/Trinity-v%(version)s/']
+
+#sources = [{'filename': 'trinityrnaseq-v%(version)s.tar.gz',
+#	'git_config': {
+#		'url': 'https://github.com/trinityrnaseq',
+#		'repo_name': 'trinityrnaseq',
+#		'commit': '519cfb7',
+#		'recursive': True,
+#	},
+#}]
+
+builddependencies = [
+	('Autotools', '20180311','',('GCC','8.2.0-2.32')),
+	('CMake','3.12.1'),
+	('ant', '1.10.1', '-Java-%(javaver)s', True),
+]
+
+start_dir = "trinityrnaseq-v%(version)s"
+
+dependencies = [
+	('Java', '1.8.0_152', '', True),
+	('ncurses', '6.1'),
+	('zlib', '1.2.11'),
+	('Perl', '5.28.1'),
+	('Salmon','1.1.0'),
+	('Python','3.7.2'),
+	('Bowtie2','2.4.1'),
+	('Jellyfish','2.2.10'),
+	('SAMtools','1.10'),
+]
+
+modextrapaths = {'PATH':'trinityrnaseq'
+}
+
+moduleclass = 'bio'

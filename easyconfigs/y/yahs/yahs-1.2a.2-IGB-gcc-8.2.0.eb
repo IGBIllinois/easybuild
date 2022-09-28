@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'yahs'
+version = '1.2a.2'
+
+homepage = 'https://github.com/c-zhou/yahs'
+description = """YaHS is a scaffolding tool using Hi-C data. It relies on a new algothrim for contig joining detection which considers the topological distribution of Hi-C signals aiming to distingush real interaction signals from mapping nosies."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/c-zhou/yahs/archive/refs/tags/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['agp_to_fasta','juicer','yahs'],'bin'),'scripts','README.md']
+
+sanity_check_paths = {
+	'files': ['bin/yahs','bin/agp_to_fasta','bin/juicer'],
+	'dirs': ['scripts'],
+}
+
+modextrapaths = {'PATH':'scripts'
+}
+
+moduleclass = 'bio'
