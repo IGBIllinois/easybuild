@@ -23,12 +23,26 @@ exts_default_options = {
 }
 
 exts_defaultclass = "PythonPackage"
-exts_list = []
+exts_list = [
+	('Keras-Applications','1.0.4', {
+		'source_tmpl': 'Keras_Applications-%(version)s-py2.py3-none-any.whl',
+		'modulename': 'keras_applications',
+	}),
+	('keras-preprocessing','1.0.2', {
+		'source_tmpl': 'Keras_Preprocessing-%(version)s-py2.py3-none-any.whl',
+		'modulename': 'keras_preprocessing'
+	}),
+]
 
 use_pip = True
 sanity_pip_check = True
 unpack_sources = False
 
-exts_filter = ('python -c "from tensorflow import %(ext_name)s"', "")
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(namelower)s'],
+}
 
 moduleclass = 'math'

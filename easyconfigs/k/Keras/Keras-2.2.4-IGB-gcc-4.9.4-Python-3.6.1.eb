@@ -1,4 +1,4 @@
-easyblock = 'PythonBundle'
+easyblock = 'PythonPackage'
 
 name = 'Keras'
 version = '2.2.4'
@@ -9,16 +9,13 @@ description = '''Keras is a high-level neural networks API, written in Python an
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
+sources = [SOURCE_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
 
 dependencies = [
         ('Python', '3.6.1'),
-	('Tensorflow-GPU','1.14.0','-Python-%(pyver)s'),
+	('Tensorflow-GPU','1.9.0','-Python-%(pyver)s'),
 ]
-
-use_pip = True
-sanity_pip_check = True
-
-exts_filter = ('python -c "import %(ext_name)s"', "")
 
 exts_default_options = {
     'source_urls': [PYPI_SOURCE],
@@ -27,14 +24,25 @@ exts_default_options = {
 
 exts_defaultclass = "PythonPackage"
 exts_list = [
-('Keras-Applications', '1.0.8', {
-        'source_tmpl': 'Keras_Applications-%(version)s.tar.gz',
-    }),
-    ('Keras-Preprocessing', '1.1.2', {
-        'source_tmpl': 'Keras_Preprocessing-%(version)s.tar.gz',
-    }),
-    ('Keras', version, {
-    }),
+	('Keras-Applications','1.0.8', {
+		'source_tmpl': 'Keras_Applications-%(version)s-py3-none-any.whl',
+		'modulename': 'keras_applications',
+	}),
+	('keras-preprocessing','1.1.2', {
+		'source_tmpl': 'Keras_Preprocessing-%(version)s-py2.py3-none-any.whl',
+		'modulename': 'keras_preprocessing'
+	}),
 ]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(namelower)s'],
+}
 
 moduleclass = 'math'
