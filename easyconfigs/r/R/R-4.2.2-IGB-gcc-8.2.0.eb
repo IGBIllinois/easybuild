@@ -1,6 +1,6 @@
 easyblock = 'ConfigureMake'
 name = 'R'
-version = "4.0.3"
+version = "4.2.2"
 
 homepage = 'http://www.r-project.org/'
 description = """R is a free software environment for statistical computing and graphics."""
@@ -22,8 +22,8 @@ builddependencies = [('Java','1.8.0_152','',True),
 ]
 dependencies = [
 	('CMake','3.17.2'),
-        ('HarfBuzz','1.4.6'),
-        ('FriBidi','1.0.12'),
+	('HarfBuzz','1.4.6'),
+	('FriBidi','1.0.12'),
 	('libreadline', '6.3'),
 	('ncurses', '6.1'),
 	('bzip2', '1.0.6'),
@@ -43,7 +43,7 @@ dependencies = [
 	('udunits','2.2.26'),
 	('GDAL','3.0.3'),
 	('GEOS','3.8.0'),
-
+	('GMP','6.1.2'),
 
 ]
 

@@ -1,0 +1,43 @@
+easyblock = 'CMakeMake'
+
+name = 'immunotools'
+version = '20220924'
+versionsuffix = '-Python-%(pyver)s'
+
+local_commit = '093b0ab'
+
+homepage = 'https://immunotools.github.io/immunotools/'
+description = """Tools for immunoinformatics analysis of Rep-seq data"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/Immunotools/immunotools/archive/']
+sources = ['%s.tar.gz' % local_commit]
+
+patches = ['%(name)s-%(version)s.patch']
+
+builddependencies = [
+	('CMake','3.17.2'),
+]
+
+dependencies = [
+	('Python','3.7.2'),
+	('Biopython','1.79','-Python-%(pyver)s'),
+]
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/combine_datasets.py','bin/diversity_analyzer.py','bin/diversity_visualizer.py','bin/ig_evolution.py','bin/igscout_analyzer.py','bin/igscout.py','bin/tandem_cdr3_finder.py'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/bin/*.py']
+
+fix_python_shebang_for = ['bin/*.py']
+
+moduleclass = 'bio'
+
+

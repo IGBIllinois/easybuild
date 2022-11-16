@@ -1,7 +1,7 @@
 easyblock = 'Binary'
 
 name = 'ncbi-datasets'
-version = '20220607'
+version = '20221101'
 
 homepage = 'https://www.ncbi.nlm.nih.gov/datasets/'
 description = """Install and use the NCBI Datasets command line tools"""

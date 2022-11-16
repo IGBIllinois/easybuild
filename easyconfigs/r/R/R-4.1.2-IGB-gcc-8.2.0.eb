@@ -21,6 +21,9 @@ configopts += " --with-recommended-packages=yes"
 builddependencies = [('Java','1.8.0_152','',True),
 ]
 dependencies = [
+	('CMake','3.17.2'),
+        ('HarfBuzz','1.4.6'),
+        ('FriBidi','1.0.12'),
 	('libreadline', '6.3'),
 	('ncurses', '6.1'),
 	('bzip2', '1.0.6'),

@@ -1,0 +1,42 @@
+easyblock = 'PythonPackage'
+
+name = 'pycairo'
+version = '1.19.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://pycairo.readthedocs.io/en/latest/'
+description = """Pycairo is a Python module providing bindings for the cairo graphics library. It depends on cairo >= 1.15.10 and works with Python 3.7+. Pycairo, including this documentation, is licensed under the LGPL-2.1-only OR MPL-1.1."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('cairo','1.14.8'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+options = {'modulename': 'cairo' }
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/cairo'],
+}
+
+moduleclass = 'bio'

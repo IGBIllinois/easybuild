@@ -1,0 +1,64 @@
+easyblock = 'PythonBundle'
+
+name = 'root-painter-trainer'
+version = '0.2.19.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/Abe404/root_painter'
+description = """RootPainter is a GUI-based software tool for the rapid training of deep neural networks for use in biological image analysis. RootPainter uses a client-server architecture, allowing users with a typical laptop to utilise a GPU on a more computationally powerful server."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+
+dependencies = [
+        ('Python', '3.10.1'),
+	('PyTorch','1.12.1','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+    'use_pip': True,
+    'unpack_sources': False
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('numpy','1.23.3', {
+		'easyblock': 'PythonPackage',
+		'source_tmpl': 'numpy-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
+	}),
+	('imagecodecs','2021.8.26', {
+		'source_tmpl': 'imagecodecs-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
+	}),
+	('Pillow','9.0.1', {
+		'source_tmpl': 'Pillow-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl',
+		'modulename' : 'PIL'
+	}),
+	('scikit-image','0.19.3', {
+		'source_tmpl': 'scikit_image-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl',
+		'modulename': 'skimage'
+	}),
+	('scipy','1.9.1', {
+		'easyblock': 'PythonPackage',
+		'source_tmpl': 'scipy-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
+	}),
+	(name,version, {
+		'source_tmpl': 'root_painter_trainer-%(version)s.tar.gz',
+		'unpack_sources': True
+	}),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/root_painter_trainer'],
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,49 @@
+diff -ru immunotools-master.orig/CMakeLists.txt immunotools-master/CMakeLists.txt
+--- immunotools-master.orig/CMakeLists.txt	2022-11-09 08:48:16.260812000 -0600
++++ immunotools-master/CMakeLists.txt	2022-11-09 15:23:25.652399000 -0600
+@@ -20,19 +20,10 @@
+ install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/VERSION"
+               "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE"
+               "${CMAKE_CURRENT_SOURCE_DIR}/README"
+-              "${CMAKE_CURRENT_SOURCE_DIR}/GPLv2.txt"
+               "${CMAKE_CURRENT_SOURCE_DIR}/init.py"
+         DESTINATION "${INSTALL_DIR}"
+         COMPONENT runtime)
+ 
+-install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/manual.html"
+-              "${CMAKE_CURRENT_SOURCE_DIR}/diversity_analyzer_manual.html"
+-              "${CMAKE_CURRENT_SOURCE_DIR}/dsf_manual.html"
+-              "${CMAKE_CURRENT_SOURCE_DIR}/barcodedIgReC_manual.html"
+-              "${CMAKE_CURRENT_SOURCE_DIR}/igquast_manual.html"
+-        DESTINATION "${INSTALL_DIR}"
+-        COMPONENT manual)
+-
+ install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/docs"
+         DESTINATION "${INSTALL_DIR}"
+         COMPONENT manual
+@@ -40,7 +31,6 @@
+ 
+ install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/test_dataset"
+                   "${CMAKE_CURRENT_SOURCE_DIR}/data"
+-                  "${CMAKE_CURRENT_SOURCE_DIR}/pipeline_makefiles"
+                   "${CMAKE_CURRENT_SOURCE_DIR}/configs"
+         DESTINATION "${INSTALL_DIR}"
+         COMPONENT runtime
+@@ -61,7 +51,7 @@
+         PATTERN "*.pyc" EXCLUDE
+         PATTERN ".gitignore" EXCLUDE)
+ 
+-set(tools "igrec.py;dense_subgraph_finder.py;igquast.py;barcoded_igrec.py;diversity_analyzer.py;ig_simulator.py")
++set(tools "combine_datasets.py;diversity_analyzer.py;diversity_visualizer.py;ig_evolution.py;igscout_analyzer.py;igscout.py;tandem_cdr3_finder.py")
+ foreach(tool ${tools})
+     install(PROGRAMS ${tool}
+             DESTINATION "${INSTALL_DIR}"
+@@ -70,7 +60,7 @@
+ 
+ foreach(tool ${tools})
+     # Conctruct fake symlinks
+-    EXECUTE_PROCESS(COMMAND ${CMAKE_COMMAND} -E create_symlink "../share/igrec/${tool}" "${CMAKE_BINARY_DIR}/${tool}")
++    EXECUTE_PROCESS(COMMAND cp "${CMAKE_CURRENT_SOURCE_DIR}/${tool}" "${CMAKE_BINARY_DIR}/${tool}")
+     # ...and add them into the installation
+     # I know, I know, I definitely know how much dirty it is
+     # Unfortunately, cpack cannot trace symlinks automatically and cmake-install does not support smth like install(SYMLINK)
