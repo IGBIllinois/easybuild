@@ -23,13 +23,14 @@ sources = [SOURCE_TAR_GZ]
 source_urls = [('http://sourceforge.net/projects/gnuplot/files', 'download')]
 
 dependencies = [
-    ('cairo', '1.14.8'),
-    ('libjpeg-turbo', '1.5.1'),
-    ('libpng', '1.6.29'),
-    ('libgd', '2.2.4'),
-    ('Pango', '1.40.6'),
-    ('libcerf', '1.5'),
-    #('Qt', '4.8.7'),
+	('cairo', '1.14.8'),
+	('libjpeg-turbo', '1.5.1'),
+	('libpng', '1.6.29'),
+	('libgd', '2.2.4'),
+	('Pango', '1.40.6'),
+	('libcerf', '1.5'),
+	('libreadline','6.3'),
+        ('Lua','5.1.5')
 ]
 
 configopts = ''

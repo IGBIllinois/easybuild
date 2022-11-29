@@ -12,7 +12,7 @@ description = """Lua is a powerful, fast, lightweight, embeddable scripting lang
  and has automatic memory management with incremental garbage collection,
  making it ideal for configuration, scripting, and rapid prototyping."""
 
-toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 sources = ['%(namelower)s-%(version)s.tar.gz']
 source_urls = ['https://www.lua.org/ftp/']

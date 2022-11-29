@@ -13,6 +13,7 @@ source_urls = ['http://hgdownload.soe.ucsc.edu/admin/exe/']
 
 dependencies = [
 	('MariaDB', '5.5.58'),
+	('libpng','1.6.29'),
 ]
 
 keepsymlinks = True

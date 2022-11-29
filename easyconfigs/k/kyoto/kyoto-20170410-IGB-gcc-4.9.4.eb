@@ -11,7 +11,7 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 source_urls = ['https://github.com/alticelabs/kyoto/archive/']
 sources = ['stable-%(version)s.tar.gz']
 
-dependencies = [('lzo','.2.10'),
+dependencies = [('lzo','2.10'),
 	('Lua','5.1.5'),
 
 ]
