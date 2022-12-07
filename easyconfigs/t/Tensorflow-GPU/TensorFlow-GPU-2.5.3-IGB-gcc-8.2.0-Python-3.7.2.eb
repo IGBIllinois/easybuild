@@ -1,0 +1,162 @@
+easyblock = 'PythonBundle'
+
+name = 'Tensorflow-GPU'
+version = '2.5.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://www.tensorflow.org/'
+description = "An open-source software library for Machine Intelligence"
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+dependencies = [
+	('Python', '3.7.2'),
+	('CUDA','11.2.2','',True),
+	('cuDNN','8.1.1.33','-CUDA-%(cudaver)s',True),
+	('h5py','3.1.0','-Python-%(pyver)s'),
+   
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+
+exts_list = [
+	('html5lib','0.9999999'),
+        ('astunparse', '1.6.3', {
+        'source_urls': [PYPI_SOURCE],
+        'source_tmpl': SOURCE_TAR_GZ,
+	}),
+        ('opt-einsum', '3.3.0', {
+	        'source_tmpl': 'opt_einsum-%(version)s.tar.gz',
+	}),
+        ('protobuf', '3.12.0', {
+	        'modulename': 'google.protobuf',
+        	'source_urls': ["https://pypi.python.org/packages/source/p/protobuf/"],
+	        'source_tmpl': 'protobuf-%(version)s-cp37-cp37m-manylinux1_x86_64.whl',
+	}),
+
+	('google', '2.0.3', {
+        	'modulename': 'google',
+	        'source_urls': ["https://pypi.python.org/packages/source/g/google/"],
+        	'source_tmpl': SOURCE_TAR_GZ,
+	}),
+        ('mock', '4.0.2', {
+        	'modulename': 'mock',
+	        'source_urls': ["https://pypi.python.org/packages/source/m/mock/"],
+        	'source_tmpl': SOURCE_TAR_GZ,
+	}),
+        ('tensorflow-tensorboard', '1.5.1', {
+        	'modulename': 'tensorboard.main',
+	        'source_urls': ["https://pypi.python.org/packages/source/t/tensorflow_tensorboard/"],
+        	'source_tmpl': "tensorflow_tensorboard-%(version)s-py3-none-any.whl",
+	}),
+        ('beautifulsoup4', '4.9.1', {
+        	'modulename': 'bs4',
+	        'source_urls': ["https://pypi.python.org/packages/source/b/beautifulsoup4/"],
+        	'source_tmpl': SOURCE_TAR_GZ,
+	}),
+        ('tensorflow-gpu', version, {
+                'modulename': 'tensorflow',
+                'source_urls': [PYPI_SOURCE],
+                'source_tmpl': 'tensorflow_gpu-%(version)s-cp37-cp37m-manylinux2010_x86_64.whl',
+        }),
+	('tensorboard-data-server','0.6.1', {
+                'source_tmpl': 'tensorboard_data_server-%(version)s-py3-none-manylinux2010_x86_64.whl'
+        }),
+        ('tensorboard', '2.5.0', {
+                'source_tmpl': 'tensorboard-%(version)s-py3-none-any.whl',
+        }),
+
+	('google-pasta', '0.2.0', {
+        	'modulename': 'pasta',
+	}),
+	('grpcio', '1.34.0', {
+		'modulename': 'grpc',
+		'source_tmpl': 'grpcio-%(version)s-cp37-cp37m-manylinux2014_x86_64.whl'
+	}),
+	('tensorflow-estimator', '2.5.0', {
+        	'source_tmpl': 'tensorflow_estimator-%(version)s-py2.py3-none-any.whl',
+	        'unpack_sources': False,
+	}),
+	('google-auth', '1.14.2', {
+		'modulename': 'google.auth',
+	}),
+	('google-auth-oauthlib', '0.4.1', {
+        	'modulename': 'google_auth_oauthlib',
+	}),
+	('tensorboard-plugin-wit', '1.6.0.post3', {
+        	'source_tmpl': 'tensorboard_plugin_wit-%(version)s-py3-none-any.whl',
+	}),
+	('cachetools', '4.1.0', {
+	}),
+	('pyasn1-modules', '0.2.8', {
+        	'modulename': 'pyasn1_modules',
+	}),
+	('rsa', '4.0', {
+	}),
+	('requests-oauthlib', '1.3.0', {
+		'modulename': 'requests_oauthlib',
+	}),
+
+        ('pyasn1', '0.4.8', {
+        }),
+	('oauthlib', '3.1.0', {
+	}),
+	('soupsieve','2.0.1', {
+	}),
+	('bleach','1.5.0'),
+	('tensorpack','0.10.1', {
+		'source_tmpl': 'tensorpack-%(version)s-py2.py3-none-any.whl',
+	}),
+	('msgpack-numpy','0.4.6.post0'),
+	('psutil','5.7.0'),
+	('tabulate','0.8.7'),
+	('gast','0.4.0'),
+	('Keras-Preprocessing','1.1.2', {
+		'source_tmpl': 'Keras_Preprocessing-%(version)s.tar.gz',
+		'modulename': 'keras_preprocessing',
+	}),
+	('six','1.15.0'),
+	 ('flatbuffers','1.12', {
+                'source_tmpl': 'flatbuffers-%(version)s-py2.py3-none-any.whl'
+        }),
+	('keras-nightly','2.5.0.dev2021032900', {
+                'source_tmpl': 'keras_nightly-%(version)s-py2.py3-none-any.whl',
+		'modulename': 'keras'
+        }),
+	('hypothesis','6.60.0'),
+	('flit_core','3.8.0'),
+	('tomli','2.0.1'),
+	('setuptools-scm','6.3.2', {
+		'source_tmpl': 'setuptools_scm-%(version)s-py3-none-any.whl'
+	}),
+	('flit_scm','1.1.0', {
+		'source_tmpl': 'flit_scm-%(version)s-py3-none-any.whl'
+	}),
+	('exceptiongroup','1.0.4'),
+	('sortedcontainers','2.4.0'),
+	('numpy','1.19.2', {
+		'source_tmpl': 'numpy-%(version)s.zip',
+		'unpack_sources': True,
+	}),
+
+
+
+]
+
+sanity_check_paths = {
+    'files': ['bin/tensorboard'],
+    'dirs': ['lib/python%(pyshortver)s/site-packages'],
+}
+
+moduleclass = 'lib'
+

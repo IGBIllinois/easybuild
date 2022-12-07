@@ -7,4 +7,5 @@ if (file.exists('/private_stores/mirror/R/bioconductor')) {
 	suppressMessages(options(BioC_mirror = "file:///private_stores/mirror/R/bioconductor"))
 }
 
+options(device = "cairo_pdf")
 
