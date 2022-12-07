@@ -1,22 +1,21 @@
 easyblock = 'PythonPackage'
 
-name = 'h5py'
-version = '3.1.0'
+name = 'numpy'
+version = '1.19.2'
 versionsuffix = '-Python-%(pyver)s'
 
-homepage = 'https://github.com/arq5x/poretools'
-description = """a toolkit for working with nanopore sequencing data from Oxford Nanopore."""
+homepage = 'https://numpy.org/'
+description = """The fundamental package for scientific computing with Python"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-sources = ['%(name)s-%(version)s.tar.gz']
-source_urls = ['https://pypi.python.org/packages/source/h/h5py/']
+sources = ['numpy-%(version)s-cp37-cp37m-manylinux2010_x86_64.whl']
+source_urls = [PYPI_LOWER_SOURCE]
 
 dependencies = [
-        ('HDF5', '1.8.18'),
         ('Python', '3.7.2'),
-	('numpy','1.19.2','-Python-%(pyver)s'),
 ]
+
 
 exts_default_options = {
     'source_urls': [PYPI_SOURCE],
@@ -24,14 +23,17 @@ exts_default_options = {
 }
 
 exts_defaultclass = "PythonPackage"
-exts_list = [
-	('cached-property','1.5.2'),
-]
+exts_list = []
 
 use_pip = True
 sanity_pip_check = True
 unpack_sources = False
 
 exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
 
 moduleclass = 'bio'

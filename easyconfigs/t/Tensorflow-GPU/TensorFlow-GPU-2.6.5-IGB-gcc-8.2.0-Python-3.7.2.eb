@@ -1,7 +1,7 @@
 easyblock = 'PythonBundle'
 
 name = 'Tensorflow-GPU'
-version = '2.5.3'
+version = '2.6.5'
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://www.tensorflow.org/'
@@ -11,15 +11,15 @@ toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 dependencies = [
 	('Python', '3.7.2'),
-	('CUDA','11.2.2','',True),
-	('cuDNN','8.1.1.33','-CUDA-%(cudaver)s',True),
+	('CUDA','11.3.0','',True),
+	('cuDNN','8.2.1.32','-CUDA-11.3.0',True),
 	('h5py','3.1.0','-Python-%(pyver)s'),
 	('numpy','1.19.2','-Python-%(pyver)s'),
    
 ]
 
 use_pip = True
-sanity_pip_check = True
+
 unpack_sources = False
 
 exts_filter = ('python -c "import %(ext_name)s"', "")
@@ -29,20 +29,21 @@ exts_default_options = {
     'sanity_pip_check': True,
 }
 
-
 exts_list = [
+	('six','1.15.0'),
 	('html5lib','0.9999999'),
         ('astunparse', '1.6.3', {
-        'source_urls': [PYPI_SOURCE],
-        'source_tmpl': SOURCE_TAR_GZ,
+        	'source_urls': [PYPI_SOURCE],
+	        'source_tmpl': SOURCE_TAR_GZ,
 	}),
+
         ('opt-einsum', '3.3.0', {
 	        'source_tmpl': 'opt_einsum-%(version)s.tar.gz',
 	}),
         ('protobuf', '3.12.0', {
-	        'modulename': 'google.protobuf',
-        	'source_urls': ["https://pypi.python.org/packages/source/p/protobuf/"],
-	        'source_tmpl': 'protobuf-%(version)s-cp37-cp37m-manylinux1_x86_64.whl',
+        	'modulename': 'google.protobuf',
+	        'source_urls': ["https://pypi.python.org/packages/source/p/protobuf/"],
+        	'source_tmpl': 'protobuf-%(version)s-cp37-cp37m-manylinux1_x86_64.whl',
 	}),
 
 	('google', '2.0.3', {
@@ -70,21 +71,18 @@ exts_list = [
                 'source_urls': [PYPI_SOURCE],
                 'source_tmpl': 'tensorflow_gpu-%(version)s-cp37-cp37m-manylinux2010_x86_64.whl',
         }),
-	('tensorboard-data-server','0.6.1', {
-                'source_tmpl': 'tensorboard_data_server-%(version)s-py3-none-manylinux2010_x86_64.whl'
-        }),
-        ('tensorboard', '2.5.0', {
+        ('tensorboard', '2.6.0', {
                 'source_tmpl': 'tensorboard-%(version)s-py3-none-any.whl',
         }),
 
 	('google-pasta', '0.2.0', {
         	'modulename': 'pasta',
 	}),
-	('grpcio', '1.34.0', {
+	('grpcio', '1.47.0', {
 		'modulename': 'grpc',
-		'source_tmpl': 'grpcio-%(version)s-cp37-cp37m-manylinux2014_x86_64.whl'
+		'source_tmpl': 'grpcio-%(version)s-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
 	}),
-	('tensorflow-estimator', '2.5.0', {
+	('tensorflow-estimator', '2.6.0', {
         	'source_tmpl': 'tensorflow_estimator-%(version)s-py2.py3-none-any.whl',
 	        'unpack_sources': False,
 	}),
@@ -115,7 +113,7 @@ exts_list = [
 	('soupsieve','2.0.1', {
 	}),
 	('bleach','1.5.0'),
-	('tensorpack','0.10.1', {
+	('tensorpack','0.11', {
 		'source_tmpl': 'tensorpack-%(version)s-py2.py3-none-any.whl',
 	}),
 	('msgpack-numpy','0.4.6.post0'),
@@ -126,15 +124,31 @@ exts_list = [
 		'source_tmpl': 'Keras_Preprocessing-%(version)s.tar.gz',
 		'modulename': 'keras_preprocessing',
 	}),
-	('six','1.15.0'),
-	 ('flatbuffers','1.12', {
-                'source_tmpl': 'flatbuffers-%(version)s-py2.py3-none-any.whl'
-        }),
-	('keras-nightly','2.5.0.dev2021032900', {
-                'source_tmpl': 'keras_nightly-%(version)s-py2.py3-none-any.whl',
-		'modulename': 'keras'
-        }),
-
+	('flatbuffers','1.12', {
+		'source_tmpl': 'flatbuffers-%(version)s-py2.py3-none-any.whl'
+	}),
+	('keras','2.6.0', {
+		'source_tmpl': 'keras-%(version)s-py2.py3-none-any.whl'
+	}),
+	('Keras-Applications','1.0.8', {
+		'source_tmpl': 'Keras_Applications-%(version)s-py3-none-any.whl'
+	}),
+	('libclang','14.0.1', {
+		'source_tmpl': 'libclang-%(version)s-py2.py3-none-manylinux1_x86_64.whl',
+		'modulename': False
+	}),
+	('tensorflow-io-gcs-filesystem','0.26.0', {
+		'source_tmpl': 'tensorflow_io_gcs_filesystem-%(version)s-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl',
+		'modulename': False
+	}),
+	('tensorboard-data-server','0.6.1', {
+		'source_tmpl': 'tensorboard_data_server-%(version)s-py3-none-manylinux2010_x86_64.whl'
+	}),
+	('absl-py','0.10.0',{
+		'source_tmpl': 'absl_py-%(version)s-py3-none-any.whl',
+		'modulename': 'absl'
+	}),
+	('clang','5.0'),
 
 
 ]
