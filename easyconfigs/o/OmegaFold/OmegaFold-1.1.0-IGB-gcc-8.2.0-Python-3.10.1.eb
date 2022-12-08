@@ -1,0 +1,43 @@
+easyblock = 'PythonPackage'
+
+name = 'OmegaFold'
+version = '1.1.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/HeliXonProtein/OmegaFold'
+description = """High-resolution de novo Structure Prediction from Primary Sequence"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/HeliXonProtein/OmegaFold/archive/refs/tags/']
+
+dependencies = [
+        ('Python', '3.10.1'),
+	('Biopython','1.80','-Python-%(pyver)s'),
+	('PyTorch','1.12.1','-Python-%(pyver)s'),
+	
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = False
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(namelower)s'],
+}
+
+moduleclass = 'bio'
