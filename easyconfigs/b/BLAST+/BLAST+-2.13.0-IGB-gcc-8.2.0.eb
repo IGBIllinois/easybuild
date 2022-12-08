@@ -31,7 +31,8 @@ dependencies = [('Boost', '1.69.0'),
 		('Perl','5.28.1'),
 ]
 
-configopts = '--with-boost=$EBROOTBOOST --with-64 --with-openmp --with-lfs --without-gbench --with-bin-release --without-debug --without-gui'
+configopts = '--with-boost=$EBROOTBOOST --with-64 --with-openmp --with-lfs '
+configopts += '--without-gbench --with-bin-release --without-debug --without-gui'
 
 sanity_check_paths = {
     'files': ["bin/blastn", "bin/blastp", "bin/blastx"],
@@ -41,3 +42,6 @@ sanity_check_paths = {
 moduleclass = 'bio'
 allow_prepend_abs_path = True
 modextrapaths = {}
+modextravars = {
+	'BLAST_USAGE_REPORT': 'false'
+}
