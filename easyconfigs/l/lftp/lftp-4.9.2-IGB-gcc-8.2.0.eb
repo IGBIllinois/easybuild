@@ -1,0 +1,31 @@
+easyblock = 'ConfigureMake'
+
+name = 'lftp'
+version = '4.9.2'
+
+homepage = 'https://lftp.yar.ru/'
+description = """FTP is a sophisticated file transfer program supporting a number of network protocols (ftp, http, sftp, fish, torrent). """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['http://lftp.yar.ru/ftp/']
+sources = ['lftp-%(version)s.tar.gz']
+
+
+dependencies = [
+	('libreadline','6.3')
+]
+
+configopts = '--with-openssl=yes --enable-threads=posix --with-readline=$EBROOTLIBREADLINE --without-gnutls'
+sanity_check_paths = {
+        'files': ['bin/lftp'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'tools'
+
+
