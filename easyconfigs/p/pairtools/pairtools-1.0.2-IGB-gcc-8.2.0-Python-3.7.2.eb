@@ -1,0 +1,49 @@
+easyblock = 'PythonPackage'
+
+name = 'pairtools'
+version = '1.0.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/open2c/pairtools'
+description = """pairtools is a simple and fast command-line framework to process sequencing data from a Hi-C experiment."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/open2c/pairtools/archive/refs/tags/']
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('SAMtools','1.12'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('bioframe','0.3.3', {
+		'source_tmpl': 'bioframe-%(version)s-py2.py3-none-any.whl'
+	}),
+	('click','8.1.3'),
+	('scipy','1.7.3', {
+		'easyblock': 'PythonPackage',
+		'source_tmpl': 'scipy-%(version)s-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl'
+	})
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

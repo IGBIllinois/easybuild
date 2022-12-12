@@ -2,6 +2,7 @@ easyblock = 'Tarball'
 
 name = 'Omni-C'
 version = '20210526'
+versionsuffix = '-Python-%(pyver)s'
 local_commit = '04734cc'
 
 homepage = 'https://github.com/dovetail-genomics/Omni-C'
@@ -18,6 +19,20 @@ dependencies = [
 	('BEDTools','2.28.0'),
 	('BWA','0.7.17'),
 	('preseq','3.1.2'),
+	('pairtools','1.0.2','-Python-%(pyver)s'),
+]
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+    'use_pip': True
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('tabulate','0.9.0', {
+		'source_tmpl': 'tabulate-%(version)s-py3-none-any.whl'
+	}),
 ]
 
 keepsymlinks = True
@@ -26,6 +41,7 @@ sanity_check_paths = {
 	'files': ['get_qc.py' ],
 	'dirs': [],
 }
+
 
 modextrapaths = {'PATH':''}
 
