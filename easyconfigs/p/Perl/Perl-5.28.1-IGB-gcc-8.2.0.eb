@@ -1486,6 +1486,11 @@ exts_list = [
         'source_tmpl': 'Archive-Zip-1.64.tar.gz',
         'source_urls': ['https://cpan.metacpan.org/authors/id/P/PH/PHRED/'],
     }),
+    ('App::cpanminus','1.7046', {
+	'source_tmpl': 'App-cpanminus-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/'],
+
+	}),
 ]
 
 moduleclass = 'lang'

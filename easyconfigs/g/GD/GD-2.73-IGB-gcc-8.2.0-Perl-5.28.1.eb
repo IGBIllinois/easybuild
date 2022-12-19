@@ -19,6 +19,8 @@ dependencies = [
     ('libjpeg-turbo', '1.5.1'),
 ]
 
+osdependencies = ['libXpm-devel']
+
 exts_defaultclass = "PerlModule"
 
 exts_list = [
