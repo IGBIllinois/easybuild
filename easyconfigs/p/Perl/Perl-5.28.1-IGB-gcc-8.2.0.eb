@@ -383,6 +383,11 @@ exts_list = [
         'source_urls': ['https://cpan.metacpan.org/authors/id/N/NE/NEILB'],
         'checksums': ['e8baa07b1b3f53e00af3636898bbf73aec9a0ff38f94536ede1dbe96ef086f04'],
     }),
+    ('Object::InsideOut', '4.05', {
+        'source_tmpl': 'Object-InsideOut-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/J/JD/JDHEDDEN/'],
+        'checksums': ['9dfd6ca2822724347e0eb6759d00709425814703ad5c66bdb6214579868bcac4'],
+    }),
     ('Log::Message::Simple', '0.10', {
         'source_tmpl': 'Log-Message-Simple-%(version)s.tar.gz',
         'source_urls': ['https://cpan.metacpan.org/authors/id/B/BI/BINGOS'],

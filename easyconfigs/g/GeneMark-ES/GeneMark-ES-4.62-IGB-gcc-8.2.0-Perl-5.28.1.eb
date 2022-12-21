@@ -50,6 +50,8 @@ sanity_check_paths = {
 	'dirs': [],
 }
 
+options = { 'modulename': False }
+
 modextrapaths = {
 	'PATH': '',
 	'PERL5LIB': ['lib/perl5/site_perl/%(perlver)s','lib/perl5/site_perl/%(perlver)s/x86_64-linux-thread-multi'],
@@ -60,6 +62,6 @@ fix_perl_shebang_for = ['*.pl']
 postinstallcmds = ['cp -f %(builddir)s/gm_key_64 %(installdir)s/gm_key_64','rm -f %(installdir)s/gm_key']
 
 modloadmsg = "Before running GeneMark-ES for the first time you need to copy the license key to your home folder.\n"
-modloadmsg += "cp -fR %(installdir)s/gm_key_64 ~/.gm_key_64\n"
+modloadmsg += "cp -fR %(installdir)s/gm_key_64 ~/.gm_key\n"
 
 moduleclass = 'bio'
