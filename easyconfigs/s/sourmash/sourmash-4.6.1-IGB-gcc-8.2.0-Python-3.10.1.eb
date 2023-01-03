@@ -1,0 +1,48 @@
+easyblock = 'PythonPackage'
+
+name = 'sourmash'
+version = '4.6.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/sourmash-bio/sourmash'
+description = """Quickly search, compare, and analyze genomic and metagenomic data sets."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['sourmash-%(version)s-py2.py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl']
+source_urls = ['https://github.com/sourmash-bio/sourmash/releases/download/v%(version)s/']
+
+dependencies = [
+        ('Python', '3.10.1'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('bitstring','4.0.1'),
+	('cachetools','5.2.0'),
+	('cffi','1.15.1'),
+	('deprecation','2.1.0'),
+	('bz2file','0.98'),
+	('screed','1.0.5', {
+		'source_tmpl': 'screed-%(version)s-py2.py3-none-any.whl'
+	}),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'
