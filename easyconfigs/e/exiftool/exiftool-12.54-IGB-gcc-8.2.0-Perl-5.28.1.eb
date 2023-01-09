@@ -1,0 +1,40 @@
+easyblock = 'PerlModule'
+
+name = 'exiftool'
+version = '12.54'
+versionsuffix = '-Perl-%(perlver)s'
+homepage = 'https://exiftool.org/'
+description = """Read, Write and Edit Meta Information!"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://exiftool.org/']
+sources = ['Image-ExifTool-%(version)s.tar.gz']
+
+dependencies = [
+	('Perl','5.28.1'),
+]
+
+configopts = ''
+exts_defaultclass = 'PerlModule'
+
+exts_list = [
+
+]
+
+exts_filter = ("perldoc -lm %(ext_name)s ", "")
+
+options = {'modulename': 'Image::ExifTool'}
+
+sanity_check_paths = {
+        'files': ['bin/exiftool'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'tools'
+
+
