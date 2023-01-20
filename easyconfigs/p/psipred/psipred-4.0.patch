@@ -1,0 +1,21 @@
+diff -ru psipred-4.0.original/runpsipred psipred-4.0/runpsipred
+--- psipred-4.0.original/runpsipred	2023-01-20 07:35:51.758107000 -0600
++++ psipred-4.0/runpsipred	2023-01-20 07:36:12.822500000 -0600
+@@ -33,7 +33,7 @@
+ 
+ echo "Running PSI-BLAST with sequence" $1 "..."
+ 
+-$ncbidir/blastpgp -b 0 -j 3 -h 0.001 -d $dbname -i $tmproot.fasta -C $tmproot.chk >& $tmproot.blast
++blastpgp -b 0 -j 3 -h 0.001 -d $dbname -i $tmproot.fasta -C $tmproot.chk >& $tmproot.blast
+ 
+ if ($status != 0) then
+     tail $tmproot.blast
+@@ -46,7 +46,7 @@
+ echo $tmproot.chk > $tmproot.pn
+ echo $tmproot.fasta > $tmproot.sn
+ 
+-$ncbidir/makemat -P $tmproot
++makemat -P $tmproot
+ 
+ if ($status != 0) then
+     echo "FATAL: Error whilst running makemat - script terminated!"

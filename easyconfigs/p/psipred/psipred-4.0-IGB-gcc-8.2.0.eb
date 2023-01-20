@@ -1,0 +1,37 @@
+easyblock = 'MakeCp'
+
+name = 'psipred'
+version = '4.0'
+
+homepage = 'https://github.com/psipred/psipred'
+description = """"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/psipred/psipred/archive/refs/tags/']
+
+dependencies = [
+	('BLAST','2.2.26','-Linux_x86_64',True)
+]
+
+patches = ['psipred-%(version)s.patch']
+
+keepsymlinks = True
+
+with_configure = False
+
+prebuildopts = "cd src && "
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['runpsipred','runpsipred_single','bin/chkparse','bin/psipass2','bin/psipred','bin/seq2mtx'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': ''
+}
+
+moduleclass = 'bio'
