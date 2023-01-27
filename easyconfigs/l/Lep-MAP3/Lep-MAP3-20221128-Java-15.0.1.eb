@@ -1,0 +1,29 @@
+easyblock = 'Tarball'
+
+name = 'Lep-MAP3'
+version = '20221128'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = 'https://sourceforge.net/p/lep-map3/wiki/LM3%20Home/'
+description = """Lep-MAP3 (LM3) is a novel linkage map construction software suite. It can handle millions of markers and thousands of individuals possibly on multiple families. Input genotype data can be from genome sequencing (RADseq or whole genome sequencing), SNP assay, microsatellites or any mixture of them. """
+
+toolchain = SYSTEM
+
+sources = ['binary.zip']
+source_urls = [SOURCEFORGE_SOURCE]
+
+dependencies = [
+	('Java','15.0.1'),
+]
+
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': ['bin'],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
