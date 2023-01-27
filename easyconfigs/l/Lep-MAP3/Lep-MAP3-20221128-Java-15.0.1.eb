@@ -26,4 +26,5 @@ sanity_check_paths = {
 
 modextrapaths = {}
 
+modloadmsg = "To Run Lep-MAP3, do 'java -cp %(installdir)s/bin modulename' per instructions at https://sourceforge.net/p/lep-map3/wiki/LM3%20Home/#modules" 
 moduleclass = 'bio'
