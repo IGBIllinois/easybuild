@@ -1,0 +1,33 @@
+easyblock = 'MakeCp'
+
+name = 'pfilt'
+version = '1.5'
+
+homepage = 'http://bioinfadmin.cs.ucl.ac.uk/downloads/pfilt/'
+description = """The pfilt program is designed to mask out (i.e. replace amino acid characters
+with Xs) regions of low complexity, coiled-coil regions and more regions with
+extremely biased amino acid compositions."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['pfilt%(version)s.tar.gz']
+source_urls = ['http://bioinfadmin.cs.ucl.ac.uk/downloads/pfilt/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['pfilt'],'bin'),'README','VERSION']
+
+sanity_check_paths = {
+	'files': ['bin/pfilt'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
