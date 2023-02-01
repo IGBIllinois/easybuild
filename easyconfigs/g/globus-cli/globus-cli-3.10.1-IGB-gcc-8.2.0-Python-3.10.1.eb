@@ -1,0 +1,48 @@
+easyblock = 'PythonPackage'
+
+name = 'globus-cli'
+version = '3.10.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://docs.globus.org/cli/quickstart/'
+description = """A Command Line Interface to Globus."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['globus_cli-%(version)s-py3-none-any.whl']
+source_urls = [PYPI_LOWER_SOURCE]
+
+builddependencies = [
+	('Rust','1.41.1','',True),
+]
+dependencies = [
+        ('Python', '3.10.1'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('cryptography','36.0.2'),
+	('globus-sdk','3.15.1', {
+		'source_tmpl': 'globus_sdk-%(version)s-py3-none-any.whl'
+	}),
+	('jmespath','1.0.1')
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

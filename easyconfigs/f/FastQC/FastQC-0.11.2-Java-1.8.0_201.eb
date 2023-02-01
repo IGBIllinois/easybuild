@@ -1,8 +1,8 @@
 easyblock = 'PackedBinary'
 
 name = 'FastQC'
-version = '0.11.5'
-versionsuffix = '-Java-%(javaver)s'
+version = '0.11.2'
+versionsuffix = '-Java-%(javaver)s
 
 homepage = 'http://www.bioinformatics.babraham.ac.uk/projects/fastqc/'
 description = """FastQC is a quality control application for high throughput sequence data.
@@ -10,22 +10,20 @@ description = """FastQC is a quality control application for high throughput seq
  application to review the results of several different QC checks, or create an HTML based
  report which can be integrated into a pipeline."""
 
-toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchain = SYSTEM
 
 source_urls = ['http://www.bioinformatics.babraham.ac.uk/projects/%(namelower)s']
 sources = ['%(namelower)s_v%(version)s.zip']
 
-patches = ['FastQC-0.11.5.patch']
+patches = ['FastQC-%(version)s.patch']
 
-dependencies = [('Java', '1.8.0_121','',True),
-		('Perl','5.24.1')
+dependencies = [('Java', '1.8.0_201','',True)
 	]
 
 postinstallcmds = ["chmod +x %(installdir)s/fastqc"]
 
 sanity_check_paths = {
-    'files': ['fastqc', 'fastqc_icon.ico', 'INSTALL.txt', 'jbzip2-0.9.jar', 'LICENSE.txt', 'LICENSE_JHDF5.txt',
-              'README.txt', 'RELEASE_NOTES.txt', 'run_fastqc.bat', 'sam-1.103.jar', 'cisd-jhdf5.jar'],
+    'files': ['fastqc'],
     'dirs': ['Configuration', 'Help', 'Templates', 'uk', 'net', 'org'],
 }
 
