@@ -1,0 +1,46 @@
+easyblock = 'Tarball'
+
+name = 'cbc_scripts'
+version = '1.14'
+
+homepage = 'https://github.com/IGBIllinois/CBC_scripts'
+description = """DNA services at the Biotech center include short read sequencing with four types of Illumina platforms: HiSeq4000, HiSeq2500, MiSeq and NovaSeq6000"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [{
+        'filename': 'cbc_scripts-%(version)s.tar.gz',
+        'git_config': {
+                'url': 'https://github.com/IGBIllinois',
+                'repo_name': 'CBC_scripts',
+                'tag': '%(version)s',
+        },
+}]
+
+dependencies = [('Perl','5.28.1'),
+	('bcl2fastq2','2.20'),
+	('pigz','2.4'),
+	('pbzip2','1.1.13'),
+	('BLAST+','2.2.29','',True),
+	('FASTX-Toolkit','0.0.13.2','',True),
+	('MultiQC','1.12','-Python-3.7.2'),
+	('FastQC','0.11.7'),
+	('seqtk','1.2'),
+	('gnuplot','4.6.7'),
+	('Bowtie2','2.1.0'),
+	('fastp','0.20.1'),
+	('PrimerMgr','1.04','-Java-1.8.0_201',True),
+	('seqkit','2.3.0','',True),
+]
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/fluidigmPrimerSort.pl'],
+        'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
+
+
