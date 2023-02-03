@@ -1,0 +1,34 @@
+easyblock = 'Conda'
+
+name = 'esm'
+version = '2.0.0'
+
+homepage = 'https://github.com/facebookresearch/esm'
+description = """This repository contains code and pre-trained weights for Transformer protein language models from the Meta Fundamental AI Research Protein Team (FAIR), including our state-of-the-art ESM-2 and ESMFold, as well as MSA Transformer, ESM-1v for predicting variant effects and ESM-IF1 for inverse folding."""
+
+toolchain = SYSTEM
+
+dependencies = [('Miniconda3','4.7.12.1'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge', 'pytorch']
+requirements = '%(name)s=%(version)s'
+
+environment_file = "~/github/easybuild/easyconfigs/e/esm/esm-2.0.0-enviroment.yml"
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+
