@@ -1,0 +1,145 @@
+name = 'Python'
+version = '2.7.18'
+
+homepage = 'http://python.org/'
+description = """Python is a programming language that lets you work more quickly and integrate your systems
+ more effectively."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True}
+
+source_urls = ['http://www.python.org/ftp/%(namelower)s/%(version)s/']
+sources = [SOURCE_TGZ]
+
+# python needs bzip2 to build the bz2 package
+dependencies = [
+    ('bzip2', '1.0.6'),
+    ('zlib', '1.2.11'),
+    ('libreadline', '6.3'),
+    ('ncurses', '6.1'),
+    ('SQLite', '3.17.0'),
+    ('Tk', '8.6.6'),  # this requires a full X11 stack
+    ('GMP', '6.1.2'),
+    ('libffi', '3.2.1'),
+	('HDF5','1.8.18'),
+    # OS dependency should be preferred if the os version is more recent then this version,
+    # it's nice to have an up to date openssl for security reasons
+    # ('OpenSSL', '1.0.2h'),
+	('cairo','1.14.8'),
+]
+
+osdependencies = [('openssl-devel', 'libssl-dev', 'libopenssl-devel')]
+
+install_pip = True
+
+exts_default_options = {
+        'download_dep_fail': True,
+        'sanity_pip_check': True,
+        'source_urls': [PYPI_SOURCE],
+        'use_pip': True,
+	'unpack_sources': False
+
+}
+
+# order is important!
+# package versions updated May 28th 2015
+exts_list = [
+	('wheel','0.34.2'),
+	('setuptools','44.0.0', {
+		'source_tmpl': 'setuptools-%(version)s-py2.py3-none-any.whl'
+	}),
+	('pip','20.3.4'),
+    ('six', '1.14.0'),
+    ('pyparsing', '2.2.0'),
+    ('packaging', '16.8'),
+    ('appdirs', '1.4.3'),
+    ('nose', '1.3.7'),
+    ('numpy', '1.15.4', {
+	'source_tmpl': '%(name)s-%(version)s.zip',
+	'unpack_sources': True
+    }),
+    ('pbr', '5.4.5'),
+    ('Cython', '0.29.16'),
+    ('python-dateutil', '2.8.1'),
+    ('decorator', '4.4.2'),
+    ('pytz', '2016.10'),
+    ('pandas', '0.19.2'),
+    ('virtualenv', '20.0.18'),
+    ('ujson', '2.0.3'),
+	('matplotlib', '2.2.5', {
+		'source_tmpl': 'matplotlib-%(version)s-cp27-cp27m-manylinux1_x86_64.whl'
+	}),
+    ('tabview', '1.4.2'),
+    ('openpyxl', '2.4.8'),
+    ('Pyomo', '5.2', {
+        'modulename': 'pyomo',
+    }),
+    ('Mako', '1.0.6', {
+        'modulename': 'mako',
+    }),
+    ('pysam', '0.11.2.2'),
+    ('pp', '1.6.5'),
+    ('pyBigWig', '0.3.4', {
+        'modulename': 'pyBigWig',
+    }),
+    ('protobuf','3.3.0', {
+        'modulename': 'google.protobuf',
+    }),
+    ('backports.weakref','1.0rc1'),
+    ('funcsigs','1.0.2'),
+    ('mock','3.0.5'),
+
+    ('apipkg','1.4'),
+    ('coverage','4.4.1'),
+    ('execnet','1.4.1'),
+    ('pep8','1.7.0'),
+    ('py','1.8.1'),
+
+    ('pytest','3.1.3'),
+    ('pytest-cache','1.0', {
+        'modulename': 'pytest_cache',
+    }),
+
+    ('pydot_ng','1.0.0'),
+    ('pytest-xdist','1.18.1', {
+        'modulename': 'xdist',
+    }),
+    ('pytest-pep8','1.0.6', {
+        'modulename': 'pytest_pep8',
+    }),
+    ('pytest-cov','2.5.1', {
+        'modulename': 'pytest_cov',
+    }),
+    ('Werkzeug','0.12.2', {
+        'modulename': 'werkzeug',
+    }),
+    ('utils','0.9.0'),
+    ('casadi','3.2.0', {
+	'source_tmpl': '%(name)s-%(version)s-cp27-none-manylinux1_x86_64.whl ',
+    }),
+    ('cogent','1.9'),
+    ('scikit-learn', '1.0.2', {
+        'modulename': 'sklearn',
+    }),
+    ('seaborn', '0.8'),
+    ('statsmodels', '0.8.0'),
+    ('ScreamingBackpack', '0.2.333', {
+        'source_tmpl': 'ScreamingBackpack-%(version)s.tar.gz',
+    }),
+    ('h5py', '2.7.1', {
+        'source_tmpl': SOURCE_TAR_GZ,
+    }),
+    ('bitarray', '0.8.1'),
+    ('Jinja2', '2.11.2'),
+    ('PyYAML', '3.12', {
+        'modulename': 'yaml',
+    }),
+    ('PyVCF', '0.6.8', {
+        'modulename': 'vcf',
+    }),
+]
+
+modextravars = {'PYTHONWARNINGS':'ignore:DEPRECATION'}
+
+moduleclass = 'lang'
+

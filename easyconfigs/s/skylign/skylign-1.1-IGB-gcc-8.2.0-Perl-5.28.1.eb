@@ -1,0 +1,114 @@
+easyblock = 'MakeCp'
+
+name = 'skylign'
+version = '1.1'
+versionsuffix = '-Perl-%(perlver)s'
+local_commit = '3eca38c'
+
+homepage = 'https://skylign.org/'
+description = """Skylign is a tool for creating logos representing both sequence alignments and profile hidden Markov models. Submit to the form on the right in order to produce (i) interactive logos for inclusion in webpages, or (ii) static logos for use in documents."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['ad7fea3.tar.gz']
+source_urls = ['https://github.com/Janelia-Farm-Xfam/Consensus-Colors/archive']
+
+files_to_copy = [(['lib/Consensus'],'lib/perl5/site_perl/%(perlver)s/')]
+skipsteps = ['build']
+
+
+dependencies = [
+        ('Perl', '5.28.1'),
+	('libpng','1.6.29'),
+	('freetype','2.7.1'),
+	('HMMER','3.3.1'),
+]
+
+exts_defaultclass = 'PerlModule'
+exts_filter = ("perldoc -lm %(ext_name)s ", "")
+
+exts_list = [
+    ('Config::General', '2.63', {
+        'source_tmpl': 'Config-General-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/T/TL/TLINDEN/'],
+    }),
+    ('YAML::Old', '1.23', {
+        'source_tmpl': 'YAML-Old-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/I/IN/INGY/'],
+    }),
+    ('YAML::Syck', '1.31', {
+        'source_tmpl': 'YAML-Syck-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/T/TO/TODDR/'],
+    }),
+    ('Catalyst', '5.90124', {
+        'source_tmpl': 'Catalyst-Runtime-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/J/JJ/JJNAPIORK/'],
+    }),
+    ('Catalyst::Plugin::Static::Simple', '0.36', {
+        'source_tmpl': 'Catalyst-Plugin-Static-Simple-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/I/IL/ILMARI/'],
+    }),
+
+    ('Catalyst::Plugin::ConfigLoader', '0.34', {
+        'source_tmpl': 'Catalyst-Plugin-ConfigLoader-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/B/BO/BOBTFISH/'],
+    }),
+    ('Catalyst::Action::RenderView', '0.16', {
+        'source_tmpl': 'Catalyst-Action-RenderView-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/B/BO/BOBTFISH/'],
+    }),
+    ('Catalyst::Controller::REST', '1.21', {
+        'source_tmpl': 'Catalyst-Action-REST-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/J/JJ/JJNAPIORK/'],
+    }),
+    ('Inline', '0.86', {
+        'source_tmpl': 'Inline-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/T/TI/TINITA/'],
+    }),
+	('Inline::C','0.82', {
+		'source_tmpl': 'Inline-C-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/E/ET/ETJ/']
+	}),
+    ('Imager', '1.011', {
+        'source_tmpl': 'Imager-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/T/TO/TONYC/'],
+    }),
+	('Imager::ExtUtils','1.019', {
+		'source_tmpl': 'Imager-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/T/TO/TONYC/']
+	}),
+    ('Imager::File::PNG', '0.94', {
+        'source_tmpl': 'Imager-File-PNG-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/T/TO/TONYC/'],
+    }),
+    ('SVG', '2.84', {
+        'source_tmpl': 'SVG-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/M/MA/MANWAR/'],
+    }),
+    ('Data::UUID', '1.224', {
+        'source_tmpl': 'Data-UUID-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/R/RJ/RJBS/'],
+    }),
+	('Devel::OverloadInfo', '0.005', {
+        	'source_tmpl': 'Devel-OverloadInfo-%(version)s.tar.gz',
+	        'source_urls': ['https://cpan.metacpan.org/authors/id/I/IL/ILMARI/'],
+	}),
+	('Bio::HMM::Logo','3eca38c', {
+		'source_tmpl' : '%(version)s.tar.gz',
+		'source_urls':  ['https://github.com/Janelia-Farm-Xfam/Bio-HMM-Logo/archive/']
+
+	}),
+
+#Manually Download Consensus::Colors from https://github.com/Janelia-Farm-Xfam/Consensus-Colors.
+
+]
+
+sanity_check_paths = {
+        'files': [],
+       'dirs': ['lib/perl5/site_perl/%(perlver)s/'],
+}
+
+modextrapaths = {'PERL5LIB': ['lib/perl5/site_perl/%(perlver)s/','lib/perl5/site_perl/%(perlver)s/x86_64-linux-thread-multi']
+}
+moduleclass = 'bio'
+
