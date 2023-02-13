@@ -24,7 +24,7 @@ toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 sources = ['%(namelower)s-%(version)s-source.zip']
 source_urls = [('http://sourceforge.net/projects/bowtie-bio/files/%(namelower)s/%(version)s', 'download')]
 
-dependencies = [('tbb','2019_U3'),
+dependencies = [('tbb','2019_U4'),
 	('Python','3.7.2'),
 ]
 
