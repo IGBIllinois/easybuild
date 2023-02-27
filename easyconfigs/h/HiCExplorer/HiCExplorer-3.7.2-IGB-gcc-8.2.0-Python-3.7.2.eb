@@ -16,7 +16,6 @@ dependencies = [
         ('Python', '3.7.2'),
 	('Biopython','1.76','-Python-%(pyver)s'),
 	('cooler','0.8.11','-Python-%(pyver)s'),
-	('jupyterlab','2.2.9','-Python-%(pyver)s'),
 ]
 
 
@@ -77,6 +76,20 @@ exts_list = [
 		'source_tmpl': 'krbalancing-%(version)s-cp37-cp37m-manylinux2010_x86_64.whl'
 	}),
 	('tqdm','4.62.3'),
+	('Jinja2','3.1.2', {
+		'modulename': 'jinja2'
+	}),
+	('jupyter-core','4.7.0', {
+		'source_tmpl': 'jupyter_core-%(version)s-py3-none-any.whl'
+	}),
+	('jupyter-client','6.1.7', {
+		'source_tmpl': 'jupyter_client-%(version)s-py3-none-any.whl'
+	}),
+	('tornado','5.1.1'),
+	('MarkupSafe','2.1.2'),
+	('ipykernel','5.4.2', {
+		'source_tmpl': 'ipykernel-%(version)s-py3-none-any.whl'
+	}),
 
 ]
 
