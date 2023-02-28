@@ -1,0 +1,39 @@
+easyblock = 'PythonPackage'
+
+name = 'clang-format'
+version = '15.0.7'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://pypi.org/project/clang-format'
+description = """Clang-Format is an LLVM-based code formatting tool"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['clang_format-15.0.7-py2.py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/clang-format'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/clang_format'],
+}
+
+moduleclass = 'bio'
