@@ -1,0 +1,45 @@
+easyblock = 'MakeCp'
+
+name = 'HISAT2-3N'
+version = '20221013'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://daehwankimlab.github.io/hisat2/hisat-3n/'
+description = """HISAT-3N (hierarchical indexing for spliced alignment of transcripts - 3 nucleotides) is designed for nucleotide conversion sequencing technologies and implemented based on HISAT2."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [{'filename': 'hisat2-3n-%(version)s.tar.gz',
+	'git_config': {
+		'url': 'https://github.com/DaehwanKimLab',
+		'repo_name': 'hisat2',
+		'commit': 'f5dda37',
+		'recursive': True,
+
+	},
+}]
+
+
+dependencies = [
+	('Python', '3.7.2'),
+]
+
+
+local_executables = ['hisat2', 'hisat2-align-l', 'hisat2-align-s', 'hisat2-build', 'hisat2-build-l', 'hisat2-build-new', 'hisat2-build-s','hisat2-inspect', 'hisat2-inspect-s', 'hisat2-inspect-l','hisat2-repeat','extract_exons.py','extract_splice_sites.py','hisat2_extract_exons.py',
+'hisat2_extract_snps_haplotypes_UCSC.py','hisat2_extract_snps_haplotypes_VCF.py','hisat2_extract_splice_sites.py','hisat2_read_statistics.py','hisat2_simulate_reads.py','hisat-3n','hisat-3n-build']
+
+
+
+files_to_copy = [(local_executables, 'bin'),'scripts','example','LICENSE','MANUAL','TUTORIAL'
+
+]
+
+sanity_check_paths = {
+    'files': ['bin/%s' % x for x in local_executables],
+    'dirs': ['scripts','example'],
+}
+
+modextrapaths = {'PATH':'scripts'
+}
+
+moduleclass = 'bio'
