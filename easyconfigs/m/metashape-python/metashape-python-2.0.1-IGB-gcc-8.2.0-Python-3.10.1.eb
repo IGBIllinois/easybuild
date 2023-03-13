@@ -1,0 +1,41 @@
+easyblock = 'PythonPackage'
+
+name = 'metashape-python'
+version = '2.0.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://www.agisoft.com'
+description = """Process digital images and generate 3D spatial data. Fast and highly accurate."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['Metashape-%(version)s-cp37.cp38.cp39.cp310.cp311-abi3-linux_x86_64.whl']
+source_urls = ['https://s3-eu-west-1.amazonaws.com/download.agisoft.com/']
+
+dependencies = [
+        ('Python', '3.10.1'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+options = {'modulename': 'Metashape' }
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/Metashape'],
+}
+
+moduleclass = 'bio'

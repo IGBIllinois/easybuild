@@ -1,0 +1,30 @@
+easyblock = 'Tarball'
+
+name = 'metashape-pro'
+version = '2.0.1'
+
+homepage = 'https://www.agisoft.com'
+description = """Agisoft Metashape is a stand-alone software product that performs photogrammetric processing of digital images and generates 3D spatial data to be used in GIS applications, cultural heritage documentation, and visual effects production as well as for indirect measurements of objects of various scales. """
+
+toolchain = SYSTEM
+
+sources = ['metashape-pro_2_0_1_amd64.tar.gz']
+source_urls = ['https://s3-eu-west-1.amazonaws.com/download.agisoft.com/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['metashape','metashape.sh'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+postinstallcmds = ['chmod 775 %(installdir)s/metashape %(installdir)s/metashape.sh']
+
+moduleclass = 'vis'
+
+group = 'leakey_lab'
