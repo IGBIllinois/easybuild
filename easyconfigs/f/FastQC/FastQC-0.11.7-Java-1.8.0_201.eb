@@ -18,7 +18,6 @@ sources = ['%(namelower)s_v%(version)s.zip']
 patches = ['FastQC-0.11.7.patch']
 
 dependencies = [('Java', '1.8.0_201','',True),
-		('Perl','5.28.1')
 	]
 
 postinstallcmds = ["chmod +x %(installdir)s/fastqc"]
