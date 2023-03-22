@@ -24,4 +24,6 @@ sanity_check_paths = {
 modextrapaths = {'PATH':''
 }
 
+postinstallcmds = ['chmod 775 %(installdir)s/vg']
+
 moduleclass = 'bio'

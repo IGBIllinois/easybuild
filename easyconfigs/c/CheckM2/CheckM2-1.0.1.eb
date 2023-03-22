@@ -1,0 +1,37 @@
+easyblock = 'Conda'
+
+name = 'CheckM2'
+version = '1.0.1'
+
+homepage = 'https://github.com/chklovski/CheckM2'
+description = """Unlike CheckM1, CheckM2 has universally trained machine learning models it applies regardless of taxonomic lineage to predict the completeness and contamination of genomic bins. """
+
+toolchain = SYSTEM
+
+#sources = ['%(version)s.tar.gz']
+#source_urls = ['https://github.com/chklovski/CheckM2/archive/refs/tags/']
+
+dependencies = [('Miniconda3','4.10.3'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+#environment_file = "checkm2.yml"
+
+sanity_check_paths = {
+        'files': ['bin/checkm2'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

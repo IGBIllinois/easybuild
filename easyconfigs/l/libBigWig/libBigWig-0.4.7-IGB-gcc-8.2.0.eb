@@ -1,0 +1,37 @@
+easyblock = 'ConfigureMake'
+
+name = 'libBigWig'
+version = '0.4.7'
+
+homepage = 'https://github.com/dpryan79/libBigWig'
+description = """A C library for reading/parsing local and remote bigWig and bigBed files. While Kent's source code is free to use for these purposes"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+
+source_urls = ['https://github.com/dpryan79/libBigWig/archive/refs/tags/']
+sources = ['%(version)s.tar.gz']
+
+patches = ['libBigWig-%(version)s.patch']
+
+installopts = 'prefix=%(installdir)s'
+
+dependencies = [
+	('cURL','7.53.1')
+]
+
+skipsteps = ['configure']
+
+
+sanity_check_paths = {
+        'files': ['lib/libBigWig.a','lib/libBigWig.so'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

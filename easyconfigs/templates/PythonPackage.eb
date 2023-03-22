@@ -28,6 +28,7 @@ exts_list = []
 use_pip = True
 sanity_pip_check = True
 unpack_sources = False
+#use_pip_for_deps = True
 
 exts_filter = ('python -c "import %(ext_name)s"', "")
 
