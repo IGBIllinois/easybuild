@@ -1,0 +1,44 @@
+easyblock = 'PythonPackage'
+
+name = 'KneadData'
+version = '0.12.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/biobakery/kneaddata'
+description = """KneadData is a tool designed to perform quality control on metagenomic sequencing data, especially data from microbiome experiments. In these experiments, samples are typically taken from a host in hopes of learning something about the microbial community on the host. However, metagenomic sequencing data from such experiments will often contain a high ratio of host to bacterial reads. This tool aims to perform principled in silico separation of bacterial reads from these contaminant reads, be they from the host, from bacterial 16S sequences, or other user-defined sources."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/biobakery/kneaddata/archive/']
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Trimmomatic', '0.39', '-Java-1.8.0_201', True),
+	('Bowtie2', '2.4.5'),
+]
+
+installopts = "--install-option='--bypass-dependencies-install'"
+
+#patches = ['KneadData-%(version)s.patch']
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/kneaddata'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

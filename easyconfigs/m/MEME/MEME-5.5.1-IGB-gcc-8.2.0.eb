@@ -1,0 +1,49 @@
+easyblock = 'ConfigureMake'
+
+name = 'MEME'
+version = '5.5.1'
+
+homepage = 'http://meme-suite.org/'
+description = """The MEME Suite allows you to: * discover motifs using MEME, DREME (DNA only) or
+  GLAM2 on groups of related DNA or protein sequences, * search sequence databases with motifs using
+  MAST, FIMO, MCAST or GLAM2SCAN, * compare a motif to all motifs in a database of motifs, * associate
+  motifs with Gene Ontology terms via their putative target genes, and * analyse motif enrichment
+  using SpaMo or CentriMo."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['meme-%(version)s.tar.gz']
+source_urls = ['http://meme-suite.org/meme-software/%(version)s/']
+
+
+configopts = '--with-url=http://meme-suite.org/'
+dependencies = [
+	('Perl','5.28.1'),
+	('Python','3.7.2'),
+	('libxml2', '2.9.7'),
+	('libxslt', '1.1.33'),
+	('zlib', '1.2.11'),
+	('GhostScript','9.55.0')
+]
+
+configopts = '--with-url=http://meme-suite.org/ '
+configopts += '--with-perl=${EBROOTPERL}/bin/perl --with-python=${EBROOTPYTHON}/bin/python '
+configopts += '--with-gs=${EBROOTGHOSTSCRIPT}/bin/gs '
+# config.log should indicate that all required/optional dependencies were found (see scripts/dependencies.pl)
+configopts += " && grep 'All required and optional Perl modules were found' config.log"
+
+fix_perl_shebang_for = ['bin/*', 'libexec/meme-%(version)s/*']
+fix_python_shebang_for = ['bin/*', 'libexec/meme-%(version)s/*']
+
+sanity_check_paths = {
+    'files': ['bin/meme', 'bin/dreme', 'bin/meme-chip', 'libexec/meme-%(version)s/meme2meme'],
+    'dirs': ['lib'],
+}
+
+modextrapaths = {
+    'PATH': ['libexec/meme-%(version)s'],
+    'PERL5LIB': ['lib/meme-%(version)s/perl'],
+    'PYTHONPATH': ['lib/meme-%(version)s/python'],
+}
+
+moduleclass = 'bio'

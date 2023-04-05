@@ -1,0 +1,37 @@
+easyblock = 'ConfigureMake'
+
+name = 'aria2'
+version = '1.36.0'
+
+homepage = 'https://aria2.github.io'
+description = "aria2 is a lightweight multi-protocol & multi-source command-line download utility."
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/aria2/aria2/releases/download/release-%(version)s']
+sources = [SOURCE_TAR_GZ]
+
+builddependencies = [
+	('binutils', '2.32'),
+	('Autotools', '20180311','',('GCC','8.2.0-2.32')),
+	('CppUnit', '1.15.1'),
+]
+
+dependencies = [
+    ('zlib', '1.2.11'),
+    ('libxml2', '2.9.7'),
+    ('SQLite', '3.17.0'),
+    ('c-ares', '1.19.0'),
+]
+
+configopts = "--without-gnutls --with-openssl --enable-libaria2 --enable-static"
+
+sanity_check_paths = {
+    'files': ['bin/aria2c'],
+    'dirs': ['share'],
+}
+
+sanity_check_commands = ["aria2c --help"]
+
+moduleclass = 'tools'
+

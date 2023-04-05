@@ -1,0 +1,29 @@
+easyblock = 'ConfigureMake'
+
+name = 'c-ares'
+version = '1.19.0'
+
+homepage = 'https://c-ares.org/'
+description = "c-ares is a C library for asynchronous DNS requests (including name resolves)"
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True}
+
+github_account = 'c-ares'
+source_urls = [GITHUB_SOURCE]
+sources = ['%s-%s.tar.gz' % (name.replace('-', ''), version.replace('.', '_'))]
+
+builddependencies = [
+	('binutils', '2.32'),
+	('Autotools', '20180311','',('GCC','8.2.0-2.32')),
+]
+
+preconfigopts = 'autoreconf -i -f &&'
+
+sanity_check_paths = {
+    'files': ['lib/libcares.a', 'lib/libcares.%s' % SHLIB_EXT, 'lib/pkgconfig/libcares.pc'],
+    'dirs': ['include', 'share/man'],
+}
+
+moduleclass = 'lib'
+

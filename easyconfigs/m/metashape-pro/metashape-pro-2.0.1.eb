@@ -23,6 +23,9 @@ sanity_check_paths = {
 
 modextrapaths = {'PATH':''}
 
+modextravars = {
+	'XDG_RUNTIME_DIR': ''
+}
 postinstallcmds = ['chmod 775 %(installdir)s/metashape %(installdir)s/metashape.sh']
 
 moduleclass = 'vis'

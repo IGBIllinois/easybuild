@@ -1,26 +1,27 @@
 easyblock = 'Tarball'
 
 name = 'Trinotate'
-version = '3.2.1'
+version = '4.0.0'
 versionsuffix = '-Perl-%(perlver)s'
 
 homepage = 'https://trinotate.github.io/'
 description = """Trinotate is a comprehensive annotation suite designed for automatic functional annotation of transcriptomes, particularly de novo assembled transcriptomes, from model or non-model organisms. Trinotate makes use of a number of different well referenced methods for functional annotation including homology search to known sequence data (BLAST+/SwissProt), protein domain identification (HMMER/PFAM), protein signal peptide and transmembrane domain prediction (signalP/tmHMM), and leveraging various annotation databases (eggNOG/GO/Kegg databases). All functional annotation data derived from the analysis of transcripts is integrated into a SQLite database which allows fast efficient searching for terms with specific qualities related to a desired scientific hypothesis or a means to create a whole annotation report for a transcriptome."""
 
-toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 sources = ['%(name)s-v%(version)s.tar.gz']
 source_urls = ['https://github.com/Trinotate/Trinotate/archive']
 
 dependencies = [
-	('Perl', '5.24.1'),
-	('TransDecoder', '5.5.0', '-Perl-5.24.1'),
+	('Perl', '5.28.1'),
+	('TransDecoder', '5.7.0', '-Perl-%(perlver)s'),
 	('SignalP','4.1','',True),
 	('TMHMM', '2.0c','',True),
-	('RNAmmer','1.2', '-Perl-5.24.1'),
-	('BLAST+','2.7.1'),
-	('HMMER','3.2.1'),
+	('Trinity','2.15.1'),
+	('BLAST+','2.13.0'),
+	('HMMER','3.3.1'),
 	('SQLite','3.17.0'),
+	('DIAMOND','2.0.15'),
 ]
 
 keepsymlinks = True
