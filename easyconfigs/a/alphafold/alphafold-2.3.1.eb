@@ -10,7 +10,7 @@ toolchain = SYSTEM
 
 dependencies = [
 	('singularity','3.8.1'),
-	('alphafold-db','20220118'),
+	('alphafold-db','20230405'),
 ]
 
 configopts = ''

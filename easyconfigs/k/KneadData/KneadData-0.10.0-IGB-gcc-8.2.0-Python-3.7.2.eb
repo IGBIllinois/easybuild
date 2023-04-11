@@ -16,6 +16,7 @@ dependencies = [
         ('Python', '3.7.2'),
 	('Trimmomatic', '0.39', '-Java-1.8.0_201', True),
 	('Bowtie2', '2.4.1'),
+	('KneadData-db','20230405','',True)
 ]
 
 installopts = "--install-option='--bypass-dependencies-install'"
