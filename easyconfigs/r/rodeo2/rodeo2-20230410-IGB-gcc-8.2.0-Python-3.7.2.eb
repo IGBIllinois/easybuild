@@ -1,0 +1,31 @@
+easyblock = 'Tarball'
+
+name = 'rodeo2'
+version = '20230410'
+versionsuffix = '-Python-%(pyver)s'
+local_commit = '7d18e94'
+
+homepage = 'https://www.ripp.rodeo/index.html'
+description = """RODEO evaluates one or many genes, characterizing a gene neighborhood based on the presence of profile hidden Markov models (pHMMs). """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/the-mitchell-lab/rodeo2/archive/']
+
+dependencies = [
+	('Python','3.7.2'),
+	('Biopython','1.7.9','-Python-%(pyver)s'),
+	('HMMER','3.3.1'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['rodeo_main.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

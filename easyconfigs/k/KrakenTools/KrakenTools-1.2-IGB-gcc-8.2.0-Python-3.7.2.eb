@@ -1,0 +1,35 @@
+easyblock = 'Tarball'
+
+name = 'KrakenTools'
+version = '1.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/jenniferlu717/KrakenTools'
+description = """KrakenTools is a suite of scripts to be used alongside the Kraken, KrakenUniq, Kraken 2, or Bracken programs. These scripts are designed to help Kraken users with downstream analysis of Kraken results."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/jenniferlu717/KrakenTools/archive/refs/tags/']
+
+dependencies = [
+	('Python','3.7.2'),
+	('Kraken2','2.1.2'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['DiversityTools/alpha_diversity.py','DiversityTools/beta_diversity.py'],
+	'dirs': [],
+}
+
+
+modextrapaths = {'PATH':('','DiversityTools')}
+
+postinstallcmds = [
+	'chmod 775 %(installdir)s/*.py',
+	'chmod 775 %(installdir)s/DiversityTools/*.py'
+]
+
+moduleclass = 'bio'

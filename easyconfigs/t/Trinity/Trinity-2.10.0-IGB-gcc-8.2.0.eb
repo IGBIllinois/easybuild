@@ -39,7 +39,13 @@ dependencies = [
 	('SAMtools','1.10'),
 ]
 
-modextrapaths = {'PATH':'trinityrnaseq'
+modextrapaths = {
+	'PATH':['trinityrnaseq','trinityrnaseq/util','trinityrnaseq/util/misc']
 }
+modextravars = {
+	'TRINITY_HOME':'%(installdir)s/trinityrnaseq'
+
+}
+
 
 moduleclass = 'bio'

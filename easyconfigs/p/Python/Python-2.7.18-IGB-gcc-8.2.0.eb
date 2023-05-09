@@ -44,7 +44,7 @@ exts_default_options = {
 # order is important!
 # package versions updated May 28th 2015
 exts_list = [
-	('wheel','0.34.2'),
+	('wheel','0.35.1'),
 	('setuptools','44.0.0', {
 		'source_tmpl': 'setuptools-%(version)s-py2.py3-none-any.whl'
 	}),
@@ -59,29 +59,24 @@ exts_list = [
 	'unpack_sources': True
     }),
     ('pbr', '5.4.5'),
-    ('Cython', '0.29.16'),
+    ('Cython', '0.29.32'),
     ('python-dateutil', '2.8.1'),
     ('decorator', '4.4.2'),
     ('pytz', '2016.10'),
     ('pandas', '0.19.2'),
-    ('virtualenv', '20.0.18'),
     ('ujson', '2.0.3'),
-	('matplotlib', '2.2.5', {
-		'source_tmpl': 'matplotlib-%(version)s-cp27-cp27m-manylinux1_x86_64.whl'
-	}),
     ('tabview', '1.4.2'),
-    ('openpyxl', '2.4.8'),
-    ('Pyomo', '5.2', {
-        'modulename': 'pyomo',
-    }),
-    ('Mako', '1.0.6', {
+	('et-xmlfile','1.0.1', {
+		'source_tmpl': 'et_xmlfile-%(version)s.tar.gz'
+	}),
+	('jdcal','1.4.1'),
+    ('openpyxl', '2.6.4'),
+	('MarkupSafe','1.1.1'),
+    ('Mako', '1.0.14', {
         'modulename': 'mako',
     }),
     ('pysam', '0.11.2.2'),
     ('pp', '1.6.5'),
-    ('pyBigWig', '0.3.4', {
-        'modulename': 'pyBigWig',
-    }),
     ('protobuf','3.3.0', {
         'modulename': 'google.protobuf',
     }),
@@ -114,15 +109,15 @@ exts_list = [
         'modulename': 'werkzeug',
     }),
     ('utils','0.9.0'),
-    ('casadi','3.2.0', {
-	'source_tmpl': '%(name)s-%(version)s-cp27-none-manylinux1_x86_64.whl ',
+    ('casadi','3.4.5', {
+	'source_tmpl': 'casadi-%(version)s-cp27-none-manylinux1_x86_64.whl',
     }),
-    ('cogent','1.9'),
-    ('scikit-learn', '1.0.2', {
+    ('scikit-learn', '0.20.4', {
         'modulename': 'sklearn',
     }),
-    ('seaborn', '0.8'),
-    ('statsmodels', '0.8.0'),
+	('patsy','0.5.3'),
+	#('scipy','1.2.3'),
+    #('statsmodels', '0.10.2'),
     ('ScreamingBackpack', '0.2.333', {
         'source_tmpl': 'ScreamingBackpack-%(version)s.tar.gz',
     }),

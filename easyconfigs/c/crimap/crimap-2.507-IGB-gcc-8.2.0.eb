@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'crimap'
+version = '2.507'
+
+homepage = 'https://www.animalgenome.org/tools/share/crimap/'
+description = """CRI-MAP (version 2.4, by Phil Green et al, 1990) has been used extensively in the past 20 years for genetic linkage analysis of diploid species, and has played a fundamental role in producing genetic linkage maps for humans, rats, mouse, fruit flies, cattle, sheep, pigs, chicken, fish, among many other species. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['crimap_%(version)s.tgz']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['lispcri','crimap'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/crimap','bin/lispcri'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
