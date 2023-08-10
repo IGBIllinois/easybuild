@@ -1,0 +1,48 @@
+easyblock = 'PythonPackage'
+
+name = 'SAI-app'
+version = '20230425'
+versionsuffix = '-Python-%(pyver)s'
+local_commit = '3c49644'
+
+homepage = 'https://github.com/XDynames/SAI-app'
+description = """StomaAI application"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/XDynames/SAI-app/archive/']
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('detectron2','0.6','-Python-%(pyver)s'),
+	('Tensorflow-GPU', '2.11.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('mask-to-polygons','0.0.2', {
+		'source_tmpl': 'mask_to_polygons-%(version)s-py3-none-any.whl'
+	}),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+use_pip_for_deps = True
+options = {'modulename': False}
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/'],
+}
+
+moduleclass = 'bio'

@@ -2,7 +2,7 @@
 name = 'Trinity'
 version = '2.15.1'
 
-homepage = 'http://trinityrnaseq.github.io/'
+homepage = 'https://github.com/trinityrnaseq/trinityrnaseq/wiki'
 description = """Trinity represents a novel method for the efficient and robust de novo reconstruction
  of transcriptomes from RNA-Seq data. Trinity combines three independent software modules: Inchworm,
  Chrysalis, and Butterfly, applied sequentially to process large volumes of RNA-Seq reads."""
@@ -16,7 +16,7 @@ source_urls = ['https://github.com/trinityrnaseq/trinityrnaseq/releases/download
 
 builddependencies = [
 	('Autotools', '20180311','',('GCC','8.2.0-2.32')),
-	('CMake','3.12.1'),
+	('CMake','3.17.2'),
 	('ant', '1.10.13', '-Java-%(javaver)s', True),
 ]
 
@@ -29,13 +29,15 @@ dependencies = [
 	('Perl', '5.28.1'),
 	('Salmon','1.5.2'),
 	('Python','3.7.2'),
+	('Bowtie','1.3.0'),
 	('Bowtie2','2.4.5'),
 	('Jellyfish','2.2.10'),
 	('SAMtools','1.12'),
+	('RSEM','1.3.3'),
 ]
 
 modextrapaths = {
-        'PATH':['trinityrnaseq-v%(version)s','trinityrnaseq-v%(version)s/util','trinityrnaseq-v%(version)s/util/misc']
+        'PATH':['trinityrnaseq-v%(version)s','trinityrnaseq-v%(version)s/util','trinityrnaseq-v%(version)s/util/misc','trinityrnaseq-v%(version)s/Analysis/DifferentialExpression']
 }
 
 modextravars = {

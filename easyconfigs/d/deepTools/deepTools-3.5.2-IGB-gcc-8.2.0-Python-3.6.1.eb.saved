@@ -1,0 +1,43 @@
+easyblock = 'PythonPackage'
+
+name = 'deepTools'
+version = '3.5.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/fidelram/deepTools'
+description = """deepTools addresses the challenge of handling the large amounts of data that are now routinely generated from DNA sequencing centers. deepTools contains useful modules to process the mapped reads data for multiple quality checks, creating normalized coverage files in standard bedGraph and bigWig file formats, that allow comparison between different files (for example, treatment and control). Finally, using such normalized and standardized files, deepTools can create many publication-ready visualizations to identify enrichments and for functional annotations of the genome."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = [PYPI_SOURCE]
+
+
+dependencies = [
+        ('Python', '3.6.1'),
+]
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('deeptoolsintervals','0.1.9'),
+	('numpydoc','1.1.0'),
+	('py2bit','0.3.0'),
+	('plotly','3.7.1'),
+	('pyBigWig','0.3.18', {
+		'modulename': 'pyBigWig'
+	}),
+	('pysam','0.17.0'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+moduleclass = 'bio'

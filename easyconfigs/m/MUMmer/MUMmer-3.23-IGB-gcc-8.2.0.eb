@@ -20,13 +20,15 @@ homepage = 'http://mummer.sourceforge.net/'
 description = """MUMmer is a system for rapidly aligning entire genomes,
  whether in complete or draft form. AMOS makes use of it."""
 
-toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 toolchainopts = {'optarch': True, 'pic': True}
 
 #Fix perl according to https://github.com/bioconda/bioconda-recipes/issues/1254
 patches = ['MUMmer-%(version)s.patch']
 
-dependencies = [('gnuplot','4.6.7')]
+dependencies = [
+	('gnuplot','4.6.7')
+]
 
 sources = ['%(name)s%(version)s.tar.gz']
 source_urls = [('http://sourceforge.net/projects/mummer/files/%(namelower)s/%(version)s/', 'download')]

@@ -1,0 +1,83 @@
+easyblock = 'PythonPackage'
+
+name = 'detectron2'
+version = '0.6'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/facebookresearch/detectron2/'
+description = """Detectron2 is Facebook AI Research's next generation software system that implements state-of-the-art object detection algorithms"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ["v%(version)s.tar.gz"]
+source_urls = ["https://github.com/facebookresearch/detectron2/archive/"]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('CUDA','11.8.0','',True),
+	('PyTorch','1.13.1','-Python-%(pyver)s'),
+	('Tensorflow-GPU','2.11.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('fvcore','0.1.5.post20211019'),
+	('portalocker','2.0.0'),
+	('tabulate','0.8.7'),
+	('yacs','0.1.8'),
+	('cloudpickle','1.5.0'),
+	('pycocotools','2.0.2'),
+	('pydot','1.4.1'),
+	('black','21.4b2'),
+	('hydra-core','1.1.1', {
+		'source_tmpl': 'hydra_core-%(version)s-py3-none-any.whl',
+		'modulename': 'hydra'
+	}),
+	('iopath','0.1.9', {
+		'source_tmpl': 'iopath-%(version)s-py3-none-any.whl'
+	}),
+	('omegaconf','2.1.1', {
+		'source_tmpl': 'omegaconf-%(version)s-py3-none-any.whl'
+	}),
+	('click','8.0.3'),
+	('antlr4-python3-runtime','4.8', {
+		'modulename': False
+	}),
+	('importlib-resources','5.3.0', {
+		'source_tmpl': 'importlib_resources-%(version)s-py3-none-any.whl',
+	}),
+	('mypy-extensions','0.4.3', {
+		'source_tmpl': 'mypy_extensions-0.4.3-py2.py3-none-any.whl',
+	}),
+	('pathspec','0.9.0'),
+	('platformdirs','2.4.0'),
+	('regex','2021.10.8'),
+	('tomli','1.2.1', {
+		'source_tmpl': 'tomli-%(version)s-py3-none-any.whl'
+	}),
+	('typed-ast','1.4.3', {
+		'source_tmpl': 'typed_ast-%(version)s-cp37-cp37m-manylinux1_x86_64.whl'
+	})
+	
+
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/detectron2'],
+}
+
+moduleclass = 'bio'
+

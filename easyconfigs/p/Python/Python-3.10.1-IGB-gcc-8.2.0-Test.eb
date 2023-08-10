@@ -1,5 +1,6 @@
 name = 'Python'
 version = '3.10.1'
+versionsuffix= '-Test'
 
 homepage = 'http://python.org/'
 description = """Python is a programming language that lets you work more quickly and integrate your systems
@@ -13,7 +14,7 @@ sources = [SOURCE_TGZ]
 
 builddependencies = [
 	('pkg-config','0.29.2'),
-	('git','2.28.0'),
+	#('git','2.28.0'),
 	('CMake','3.17.2'),
 ]
 # python needs bzip2 to build the bz2 package
@@ -28,7 +29,7 @@ dependencies = [
 	('libffi', '3.2.1'),
 	('libjpeg-turbo', '1.5.1'),
 	('MariaDB', '10.1.31'),
-	('OpenSSL', '1.1.1m'),
+	#('OpenSSL', '1.1.1m'),
 ]
 
 install_pip = True
@@ -101,7 +102,6 @@ exts_list = [
 		'modulename': 'yaml',
 	}),
 	('psutil','5.9.0'),
-	#('statsmodels','0.13.1'),
 	('mysqlclient', '2.1.0', {
 		'modulename': 'MySQLdb',
 	}),
@@ -165,7 +165,6 @@ exts_list = [
 	('setuptools-rust','1.5.2', {
 		'source_tmpl': 'setuptools_rust-%(version)s-py3-none-any.whl'
 	}),
-	('plotnine','0.12.1'),
 ]
 
 moduleclass = 'lang'

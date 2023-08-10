@@ -1,0 +1,38 @@
+easyblock = 'ConfigureMake'
+
+name = 'BCFtools'
+version = '1.17'
+
+homepage = 'http://www.htslib.org/'
+description = """BCFtools is a set of utilities that manipulate variant calls in the 
+ Variant Call Format (VCF) and its binary counterpart BCF"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True}
+
+source_urls = ['https://github.com/samtools/bcftools/releases/download/%(version)s/']
+sources = [SOURCELOWER_TAR_BZ2]
+
+dependencies = [
+	('HTSlib','1.17'),
+	('zlib', '1.2.11'),
+	('bzip2','1.0.6'),
+	('XZ','5.2.3'),
+    	('GSL', '2.5'),
+]
+
+configopts = "--with-htslib=$EBROOTHTSLIB --enable-libgsl --with-cblas"
+
+
+files_to_copy = [(["bcftools", "misc/*"], "bin"), 
+                 "doc", "plugins", "test", "LICENSE", "README", "AUTHORS"]
+
+sanity_check_paths = {
+    'files': ["bin/bcftools"],
+    'dirs': [],
+}
+
+modextrapaths = {'BCFTOOLS_PLUGINS':'plugins'
+}
+
+moduleclass = 'bio'

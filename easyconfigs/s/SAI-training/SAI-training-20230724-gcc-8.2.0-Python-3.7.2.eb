@@ -1,0 +1,41 @@
+easyblock = 'GitCloneConfigureMake'
+
+name = 'SAI-training'
+version = '20230724'
+git_commit = ''
+
+homepage = 'https://gitfront.io/r/jpb/u6BtFFMkNGCv/SAI-training/'
+description = """StomaAI (SAI) aims to automate the measuring process of stomate pore features from microscope images that are commonly used in plant physiological research."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['https://gitfront.io/r/jpb/u6BtFFMkNGCv/SAI-training.git']
+
+dependencies = [
+        ('Python', '3.7.2'),
+        ('detectron2','0.6','-Python-%(pyver)s'),
+        ('Tensorflow-GPU', '2.11.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+
+
+start_dir = '%(name)s'
+configopts = ''
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

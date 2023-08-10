@@ -1,0 +1,30 @@
+easyblock = 'CMakeMake'
+
+name = 'Abseil'
+version = '20230125.3'
+
+homepage = 'https://abseil.io/'
+description = """Abseil is an open-source collection of C++ library code designed to augment the
+C++ standard library. The Abseil library code is collected from Google's own
+C++ code base, has been extensively tested and used in production, and is the
+same code we depend on in our daily coding lives."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/abseil/abseil-cpp/archive/refs/tags']
+sources = ['%(version)s.tar.gz']
+
+builddependencies = [
+    ('binutils', '2.32'),
+    ('CMake', '3.17.2'),
+]
+
+build_shared_libs = True
+configopts = '-DABSL_PROPAGATE_CXX_STD=ON '
+
+sanity_check_paths = {
+    'files': ['lib/libabsl_base.%s' % SHLIB_EXT],
+    'dirs': ['include/absl'],
+}
+
+moduleclass = 'lib'

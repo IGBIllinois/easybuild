@@ -37,19 +37,16 @@ exts_default_options = {
         'sanity_pip_check': True,
         'source_urls': [PYPI_SOURCE],
         'use_pip': True,
-	'unpack_sources': False
 
 }
 
-# order is important!
-# package versions updated May 28th 2015
 exts_list = [
 	('wheel','0.35.1'),
-	('setuptools','44.0.0', {
+	('setuptools','44.1.1', {
 		'source_tmpl': 'setuptools-%(version)s-py2.py3-none-any.whl'
 	}),
 	('pip','20.3.4'),
-    ('six', '1.14.0'),
+    ('six', '1.16.0'),
     ('pyparsing', '2.2.0'),
     ('packaging', '16.8'),
     ('appdirs', '1.4.3'),
@@ -60,7 +57,6 @@ exts_list = [
     }),
     ('pbr', '5.4.5'),
     ('Cython', '0.29.32'),
-    ('python-dateutil', '2.8.1'),
     ('decorator', '4.4.2'),
     ('pytz', '2016.10'),
     ('pandas', '0.19.2'),
@@ -112,11 +108,14 @@ exts_list = [
     ('casadi','3.4.5', {
 	'source_tmpl': 'casadi-%(version)s-cp27-none-manylinux1_x86_64.whl',
     }),
-    ('scikit-learn', '0.20.4', {
-        'modulename': 'sklearn',
-    }),
+    #('scikit-learn', '0.20.4', {
+    #    'modulename': 'sklearn',
+    #}),
 	('patsy','0.5.3'),
-	#('scipy','1.2.3'),
+	('scipy','1.2.3', {
+		'source_tmpl': 'scipy-%(version)s-cp27-cp27mu-manylinux1_x86_64.whl',
+		'unpack_sources': False
+	}),
     #('statsmodels', '0.10.2'),
     ('ScreamingBackpack', '0.2.333', {
         'source_tmpl': 'ScreamingBackpack-%(version)s.tar.gz',
@@ -132,6 +131,9 @@ exts_list = [
     ('PyVCF', '0.6.8', {
         'modulename': 'vcf',
     }),
+	('python-dateutil', '2.8.2', {
+		'modulename': 'dateutil'
+	}),
 ]
 
 modextravars = {'PYTHONWARNINGS':'ignore:DEPRECATION'}

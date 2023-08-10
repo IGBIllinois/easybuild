@@ -1,0 +1,39 @@
+easyblock = 'Tarball'
+
+name = 'NGSCheckMate'
+version = '20190507'
+versionsuffix = '-Python-%(pyver)s'
+local_commit = '8ea2c04'
+
+homepage = 'https://github.com/parklab/NGSCheckMate'
+description = """NGSCheckMate is a software package for identifying next generation sequencing (NGS) data files from the same individual. It analyzes various types of NGS data files including (but not limited to) whole genome sequencing (WGS), whole exome sequencing (WES), RNA-seq, ChIP-seq, and targeted sequencing of various depths."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/parklab/NGSCheckMate/archive/']
+
+dependencies = [
+	('Python','2.7.18'),
+	('R','4.2.2'),
+	('SAMtools','0.1.20'),
+	
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['ngscheckmate_fastq'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'NCM_HOME': '',
+	'PATH': ''
+}
+
+fix_python_shebang_for = ['*.py']
+
+postinstallcmds = ['chmod 755 %(installdir)s/*.py']
+
+moduleclass = 'bio'

@@ -16,7 +16,7 @@ sources = ['%(namelower)s-%(version)s-src.zip']
 source_urls = ['http://download.sourceforge.net/bowtie-bio/']
 
 dependencies = [
-	('tbb','2019_U3'),
+	('tbb','2019_U4'),
 	('Python','3.7.2'),
 ]
 

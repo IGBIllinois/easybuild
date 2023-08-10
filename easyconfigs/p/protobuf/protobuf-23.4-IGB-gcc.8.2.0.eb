@@ -1,0 +1,35 @@
+easyblock = 'CMakeMake'
+
+name = 'protobuf'
+version = '23.4'
+
+homepage = 'https://github.com/google/protobuf'
+description = """Protocol Buffers (a.k.a., protobuf) are Googles language-neutral, platform-neutral, extensible mechanism for serializing structured data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/protocolbuffers/releases/download/v%(version)s/']
+sources = ["%(name)s-%(version)s.tar.gz"]
+
+builddependencies = [
+   ('binutils', '2.32'),
+   ('CMake', '3.17.2'),
+] 
+
+dependencies = [
+ ('Abseil', '20230125.3'),
+]
+
+configopts = '-Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_ABSL_PROVIDER=package  -Dprotobuf_BUILD_SHARED_LIBS=ON'
+sanity_check_paths = {
+        'files': ['bin/protoc'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

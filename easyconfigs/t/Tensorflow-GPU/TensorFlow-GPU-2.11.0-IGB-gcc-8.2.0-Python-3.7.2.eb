@@ -1,7 +1,7 @@
 easyblock = 'PythonBundle'
 
 name = 'Tensorflow-GPU'
-version = '2.3.1'
+version = '2.11.0'
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://www.tensorflow.org/'
@@ -11,8 +11,8 @@ toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 dependencies = [
 	('Python', '3.7.2'),
-	('CUDA','10.1.105','',True),
-	('cuDNN','8.0.4.30','-CUDA-10.1.105',True),
+	('CUDA','11.8.0','',True),
+	('cuDNN','8.9.2.23','-CUDA-11.8.0',True),
 	('h5py','2.10.0','-Python-%(pyver)s'),
    
 ]
@@ -67,19 +67,20 @@ exts_list = [
         ('tensorflow-gpu', version, {
                 'modulename': 'tensorflow',
                 'source_urls': [PYPI_SOURCE],
-                'source_tmpl': 'tensorflow_gpu-%(version)s-cp37-cp37m-manylinux2010_x86_64.whl',
+                'source_tmpl': 'tensorflow_gpu-%(version)s-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl',
         }),
-        ('tensorboard', '2.3.0', {
+        ('tensorboard', '2.11.0', {
                 'source_tmpl': 'tensorboard-%(version)s-py3-none-any.whl',
         }),
 
 	('google-pasta', '0.2.0', {
         	'modulename': 'pasta',
 	}),
-	('grpcio', '1.28.1', {
+	('grpcio', '1.47.0', {
 		'modulename': 'grpc',
+		'source_tmpl': 'grpcio-%(version)s-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
 	}),
-	('tensorflow-estimator', '2.3.0', {
+	('tensorflow-estimator', '2.11.0', {
         	'source_tmpl': 'tensorflow_estimator-%(version)s-py2.py3-none-any.whl',
 	        'unpack_sources': False,
 	}),
@@ -110,7 +111,7 @@ exts_list = [
 	('soupsieve','2.0.1', {
 	}),
 	('bleach','1.5.0'),
-	('tensorpack','0.10.1', {
+	('tensorpack','0.11', {
 		'source_tmpl': 'tensorpack-%(version)s-py2.py3-none-any.whl',
 	}),
 	('msgpack-numpy','0.4.6.post0'),
@@ -121,11 +122,30 @@ exts_list = [
 		'source_tmpl': 'Keras_Preprocessing-%(version)s.tar.gz',
 		'modulename': 'keras_preprocessing',
 	}),
-	('numpy','1.18.5', {
-		'source_tmpl': 'numpy-%(version)s.zip',
-		'unpack_sources': True
+	('flatbuffers','2.0.7', {
+		'source_tmpl': 'flatbuffers-%(version)s-py2.py3-none-any.whl'
 	}),
-
+	('keras','2.11.0', {
+		'source_tmpl': 'keras-%(version)s-py2.py3-none-any.whl'
+	}),
+	('Keras-Applications','1.0.8', {
+		'source_tmpl': 'Keras_Applications-%(version)s-py3-none-any.whl'
+	}),
+	('libclang','14.0.1', {
+		'source_tmpl': 'libclang-%(version)s-py2.py3-none-manylinux1_x86_64.whl',
+		'modulename': False
+	}),
+	('tensorflow-io-gcs-filesystem','0.26.0', {
+		'source_tmpl': 'tensorflow_io_gcs_filesystem-%(version)s-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl',
+		'modulename': False
+	}),
+	('tensorboard-data-server','0.6.1', {
+		'source_tmpl': 'tensorboard_data_server-%(version)s-py3-none-manylinux2010_x86_64.whl'
+	}),
+	('absl-py','1.2.0',{
+		'source_tmpl': 'absl_py-%(version)s-py3-none-any.whl',
+		'modulename': 'absl'
+	}),
 
 
 

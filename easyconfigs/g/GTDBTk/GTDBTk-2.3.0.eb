@@ -1,7 +1,7 @@
 easyblock = 'Conda'
 
 name = 'GTDBTk'
-version = '2.1.1'
+version = '2.3.0'
 
 homepage = 'https://ecogenomics.github.io/GTDBTk/'
 description = """GTDB-Tk is a software toolkit for assigning objective taxonomic classifications to bacterial and archaeal genomes based on the Genome Database Taxonomy GTDB"""

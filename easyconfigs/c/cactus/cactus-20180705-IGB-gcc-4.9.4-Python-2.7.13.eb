@@ -1,18 +1,20 @@
-easyblock = 'ModuleOnly'
+easyblock = 'Bundle'
 
 name = 'cactus'
 version = '20180705'
 local_git_commit = '2722314'
 versionsuffix = "-Python-2.7.13"
+
 homepage = 'https://github.com/ComparativeGenomicsToolkit/cactus'
 description = """Cactus is a reference-free whole-genome multiple alignment program."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
-sources = ['https://github.com/ComparativeGenomicsToolkit/cactus.git']
-source_urls = ['']
+#sources = ['https://github.com/ComparativeGenomicsToolkit/cactus.git']
+#source_urls = ['']
 
-dependencies = [('kyoto','.20170410'),
+dependencies = [
+	('kyoto','20170410'),
 	('Python','2.7.13'),
 ]
 
