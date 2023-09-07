@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'foldseek'
+version = '7-04e0ec8'
+
+homepage = 'https://github.com/steineggerlab/foldseek'
+description = """Foldseek enables fast and sensitive comparisons of large structure sets."""
+
+toolchain = SYSTEM
+
+sources = ['foldseek-linux-avx2.tar.gz']
+source_urls = ['https://github.com/steineggerlab/foldseek/releases/download/%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/foldseek'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

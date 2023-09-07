@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'MMseqs2'
+version = '14-7e284'
+
+homepage = 'https://github.com/soedinglab/MMseqs2'
+description = """MMseqs2 (Many-against-Many sequence searching) is a software suite to search and cluster huge protein and nucleotide sequence sets. """
+
+toolchain = SYSTEM
+
+sources = ['mmseqs-linux-sse41.tar.gz']
+source_urls = ['https://github.com/soedinglab/MMseqs2/releases/download/%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/mmseqs'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

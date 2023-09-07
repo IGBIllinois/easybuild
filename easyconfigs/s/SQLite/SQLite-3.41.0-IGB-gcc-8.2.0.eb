@@ -1,0 +1,26 @@
+easyblock = 'ConfigureMake'
+
+name = 'SQLite'
+version = '3.41.0'
+local_filename_version = '3410000'
+
+homepage = 'http://www.sqlite.org/'
+description = 'SQLite: SQL Database Engine in a C Library'
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['http://www.sqlite.org/2023/']
+sources = ['%%(namelower)s-autoconf-%s.tar.gz' % (local_filename_version)]
+
+dependencies = [
+    ('libreadline', '6.3'),
+    ('Tcl', '8.6.6'),
+]
+
+sanity_check_paths = {
+    'files': ['bin/sqlite3', 'include/sqlite3ext.h', 'include/sqlite3.h', 'lib/libsqlite3.a',
+              'lib/libsqlite3.%s' % SHLIB_EXT],
+    'dirs': ['lib/pkgconfig'],
+}
+
+moduleclass = 'devel'

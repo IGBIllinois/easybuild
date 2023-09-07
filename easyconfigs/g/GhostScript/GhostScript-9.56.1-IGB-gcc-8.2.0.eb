@@ -1,0 +1,53 @@
+easyblock = 'ConfigureMake'
+
+name = 'GhostScript'
+version = '9.56.1'
+
+homepage = 'http://ghostscript.com'
+description = """Ghostscript is a versatile processor for PostScript data with the ability to render PostScript to
+ different targets. It used to be part of the cups printing stack, but is no longer used for that."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True}
+
+source_urls = [
+    'https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9550/',
+]
+sources = ['ghostscript-%(version)s.tar.gz']
+
+builddependencies = [
+    ('binutils', '2.32'),
+    ('pkg-config', '0.29.2'),
+]
+
+dependencies = [
+    ('freetype', '2.13.0'),
+    ('libjpeg-turbo', '1.5.1'),
+    ('expat', '2.2.0'),
+    ('GLib', '2.49.5'),
+    ('cairo', '1.14.8'),
+    ('LibTIFF', '4.0.7'),
+]
+
+preconfigopts = "mv zlib zlib.no && mv jpeg jpeg.no && mv freetype freetype.no && mv libpng libpng.no && "
+preconfigopts += 'export LIBS="$LIBS -L$EBROOTZLIB/lib -lz" && '
+
+configopts = "mv jpeg jpeg.no && mv freetype freetype.no && "
+
+configopts = "--with-system-libtiff --enable-dynamic"
+
+postinstallcmds = [
+    # build and install shared libs
+    "make so && make soinstall",
+    # install header files
+    "mkdir -p %(installdir)s/include/ghostscript",
+    "install -v -m644 base/*.h %(installdir)s/include/ghostscript",
+    "install -v -m644 psi/*.h %(installdir)s/include/ghostscript",
+]
+sanity_check_paths = {
+    'files': ['bin/gs', 'lib/libgs.%s' % SHLIB_EXT],
+    'dirs': ['lib/ghostscript', 'include/ghostscript', 'share/man'],
+}
+
+
+moduleclass = 'tools'
