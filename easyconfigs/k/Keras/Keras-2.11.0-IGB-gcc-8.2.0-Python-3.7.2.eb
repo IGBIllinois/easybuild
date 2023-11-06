@@ -1,0 +1,40 @@
+easyblock = 'PythonBundle'
+
+name = 'Keras'
+version = '2.11.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/fchollet/keras'
+description = '''Keras is a high-level neural networks API, written in Python and capable of running on top of TensorFlow, CNTK, or Theano. '''
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Tensorflow-GPU','2.11.0','-Python-%(pyver)s'),
+]
+
+use_pip = True
+sanity_pip_check = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+('Keras-Applications', '1.0.8', {
+        'source_tmpl': 'Keras_Applications-%(version)s.tar.gz',
+    }),
+    ('Keras-Preprocessing', '1.1.2', {
+        'source_tmpl': 'Keras_Preprocessing-%(version)s.tar.gz',
+    }),
+    ('Keras', version, {
+	'source_tmpl': 'keras-%(version)s-py2.py3-none-any.whl'
+    }),
+]
+
+moduleclass = 'math'

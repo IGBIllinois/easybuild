@@ -1,0 +1,42 @@
+easyblock = 'PythonPackage'
+
+name = 'fair-esm'
+version = '2.0.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/facebookresearch/esm#available'
+description = """This repository contains code and pre-trained weights for Transformer protein language models from Facebook AI Research, including our state-of-the-art ESM-1b and MSA Transformer."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('PyTorch','1.9.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+options = {'modulename': 'esm' }
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/esm'],
+}
+
+moduleclass = 'bio'

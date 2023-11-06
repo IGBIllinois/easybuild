@@ -1,0 +1,34 @@
+easyblock = 'Conda'
+
+name = 'intervene'
+version = '0.6.5'
+
+homepage = 'https://intervene.readthedocs.io/en/latest/'
+description = """a tool for intersection and visualization of multiple genomic region sets"""
+
+toolchain = SYSTEM
+
+dependencies = [('Miniconda3','4.10.3'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': ['bin/intervene'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

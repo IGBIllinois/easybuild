@@ -1,0 +1,96 @@
+diff -ru beast.original/bin/applauncher beast/bin/applauncher
+--- beast.original/bin/applauncher	2023-10-05 12:39:23.425508000 -0500
++++ beast/bin/applauncher	2023-10-05 12:39:35.517036000 -0500
+@@ -23,7 +23,7 @@
+ fi
+ 
+ BEAST_LIB="$BEAST/lib"
+-export JAVA_HOME="$BEAST/jre"
++#export JAVA_HOME="$BEAST/jre"
+ 
+ if [ -z "$JAVA_HOME" ]; then
+   JAVA=java
+diff -ru beast.original/bin/beast beast/bin/beast
+--- beast.original/bin/beast	2023-10-05 12:39:23.427345000 -0500
++++ beast/bin/beast	2023-10-05 12:39:42.052869000 -0500
+@@ -23,7 +23,7 @@
+ fi
+ 
+ BEAST_LIB="$BEAST/lib"
+-export JAVA_HOME="$BEAST/jre"
++#export JAVA_HOME="$BEAST/jre"
+ 
+ if [ -x "${JAVA_HOME}/bin/java" ]; then
+   JAVA="$JAVA_HOME"/bin/java
+diff -ru beast.original/bin/beauti beast/bin/beauti
+--- beast.original/bin/beauti	2023-10-05 12:39:23.426987000 -0500
++++ beast/bin/beauti	2023-10-05 12:39:50.548725000 -0500
+@@ -23,7 +23,7 @@
+ fi
+ 
+ BEAST_LIB="$BEAST/lib"
+-export JAVA_HOME="$BEAST/jre"
++#export JAVA_HOME="$BEAST/jre"
+ 
+ if [ -z "$JAVA_HOME" ]; then
+   JAVA=java
+diff -ru beast.original/bin/densitree beast/bin/densitree
+--- beast.original/bin/densitree	2023-10-05 12:39:23.426586000 -0500
++++ beast/bin/densitree	2023-10-05 12:39:59.532722000 -0500
+@@ -23,7 +23,7 @@
+ fi
+ 
+ BEAST_LIB="$BEAST/lib"
+-export JAVA_HOME="$BEAST/jre"
++#export JAVA_HOME="$BEAST/jre"
+ 
+ if [ -z "$JAVA_HOME" ]; then
+   JAVA=java
+diff -ru beast.original/bin/loganalyser beast/bin/loganalyser
+--- beast.original/bin/loganalyser	2023-10-05 12:39:23.426275000 -0500
++++ beast/bin/loganalyser	2023-10-05 12:40:07.189368000 -0500
+@@ -23,7 +23,7 @@
+ fi
+ 
+ BEAST_LIB="$BEAST/lib"
+-export JAVA_HOME="$BEAST/jre"
++#export JAVA_HOME="$BEAST/jre"
+ 
+ if [ -z "$JAVA_HOME" ]; then
+   JAVA=java
+diff -ru beast.original/bin/logcombiner beast/bin/logcombiner
+--- beast.original/bin/logcombiner	2023-10-05 12:39:23.425205000 -0500
++++ beast/bin/logcombiner	2023-10-05 12:40:14.814794000 -0500
+@@ -23,7 +23,7 @@
+ fi
+ 
+ BEAST_LIB="$BEAST/lib"
+-export JAVA_HOME="$BEAST/jre"
++#export JAVA_HOME="$BEAST/jre"
+ 
+ if [ -z "$JAVA_HOME" ]; then
+   JAVA=java
+diff -ru beast.original/bin/packagemanager beast/bin/packagemanager
+--- beast.original/bin/packagemanager	2023-10-05 12:39:23.424795000 -0500
++++ beast/bin/packagemanager	2023-10-05 12:40:22.141548000 -0500
+@@ -23,7 +23,7 @@
+ fi
+ 
+ BEAST_LIB="$BEAST/lib"
+-export JAVA_HOME="$BEAST/jre"
++#export JAVA_HOME="$BEAST/jre"
+ 
+ if [ -z "$JAVA_HOME" ]; then
+   JAVA=java
+diff -ru beast.original/bin/treeannotator beast/bin/treeannotator
+--- beast.original/bin/treeannotator	2023-10-05 12:39:23.425964000 -0500
++++ beast/bin/treeannotator	2023-10-05 12:40:29.325862000 -0500
+@@ -23,7 +23,7 @@
+ fi
+ 
+ BEAST_LIB="$BEAST/lib"
+-export JAVA_HOME="$BEAST/jre"
++#export JAVA_HOME="$BEAST/jre"
+ 
+ if [ -z "$JAVA_HOME" ]; then
+   JAVA=java

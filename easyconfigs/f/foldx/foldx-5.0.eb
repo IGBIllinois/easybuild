@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'foldx'
+version = '5.0'
+
+homepage = 'https://foldxsuite.crg.eu/'
+description = """The FoldX Suite builds on the strong fundament of advanced protein design features, already implemented in the successful FoldX3, and exploits the power of fragment libraries, by integrating in silico digested backbone protein fragments of different lengths. S"""
+
+toolchain = SYSTEM
+
+sources = ['foldx5Linux64.tar.gz']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['foldx_20231231'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+postinstallcmds = ['cp %(installdir)s/foldx_20231231 %(installdir)s/foldx']
+moduleclass = 'bio'

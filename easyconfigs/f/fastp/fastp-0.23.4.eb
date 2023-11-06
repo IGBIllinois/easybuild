@@ -1,0 +1,27 @@
+easyblock = 'Binary'
+
+name = 'fastp'
+version = '0.23.4'
+
+homepage = 'https://github.com/OpenGene/fastp'
+description = """A tool designed to provide fast all-in-one preprocessing for FastQ files. This tool is developed in C++ with multithreading supported to afford high performance."""
+
+toolchain = SYSTEM
+
+sources = ['fastp.%(version)s']
+source_urls = ['http://opengene.org/fastp/']
+extract_sources = False
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['fastp'],
+	'dirs': [],
+}
+
+postinstallcmds = ['mv %(installdir)s/fastp.%(version)s %(installdir)s/fastp','chmod a+x %(installdir)s/fastp']
+
+moduleclass = 'bio'

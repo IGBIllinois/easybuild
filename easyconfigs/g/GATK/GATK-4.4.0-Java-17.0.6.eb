@@ -13,8 +13,20 @@ toolchain = SYSTEM
 sources = ['gatk-%(version)s.zip']
 source_urls = ['https://github.com/broadinstitute/gatk/releases/download/%(version)s/']
 
-dependencies = [('Java','17.0.6')
+dependencies = [('Java','17.0.6'),
+	('Python','3.7.2')
 ]
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('gcnvkernel','
+]
+
 
 keepsymlinks = True
 

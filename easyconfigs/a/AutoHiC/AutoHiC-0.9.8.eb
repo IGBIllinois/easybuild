@@ -1,0 +1,39 @@
+easyblock = 'Conda'
+
+name = 'AutoHiC'
+version = '0.9.8'
+
+homepage = 'https://github.com/Jwindler/AutoHiC'
+description = """AutoHiC is a deep learning tool that uses Hi-C data to support genome assembly. It can automatically correct errors during genome assembly and generate genomes at the chromosome level."""
+
+toolchain = SYSTEM
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/Jwindler/AutoHiC/archive/refs/tags/']
+extract_sources = True
+
+dependencies = [('Anaconda3','2023.09')
+]
+
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+environment_file = "autohic.yaml"
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

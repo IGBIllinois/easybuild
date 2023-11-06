@@ -8,7 +8,7 @@ description = """"""
 
 toolchain = SYSTEM
 
-dependencies = [('Miniconda3','4.10.3''),
+dependencies = [('Miniconda3','4.10.3'),
 ]
 
 channels = ['defaults','bioconda', 'conda-forge']

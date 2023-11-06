@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'JavaFX'
+version = '21'
+
+homepage = 'https://openjfx.io/'
+description = """JavaFX is an open source, next generation client application platform for desktop, mobile and embedded systems built on Java. """
+
+toolchain = SYSTEM
+
+sources = ['openjfx-%(version)s_linux-x64_bin-sdk.zip']
+source_urls = ['https://download2.gluonhq.com/openjfx/%(version)s/']
+
+dependencies = [
+	('Java','17.0.6'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['lib/javafx.base.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {'CLASSPATH':'lib'}
+
+moduleclass = 'bio'

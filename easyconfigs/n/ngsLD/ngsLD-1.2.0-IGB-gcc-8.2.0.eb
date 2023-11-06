@@ -1,0 +1,32 @@
+easyblock = 'MakeCp'
+
+name = 'ngsLD'
+version = '1.2.0'
+
+homepage = 'https://github.com/fgvieira/ngsLD'
+description = """ngsLD is a program to estimate pairwise linkage disequilibrium (LD) taking the uncertainty of genotype's assignation into account. It does so by avoiding genotype calling and using genotype likelihoods or posterior probabilities."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/fgvieira/ngsLD/archive/refs/tags/']
+
+dependencies = [
+	('GSL','2.5')
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['ngsLD'],'bin'),'examples','scripts','shared','LICENSE']
+
+sanity_check_paths = {
+	'files': ['bin/ngsLD'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

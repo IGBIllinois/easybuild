@@ -1,0 +1,51 @@
+easyblock = 'PythonPackage'
+
+name = 'deNOPA'
+version = '1.0.2'
+local_commit = 'aa6b22d'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://gitee.com/bxxu/denopa'
+description = """As the basal bricks, the dynamics and arrangement of nucleosomes orchestrate the higher architecture of chromatin in a fundamental way, thereby affecting almost all nuclear biology processes."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+source_urls = []
+sources = [{'filename': 'denopa-%(version)s.tar.gz',
+	'git_config': {
+		'url': 'https://gitee.com/bxxu',
+		'repo_name': 'denopa',
+		'commit': 'aa6b22d'
+	},
+}]
+
+patches = ['deNOPA-%(version)s.patch']
+
+dependencies = [
+        ('Python', '2.7.13'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = True
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+options = {'modulename': False}
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

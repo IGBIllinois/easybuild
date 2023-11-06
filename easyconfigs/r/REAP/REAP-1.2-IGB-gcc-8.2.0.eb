@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'REAP'
+version = '1.2'
+
+homepage = 'https://faculty.washington.edu/tathornt/software/REAP/index.html'
+description = """"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['REAP_%(version)s.tar.gz']
+source_urls = ['https://faculty.washington.edu/tathornt/software/REAP/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['REAP'],'bin'),]
+
+sanity_check_paths = {
+	'files': ['bin/REAP'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
