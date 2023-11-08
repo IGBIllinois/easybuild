@@ -22,14 +22,14 @@ dependencies = [('Perl','5.28.1'),
 	('tar','1.32'),
 	('pigz','2.4'),
 	('pbzip2','1.1.13'),
-	('MultiQC','1.7','-Python-3.7.2'),
-	('FastQC','0.11.7'),
+	('MultiQC','1.12','-Python-3.7.2'),
+	('FastQC','0.11.9','-Java-1.8.0_201',True),
 	('seqtk','1.2'),
 	('SAMtools','1.10'),
 	('gnuplot','4.6.7'),
-	('smrtlink','11.0.0.146107','',True),
+	('smrtlink','11.1.0.166339','',True),
 	('pbbam','1.0.7'),
-	('seqkit','0.15.0','',True),
+	('seqkit','2.3.0','',True),
 ]
 
 keepsymlinks = True

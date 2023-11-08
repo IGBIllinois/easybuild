@@ -1,7 +1,7 @@
 easyblock = 'Tarball'
 
 name = 'cbc_scripts'
-version = 'beta'
+version = '1.23'
 
 homepage = 'https://github.com/IGBIllinois/CBC_scripts'
 description = """DNA services at the Biotech center include short read sequencing with four types of Illumina platforms: HiSeq4000, HiSeq2500, MiSeq and NovaSeq6000"""
@@ -13,11 +13,12 @@ sources = [{
         'git_config': {
                 'url': 'https://github.com/IGBIllinois',
                 'repo_name': 'CBC_scripts',
-                'tag': 'beta',
+                'tag': '%(version)s',
         },
 }]
 
-dependencies = [('Perl','5.28.1'),
+dependencies = [
+	('Perl','5.28.1'),
 	('bcl2fastq2','2.20'),
 	('pigz','2.4'),
 	('pbzip2','1.1.13'),
@@ -25,6 +26,7 @@ dependencies = [('Perl','5.28.1'),
 	('FASTX-Toolkit','0.0.13.2','',True),
 	('MultiQC','1.12','-Python-3.7.2'),
 	('FastQC','0.11.9','-Java-15.0.1',True),
+	('SQLite','3.17.0'),
 	('seqtk','1.2'),
 	('gnuplot','4.6.7'),
 	('Bowtie2','2.4.5'),

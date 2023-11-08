@@ -1,0 +1,31 @@
+easyblock = 'Tarball'
+
+name = 'PrimerMgr'
+version = '1.05'
+versionsuffix = "-Java-%(javaver)s"
+
+homepage = 'https://github.com/IGBIllinois/primerMgr'
+description = """Biotech Center Primer Manager Database"""
+
+toolchain = SYSTEM
+
+sources = ['PrimerMgr-%(version)s.zip']
+source_urls = ['https://github.com/IGBIllinois/primerMgr/releases/download/%(version)s/']
+
+dependencies = [('Java','15.0.1')
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['PrimerMgr-%(version)s.jar','PrimerMgr.sh'],
+	'dirs': [],
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/PrimerMgr.sh']
+
+modextrapaths = {'PATH':''
+}
+
+moduleclass = 'bio'
