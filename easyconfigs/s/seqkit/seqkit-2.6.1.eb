@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'seqkit'
+version = '2.6.1'
+
+homepage = 'https://bioinf.shenwei.me/seqkit'
+description = """a cross-platform and ultrafast toolkit for FASTA/Q file manipulation"""
+
+toolchain = SYSTEM
+
+sources = ['seqkit_linux_amd64.tar.gz']
+source_urls = ['https://github.com/shenwei356/seqkit/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['seqkit'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
