@@ -24,7 +24,7 @@ dependencies = [
 	('MetaEuk','4'),
 	('GUSHR','20200928','-Java-1.8.0_201',True),
 	('BUSCO-db','4','',True),
-	
+	('BBMap','38.94','-Java-1.8.0_201',True),	
 ]
 
 

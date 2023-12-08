@@ -1,0 +1,31 @@
+easyblock = 'Binary'
+
+name = 'vartrix'
+version = '1.1.22'
+
+homepage = 'https://github.com/10XGenomics/vartrix'
+description = """VarTrix is a software tool for extracting single cell variant information from 10x Genomics single cell data. VarTrix will take a set of previously defined variant calls and use that to identify those variants in the single cell data."""
+
+toolchain = SYSTEM
+
+sources = ['vartrix_linux']
+source_urls = ['https://github.com/10XGenomics/vartrix/releases/download/v%(version)s']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['vartrix'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+postinstallcmds = [
+	'mv %(installdir)s/vartrix_linux %(installdir)s/vartrix',
+	'chmod 775 %(installdir)s/vartrix'
+]
+
+moduleclass = 'bio'

@@ -1,0 +1,12 @@
+diff -ru merlin-p-c6d1ff8bbda61f5d7447af5befd81448fb04f88f.original/Makefile merlin-p-c6d1ff8bbda61f5d7447af5befd81448fb04f88f/Makefile
+--- merlin-p-c6d1ff8bbda61f5d7447af5befd81448fb04f88f.original/Makefile	2023-11-10 09:15:13.745325000 -0600
++++ merlin-p-c6d1ff8bbda61f5d7447af5befd81448fb04f88f/Makefile	2023-11-10 09:15:31.560392000 -0600
+@@ -8,7 +8,7 @@
+ CFLAGS = -g
+ 
+ merlin: $(SRC)
+-	$(CC) $(SRC) -I $(INCLPATH1) -I $(INCLPATH2)  -L$(LIBPATH) $(LFLAG) $(CFLAGS) -o merlin
++	$(CC) $(SRC) -I $(INCLPATH1) -I $(INCLPATH2) $(LFLAG) $(CFLAGS) -o merlin
+ 
+ clean:
+ 	rm -f merlin *~

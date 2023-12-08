@@ -1,0 +1,62 @@
+easyblock = 'PythonPackage'
+
+name = 'BiG-SCAPE'
+version = '1.1.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://git.wageningenur.nl/medema-group/BiG-SCAPE'
+description = """BiG-SCAPE (Biosynthetic Gene Similarity Clustering and Prospecting Engine) is a software package, written in Python, that constructs sequence similarity networks of Biosynthetic Gene Clusters (BGCs) and groups them into Gene Cluster Families (GCFs)"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/medema-group/BiG-SCAPE/archive/refs/tags/']
+
+dependencies = [('Python','3.7.2'),
+	('Biopython','1.79','-Python-%(pyver)s'),
+	('FastTree','2.1.11'),
+	('HMMER','3.3.1'),
+
+]
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+    'use_pip': True
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+]
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+options = {'modulename': False }
+
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/bigscape.py'],
+	'dirs': [],
+}
+
+postinstallcmds = [
+	'unzip -d %(installdir)s/lib/python%(pyshortver)s/site-packages/BiG-SCAPE/Annotated_MIBiG_reference/ %(installdir)s/lib/python%(pyshortver)s/site-packages/BiG-SCAPE/Annotated_MIBiG_reference/MIBiG_1.3_final.zip',
+	'unzip -d %(installdir)s/lib/python%(pyshortver)s/site-packages/BiG-SCAPE/Annotated_MIBiG_reference/ %(installdir)s/lib/python%(pyshortver)s/site-packages/BiG-SCAPE/Annotated_MIBiG_reference/MIBiG_1.4_final.zip',
+	'unzip -d %(installdir)s/lib/python%(pyshortver)s/site-packages/BiG-SCAPE/Annotated_MIBiG_reference/ %(installdir)s/lib/python%(pyshortver)s/site-packages/BiG-SCAPE/Annotated_MIBiG_reference/MIBiG_2.1_final.zip',
+	'unzip -d %(installdir)s/lib/python%(pyshortver)s/site-packages/BiG-SCAPE/Annotated_MIBiG_reference/ %(installdir)s/lib/python%(pyshortver)s/site-packages/BiG-SCAPE/Annotated_MIBiG_reference/MIBiG_3.1_final.zip'
+]
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

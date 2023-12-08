@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'raxml-ng'
+version = '1.2.0'
+
+homepage = 'https://github.com/amkozlov/raxml-ng'
+description = """RAxML-NG is a phylogenetic tree inference tool which uses maximum-likelihood (ML) optimality criterion. Its search heuristic is based on iteratively performing a series of Subtree Pruning and Regrafting (SPR) moves, which allows to quickly navigate to the best-known ML tree."""
+
+toolchain = SYSTEM
+
+sources = ['raxml-ng_v%(version)s_linux_x86_64.zip']
+source_urls = ['https://github.com/amkozlov/raxml-ng/releases/download/%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['raxml-ng'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

@@ -1,0 +1,19 @@
+diff -ru ExonOntology-8e98097c-8e98097cb2d85f38c08a70e3cc9b2a11e3141a6a.original/scripts/EXONT_annotateSequences.pl ExonOntology-8e98097c-8e98097cb2d85f38c08a70e3cc9b2a11e3141a6a/scripts/EXONT_annotateSequences.pl
+--- ExonOntology-8e98097c-8e98097cb2d85f38c08a70e3cc9b2a11e3141a6a.original/scripts/EXONT_annotateSequences.pl	2023-11-08 15:57:30.719082000 -0600
++++ ExonOntology-8e98097c-8e98097cb2d85f38c08a70e3cc9b2a11e3141a6a/scripts/EXONT_annotateSequences.pl	2023-11-08 15:58:20.411613195 -0600
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl 
++#!/usr/bin/env perl 
+ 
+ # ============================================================================
+ #
+@@ -12,7 +12,8 @@
+ # ============================================================================
+ #	LIBRARIES
+ # ============================================================================
+-use lib "./lib/";
++use FindBin qw($Bin);
++use lib $Bin . '/..//lib';
+ use strict;
+ use ExonOntologyLib;
+ use Getopt::Std;

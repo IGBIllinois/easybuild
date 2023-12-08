@@ -1,0 +1,35 @@
+easyblock = 'MakeCp'
+
+name = 'merlin-p'
+version = '20181020'
+local_commit = 'c6d1ff8'
+
+homepage = 'https://github.com/Roy-lab/merlin-p'
+description = """Modular regulatory network learning with per gene information (MERLIN) is a network inference method that tries to infer a more accurate regulatory network by incorporating a modularity constraint."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/Roy-lab/merlin-p/archive/']
+
+patches = ['merlin-p-%(version)s.patch']
+
+dependencies = [
+	('GSL','2.5')
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['merlin'],'bin'),'README.md','example']
+
+sanity_check_paths = {
+	'files': ['bin/merlin'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

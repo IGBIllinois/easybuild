@@ -1,0 +1,42 @@
+easyblock = 'PythonPackage'
+
+name = 'MOODS'
+version = '1.9.4.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://www.cs.helsinki.fi/group/pssmfind/'
+description = """MOODS is a suite of algorithms for matching position weight matrices (PWM) against DNA sequences. It features advanced matrix matching algorithms implemented in C++ that can be used to scan hundreds of matrices against chromosome-sized sequences in few seconds."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['MOODS-python-%(version)s.tar.gz']
+source_urls = ['https://pypi.python.org/packages/source/m/MOODS-python']
+
+dependencies = [
+        ('Python', '3.7.2'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+options = {'modulename': 'MOODS' }
+
+sanity_check_paths = {
+        'files': ['bin/moods-dna.py'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/MOODS'],
+}
+
+moduleclass = 'bio'

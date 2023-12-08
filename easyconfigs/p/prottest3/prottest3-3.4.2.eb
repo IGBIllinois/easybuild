@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'prottest3'
+version = '3.4.2'
+
+homepage = 'https://github.com/ddarriba/prottest3'
+description = """ProtTest is a bioinformatic tool for the selection of best-fit models of aminoacid replacement for the data at hand. ProtTest makes this selection by finding the model in the candidate list with the smallest Akaike Information Criterion (AIC), Bayesian Information Criterion (BIC) score or Decision Theory Criterion (DT)."""
+
+toolchain = SYSTEM
+
+sources = ['prottest-%(version)s-20160508.tar.gz']
+source_urls = ['https://github.com/ddarriba/prottest3/releases/download/%(version)s-release/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/PhyML_3.0_linux64'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

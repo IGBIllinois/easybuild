@@ -1,0 +1,35 @@
+easyblock = 'Tarball'
+
+name = 'ExonOntology'
+version = '20171018'
+versionsuffix = '-Perl-%(perlver)s'
+local_commit = '8e98097c'
+
+homepage = 'https://gitlab.com/ExonOntology/ExonOntology'
+description = """This project consists of a set of scripts that are necessary to perform offline Exon Ontology analyses. Briefly, it can accept a list of genomic sequences as input that represent exons (or parts of exons). The algorithm then retrieves the protein features that are encoded by these DNA sequences."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://gitlab.com/ExonOntology/ExonOntology/-/archive/']
+
+patches = ['ExonOntology-%(version)s.patch']
+
+dependencies = [
+	('Perl','5.28.1'),
+	('MariaDB','10.3.17'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['scripts/EXONT_annotateSequences.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'scripts'}
+
+postinstallcmds = ['chmod 775 %(installdir)s/scripts/EXONT_annotateSequences.pl',
+	'chmod 775 %(installdir)s/scripts/runTest.sh'
+]
+moduleclass = 'bio'

@@ -22,6 +22,7 @@ dependencies = [
 	('augustus','3.3.3'),
 	('HMMER','3.3.1'),
 	('MetaEuk','4'),
+	('BBMap','38.94','-Java-1.8.0_201',True),
 	('BUSCO-db','4','',True),
 
 	
