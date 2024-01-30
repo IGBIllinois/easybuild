@@ -3,7 +3,7 @@ easyblock = 'Tarball'
 name = 'ds3_java_cli'
 version = '5.1.2'
 
-homepage = 'https://github.com/SpectraLogic/ds3_java_cli/releases'
+homepage = 'https://github.com/SpectraLogic/ds3_java_cli/'
 description = """Command line utilities for Bioarchive"""
 
 toolchain = SYSTEM

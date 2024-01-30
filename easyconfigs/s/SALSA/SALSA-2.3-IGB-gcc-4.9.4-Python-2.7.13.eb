@@ -1,0 +1,53 @@
+easyblock = 'MakeCp'
+
+name = 'SALSA'
+version = '2.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/marbl/SALSA'
+description = """A tool to scaffold long read assemblies with Hi-C"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/marbl/SALSA/archive/']
+
+dependencies = [
+	('Python','2.7.13'),
+	('Boost','1.63.0','-Python-%(pyver)s'),
+	('juicer_tools','1.22.01','-Java-1.8.0_201',True),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['*.py','break_contigs','correct_links','break_contigs_start'],'bin'),'README.md','LICENSE']
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+    ('networkx', '1.11', {
+    }),
+]
+
+
+sanity_check_paths = {
+	'files': ['bin/break_contigs','bin/correct_links'],
+	'dirs': [],
+}
+
+fix_python_shebang_for = {'bin/*.py'}
+
+postinstallcmds = ['chmod 775 %(installdir)s/bin/*.py']
+
+modextrapaths = {'PYTHONPATH':'lib/python%(pyshortver)s/site-packages'
+}
+
+moduleclass = 'bio'

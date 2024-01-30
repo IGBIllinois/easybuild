@@ -1,0 +1,37 @@
+easyblock = 'MakeCp'
+
+name = 'MCScanX'
+version = '20221031'
+local_commit = 'b1ca533'
+
+homepage = ''
+description = """"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/wyp1125/MCScanX/archive/']
+
+dependencies = [
+	('Java','1.8.0_201','',True)
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['MCScanX','MCScanX_h','duplicate_gene_classifier',
+	'downstream_analyses/*.pl','downstream_analyses/*.java','downstream_analyses/detect_collinear_tandem_arrays',
+	'downstream_analyses/dissect_multiple_alignment'
+
+]
+
+sanity_check_paths = {
+	'files': ['MCScanX'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':['','downstream_analyses']
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,30 @@
+easyblock = 'Bundle'
+
+name = 'aspera'
+version = '4.2.7.445'
+
+homepage = 'http://asperasoft.com/'
+description = """Aspera’s unwavering mission is to create the next-generation software technologies that move the world’s data at maximum speed, regardless of file size, transfer distance and network conditions."""
+
+toolchain = SYSTEM
+
+#sources = ['ibm-aspera-connect_%(version)s_linux_x86_64.tar.gz']
+#source_urls = ['https://d3gcli72yxqn2z.cloudfront.net/downloads/connect/latest/bin/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+
+local_files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['bin/ascp'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'salt'
+version = 'beta0.2'
+
+homepage = 'https://github.com/weiquan/salt'
+description = """alignment algorithm that is SNP-aware"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/weiquan/salt/archive/refs/tags/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['Bin/salt'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': 'Bin'
+}
+
+moduleclass = 'bio'

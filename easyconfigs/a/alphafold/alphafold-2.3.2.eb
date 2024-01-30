@@ -1,0 +1,38 @@
+easyblock = 'Bundle'
+
+name = 'alphafold'
+version = '2.3.2'
+
+homepage = 'https://github.com/dialvarezs/alphafold'
+description = """This package provides an implementation of the inference pipeline of AlphaFold v2.0. This is a completely new model that was entered in CASP14 and published in Nature. For simplicity, we refer to this model as AlphaFold throughout the rest of this document."""
+
+toolchain = SYSTEM
+
+dependencies = [
+	('singularity','3.8.1'),
+	('alphafold-db','20230405'),
+]
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/run_singularity.py','alphafold.sif'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/bin/run_singularity.py']
+
+keeppreviousinstall = True
+moduleclass = 'bio'
+
+modloadmsg = "Please follow our guide on how to run alphafold at https://help.igb.illinois.edu/Biocluster_Alphafold\n"
+
+##Installation
+# create alphafold singularity image
+#singularity pull --name alphafold.sif docker://catgumag/alphafold:2.1.2
+# Download run_singularity.py and put in bin folder (https://github.com/dialvarezs/alphafold/blob/main/run_singularity.py)
+# Download latest databases according to https://github.com/deepmind/alphafold and put in /private_stores/mirrors
+
+

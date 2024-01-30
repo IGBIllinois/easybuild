@@ -1,0 +1,48 @@
+easyblock = 'PythonPackage'
+
+name = 'pyCUDA'
+version = '2024.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://mathema.tician.de/software/pycuda/'
+description = """PyCUDA lets you access Nvidia’s CUDA parallel computation API from Python. Several wrappers of the CUDA API already exist-so what’s so special about PyCUDA?"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.10.1'),
+	('CUDA','11.8.0','',True)
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('Mako','1.3.0', {
+		'source_tmpl': 'Mako-%(version)s-py3-none-any.whl'
+	}),
+	('pytools','2023.1.1', {
+		'source_tmpl': 'pytools-%(version)s-py2.py3-none-any.whl'
+	})
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(namelower)s'],
+}
+
+moduleclass = 'bio'
