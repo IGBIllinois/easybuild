@@ -1,0 +1,29 @@
+easyblock = 'Tarball'
+
+name = 'SNPsplit'
+version = '0.6.0'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://felixkrueger.github.io/SNPsplit/'
+description = """SNPsplit is an allele-specific alignment sorter which is designed to read alignment files in SAM/BAM format and determine the allelic origin of reads that cover known SNP positions."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/FelixKrueger/SNPsplit/archive/refs/tags/']
+
+dependencies = [
+	('Perl','5.28.1'),
+	('SAMtools','1.17')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['SNPsplit'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

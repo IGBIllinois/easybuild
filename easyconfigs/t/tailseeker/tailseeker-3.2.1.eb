@@ -1,0 +1,35 @@
+easyblock = 'Conda'
+
+name = 'tailseeker'
+version = '3.2.1'
+
+homepage = 'https://github.com/hyeshik/tailseeker'
+description = """Tailseeker is the official pipeline for TAIL-seq, which measures poly(A) tail lengths and 3′-end modifications with Illumina SBS sequencers."""
+
+toolchain = SYSTEM
+
+dependencies = [('Miniconda3','4.10.3'),
+	('tailseeker-db','20161205')
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = 'changlabsnu::%(name)s=%(version)s'
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': ['bin/tseek'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+
