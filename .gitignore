@@ -6,6 +6,7 @@
 *.rpm
 *.run
 *.tbz
+*.md5
 gamslice.txt
 site.cfg
 
