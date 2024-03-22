@@ -1,0 +1,41 @@
+easyblock = 'PythonPackage'
+
+name = 'weblogo'
+version = '3.7.12'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://weblogo.threeplusone.com/'
+description = """WebLogo is a web-based application designed to make the generation of sequence logos easy and painless. WebLogo has been featured in over 10000 scientific publications. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['weblogo-%(version)s-py3-none-any.whl']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.10.1'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/weblogo'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,63 @@
+easyblock = 'PythonPackage'
+
+name = 'CNVkit'
+version = '0.9.10'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/etal/cnvkit'
+description = """A command-line toolkit and Python library for detecting copy number variants and alterations genome-wide from high-throughput sequencing."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['CNVkit-%(version)s-py3-none-any.whl']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.10.1'),
+	('Biopython','1.83','-Python-%(pyver)s'),
+	('numba','0.59.0','-Python-%(pyver)s'),
+	('PyTorch','1.12.1','-Python-%(pyver)s'),
+	('R','4.3.2'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('reportlab','4.1.0', {
+		'source_tmpl': 'reportlab-%(version)s-py3-none-any.whl'
+	}),
+	('apricot-select','0.6.1',{
+		'modulename': 'apricot'
+	}),
+	('networkx','2.8.4'),
+	('pomegranate','1.0.4', {
+		'source_tmpl': 'pomegranate-%(version)s-py3-none-any.whl'
+	}),
+	('pyfaidx','0.8.1.1', {
+		'source_tmpl': 'pyfaidx-%(version)s-py3-none-any.whl'
+	}),
+	('pysam','0.22.0', {
+		'source_tmpl': 'pysam-%(version)s-cp310-cp310-manylinux_2_28_x86_64.whl'
+	}),
+
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+options = {'modulename': 'cnvlib' }
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/cnvkit.py'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

@@ -1,0 +1,36 @@
+easyblock = 'Binary'
+
+name = 'GBSX'
+version = '1.3'
+versionsuffix = "-Java-%(javaver)s"
+
+homepage = 'https://github.com/GenomicsCoreLeuven/GBSX'
+description = """Genotyping by Sequencing is an emerging technology for cost effective variant discovery and genotyping. However, current analysis tools do not fulfill all experimental design and analysis needs. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['GBSX_v%(version)s.jar','GBSX_digest_v1.1.pl']
+source_urls = ['https://github.com/GenomicsCoreLeuven/GBSX/releases/download/v%(version)s/']
+
+dependencies = [('Java','1.8.0_201','',True),
+	('Perl','5.28.1'),
+	('BioPerl','1.7.2','-Perl-%(perlver)s')
+]
+
+keepsymlinks = True
+
+fix_perl_shebang_for = ['GBSX_digest_v1.1.pl']
+sanity_check_paths = {
+	'files': ['GBSX_v%(version)s.jar','GBSX_digest_v1.1.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+postinstallcmds = ['chmod 775 %(installdir)s/GBSX_digest_v1.1.pl']
+
+#Creates bash alias for java program
+modaliases = {'%(name)s': 'java -jar %(installdir)s/GBSX_v%(version)s.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+moduleclass = 'bio'

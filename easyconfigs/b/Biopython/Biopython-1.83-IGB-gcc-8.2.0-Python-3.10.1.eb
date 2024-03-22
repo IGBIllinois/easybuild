@@ -1,7 +1,7 @@
 easyblock = "PythonPackage"
 
 name = 'Biopython'
-version = '1.80'
+version = '1.83'
 versionsuffix = "-Python-%(pyver)s"
 
 homepage = 'http://www.biopython.org'
@@ -12,25 +12,33 @@ bioinformatics. """
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-source_urls = ['http://biopython.org/DIST']
-sources = ['%(namelower)s-%(version)s.tar.gz']
+sources = ['biopython-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl']
+source_urls = [PYPI_LOWER_SOURCE]
 
 dependencies = [
     ('Python', '3.10.1')
 ]
 
-download_dep_fail = True
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
 use_pip = True
 sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
 
-runtest = 'python setup.py test --offline'
+
+#runtest = 'python setup.py test --offline'
 
 sanity_check_paths = {
     'files': [],
     'dirs': ['lib/python%(pyshortver)s/site-packages/Bio', 'lib/python%(pyshortver)s/site-packages/BioSQL']
 }
-
-sanity_check_commands = ["python -c 'import Bio.MarkovModel'"]
 
 options = {'modulename': 'Bio'}
 

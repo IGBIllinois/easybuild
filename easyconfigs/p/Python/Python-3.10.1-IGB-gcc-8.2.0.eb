@@ -113,9 +113,9 @@ exts_list = [
 	('pycrypto', '2.6.1', {
 		'modulename': 'Crypto',
 	}),
-	('numpy', '1.22.0', {
+	('numpy', '1.26.4', {
 		'source_tmpl': 'numpy-%(version)s.zip',
-		'unpack_sources': True,
+		'unpack_sources': True
         }),
 	('pybind11','2.9.0', {
 		'easyblock': 'PythonPackage',
