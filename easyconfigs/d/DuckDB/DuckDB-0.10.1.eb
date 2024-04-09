@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'DuckDB'
+version = '0.10.1'
+
+homepage = 'https://duckdb.org/'
+description = """DuckDB is easy to install and deploy. It has zero external dependencies and runs in-process in its host application or as a single binary."""
+
+toolchain = SYSTEM
+
+sources = ['duckdb_cli-linux-amd64.zip']
+source_urls = ['https://github.com/duckdb/duckdb/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['duckdb'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
