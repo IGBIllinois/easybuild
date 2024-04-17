@@ -1,0 +1,34 @@
+easyblock = 'ConfigureMake'
+
+name = 'radar'
+version = '1.3'
+
+homepage = 'https://github.com/AndreasHeger/radar'
+description = """Welcome to radar"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/AndreasHeger/radar/archive/refs/tags/']
+sources = ['v%(version)s.tar.gz']
+
+
+builddependencies = [
+	('Autotools', '20180311','',('GCC','8.2.0-2.32')),
+]
+
+dependencies = []
+preconfigopts = "autoreconf -i -f && "
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/radar'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

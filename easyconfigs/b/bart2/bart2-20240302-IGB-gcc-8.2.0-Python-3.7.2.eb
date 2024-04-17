@@ -1,0 +1,42 @@
+easyblock = 'PythonPackage'
+
+name = 'bart2'
+version = '20240302'
+versionsuffix = '-Python-%(pyver)s'
+local_commit = '1bb6695'
+
+homepage = 'https://github.com/zanglab/bart2'
+description = """BART (Binding Analysis for Regulation of Transcription) is a bioinformatics tool for predicting functional transcriptional regulators (TRs) that bind at genomic cis-regulatory regions to regulate gene expression in the human or mouse genomes, taking a query gene set, a ChIP-seq dataset or a scored genomic region set as input."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/zanglab/bart2/archive/']
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('bart2-db','20240302','',True)
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

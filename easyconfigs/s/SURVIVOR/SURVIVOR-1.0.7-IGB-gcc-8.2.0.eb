@@ -1,0 +1,33 @@
+easyblock = 'MakeCp'
+
+name = 'SURVIVOR'
+version = '1.0.7'
+
+homepage = 'https://github.com/fritzsedlazeck/SURVIVOR'
+description = """SURVIVOR is a tool set for simulating/evaluating SVs, merging and comparing SVs within and among samples, and includes various methods to reformat or summarize SVs."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/fritzsedlazeck/SURVIVOR/archive/refs/tags/']
+
+start_dir = 'Debug'
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['SURVIVOR']
+
+sanity_check_paths = {
+	'files': ['SURVIVOR'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''
+}
+
+moduleclass = 'bio'

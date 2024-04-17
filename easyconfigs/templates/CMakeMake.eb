@@ -8,9 +8,8 @@ description = """"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-
-source_urls = ['']
 sources = [SOURCE_TAR_GZ]
+source_urls = ['']
 
 builddependencies = [('CMake', '3.17.2')]
 

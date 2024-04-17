@@ -1,0 +1,36 @@
+easyblock = 'MakeCp'
+
+name = 'psipred'
+version = '4.02'
+
+homepage = 'http://bioinf.cs.ucl.ac.uk/psipred/'
+description = """The PSIPRED Workbench provides a range of protein structure prediction methods. The site can be used interactively via a web browser or programmatically via our REST API. For high-throughput analyses, downloads of all the algorithms are available."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['psipred.%(version)s.tar.gz']
+source_urls = ['http://bioinfadmin.cs.ucl.ac.uk/downloads/psipred/']
+
+dependencies = [
+]
+
+#patches = ['psipred-%(version)s.patch']
+
+keepsymlinks = True
+
+with_configure = False
+
+prebuildopts = "cd src && "
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['runpsipred','runpsipred_single','bin/chkparse','bin/psipass2','bin/psipred','bin/seq2mtx'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': ''
+}
+
+moduleclass = 'bio'

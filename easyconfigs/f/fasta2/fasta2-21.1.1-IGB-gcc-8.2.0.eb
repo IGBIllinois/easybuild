@@ -1,0 +1,38 @@
+easyblock = 'MakeCp'
+
+name = 'fasta2'
+version = '21.1.1'
+
+homepage = 'https://fasta.bioch.virginia.edu/wrpearson/fasta/fasta2/'
+description = """"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://fasta.bioch.virginia.edu/wrpearson/fasta/fasta2/']
+sources = [{
+	'filename': 'fasta-%(version)s.shar.Z',
+	'extract_cmd': 'gunzip -cf %s > %(builddir)s/fasta-%(version)s.shar'
+}]
+
+
+prebuildopts = "sh fasta-%(version)s.shar && "
+buildopts = "lfasta"
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['lfasta','chofas'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/lfasta','bin/chofas'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

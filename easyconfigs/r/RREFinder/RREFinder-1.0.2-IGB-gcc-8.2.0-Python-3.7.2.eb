@@ -1,0 +1,48 @@
+easyblock = 'PythonPackage'
+
+name = 'RREFinder'
+version = '1.0.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/Alexamk/RREFinder'
+description = """Bioinformatic application for the detection of RREs in protein sequences of interest"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/Alexamk/RREFinder/archive/refs/tags/']
+
+dependencies = [
+        ('Python', '3.7.2'),
+	('Biopython','1.79','-Python-%(pyver)s'),
+	('HMMER','3.3.1'),
+	('psipred','4.02'),
+	('hhsuite','3.3.0'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+prebuildopts = "export HHLIB=$EBROOTHHSUITE && "
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+#exts_filter = ('python -c "import %(ext_name)s"', "")
+options = {'modulename': False }
+
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'
