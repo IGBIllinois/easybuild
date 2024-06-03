@@ -1,0 +1,41 @@
+easyblock = 'Tarball'
+
+name = 'RepeatMasker'
+version = '4.1.6'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'http://www.repeatmasker.org/'
+description = """RepeatMasker is a program that screens DNA sequences for interspersed 
+repeats and low complexity DNA sequences. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://www.repeatmasker.org/RepeatMasker/']
+sources = ['RepeatMasker-%(version)s.tar.gz']
+
+dependencies = [('Perl','5.28.1'),
+		('trf','4.0.9','',True),
+		('HMMER','3.3.1'),
+		('RMBlast','2.14.1'),
+		('BioPerl','1.7.2','-Perl-%(perlver)s'),
+		('Python','3.7.2'),
+		('h5py','2.10.0','-Python-%(pyver)s'),
+		('phrap','1.090518'),
+]
+
+fix_perl_shebang_for = ['util/*.pl']
+
+sanity_check_paths = {
+        'files': ['RepeatMasker'],
+        'dirs': [],
+}
+
+modextrapaths = {"PATH":["","util"],
+	'PERL5LIB': 'Libraries'
+}
+
+postinstallcmds = ["cd %(installdir)s && ./configure -hmmer_dir=$EBROOTHMMER/bin -rmblast_dir=$EBROOTRMBLAST/bin -libdir %(installdir)s/Libraries -trf_prgm=$EBROOTTRF/trf -default_search_engine=rmblast"]
+
+moduleclass = 'bio'
+
+

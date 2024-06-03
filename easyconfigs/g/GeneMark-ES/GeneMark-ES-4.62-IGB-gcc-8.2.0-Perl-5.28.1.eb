@@ -55,6 +55,7 @@ options = { 'modulename': False }
 modextrapaths = {
 	'PATH': '',
 	'PERL5LIB': ['lib/perl5/site_perl/%(perlver)s','lib/perl5/site_perl/%(perlver)s/x86_64-linux-thread-multi'],
+	'GENEMARK_PATH': '',
 }
 
 fix_perl_shebang_for = ['*.pl']

@@ -12,6 +12,7 @@ sources = ['dorado-%(version)s-linux-x64.tar.gz']
 source_urls = ['https://cdn.oxfordnanoportal.com/software/analysis/']
 
 dependencies = [
+	('dorado-db','20240501')
 ]
 
 keepsymlinks = True

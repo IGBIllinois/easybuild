@@ -1,0 +1,53 @@
+easyblock = 'Tarball'
+
+name = 'prokka'
+version = '1.14.6'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/tseemann/prokka'
+description = """Whole genome annotation is the process of identifying features of interest in a set of genomic DNA sequences, and labelling them with useful information. Prokka is a software tool to annotate bacterial, archaeal and viral genomes quickly and produce standards-compliant output files."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/tseemann/prokka/archive/']
+
+#patches = ['prokka-%(version)s.patch']
+
+dependencies = [('Perl','5.28.1'),
+		('BioPerl','1.7.2','-Perl-%(perlver)s'),
+		('Java','1.8.0_201','',True),
+		('tbl2asn','20200707','',True),
+		('RNAmmer','1.2','-Perl-%(perlver)s'),
+		('BLAST+','2.10.1'),
+		('Prodigal','2.6.3','',True),
+		('parallel','20200822'),
+		('SignalP','4.1','',True)
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/prokka'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':['binaries/linux','binaries/common']}
+
+postinstallcmds = ['rm -fr $(installdir)s/binaries/linux/tbl2asn',
+	'rm -fr $(installdir)s/binaries/linux/blastp',
+	'rm -fr $(installdir)s/binaries/linux/makeblastdb',
+	'rm -fr $(installdir)s/binaries/linux/hmmpress',
+	'rm -fr $(installdir)s/binaries/linux/hmmscan',
+	'rm -fr $(installdir)s/binaries/linux/prodigal',
+	'rm -fr $(installdir)s/binaries/linux/proka',
+	
+]
+
+
+moduleclass = 'bio'
+
+
+####NOTE###
+#After install, load the module and run 'prokka --setupdb'"
+

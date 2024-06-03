@@ -51,7 +51,7 @@ exts_list = [
                 'modulename': 'logging',
         }),
 	('ruamel.yaml.clib','0.2.7', {
-                'modulename': False,
+                'modulename': 'ruamel.yaml',
         }),
         ('ruamel.yaml','0.17.21', {
                 'source_tmpl': 'ruamel.yaml-%(version)s-py3-none-any.whl',
@@ -131,7 +131,9 @@ exts_list = [
 	('nbclassic','0.4.8', {
 		'source_tmpl': 'nbclassic-%(version)s-py3-none-any.whl'
 	}),
-	('jupyterlmod','3.0.0'),
+	('jupyterlmod','4.0.3', {
+		'source_tmpl': 'jupyterlmod-%(version)s-py3-none-any.whl'
+	}),
 	('sniffio','1.3.0'),
 	('anyio','3.6.2', {
                 'source_tmpl': 'anyio-%(version)s-py3-none-any.whl'
@@ -149,11 +151,26 @@ exts_list = [
 	('json5','0.9.10'),
 	('async_generator','1.10'),
 	('jupyterhub','3.0.0'),
-	('batchspawner','1.2.0', {
+	('batchspawner','1.3.0', {
 		'source_tmpl': 'batchspawner-%(version)s-py3-none-any.whl',
 	}),
 	('jupyterlab',version, {
 		'source_tmpl': 'jupyterlab-%(version)s-py3-none-any.whl'
+	}),
+	('jupyterlab-widgets','3.0.7', {
+		'source_tmpl': 'jupyterlab_widgets-%(version)s-py3-none-any.whl'
+	}),
+	('widgetsnbextension','4.0.7', {
+		'source_tmpl': 'widgetsnbextension-%(version)s-py3-none-any.whl'
+	}),
+	('ipywidgets','8.0.7', {
+		'source_tmpl': 'ipywidgets-%(version)s-py3-none-any.whl'
+	}),
+	('configurable-http-proxy','0.3.0',{
+		'source_tmpl': 'configurable_http_proxy-%(version)s-py2.py3-none-any.whl'
+	}),
+	('bash_kernel','0.9.3', {
+		'source_tmpl': 'bash_kernel-%(version)s-py2.py3-none-any.whl'
 	}),
 ]
 

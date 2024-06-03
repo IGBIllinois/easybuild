@@ -1,7 +1,7 @@
 easyblock = 'Tarball'
 
 name = 'rodeo2'
-version = '2.4.1'
+version = '2.4.2'
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://www.ripp.rodeo/index.html'

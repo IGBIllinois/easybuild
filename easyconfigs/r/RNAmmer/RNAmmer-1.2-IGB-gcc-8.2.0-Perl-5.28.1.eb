@@ -1,0 +1,38 @@
+easyblock = 'Tarball'
+
+name = 'RNAmmer'
+version = '1.2'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'http://www.cbs.dtu.dk/cgi-bin/sw_request?rnammer'
+description = """Ribosomal RNA sub units"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(namelower)s-%(version)s.src.tar.Z']
+
+patches = ['RNAmmer-1.2.patch']
+
+builddependencies = [
+	('HMMER','2.3.2'),
+]
+
+dependencies = [
+	('Perl','5.28.1'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['rnammer','hmmsearch2'],
+	'dirs': [],
+}
+
+postinstallcmds = ["cp $EBROOTHMMER/bin/hmmsearch %(installdir)s/hmmsearch2"]
+
+modextrapaths = {
+	'PATH': '',
+	'MANPATH': 'man',
+}
+
+moduleclass = 'bio'

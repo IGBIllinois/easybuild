@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'Bandage'
+version = '0.8.1'
+
+homepage = 'https://github.com/rrwick/Bandage'
+description = """Bandage is a GUI program that allows users to interact with the assembly graphs made by de novo assemblers such as Velvet, SPAdes, MEGAHIT and others."""
+
+toolchain = SYSTEM
+
+sources = ['Bandage_CentOS_static_v0_8_1.zip']
+source_urls = ['https://github.com/rrwick/Bandage/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['Bandage'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': ''}
+
+moduleclass = 'bio'

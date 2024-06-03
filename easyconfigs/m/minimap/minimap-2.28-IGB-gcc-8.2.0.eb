@@ -1,0 +1,37 @@
+easyblock = 'MakeCp'
+
+name = 'minimap'
+version = '2.28'
+
+homepage = 'https://github.com/lh3/minimap'
+description = """Minimap is an experimental tool to efficiently find multiple approximate mapping positions between two sets of long sequences, 
+such as between reads and reference genomes, between genomes and between long noisy reads. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz',
+'k8-0.2.4.tar.bz2'
+]
+source_urls = ['https://github.com/lh3/minimap2/archive/',
+'https://github.com/attractivechaos/k8/releases/download/v0.2.4/'
+]
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [
+	(['minimap2'],'bin'),(['*.h'],'include'),(['*.a'],'lib'),'LICENSE.txt','README.md','misc']
+
+sanity_check_paths = {
+	'files': ['bin/minimap2'],
+	'dirs': [],
+}
+
+postinstallcmds = ['cp %(builddir)s/k8-0.2.4/k8-Linux %(installdir)s/bin/k8']
+modextrapaths = {'PATH':'misc'}
+
+moduleclass = 'bio'

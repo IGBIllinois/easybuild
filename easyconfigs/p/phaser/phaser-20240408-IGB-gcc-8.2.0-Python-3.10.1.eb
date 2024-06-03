@@ -1,0 +1,38 @@
+easyblock = 'Tarball'
+
+name = 'phaser'
+version = '20240408'
+versionsuffix = '-Python-%(pyver)s'
+local_commit = 'db727a7'
+
+homepage = 'https://github.com/secastel/phaser'
+description = """Performs haplotype phasing using read alignments in BAM format from both DNA and RNA based assays, and provides measures of haplotypic expression for RNA based assays."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/secastel/phaser/archive/']
+
+dependencies = [
+	('Python','3.10.1'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['phaser/read_variant_map.so'],
+	'dirs': [],
+}
+
+postinstallcmds = [
+	'cd %(installdir)s/phaser/ && python3 setup.py build_ext --inplace',
+	'mv %(installdir)s/phaser/read_variant_map.*.so %(installdir)s/phaser/read_variant_map.so',
+	'chmod 775 %(installdir)s/phaser/*.py'
+
+]
+
+fix_python_shebang_for = ['phaser/*.py']
+
+modextrapaths = {'PATH':'phaser'}
+
+moduleclass = 'bio'

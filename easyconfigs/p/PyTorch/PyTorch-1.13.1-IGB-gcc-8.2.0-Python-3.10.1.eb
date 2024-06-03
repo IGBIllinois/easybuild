@@ -1,0 +1,104 @@
+easyblock = 'PythonBundle'
+
+name = 'PyTorch'
+version = '1.13.1'
+versionsuffix = "-Python-%(pyver)s"
+
+homepage = 'http://pytorch.org'
+description = """Tensors and Dynamic neural networks in Python
+with strong GPU acceleration."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True}
+
+
+dependencies = [
+	('Python','3.10.1'),
+	('CUDA','11.8.0','',True),
+	('cuDNN','8.9.2.23','-CUDA-11.8.0',True),
+]
+
+use_pip = True
+sanity_pip_check = False 
+unpack_sources = False
+
+skipsteps = ['sanitycheck']
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('torch', version, {
+	'modulename': 'torch',
+        'source_urls': ['https://pypi.python.org/packages/source/t/torch/'],
+        'source_tmpl': 'torch-%(version)s-cp310-cp310-manylinux1_x86_64.whl',
+        'unpack_sources': False,
+        'local_use_pip': True,
+    }),
+    ('torchvision', '0.14.1', {
+    	'modulename': 'torchvision',
+        'source_urls': ['https://pypi.python.org/packages/source/t/torchvision/'],
+        'source_tmpl': 'torchvision-%(version)s-cp310-cp310-manylinux1_x86_64.whl',
+        'unpack_sources': False,
+        'local_use_pip': True,
+    }),
+
+    ('cffi', '1.15.1', {
+        'modulename': 'cffi',
+        'source_urls': ['https://pypi.python.org/packages/source/c/cffi/'],
+        'source_tmpl': 'cffi-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl',
+        'unpack_sources': False,
+        'local_use_pip': True,
+    }),
+    ('nvidia_cublas_cu11', '11.10.3.66', {
+        'modulename': 'nvidia-cublas',
+        'source_urls': ['https://files.pythonhosted.org/packages/ce/41/fdeb62b5437996e841d83d7d2714ca75b886547ee8017ee2fe6ea409d983/'],
+        'source_tmpl': 'nvidia_cublas_cu11-%(version)s-py3-none-manylinux1_x86_64.whl',
+        'unpack_sources': False,
+        'local_use_pip': True,
+    }),
+    ('nvidia_cuda_nvrtc_cu11', '11.7.99', {
+        'modulename': 'nvidia-cuda-nvrtc-cu11',
+        'source_urls': ['https://files.pythonhosted.org/packages/ea/8d/0709ba16c2831c17ec1c2ea1eeb89ada11ffa8d966d773cce0a7463b22bb/'],
+        'source_tmpl': 'nvidia_cuda_nvrtc_cu11-%(version)s-py3-none-manylinux1_x86_64.whl',
+        'unpack_sources': False,
+        'local_use_pip': True,
+    }),
+  ('nvidai_cuda_runtime_cu11', '11.7.99', {
+        'modulename': 'nvidia-cuda-runtime',
+        'source_urls': ['https://files.pythonhosted.org/packages/36/92/89cf558b514125d2ebd8344dd2f0533404b416486ff681d5434a5832a019/'],
+        'source_tmpl': 'nvidia_cuda_runtime_cu11-%(version)s-py3-none-manylinux1_x86_64.whl',
+        'unpack_sources': False,
+        'local_use_pip': True,
+    }),
+ ('nvidia_cudnn_cu11', '8.5.0.96', {
+        'modulename': 'nvidia-cudnn-cu11',
+        'source_urls': ['https://files.pythonhosted.org/packages/db/69/4d28d4706946f89fffe3f87373a079ae95dc17f9c0fcd840fe570c67e36b/'],
+        'source_tmpl': 'nvidia_cudnn_cu11-%(version)s-py3-none-manylinux1_x86_64.whl',
+        'unpack_sources': False,
+        'local_use_pip': True,
+    }),
+	('safetensors','0.4.3',{
+                'source_tmpl': 'safetensors-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
+        }),
+        ('accelerate','0.30.0', {
+                'source_tmpl': 'accelerate-0.30.0-py3-none-any.whl'
+        }),
+
+
+
+]
+
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['lib/python%(pyshortver)s/site-packages/torch']
+}
+
+
+moduleclass = 'bio'

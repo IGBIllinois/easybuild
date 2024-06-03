@@ -53,6 +53,12 @@ exts_list = [
         'unpack_sources': False,
         'local_use_pip': True,
     }),
+	('safetensors','0.4.3',{
+		'source_tmpl': 'safetensors-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
+	}),
+	('accelerate','0.30.0', {
+		'source_tmpl': 'accelerate-0.30.0-py3-none-any.whl'
+	}),
 ]
 
 
