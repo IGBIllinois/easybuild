@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'cactus'
+version = '2.8.2'
+
+homepage = 'https://github.com/ComparativeGenomicsToolkit/cactus'
+description = """Cactus is a reference-free whole-genome alignment program, as well as a pangenome graph construction toolkit."""
+
+toolchain = SYSTEM
+
+sources = ['cactus-bin-v%(version)s.tar.gz']
+source_urls = ['https://github.com/ComparativeGenomicsToolkit/cactus/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/cactus_analyseAssembly'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

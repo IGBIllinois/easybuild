@@ -1,0 +1,47 @@
+easyblock = 'PythonPackage'
+
+name = 'umap-learn'
+version = '0.5.6'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/lmcinnes/umap'
+description = """Uniform Manifold Approximation and Projection (UMAP) is a dimension reduction technique that can be used for visualisation similarly to t-SNE, but also for general non-linear dimension reduction. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['umap_learn-%(version)s-py3-none-any.whl']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python','3.10.1'),
+	('numba','0.59.0','-Python-%(pyver)s'),
+	
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('pynndescent','0.5.12', {
+		'source_tmpl': 'pynndescent-%(version)s-py3-none-any.whl'
+	}),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+options = {'modulename': 'umap'}
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/umap'],
+}
+
+moduleclass = 'math'

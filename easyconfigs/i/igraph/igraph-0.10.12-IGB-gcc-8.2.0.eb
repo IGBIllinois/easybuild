@@ -1,0 +1,37 @@
+easyblock = 'CMakeMake'
+
+name = 'igraph'
+version = '0.10.12'
+
+homepage = 'https://igraph.org'
+description = """igraph is a library for creating and manipulating graphs. You can look at it in two ways: first, igraph contains the implementation of quite a lot of graph algorithms."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True}
+
+sources = ['igraph-%(version)s.tar.gz']
+source_urls = ['https://github.com/igraph/igraph/releases/download/%(version)s/']
+
+builddependencies = [('CMake', '3.29.5')]
+
+
+dependencies = [
+	('libxml2','2.9.7'),
+]
+
+separate_build_dir = True
+
+configopts = ["-DBUILD_SHARED_LIBS=OFF", "-DBUILD_SHARED_LIBS=ON", "-DIGRAPH_OPENMP_SUPPORT=ON","-DIGRAPH_ENABLE_TLS=ON"]
+
+sanity_check_paths = {
+    'files': ['include/igraph/igraph.h'] + ['lib/libigraph.%s' % x for x in ['a', SHLIB_EXT]],
+    'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

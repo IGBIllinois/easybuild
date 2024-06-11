@@ -39,4 +39,6 @@ sanity_check_paths = {
         'dirs': ['lib/python%(pyshortver)s/site-packages/%(namelower)s'],
 }
 
+postinstallcmds = ['cp -fR %(builddir)s/signalp6_fast/signalp-6-package/models/* %(installdir)s/lib/python%(pyshortver)s/site-packages/%(namelower)s/model_weights']
+
 moduleclass = 'bio'

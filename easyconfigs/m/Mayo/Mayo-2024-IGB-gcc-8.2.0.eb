@@ -10,8 +10,17 @@ toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 dependencies = [
 	('Python','3.10.1'),
-	('PyTorch','1.12.1','-Python-%(pyver)s'),
+	#('PyTorch','1.12.1','-Python-%(pyver)s'),
+	('PyTorch','1.13.1','-Python-%(pyver)s'),
 	('transformers','4.40.2','-Python-%(pyver)s'),
+	('seqkit','2.6.1','',True),
+	('hifiasm','0.19.6'),
+	('Bandage','0.8.1','',True),
+	('gfatools','0.5'),
+	('scanpy','1.10.1','-Python-%(pyver)s'),
+	('igraph','0.11.5','-Python-%(pyver)s'),
+	('leidenalg','0.10.2','-Python-%(pyver)s'),
+	('R','4.4.0'),
 ]
 
 modextrapaths = {}

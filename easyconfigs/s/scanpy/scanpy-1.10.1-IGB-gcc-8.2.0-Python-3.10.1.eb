@@ -1,0 +1,71 @@
+easyblock = 'PythonPackage'
+
+name = 'scanpy'
+version = '1.10.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://scverse.org/'
+description = """Scanpy is a scalable toolkit for analyzing single-cell gene expression data built jointly with anndata."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['scanpy-%(version)s-py3-none-any.whl']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.10.1'),
+	('numba','0.59.0','-Python-%(pyver)s'),
+	('umap-learn','0.5.6','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('array-api-compat','1.7.1', {
+		'source_tmpl': 'array_api_compat-%(version)s-py3-none-any.whl'
+	}),
+	('anndata','0.10.7',{
+		'source_tmpl': 'anndata-%(version)s-py3-none-any.whl'
+	}),
+	('legacy-api-wrap','1.4', {
+		'source_tmpl': 'legacy_api_wrap-%(version)s-py3-none-any.whl'
+	}),
+	('natsort','8.4.0',{
+		'source_tmpl': 'natsort-%(version)s-py3-none-any.whl'
+	}),
+	('seaborn','0.13.2',{
+		'source_tmpl': 'seaborn-%(version)s-py3-none-any.whl'
+	}),
+	('stdlib-list','0.10.0', {
+		'source_tmpl': 'stdlib_list-%(version)s-py3-none-any.whl'
+	}),
+	('session-info','1.0.0', {
+		'source_tmpl': 'session_info-%(version)s.tar.gz'
+	}),
+	('mudata','0.2.3', {
+		'source_tmpl': 'mudata-%(version)s-py3-none-any.whl'
+	}),
+	('muon','0.1.6', {
+		'source_tmpl': 'muon-%(version)s-py3-none-any.whl'
+	}),
+
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

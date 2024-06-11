@@ -1,0 +1,45 @@
+easyblock = 'PythonPackage'
+
+name = 'igraph'
+version = '0.11.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://python.igraph.org/en/stable/'
+description = """Python interface of igraph, a fast and open source C library to manipulate and analyze graphs (aka networks). It can be used to:"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['igraph-%(version)s-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.10.1'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('texttable','1.7.0', {
+		'source_tmpl': 'texttable-%(version)s-py2.py3-none-any.whl'
+	}),
+	('leidenalg','0.10.2',
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'
