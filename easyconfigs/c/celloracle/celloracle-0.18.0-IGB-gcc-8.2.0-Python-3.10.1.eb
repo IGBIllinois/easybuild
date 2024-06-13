@@ -1,0 +1,56 @@
+easyblock = 'PythonPackage'
+
+name = 'celloracle'
+version = '0.18.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/morris-lab/CellOracle'
+description = """CellOracle is a python library for in silico gene perturbation analyses using single-cell omics data and Gene Regulatory Network models."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['celloracle-%(version)s-py3-none-any.whl']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.10.1'),
+	('igraph','0.11.5','-Python-%(pyver)s'),
+	('scanpy','1.10.1','-Python-%(pyver)s'),
+	('pybedtools','0.10.0','-Python-%(pyver)s'),
+	('jupyterlab','3.5.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('genomepy','0.16.1', {
+		'source_tmpl': 'genomepy-%(version)s-py3-none-any.whl'
+	}),
+	('gimmemotifs','0.18.0'),
+	('goatools','1.4.8', {
+		'source_tmpl': 'goatools-%(version)s-py3-none-any.whl'
+	}),
+	('louvain','0.8.2', {
+		'source_tmpl': 'louvain-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
+	}),
+	('velocyto','0.17.17')
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'
