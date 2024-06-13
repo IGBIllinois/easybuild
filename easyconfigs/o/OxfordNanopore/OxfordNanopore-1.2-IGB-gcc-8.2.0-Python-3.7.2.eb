@@ -1,0 +1,41 @@
+easyblock = 'Tarball'
+
+name = 'OxfordNanopore'
+version = '1.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/IGBIllinois/OxfordNanopore_Pipeline'
+description = """Pipeline to analyze results from Oxford Nanopore instruments using Albacore, then process and package the albacore results for delivery."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+
+sources = [{
+        'filename': 'OxfordNanopore_Pipeline-%(version)s.tar.gz',
+        'git_config': {
+                'url': 'https://github.com/IGBIllinois',
+                'repo_name': 'OxfordNanopore_Pipeline',
+                'tag': 'v%(version)s',
+                'recursive': True,
+        },
+}]
+
+dependencies = [('Python','3.7.2'),
+	('pbzip2','1.1.13'),
+	('Biopython','1.73','-Python-3.7.2'),
+	('Perl','5.28.1'),
+	('gnuplot','4.6.7'),
+	('seqkit','0.15.0','',True),
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/generateONReport','bin/createONReportFromFastq'],
+	'dirs': [],
+}
+
+modextrapaths = {'PYTHONPATH':'lib/python3.6/site-packages'}
+
+moduleclass = 'bio'
