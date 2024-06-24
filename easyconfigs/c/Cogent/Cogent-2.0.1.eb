@@ -1,0 +1,40 @@
+easyblock = 'Conda'
+
+name = 'Cogent'
+version = '2.0.1'
+
+homepage = 'https://www.takarabio.com/products/next-generation-sequencing/bioinformatics-tools/cogent-ngs-analysis-pipeline'
+description = """Cogent NGS Analysis Pipeline (also referred to as CogentAP) is bioinformatic software for analyzing RNA-seq data, including gene or transcript expression counting, gene fusion detection, and immune profiling analysis."""
+
+toolchain = SYSTEM
+
+sources = ['Cogent_NGS_Analysis_Pipeline_v2.0.1.zip']
+
+extract_sources = True
+
+dependencies = [
+	('Anaconda3','2024.02-1'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+environment_file = "%(builddir)s/Cogent_NGS_Analysis_Pipeline_v%(version)s/config/env/cogent_ap_env.exact.yaml"
+
+install_cmd = [
+	'conda env create -f /home/a-m/easybuild/.local/easybuild/build/Cogent/2.0.1/system-system/Cogent_NGS_Analysis_Pipeline_v2.0.1/config/env/cogent_ap_env.flexible.yaml -p /home/apps2/software/Cogent/2.0.1 python=3.8 git'
+] 
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+
