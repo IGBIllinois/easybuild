@@ -1,7 +1,9 @@
-diff -ru COPIES-60a69a99978303b7b1788d0828f26d8eb6498ea2.original/requirements.txt COPIES-60a69a99978303b7b1788d0828f26d8eb6498ea2/requirements.txt
---- COPIES-60a69a99978303b7b1788d0828f26d8eb6498ea2.original/requirements.txt	2024-02-19 08:33:18.995689000 -0600
-+++ COPIES-60a69a99978303b7b1788d0828f26d8eb6498ea2/requirements.txt	2024-02-19 08:35:42.284985000 -0600
-@@ -2,9 +2,9 @@
+diff -ru COPIES-main.original/requirements.txt COPIES-main/requirements.txt
+--- COPIES-main.original/requirements.txt	2024-06-17 12:23:43.839281000 -0500
++++ COPIES-main/requirements.txt	2024-06-17 12:29:49.462223000 -0500
+@@ -1,10 +1,11 @@
++biopython==1.80
+ protobuf<3.20,>=3.9.2
  Bio==1.3.9
  distance==0.1.3
  numpy==1.22.4

@@ -1,0 +1,34 @@
+easyblock = 'Conda'
+
+name = 'scikit-bio'
+version = '0.6.0'
+
+homepage = 'https://scikit.bio/'
+description = """Robust, performant and scalable algorithms tailored for the vast landscape of biological data analysis spanning genomics, microbiomics, ecology, evolutionary biology and more. Built to unveil the insights hidden in complex, multi-omic data."""
+
+toolchain = SYSTEM
+
+dependencies = [('Miniconda3','4.10.3'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python3.11/site-packages/scikit_bio-%(version)s.dist-info'],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

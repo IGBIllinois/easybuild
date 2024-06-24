@@ -17,7 +17,7 @@ patches = ['COPIES-%(version)s.patch']
 
 dependencies = [
 	('Python','3.10.1'),
-	('BLAST+','2.13.0')
+	('BLAST+','2.13.0'),
 ]
 
 keepsymlinks = True
@@ -32,7 +32,7 @@ modextrapaths = {'PATH': 'code'}
 postinstallcmds = [
 	'python -m venv --copies %(installdir)s', 
 	'source %(installdir)s/bin/activate',
-	'pip install -q -r requirements.txt'
+#	'pip install -q -r %(installdir)s/requirements.txt'
 ]
 
 modluafooter = "execute{cmd='source %(installdir)s/bin/activate',modeA={'load'}}"

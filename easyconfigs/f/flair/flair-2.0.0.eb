@@ -1,0 +1,34 @@
+easyblock = 'Conda'
+
+name = 'flair'
+version = '2.0.0'
+
+homepage = 'https://flair.readthedocs.io/en/latest/index.html'
+description = """LAIR can be run optionally with short-read data to help increase splice site accuracy of the long read splice junctions."""
+
+toolchain = SYSTEM
+
+dependencies = [('Miniconda3','4.10.3'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

@@ -1,0 +1,42 @@
+easyblock = 'CmdCp'
+
+name = 'MaSuRCA'
+version = '4.1.1'
+
+homepage = 'http://www.genome.umd.edu/masurca.html'
+
+description = '''MaSuRCA is whole genome assembly software. It combines the efficiency of the de Bruijn graph  
+ and Overlap-Layout-Consensus (OLC) approaches. MaSuRCA can assemble data sets containing 
+ only short reads from Illumina sequencing or a mixture of short reads and long reads 
+ (Sanger, 454, Pacbio and Nanopore).'''
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['MaSuRCA-%(version)s.tar.gz']
+source_urls = ['https://github.com/alekseyzimin/masurca/releases/download/v%(version)s/']
+
+#patches = ['MaSuRCA-%(version)s.patch']
+
+dependencies = [
+	('Perl', '5.28.1'),
+    ('libreadline', '6.3'),
+    ('Tcl', '8.6.6'),
+    ('Boost', '1.69.0'),
+    ('zlib', '1.2.11'),
+]
+
+cmds_map = [('.*', "./install.sh")]
+
+files_to_copy = ['*']
+
+
+sanity_check_paths = {
+    'files': ['bin/masurca'],
+    'dirs': ['include', 'lib'],
+}
+
+modextrapaths = {
+	'PATH': 'CA8/Linux-amd64/bin'
+}
+
+moduleclass = 'bio'

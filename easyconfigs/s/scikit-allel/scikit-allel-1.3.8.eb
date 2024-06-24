@@ -1,0 +1,34 @@
+easyblock = 'Conda'
+
+name = 'scikit-allel'
+version = '1.3.8'
+
+homepage = 'https://scikit-allel.readthedocs.io/en/stable/'
+description = """“SciKits” (short for SciPy Toolkits) are add-on packages for SciPy, hosted and developed separately and independently from the main SciPy distribution."""
+
+toolchain = SYSTEM
+
+dependencies = [('Miniconda3','4.10.3'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python3.11/site-packages/scikit_allel-%(version)s.dist-info'],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

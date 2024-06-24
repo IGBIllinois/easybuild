@@ -1,0 +1,19 @@
+# author: Caspar van Leeuwen
+name = 'Mamba'
+version = '24.3.0-0'
+
+homepage = 'https://mamba.readthedocs.io/'
+description = """Mamba is a fast, robust, and cross-platform package manager. It runs on Windows, OS X and Linux 
+(ARM64 and PPC64LE included) and is fully compatible with conda packages and supports most of conda's commands.
+"""
+
+toolchain = SYSTEM
+
+# Note: Using Mambaforge is the recommended way of installing mamba,
+# according to https://mamba.readthedocs.io/en/latest/installation.html
+local_name = 'Mambaforge'
+source_urls = ['https://github.com/conda-forge/miniforge/releases/download/%(version)s']
+sources = ['{local_name}-%(version)s-Linux-%(arch)s.sh'.format(local_name=local_name)]
+
+moduleclass = 'lang'
+
