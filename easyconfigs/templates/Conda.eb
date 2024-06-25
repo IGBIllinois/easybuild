@@ -8,11 +8,14 @@ description = """"""
 
 toolchain = SYSTEM
 
-dependencies = [('Miniconda3','4.10.3'),
+dependencies = [
+	('Miniconda3','4.10.3'),
 ]
 
 channels = ['defaults','bioconda', 'conda-forge']
 requirements = '%(name)s=%(version)s'
+
+extract_sources = False
 
 environment_file = ""
 

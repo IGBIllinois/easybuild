@@ -1,0 +1,49 @@
+easyblock = 'Conda'
+
+name = 'scenicplus'
+version = '20240513'
+local_commit = 'fa55dae'
+
+homepage = 'https://github.com/aertslab/scenicplus'
+description = """SCENIC+ is a python package to build gene regulatory networks (GRNs) using combined or separate single-cell gene expression (scRNA-seq) and single-cell chromatin accessibility (scATAC-seq) data."""
+
+toolchain = SYSTEM
+
+sources = [{'filename': 'scenicplus-%(version)s.tar.gz',
+        'git_config': {
+                'url': 'https://github.com/aertslab',
+                'repo_name': 'scenicplus',
+                'commit': local_commit,
+                'recursive': True,
+        },
+}]
+
+extract_sources = True
+
+dependencies = [
+	('Anaconda3','2024.02-1'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = 'python=3.11'
+
+environment_file = ""
+
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python3.11/site-packages/scenicplus'],
+}
+
+modextrapaths = {
+}
+
+postinstallcmds = ['pip install %(builddir)s/scenicplus --prefix=%(installdir)s']
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

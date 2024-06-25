@@ -8,7 +8,8 @@ description = """LAIR can be run optionally with short-read data to help increas
 
 toolchain = SYSTEM
 
-dependencies = [('Miniconda3','4.10.3'),
+dependencies = [
+	('Anaconda3','2024.02-1'),
 ]
 
 channels = ['defaults','bioconda', 'conda-forge']
@@ -17,7 +18,7 @@ requirements = '%(name)s=%(version)s'
 environment_file = ""
 
 sanity_check_paths = {
-        'files': [],
+        'files': ['bin/flair'],
         'dirs': [],
 }
 
