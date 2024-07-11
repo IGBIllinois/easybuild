@@ -1,0 +1,37 @@
+easyblock = 'Conda'
+
+name = 'RoseTTAFold-All-Atom'
+version = '20240612'
+
+homepage = 'https://github.com/baker-laboratory/RoseTTAFold-All-Atom'
+description = """RoseTTAFold All-Atom is a biomolecular structure prediction neural network that can predict a broad range of biomolecular assemblies including proteins, nucleic acids, small molecules, covalent modifications and metals"""
+
+toolchain = SYSTEM
+
+dependencies = [
+	('Miniconda3','4.10.3'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+extract_sources = False
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

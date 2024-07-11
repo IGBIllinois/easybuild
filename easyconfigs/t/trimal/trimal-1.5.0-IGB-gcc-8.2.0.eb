@@ -1,0 +1,35 @@
+easyblock = 'MakeCp'
+
+name = 'trimal'
+version = '1.5.0'
+
+homepage = 'https://github.com/inab/trimal'
+description = """"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/inab/trimal/archive/refs/tags/']
+
+dependencies = [
+]
+
+buildopts = '-C source'
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = [(['source/readal','source/statal','source/trimal'],'bin'),
+	'dataset','docs','scripts','traffic'
+]
+
+sanity_check_paths = {
+	'files': ['bin/readal','bin/statal','bin/trimal'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'scripts'
+}
+
+moduleclass = 'bio'

@@ -21,6 +21,7 @@ dependencies = [
 	('igraph','0.11.5','-Python-%(pyver)s'),
 	('leidenalg','0.10.2','-Python-%(pyver)s'),
 	('R','4.4.0'),
+	('Biopython','1.83','-Python-%(pyver)s'),
 ]
 
 modextrapaths = {}

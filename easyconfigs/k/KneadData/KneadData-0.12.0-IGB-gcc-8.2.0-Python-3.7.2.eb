@@ -18,6 +18,7 @@ dependencies = [
 	('Bowtie2', '2.4.5'),
 	('KneadData-db','20230405','',True),
 	('trf','4.0.9','',True),
+	('FastQC','0.11.9','-Java-1.8.0_201', True)
 ]
 
 installopts = "--install-option='--bypass-dependencies-install'"
