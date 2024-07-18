@@ -19,9 +19,6 @@ dependencies = [
 channels = ['defaults','bioconda', 'conda-forge']
 environment_file = "%(builddir)s/Cogent_NGS_Analysis_Pipeline_v%(version)s/config/env/cogent_ap_env.exact.yaml"
 
-install_cmd = [
-	'conda env create -f /home/a-m/easybuild/.local/easybuild/build/Cogent/2.0.1/system-system/Cogent_NGS_Analysis_Pipeline_v2.0.1/config/env/cogent_ap_env.flexible.yaml -p /home/apps2/software/Cogent/2.0.1 python=3.8 git'
-] 
 sanity_check_paths = {
         'files': [],
         'dirs': [],
