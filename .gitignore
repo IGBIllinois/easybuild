@@ -7,6 +7,7 @@
 *.run
 *.tbz
 *.md5
+*.sh
 gamslice.txt
 site.cfg
 

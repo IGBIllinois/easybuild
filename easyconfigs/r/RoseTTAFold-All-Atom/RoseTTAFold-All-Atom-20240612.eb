@@ -1,26 +1,25 @@
-easyblock = 'Conda'
+easyblock = 'Tarball'
 
 name = 'RoseTTAFold-All-Atom'
 version = '20240612'
+local_commit = 'c1fd924'
 
 homepage = 'https://github.com/baker-laboratory/RoseTTAFold-All-Atom'
 description = """RoseTTAFold All-Atom is a biomolecular structure prediction neural network that can predict a broad range of biomolecular assemblies including proteins, nucleic acids, small molecules, covalent modifications and metals"""
 
+sources = ['%s.tar.gz' % local_commit]
+source_urls = ['https://github.com/baker-laboratory/RoseTTAFold-All-Atom/archive/']
+
 toolchain = SYSTEM
 
 dependencies = [
-	('Miniconda3','4.10.3'),
+	('Mamba','24.3.0-0'),
+	('BLAST','2.2.26','-Linux_x86_64'),
+
 ]
 
-channels = ['defaults','bioconda', 'conda-forge']
-requirements = '%(name)s=%(version)s'
-
-extract_sources = False
-
-environment_file = ""
-
 sanity_check_paths = {
-        'files': [],
+        'files': ['rf2aa/run_inference.py'],
         'dirs': [],
 }
 
