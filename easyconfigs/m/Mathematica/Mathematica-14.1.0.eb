@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'Mathematica'
+version = '14.1.0'
+
+homepage = 'https://www.wolfram.com/mathematica/'
+description = """Mathematica is a computational software program used in many scientific, engineering, mathematical
+and computing fields."""
+
+toolchain = SYSTEM
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['Executables/wolfram'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'Executables'}
+
+moduleclass = 'math'

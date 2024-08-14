@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'slow5lib'
+version = '1.2.0'
+
+homepage = 'https://github.com/hasindu2008/slow5lib'
+description = """slow5lib is a software library for reading & writing SLOW5 files."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/hasindu2008/slow5lib/archive/refs/tags/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['lib/libslow5.so'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

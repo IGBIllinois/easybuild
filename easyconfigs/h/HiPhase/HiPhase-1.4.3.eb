@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'HiPhase'
+version = '1.4.3'
+
+homepage = 'https://github.com/PacificBiosciences/HiPhase'
+description = """HiPhase will phase variant calls made from PacBio HiFi datasets."""
+
+toolchain = SYSTEM
+
+sources = ['hiphase-v%(version)s-x86_64-unknown-linux-gnu.tar.gz']
+source_urls = ['https://github.com/PacificBiosciences/HiPhase/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['hiphase'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': ''}
+
+moduleclass = 'bio'

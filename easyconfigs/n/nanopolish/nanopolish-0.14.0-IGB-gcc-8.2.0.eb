@@ -1,0 +1,37 @@
+easyblock = "MakeCp"
+
+name = "nanopolish"
+version = "0.14.0"
+
+homepage = "https://github.com/jts/nanopolish"
+description = """Software package for signal-level analysis of Oxford Nanopore sequencing data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [{'filename': 'nanopolish-%(version)s.tar.gz',
+	'git_config': {
+		'url': 'https://github.com/jts/',
+		'repo_name': 'nanopolish',
+		'tag': 'v%(version)s',
+		'recursive': True,
+
+	},
+}]
+
+dependencies = [
+	('HDF5', '1.8.18'),
+	('HTSlib', '1.17'),
+	('Eigen', '3.3.3'),
+]
+
+buildopts = "HDF5='noinstall' EIGEN='noinstall' HTS='noinstall'"
+
+files_to_copy = ['*']
+
+modextrapaths = {'PATH': ['','scripts'],
+}
+
+sanity_check_paths = {
+	'files': ['nanopolish'],
+	'dirs': []
+}

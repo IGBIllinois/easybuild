@@ -1,0 +1,37 @@
+easyblock = 'Tarball'
+
+name = 'COPIES'
+version = '0.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/Zhao-Group/COPIES'
+description = """COmputational Pipeline for the Identification of CRISPR/Cas-facilitated intEgration Sites (CRISPR-COPIES) is a user-friendly web application and a command line tool for rapid discovery of neutral integration sites."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/Zhao-Group/COPIES/archive/refs/tags/']
+
+
+dependencies = [
+	('Python','3.10.1'),
+	('BLAST+','2.13.0'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['code/main.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': 'code'}
+
+postinstallcmds = [
+	'python -m venv --upgrade-deps --prompt %(name)s --copies %(installdir)s', 
+	'source %(installdir)s/bin/activate',
+#	'pip install -q -r %(installdir)s/requirements.txt'
+]
+
+modluafooter = "execute{cmd='source %(installdir)s/bin/activate',modeA={'load'}}"
+moduleclass = 'bio'

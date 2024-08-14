@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'BEAST2'
+version = '2.7.5'
+versionsuffix = '-CUDA'
+
+homepage = 'https://www.beast2.org/'
+description = """BEAST 2 is a cross-platform program for Bayesian phylogenetic analysis of molecular sequences. It estimates rooted, time-measured phylogenies using strict or relaxed molecular clock models."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['BEAST.v%(version)s.Linux.x86.tgz']
+source_urls = ['https://github.com/CompEvol/beast2/releases/download/v%(version)s/']
+
+dependencies = [
+	('beagle-lib','4.0.0','-CUDA'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/beast'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

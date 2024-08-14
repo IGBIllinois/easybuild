@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'iqtree'
+version = '2.3.5'
+
+homepage = 'https://github.com/iqtree/iqtree2'
+description = """The IQ-TREE software was created as the successor of IQPNNI and TREE-PUZZLE (thus the name IQ-TREE). IQ-TREE was motivated by the rapid accumulation of phylogenomic data, leading to a need for efficient phylogenomic software that can handle a large amount of data and provide more complex models of sequence evolution."""
+
+toolchain = SYSTEM
+
+sources = ['iqtree-%(version)s-Linux-intel.tar.gz']
+source_urls = ['https://github.com/iqtree/iqtree2/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/iqtree2'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'
