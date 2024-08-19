@@ -19,9 +19,24 @@ dependencies = [
 	('HTSeq','0.9.1','-Python-2.7.13'),
 ]
 
-exts_defaultclass = "PythonPackage"
-exts_list = []
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+    'unpack_sources': False
+}
 
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('scikit-learn','0.17.1', {
+		'modulename': 'sklearn'
+	}),
+	('pybedtools','0.8.2'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = True
+#use_pip_for_deps = True
 
 exts_filter = ('python -c "import %(ext_name)s"', "")
 

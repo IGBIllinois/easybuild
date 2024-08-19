@@ -22,6 +22,9 @@ dependencies = [
 	('HDF5', '1.8.18'),
 	('HTSlib', '1.17'),
 	('Eigen', '3.3.3'),
+	('vbz_compression','1.0.3'),
+	('Python','3.7.2'),
+	('Biopython','1.79','-Python-%(pyver)s')
 ]
 
 buildopts = "HDF5='noinstall' EIGEN='noinstall' HTS='noinstall'"

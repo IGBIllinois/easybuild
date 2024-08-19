@@ -15,7 +15,7 @@ source_urls = [
 
 sources = [SOURCELOWER_TAR_GZ]
 
-configopts = '--enable-threadsafe --enable-production --enable-fortran --enable-cxx --enable-parallel'
+configopts = '--enable-threadsafe --enable-production --enable-fortran --enable-cxx --enable-parallel --with-default-plugindir=%(installdir)s/lib/plugin'
 buildopts = 'CXXFLAGS="$CXXFLAGS -DMPICH_IGNORE_CXX_SEEK"'
 
 dependencies = [

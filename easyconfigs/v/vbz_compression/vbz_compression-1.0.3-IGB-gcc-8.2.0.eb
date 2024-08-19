@@ -1,0 +1,44 @@
+easyblock = 'CMakeMake'
+
+name = 'vbz_compression'
+version = '1.0.3'
+
+homepage = 'https://github.com/nanoporetech/vbz_compression'
+description = """VBZ Compression uses variable byte integer encoding to compress nanopore signal data and is built using the following libraries:"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [{'filename': 'vbz_compression-%(version)s.tar.gz',
+        'git_config': {
+                'url': 'https://github.com/nanoporetech',
+                'repo_name': 'vbz_compression',
+                'tag': 'v%(version)s',
+                'recursive': True,
+        },
+}]
+
+
+builddependencies = [('CMake', '3.17.2')]
+
+dependencies = [
+	('HDF5','1.8.18'),
+	('zstd','1.5.5')
+]
+
+separate_build_dir = True
+
+configopts = '-D CMAKE_BUILD_TYPE=Release -D ENABLE_CONAN=OFF -D ENABLE_PERF_TESTING=OFF -D ENABLE_PYTHON=OFF'
+
+sanity_check_paths = {
+        'files': ['hdf5/lib/plugin/libvbz_hdf_plugin.so'],
+        'dirs': [],
+}
+
+modextrapaths = {
+	'HDF5_PLUGIN_PATH': 'hdf5/lib/plugin'
+}
+
+
+moduleclass = 'bio'
+
+
