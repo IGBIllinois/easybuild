@@ -1,0 +1,45 @@
+easyblock = 'PythonPackage'
+
+name = 'clipper'
+version = '2.1.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/YeoLab/clipper'
+description = """A tool to detect CLIP-seq peaks."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/YeoLab/clipper/archive/']
+
+#patches = ['clipper-%(version)s.patch']
+
+dependencies = [
+        ('Python','3.7.2'),
+	('HTSeq','0.12.4','-Python-%(pyver)s'),
+	('pybedtools','0.9.0','-Python-%(pyver)s')
+]
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/clipper'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

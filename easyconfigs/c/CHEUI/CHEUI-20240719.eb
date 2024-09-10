@@ -34,7 +34,9 @@ sanity_check_paths = {
 modextrapaths = {'PATH': 'CHEUI/scripts'
 }
 
-postinstallcmds = ['cp -fR %(builddir)s/* %(installdir)s/CHEUI']
+postinstallcmds = ['cp -fR %(builddir)s/* %(installdir)s/CHEUI',
+	'chmod 755 %(installdir)s/CHEUI/scripts/*.py'
+]
 
 
 modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"

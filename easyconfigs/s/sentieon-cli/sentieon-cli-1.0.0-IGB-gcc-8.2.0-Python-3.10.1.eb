@@ -1,0 +1,54 @@
+easyblock = 'PythonPackage'
+
+name = 'sentieon-cli'
+version = '1.0.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/Sentieon/sentieon-cli'
+description = """"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['sentieon_cli-%(version)s.tar.gz']
+source_urls = ['https://github.com/Sentieon/sentieon-cli/releases/download/v%(version)s/']
+
+dependencies = [
+        ('Python', '3.10.1'),
+	('SAMtools','1.17'),
+	('BEDTools','2.28.0'),
+	('BCFtools','1.17'),
+	('sentieon','202308.02','',True),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('argh','0.29.4', {
+		'source_tmpl': 'argh-%(version)s-py3-none-any.whl'
+	}),
+	('importlib-resources','5.13.0', {
+		'source_tmpl': 'importlib_resources-%(version)s-py3-none-any.whl'
+	}),
+	('packaging','23.2', {
+		'source_tmmpl': 'packaging-%(version)s-py3-none-any.whl'
+	}),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/sentieon-cli'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/sentieon_cli'],
+}
+
+moduleclass = 'bio'

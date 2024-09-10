@@ -38,4 +38,6 @@ sanity_check_paths = {
         'dirs': ['lib/python%(pyshortver)s/site-packages/Metashape'],
 }
 
+modextravars = {'AGISOFT_FLS': '10.1.1.8:5842'}
+
 moduleclass = 'bio'
