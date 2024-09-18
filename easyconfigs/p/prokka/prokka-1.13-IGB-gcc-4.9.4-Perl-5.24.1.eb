@@ -17,7 +17,7 @@ patches = ['prokka-%(version)s.patch']
 dependencies = [('Perl','5.24.1'),
 		('BioPerl','1.7.1','-Perl-5.24.1'),
 		('Java','1.8.0_152','',True),
-		('tbl2asn','20200203','',True),
+		('tbl2asn','20200707','',True),
 		('RNAmmer','1.2','-Perl-5.24.1'),
 		('BLAST+','2.6.0'),
 		('Prodigal','2.6.3','',True),

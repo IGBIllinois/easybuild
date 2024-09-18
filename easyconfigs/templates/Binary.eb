@@ -1,0 +1,26 @@
+easyblock = 'Binary'
+
+name = ''
+version = ''
+
+homepage = ''
+description = """"""
+
+toolchain = SYSTEM
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': [],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

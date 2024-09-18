@@ -1,0 +1,26 @@
+easyblock = 'Binary'
+
+name = 'pbsv'
+version = '2.9.0'
+
+homepage = 'https://github.com/PacificBiosciences/pbsv'
+description = """pbsv is a suite of tools to call and analyze structural variants in diploid genomes from PacBio single molecule real-time sequencing (SMRT) reads. The tools power the Structural Variant Calling analysis workflow in PacBio's SMRT Link GUI."""
+
+toolchain = SYSTEM
+
+sources = ['pbsv']
+source_urls = ['https://github.com/PacificBiosciences/pbsv/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['pbsv'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

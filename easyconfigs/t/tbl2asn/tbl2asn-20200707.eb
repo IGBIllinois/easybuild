@@ -15,7 +15,7 @@ description = """Tbl2asn is a command-line program that automates the creation o
 toolchain = SYSTEM
 
 dependencies = [
-	('libfaketime','0.9.10','-IGB-gcc-8.2.0')
+	('libfaketime','0.9.10')
 ]
 source_urls = ['ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/']
 sources = ['linux64.tbl2asn.gz']

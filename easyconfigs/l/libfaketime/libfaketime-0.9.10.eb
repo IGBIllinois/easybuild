@@ -9,7 +9,7 @@ current date and time. It then reports modified (faked) dates and times (as
 specified by you, the user) to these programs. This means you can modify the
 system time a program sees without having to change the time system-wide."""
 
-toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchain = SYSTEM
 
 sources = ['v%(version)s.tar.gz']
 source_urls = ['https://github.com/wolfcw/libfaketime/archive/refs/tags/']
