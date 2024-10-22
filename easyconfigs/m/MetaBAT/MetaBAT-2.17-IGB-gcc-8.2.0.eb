@@ -1,0 +1,37 @@
+easyblock = 'CMakeMake'
+
+name = 'MetaBAT'
+version = '2.17'
+
+homepage = 'https://bitbucket.org/berkeleylab/metabat/'
+description = """MetaBAT, an efficient tool for accurately reconstructing single genomes from complex microbial communities"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://bitbucket.org/berkeleylab/metabat/get/']
+sources = ['v%(version)s.tar.gz']
+
+builddependencies = [('CMake', '3.12.1'),
+	('Autotools', '20180311','',('GCC','8.2.0-2.32')),
+
+]
+
+dependencies = [
+	('Boost','1.69.0'),
+]
+
+separate_build_dir = True
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/metabat'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

@@ -1,7 +1,7 @@
 easyblock = 'Conda'
 
-name = ''
-version = ''
+name = 'MAESTRO'
+version = '1.5.1'
 
 homepage = ''
 description = """"""
@@ -9,22 +9,23 @@ description = """"""
 toolchain = SYSTEM
 
 dependencies = [
-	('Miniconda3','23.5.2'),
+	 ('Miniconda3','23.5.2'),
 ]
 
-channels = ['defaults','bioconda', 'conda-forge']
-requirements = '%(name)s=%(version)s'
+channels = ['defaults','bioconda', 'conda-forge','liulab-dfci']
+requirements = '%(namelower)s=%(version)s'
 
 extract_sources = False
 
 environment_file = ""
 
 sanity_check_paths = {
-        'files': [],
+        'files': ['envs/MAESTRO/bin/MAESTRO'],
         'dirs': [],
 }
 
 modextrapaths = {
+	'PATH': 'envs/MAESTRO/bin'
 }
 
 

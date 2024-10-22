@@ -1,10 +1,10 @@
 easyblock = 'Conda'
 
-name = ''
-version = ''
+name = 'ShortStack'
+version = '4.1.0'
 
-homepage = ''
-description = """"""
+homepage = 'https://github.com/MikeAxtell/ShortStack'
+description = """Alignment of small RNA-seq data and annotation of small RNA-producing genes"""
 
 toolchain = SYSTEM
 
@@ -13,14 +13,14 @@ dependencies = [
 ]
 
 channels = ['defaults','bioconda', 'conda-forge']
-requirements = '%(name)s=%(version)s'
+requirements = '%(namelower)s=%(version)s'
 
 extract_sources = False
 
 environment_file = ""
 
 sanity_check_paths = {
-        'files': [],
+        'files': ['bin/ShortStack'],
         'dirs': [],
 }
 
