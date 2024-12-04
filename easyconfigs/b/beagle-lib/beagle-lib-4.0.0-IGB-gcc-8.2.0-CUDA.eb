@@ -16,13 +16,13 @@ sources = ['v%(version)s.tar.gz']
 builddependencies = [('CMake', '3.17.2')]
 
 dependencies = [
-	('CUDA','12.5.1','',True),
+	('CUDA','11.3.0','',True),
 	('Java','17.0.6','',True),
 ]
 
 separate_build_dir = True
 
-configopts = '-DBUILD_CUDA=ON'
+configopts = '-DBUILD_CUDA=ON -DBUILD_OPENCL=OFF -DBUILD_SSE=OFF'
 sanity_check_paths = {
         'files': ['lib/libhmsbeagle-cpu.so','lib/libhmsbeagle-cuda.so'],
 	'dirs': []
