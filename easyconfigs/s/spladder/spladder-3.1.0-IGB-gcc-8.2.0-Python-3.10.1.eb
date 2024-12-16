@@ -1,0 +1,46 @@
+easyblock = 'PythonPackage'
+
+name = 'spladder'
+version = '3.1.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/ratschlab/spladder'
+description = """a toolbox for alternative splicing analysis based on RNA-Seq alignment data"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/ratschlab/spladder/archive/refs/tags/']
+
+dependencies = [
+        ('Python', '3.10.1'),
+	('numba','0.59.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('sortedcontainers','2.4.0', {
+		'source_tmpl': 'sortedcontainers-%(version)s-py2.py3-none-any.whl'
+	}),
+	('intervaltree','3.1.0')
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/spladder'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'
