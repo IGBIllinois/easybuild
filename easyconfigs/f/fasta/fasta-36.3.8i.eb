@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'fasta'
+version = '36.3.8i'
+
+homepage = 'https://github.com/wrpearson/fasta36'
+description = """protein and DNA sequence similarity searching and alignment programs"""
+
+toolchain = SYSTEM
+
+sources = ['fasta-%(version)s-linux64.tar.gz']
+source_urls = ['https://github.com/wrpearson/fasta36/releases/download/v%(version)s_14-Nov-2020/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/fasta36'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

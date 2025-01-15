@@ -1,0 +1,39 @@
+easyblock = 'Tarball'
+
+name = 'MaxQuant'
+version = '2.6.7.0'
+
+homepage = 'http://www.coxdocs.org/doku.php?id=maxquant:start'
+description = """MaxQuant is a quantitative proteomics software package designed for analyzing large mass-spectrometric data sets."""
+
+toolchain = SYSTEM
+
+sources = ['MaxQuant_v%(version)s.zip']
+source_urls = ['']
+
+dependencies = [
+	('dotNet','8.0.405')
+]
+
+
+sanity_check_paths = {
+	'files': ['bin/%(name)sCmd.exe', 'bin/%(name)sGui.exe'],
+	'dirs': [],
+}
+
+modextrapaths = {'LD_LIBRARY_PATH':'bin'
+}
+
+modaliases = {
+    'maxquantcmd': 'dotnet $EBROOTMAXQUANT/bin/%(name)sCmd.dll',
+    'maxquantgui': 'dotnet $EBROOTMAXQUANT/bin/%(name)sGui.dll',
+}
+
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+modloadmsg = """
+To run MaxQuant in command-line mode:  maxquantcmd <options>
+                in GUI mode:           maxquantgui
+"""
+
+moduleclass = 'bio'

@@ -1,0 +1,30 @@
+easyblock = 'ConfigureMake'
+
+name = 'psRobot'
+version = '1.2'
+
+homepage = 'http://omicslab.genetics.ac.cn/psRobot'
+description = """PsRobot is designed to analyze batch of plant small RNA data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['http://omicslab.genetics.ac.cn/psRobot/program/WebServer/']
+sources = ['psRobot_v%(version)s.tar.gz']
+
+dependencies = []
+
+configure_without_installdir = True
+configopts = '-p %(installdir)s -l %(installdir)s/lib'
+
+sanity_check_paths = {
+        'files': ['psRobot_map'],
+        'dirs': [],
+}
+
+modextrapaths = {'PATH': ''
+}
+
+
+moduleclass = 'bio'
+
+

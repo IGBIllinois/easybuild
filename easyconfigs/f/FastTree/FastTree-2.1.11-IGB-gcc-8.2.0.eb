@@ -15,7 +15,7 @@ source_urls = ['http://www.microbesonline.org/fasttree/']
 sources = [{'filename': '%(name)s-%(version)s.c', 'extract_cmd': 'cp %s FastTree.c'}]
 
 
-cmds_map = [('%(name)s-%(version)s.c', '$CC -DOPENMP $CFLAGS $LIBS %%(source)s -o %(name)s')]
+cmds_map = [('%(name)s-%(version)s.c', '$CC -DOPENMP -fopenmp $CFLAGS $LIBS %%(source)s -o %(name)s')]
 
 files_to_copy = [(['FastTree'], 'bin')]
 

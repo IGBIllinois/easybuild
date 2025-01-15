@@ -1,0 +1,41 @@
+easyblock = 'Conda'
+
+name = 'SQANTI3'
+version = '5.3.0'
+
+homepage = 'https://github.com/ConesaLab/SQANTI3'
+description = """extensive characterization of long-read transcript sequences for quality control in full-length transcriptome identification and quantification"""
+
+toolchain = SYSTEM
+
+source_urls = ['https://github.com/ConesaLab/SQANTI3/releases/download/v%(version)s/']
+sources = ['SQANTI3-v%(version)s.zip']
+
+dependencies = [
+	('Miniconda3','23.5.2'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+#requirements = ''
+
+environment_file = '%(builddir)s/SQANTI3.conda_env.yml'
+
+extract_sources = True
+
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

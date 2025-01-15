@@ -1,0 +1,145 @@
+easyblock = "PythonBundle"
+
+name = "MultiQC"
+version = "1.25.2"
+versionsuffix = "-Python-%(pyver)s"
+
+homepage = "http://multiqc.info/"
+description = """MultiQC searches a given directory for analysis logs and compiles a HTML report. Its a general use tool, perfect for summarising the output from numerous bioinformatics tools."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+builddependencies = [
+	('Rust','1.41.1','',True)
+]
+dependencies = [('Python', '3.10.1')]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+    (name, version, {
+	'source_tmpl': 'multiqc-%(version)s-py3-none-any.whl',
+    }),
+('MarkupSafe', '2.1.5', {
+    }),
+    ('Click', '8.1.7', {
+	'source_tmpl': 'click-%(version)s-py3-none-any.whl'
+    }),
+    ('simplejson', '3.19.2', {
+	'source_tmpl': 'simplejson-%(version)s-py3-none-any.whl'
+    }),
+    ('Jinja2', '3.1.4', {
+	'source_tmpl': 'jinja2-%(version)s-py3-none-any.whl'
+    }),
+    ('networkx', '3.3', {
+        'source_tmpl': '%(name)s-%(version)s-py3-none-any.whl',
+    }),
+    ('colormath', '3.0.0', {
+    }),
+    ('spectra', '0.0.11', {
+    }),
+    ('certifi', '2024.6.2', {
+	'source_tmpl': 'certifi-%(version)s-py3-none-any.whl'
+    }),
+    ('urllib3', '1.26.18', {
+	'source_tmpl': 'urllib3-%(version)s-py2.py3-none-any.whl'
+    }),
+    ('chardet', '5.2.0', {
+	'source_tmpl': 'chardet-%(version)s-py3-none-any.whl'
+    }),
+    ('idna', '3.7', {
+	'source_tmpl': 'idna-%(version)s-py3-none-any.whl'
+    }),
+	('charset-normalizer','3.3.2'),
+    ('requests', '2.29.0', {
+	'source_tmpl': 'requests-%(version)s-py3-none-any.whl'
+    }),
+	('importlib-metadata','6.5.1', {
+		'source_tmpl': 'importlib_metadata-%(version)s-py3-none-any.whl'
+	}),
+    ('Markdown', '3.4.4', {
+	'source_tmpl': 'Markdown-%(version)s-py3-none-any.whl'
+    }),
+    ('future', '1.0.0', {
+	'source_tmpl': 'future-%(version)s-py3-none-any.whl'
+    }),
+    ('lzstring', '1.0.4', {
+
+    }),
+	('coloredlogs','15.0.1', {
+		'source_tmpl': 'coloredlogs-%(version)s-py2.py3-none-any.whl'
+	}),
+	('humanfriendly','10.0', {
+		'source_tmpl': 'humanfriendly-%(version)s-py2.py3-none-any.whl'
+	}),
+	('colorama','0.4.6', {
+		'source_tmpl': 'colorama-%(version)s-py2.py3-none-any.whl'
+	}),
+	('commonmark','0.9.1'),
+	('mdurl','0.1.2', {
+		'source_tmpl': 'mdurl-%(version)s-py3-none-any.whl'
+	}),
+	('markdown-it-py','2.2.0', {
+		'source_tmpl': 'markdown_it_py-%(version)s-py3-none-any.whl',
+		'modulename': 'markdown_it'
+	}),
+	('pygments','2.17.2',{
+		'source_tmpl': 'pygments-%(version)s-py3-none-any.whl'
+	}),
+	('typing-extensions','4.12.1',{
+		'source_tmpl': 'typing_extensions-%(version)s-py3-none-any.whl'
+	}),
+	('rich','13.7.1', {
+		'source_tmpl': 'rich-%(version)s-py3-none-any.whl'
+	}),
+	('rich-click','1.8.2', {
+		'source_tmpl': 'rich_click-%(version)s-py3-none-any.whl'
+	}),
+	('humanize','4.9.0', {
+		'source_tmpl': 'humanize-%(version)s-py3-none-any.whl'
+	}),
+	('kaleido','0.2.1', {
+		'source_tmpl': 'kaleido-%(version)s-py2.py3-none-manylinux1_x86_64.whl'
+	}),
+	('pyaml-env','1.2.1', {
+		'source_tmpl': 'pyaml_env-%(version)s-py3-none-any.whl'
+	}),
+	('annotated-types','0.7.0', {
+		'source_tmpl': 'annotated_types-%(version)s-py3-none-any.whl'
+	}),
+	('pydantic-core','2.18.3', {
+		'source_tmpl': 'pydantic_core-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
+	}),
+	('pydantic','2.7.2', {
+		'source_tmpl': 'pydantic-%(version)s-py3-none-any.whl'
+	}),
+	('typeguard','4.3.0',{
+		'source_tmpl': 'typeguard-%(version)s-py3-none-any.whl'
+	}),
+	('plotly','5.22.0',{
+		'source_tmpl': 'plotly-%(version)s-py3-none-any.whl'
+	}),
+	('decorator','5.1.1', {
+		'source_tmpl': 'decorator-%(version)s-py3-none-any.whl'
+	}),
+	('natsort','8.4.0', {
+		'source_tmpl': 'natsort-%(version)s-py3-none-any.whl'
+	}),
+]
+
+
+
+sanity_check_paths = {
+	'files': ['bin/multiqc'],
+	'dirs': ['bin','lib/python%(pyshortver)s/site-packages/']
+}
+
+moduleclass = 'bio'
