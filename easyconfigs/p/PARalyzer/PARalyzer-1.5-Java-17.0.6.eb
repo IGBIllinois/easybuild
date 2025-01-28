@@ -1,0 +1,31 @@
+easyblock = 'Tarball'
+
+name = 'PARalyzer'
+version = '1.5'
+versionsuffix = '-Java-%(javaver)s'
+
+homepage = 'https://ohlerlab.mdc-berlin.de/software/PARalyzer_85/'
+description = """We developed the PARalyzer algorithm to generate a high resolution map of interaction sites between RNA-binding proteins and their targets."""
+
+toolchain = SYSTEM
+
+sources = ['PARalyzer_v1_5.tar.gz']
+source_urls = ['https://ohlerlab.mdc-berlin.de/files/duke/PARalyzer/']
+
+dependencies = [
+	('Java','17.0.6')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['PARalyzer'],
+	'dirs': [],
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/*.pl',
+	'chmod 775 %(installdir)s/PARalyzer']
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
