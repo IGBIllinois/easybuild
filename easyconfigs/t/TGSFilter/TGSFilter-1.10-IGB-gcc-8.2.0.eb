@@ -1,0 +1,31 @@
+easyblock = 'MakeCp'
+
+name = 'TGSFilter'
+version = '1.10'
+
+homepage = 'https://github.com/HuiyangYu/TGSFilter'
+description = """An ultra-fast and efficient tool for long reads filtering and trimming"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/HuiyangYu/TGSFilter/archive/refs/tags/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+files_to_copy = ['bin','include','lib','LICENSE']
+
+sanity_check_paths = {
+	'files': ['bin/tgsfilter'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
