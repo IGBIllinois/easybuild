@@ -1,7 +1,7 @@
 easyblock = "PythonBundle"
 
 name = "MultiQC"
-version = "1.25.2"
+version = "1.27"
 versionsuffix = "-Python-%(pyver)s"
 
 homepage = "http://multiqc.info/"
@@ -10,7 +10,7 @@ description = """MultiQC searches a given directory for analysis logs and compil
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 builddependencies = [
-	('Rust','1.41.1','',True)
+#	('Rust','1.41.1','',True)
 ]
 dependencies = [('Python', '3.10.1')]
 
@@ -57,8 +57,8 @@ exts_list = [
 	'source_tmpl': 'requests-%(version)s-py3-none-any.whl'
     }),
 	('zipp','3.21.0',{
-		'source_tmpl': SOURCE_PY3_WHL 
-	}),
+                'source_tmpl': SOURCE_PY3_WHL
+        }),
 	('importlib-metadata','6.5.1', {
 		'source_tmpl': 'importlib_metadata-%(version)s-py3-none-any.whl'
 	}),
@@ -122,8 +122,13 @@ exts_list = [
 		'source_tmpl': 'decorator-%(version)s-py3-none-any.whl'
 	}),
 	('natsort','8.4.0', {
-		'source_tmpl': 'natsort-%(version)s-py3-none-any.whl'
-	}),
+                'source_tmpl': 'natsort-%(version)s-py3-none-any.whl'
+        }),
+	('python-dotenv','1.0.1', {
+		'modulename': 'dotenv',
+		'source_tmpl': 'python_dotenv-%(version)s-py3-none-any.whl'
+	})
+
 ]
 
 
