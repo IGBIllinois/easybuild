@@ -1,0 +1,37 @@
+easyblock = 'CMakeMake'
+
+name = 'nvtop'
+version = '3.1.0'
+
+homepage = 'https://github.com/Syllo/nvtop'
+description = 'htop-like GPU usage monitor'
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://github.com/Syllo/nvtop/archive/']
+sources = ['%(version)s.tar.gz']
+
+builddependencies = [
+    ('binutils', '2.32'),
+    ('CMake', '3.29.5'),
+]
+
+# Note: software dlopen's libraries from the OS installed drivers, thus no specific CUDA dependency.
+dependencies = [
+    ('ncurses', '6.1'),
+    ('libdrm', '2.4.115'),
+]
+
+separate_build_dir = True
+
+configopts = '-DAMDGPU_SUPPORT=OFF -DINTEL_SUPPORT=OFF'
+
+sanity_check_paths = {
+    'files': ['bin/nvtop'],
+    'dirs': [],
+}
+
+sanity_check_commands = ["nvtop --help"]
+
+moduleclass = 'tools'
+
