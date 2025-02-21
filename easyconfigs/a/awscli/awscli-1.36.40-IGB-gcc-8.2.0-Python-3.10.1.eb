@@ -1,0 +1,78 @@
+easyblock = 'PythonBundle'
+
+name = 'awscli'
+version = '1.36.40'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://aws.amazon.com/cli/'
+description = """The AWS Command Line Interface (CLI) is a unified tool to manage your AWS services. With just one tool to download and configure, you can control multiple AWS services from the command line and automate them through scripts."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+
+dependencies = [
+        ('Python', '3.10.1'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	(name,version),
+	('trove_classifiers','2025.1.15.22', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('pluggy','1.5.0', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('pathspec','0.12.1', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('hatchling','1.27.0', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('jmespath','1.0.1', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('docutils','0.16', {
+		'source_tmpl': 'docutils-0.16-py2.py3-none-any.whl'
+	}),
+	('botocore','1.35.99', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('boto3','1.35.99', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('rsa','4.7.2', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('pyasn1','0.6.1', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('colorama','0.4.6', {
+		'souce_tmpl': 'colorama-%(version)s-py2.py3-none-any.whl'
+	}),
+	('s3transfer','0.10.4', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+
+]
+
+
+
+sanity_check_paths = {
+        'files': ['bin/aws'],
+        'dirs': [],
+}
+
+moduleclass = 'tools'

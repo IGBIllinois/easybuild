@@ -232,6 +232,25 @@ exts_list = [
 	('tqdm','4.67.1', {
 		'source_tmpl': SOURCE_PY3_WHL
 	}),
+	('validators','0.34.0', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('rpds-py','0.22.3', {
+		'source_tmpl': 'rpds_py-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl',
+		'modulename': 'rpds'
+	}),
+	('attrs','25.1.0', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('jsonschema-specifications','2024.10.1', {
+		'source_tmpl': 'jsonschema_specifications-%(version)s-py3-none-any.whl'
+	}),
+	('referencing','0.36.2', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('jsonschema','4.23.0', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
 ]
 
 moduleclass = 'lang'

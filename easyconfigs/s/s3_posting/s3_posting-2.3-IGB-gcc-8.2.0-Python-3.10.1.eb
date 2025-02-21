@@ -1,0 +1,48 @@
+easyblock = 'Tarball'
+
+name = 's3_posting'
+version = '2.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/IGBIllinois/s3_posting'
+description = """Posts data to AWS S3 bucket through linux command line"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/IGBIllinois/s3_posting/archive/']
+
+dependencies = [('Python','3.10.1'),
+	('awscli','1.36.40','-Python-%(pyver)s')
+]
+
+exts_default_options = {
+        'download_dep_fail': True,
+        'sanity_pip_check': True,
+        'source_urls': [PYPI_SOURCE],
+        'use_pip': True,
+	
+}
+	
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('MarkupSafe','3.0.2', {
+		'source_tmpl': 'MarkupSafe-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
+	}),
+	('Jinja2','3.1.5',{
+		'source_tmpl': SOURCELOWER_PY3_WHL 
+	}),
+]
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+	'files': ['bin/upload.py','bin/generate_url.py','bin/test_profile.py'],
+	'dirs': ['lib/s3_posting'],
+}
+
+modextrapaths = {'PYTHONPATH':['lib','lib/python%(pyshortver)s/site-packages/']}
+
+moduleclass = 'tools'
+
+keeppreviousinstall = True
