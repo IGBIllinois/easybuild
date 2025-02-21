@@ -1,3 +1,5 @@
+easyblock = 'MesonNinja'
+
 name = 'libdrm'
 version = '2.4.99'
 
@@ -15,8 +17,7 @@ builddependencies = [
     ('pkg-config', '0.29.2'),
 ]
 dependencies = [
-#    ('X11', '20190717'),
-    ('libpciaccess', '0.13.4'),
+    ('libpciaccess', '0.18.1'),
 ]
 
 # installing manpages requires an extra build dependency (docbook xsl)

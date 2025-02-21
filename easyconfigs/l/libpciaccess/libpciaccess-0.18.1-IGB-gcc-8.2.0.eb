@@ -1,0 +1,28 @@
+easyblock = 'MesonNinja'
+
+name = 'libpciaccess'
+version = '0.18.1'
+
+homepage = 'http://cgit.freedesktop.org/xorg/lib/libpciaccess/'
+description = """Generic PCI access library."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+source_urls = ['https://www.x.org/releases/individual/lib/']
+sources = [SOURCE_TAR_XZ]
+
+builddependencies = [
+	('Autotools', '20180311','',('GCC','8.2.0-2.32')),
+	('xorg-macros', '1.20.2'),
+	('Meson','0.51.2','-Python-3.7.2'),
+	('Ninja','1.9.0')
+]
+
+configopts = "--default-library=both"  # static and shared library
+
+sanity_check_paths = {
+	'files': ['include/pciaccess.h', 'lib/libpciaccess.a', 'lib/libpciaccess.%s' % SHLIB_EXT],
+	'dirs': ['lib/pkgconfig'],
+}
+
+moduleclass = 'system'
