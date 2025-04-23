@@ -3,8 +3,8 @@ easyblock = 'Conda'
 name = 'MAESTRO'
 version = '1.5.1'
 
-homepage = ''
-description = """"""
+homepage = 'https://github.com/liulab-dfci/MAESTRO'
+description = """MAESTRO(Model-based AnalysEs of Single-cell Transcriptome and RegulOme) is a comprehensive single-cell RNA-seq and ATAC-seq analysis suit built using snakemake."""
 
 toolchain = SYSTEM
 

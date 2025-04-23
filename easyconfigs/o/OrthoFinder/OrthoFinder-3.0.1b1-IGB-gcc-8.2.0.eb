@@ -1,0 +1,35 @@
+easyblock = 'Tarball'
+
+name = 'OrthoFinder'
+version = '3.0.1b1'
+
+
+homepage = 'https://github.com/davidemms/OrthoFinder'
+description = """OrthoFinder is a fast, accurate and comprehensive platform for comparative genomics. It finds orthologs and orthogroups, infers rooted gene trees for all orthogroups and identifies all of the gene duplcation events in those gene trees. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/davidemms/OrthoFinder/archive/']
+
+#start_dir = "orthofinder"
+
+dependencies = [('DIAMOND','2.0.9'),
+	('MCL','14.137'),
+	('FastME','2.1.6.3'),
+	('Python','3.10.1'),
+	('Biopython','1.83','-Python-%(pyver)s'),
+	('FastTree','2.1.11'),
+	('MAFFT','7.490'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['orthofinder.py'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

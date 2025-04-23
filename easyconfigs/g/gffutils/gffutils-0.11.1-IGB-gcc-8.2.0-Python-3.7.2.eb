@@ -4,8 +4,8 @@ name = 'gffutils'
 version = '0.11.1'
 versionsuffix = '-Python-%(pyver)s'
 
-homepage = ''
-description = """"""
+homepage = 'https://github.com/daler/gffutils'
+description = """gffutils is a Python package for working with and manipulating the GFF and GTF format files typically used for genomic annotations."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 

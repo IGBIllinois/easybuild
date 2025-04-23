@@ -1,18 +1,18 @@
 easyblock = 'MakeCp'
 
 name = 'Kraken2'
-version = '2.1.2'
+version = '2.1.4'
 
 homepage = 'https://ccb.jhu.edu/software/kraken2/'
 description = """Kraken is a system for assigning taxonomic labels to short DNA sequences, usually obtained through metagenomic studies. Previous attempts by other bioinformatics software to accomplish this task have often used sequence alignment or machine learning techniques that were quite slow, leading to the development of less sensitive but much faster abundance estimation programs. """
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-sources = ['v%(version)s.tar.gz']
+sources = ['v2.14.tar.gz']
 source_urls = ['https://github.com/DerrickWood/kraken2/archive/']
 
-dependencies = [('Jellyfish','2.3.0'),
-	('BLAST+','2.10.1'),
+dependencies = [
+	('BLAST+','2.16.0'),
 ]
 
 keepsymlinks = True
@@ -29,6 +29,14 @@ sanity_check_paths = {
 	'files': ['bin/classify','bin/build_db'],
 	'dirs': [],
 }
+
+sanity_check_commands = [
+    'kraken2 --help',
+    'kraken2-build --help',
+    'kraken2-inspect --help',
+    'build_db -h',
+    'classify -h',
+]
 
 modextrapaths = {'KRAKEN2_DIR':'bin'
 }

@@ -4,8 +4,8 @@ name = 'VarScan'
 version = '2.3.9'
 versionsuffix = "-Java-1.8.0_152"
 
-homepage = ''
-description = """ """
+homepage = 'https://varscan.sourceforge.net/'
+description = """VarScan is a platform-independent mutation caller for targeted, exome, and whole-genome resequencing data generated on Illumina, SOLiD, Life/PGM, Roche/454, and similar instruments"""
 
 toolchain = SYSTEM
 

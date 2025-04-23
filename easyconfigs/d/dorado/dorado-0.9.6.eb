@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'dorado'
+version = '0.9.6'
+
+homepage = 'https://github.com/nanoporetech/dorado'
+description = """Dorado is a high-performance, easy-to-use, open source basecaller for Oxford Nanopore reads."""
+
+toolchain = SYSTEM
+
+sources = ['dorado-%(version)s-linux-x64.tar.gz']
+source_urls = ['https://cdn.oxfordnanoportal.com/software/analysis/']
+
+dependencies = [
+	('dorado-db','20240501')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/dorado'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

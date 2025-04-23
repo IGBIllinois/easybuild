@@ -4,8 +4,8 @@ name = 'umap-learn'
 version = '0.4.6'
 versionsuffix = '-Python-%(pyver)s'
 
-homepage = ''
-description = """"""
+homepage = 'https://github.com/lmcinnes/umap'
+description = """Uniform Manifold Approximation and Projection (UMAP) is a dimension reduction technique that can be used for visualisation similarly to t-SNE, but also for general non-linear dimension reduction. """
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 

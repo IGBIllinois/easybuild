@@ -11,7 +11,7 @@ toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 dependencies = [
         ('Python', '3.6.1'),
-	('Tensorflow-GPU','2.2.0','-Python-%(pyver)s'),
+	('Tensorflow-GPU','2.2.0','-Python-%(pyver)s')
 ]
 
 use_pip = True

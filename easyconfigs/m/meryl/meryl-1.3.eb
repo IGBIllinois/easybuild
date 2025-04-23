@@ -3,8 +3,8 @@ easyblock = 'Tarball'
 name = 'meryl'
 version = '1.3'
 
-homepage = ''
-description = """"""
+homepage = 'https://github.com/marbl/meryl/'
+description = """This is 'meryl', a near total rewrite of 'meryl' that appeared in both project kmer and Celera Assembler."""
 
 toolchain = SYSTEM
 

@@ -6,13 +6,15 @@ version = '2.0.1'
 homepage = 'https://github.com/comprna/R2Dtool/'
 description = """R2Dtool is a set of genomics utilities for handling, integrating, and viualising isoform-mapped RNA feature data."""
 
-toolchain = SYSTEM
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 source_urls = ['https://github.com/comprna/R2Dtool/releases/download/v%(version)s/']
 sources = ['R2Dtool_v%(version)s_linux-x86-64.tar.gz']
 
 
-dependencies = []
+dependencies = [
+	('R','4.4.0')
+]
 
 sanity_check_paths = {
         'files': ['target/release/r2d'],
