@@ -1,0 +1,33 @@
+easyblock = 'MakeCp'
+
+name = 'fastp'
+version = '0.24.0'
+
+homepage = 'https://github.com/OpenGene/fastp'
+description = """A tool designed to provide fast all-in-one preprocessing for FastQ files. This tool is developed in C++ with multithreading supported to afford high performance."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/OpenGene/fastp/archive/']
+
+dependencies = [
+	('zlib','1.2.11'),
+	('libdeflate','1.23'),
+	('ISA-L','2.31.1')
+
+]
+
+keepsymlinks = True
+
+files_to_copy = [(['fastp'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/fastp'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
