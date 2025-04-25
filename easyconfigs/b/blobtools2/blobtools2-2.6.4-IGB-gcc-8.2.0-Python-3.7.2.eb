@@ -4,7 +4,7 @@ name = 'blobtools2'
 version = '2.6.4'
 versionsuffix = '-Python-%(pyver)s'
 
-homepage = 'https://github.com/blobtoolkit/blobtools2/archive/refs/tags'
+homepage = 'https://github.com/blobtoolkit/blobtools2/'
 description = """Application for the visualisation of (draft) genome assemblies using TAGC (Taxon-annotated Gc-Coverage) plots"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
@@ -58,6 +58,7 @@ exts_list = []
 
 exts_filter = ('python -c "import %(ext_name)s"', "")
 
+options = {'modulename': False }
 
 exts_list = [
         ('tolkein', '0.4.0'),

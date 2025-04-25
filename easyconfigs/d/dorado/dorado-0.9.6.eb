@@ -8,8 +8,8 @@ description = """Dorado is a high-performance, easy-to-use, open source basecall
 
 toolchain = SYSTEM
 
-sources = ['dorado-%(version)s-linux-x64.tar.gz']
-source_urls = ['https://cdn.oxfordnanoportal.com/software/analysis/']
+sources = ['dorado-%(version)s-linux-x64-cuda-12.8-rocky.tar.gz']
+source_urls = ['https://cdn.oxfordnanoportal.com/software/analysis/preview/']
 
 dependencies = [
 	('dorado-db','20240501')

@@ -4,7 +4,7 @@ name = 'Boost.Python'
 version = '1.69.0'
 versionsuffix = '-Python-%(pyver)s'
 
-homepage = 'https://boostorg.github.io/python'
+homepage = 'https://boostorg.github.io/python/doc/html/index.html'
 description = """Boost provides free peer-reviewed portable C++ source libraries."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}

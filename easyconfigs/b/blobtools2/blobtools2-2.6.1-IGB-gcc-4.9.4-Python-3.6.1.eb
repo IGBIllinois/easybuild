@@ -4,13 +4,15 @@ name = 'blobtools2'
 version = '2.6.1'
 versionsuffix = '-Python-%(pyver)s'
 
-homepage = 'https://github.com/blobtoolkit/blobtools2/archive/refs/tags'
+homepage = 'https://github.com/genomehubs/blobtoolkit'
 description = """Application for the visualisation of (draft) genome assemblies using TAGC (Taxon-annotated Gc-Coverage) plots"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
 
 sources = ['%(version)s.tar.gz']
 source_urls = ['https://github.com/blobtoolkit/blobtools2/archive/refs/tags']
+
+options = {'modulename': False }
 
 dependencies = {
 	('Python', '3.6.1'),
