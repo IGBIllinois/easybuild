@@ -9,7 +9,8 @@ description = """irSorter2 applies a multi-classifier, expert-guided approach to
 
 toolchain = SYSTEM
 
-dependencies = [('Miniconda3','4.7.12.1'),
+dependencies = [
+	('Miniconda3','24.7.1-0'),
 ]
 
 channels = ['defaults','bioconda', 'conda-forge']
