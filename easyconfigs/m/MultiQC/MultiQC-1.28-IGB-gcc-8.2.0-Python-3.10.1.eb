@@ -128,14 +128,8 @@ exts_list = [
 		'modulename': 'dotenv',
 		'source_tmpl': 'python_dotenv-%(version)s-py3-none-any.whl'
 	}),
-	('typing-extensions','4.13.2', {
-		'source_tmpl': 'typing_extensions-%(version)s-py3-none-any.whl'
-	}),
-	('narwhals','1.37.1', {
-		'source_tmpl': 'narwhals-%(version)s-py3-none-any.whl'
-	}),
-	('plotly','6.0.1', {
-		'source_tmpl': 'plotly-%(version)s-py3-none-any.whl'
+	('regex','2024.11.6', {
+		'source_tmpl': 'regex-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
 	}),
 	('tiktoken','0.9.0', {
 		'source_tmpl': 'tiktoken-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
