@@ -1,7 +1,7 @@
 easyblock = 'Bundle'
 
 name = 'alphafold'
-version = '3.0.0'
+version = '3.0.1'
 
 homepage = 'https://github.com/google-deepmind/alphafold3'
 description = """This package provides an implementation of the inference pipeline of AlphaFold v2.0. This is a completely new model that was entered in CASP14 and published in Nature. For simplicity, we refer to this model as AlphaFold throughout the rest of this document."""
@@ -10,19 +10,19 @@ toolchain = SYSTEM
 
 dependencies = [
 	('singularity','3.8.1'),
-	('alphafold-db','20240213'),
+	('alphafold-db','20250520'),
 ]
 
 configopts = ''
 sanity_check_paths = {
-        'files': ['bin/run_singularity.py','alphafold.sif'],
+        'files': ['alphafold.sif'],
         'dirs': [],
 }
 
 modextrapaths = {
 }
 
-postinstallcmds = ['chmod 775 %(installdir)s/bin/run_singularity.py']
+#postinstallcmds = ['chmod 775 %(installdir)s/bin/run_singularity.py']
 
 keeppreviousinstall = True
 moduleclass = 'bio'

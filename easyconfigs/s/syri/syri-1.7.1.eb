@@ -1,0 +1,37 @@
+easyblock = 'Conda'
+
+name = 'syri'
+version = '1.7.1'
+
+homepage = 'https://schneebergerlab.github.io/syri/'
+description = """SyRI is a comprehensive tool for predicting genomic differences between related genomes using whole-genome assemblies (WGA). The assemblies are aligned using whole-genome alignment tools, and these alignments are then used as input to SyRI."""
+
+toolchain = SYSTEM
+
+dependencies = [
+	('Miniconda3','23.5.2'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+extract_sources = False
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': ["bin/syri"],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

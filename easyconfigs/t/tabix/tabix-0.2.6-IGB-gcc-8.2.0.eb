@@ -6,7 +6,7 @@ version = '0.2.6'
 homepage = 'http://samtools.sourceforge.net'
 description = """ Generic indexer for TAB-delimited genome position files """
 
-toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
 source_urls = [('http://sourceforge.net/projects/samtools/files/', 'download')]
 sources = [SOURCE_TAR_BZ2]

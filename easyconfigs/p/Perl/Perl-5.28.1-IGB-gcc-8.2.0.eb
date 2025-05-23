@@ -11,8 +11,8 @@ source_urls = ['http://www.cpan.org/src/%(version_major)s.0']
 sources = [SOURCELOWER_TAR_GZ]
 
 dependencies = [
-    ('zlib', '1.2.11'),  # for Net::SSLeay
-    ('expat', '2.2.0'),  # for XML::Parser
+	('zlib', '1.2.11'),  # for Net::SSLeay
+	('expat', '2.2.0'),  # for XML::Parser
 ]
 
 # !! order of extensions is important !!

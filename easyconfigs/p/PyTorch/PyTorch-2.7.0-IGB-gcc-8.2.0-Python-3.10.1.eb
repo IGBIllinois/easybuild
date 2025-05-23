@@ -1,0 +1,111 @@
+easyblock = 'PythonPackage'
+
+name = 'PyTorch'
+version = '2.7.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://pytorch.org/'
+description = """Tensors and Dynamic neural networks in Python
+with strong GPU acceleration."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True}
+
+sources = ['torch-%(version)s-cp310-cp310-manylinux_2_28_x86_64.whl']
+source_urls = ['https://pypi.python.org/packages/source/t/torch/']
+
+dependencies = [
+        ('Python', '3.10.1'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+options = {
+	'modulename': 'torch'
+}
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('nvidia-cublas-cu12','12.6.4.1', {
+		'source_tmpl': 'nvidia_cublas_cu12-%(version)s-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-cuda-cupti-cu12','12.6.80', {
+		'source_tmpl': 'nvidia_cuda_cupti_cu12-%(version)s-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-cuda-nvrtc-cu12','12.6.77', {
+		'source_tmpl': 'nvidia_cuda_nvrtc_cu12-%(version)s-py3-none-manylinux2014_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-cuda-runtime-cu12','12.6.77', {
+		'source_tmpl': 'nvidia_cuda_runtime_cu12-%(version)s-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-cudnn-cu12','9.5.1.17', {
+		'source_tmpl': 'nvidia_cudnn_cu12-%(version)s-py3-none-manylinux_2_28_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-cufft-cu12','11.3.0.4', {
+		'source_tmpl': 'nvidia_cufft_cu12-%(version)s-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-cufile-cu12','1.11.1.6', {
+		'source_tmpl': 'nvidia_cufile_cu12-%(version)s-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-curand-cu12','10.3.7.77', {
+		'source_tmpl': 'nvidia_curand_cu12-%(version)s-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-cusolver-cu12','11.7.1.2', {
+		'source_tmpl': 'nvidia_cusolver_cu12-%(version)s-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-cusparse-cu12','12.5.4.2', {
+		'source_tmpl': 'nvidia_cusparse_cu12-%(version)s-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-cusparselt-cu12','0.6.3', {
+		'source_tmpl': 'nvidia_cusparselt_cu12-%(version)s-py3-none-manylinux2014_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-nccl-cu12','2.26.2', {
+		'source_tmpl': 'nvidia_nccl_cu12-%(version)s-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-nvjitlink-cu12','12.6.85', {
+		'source_tmpl': 'nvidia_nvjitlink_cu12-%(version)s-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-nvtx-cu12','12.6.77', {
+		'source_tmpl': 'nvidia_nvtx_cu12-%(version)s-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl',
+		'modulename': False
+	}),
+	('sympy','1.14.0', {
+		'source_tmpl': 'sympy-%(version)s-py3-none-any.whl'
+	}),
+	('typing-extensions','4.13.2', {
+		'source_tmpl': 'typing_extensions-%(version)s-py3-none-any.whl'
+	}),
+	('triton','3.3.0', {
+		'source_tmpl': 'triton-%(version)s-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl'
+	}),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/torch'],
+}
+
+moduleclass = 'bio'

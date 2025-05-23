@@ -1,0 +1,106 @@
+easyblock = 'PythonPackage'
+
+name = 'snakemake'
+version = '7.32.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://snakemake.readthedocs.io/en/stable/'
+description = """The Snakemake workflow management system is a tool to create reproducible and scalable data analyses. Workflows are described via a human readable, Python based language. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.10.1'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('ConfigArgParse','1.7', {
+		'source_tmpl': 'ConfigArgParse-%(version)s-py3-none-any.whl'
+	}),
+	('connection_pool','0.0.3'),
+	('datrie','0.8.2'),
+	('smmap','5.0.2', {
+		'source_tmpl': 'smmap-%(version)s-py3-none-any.whl'
+	}),
+	('gitdb','4.0.12',{
+		'source_tmpl': 'gitdb-%(version)s-py3-none-any.whl'
+	}),
+	('GitPython','3.1.44', {
+		'source_tmpl': 'GitPython-%(version)s-py3-none-any.whl',
+		'modulename': 'git'
+	}),
+	('PuLP','2.7.0', {
+		'source_tmpl': 'PuLP-%(version)s-py3-none-any.whl'
+	}),
+	('reretry','0.11.8', {
+		'source_tmpl': 'reretry-%(version)s-py2.py3-none-any.whl'
+	}),
+	('smart-open','7.1.0', {
+		'source_tmpl': 'smart_open-%(version)s-py3-none-any.whl'
+	}),
+	('stopit','1.1.2'),
+	('throttler','1.2.2', {
+		'source_tmpl': 'throttler-%(version)s-py3-none-any.whl'
+	}),
+	('toposort','1.10',{
+		'source_tmpl': 'toposort-%(version)s-py3-none-any.whl'
+	}),
+	('dpath','2.2.0', {
+		'source_tmpl': 'dpath-%(version)s-py3-none-any.whl'
+	}),
+	('plac','1.4.5', {
+		'source_tmpl': 'plac-%(version)s-py2.py3-none-any.whl'
+	}),
+	('yte','1.7.0', {
+		'source_tmpl': 'yte-%(version)s-py3-none-any.whl'
+	}),
+	('traitlets','5.14.3', {
+		'source_tmpl': 'traitlets-%(version)s-py3-none-any.whl'
+	}),
+	('jsonschema-specifications','2025.4.1',{
+		'source_tmpl': 'jsonschema_specifications-%(version)s-py3-none-any.whl'
+	}),
+	('referencing','0.36.2',{
+		'source_tmpl': 'referencing-%(version)s-py3-none-any.whl'
+	}),
+	('rpds-py','0.24.0',{
+		'source_tmpl': 'rpds_py-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl',
+		'modulename': 'rpds' 
+	}),
+	('fastjsonschema','2.21.1', {
+		'source_tmpl': 'fastjsonschema-%(version)s-py3-none-any.whl'
+	}),
+	('jsonschema','4.23.0', {
+		'source_tmpl': 'jsonschema-%(version)s-py3-none-any.whl'
+	}),
+	('jupyter-core','5.7.2', {
+		'source_tmpl': 'jupyter_core-%(version)s-py3-none-any.whl'
+	}),
+	('nbformat','5.10.4', {
+		'source_tmpl': 'nbformat-%(version)s-py3-none-any.whl'
+	}),
+
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/snakemake'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
