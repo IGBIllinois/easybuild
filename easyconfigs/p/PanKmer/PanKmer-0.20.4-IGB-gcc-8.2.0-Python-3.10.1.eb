@@ -1,0 +1,44 @@
+easyblock = 'PythonPackage'
+
+name = 'PanKmer'
+version = '0.20.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://salk-tm.gitlab.io/pankmer/'
+description = """k-mer based and reference-free pangenome analysis"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+builddependencies = [
+	('Rust','1.87.0','',True)
+
+]
+dependencies = [
+        ('Python', '3.10.1'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

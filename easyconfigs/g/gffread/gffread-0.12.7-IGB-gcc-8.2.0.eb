@@ -1,0 +1,32 @@
+easyblock = 'MakeCp'
+
+name = 'gffread'
+version = '0.12.7'
+
+homepage = 'http://ccb.jhu.edu/software/stringtie/gff.shtml'
+description = """The program gffread can be used to validate, filter, convert and perform various other operations on GFF files"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v0.12.7.tar.gz']
+source_urls = ['https://github.com/gpertea/gffread/archive/refs/tags/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+#prebuildopts = "ln -s gclib-0.10.3 ../gclib; "
+
+with_configure = False
+
+files_to_copy = ['LICENSE','README.md',(['gffread'],'bin')]
+
+sanity_check_paths = {
+	'files': ['bin/gffread'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
