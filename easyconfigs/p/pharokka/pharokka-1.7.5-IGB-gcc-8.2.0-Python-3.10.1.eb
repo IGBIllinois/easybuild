@@ -1,0 +1,86 @@
+easyblock = 'PythonPackage'
+
+name = 'pharokka'
+version = '1.7.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/gbouras13/pharokka'
+description = """pharokka is a rapid standardised annotation tool for bacteriophage genomes and metagenomes."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['pharokka-%(version)s-py3-none-any.whl']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.10.1'),
+	('Biopython','1.83','-Python-%(pyver)s')
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('about-time','4.2.1', {
+		'source_tmpl': 'about_time-%(version)s-py3-none-any.whl'
+	}),
+	('grapheme','0.6.0'),
+	('alive-progress','3.2.0', {
+		'source_tmpl': 'alive_progress-%(version)s-py3-none-any.whl'
+	}),
+	('bcbio-gff','0.7.1', {
+		'source_tmpl': 'bcbio_gff-%(version)s-py3-none-any.whl',
+		'modulename': 'BCBio'
+	}),
+	('mypy-extensions','1.1.0', {
+		'source_tmpl': 'mypy_extensions-%(version)s-py3-none-any.whl'
+	}),
+	('black','25.1.0', {
+		'source_tmpl': 'black-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl'
+	}),
+	('isort','6.0.1',{ 
+		'source_tmpl': 'isort-%(version)s-py3-none-any.whl'
+	}),
+	('loguru','0.7.3', {
+		'source_tmpl': 'loguru-%(version)s-py3-none-any.whl'
+	}),
+	('pyhmmer','0.11.1', {
+		'source_tmpl': 'pyhmmer-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
+	}),
+	('archspec','0.2.5',{
+		'source_tmpl': 'archspec-%(version)s-py3-none-any.whl'
+	}),
+	('pyrodigal','3.6.3.post1',{
+		'source_tmpl': 'pyrodigal-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
+	}),
+	('pyrodigal-gv','0.3.2',{
+		'source_tmpl': 'pyrodigal_gv-%(version)s-py2.py3-none-any.whl'
+	}),
+	('coverage','7.8.2', {
+		'source_tmpl': 'coverage-%(version)s-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
+	}),
+	('pytest-cov','6.1.1',{
+		'source_tmpl': 'pytest_cov-%(version)s-py3-none-any.whl'
+	})
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+options = {
+	'modulename': False
+}
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/pharokka.py'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

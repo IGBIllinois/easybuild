@@ -1,5 +1,5 @@
 name = 'Rust'
-version = '1.87.0'
+version = '1.85.1'
 
 homepage = 'https://www.rust-lang.org'
 description = """Rust is a systems programming language that runs blazingly fast, prevents segfaults,
