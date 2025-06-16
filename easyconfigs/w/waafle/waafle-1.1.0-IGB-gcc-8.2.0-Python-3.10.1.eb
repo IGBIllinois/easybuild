@@ -1,0 +1,42 @@
+easyblock = 'PythonPackage'
+
+name = 'waafle'
+version = '1.1.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/biobakery/waafle'
+description = """WAAFLE (a Workflow to Annotate Assemblies and Find LGT Events) is a method for finding novel LGT (Lateral Gene Transfer) events in assembled metagenomes, including those from human microbiomes."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.10.1'),
+	('BLAST+','2.16.0'),
+	('Bowtie2','2.5.4')
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/waafle_genecaller'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

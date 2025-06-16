@@ -1,0 +1,48 @@
+easyblock = 'PythonPackage'
+
+name = 'phylophlan'
+version = '3.1.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/biobakery/phylophlan'
+description = """PhyloPhlAn is an integrated pipeline for large-scale phylogenetic profiling of genomes and metagenomes."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/biobakery/phylophlan/archive/']
+
+dependencies = [
+        ('Python', '3.10.1'),
+	('Biopython','1.83','-Python-%(pyver)s'),
+	('DendroPy','5.0.8','-Python-%(pyver)s'),
+	('BLAST+','2.16.0'),
+	('DIAMOND','2.1.11'),
+	('FastTree','2.1.11'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('seaborn','0.13.2', {
+		'source_tmpl': 'seaborn-%(version)s-py3-none-any.whl'
+	})
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/phylophlan'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/phylophlan'],
+}
+
+moduleclass = 'bio'

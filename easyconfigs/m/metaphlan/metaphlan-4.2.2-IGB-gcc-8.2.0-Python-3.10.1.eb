@@ -1,0 +1,55 @@
+easyblock = 'PythonPackage'
+
+name = 'metaphlan'
+version = '4.2.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/biobakery/MetaPhlAn/'
+description = """MetaPhlAn is a computational tool for profiling the composition of microbial communities (Bacteria, Archaea and Eukaryotes) from metagenomic shotgun sequencing data (i.e. not 16S) with species-level."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['MetaPhlAn-%(version)s.tar.gz']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.10.1'),
+	('Bowtie2','2.5.4'),
+	('Biopython','1.83','-Python-%(pyver)s'),
+	('biom-format','2.1.16','-Python-%(pyver)s'),
+	('phylophlan','3.1.1','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('bcbio-gff','0.7.1', {
+		'source_tmpl': 'bcbio_gff-%(version)s-py3-none-any.whl',
+		'modulename': 'BCBio',
+	}),
+	('CMSeq','1.0.4',{
+		'source_tmpl': 'CMSeq-%(version)s-py3-none-any.whl',
+		'modulename': 'cmseq',
+	}),
+	('hclust2','1.0.0'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/metaphlan'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/metaphlan'],
+}
+
+moduleclass = 'bio'
+
+#NOTES - run "metaphlan --install" after installation to download the databases

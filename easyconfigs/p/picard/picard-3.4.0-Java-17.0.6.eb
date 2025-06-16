@@ -1,0 +1,30 @@
+easyblock = "JAR"
+
+name = 'picard'
+version = '3.4.0'
+versionsuffix = '-Java-%(javaver)s'
+
+
+homepage = 'http://broadinstitute.github.io/picard/'
+description = """A set of tools (in Java) for working with next generation sequencing data in the BAM
+  (http://samtools.github.io/hts-specs) format."""
+
+toolchain = SYSTEM
+
+source_urls = ['https://github.com/broadinstitute/picard/releases/download/%(version)s/']
+sources = ['picard.jar']
+
+dependencies = [
+	('Java', '17.0.6')
+]
+
+sanity_check_paths = {
+    'files': ["picard.jar"],
+    'dirs': [],
+}
+
+modaliases = {'picard': 'java -jar %(installdir)s/picard.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+modloadmsg = """To execute picard run 'picard'.  This command executes 'java -jar %(installdir)s/picard.jar'\n"""
+
+moduleclass = 'bio'
