@@ -1,0 +1,46 @@
+easyblock = 'PythonPackage'
+
+name = 'GetOrganelle'
+version = '1.7.7.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/Kinggerm/GetOrganelle'
+description = """This toolkit assemblies organelle genome from genomic skimming data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/Kinggerm/GetOrganelle/archive/refs/tags/']
+
+dependencies = [
+        ('Python', '3.10.1'),
+	('BLAST+','2.16.0'),
+	('Bowtie2','2.5.4'),
+	('SPAdes','3.15.5','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+options = {
+	'modulename': 'GetOrganelleLib'
+}
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/get_organelle_config.py'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
