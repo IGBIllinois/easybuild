@@ -1,21 +1,17 @@
 easyblock = 'PythonPackage'
 
-name = 'PanKmer'
-version = '0.20.4'
+name = 'mypy'
+version = '1.16.1'
 versionsuffix = '-Python-%(pyver)s'
 
-homepage = 'https://salk-tm.gitlab.io/pankmer/'
-description = """k-mer based and reference-free pangenome analysis"""
+homepage = 'https://www.mypy-lang.org/'
+description = """Mypy is an optional static type checker for Python that aims to combine the benefits of dynamic (or "duck") typing and static typing."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-sources = [SOURCELOWER_TAR_GZ]
+sources = ['mypy-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl']
 source_urls = [PYPI_LOWER_SOURCE]
 
-builddependencies = [
-	('Rust','1.87.0','',True)
-
-]
 dependencies = [
         ('Python', '3.10.1'),
 ]
@@ -27,7 +23,11 @@ exts_default_options = {
 }
 
 exts_defaultclass = "PythonPackage"
-exts_list = []
+exts_list = [
+	('mypy-extensions','1.1.0', {
+		'source_tmpl': 'mypy_extensions-%(version)s-py3-none-any.whl'
+	}),
+]
 
 use_pip = True
 sanity_pip_check = True

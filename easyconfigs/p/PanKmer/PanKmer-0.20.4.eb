@@ -1,0 +1,38 @@
+easyblock = 'Conda'
+
+name = 'PanKmer'
+version = '0.20.4'
+
+homepage = 'https://salk-tm.gitlab.io/pankmer/index.html'
+description = """k-mer based and reference-free pangenome analysis"""
+
+toolchain = SYSTEM
+
+dependencies = [
+	('Miniconda3','23.5.2'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = 'python=3.10 cython gff2bed more-itertools pybedtools python-newick pyfaidx rust seaborn upsetplot urllib3 tabix dash-bootstrap-components'
+
+extract_sources = False
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['bin'],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+#Notes - After installation, load module and run 'pip install pankmer'
+

@@ -1,0 +1,61 @@
+easyblock = 'PythonPackage'
+
+name = 'gdc-client'
+version = '2.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://gdc.cancer.gov/access-data/gdc-data-transfer-tool'
+description = """The GDC Data Transfer Tool Client provides a command-line interface supporting both GDC data downloads and submissions."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ["%(version)s.tar.gz"]
+source_urls = ["https://github.com/NCI-GDC/gdc-client/archive/refs/tags/"]
+
+dependencies = [
+        ('Python', '3.10.1'),
+	#('libxml2','2.9.4'),
+	#('libxslt','1.1.29'),
+]
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('sortedcontainers','2.4.0',{
+		'source_tmpl': 'sortedcontainers-%(version)s-py2.py3-none-any.whl'
+	}),
+	('intervaltree','3.0.2'),
+	('lxml','5.4.0',{
+		'source_tmpl': 'lxml-%(version)s-cp310-cp310-manylinux_2_28_x86_64.whl'
+	}),
+	('python-utils','3.9.1', {
+		'source_tmpl': 'python_utils-%(version)s-py2.py3-none-any.whl'
+	}),
+	('progressbar2','4.5.0', {
+		'source_tmpl': 'progressbar2-%(version)s-py3-none-any.whl'
+	}),
+	('PyYAML','6.0.2',{
+		'source_tmpl': 'PyYAML-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl',
+		'modulename': 'yaml'
+	}),
+	('termcolor','1.1.0')
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+unversioned_packages = ['gdc-client']
+
+exts_filter = ('', "")
+
+sanity_check_paths = {
+        'files': ['bin/gdc-client'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'
