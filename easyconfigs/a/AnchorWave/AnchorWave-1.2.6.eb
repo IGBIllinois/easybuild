@@ -1,0 +1,32 @@
+easyblock = 'CMakeMake'
+
+name = 'AnchorWave'
+version = 'v1.2.6'
+
+homepage = 'https://github.com/baoxingsong/AnchorWave'
+description = """AnchorWave (Anchored Wavefront Alignment) identifies collinear regions via conserved anchors (full-length CDS and full-length exon have been implemented currently) and breaks collinear regions into shorter fragments, i.e., anchor and inter-anchor intervals."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['https://github.com/baoxingsong/AnchorWave/archive/refs/tags/v1.2.6.tar.gz']
+
+builddependencies = [('CMake', '3.17.2')]
+
+dependencies = []
+
+separate_build_dir = True
+
+configopts = ''
+sanity_check_paths = {
+        'files': [],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

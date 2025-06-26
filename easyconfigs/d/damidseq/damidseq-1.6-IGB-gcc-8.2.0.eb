@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'damidseq'
+version = '1.6'
+
+homepage = 'http://owenjm.github.io/damidseq_pipeline/'
+description = """damidseq_pipeline is a single script that automatically handles sequence alignment, read extension, binned counts, normalisation, pseudocount addition and final ratio file generation."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/owenjm/damidseq_pipeline/archive/']
+
+dependencies = [('Bowtie2','2.5.4'),
+	('SAMtools','1.22'),
+	('Perl','5.28.1'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['damidseq_pipeline'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'
