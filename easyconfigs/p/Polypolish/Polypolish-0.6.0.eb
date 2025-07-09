@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'Polypolish'
+version = '0.6.0'
+
+homepage = 'https://github.com/rrwick/Polypolish'
+description = """Polypolish is a tool for polishing genome assemblies with short reads. Unlike other polishers, Polypolish uses SAM files where each read has been aligned to all possible locations (not just a single best location)."""
+
+toolchain = SYSTEM
+
+sources = ['polypolish-linux-x86_64-musl-v%(version)s.tar.gz']
+source_urls = ['https://github.com/rrwick/Polypolish/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['polypolish'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

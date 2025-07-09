@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'gapseq'
+version = '1.4.0'
+
+homepage = 'https://github.com/jotech/gapseq'
+description = """Informed prediction and analysis of bacterial metabolic pathways and genome-scale networks"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/jotech/gapseq/archive/refs/tags/']
+
+dependencies = [
+	('R','4.4.0'),
+	('BLAST+','2.16.0'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['gapseq'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

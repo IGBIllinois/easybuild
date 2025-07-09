@@ -1,0 +1,36 @@
+easyblock = 'CMakeMake'
+
+name = 'Raven'
+version = '1.8.3'
+
+homepage = 'https://github.com/lbcb-sci/raven'
+description = """Raven is a de novo genome assembler for long uncorrected reads."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/lbcb-sci/raven/archive/refs/tags/']
+
+builddependencies = [
+	('CMake', '3.29.5'),
+	('git','2.49.0')
+
+]
+
+dependencies = []
+
+separate_build_dir = True
+
+configopts = '-DRAVEN_BUILD_EXE=1 -DCMAKE_BUILD_TYPE=Release'
+sanity_check_paths = {
+        'files': ['bin/raven'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

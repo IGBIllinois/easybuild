@@ -1,0 +1,64 @@
+easyblock = 'PythonPackage'
+
+name = 'CITE-seq-Count'
+version = '1.4.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/Hoohm/CITE-seq-Count'
+description = """A python package that allows to count antibody TAGS from a CITE-seq and/or cell hashing experiment."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['CITE_seq_Count-%(version)s-py3-none-any.whl']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.10.1'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('pybktree','1.1'),
+	('pytest-dependency','0.4.0'),
+	('Levenshtein','0.27.1', {
+		'source_tmpl': 'levenshtein-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl',
+		'modulename': 'Levenshtein'
+	}),
+	('python-Levenshtein','0.27.1',{
+		'source_tmpl': 'python_levenshtein-%(version)s-py3-none-any.whl',
+		'modulename': 'Levenshtein'
+	}),
+	('future','1.0.0', {
+		'source_tmpl': 'future-%(version)s-py3-none-any.whl'
+	}),
+	('umi-tools','1.0.0', {
+		'source_tmpl': 'umi_tools-%(version)s.tar.gz'
+	}),
+	('atomicwrites','1.4.1'),
+	('py','1.11.0', {
+		'source_tmpl': 'py-%(version)s-py2.py3-none-any.whl'
+	}),
+	('pytest','4.1.0',{
+		'source_tmpl': 'pytest-%(version)s-py2.py3-none-any.whl'
+	})
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/CITE-seq-Count'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/cite_seq_count'],
+}
+
+moduleclass = 'bio'
