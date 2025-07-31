@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'ds3_java_cli'
+version = '5.6.0'
+
+homepage = 'https://github.com/SpectraLogic/ds3_java_cli'
+description = """Command line utilities for Bioarchive"""
+
+toolchain = SYSTEM
+
+sources = ['ds3_java_cli-%(version)s.tar','archive_environment.tar']
+source_urls = ['https://github.com/SpectraLogic/ds3_java_cli/releases/download/v%(version)s/']
+
+
+dependencies = [
+	('Java','17.0.6')
+]
+
+keepsymlinks = True
+
+modextrapaths = {}
+
+postinstallcmds = ['cp %(builddir)s/archive_environment.py %(installdir)s/bin']
+
+modluafooter = "execute{cmd='source $HOME/.archive/credentials', modeA={'load'}}"
+
+moduleclass = 'bio'
