@@ -29,7 +29,7 @@ dependencies = [
     ('cURL', '8.7.1'),
 ]
 
-configopts = "--enable-plugins --with-libcurl "
+configopts = "--enable-plugins --enable-libcurl "
 
 sanity_check_paths = {
     'files': ["bin/bgzip", "bin/tabix", "lib/libhts.%s" % SHLIB_EXT],

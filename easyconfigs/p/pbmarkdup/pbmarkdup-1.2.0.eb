@@ -1,0 +1,28 @@
+easyblock = 'Binary'
+
+name = 'pbmarkdup'
+version = '1.2.0'
+
+homepage = 'https://github.com/PacificBiosciences/pbmarkdup'
+description = """pbmarkdup takes one or multiple sequencing chips of an amplified libray as HiFi reads and marks or removes duplicates."""
+
+toolchain = SYSTEM
+
+sources = ['pbmarkdup']
+source_urls = ['https://github.com/PacificBiosciences/pbmarkdup/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['pbmarkdup'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+postinstallcmds = ['chmod 775 %(installdir)s/pbmarkdup']
+
+moduleclass = 'bio'
