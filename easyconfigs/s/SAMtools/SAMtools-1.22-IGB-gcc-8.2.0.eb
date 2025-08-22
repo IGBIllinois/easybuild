@@ -14,7 +14,7 @@ sources = [SOURCELOWER_TAR_BZ2]
 # The htslib component of SAMtools 1.4 uses zlib, bzip2 and lzma compression.
 # The latter is currently provided by XZ.
 dependencies = [
-    ('HTSlib','1.17'),
+    ('HTSlib','1.22'),
     ('ncurses', '6.1'),
     ('zlib',    '1.2.11'),
     ('bzip2',   '1.0.6'),

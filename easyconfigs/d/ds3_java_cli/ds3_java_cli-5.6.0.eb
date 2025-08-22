@@ -22,6 +22,7 @@ modextrapaths = {}
 
 postinstallcmds = ['cp %(builddir)s/archive_environment.py %(installdir)s/bin']
 
+modaliases = {'ds3_java_cli': 'ds3_java_cli --verbose '}
 modluafooter = "execute{cmd='source $HOME/.archive/credentials', modeA={'load'}}"
 
 moduleclass = 'bio'

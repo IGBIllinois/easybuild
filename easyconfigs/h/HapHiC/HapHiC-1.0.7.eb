@@ -1,0 +1,36 @@
+easyblock = 'Conda'
+
+name = 'HapHiC'
+version = '1.0.7'
+
+homepage = 'https://github.com/zengxiaofei/HapHiC'
+description = """a fast, reference-independent, allele-aware scaffolding tool based on Hi-C data"""
+
+toolchain = SYSTEM
+
+dependencies = [
+	('Miniconda3','23.5.2'),
+	('Java','17.0.6')
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+extract_sources = False
+
+sanity_check_paths = {
+        'files': ['bin/haphic'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

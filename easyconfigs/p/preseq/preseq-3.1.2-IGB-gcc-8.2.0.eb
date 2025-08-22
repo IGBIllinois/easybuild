@@ -24,7 +24,7 @@ builddependencies = [
 ]
 dependencies = [
 	('GSL','2.5'),
-	('HTSlib','1.12'),
+	('HTSlib','1.22'),
 ]
 
 preconfigopts = 'autoreconf -i && '
