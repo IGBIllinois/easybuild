@@ -13,7 +13,7 @@ toolchain = SYSTEM
 sources = ['%(version)s.jar']
 source_urls = ['']
 
-dependencies = [('Java','1.8.0_201')
+dependencies = [('Java','17.0.6')
 
 ]
 

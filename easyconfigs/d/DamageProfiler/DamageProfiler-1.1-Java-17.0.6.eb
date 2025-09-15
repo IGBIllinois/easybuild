@@ -1,0 +1,34 @@
+easyblock = 'JAR'
+
+name = 'DamageProfiler'
+version = '1.1'
+versionsuffix = "-Java-%(javaver)s"
+
+homepage = 'https://damageprofiler.readthedocs.io/en/latest/index.html'
+description = """This method can be used to calculate damage profiles of mapped ancient DNA reads."""
+
+toolchain = SYSTEM
+
+
+sources = ['DamageProfiler-%(version)s-java11.jar']
+source_urls = ['https://github.com/Integrative-Transcriptomics/DamageProfiler/releases/download/v%(version)s/']
+
+dependencies = [('Java','17.0.6')
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['DamageProfiler-%(version)s-java11.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+#Creates bash alias for java program
+modaliases = {'%(name)s': 'java -jar %(installdir)s/DamageProfiler-%(version)s-java11.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+modloadmsg = """To execute DamageProfiler run 'DamageProfiler'.  This command executes 'java -jar %(installdir)s/DamageProfiler-%(version)s-java11.jar'\n"""
+moduleclass = 'bio'
