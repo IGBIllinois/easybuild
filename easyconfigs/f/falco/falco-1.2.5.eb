@@ -1,0 +1,37 @@
+easyblock = 'Conda'
+
+name = 'falco'
+version = '1.2.5'
+
+homepage = 'https://github.com/smithlabcode/falco'
+description = """This program is an emulation of the popular FastQC software to check large sequencing reads for common problems."""
+
+toolchain = SYSTEM
+
+dependencies = [
+	('Miniconda3','4.10.3'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+extract_sources = False
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': ['bin/falco'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+
