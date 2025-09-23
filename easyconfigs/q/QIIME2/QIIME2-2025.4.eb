@@ -28,5 +28,8 @@ sanity_check_commands = ['qiime dev refresh-cache && qiime info']
 modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
 modloadmsg += "module purge\n"
 modloadmsg += "module load %(name)s/%(version)s\n"
+modloadmsg += "Please set the enviroment variable TMPDIR to point to the nodes local /scratch directory.\n";
+modloadmsg += "mkdir /scratch/$SLURM_JOB_ID\n";
+modloadmsg += "export TMPDIR=/scratch/$SLURM_JOB_ID\n";
 
 moduleclass = 'bio'

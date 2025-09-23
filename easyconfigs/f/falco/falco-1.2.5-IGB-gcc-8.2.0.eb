@@ -7,17 +7,19 @@ homepage = 'https://github.com/smithlabcode/falco'
 description = """This program is an emulation of the popular FastQC software to check large sequencing reads for common problems."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True }
 
 source_urls = ['https://github.com/smithlabcode/falco/releases/download/v%(version)s/']
 sources = [SOURCE_TAR_GZ]
 
 dependencies = [
-	('HTSlib','1.17'),
+	#('HTSlib','1.22'),
 	('zlib','1.2.11')
 	
 ]
 
-configopts = ' --enable-hts'
+configopts = ' CLI11_HAS_FILESYSTEM=0'
+
 sanity_check_paths = {
         'files': [],
         'dirs': [],
