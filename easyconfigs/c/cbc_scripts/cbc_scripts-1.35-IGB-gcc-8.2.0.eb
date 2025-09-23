@@ -32,7 +32,7 @@ dependencies = [
 	('Bowtie2','2.5.4'),
 	('fastp','0.24.1'),
 	('PrimerMgr','1.05','-Java-15.0.1',True),
-	('seqkit','2.6.1','',True),
+	('seqkit','2.10.0','',True),
 ]
 
 configopts = ''
