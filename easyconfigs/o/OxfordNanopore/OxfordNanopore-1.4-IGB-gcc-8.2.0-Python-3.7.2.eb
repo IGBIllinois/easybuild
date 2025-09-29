@@ -25,7 +25,7 @@ dependencies = [('Python','3.7.2'),
 	('Biopython','1.73','-Python-3.7.2'),
 	('Perl','5.28.1'),
 	('gnuplot','4.6.7'),
-	('seqkit','0.15.0','',True),
+	('seqkit','2.10.0','',True),
 
 ]
 

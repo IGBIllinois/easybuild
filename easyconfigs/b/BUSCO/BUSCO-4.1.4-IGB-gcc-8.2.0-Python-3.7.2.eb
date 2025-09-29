@@ -15,13 +15,13 @@ source_urls = ['https://gitlab.com/ezlab/busco/-/archive/%(version)s/']
 dependencies = [
         ('Python', '3.7.2'),
 	('Biopython','1.76','-Python-%(pyver)s'),
-	('R','3.6.0'),
-	('BLAST+','2.10.1'),
+	('R','4.0.3'),
+	('BLAST+','2.16.0'),
 	('Prodigal','2.6.3','',True),
 	('SEPP','4.3.10','-Python-%(pyver)s'),
 	('augustus','3.3.3'),
 	('HMMER','3.3.1'),
-	('BBMap','38.94','-Java-1.8.0_201',True),
+	('BBMap','39.06','-Java-15.0.1',True),
 
 	
 ]
