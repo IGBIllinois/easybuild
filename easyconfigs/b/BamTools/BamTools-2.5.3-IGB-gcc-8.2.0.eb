@@ -1,0 +1,37 @@
+easyblock = 'CMakeMake'
+
+name = 'BamTools'
+version = '2.5.3'
+
+homepage = 'https://github.com/pezmaster31/bamtools'
+description = """BamTools provides both a programmers API and an end-users toolkit for handling BAM files."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/pezmaster31/bamtools/archive']
+
+builddependencies = [
+	('CMake', '3.29.5')
+]
+
+dependencies = [
+	('JsonCpp','1.9.4')
+
+]
+#files_to_copy = ["bin", "lib", "include", "docs", "LICENSE", "README"]
+
+#configopts = "-DBUILD_SHARED_LIBS=ON"
+
+sanity_check_paths = {
+    'files': ['bin/bamtools', 'include/bamtools/shared/bamtools_global.h', 'lib/libbamtools.a'],
+    'dirs': ['include/bamtools/api', 'lib/pkgconfig'],
+}
+
+
+
+sanity_check_commands = ["bamtools --help"]
+
+moduleclass = 'bio'
+
