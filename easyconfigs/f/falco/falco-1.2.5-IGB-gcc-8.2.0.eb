@@ -13,12 +13,14 @@ source_urls = ['https://github.com/smithlabcode/falco/releases/download/v%(versi
 sources = [SOURCE_TAR_GZ]
 
 dependencies = [
-	#('HTSlib','1.22'),
+	('HTSlib','1.22'),
 	('zlib','1.2.11')
 	
 ]
 
-configopts = ' CLI11_HAS_FILESYSTEM=0'
+configopts = "--enable-hts CXXFLAGS='-lstdc++fs' "
+
+#configopts = ' CLI11_HAS_FILESYSTEM=0'
 
 sanity_check_paths = {
         'files': [],

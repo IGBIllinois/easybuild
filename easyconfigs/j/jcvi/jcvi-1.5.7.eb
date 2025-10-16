@@ -1,10 +1,10 @@
 easyblock = 'Conda'
 
-name = ''
-version = ''
+name = 'jcvi'
+version = '1.5.7'
 
-homepage = ''
-description = """"""
+homepage = 'https://github.com/tanghaibao/jcvi'
+description = """Collection of Python libraries to parse bioinformatics files, or perform computation related to assembly, annotation, and comparative genomics."""
 
 toolchain = SYSTEM
 
@@ -20,7 +20,7 @@ extract_sources = False
 environment_file = ""
 
 sanity_check_paths = {
-        'files': [],
+        'files': ['bin/jcvi'],
         'dirs': [],
 }
 
