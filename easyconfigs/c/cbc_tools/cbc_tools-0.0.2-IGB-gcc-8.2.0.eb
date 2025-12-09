@@ -1,0 +1,39 @@
+easyblock = 'Tarball'
+
+name = 'cbc_tools'
+version = '0.0.2'
+
+homepage = 'https://github.com/IGBIllinois/cbc_tools'
+description = """Tools written by CNRG for use by the Carver Biotech Center"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [{
+        'filename': 'cbc_tools-%(version)s.tar.gz',
+        'git_config': {
+                'url': 'https://github.com/IGBIllinois',
+                'repo_name': 'cbc_tools',
+                'tag': 'v%(version)s',
+        },
+}]
+
+dependencies = [
+	('pigz','2.4'),
+	('falco','1.2.5','',True),
+]
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/generate_report.py'],
+        'dirs': [],
+}
+
+modextrapaths = {'SEQUENCERS': 'config/sequencers.json',
+		'LIBPREPFILE': 'config/Library_Preparation_and_Sequencing.csv',
+		'DOWNFILE': 'config/File_Download_Instructions.csv'}
+
+postinstallcmds = ['chmod 775 %(installdir)s/bin/*.py']
+
+moduleclass = 'bio'
+
+

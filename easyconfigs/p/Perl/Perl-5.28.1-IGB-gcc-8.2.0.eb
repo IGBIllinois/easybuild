@@ -1496,6 +1496,10 @@ exts_list = [
         'source_urls': ['https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/'],
 
 	}),
+    ('Parallel::ForkManager','2.04', {
+	'source_tmpl': 'Parallel-ForkManager-%(version)s.tar.gz',
+	'source_urls': ['https://cpan.metacpan.org/authors/id/Y/YA/YANICK/'],
+	}),
 ]
 
 moduleclass = 'lang'
