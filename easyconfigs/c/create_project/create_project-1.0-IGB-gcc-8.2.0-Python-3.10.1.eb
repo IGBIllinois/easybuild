@@ -1,0 +1,28 @@
+easyblock = 'Tarball'
+
+name = 'create_project'
+version = '1.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/IGBIllinois/create_project'
+description = """This repository contains create_project.py, a small Python CLI that generates a standardized research project layout. The tool is intentionally minimal: it creates the directory tree and a few empty placeholder files so teams can start with a consistent structure."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/IGBIllinois/create_project/archive/refs/tags/']
+
+dependencies = [
+	('Python','3.10.1')
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/create_project.py'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

@@ -2,6 +2,7 @@ easyblock = 'CMakeMake'
 
 name = 'manta'
 version = '1.6.0'
+versionsuffix = '-Python-%(pyver)s';
 
 homepage = 'https://github.com/Illumina/manta'
 description = """Manta calls structural variants (SVs) and indels from mapped paired-end sequencing reads. It is optimized for analysis of germline variation in small sets of individuals and somatic variation in tumor/normal sample pairs."""

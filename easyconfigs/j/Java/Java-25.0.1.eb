@@ -1,0 +1,14 @@
+name = 'Java'
+version = '25.0.1'
+
+homepage = 'http://openjdk.java.net'
+description = """Java Platform, Standard Edition (Java SE) lets you develop and deploy
+Java applications on desktops and servers."""
+
+toolchain = SYSTEM
+
+source_urls = ['https://download.java.net/java/GA/jdk%(version)s/2fbf10d8c78e40bd87641c434705079d/8/GPL/']
+sources = ['openjdk-%(version)s_linux-x64_bin.tar.gz']
+
+moduleclass = 'lang'
+
