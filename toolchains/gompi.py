@@ -43,17 +43,11 @@ class Gompi(GccToolchain, OpenMPI):
 
     def is_deprecated(self):
         """Return whether or not this toolchain is deprecated."""
-        # need to transform a version like '2018b' with something that is safe to compare with '2019'
-        # comparing subversions that include letters causes TypeErrors in Python 3
-        # 'a' is assumed to be equivalent with '.01' (January), and 'b' with '.07' (June) (good enough for this purpose)
-        version = self.version.replace('a', '.01').replace('b', '.07')
-
-        deprecated = False
-
+        # GCC toolchains older than GCC version 8.x are deprecated since EasyBuild v4.5.0
         # make sure a non-symbolic version (e.g., 'system') is used before making comparisons using LooseVersion
-        if re.match('^[0-9]', version):
-            # gompi toolchains older than gompi/2019a are deprecated since EasyBuild v4.5.0
-            if LooseVersion(version) < LooseVersion('2019'):
-                deprecated = True
+        if re.match('^[0-9]', self.version) and LooseVersion(self.version) < LooseVersion('8.0'):
+            deprecated = True
+        else:
+            deprecated = False
 
         return deprecated

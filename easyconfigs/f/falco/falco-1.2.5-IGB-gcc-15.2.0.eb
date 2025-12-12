@@ -6,7 +6,7 @@ version = '1.2.5'
 homepage = 'https://github.com/smithlabcode/falco'
 description = """This program is an emulation of the popular FastQC software to check large sequencing reads for common problems."""
 
-toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
 toolchainopts = {'pic': True }
 
 source_urls = ['https://github.com/smithlabcode/falco/releases/download/v%(version)s/']

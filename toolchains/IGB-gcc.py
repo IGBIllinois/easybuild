@@ -29,6 +29,8 @@ Authors:
 
 * Kenneth Hoste (Ghent University)
 """
+import re
+
 from easybuild.toolchains.gompi import Gompi
 from easybuild.toolchains.gfbf import Gfbf
 from easybuild.toolchains.golf import Golf
@@ -58,7 +60,7 @@ class Foss(Gompi, OpenBLAS, FlexiBLAS, ScaLAPACK, Fftw):
         constants = ('BLAS_MODULE_NAME', 'BLAS_LIB', 'BLAS_LIB_MT', 'BLAS_FAMILY',
                      'LAPACK_MODULE_NAME', 'LAPACK_IS_BLAS', 'LAPACK_FAMILY')
 
-        if self.looseversion > LooseVersion('2021.0'):
+        if self.looseversion > LooseVersion('8.0'):
             for constant in constants:
                 setattr(self, constant, getattr(FlexiBLAS, constant))
         else:
@@ -73,7 +75,7 @@ class Foss(Gompi, OpenBLAS, FlexiBLAS, ScaLAPACK, Fftw):
         res = []
         res.extend(Gompi.banned_linked_shared_libs(self))
 
-        if self.looseversion >= LooseVersion('2021.0'):
+        if self.looseversion >= LooseVersion('8.0'):
             res.extend(FlexiBLAS.banned_linked_shared_libs(self))
         else:
             res.extend(OpenBLAS.banned_linked_shared_libs(self))
@@ -85,11 +87,12 @@ class Foss(Gompi, OpenBLAS, FlexiBLAS, ScaLAPACK, Fftw):
 
     def is_deprecated(self):
         """Return whether or not this toolchain is deprecated."""
-
-        # foss toolchains older than foss/2019a are deprecated since EasyBuild v4.5.0;
-        if self.looseversion < LooseVersion('2019'):
+        # GCC toolchains older than GCC version 8.x are deprecated since EasyBuild v4.5.0
+        # make sure a non-symbolic version (e.g., 'system') is used before making comparisons using LooseVersion
+        if re.match('^[0-9]', self.version) and LooseVersion(self.version) < LooseVersion('8.0'):
             deprecated = True
         else:
             deprecated = False
 
         return deprecated
+
