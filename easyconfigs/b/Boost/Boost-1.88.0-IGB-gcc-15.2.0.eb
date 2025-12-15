@@ -1,0 +1,30 @@
+
+name = 'Boost'
+version = '1.88.0'
+
+homepage = 'http://www.boost.org/'
+description = """Boost provides free peer-reviewed portable C++ source libraries."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'pic': True, 'usempi': True}
+
+sources = ['%%(namelower)s_%s.tar.gz' % '_'.join(version.split('.'))]
+source_urls = [SOURCEFORGE_SOURCE]
+
+dependencies = [
+	('bzip2', '1.0.8'),
+	('zlib', '1.3.1'),
+	('XZ','5.8.1'),
+	('zstd','1.5.7'),
+	('ICU','78.1')
+]
+
+configopts = '--without-libraries=python,mpi'
+
+#disable MPI, build Boost libraries with tagged layout
+boost_mpi = False
+tagged_layout = True
+
+#skipsteps = ['sanitycheck']
+
+moduleclass = 'devel'

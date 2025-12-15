@@ -7,6 +7,7 @@ homepage = ''
 description = """"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True}
 
 sources = [SOURCE_TAR_GZ]
 source_urls = ['']

@@ -23,7 +23,7 @@ dependencies = [
     ('Autoconf', '2.72'),
     # non-standard Perl modules are required,
     # see https://github.com/easybuilders/easybuild-easyconfigs/issues/1822
-    ('Perl', '5.42.0'),
+    ('Perl', '.5.42.0'),
 ]
 
 preconfigopts = "export PERL='/usr/bin/env perl' && "

@@ -13,7 +13,7 @@ source_urls = ['https://github.com/SpectraLogic/ds3_java_cli/releases/download/v
 
 
 dependencies = [
-	('Java','17.0.6')
+	('Java','25.0.1')
 ]
 
 keepsymlinks = True

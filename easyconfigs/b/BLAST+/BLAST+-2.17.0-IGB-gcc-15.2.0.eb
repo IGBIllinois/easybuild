@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 Uni.Lu/LCSB, NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>, Kenneth Hoste (UGent)
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'BLAST+'
+version = '2.17.0'
+
+homepage = 'http://blast.ncbi.nlm.nih.gov/'
+description = """Basic Local Alignment Search Tool, or BLAST, is an algorithm
+ for comparing primary biological sequence information, such as the amino-acid
+ sequences of different proteins or the nucleotides of DNA sequences."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'pic': True}
+
+sources = ['ncbi-blast-%(version)s+-src.tar.gz']
+source_urls = ['http://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/%(version)s/']
+
+dependencies = [('Boost', '1.88.0'),
+		('bzip2','1.0.8'),
+		('zlib','1.3.1'),
+		('SQLite','3.50.1')
+]
+
+configopts = '--with-boost=$EBROOTBOOST '
+configopts += '--with-z=$EBROOTZLIB --with-bz2=$EBROOTBZIP2 '
+configopts += '--with-64 ' 
+configopts += '--with-openmp '
+configopts += '--with-lfs '
+configopts += '--without-gbench '
+configopts += '--with-bin-release '
+configopts += '--without-debug '
+configopts += '--without-gui '
+
+
+sanity_check_paths = {
+    'files': ["bin/blastn", "bin/blastp", "bin/blastx",
+		'lib/libblast.a', 'lib/libblast.%s' % SHLIB_EXT],
+    'dirs': ['include']
+}
+
+moduleclass = 'bio'
+
+modextrapaths = {}
+modextravars = {
+	'BLAST_USAGE_REPORT': 'false'
+}
