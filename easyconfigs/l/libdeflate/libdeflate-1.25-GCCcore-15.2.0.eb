@@ -9,7 +9,7 @@ version = '1.25'
 homepage = 'https://github.com/ebiggers/libdeflate'
 description = """Heavily optimized library for DEFLATE/zlib/gzip compression and decompression."""
 
-toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchain = {'name': 'GCCcore', 'version': '15.2.0'}
 
 github_account = 'ebiggers'
 source_urls = [GITHUB_SOURCE]

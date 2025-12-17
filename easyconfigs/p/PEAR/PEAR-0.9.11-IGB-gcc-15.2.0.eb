@@ -1,0 +1,34 @@
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+
+easyblock = 'ConfigureMake'
+
+name = 'PEAR'
+version = '0.9.11'
+
+homepage = 'http://sco.h-its.org/exelixis/web/software/pear/'
+description = """PEAR is an ultrafast, memory-efficient and highly accurate pair-end read merger. 
+ It is fully parallelized and can run with as low as just a few kilobytes of memory."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+source_urls = ['http://sco.h-its.org/exelixis/web/software/pear/files/']
+sources = ['%(namelower)s-src-%(version)s.tar.gz']
+
+builddependencies = [
+	('binutils','2.45'),
+	('Autotools','20250527'),
+]
+
+dependencies = [
+    ('zlib', '1.3.1'),  
+    ('bzip2', '1.0.8'),
+]
+
+preconfigopts = 'aclocal && autoconf && automake --add-missing && '
+
+sanity_check_paths = {
+    'files': ['bin/pear'],
+    'dirs': [],
+}
+
+moduleclass = 'bio'

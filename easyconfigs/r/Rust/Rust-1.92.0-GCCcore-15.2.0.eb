@@ -1,0 +1,31 @@
+name = 'Rust'
+version = '1.92.0'
+
+homepage = 'https://www.rust-lang.org'
+description = """Rust is a systems programming language that runs blazingly fast, prevents segfaults,
+ and guarantees thread safety."""
+
+toolchain = {'name': 'GCCcore', 'version': '15.2.0'}
+
+source_urls = ['https://static.rust-lang.org/dist/']
+sources = ['rustc-%(version)s-src.tar.gz']
+patches = ['Rust-1.70_sysroot-fix-interpreter.patch']
+checksums = [
+    {'rustc-1.92.0-src.tar.gz': '9e0d2ca75c7e275fdc758255bf4b03afb3d65d1543602746907c933b6901c3b8'},
+    {'Rust-1.70_sysroot-fix-interpreter.patch': '220129db55e022a98d25028da5dcc9f26b252dd995c3ac92f6312dbb1e362cb1'},
+]
+
+builddependencies = [
+    ('binutils', '2.45'),
+    ('CMake', '4.2.0'),
+    ('Python', '3.14.0'),
+    ('Ninja', '1.13.0'),
+    ('pkgconf', '2.4.3'),
+    ('patchelf', '0.18.0'),  # only required when RPATH linking is enabled
+]
+
+dependencies = [
+    ('OpenSSL', '3', '', SYSTEM),
+]
+
+moduleclass = 'lang'

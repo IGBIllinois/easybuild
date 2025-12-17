@@ -1,0 +1,36 @@
+easyblock = 'ConfigureMake'
+
+name = 'Prodigal'
+version = '2.6.3'
+
+homepage = 'https://github.com/hyattpd/prodigal'
+description = """Fast, reliable protein-coding gene prediction for prokaryotic genomes."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'pic': True}
+
+source_urls = ['https://github.com/hyattpd/Prodigal/archive/refs/tags/']
+sources = ['v%(version)s.tar.gz']
+
+builddependencies = [
+	('binutils','2.45')
+]
+dependencies = []
+
+skipsteps = ['configure']
+
+installopts = 'INSTALLDIR=%(installdir)s'
+
+sanity_check_paths = {
+        'files': ['prodigal'],
+        'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': ''
+}
+
+
+moduleclass = 'bio'
+
+

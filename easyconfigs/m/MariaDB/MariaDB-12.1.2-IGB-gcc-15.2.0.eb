@@ -1,0 +1,54 @@
+easyblock = 'CMakeMake'
+
+name = 'MariaDB'
+version = '12.1.2'
+
+homepage = 'https://mariadb.org/'
+description = """MariaDB An enhanced, drop-in replacement for MySQL."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+source_urls = ['http://ftp.hosteurope.de/mirror/archive.mariadb.org/mariadb-%(version)s/source/']
+sources = [SOURCELOWER_TAR_GZ]
+
+checksums = ['6eb4f9aa99ee40e86a7753918e40d1745bfa90c5f91984d22fcedb2e9b570088']
+
+dependencies = [
+	('libevent', '2.1.12'),
+	('libreadline', '8.2'),
+	('zlib', '1.3.1'),
+	('ncurses','6.5'),
+	('OpenSSL','3','',SYSTEM)
+]
+
+builddependencies = [
+	('CMake', '4.2.0')
+]
+
+separate_build_dir = True
+
+#configopts = "-DWITHOUT_SERVER=ON -DDISABLE_LIBMYSQLCLIENT_SYMBOL_VERSIONING=1 -DWITH_ZLIB=system"
+
+configopts = "-DCMAKE_BUILD_TYPE=Release "
+configopts += "-DCMAKE_SHARED_LINKER_FLAGS='-fuse-ld=bfd' "  # Linking fails with default gold linker
+configopts += "-DMYSQL_MAINTAINER_MODE=OFF "  # disabled to not treat warnings as errors (-Werror)
+configopts += "-DWITH_PCRE=bundled "  # using an external PCRE is broken, see https://bugs.exim.org/show_bug.cgi?id=2173
+configopts += "-DWITH_ZLIB=system "
+configopts += "-DWITH_EMBEDDED_SERVER=OFF "  # for libmysqld.so & co
+#configopts += "-DWITHOUT_SERVER=ON "
+configopts += "-DWITH_SAFEMALLOC=OFF "  # Disable memory debugger with jemalloc
+
+sanity_check_paths = {
+    'files': ['bin/mysql'],
+    'dirs': [],
+}
+
+sanity_check_commands = ["mysql --help", "mysqltest --help"]
+
+modextrapaths = {'PATH': 'scripts'}
+
+# Ensure that jemalloc does not use transparent hugepages.
+# Database workloads with THP can cause memory bloat, potentially hiting OOM errors.
+modextravars = {'MALLOC_CONF': 'thp:never'}
+
+moduleclass = 'data'

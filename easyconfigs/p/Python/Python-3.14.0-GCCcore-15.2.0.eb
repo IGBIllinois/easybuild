@@ -60,6 +60,9 @@ exts_list = [
     ('pip', '25.1.1', {
         'checksums': ['3de45d411d308d5054c2168185d8da7f9a2cd753dbac8acbfa88a8909ecd9077'],
     }),
+	('fonttools','4.61.1', {
+	'modulename': 'fontTools'	
+	},)
 ]
 
 moduleclass = 'lang'

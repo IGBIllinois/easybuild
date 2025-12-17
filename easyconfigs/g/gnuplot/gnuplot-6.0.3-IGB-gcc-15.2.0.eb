@@ -22,11 +22,11 @@ dependencies = [
     ('libjpeg-turbo', '3.1.3'),
     ('libpng', '1.6.53'),
     ('libgd', '2.3.3'),
-    ('Pango', '1.54.0'),
-    ('libcerf', '2.4'),
-    ('X11', '20240607'),
-    ('Qt6', '6.7.2'),
-    ('Lua', '5.4.7'),
+    ('Pango', '1.57.0'),
+    ('libcerf', '3.3'),
+    ('X11', '20250608'),
+#    ('Qt6', '6.7.2'),
+    ('Lua', '5.4.8'),
 ]
 
 preconfigopts = 'autoreconf && '
@@ -37,7 +37,7 @@ preconfigopts += 'export LUA_CFLAGS="-I$EBROOTLUA/include" && export LUA_LIBS="$
 # fix undefined reference to symbol 'libiconv_open'
 preconfigopts += ' export LDFLAGS="-Wl,--copy-dt-needed-entries" && '
 
-configopts = "--without-latex --disable-wxwidgets"
+configopts = "--without-latex --disable-wxwidgets --with-qt=no"
 
 sanity_check_paths = {
     'files': ['bin/%(name)s'],

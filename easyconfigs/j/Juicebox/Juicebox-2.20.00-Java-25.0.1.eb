@@ -1,0 +1,36 @@
+easyblock = 'JAR'
+
+name = 'Juicebox'
+version = '2.20.00'
+versionsuffix = "-Java-%(javaver)s"
+
+homepage = 'https://github.com/aidenlab/Juicebox'
+description = """Juicebox is visualization software for Hi-C data. This distribution includes the source code for Juicebox, Juicer Tools, and Assembly Tools. Download Juicebox here, or use Juicebox on the web"""
+
+toolchain = SYSTEM
+
+
+sources = ['juicer_tools.%(version)s.jar']
+source_urls = ['https://github.com/aidenlab/Juicebox/releases/download/v%(version)s/']
+
+dependencies = [
+	('Java','25.0.1')
+
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['juicer_tools.%(version)s.jar'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+#Creates bash alias for java program
+modaliases = {'juicer_tools': 'java -jar %(installdir)s/juicer_tools.%(version)s.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+
+modloadmsg = """To execute Juicebox, run 'juicer_tools'."""
+
+moduleclass = 'bio'
