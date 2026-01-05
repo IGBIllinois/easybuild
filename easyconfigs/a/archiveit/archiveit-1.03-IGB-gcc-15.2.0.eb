@@ -1,0 +1,29 @@
+easyblock = 'Tarball'
+
+name = 'archiveit'
+version = '1.03'
+
+homepage = 'https://github.com/IGBIllinois/archiveit'
+description = """Active Archive Scripts"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/IGBIllinois/archiveit/archive/']
+
+dependencies = [
+	('Python','3.14.0'),
+	('Perl','5.42.0'),
+	('pbzip2','1.1.13'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/archiveit.py'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'tools'

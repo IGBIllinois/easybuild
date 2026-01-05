@@ -1,0 +1,33 @@
+easyblock = 'ConfigureMake'
+
+name = 'sparsehash'
+version = '2.0.4'
+
+homepage = 'https://github.com/sparsehash/sparsehash'
+description = """This directory contains several hash-map implementations, similar in
+API to SGIs hash_map class, but with different performance characteristics."""
+
+toolchain = {'name': 'GCCcore', 'version': '15.2.0'}
+toolchainopts = {'pic': True}
+
+source_urls = ['https://github.com/sparsehash/sparsehash/archive/']
+sources = [SOURCE_TAR_GZ]
+
+builddependencies = [
+    ('binutils', '2.45'),
+]
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['include/google/type_traits.h'],
+        'dirs': ['include','lib'],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'devel'
+

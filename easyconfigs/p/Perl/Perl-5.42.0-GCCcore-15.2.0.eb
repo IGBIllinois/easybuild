@@ -54,4 +54,3 @@ exts_list = [
 
 moduleclass = 'lang'
 
-hidden = True

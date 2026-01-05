@@ -42,24 +42,16 @@ exts_list = [
     ('wheel', '0.45.1', {
         'checksums': ['661e1abd9198507b1409a20c02106d9670b2576e916d58f520316666abca6729'],
     }),
-    ('tomli', '2.2.1', {
-        'checksums': ['cd45e1dc79c835ce60f7404ec8119f2eb06d38b1deba146f07ced3bbc44505ff'],
-    }),
+    ('tomli', '2.3.0'),
     ('packaging', '25.0', {
         'checksums': ['d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f'],
     }),
-    ('typing_extensions', '4.14.0', {
-        'checksums': ['8676b788e32f02ab42d9e7c61324048ae4c6d844a399eebace3d4979d75ceef4'],
-    }),
+    ('typing_extensions', '4.15.0'),
     ('setuptools', '80.9.0', {
         'checksums': ['f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c'],
     }),
-    ('setuptools_scm', '8.3.1', {
-        'checksums': ['3d555e92b75dacd037d32bafdf94f97af51ea29ae8c7b234cf94b7a5bd242a63'],
-    }),
-    ('pip', '25.1.1', {
-        'checksums': ['3de45d411d308d5054c2168185d8da7f9a2cd753dbac8acbfa88a8909ecd9077'],
-    }),
+    ('setuptools_scm', '9.2.2'),
+    ('pip', '25.3'),
 	('fonttools','4.61.1', {
 	'modulename': 'fontTools'	
 	},)

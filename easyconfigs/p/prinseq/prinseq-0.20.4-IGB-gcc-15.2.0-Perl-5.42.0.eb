@@ -1,0 +1,46 @@
+easyblock = 'Tarball'
+
+name = 'prinseq'
+version = '0.20.4'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'http://prinseq.sourceforge.net/'
+description = """PRINSEQ can be used to filter, reformat, or trim your genomic and metagenomic sequence data. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+sources = ['prinseq-lite-%(version)s.tar.gz']
+source_urls = ['https://sourceforge.net/projects/prinseq/files/standalone/']
+
+patches = ['prinseq-%(version)s.patch']
+
+dependencies = [
+	('Perl','5.42.0'),
+	('Perl-Bundle','5.42.0'),
+	('cairo','1.18.4'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['prinseq-graphs.pl','prinseq-lite.pl'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':'',
+	'PERL5LIB':'lib/perl5/site_perl/%(perlver)s/x86_64-linux-thread-multi'
+}
+postinstallcmds = ["chmod 775 %(installdir)s/prinseq-graphs-noPCA.pl",
+	"chmod 775 %(installdir)s/prinseq-graphs.pl",
+	"chmod 775 %(installdir)s/prinseq-lite.pl"]
+
+exts_defaultclass = "PerlModule"
+exts_list = [
+('Cairo', '1.109', {
+        'source_tmpl': 'Cairo-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/X/XA/XAOC/'],
+    }),
+]
+
+
+moduleclass = 'bio'

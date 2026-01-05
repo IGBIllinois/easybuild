@@ -1,0 +1,329 @@
+easyblock = 'PythonBundle'
+
+name = 'Python-Bundle'
+version = '3.14.0'
+
+homepage = 'http://python.org/'
+description = """Python is a programming language that lets you work more quickly and integrate your systems
+ more effectively."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'pic': True}
+
+builddependencies = [
+	('pkgconf','2.4.3'),
+	('CMake','4.2.0'),
+	('Meson','1.8.2'),
+	('meson-python','0.18.0'),
+	('Ninja','1.13.0'),
+	('Rust','1.92.0'),
+]
+# python needs bzip2 to build the bz2 package
+dependencies = [
+	('Python',version),
+	('bzip2', '1.0.8'),
+	('zlib', '1.3.1'),
+	('libreadline', '8.2'),
+	('ncurses', '6.5'),
+	('SQLite', '3.50.1'),
+	('XZ','5.8.1'),
+	('libffi', '3.5.1'),
+	('libjpeg-turbo', '3.1.3'),
+	#('MariaDB', '12.1.2'),
+	('OpenSSL', '3','',SYSTEM),
+]
+
+check_readelf_rpath = False
+
+# order is important!
+# package versions updated 2025-12-19
+exts_list = [
+	('six', '1.17.0'),
+	('pyparsing', '3.2.5'),
+	('appdirs', '1.4.4', {
+		'source_tmpl': 'appdirs-%(version)s-py2.py3-none-any.whl'
+	}),
+	('Cython', '3.2.3', {
+		'source_tmpl': 'cython-%(version)s.tar.gz'
+	}),
+	('python-dateutil', '2.9.0.post0', {
+		'modulename': 'dateutil'
+	}),
+	('decorator', '5.2.1', {
+		'source_tmpl': 'decorator-%(version)s-py3-none-any.whl'
+	}),
+	('pytz', '2025.2', {
+		'source_tmpl': 'pytz-%(version)s-py2.py3-none-any.whl'
+	}),
+	('certifi','2025.11.12', {
+		'source_tmpl': SOURCE_PY3_WHL,
+	}),
+	('chardet','5.2.0', {
+		'source_tmpl': SOURCE_PY3_WHL,
+	}),
+	('idna','3.11'),
+	('charset-normalizer','3.4.4', {
+		'source_tmpl': 'charset_normalizer-%(version)s.tar.gz'
+	}),
+	('requests','2.32.5'),
+	('pathspec','0.12.1'),
+	('pluggy','1.6.0'),
+	('trove_classifiers','2025.12.1.14', {
+		'source_tmpl': SOURCE_PY3_WHL,
+	}),
+	('hatchling','1.28.0'),
+	('hatch-vcs','0.5.0', {
+		'source_tmpl': 'hatch_vcs-%(version)s.tar.gz'
+	}),
+	('urllib3','2.6.2'),
+	('distlib','0.4.0', {
+	}),
+	('filelock','3.20.1', {
+		'source_tmpl': SOURCE_PY3_WHL,
+	}),
+	('platformdirs','4.5.1', {
+		'source_tmpl': SOURCE_PY3_WHL,
+	}),
+	('virtualenv', '20.35.4', {
+	}),
+	('networkx', '3.6.1'),
+	('cycler','0.12.1'),
+	('cppy','1.3.1'),
+	('kiwisolver','1.4.9', {
+	}),
+	('tenacity','9.1.2', {
+		'source_tmpl': SOURCE_PY3_WHL,
+	}),
+	('narwhals','2.14.0', {
+		'source_tmpl': SOURCE_PY3_WHL,
+	}),
+	('plotly','6.5.0', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),	
+	('et-xmlfile','2.0.0', {
+		'source_tmpl': 'et_xmlfile-%(version)s.tar.gz'
+	}),
+	('openpyxl','3.1.5'),
+	('PyYAML','6.0.3', {
+		'source_tmpl': 'pyyaml-%(version)s.tar.gz',
+		'modulename': 'yaml',
+	}),
+	('psutil','7.1.3'),
+	('Naked','0.1.32', {
+		'modulename': 'Naked'
+	}),
+	('shellescape','3.8.1'),
+	('crypto', '1.4.1'),
+	('pycrypto', '2.6.1', {
+		'modulename': 'Crypto',
+	}),
+	('beniget','0.4.2.post1', {
+		'source_tmpl': SOURCE_PY3_WHL,
+	}),
+	('gast','0.6.0', {
+		'source_tmpl': SOURCE_PY3_WHL,
+	}),
+	('ply','3.11'),
+	('pythran','0.18.1', {
+		'source_tmpl': SOURCE_PY3_WHL,
+	}),
+        ('scipy', '1.16.3', {
+		'source_tmpl': 'scipy-%(version)s-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl',
+		'easyblock': 'PythonPackage'	
+	}),
+	('tzdata','2025.3',{
+	}),
+	('pandas', '2.3.3', {
+		'source_tmpl': 'pandas-%(version)s-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl'
+	}),
+        ('patsy','1.0.2'),
+	('joblib','1.5.3'),
+	('flit','3.12.0'),
+        ('tomli-w','1.2.0', {
+                'source_tmpl': 'tomli_w-%(version)s-py3-none-any.whl',
+        }),
+	('docutils','0.22.4'),
+	('threadpoolctl','3.6.0'),
+	('imageio','2.37.2'),
+	('PyWavelets','1.9.0', {
+		'source_tmpl': 'pywavelets-%(version)s-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl',
+		'modulename': 'pywt',
+	}),
+	('tifffile','2025.12.12'),
+	('lazy-loader','0.4',{
+		'source_tmpl': 'lazy_loader-%(version)s.tar.gz',
+	}),
+	('scikit-image', '0.26.0', {
+		'source_tmpl': 'scikit_image-%(version)s-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl',
+		'modulename': 'skimage',
+		'easyblock': 'PythonPackage'
+	}),
+	('pytest','9.0.2'),
+	('pygments','2.19.2'),
+	('iniconfig','2.3.0'),
+	('hypothesis','6.148.8'),
+	('sortedcontainers','2.4.0'),
+	('zipp','3.23.0'),
+	('importlib-metadata','8.7.1', {
+		'source_tmpl': 'importlib_metadata-%(version)s.tar.gz',
+		'modulename': 'importlib_metadata'
+	}),
+	('spin','0.15'),
+	('poetry-core','2.2.1', {
+		'modulename': 'poetry.core',
+		'source_tmpl': 'poetry_core-%(version)s.tar.gz',
+	}),
+	('build','1.3.0'),
+	('uv','0.9.21'),
+	('uv-build','0.9.21', {
+		'source_tmpl': 'uv_build-%(version)s.tar.gz'
+	}),
+	('msgpack','1.1.2'),
+	('cachecontrol','0.14.4'),
+	('crashtest','0.4.1'),
+	('rapidfuzz','3.14.3'),
+	('cleo','2.1.0'),
+	('dulwich','0.24.10'),
+	('fastjsonschema','2.21.2'),
+	('pdm-backend','2.4.6', {
+		'source_tmpl': 'pdm_backend-%(version)s.tar.gz',
+		'modulename': 'pdm.backend',
+	
+	}),
+	('findpython','0.7.1'),
+	('installer','0.7.0'),
+	('more-itertools','10.8.0',{
+		'source_tmpl': 'more_itertools-%(version)s.tar.gz'
+	}),
+	('jaraco.classes','3.4.0'),
+	('jaraco.context','6.0.2', {
+		'source_tmpl': 'jaraco_context-%(version)s.tar.gz'
+	}),
+	('jaraco.functools','4.4.0', {
+		'source_tmpl': 'jaraco_functools-%(version)s.tar.gz'
+	}),
+	('jeepney','0.9.0'),
+	('cffi','2.0.0'),
+	('pycparser','2.23'),
+	('cryptography','46.0.3'),
+	('secretstorage','3.5.0'),
+	('keyring','25.7.0', {
+		'modulename': False,
+	}),
+	('pbs-installer','2025.12.17', {
+		'source_tmpl': 'pbs_installer-%(version)s.tar.gz'
+	}),
+	('pkginfo','1.12.1.2'),
+	('pyproject-hooks','1.2.0', {
+		'source_tmpl': 'pyproject_hooks-%(version)s.tar.gz'
+	}),
+	('requests-toolbelt','1.0.0'),
+	('shellingham','1.5.4'),
+	('tomlkit','0.13.3'),
+	('poetry','2.2.1'),
+	('click','8.2.1'),
+	('semantic-version','2.10.0', {
+                'source_tmpl': 'semantic_version-%(version)s.tar.gz',
+        }),
+	('setuptools-rust','1.12.0', {
+                'source_tmpl': 'setuptools_rust-%(version)s.tar.gz',
+        }),
+	('maturin','1.10.2', {
+        }),
+	('numpy', '2.3.5', {
+		'runtest': False,
+                'easyblock': 'PythonPackage'
+        }),
+	('scikit-learn','1.8.0', {
+                'source_tmpl': 'scikit_learn-%(version)s.tar.gz',
+                'modulename': 'sklearn',
+        }),
+	('scikit-build-core','0.11.6', {
+		'source_tmpl': 'scikit_build_core-%(version)s.tar.gz'
+	}),
+	('pybind11','3.0.1', {
+                'easyblock': 'PythonPackage',
+        }),
+        ('pillow','12.0.0', {
+                'modulename': 'PIL'
+        }),
+        ('statsmodels','0.14.6', {
+                'source_tmpl': 'statsmodels-%(version)s-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl'
+        }),
+	('contourpy','1.3.3', {
+	}),
+	('matplotlib', '3.10.8', {
+	}),
+	('seaborn','0.13.2', {
+	}),
+	('mock','5.2.0'),
+	('simplejson','3.20.2'),
+	('progressbar33','2.4', {
+		'modulename': 'progressbar'
+	}),
+	('mizani','0.14.3', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('plotnine','0.15.2', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('tqdm','4.67.1', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('validators','0.35.0', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('rpds-py','0.30.0', {
+		'source_tmpl': 'rpds_py-%(version)s.tar.gz',
+		'modulename': 'rpds'
+	}),
+	('attrs','25.4.0', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('jsonschema-specifications','2025.9.1', {
+		'source_tmpl': 'jsonschema_specifications-%(version)s-py3-none-any.whl'
+	}),
+	('referencing','0.37.0', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('jsonschema','4.25.1', {
+		'source_tmpl': SOURCE_PY3_WHL
+	}),
+	('MarkupSafe','3.0.3', {
+		'source_tmpl': 'markupsafe-%(version)s.tar.gz'
+	}),
+	('rich','14.2.0'),
+	('rich-click','1.9.5', {
+		'source_tmpl': 'rich_click-%(version)s.tar.gz',
+	}),
+	('commonmark','0.9.1'),
+	('execnet','2.1.2'),
+	('pytest-xdist','3.8.0', {
+		'source_tmpl': 'pytest_xdist-%(version)s.tar.gz',
+		'modulename': 'xdist'
+	}),
+	('mdurl','0.1.2'),
+	('markdown-it-py','4.0.0', {
+		'source_tmpl': 'markdown_it_py-%(version)s.tar.gz',
+		'modulename': 'markdown_it'
+	}),
+	('markdown','3.10'),
+	('hatchling','1.28.0'),
+	('hatch-fancy-pypi-readme','25.1.0', {
+		'source_tmpl': 'hatch_fancy_pypi_readme-%(version)s.tar.gz'
+	}),
+	('anyio','4.12.0'),
+	('h11','0.16.0', {
+		'source_tmpl': SOURCE_PY3_WHL,
+	}),
+	('httpcore','1.0.9', {
+		'source_tmpl': SOURCE_PY3_WHL,
+	}),
+	('httpx','0.28.1', {
+		'source_tmpl': SOURCE_PY3_WHL,
+	}),
+        ('puccinialin','0.1.8'),
+]
+
+moduleclass = 'lang'
+

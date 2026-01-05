@@ -1,0 +1,78 @@
+easyblock = "PythonBundle"
+
+name = "MultiQC"
+version = "1.33"
+versionsuffix = "-Python-%(pyver)s"
+
+homepage = "http://multiqc.info/"
+description = """MultiQC searches a given directory for analysis logs and compiles a HTML report. Its a general use tool, perfect for summarising the output from numerous bioinformatics tools."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+builddependencies = [
+]
+dependencies = [
+	('Python','3.14.0'),
+	('Python-Bundle', '3.14.0')
+]
+
+use_pip = True
+sanity_pip_check = False
+unpack_sources = False
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+#	('botocore',
+#	('jmespath',
+#	('s3transfer',
+#	('annotated
+#	('boto3','1.42.19'),
+	('humanfriendly','10.0'),
+	('coloredlogs','15.0.1'),
+	('humanize','4.15.0'),
+	('jinja2','3.1.6'),
+	('natsort','8.4.0'),
+	('polars-lts-cpu','1.33.1',{
+		'source_tmpl': 'polars_lts_cpu-%(version)s.tar.gz',
+		'modulename': 'polars'
+	}),
+	('pyarrow','22.0.0', {
+		'source_tmpl': 'pyarrow-%(version)s-cp314-cp314-manylinux_2_28_x86_64.whl'
+	}),
+	('annotated-types','0.7.0', {
+		'source_tmpl': 'annotated_types-%(version)s.tar.gz'
+	}),
+	('pydantic_core','2.41.5'),
+	('typing-inspection','0.4.2',{
+		'source_tmpl': 'typing_inspection-%(version)s.tar.gz'
+	}),
+	('pydantic','2.12.5'),
+	('python-dotenv','1.2.1', {
+		'source_tmpl': 'python_dotenv-%(version)s.tar.gz',
+		'modulename': 'dotenv'
+	}),
+	('colormath2','3.0.3'),
+	('spectra','0.1.0'),
+	('regex','2025.11.3'),
+	('tiktoken','0.12.0', {
+		'source_tmpl': 'tiktoken-%(version)s-cp314-cp314-manylinux_2_28_x86_64.whl'
+	}),
+	('typeguard','4.4.4'),
+	('kaleido','0.2.1', {
+		'source_tmpl': 'kaleido-%(version)s-py2.py3-none-manylinux1_x86_64.whl',
+	}),
+	('multiqc', version),
+
+]
+
+sanity_check_paths = {
+	'files': ['bin/multiqc'],
+	'dirs': ['bin','lib/python%(pyshortver)s/site-packages/']
+}
+
+modaliases = {'multiqc': 'multiqc --no-ai'}
+moduleclass = 'bio'

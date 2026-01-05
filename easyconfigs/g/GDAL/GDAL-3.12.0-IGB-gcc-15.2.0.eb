@@ -23,7 +23,6 @@ builddependencies = [
 ]
 dependencies = [
     ('Python', '3.13.5'),
-    ('SciPy-bundle', '2025.07'),
     ('netCDF', '4.9.3'),
     ('expat', '2.7.1'),
     ('GEOS', '3.13.1'),

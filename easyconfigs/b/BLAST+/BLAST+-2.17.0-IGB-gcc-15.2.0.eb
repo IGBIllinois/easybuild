@@ -26,14 +26,20 @@ toolchainopts = {'pic': True}
 sources = ['ncbi-blast-%(version)s+-src.tar.gz']
 source_urls = ['http://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/%(version)s/']
 
-dependencies = [('Boost', '1.88.0'),
-		('bzip2','1.0.8'),
-		('zlib','1.3.1'),
-		('SQLite','3.50.1')
+dependencies = [
+	('Boost', '1.90.0'),
+	('bzip2','1.0.8'),
+	('zlib','1.3.1'),
+	('SQLite','3.50.1'),
+	('zstd','1.5.7'),
 ]
+
+# remove line that prepends system paths to $PATH from configure script
+preconfigopts = r'sed -i "s|^PATH=\(.*\)$|#PATH=\1 |" %(start_dir)s/src/build-system/configure && '
 
 configopts = '--with-boost=$EBROOTBOOST '
 configopts += '--with-z=$EBROOTZLIB --with-bz2=$EBROOTBZIP2 '
+configopts += '--with-zstd=$EBROOTZSTD '
 configopts += '--with-64 ' 
 configopts += '--with-openmp '
 configopts += '--with-lfs '
@@ -41,6 +47,8 @@ configopts += '--without-gbench '
 configopts += '--with-bin-release '
 configopts += '--without-debug '
 configopts += '--without-gui '
+configopts += '--with-dll --with-static '
+
 
 
 sanity_check_paths = {

@@ -1,0 +1,63 @@
+easyblock = 'PythonPackage'
+
+name = 'demultiplex'
+version = '1.2.2'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/jfjlaros/demultiplex'
+description = """FASTA/FASTQ demultiplexer"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+builddependencies = [
+	('CMake','4.2.0'),
+]
+dependencies = [
+        ('Python', '3.14.0'),
+	('Biopython','1.86','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('dict-trie','1.0.1'),
+	('levenshtein','0.27.3', {
+		'modulename': 'Levenshtein'
+	}),
+	('python-levenshtein','0.27.3', {
+		'source_tmpl': 'python_levenshtein-%(version)s.tar.gz',
+		'modulename': False
+	}),
+	('regex','2025.11.3'),
+	('fastools','1.1.5'),
+	('jit-open','1.0.2', {
+		'source_tmpl': 'jit_open-%(version)s.tar.gz'
+	}),
+	('isal','1.8.0'),
+	('zlib-ng','1.0.0', {
+		'source_tmpl': 'zlib_ng-%(version)s.tar.gz'
+	}),
+	('xopen','2.0.2'),
+	('tssv','1.1.2'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/demultiplex'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'
