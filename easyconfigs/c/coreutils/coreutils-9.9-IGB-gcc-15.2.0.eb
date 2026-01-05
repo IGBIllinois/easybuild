@@ -1,0 +1,30 @@
+easyblock = 'ConfigureMake'
+
+name = 'coreutils'
+version = '9.9'
+
+homepage = 'http://www.gnu.org/software/coreutils/coreutils.html'
+description = """The GNU Core Utilities are the basic file, shell and text manipulation utilities of the GNU operating system.
+These are the core utilities which are expected to exist on every operating system. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+source_urls = ['http://ftp.gnu.org/gnu/coreutils/']
+sources = [SOURCE_TAR_XZ]
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/sort', 'bin/echo', 'bin/du', 'bin/date', 'bin/true'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'tools'
+
+

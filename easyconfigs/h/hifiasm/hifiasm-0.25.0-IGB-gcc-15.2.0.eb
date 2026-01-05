@@ -1,0 +1,47 @@
+easyblock = 'MakeCp'
+
+name = 'hifiasm'
+version = '0.25.0'
+
+homepage = 'https://github.com/chhylp123/hifiasm'
+description = """Hifiasm is a fast haplotype-resolved de novo assembler for PacBio Hifi reads. Unlike most existing assemblers, hifiasm starts from uncollapsed genome. Thus, it is able to keep the haplotype information as much as possible."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'pic': True }
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/chhylp123/hifiasm/archive/refs/tags/']
+
+patches = ['%(name)s-%(version)s.patch']
+
+builddependencies = [
+    ('binutils', '2.45'),
+]
+
+dependencies = [
+	('zlib', '1.3.1'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+#-std=c++11
+buildopts = 'CC="$CC" CXX="$CXX" CXXFLAGS="$CXXFLAGS" CPPFLAGS="$CPPFLAGS"'
+
+files_to_copy = [
+    ([name], 'bin'),
+    (['*.h'], 'include/hifiasm'),
+    'LICENSE', 'README.md',
+]
+
+sanity_check_paths = {
+	'files': ['bin/hifiasm'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+sanity_check_commands = ["%(name)s -h"]
+
+moduleclass = 'bio'

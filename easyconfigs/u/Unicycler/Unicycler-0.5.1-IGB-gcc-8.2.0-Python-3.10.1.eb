@@ -1,0 +1,43 @@
+easyblock = 'PythonPackage'
+
+name = 'Unicycler'
+version = '0.5.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/rrwick/Unicycler'
+description = """Unicycler is an assembly pipeline for bacterial genomes. It can assemble Illumina-only read sets where it functions as a SPAdes-optimiser. It can also assembly long-read-only sets (PacBio or Nanopore) where it runs a miniasm+Racon pipeline. For the best possible assemblies, give it both Illumina reads and long reads, and it will conduct a hybrid assembly."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/rrwick/Unicycler/archive']
+
+dependencies = [
+        ('Python','3.10.1'),
+        ('SPAdes','3.15.5', versionsuffix),
+	('racon','1.5.0', versionsuffix),
+        ('BLAST+','2.16.0'),
+]
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/unicycler'],
+        'dirs': [],
+}
+
+moduleclass = 'bio'

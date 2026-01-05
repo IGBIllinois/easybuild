@@ -1,0 +1,29 @@
+easyblock = 'Tarball'
+
+name = 'foldx'
+version = '5.1'
+
+homepage = 'https://foldxsuite.crg.eu/'
+description = """The FoldX Suite builds on the strong fundament of advanced protein design features, already implemented in the successful FoldX3, and exploits the power of fragment libraries, by integrating in silico digested backbone protein fragments of different lengths. S"""
+
+toolchain = SYSTEM
+
+sources = ['foldx5_1Linux64.zip']
+source_urls = ['']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['foldx_20251231'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+postinstallcmds = ['ln -s %(installdir)s/foldx_20251231 %(installdir)s/foldx']
+
+modloadmsg = "The license will expire on December 31st, 2025.  Please email help@igb.illinois.edu so we can renew the license\n"
+moduleclass = 'bio'

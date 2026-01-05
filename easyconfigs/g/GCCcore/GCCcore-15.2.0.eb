@@ -1,0 +1,52 @@
+easyblock = 'EB_GCC'
+
+name = 'GCCcore'
+version = '15.2.0'
+
+homepage = 'https://gcc.gnu.org/'
+description = """The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Java, and Ada,
+ as well as libraries for these languages (libstdc++, libgcj,...)."""
+
+toolchain = SYSTEM
+
+source_urls = [
+    'https://ftpmirror.gnu.org/gnu/gcc/gcc-%(version)s',  # GCC auto-resolving HTTP mirror
+    'https://sourceware.org/pub/gcc/releases/gcc-%(version)s',  # fallback URL for GCC
+    'https://ftpmirror.gnu.org/gnu/gmp',  # idem for GMP
+    'https://ftpmirror.gnu.org/gnu/mpfr',  # idem for MPFR
+    'https://ftpmirror.gnu.org/gnu/mpc',  # idem for MPC
+    'ftp://gcc.gnu.org/pub/gcc/infrastructure/',  # GCC dependencies
+    'https://gcc.gnu.org/pub/gcc/infrastructure/',  # HTTPS mirror for GCC dependencies
+    'https://libisl.sourceforge.io/',  # fallback URL for isl
+    'https://sourceware.org/pub/newlib/',  # for newlib
+    'https://github.com/MentorEmbedded/nvptx-tools/archive',  # for nvptx-tools
+]
+sources = [
+    'gcc-%(version)s.tar.gz',
+    'gmp-6.3.0.tar.bz2',
+    'mpfr-4.2.2.tar.bz2',
+    'mpc-1.3.1.tar.gz',
+    'isl-0.27.tar.bz2',
+    'newlib-4.5.0.20241231.tar.gz',
+    {'download_filename': 'a0c1fff.tar.gz', 'filename': 'nvptx-tools-20250505.tar.gz'},
+]
+patches = [
+    'GCCcore-6.2.0-fix-find-isl.patch',
+    'GCCcore-9.3.0_gmp-c99.patch',
+]
+
+builddependencies = [
+    ('M4', '1.4.20'),
+    ('binutils', '2.45'),
+]
+
+languages = ['c', 'c++', 'fortran']
+
+withisl = True
+withnvptx = True
+
+# Perl is only required when building with NVPTX support
+if withnvptx:
+    osdependencies = ['perl']
+
+moduleclass = 'compiler'

@@ -1,0 +1,37 @@
+easyblock = 'Conda'
+
+name = 'ADpred'
+version = '1.3.1'
+
+homepage = 'https://github.com/FredHutch/adpred'
+description = """adpred is a tool to predict Transcription Activation Domains from protein sequences. Adpred uses psipred to predict secondary structure of the sequences, which, together with the sequence conforms the input of the CNN model."""
+
+toolchain = SYSTEM
+
+dependencies = [
+	('Miniconda3','23.5.2'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+extract_sources = False
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['bin'],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

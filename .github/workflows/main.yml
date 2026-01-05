@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Test Python Syntax
       run: if find . -name "*.eb" -exec python -c "__import__('compiler').parse(open('{}').read())" 2>&1 \; | grep "SyntaxError"; then exit 1; fi

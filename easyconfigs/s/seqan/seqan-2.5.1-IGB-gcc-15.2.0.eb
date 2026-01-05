@@ -1,0 +1,39 @@
+# This file is an EasyBuild reciPY as per https://github.com/easybuilders/easybuild
+# Author: Pablo Escobar Lopez
+# sciCORE - University of Basel
+# SIB Swiss Institute of Bioinformatics
+
+easyblock = "CMakeMake"
+
+name = 'seqan'
+version = '2.5.1'
+
+homepage = 'https://www.seqan.de/'
+description = """SeqAn is an open source C++ library of efficient algorithms and data structures
+ for the analysis of sequences with the focus on biological data"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'pic': True}
+
+source_urls = ['https://github.com/seqan/seqan/archive/']
+sources = ['%(namelower)s-v%(version)s.tar.gz']
+
+# CMake > 3 required. CMake >= 3.4 recommended
+builddependencies = [
+	('CMake', '4.2.0'),
+]
+
+dependencies = [
+    ('zlib', '1.3.1'),
+    ('bzip2', '1.0.8')
+]
+
+configopts = "-DSEQAN_BUILD_SYSTEM=SEQAN_RELEASE_LIBRARY"
+separate_build_dir = True
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['include']
+}
+
+moduleclass = 'bio'

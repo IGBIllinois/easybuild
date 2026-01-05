@@ -1,0 +1,39 @@
+easyblock = 'ConfigureMake'
+
+name = 'vsearch'
+version = '2.15.0'
+
+homepage = 'https://github.com/torognes/vsearch'
+description = """The aim of this project is to create an alternative to the USEARCH tool developed by Robert C. Edgar (2010). The new tool should:"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+source_urls = ['https://github.com/torognes/vsearch/archive/']
+sources = ['v%(version)s.tar.gz']
+
+builddependencies = [
+	('Autotools','20250527'),
+
+]
+dependencies = [
+	('zlib','1.3.1'),
+	('bzip2','1.0.8')
+
+]
+
+preconfigopts = './autogen.sh && '
+
+buildopts = 'ARFLAGS="cr" '
+
+sanity_check_paths = {
+        'files': ['bin/vsearch'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

@@ -1,0 +1,59 @@
+easyblock = 'ConfigureMake'
+name = 'R'
+version = "4.5.1"
+
+homepage = 'http://www.r-project.org/'
+description = """R is a free software environment for statistical computing and graphics."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+sources = [SOURCE_TAR_GZ, 
+	{'filename': 'Rprofile.site',
+	'extract_cmd': 'cp %s %(builddir)s',
+	}
+]
+source_urls = ['http://cran.us.r-project.org/src/base/R-%(version_major)s']
+
+builddependencies = [
+	('Autotools', '20250527'),
+	('Java','25.0.1','',True),
+]
+dependencies = [
+	('CMake','4.2.0'),
+	('HarfBuzz','11.4.1'),
+	('FriBidi','1.0.16'),
+	('libreadline', '8.2'),
+	('ncurses', '6.5'),
+	('bzip2', '1.0.8'),
+	('XZ', '5.8.1'),
+	('zlib', '1.3.1'),
+	('SQLite', '3.50.1'),
+	('PCRE2', '10.45'),
+	('cURL', '8.14.1'),  # for RCurl
+	('libxml2', '2.15.1'),  # for XML
+	('cairo','1.18.4'),
+	('libpng','1.6.53'),
+	('libjpeg-turbo','3.1.3'),
+	('LibTIFF','4.7.1'),
+	('Tcl','9.0.1'),
+	('Tk','9.0.1'),
+	('MariaDB',''),
+	('udunits','2.2.28'),
+	('GDAL',''),
+	('GEOS',''),
+	('GMP',''),
+	('GSL',''),
+
+]
+
+#preconfigopts = 'CFLAGS=-std=gnu99 BLAS_LIBS="$LIBBLAS" LAPACK_LIBS="$LIBLAPACK" && '
+configopts = "--with-lapack --with-blas --with-pic --enable-threads --with-x=no --enable-R-shlib --with-cairo --with-libpng --with-jpeglib --with-libtiff --with-tcltk"
+configopts += " --with-recommended-packages=yes"
+
+postinstallcmds = ['cp %(builddir)s/Rprofile.site %(installdir)s/lib64/R/etc']
+
+modextrapaths = {'LD_LIBRARY_PATH':'lib64/R/lib'
+}
+
+moduleclass = 'lang'
+

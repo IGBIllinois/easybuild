@@ -1,0 +1,32 @@
+easyblock = 'Tarball'
+
+name = 'Trimmomatic'
+version = '0.40'
+versionsuffix = "-Java-%(javaver)s"
+
+homepage = 'http://www.usadellab.org/cms/?page=trimmomatic'
+description = """Trimmomatic performs a variety of useful trimming tasks for illumina
+ paired-end and single ended data.The selection of trimming steps and their associated
+ parameters are supplied on the command line. """
+
+toolchain = SYSTEM
+
+source_urls = ['https://github.com/usadellab/Trimmomatic/releases/download/v%(version)s/']
+sources = [SOURCE_ZIP]
+
+dependencies = [(
+        'Java','25.0.1')
+
+]
+
+modloadmsg = """Please limit the number of trimmomatic jobs to 3 at a time.  Using more creates a lot of stress on the shared filesystem on the cluster\n"""
+modloadmsg += """To execute Trimmomatic run 'trimmomatic'.  This command executes 'java -jar %(installdir)s/trimmoatic-%(version)s.jar'\n"""
+
+sanity_check_paths = {
+    'files': ["trimmomatic-%(version)s.jar"],
+    'dirs': [""],
+}
+
+modaliases = {'trimmomatic': 'java -jar %(installdir)s/trimmomatic-%(version)s.jar'}
+modluafooter = "execute{cmd='shopt -s expand_aliases',modeA={'load'}}"
+moduleclass = 'bio'

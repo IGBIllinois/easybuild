@@ -9,7 +9,7 @@ description = """"""
 toolchain = SYSTEM
 
 dependencies = [
-	('Miniconda3','23.5.2'),
+	('Miniconda3','24.7.1-0'),
 ]
 
 channels = ['defaults','bioconda', 'conda-forge']

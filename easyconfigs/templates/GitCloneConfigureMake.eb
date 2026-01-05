@@ -8,6 +8,7 @@ homepage = ''
 description = """"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True}
 
 sources = ['https://github.com/username/reponame.git']
 

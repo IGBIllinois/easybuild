@@ -1,0 +1,37 @@
+easyblock = 'Conda'
+
+name = 'jcvi'
+version = '1.5.7'
+
+homepage = 'https://github.com/tanghaibao/jcvi'
+description = """Collection of Python libraries to parse bioinformatics files, or perform computation related to assembly, annotation, and comparative genomics."""
+
+toolchain = SYSTEM
+
+dependencies = [
+	('Miniconda3','24.7.1-0'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+extract_sources = False
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': ['bin/jcvi'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

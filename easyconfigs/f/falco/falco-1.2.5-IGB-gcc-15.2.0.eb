@@ -1,0 +1,34 @@
+easyblock = 'ConfigureMake'
+
+name = 'falco'
+version = '1.2.5'
+
+homepage = 'https://github.com/smithlabcode/falco'
+description = """This program is an emulation of the popular FastQC software to check large sequencing reads for common problems."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'pic': True }
+
+source_urls = ['https://github.com/smithlabcode/falco/releases/download/v%(version)s/']
+sources = [SOURCE_TAR_GZ]
+
+dependencies = [
+	('HTSlib','1.22'),
+	('zlib','1.3.1')
+	
+]
+
+configopts = "--enable-hts "
+
+sanity_check_paths = {
+        'files': ['bin/falco'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

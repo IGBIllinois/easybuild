@@ -1,0 +1,41 @@
+easyblock = 'MakeCp'
+
+name = 'BWA'
+version = '0.7.19'
+
+homepage = 'http://bio-bwa.sourceforge.net/'
+description = """Burrows-Wheeler Aligner (BWA) is an efficient program that aligns
+ relatively short nucleotide sequences against a long reference sequence such as the human genome."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'pic': True}
+
+source_urls = ['https://github.com/lh3/%(namelower)s/archive/']
+sources = ['v%(version)s.tar.gz']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+prebuildopts = 'export CFLAGS="$CFLAGS -fcommon" && '
+
+with_configure = False
+
+files_to_copy = [
+	(['bwa','qualfa2fq.pl','xa2multi.pl'],'bin'),
+	'README.md',
+	(['libbwa.a'],'lib'),
+	(['bwa.1'],'man/man1'),
+	(['*.h'],'include/bwa'),
+]
+
+sanity_check_paths = {
+        'files': ['bin/bwa','bin/qualfa2fq.pl','bin/xa2multi.pl'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

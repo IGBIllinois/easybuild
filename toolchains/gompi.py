@@ -1,5 +1,5 @@
 ##
-# Copyright 2012-2019 Ghent University
+# Copyright 2012-2025 Ghent University
 #
 # This file is part of EasyBuild,
 # originally created by the HPC team of Ghent University (http://ugent.be/hpc/en),
@@ -25,9 +25,12 @@
 """
 EasyBuild support for gompi compiler toolchain (includes GCC and OpenMPI).
 
-:author: Kenneth Hoste (Ghent University)
+Authors:
+
+* Kenneth Hoste (Ghent University)
 """
-from distutils.version import LooseVersion
+from easybuild.tools import LooseVersion
+import re
 
 from easybuild.toolchains.gcc import GccToolchain
 from easybuild.toolchains.mpi.openmpi import OpenMPI
@@ -39,5 +42,12 @@ class Gompi(GccToolchain, OpenMPI):
     SUBTOOLCHAIN = GccToolchain.NAME
 
     def is_deprecated(self):
-        deprecated = False
+        """Return whether or not this toolchain is deprecated."""
+        # GCC toolchains older than GCC version 8.x are deprecated since EasyBuild v4.5.0
+        # make sure a non-symbolic version (e.g., 'system') is used before making comparisons using LooseVersion
+        if re.match('^[0-9]', self.version) and LooseVersion(self.version) < LooseVersion('8.0'):
+            deprecated = True
+        else:
+            deprecated = False
+
         return deprecated
