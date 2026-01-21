@@ -1,0 +1,33 @@
+easyblock = 'GoPackage'
+
+name = 'seqkit'
+version = '2.12.0'
+
+homepage = 'https://bioinf.shenwei.me/seqkit'
+description = """a cross-platform and ultrafast toolkit for FASTA/Q file manipulation"""
+
+toolchain = SYSTEM
+
+source_urls = ['https://github.com/shenwei356/seqkit/archive']
+sources = ['v%(version)s.tar.gz']
+
+builddependencies = [
+    ('Go', '1.25.3'),
+]
+
+dependencies = [
+]
+
+installopts = './%(namelower)s'
+
+sanity_check_paths = {
+	'files': ['bin/seqkit'],
+	'dirs': [],
+}
+
+sanity_check_commands = [
+    "seqkit version",
+    "seqkit genautocomplete"
+]
+
+moduleclass = 'bio'

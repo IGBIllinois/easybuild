@@ -18,8 +18,10 @@ sources = ['%(namelower)s_v%(version)s.zip']
 #patches = ['FastQC-%(version)s.patch']
 
 dependencies = [
-	('Java', '25.0.1'),
+	('Java', '25.0.1','',SYSTEM),
 ]
+
+fix_perl_shebang_for = ['%(installdir)s/fastqc']
 
 postinstallcmds = ["chmod +x %(installdir)s/fastqc"]
 
