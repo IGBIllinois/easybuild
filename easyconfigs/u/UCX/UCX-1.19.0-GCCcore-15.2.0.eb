@@ -35,7 +35,7 @@ dependencies = [
     ('numactl', '2.0.19'),
 ]
 
-configopts = '--enable-optimizations --enable-cma --enable-mt --with-verbs '
+configopts = '--enable-optimizations --enable-cma --enable-mt --with-verbs --with-avx --with-sse42 --with-march '
 configopts += '--without-java --without-go --disable-doxygen-doc '
 # include the configure options from contrib/configure-release
 configopts += '--disable-logging --disable-debug --disable-assertions --disable-params-check '
