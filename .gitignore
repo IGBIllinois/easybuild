@@ -9,6 +9,7 @@
 *.md5
 *.sh
 *.bin
+*.dat
 gamslice.txt
 site.cfg
 

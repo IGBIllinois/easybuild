@@ -1,0 +1,37 @@
+easyblock = 'Binary'
+
+name = 'Amira'
+version = '2025.1'
+
+homepage = 'https://www.thermofisher.com/us/en/home/electron-microscopy/products/software-em-3d-vis/amira-software/cell-biology.html?cid=msd_vds_ls_none_amr_123456_gl_pso_gaw_escchz&gad_source=1&gad_campaignid=20987464262&gclid=EAIaIQobChMIy--6uNq9kgMVE0f_AR0QegUAEAAYASAAEgIxjfD_BwE'
+description = """Thermo Scientific Amira Software simpliﬁes complex imaging data analysis, providing insights beyond 2D images. It can automatically separate and measure cells and nuclei in 3D, detect cellular features, reduce noise, and enhance contrast for high-resolution models."""
+
+toolchain = SYSTEM
+
+
+source_urls = ['']
+sources = ['AmiraAvizo3D-202511-Linux64-gcc9.bin','license.dat']
+checksums = ['26da37d005a02e0d2148a783e83b63d7f5851a0fb80b6c408f0e8650569bd852']
+
+dependencies = []
+
+#The install command has to be run as root in order to install. You must do it manually and then as easybuild user run 'eb Amira-2025.1.eb --module-only'
+#install_cmd = 'sh AmiraAvizo3D-202511-Linux64-gcc9.bin -- --silent --eula-ok --dir %(installdir)s '
+#install_cmd += 'cp license.dat %(installdir)s/license.dat'
+
+sanity_check_paths = {
+        'files': ['license.dat','AmiraAvizo3D/2025.1.1/bin/Amira3D'],
+        'dirs': [],
+}
+
+modextrapaths = {'PATH': ['AmiraAvizo3D/2025.1.1/bin','AmiraAvizo3D/2025.1.1/python/bin'],
+	'LD_LIBRARY_PATH': 'AmiraAvizo3D/2025.1.1/lib/arch-LinuxAMD64-Optimize',
+
+}
+
+modextravars = {'ASGLMD_LICENSE_FILE': '%(installdir)s/license.dat'}
+
+
+moduleclass = 'vis'
+
+
