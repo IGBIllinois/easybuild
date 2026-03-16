@@ -11,7 +11,9 @@ toolchainopts = {'pic': True}
 
 
 builddependencies = [
-    ('binutils', '2.45'),
+	('binutils', '2.45'),
+	('MariaDB','12.1.2'),
+	
 ]
 
 dependencies = [
@@ -1463,7 +1465,44 @@ exts_list = [
     ('Parallel::ForkManager','2.04', {
 	'source_tmpl': 'Parallel-ForkManager-%(version)s.tar.gz',
 	'source_urls': ['https://cpan.metacpan.org/authors/id/Y/YA/YANICK/'],
-	}),
+    }),
+    ('Config::IniFiles','3.000003', {
+	'source_tmpl': 'Config-IniFiles-%(version)s.tar.gz',
+       	'source_urls': ['https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/'],
+    }),
+    ('File::chdir','0.1011', {
+	'source_tmpl': 'File-chdir-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/'],
+
+    }),
+    ('FFI::CheckLib','0.31', {
+	'source_tmpl': 'FFI-CheckLib-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/'],
+    }),
+    ('Alien::Base::Wrapper','2.84', {
+	'source_tmpl': 'Alien-Build-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/'],
+
+    }),
+    ('Alien::Build::Plugin::Download::GitLab','0.01', {
+	'source_tmpl': 'Alien-Build-Plugin-Download-GitLab-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/'],
+    }),
+    ('Alien::Libxml2','0.20', {
+	'source_tmpl': 'Alien-Libxml2-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/'],
+
+    }),	
+    ('XML::LibXML','2.0210', {
+	'source_tmpl': 'XML-LibXML-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/'],
+	'patches': ['XML-LibXML-2.0210_fix-test-failures.patch']
+    }),
+    ('DBD::MariaDB','1.24', {
+	'source_tmpl': 'DBD-MariaDB-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/P/PA/PALI/'],
+
+    }),
 ]
 
 moduleclass = 'lang'
