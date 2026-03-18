@@ -1,4 +1,4 @@
-easyblock = 'PythonPackage'
+easyblock = 'PythonBundle'
 
 name = 'deepTools'
 version = '3.5.6'
@@ -9,10 +9,8 @@ description = """deepTools addresses the challenge of handling the large amounts
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-sources = [SOURCELOWER_TAR_GZ]
-source_urls = [PYPI_SOURCE]
-
-
+builddependencies = [
+]
 dependencies = [
         ('Python', '3.10.1'),
 ]
@@ -49,6 +47,12 @@ exts_list = [
 		'easyblock': 'PythonPackage'
 
 	}),
+	('matplotlib','3.10.8', {
+		'source_tmpl': 'matplotlib-%(version)s-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl'
+	}),
+	(name,version, {
+		'source_tmpl': 'deeptools-%(version)s.tar.gz'
+	})
 ]
 
 use_pip = True

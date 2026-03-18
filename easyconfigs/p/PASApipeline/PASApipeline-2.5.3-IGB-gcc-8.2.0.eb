@@ -13,6 +13,7 @@ sources = ['pasa-v%(version)s.tar.gz']
 source_urls = ['https://github.com/PASApipeline/PASApipeline/archive/refs/tags/']
 
 dependencies = [
+	('SQLite','3.17.0'),
 ]
 
 keepsymlinks = True
@@ -26,7 +27,9 @@ sanity_check_paths = {
 	'dirs': [],
 }
 
-modextrapaths = {
+modextrapaths = {'PATH': ''
 }
+
+postinstallcmds = ['chmod 775 %(installdir)s/Launch_PASA_pipeline.pl']
 
 moduleclass = 'bio'

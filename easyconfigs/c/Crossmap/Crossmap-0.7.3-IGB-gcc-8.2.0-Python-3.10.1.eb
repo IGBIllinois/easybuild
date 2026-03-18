@@ -1,0 +1,51 @@
+easyblock = 'PythonPackage'
+
+name = 'Crossmap'
+version = '0.7.3'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://crossmap.sourceforge.net/'
+description = """CrossMap is a program for genome coordinates conversion between different assemblies (such as hg18 (NCBI36) <=> hg19 (GRCh37)). It supports commonly used file formats including BAM, CRAM, SAM, Wiggle, BigWig, BED, GFF, GTF, MAF VCF, and gVCF."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['CrossMap-%(version)s-py3-none-any.whl']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.10.1'),
+	('libBigWig','0.4.7'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('bx-python','0.14.0', {
+		'source_tmpl': 'bx_python-%(version)s-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl',
+		'modulename': 'bx'
+	}),
+	('pyBigWig','0.3.25', {
+		'source_tmpl': 'pybigwig-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl',
+		'modulename': 'pyBigWig'
+	})
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+options = {'modulename': 'cmmodule' }
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/CrossMap'],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/cmmodule'],
+}
+
+moduleclass = 'bio'
