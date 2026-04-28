@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'RustQC'
+version = '0.1.1'
+
+homepage = 'https://seqeralabs.github.io/RustQC/'
+description = """A fast reimplementation of dupRadar, featureCounts, RSeQC, Qualimap, preseq, and samtools in Rust, delivering matching results much faster."""
+
+toolchain = SYSTEM
+
+sources = ['rustqc-linux-x86_64.tar.gz']
+source_urls = ['https://github.com/seqeralabs/RustQC/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['rustqc'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

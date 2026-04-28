@@ -5,13 +5,15 @@ version = '1.22'
 
 homepage = 'http://www.htslib.org/'
 description = """BCFtools is a set of utilities that manipulate variant calls in the 
- Variant Call Format (VCF) and its binary counterpart BCF"""
+ Variant Call Format (VCF) and its binary counterpart BCF.  Includes https://github.com/freeseek plugins"""
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 toolchainopts = {'pic': True}
 
 source_urls = ['https://github.com/samtools/bcftools/releases/download/%(version)s/']
 sources = [SOURCELOWER_TAR_BZ2]
+
+patches = [('BCFtools-%(version)s.patch',1)]
 
 dependencies = [
 	('HTSlib','1.22'),
@@ -24,11 +26,17 @@ dependencies = [
 configopts = "--with-htslib=$EBROOTHTSLIB --enable-libgsl --with-cblas"
 
 sanity_check_paths = {
+#    'files': ["bin/bcftools","plugins/munge.so","plugins/liftover.so","plugins/score.so","plugins/metal.so","plugins/blup.so"],
     'files': ["bin/bcftools"],
     'dirs': [],
 }
 
 modextrapaths = {'BCFTOOLS_PLUGINS':'plugins'
 }
+
+#postinstallcmds = [
+#	'mkdir %(installdir)s/plugins',
+#	'cp %(builddir)s/bcftools-%(version)s/plugins/*.so %(installdir)s/plugins/'
+#]
 
 moduleclass = 'bio'
