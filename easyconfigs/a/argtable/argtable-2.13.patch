@@ -1,0 +1,11 @@
+diff -ruN argtable2-13.original/src/arg_int.c argtable2-13/src/arg_int.c
+--- argtable2-13.original/src/arg_int.c	2026-03-30 15:44:00.779553700 -0500
++++ argtable2-13/src/arg_int.c	2026-03-30 15:44:54.111006510 -0500
+@@ -30,6 +30,7 @@
+ 
+ #include "argtable2.h"
+ #include <limits.h>
++#include <ctype.h>
+ 
+ /* local error codes */
+ enum {EMINCOUNT=1,EMAXCOUNT,EBADINT,EOVERFLOW};

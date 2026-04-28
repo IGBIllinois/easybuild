@@ -1,0 +1,35 @@
+easyblock = 'CMakeMake'
+
+name = 'DuckDB'
+version = '1.5.1'
+
+homepage = 'https://duckdb.org/'
+description = """DuckDB is a SQL database that runs everywhere"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'pic': True}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/duckdb/duckdb/archive/refs/tags/']
+
+builddependencies = [
+	('CMake', '4.2.0')
+]
+
+dependencies = []
+
+separate_build_dir = True
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/duckdb'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

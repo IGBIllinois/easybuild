@@ -1,0 +1,39 @@
+easyblock = 'MakeCp'
+
+name = 'MUSCLE'
+version = '5.3'
+
+homepage = 'https://drive5.com/muscle/'
+description = """MUSCLE is one of the best-performing multiple alignment programs
+ according to published benchmark tests, with accuracy and speed that are consistently
+ better than CLUSTALW. MUSCLE can align hundreds of sequences in seconds. Most users
+ learn everything they need to know about MUSCLE in a few minutes-only a handful of
+ command-line options are needed to perform common alignment tasks."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+source_urls = ['https://github.com/rcedgar/muscle/archive/refs/tags/']
+sources = ['v%(version)s.tar.gz']
+
+builddependencies = [
+    ('binutils', '2.45'),
+]
+
+start_dir = 'src'
+
+# Use build environment defined by EasyBuild
+#prebuildopts = "./build_linux.bash && sed -i 's/$(CPPOPTS)/$(CPPOPTS) $(CXXFLAGS) $(CPPFLAGS)/g' Makefile &&"
+#buildopts = "CPP=${CXX} CC=${CC}"
+build_cmd = "bash ./build_linux.bash"
+
+files_to_copy = ['README.md','LICENSE','test_data','test_results','test_scripts','bin']
+
+sanity_check_paths = {
+    'files': ['bin/muscle'],
+    'dirs': [],
+}
+
+sanity_check_commands = ["muscle -h"]
+
+moduleclass = 'bio'
+
