@@ -1503,6 +1503,12 @@ exts_list = [
         'source_urls': ['https://cpan.metacpan.org/authors/id/P/PA/PALI/'],
 
     }),
+    ('YAML::XS','0.904.0', {
+        'source_tmpl': 'YAML-LibYAML-v%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/T/TI/TINITA/'],
+
+    }),
+
 ]
 
 moduleclass = 'lang'
