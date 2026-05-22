@@ -1,15 +1,15 @@
 easyblock = 'Tarball'
 
 name = 'cbc_scripts'
-version = '1.8'
+version = '2.1'
 
 homepage = 'https://github.com/IGBIllinois/CBC_scripts'
 description = """DNA services at the Biotech center include short read sequencing with four types of Illumina platforms: HiSeq4000, HiSeq2500, MiSeq and NovaSeq6000"""
 
-toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
 
 sources = [{
-        'filename': 'cbc_scripts-%(version)s.tar.gz',
+        'filename': 'cbc_scripts-%(version)s.tar.xz',
         'git_config': {
                 'url': 'https://github.com/IGBIllinois',
                 'repo_name': 'CBC_scripts',
@@ -17,20 +17,23 @@ sources = [{
         },
 }]
 
-dependencies = [('Perl','5.28.1'),
-	('bcl2fastq2','2.20'),
-	('pigz','2.4'),
+dependencies = [
+	('Perl','5.42.0'),
+	('Perl-Bundle','5.42.0'),
+	('Python','3.14.0'),
+	('Java','25.0.1','',SYSTEM),
+	('pigz','2.8'),
 	('pbzip2','1.1.13'),
-	('BLAST+','2.2.29','',True),
-	('FASTX-Toolkit','0.0.13.2','',True),
-	('MultiQC','1.5','-Python-3.7.2'),
-	('FastQC','0.11.7'),
-	('seqtk','1.2'),
-	('gnuplot','4.6.7'),
-	('Bowtie2','2.1.0'),
-	('fastp','0.20.1'),
-	('PrimerMgr','1.04','-Java-1.8.0_201',True),
-	('seqkit','0.15.0','',True),
+	('BLAST+','2.17.0'),
+	('MultiQC','1.33','-Python-%(pyver)s'),
+	('FastQC','0.12.1','-Java-%(javaver)s',SYSTEM),
+	('seqtk','1.5'),
+	('gnuplot','6.0.3'),
+	('Bowtie2','2.5.4'),
+	('fastp','1.0.1'),
+	('PrimerMgr','1.05','-Java-%(javaver)s',SYSTEM),
+	('seqkit','2.12.0','',SYSTEM),
+	('falco','1.2.5')
 ]
 
 configopts = ''
