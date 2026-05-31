@@ -9,14 +9,14 @@ description = """HUMAnN (the HMP Unified Metabolic Analysis Network) is a method
 
 toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-sources = ['v%(version)s.tar.gz']
+sources = ['%(version)s.tar.gz']
 source_urls = ['https://github.com/biobakery/humann/archive/refs/tags/']
 
 dependencies = [
         ('Python', '3.10.1'),
 	('DIAMOND','2.1.11'),
 	('Bowtie2','2.5.4'),
-	('SAMtools','1.17'),
+	('SAMtools','1.22'),
 	('biom-format','2.1.16','-Python-%(pyver)s'),
 	('humann-db','201901b','',True),
 ]
