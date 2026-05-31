@@ -21,7 +21,7 @@ matplotlib==3.8.3
 numpy==1.26.4
 packaging==24.0
 pandas==2.2.1
-pillow==10.2.0
+pillow==12.2.0
 pyarrow==15.0.2
 #./lib/pyEFI
 pyenchant==3.2.2
