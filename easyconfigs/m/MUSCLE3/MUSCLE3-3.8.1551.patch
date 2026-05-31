@@ -1,0 +1,14 @@
+diff -ruN muscle-3.8.1551.original/Makefile muscle-3.8.1551/Makefile
+--- muscle-3.8.1551.original/Makefile	2026-05-06 15:25:54.028578636 -0500
++++ muscle-3.8.1551/Makefile	2026-05-06 15:26:32.170185737 -0500
+@@ -10,8 +10,8 @@
+ # this is fixed by deleting "-static" from the LDLIBS line.
+ 
+ CFLAGS = -O3 -funroll-loops -Winline -DNDEBUG=1
+-LDLIBS = -lm -static
+-# LDLIBS = -lm
++#LDLIBS = -lm -static
++LDLIBS = -lm
+ 
+ OBJ = .o
+ EXE =

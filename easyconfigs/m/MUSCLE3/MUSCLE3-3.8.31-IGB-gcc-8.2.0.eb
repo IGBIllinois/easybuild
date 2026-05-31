@@ -5,7 +5,7 @@
 
 easyblock = 'MakeCp'
 
-name = 'MUSCLE'
+name = 'MUSCLE3'
 version = '3.8.31'
 
 homepage = 'http://drive5.com/muscle/'
@@ -20,7 +20,7 @@ toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 sources = ['%(namelower)s%(version)s_src.tar.gz']
 source_urls = ['http://www.drive5.com/muscle/downloads%(version)s/']
 
-patches = ['MUSCLE-%(version)s_fix-mk-hardcoding.patch']
+patches = ['MUSCLE3-%(version)s_fix-mk-hardcoding.patch']
 
 files_to_copy = [
     (["muscle"], 'bin')]

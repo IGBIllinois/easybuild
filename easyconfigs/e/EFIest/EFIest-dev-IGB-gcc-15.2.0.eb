@@ -1,0 +1,60 @@
+easyblock = 'Tarball'
+
+name = 'EFIest'
+version = 'dev'
+local_commit = '8ba200d'
+
+homepage = 'https://github.com/EnzymeFunctionInitiative/EST'
+description = """EFI-EST is a flexible pipeline which builds Sequence Similarity Networks of proteins for the purpose of elucidating the function of enzymes. It is available through a web tool at https://efi.igb.illinois.edu/efi-est/ and on KBase."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'pic': True}
+
+sources = [{'filename': 'efiest-%(version)s.tar.xz',
+        'git_config': {
+                'url': 'https://github.com/EnzymeFunctionInitiative',
+                'repo_name': 'EST',
+                'commit': local_commit,
+                'recursive': True,
+        },
+}]
+
+builddependencies = [
+        ('binutils', '2.45'),
+
+]
+
+dependencies = [
+	('Python','3.14.0'),
+	('Perl','5.42.0'),
+	('EFIest-Perl-Bundle',version,'-Perl-%(perlver)s'),
+	('EFIest-Python-Bundle',version,'-Python-%(pyver)s'),
+	('Java','25.0.1','',True),
+	('nextflow','24.04.4','-Java-%(javaver)s',True),
+	('BLAST','2.2.26','',True),
+	('DIAMOND','2.1.16'),
+	('DuckDB','1.5.1'),
+	('CD-HIT','4.8.1'),
+	('seqkit','2.13.0','',True),
+	('HMMER','3.4'),
+	('MariaDB','12.1.2'),
+	('USEARCH','12.0-beta1','',True),
+	('MUSCLE3','3.8.1551'),
+	('MUSCLE','5.3'),
+
+]
+
+keepsymlinks = True
+
+exts_list = [
+
+]
+
+sanity_check_paths = {
+	'files': ['bin/create_nextflow_job.py'],
+	'dirs': [],
+}
+
+modextrapaths = {}
+
+moduleclass = 'bio'

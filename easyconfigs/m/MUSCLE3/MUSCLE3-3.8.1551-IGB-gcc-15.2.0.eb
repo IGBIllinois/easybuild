@@ -5,8 +5,8 @@
 
 easyblock = 'MakeCp'
 
-name = 'MUSCLE'
-version = '3.8.31'
+name = 'MUSCLE3'
+version = '3.8.1551'
 
 homepage = 'http://drive5.com/muscle/'
 description = """ MUSCLE is one of the best-performing multiple alignment programs 
@@ -15,19 +15,21 @@ description = """ MUSCLE is one of the best-performing multiple alignment progra
  learn everything they need to know about MUSCLE in a few minutes—only a handful of 
  command-line options are needed to perform common alignment tasks."""
 
-toolchain = {'name': 'IGB-gcc', 'version': '4.9.4'}
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
 
-sources = ['%(namelower)s%(version)s_src.tar.gz']
-source_urls = ['http://www.drive5.com/muscle/downloads%(version)s/']
+sources = ['muscle_src_%(version)s.tar.gz']
+source_urls = ['https://drive5.com/muscle/']
 
-patches = ['MUSCLE-%(version)s_fix-mk-hardcoding.patch']
+patches = ['MUSCLE3-%(version)s.patch']
 
 files_to_copy = [
     (["muscle"], 'bin')]
 
 sanity_check_paths = {
-    'files': ["bin/muscle"],
+    'files': ["bin/muscle","bin/muscle3"],
     'dirs': [],
 }
+
+postinstallcmds = ['cp -fR %(installdir)s/bin/muscle %(installdir)s/bin/muscle3']
 
 moduleclass = 'bio'

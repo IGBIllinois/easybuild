@@ -1,0 +1,157 @@
+easyblock = 'PerlBundle'
+
+name = 'EFIest-Perl-Bundle'
+version = 'dev'
+versionsuffix = '-Perl-%(perlver)s'
+
+homepage = 'https://github.com/EnzymeFunctionInitiative/EST/'
+description = """EFI-EST is a flexible pipeline which builds Sequence Similarity Networks of proteins for the purpose of elucidating the function of enzymes. It is available through a web tool at https://efi.igb.illinois.edu/efi-est/ and on KBase. This respository contains the analysis code that these services use. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'pic': True}
+
+
+builddependencies = [
+	('binutils', '2.45'),
+	
+]
+
+dependencies = [
+	('Perl','5.42.0'),
+	('MariaDB','12.1.2'),
+	
+]
+
+# !! order of extensions is important !!
+exts_list = [
+	('List::MoreUtils::XS','0.430', {
+		'source_tmpl': 'List-MoreUtils-XS-%(version)s.tar.gz',
+	        'source_urls': ['https://cpan.metacpan.org/authors/id/R/RE/REHSACK/'],
+	}),
+	('DBI', '1.647', {
+        	'source_tmpl': 'DBI-%(version)s.tgz',
+	        'source_urls': ['https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/'],
+	}),
+	('IO::Stringy','2.113', {
+		'source_tmpl': 'IO-Stringy-%(version)s.tar.gz',
+                'source_urls': ['https://cpan.metacpan.org/authors/id/C/CA/CAPOEIRAB/'],
+	}),
+	('Config::IniFiles','3.000003', {
+		'source_tmpl': 'Config-IniFiles-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/'],
+	}),
+	('JSON', '4.10', {
+		'source_tmpl': 'JSON-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI'],
+	}),
+	('XML::Writer','0.900', {
+		'source_tmpl': 'XML-Writer-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/J/JO/JOSEPHW/'],
+	}),
+	('File::Which', '1.27', {
+		'source_tmpl': 'File-Which-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/P/PL/PLICEASE'],
+	}),
+	('Path::Tiny', '0.150', {
+		'source_tmpl': 'Path-Tiny-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN'],
+	}),
+	('File::chdir','0.1011', {
+		'source_tmpl': 'File-chdir-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/'],
+	}),
+	('Capture::Tiny', '0.50', {
+		'source_tmpl': 'Capture-Tiny-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN'],
+	}),
+	('Test::Needs','0.002010', {
+		'source_tmpl': 'Test-Needs-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/H/HA/HAARG/'],
+	}),
+	('Try::Tiny', '0.32', {
+		'source_tmpl': 'Try-Tiny-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/E/ET/ETHER'],
+	}),
+	('Test::Fatal', '0.018', {
+		'source_tmpl': 'Test-Fatal-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/R/RJ/RJBS'],
+	}),
+	('Test::Warnings', '0.038', {
+		'source_tmpl': 'Test-Warnings-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/E/ET/ETHER'],
+	}),
+	('MIME::Base32','1.303', {
+		'source_tmpl': 'MIME-Base32-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/R/RE/REHSACK/'],
+	}),
+	('URI', '5.34', {
+		'source_tmpl': 'URI-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/O/OA/OALDERS/'],
+	}),
+	('Alien::Base::Wrapper','2.84', {
+		'source_tmpl': 'Alien-Build-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/'],
+		'runtest': False
+	}),
+	('Alien::Build::Plugin::Download::GitLab','0.01', {
+		'source_tmpl': 'Alien-Build-Plugin-Download-GitLab-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/'],
+	}),
+	('Alien::Libxml2','0.20', {
+		'source_tmpl': 'Alien-Libxml2-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/'],
+	}),
+	('XML::SAX::Base', '1.09', {
+		'source_tmpl': 'XML-SAX-Base-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/G/GR/GRANTM'],
+	}),
+	('XML::NamespaceSupport', '1.12', {
+		'source_tmpl': 'XML-NamespaceSupport-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/P/PE/PERIGRIN'],
+	}),
+	('XML::SAX', '1.02', {
+		'source_tmpl': 'XML-SAX-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/G/GR/GRANTM'],
+	}),
+	('XML::LibXML','2.0210', {
+		'source_tmpl': 'XML-LibXML-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/'],
+		'patches': ['XML-LibXML-2.0210_fix-test-failures.patch']
+	}),
+	('Devel::CheckLib', '1.16', {
+		'source_tmpl': 'Devel-CheckLib-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/M/MA/MATTN'],
+	}),
+	('Test::Deep', '1.205', {
+		'source_tmpl': 'Test-Deep-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/R/RJ/RJBS'],
+	}),
+	('DBD::SQLite', '1.76', {
+        	'source_tmpl': 'DBD-SQLite-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI'],
+	}),
+	('DBD::MariaDB','1.24', {
+		'source_tmpl': 'DBD-MariaDB-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/P/PA/PALI/'],
+	}),
+	('Lingua::ENG::Inflect','0.2603300', {
+                'source_tmpl': 'Lingua-ENG-Inflect-%(version)s.tar.gz',
+                'source_urls': ['https://cpan.metacpan.org/authors/id/P/PE/PETAMEM/'],
+        }),
+	('Array::Utils', '0.5', {
+        	'source_tmpl': 'Array-Utils-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/Z/ZM/ZMIJ/Array'],
+	}),
+	('File::ShareDir::Install', '0.14', {
+		'source_tmpl': 'File-ShareDir-Install-%(version)s.tar.gz',
+		'source_urls': ['https://cpan.metacpan.org/authors/id/E/ET/ETHER'],
+	}),
+	('Pod::Spell','1.27', {
+		'source_tmpl': 'Pod-Spell-%(version)s.tar.gz',
+        	'source_urls': ['https://cpan.metacpan.org/authors/id/H/HA/HAARG/'],
+		'runtest': False
+	}),
+]
+
+moduleclass = 'lang'
+

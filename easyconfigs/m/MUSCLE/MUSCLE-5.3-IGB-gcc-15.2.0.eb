@@ -15,6 +15,8 @@ toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
 source_urls = ['https://github.com/rcedgar/muscle/archive/refs/tags/']
 sources = ['v%(version)s.tar.gz']
 
+patches = ['MUSCLE-%(version)s.patch']
+
 builddependencies = [
     ('binutils', '2.45'),
 ]
@@ -22,16 +24,17 @@ builddependencies = [
 start_dir = 'src'
 
 # Use build environment defined by EasyBuild
-#prebuildopts = "./build_linux.bash && sed -i 's/$(CPPOPTS)/$(CPPOPTS) $(CXXFLAGS) $(CPPFLAGS)/g' Makefile &&"
-#buildopts = "CPP=${CXX} CC=${CC}"
-build_cmd = "bash ./build_linux.bash"
+prebuildopts = "bash ./build_linux.bash && sed -i 's/$(CPPOPTS)/$(CPPOPTS) $(CXXFLAGS) $(CPPFLAGS)/g' Makefile &&"
+buildopts = "CPP=${CXX} CC=${CC}"
 
 files_to_copy = ['README.md','LICENSE','test_data','test_results','test_scripts','bin']
 
 sanity_check_paths = {
-    'files': ['bin/muscle'],
+    'files': ['bin/muscle','bin/muscle5'],
     'dirs': [],
 }
+
+postinstallcmds = ['cp %(installdir)s/bin/muscle %(installdir)s/bin/muscle5']
 
 sanity_check_commands = ["muscle -h"]
 

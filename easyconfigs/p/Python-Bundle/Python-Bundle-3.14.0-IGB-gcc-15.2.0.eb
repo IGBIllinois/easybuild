@@ -308,7 +308,6 @@ exts_list = [
 		'modulename': 'markdown_it'
 	}),
 	('markdown','3.10'),
-	('hatchling','1.28.0'),
 	('hatch-fancy-pypi-readme','25.1.0', {
 		'source_tmpl': 'hatch_fancy_pypi_readme-%(version)s.tar.gz'
 	}),
