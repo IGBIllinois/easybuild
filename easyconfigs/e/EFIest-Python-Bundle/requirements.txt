@@ -9,7 +9,7 @@ contourpy==1.2.0
 cycler==0.12.1
 docutils==0.20.1
 duckdb==1.5.2
-fonttools==4.50.0
+fonttools==4.60.2
 idna==3.6
 igraph==0.11.6
 imagesize==1.4.1
