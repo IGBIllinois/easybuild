@@ -1,0 +1,39 @@
+# Author: Ravi Tripathi
+# Email: ravi89@uab.edu
+
+easyblock = 'ConfigureMake'
+
+name = 'ImageMagick'
+version = '7.1.2-24'
+
+homepage = 'http://www.imagemagick.org/'
+description = """ImageMagick is a software suite to create, edit, compose, or convert bitmap images"""
+
+toolchain = {'name': 'GCCcore', 'version': '15.2.0'}
+
+sources = [SOURCE_TAR_XZ]
+source_urls = ['https://imagemagick.org/archive/releases/']
+
+builddependencies = [
+    ('binutils', '2.45'),
+    ('pkgconf', '2.4.3'),
+]
+dependencies = [
+
+]
+
+configopts = "--with-gslib"
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['bin', 'etc/%(name)s-%(version_major)s', 'include/%(name)s-%(version_major)s', 'lib', 'share'],
+}
+
+sanity_check_commands = [
+    'magick --help',
+]
+
+modextravars = {'MAGICK_HOME': '%(installdir)s'}
+
+moduleclass = 'vis'
+

@@ -1,0 +1,27 @@
+easyblock = 'Tarball'
+
+name = 'memprof'
+version = '1.01'
+
+homepage = 'https://github.com/IGBIllinois/memprof'
+description = """Memprof is HPC Cluster Program Profiler. It records the memory, processor, and IO usage of a process. It will then generate a graph of the results."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+sources = ['%(version)s.tar.gz']
+source_urls = ['https://github.com/IGBIllinois/memprof/archive/']
+
+dependencies = [
+	('gnuplot', '6.0.3'),
+	('ImageMagick','7.1.2-24'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['bin/memprof.sh'],
+	'dirs': [],
+}
+
+
+moduleclass = 'debugger'
