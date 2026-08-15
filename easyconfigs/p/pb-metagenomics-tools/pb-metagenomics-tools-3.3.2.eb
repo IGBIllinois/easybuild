@@ -1,0 +1,44 @@
+easyblock = 'Conda'
+
+name = 'pb-metagenomics-tools'
+version = '3.3.2'
+
+homepage = 'https://github.com/PacificBiosciences/pb-metagenomics-tools'
+description = """Tools for performing metagenomic analyses using HiFi sequencing data"""
+
+toolchain = SYSTEM
+
+source_urls = ['https://github.com/PacificBiosciences/pb-metagenomics-tools/archive/refs/tags/']
+sources = ['v%(version)s.tar.gz']
+
+dependencies = [
+	('Miniconda3','24.7.1-0'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+#requirements = '%(name)s=%(version)s'
+
+extract_sources = False
+
+#environment_file = "%(builddir)s/pb-metagenomics-tools-%(version)s/snakemake-environment.yml"
+
+sanity_check_paths = {
+        'files': ['bin/snakemake'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+postinstallcmds = [
+	'tar -xf %(builddir)s/v%(version)s.tar.gz -C %(installdir)s --strip-components=1',
+	'conda env update -f %(installdir)s/snakemake-environment.yml -p %(installdir)s'
+
+]
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

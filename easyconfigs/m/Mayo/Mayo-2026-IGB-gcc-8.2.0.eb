@@ -22,7 +22,8 @@ dependencies = [
 	('leidenalg','0.10.2','-Python-%(pyver)s'),
 	('R','4.4.0'),
 	('Biopython','1.83','-Python-%(pyver)s'),
-	('methylartist','1.1.1','-Python-%(pyver)s'),
+	('methylartist','1.3.1','-Python-%(pyver)s'),
+	('trgt','3.0.0','',True),
 ]
 
 modextrapaths = {}

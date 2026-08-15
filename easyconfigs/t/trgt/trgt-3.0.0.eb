@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'trgt'
+version = '3.0.0'
+
+homepage = 'https://github.com/PacificBiosciences/trgt'
+description = """TRGT is a tool for targeted genotyping of tandem repeats from PacBio HiFi data. In addition to the basic size genotyping, TRGT profiles sequence composition, mosaicism, and CpG methylation of each analyzed repeat and visualization of reads overlapping the repeats."""
+
+toolchain = SYSTEM
+
+sources = ['trgt-v%(version)s-x86_64-unknown-linux-gnu.tar.gz']
+source_urls = ['https://github.com/PacificBiosciences/trgt/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['trgt'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': ''}
+
+moduleclass = 'bio'

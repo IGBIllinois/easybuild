@@ -1,0 +1,23 @@
+easyblock = 'Tarball'
+
+name = 'cellranger'
+version = '10.0.0'
+
+homepage = 'https://www.10xgenomics.com/support/software/cell-ranger/latest'
+description = """Cell Ranger is a set of analysis pipelines that process Chromium single cell 3 RNA-seq output to align reads, generate gene-cell matrices and perform clustering and gene expression analysis."""
+
+toolchain = SYSTEM
+
+sources = ['%(name)s-%(version)s.tar.gz']
+source_urls = ['']
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['cellranger'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

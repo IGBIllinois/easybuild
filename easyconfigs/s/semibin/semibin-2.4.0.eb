@@ -1,0 +1,37 @@
+easyblock = 'Conda'
+
+name = 'semibin'
+version = '2.4.0'
+
+homepage = 'https://github.com/BigDataBiology/SemiBin'
+description = """Metagenomic Binning Using Siamese Neural Networks for short and long reads"""
+
+toolchain = SYSTEM
+
+dependencies = [
+	('Miniconda3','24.7.1-0'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+extract_sources = False
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': ['bin/SemiBin2'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+

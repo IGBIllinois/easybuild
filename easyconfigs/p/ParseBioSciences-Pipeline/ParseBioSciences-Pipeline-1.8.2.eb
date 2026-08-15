@@ -1,0 +1,44 @@
+easyblock = 'Conda'
+
+name = 'ParseBioSciences-Pipeline'
+version = '1.8.2'
+
+homepage = 'https://support.parsebiosciences.com/hc/en-us/articles/17200056667924-Pipeline-Download-Current-Version'
+description = """Parse's single cell kits facilitate scalable single cell RNA-seq, enabling you to go all the way from samples in a single cell suspension to sequencing data. """
+
+toolchain = SYSTEM
+
+sources = ['ParseBiosciences-Pipeline.%(version)s.zip']
+
+dependencies = [
+	('Miniconda3','24.7.1-0'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = 'python==3.12.8'
+
+extract_sources = True
+
+sanity_check_paths = {
+        'files': ['bin/pip3'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+#Note: Manual running the following after installation
+# Extract ParseBiosciences-Pipeline.%(version)s.zip
+# bash ./install_dependencies_conda.sh --install --yes --fastQC
+# bash ./install_immune_dbs.sh -i -y
+# bash ./install_immune_dbs.sh -I -y
+# pip install --no-cache-dir ./
+
+
