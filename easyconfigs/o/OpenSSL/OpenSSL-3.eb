@@ -15,6 +15,7 @@ builddependencies = [
     ('pkgconf', '2.4.3'),
     ('Perl', '.5.42.0'),
 ]
+wrap_system_openssl = False
 
 # This easyconfig will wrap the OpenSSL installation in the host system.
 # If the system provides the required binary, header files, and libraries for

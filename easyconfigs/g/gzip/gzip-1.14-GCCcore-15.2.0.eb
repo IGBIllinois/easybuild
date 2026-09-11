@@ -8,7 +8,7 @@ description = "gzip (GNU zip) is a popular data compression program as a replace
 
 toolchain = {'name': 'GCCcore', 'version': '15.2.0'}
 
-source_urls = [GNU_SOURCE]
+source_urls = ['https://ftp.gnu.org/gnu/gzip/']
 sources = [SOURCE_TAR_GZ]
 checksums = ['613d6ea44f1248d7370c7ccdeee0dd0017a09e6c39de894b3c6f03f981191c6b']
 

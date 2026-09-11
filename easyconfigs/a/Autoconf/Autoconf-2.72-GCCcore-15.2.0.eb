@@ -16,7 +16,7 @@ description = """
 
 toolchain = {'name': 'GCCcore', 'version': '15.2.0'}
 
-source_urls = [GNU_SOURCE]
+source_urls = ['http://ftp.gnu.org/gnu/autoconf/']
 sources = [SOURCELOWER_TAR_GZ]
 patches = ['Autoconf-2.71-Port-better-to-NVHPC.patch']
 checksums = [

@@ -14,7 +14,7 @@ description = """
 toolchain = {'name': 'GCCcore', 'version': '15.2.0'}
 toolchainopts = {'pic': True}
 
-source_urls = [GNU_SOURCE]
+source_urls = ['https://ftp.gnu.org/gnu/ncurses/']
 sources = [SOURCE_TAR_GZ]
 checksums = ['136d91bc269a9a5785e5f9e980bc76ab57428f604ce3e5a5a90cebc767971cc6']
 

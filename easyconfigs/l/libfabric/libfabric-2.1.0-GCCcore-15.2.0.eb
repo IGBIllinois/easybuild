@@ -35,7 +35,7 @@ dependencies = [
     # ('PSM2', {'arch=x86_64': '12.0.1', 'arch=*': False}),
 ]
 
-osdependencies = [OS_PKG_IBVERBS_DEV]
+#osdependencies = [OS_PKG_IBVERBS_DEV]
 
 # Regenerate build files to pick up psm3-axv-config patch
 preconfigopts = "./autogen.sh &&"
@@ -52,6 +52,9 @@ configopts += "--disable-usnic "
 # This leads to rpaths to e.g. /lib64 being added binaries linked against libfabric
 # potentially picking up system libraries instead of EasyBuild provided ones at runtime
 configopts += "--disable-xpmem "
+
+# Disable infiniand
+configopts += "--disable-verbs "
 
 buildopts = "V=1"
 
