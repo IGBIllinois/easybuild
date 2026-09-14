@@ -1,0 +1,41 @@
+easyblock = 'Tarball'
+
+name = 'MIJAMP'
+version = '20250922'
+local_commit = 'd6a575d3285a2e5e61c1db095d0179fb327cefc3'
+
+homepage = 'https://code.ornl.gov/alexander-public/mijamp'
+description = """Detecting bacterial methylation motifs is of interest to synthetic biologists working with newly domesticated strains, as cells use these methylation patterns to determine which DNA molecules are "theirs" and which are "alien", examples of that latter including viral genomes and plasmids. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = [{
+	'filename': 'mijamp-%(version)s.tar.xz',
+	'git_config': {
+		'url': 'https://code.ornl.gov/alexander-public',
+		'repo_name': 'mijamp',
+		'commit': local_commit,
+	},
+
+}]
+dependencies = [
+	('Python','3.10.1'),
+	('Perl','5.28.1'),
+	('modkit','0.6.4','',True),
+	('minimap','2.28'),
+	('SAMtools','1.22'),
+	('Biopython','1.83','-Python-%(pyver)s'),
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['scripts/diagnostic'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': 'scripts'}
+
+postinstallcmds = ['chmod 775 %(installdir)s/scripts/*']
+
+moduleclass = 'bio'

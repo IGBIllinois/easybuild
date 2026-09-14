@@ -1,0 +1,41 @@
+easyblock = 'MakeCp'
+
+name = 'NGSadmix'
+version = '20260323'
+local_commit = '55319ed'
+
+homepage = 'https://github.com/aalbrechtsen/NGSadmix'
+description = """NGSadmix estimates individual admixture proportions from next-generation sequencing data using genotype likelihoods rather than hard genotype calls. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True}
+
+sources = [{'filename': 'mgsadmix-%(version)s.tar.gz',
+        'git_config': {
+                'url': 'https://github.com/aalbrechtsen',
+                'repo_name': 'NGSadmix',
+                'commit': local_commit,
+                'recursive': True,
+        },
+}]
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+build_cmd = "g++ NGSadmix.cpp -O3 -lpthread -lz -o NGSadmix"
+
+files_to_copy = ['*']
+
+sanity_check_paths = {
+	'files': ['NGSadmix'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': ''
+}
+
+moduleclass = 'bio'

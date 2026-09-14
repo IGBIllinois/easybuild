@@ -1,0 +1,26 @@
+easyblock = 'Tarball'
+
+name = 'modkit'
+version = '0.6.4'
+
+homepage = 'https://github.com/nanoporetech/modkit'
+description = """A bioinformatics tool for working with modified bases from Oxford Nanopore. Specifically for quickly converting modBAM to bedMethyl files using best practices, but also manipulating modBAM files and generating summary statistics. """
+
+toolchain = SYSTEM
+
+sources = ['modkit_v%(version)s_u16_x86_64.tar.gz']
+source_urls = ['https://github.com/nanoporetech/modkit/releases/download/v%(version)s/']
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['modkit'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH': ''}
+
+moduleclass = 'bio'

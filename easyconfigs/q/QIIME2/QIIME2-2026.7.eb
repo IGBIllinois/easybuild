@@ -1,0 +1,41 @@
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+# Author: Pablo Escobar Lopez
+# sciCORE - University of Basel
+# SIB Swiss Institute of Bioinformatics 
+
+easyblock = 'Conda'
+
+name = 'QIIME2'
+version = '2026.7'
+
+homepage = 'https://qiime2.org/'
+description = """QIIME is an open-source bioinformatics pipeline for performing microbiome analysis
+ from raw DNA sequencing data."""
+
+toolchain = SYSTEM
+
+
+
+# Need to download the environment file and add the name to it, because the env file is broken
+#environment_file = "~/github/easybuild/easyconfigs/q/QIIME2/qiime2-%(version)s-py38-linux-conda.yml"
+environment_file = "https://raw.githubusercontent.com/qiime2/distributions/refs/heads/dev/%(version)s/qiime2/released/rachis-qiime2-linux-64-conda.yml"
+dependencies = []
+builddependencies = [('Miniconda3','26.7.1')]
+
+sanity_check_paths = {
+        'files': ['bin/qiime'],
+        'dirs': [],
+}
+
+#sanity_check_commands = ['qiime dev refresh-cache && qiime info']
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+modloadmsg += "Please set the enviroment variable TMPDIR to point to the nodes local /scratch directory.\n";
+modloadmsg += "mkdir /scratch/$SLURM_JOB_ID\n";
+modloadmsg += "export TMPDIR=/scratch/$SLURM_JOB_ID\n";
+
+moduleclass = 'bio'
+
+#After installation, run "conda install -c conda-forge gsl=2.7=he838d99_0 --force-reinstall" to fix gsl error

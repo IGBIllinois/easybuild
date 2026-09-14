@@ -1,0 +1,37 @@
+easyblock = 'MakeCp'
+
+name = 'NgsRelate'
+version = '2.3.1'
+
+homepage = 'https://github.com/ANGSD/NgsRelate'
+description = """NgsRelate, which can be used to infer relatedness, inbreeding coefficients and many other summary statistics for pairs of individuals from low coverage Next Generation Sequencing (NGS) data by using genotype likelihoods instead of called genotypes."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/ANGSD/NgsRelate/archive/refs/tags/']
+
+dependencies = [
+	('HTSlib','1.22'),
+	('bzip2','1.0.6'),
+	('XZ','5.2.3'),
+]
+
+keepsymlinks = True
+
+with_configure = False
+
+build_cmd = "make HTSSRC=systemwide"
+
+files_to_copy = [(['ngsRelate'],'bin'),'LICENSE','R','README.md']
+
+sanity_check_paths = {
+	'files': ['bin/ngsRelate'],
+	'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
