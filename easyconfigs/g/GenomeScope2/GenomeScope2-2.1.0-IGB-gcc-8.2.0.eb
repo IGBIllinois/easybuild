@@ -1,0 +1,56 @@
+easyblock = 'Tarball'
+
+name = 'GenomeScope2'
+version = '2.1.0'
+
+homepage = 'https://github.com/tbenavi1/genomescope2.0'
+description = """We have developed GenomeScope 2.0, which applies classical insights from combinatorial theory to establish a detailed mathematical model of how k-mer frequencies will be distributed in heterozygous and polyploid genomes. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/tbenavi1/genomescope2.0/archive/refs/tags/']
+
+dependencies = [
+	('R','4.5.1')
+]
+
+keepsymlinks = True
+
+exts_defaultclass = 'RPackage'
+
+exts_default_options = {
+    'source_urls': [
+        'https://cran.r-project.org/src/contrib/Archive/%(name)s',  # package archive
+        'https://cran.r-project.org/src/contrib/',  # current version of packages
+        'https://cran.freestatistics.org/src/contrib',  # mirror alternative for current packages
+    ],
+    'source_tmpl': '%(name)s_%(version)s.tar.gz',
+}
+
+exts_list = [
+	('findpython','1.0.9'),
+	('argparse','2.3.1'),
+	('jsonlite','2.0.0'),
+	('minpack.lm','1.2-4'),
+	('genomescope',version, {
+		'source_tmpl': 'v%(version)s.tar.gz',
+		'source_urls': ['https://github.com/tbenavi1/genomescope2.0/archive/refs/tags/'],
+		#'modulename': False
+		
+	}),
+]
+sanity_check_paths = {
+	'files': ['genomescope.R'],
+	'dirs': [],
+}
+
+modextrapaths = {
+	'PATH': '',
+	'R_LIBS': ''
+}
+
+postinstallcmds = ['chmod 775 %(installdir)s/*.R']
+
+
+moduleclass = 'bio'
