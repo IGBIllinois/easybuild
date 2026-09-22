@@ -25,6 +25,12 @@ toolchainopts = {'pic': True}
 
 sources = ['ncbi-blast-%(version)s+-src.tar.gz']
 source_urls = ['http://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/%(version)s/']
+patches = ['%(name)s-%(version_major_minor)s.0_fix-removed-boost-dummy-cond.patch']
+checksums = [
+    {'ncbi-blast-2.17.0+-src.tar.gz': '502057a88e9990e34e62758be21ea474cc0ad68d6a63a2e37b2372af1e5ea147'},
+    {'BLAST+-2.17.0_fix-removed-boost-dummy-cond.patch':
+     'c0bed1448441f3c7582357053cb5d38fcdcdfaf45d0c4a4c04f315d22ce5574d'},
+]
 
 dependencies = [
 	('Boost', '1.90.0'),

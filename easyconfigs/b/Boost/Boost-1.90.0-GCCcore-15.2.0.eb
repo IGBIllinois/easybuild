@@ -5,11 +5,16 @@ version = '1.90.0'
 homepage = 'http://www.boost.org/'
 description = """Boost provides free peer-reviewed portable C++ source libraries."""
 
-toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
-toolchainopts = {'pic': True, 'usempi': True}
+toolchain = {'name': 'GCCcore', 'version': '15.2.0'}
+toolchainopts = {'pic': True }
 
 sources = ['%%(namelower)s_%s.tar.gz' % '_'.join(version.split('.'))]
 source_urls = [SOURCEFORGE_SOURCE]
+checksums = ['5e93d582aff26868d581a52ae78c7d8edf3f3064742c6e77901a1f18a437eea9']
+
+builddependencies = [
+    ('binutils', '2.45'),
+]
 
 dependencies = [
 	('bzip2', '1.0.8'),
@@ -25,6 +30,6 @@ configopts = '--without-libraries=python,mpi'
 boost_mpi = False
 tagged_layout = True
 
-skipsteps = ['sanitycheck']
+#skipsteps = ['sanitycheck']
 
 moduleclass = 'devel'

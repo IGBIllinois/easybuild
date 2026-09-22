@@ -12,4 +12,3 @@ diff -ur gcc-6.1.0.orig/configure gcc-6.1.0/configure
      LIBS="${_isl_saved_LIBS} -lisl -lgmp"
 
      { $as_echo "$as_me:${as_lineno-$LINENO}: checking for isl 0.16, 0.15, or deprecated 0.14" >&5
-

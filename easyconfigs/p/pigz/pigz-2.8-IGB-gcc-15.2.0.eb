@@ -27,7 +27,7 @@ dependencies = [
 
 buildopts = ' CC=$CC'
 
-parallel = 1
+max_parallel = 1
 
 files_to_copy = [(["pigz", "unpigz"], "bin")]
 

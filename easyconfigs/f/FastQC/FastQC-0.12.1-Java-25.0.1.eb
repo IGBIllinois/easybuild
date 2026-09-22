@@ -12,8 +12,8 @@ description = """FastQC is a quality control application for high throughput seq
 
 toolchain = SYSTEM
 
-source_urls = ['http://www.bioinformatics.babraham.ac.uk/projects/%(namelower)s']
-sources = ['%(namelower)s_v%(version)s.zip']
+source_urls = ['https://www.bioinformatics.babraham.ac.uk/projects/fastqc/']
+sources = ['fastqc_v%(version)s.zip']
 
 #patches = ['FastQC-%(version)s.patch']
 

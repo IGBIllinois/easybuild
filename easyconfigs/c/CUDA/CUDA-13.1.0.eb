@@ -14,4 +14,6 @@ source_urls = ['https://developer.download.nvidia.com/compute/cuda/%(version)s/l
 
 sources = ['%%(namelower)s_%%(version)s_%s_linux.run' % local_nv_version]
 
+accept_eula = True
+
 moduleclass = 'system'

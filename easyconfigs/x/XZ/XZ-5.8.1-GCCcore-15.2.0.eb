@@ -14,7 +14,8 @@ checksums = ['5965c692c4c8800cd4b33ce6d0f6ac9ac9d6ab227b17c512b6561bce4f08d47e']
 
 builddependencies = [
     # use gettext built with system toolchain as build dep to avoid cyclic dependency (XZ -> gettext -> libxml2 -> XZ)
-    ('gettext', '0.25', '', SYSTEM),
+    #('gettext', '0.25', '', SYSTEM),
+    ('gettext','0.25'),	
     ('binutils', '2.45'),
 ]
 
