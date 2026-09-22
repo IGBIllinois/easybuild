@@ -1,0 +1,34 @@
+easyblock = 'ConfigureMake'
+
+name = 'tRNAscan-SE'
+version = '2.0.12'
+
+homepage = 'https://trna.ucsc.edu/tRNAscan-SE/'
+description = """tRNAscan-SE: a tool for finding transfer RNAs"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchainopts = {'pic': True}
+
+source_urls = ['http://trna.ucsc.edu/software/']
+sources = [SOURCELOWER_TAR_GZ]
+
+builddependencies = [
+        ('binutils','2.32'),
+	('Autotools', '20180311','',('GCC','8.2.0-2.32'))
+]
+
+dependencies = []
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['bin/tRNAscan-SE'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

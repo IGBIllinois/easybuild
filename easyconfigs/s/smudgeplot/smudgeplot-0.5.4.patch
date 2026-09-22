@@ -1,0 +1,11 @@
+diff -ruN smudgeplot-0.5.4.original/Makefile smudgeplot-0.5.4/Makefile
+--- smudgeplot-0.5.4.original/Makefile	2026-09-21 16:46:53.640951000 -0500
++++ smudgeplot-0.5.4/Makefile	2026-09-21 16:48:04.603859000 -0500
+@@ -17,6 +17,7 @@
+ 	mkdir -p exec
+ 
+ $(INSTALL_PREFIX)/bin/% : exec/%
++	mkdir -p $(INSTALL_PREFIX)/bin
+ 	install -C $< $(INSTALL_PREFIX)/bin
+ 
+ exec/hetmers: src/lib/PloidyPlot.c src/lib/libfastk.c src/lib/libfastk.h src/lib/matrix.c src/lib/matrix.h

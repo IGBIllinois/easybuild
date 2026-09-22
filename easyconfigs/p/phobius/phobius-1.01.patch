@@ -1,0 +1,12 @@
+diff -ruN phobius.original/phobius.pl phobius/phobius.pl
+--- phobius.original/phobius.pl	2026-09-20 06:21:17.432442000 -0500
++++ phobius/phobius.pl	2026-09-20 06:21:42.044539352 -0500
+@@ -22,7 +22,7 @@
+ #use seq_tools;
+ 
+ my $PHOBIUS_DIR =      "$FindBin::RealBin";
+-my $DECODEANHMM =      "$PHOBIUS_DIR/decodeanhmm";
++my $DECODEANHMM =      "$PHOBIUS_DIR/decodeanhmm.64bit";
+ my $PHOBIUS_OPT_FILE = "$PHOBIUS_DIR/phobius.options";
+ my $MODELFILE =        "$PHOBIUS_DIR/phobius.model";
+ my $PHOBIUS =          "$DECODEANHMM -f $PHOBIUS_OPT_FILE $PHOBIUS_DIR/phobius.model";

@@ -6,20 +6,30 @@ version = '1.01'
 homepage = 'https://phobius.sbc.su.se/data.html'
 description = """A combined transmembrane topology and signal peptide predictor"""
 
-toolchain = SYSTEM
+toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
 
-sources = ['phobius101_linux.tar.gz']
-source_urls = ['']
+sources = ['phobius101_linux.tgz']
+source_urls = ['https://phobius.sbc.su.se/download/']
+
+patches = ['phobius-%(version)s.patch']
 
 dependencies = [
+	('Perl','5.28.1'),
 ]
 
 keepsymlinks = True
 
+exts_defaultclass = "PerlPackage"
+
+exts_list = [
+
+]
+
+
 fix_perl_shebang_for = ['phobius.pl']
 
 sanity_check_paths = {
-	'files': ['phobius.pl'],
+	'files': ['phobius.pl','decodeanhmm','decodeanhmm.64bit','OPSD_SHEEP'],
 	'dirs': [],
 }
 
