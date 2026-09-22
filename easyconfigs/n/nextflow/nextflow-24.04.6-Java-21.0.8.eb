@@ -1,7 +1,7 @@
 easyblock = 'Binary'
 
 name = 'nextflow'
-version = '24.04.4'
+version = '24.04.6'
 versionsuffix = '-Java-%(javaver)s'
 
 homepage = 'https://www.nextflow.io/'
@@ -14,7 +14,7 @@ source_urls = ['https://github.com/nextflow-io/nextflow/releases/download/v%(ver
 
 
 dependencies = [
-	('Java','25.0.1'),
+	('Java','21.0.8'),
 ]
 
 
