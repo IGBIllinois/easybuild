@@ -16,17 +16,17 @@ source_urls = ['http://download.osgeo.org/gdal/%(version)s/']
 sources = [SOURCELOWER_TAR_XZ]
 
 builddependencies = [
-	('CMake','3.17.2'),
+	('CMake','4.2.0'),
 	('pkgconf', '2.4.3'),
 	('Bison', '3.8.2'),
 ]
 
 dependencies = [
-    ('netCDF', '4.9.2'),
-    ('expat', '2.2.0'),
-    ('libxml2', '2.9.7'),
-    ('zlib', '1.2.11'),
-    ('PROJ','6.3.0'),
+    ('netCDF', '4.9.3'),
+    ('expat', '2.7.3'),
+    ('libxml2', '2.15.1'),
+    ('zlib', '2.3.2'),
+    ('PROJ','9.8.1'),
 ]
 
 sanity_check_paths = {
