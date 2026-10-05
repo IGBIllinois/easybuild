@@ -1,0 +1,93 @@
+easyblock = 'PythonPackage'
+
+name = 'PyTorch'
+version = '2.14.1'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://pytorch.org/'
+description = """Tensors and Dynamic neural networks in Python
+with strong GPU acceleration."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'pic': True}
+
+sources = ['torch-%(version)s-cp314-cp314-manylinux_2_28_x86_64.whl']
+source_urls = ['https://pypi.python.org/packages/source/t/torch/']
+
+dependencies = [
+        ('Python', '3.14.0'),
+	('Python-Bundle','3.14.0'),
+	('CUDA','13.1.0','',SYSTEM),
+	('sympy','1.14.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+options = {
+	'modulename': 'torch'
+}
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('cuda-pathfinder','1.8.3',{
+		'source_tmpl': 'cuda_pathfinder-%(version)s-py3-none-any.whl',
+		'modulename': False
+	}),
+	('cuda-bindings','13.0.3', {
+		'source_tmpl': 'cuda_bindings-%(version)s-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl',
+		'modulename': False
+	}),
+	('cuda-toolkit','13.0.3.0',{
+		'source_tmpl': 'cuda_toolkit-%(version)s-py2.py3-none-any.whl',
+		'modulename': False
+	}),
+	('fsspec','2026.9.0'),
+	('nvidia-cuda-nvrtc','13.4.92', {
+		'source_tmpl': 'nvidia_cuda_nvrtc-%(version)s-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-cublas','13.8.1.7', {
+		'source_tmpl': 'nvidia_cublas-%(version)s-py3-none-manylinux_2_27_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-cudnn-cu13','9.24.0.43',{
+		'source_tmpl': 'nvidia_cudnn_cu13-%(version)s-py3-none-manylinux_2_27_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-cusparselt-cu13','0.8.1',{
+		'source_tmpl': 'nvidia_cusparselt_cu13-%(version)s-py3-none-manylinux2014_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-nccl-cu13','2.30.7', {
+		'source_tmpl': 'nvidia_nccl_cu13-%(version)s-py3-none-manylinux_2_18_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-cuda-cccl','13.3.4.3.1',{
+		'source_tmpl': 'nvidia_cuda_cccl-%(version)s-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl',
+		'modulename': False
+	}),
+	('nvidia-nvshmem-cu13','3.4.5', {
+		'source_tmpl': 'nvidia_nvshmem_cu13-%(version)s-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl',
+		'modulename': False
+	}),
+	('triton','3.8.0', {
+		'source_tmpl': 'triton-%(version)s-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl'
+	}),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/torch'],
+}
+
+moduleclass = 'bio'

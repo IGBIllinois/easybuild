@@ -1,0 +1,37 @@
+easyblock = 'ConfigureMake'
+
+name = 'ABySS'
+version = '2.3.10'
+
+homepage = 'https://github.com/bcgsc/abyss'
+description = """ABySS is a de novo sequence assembler intended for short paired-end reads and large genomes."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'usempi': True }
+
+source_urls = ['https://github.com/bcgsc/abyss/archive/']
+sources = ['%(version)s.tar.gz']
+
+builddependencies = [
+	('Autotools','20250527'),
+]
+dependencies = [
+	('sparsehash','2.0.4'),
+	('Boost','1.90.0'),
+]
+
+preconfigopts = './autogen.sh && '
+configopts = 'CXXFLAGS="$CXXFLAGS -Wno-error"'
+
+sanity_check_paths = {
+        'files': ['bin/ABYSS','bin/ABYSS-P'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+moduleclass = 'bio'
+
+

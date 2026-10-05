@@ -1,6 +1,6 @@
 easyblock = "ConfigureMake"
 
-name = "VSEARCH"
+name = "vsearch"
 version = "2.4.3"
 
 homepage = 'https://github.com/torognes/vsearch'

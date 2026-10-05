@@ -1508,6 +1508,48 @@ exts_list = [
         'source_urls': ['https://cpan.metacpan.org/authors/id/T/TI/TINITA/'],
 
     }),
+    ('HTML::Template','2.97', {
+        'source_tmpl': 'HTML-Template-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/S/SA/SAMTREGAR/'],
+
+    }),
+    ('Sys::Info::Base','0.7810', {
+        'source_tmpl': 'Sys-Info-Base-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/B/BU/BURAK/'],
+
+    }),
+    ('Test::Sys::Info','0.23', {
+        'source_tmpl': 'Test-Sys-Info-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/B/BU/BURAK/'],
+
+    }),
+    ('Sys::HostIP','2.120', {
+        'source_tmpl': 'Sys-HostIP-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/X/XS/XSAWYERX/'],
+
+    }),
+    ('Unix::Processors','2.046', {
+        'source_tmpl': 'Unix-Processors-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/W/WS/WSNYDER/'],
+
+    }),
+
+    ('Sys::Info::Driver::Linux::OS','0.7911', {
+        'source_tmpl': 'Sys-Info-Driver-Linux-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/B/BU/BURAK/'],
+	'runtest': False
+    }),
+    ('Sys::Info::Driver::Unknown','0.79', {
+        'source_tmpl': 'Sys-Info-Driver-Unknown-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/B/BU/BURAK/'],
+
+    }),
+    ('Sys::Info','0.7811', {
+        'source_tmpl': 'Sys-Info-%(version)s.tar.gz',
+        'source_urls': ['https://cpan.metacpan.org/authors/id/B/BU/BURAK/'],
+	'runtest': False
+
+    }),
 
 ]
 

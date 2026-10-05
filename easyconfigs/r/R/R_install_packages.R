@@ -1,4 +1,7 @@
+#!/usr/bin/env Rscript
+
 install.packages("BiocManager")
-x <- setdiff(dir(path = "/home/apps/software/R/4.4.0-IGB-gcc-8.2.0/lib64/R/library"), dir(path = "/home/apps/software/R/4.5.1-IGB-gcc-8.2.0/lib64/R/library"))
-BiocManager::install(x)
+pkgs <- readLines("packages.txt")
+new_pkgs <- pkgs[!(pkgs %in% installed.packages()[,"Package"])]
+if(length(new_pkgs)) install.packages(new_pkgs)
 

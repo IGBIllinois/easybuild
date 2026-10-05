@@ -46,8 +46,9 @@ dependencies = [
 
 ]
 
-#preconfigopts = 'CFLAGS=-std=gnu99 BLAS_LIBS="$LIBBLAS" LAPACK_LIBS="$LIBLAPACK" && '
-configopts = "--with-lapack --with-blas --with-pic --enable-threads --with-x=no --enable-R-shlib --with-cairo --with-libpng --with-jpeglib --with-libtiff --with-tcltk"
+preconfigopts = 'export FLIBS="$FLIBS -lm" && '
+
+configopts = "--with-pic --enable-threads --enable-R-shlib"
 configopts += " --with-recommended-packages=yes"
 
 postinstallcmds = ['cp %(builddir)s/Rprofile.site %(installdir)s/lib64/R/etc']

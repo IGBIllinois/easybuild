@@ -26,7 +26,7 @@ sources = [
 dependencies = [
 	('Perl','5.42.1'),
 	('Java','25.0.1','',True),
-        ('CUDA','8.0.61','',True)
+        ('CUDA','13.1.0','',True)
 
 ]
 

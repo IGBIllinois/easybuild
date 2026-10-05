@@ -1,0 +1,39 @@
+easyblock = 'MakeCp'
+
+name = 'gffread'
+version = '0.12.9'
+
+homepage = 'http://ccb.jhu.edu/software/stringtie/gff.shtml'
+description = """The program gffread can be used to validate, filter, convert and perform various other operations on GFF files"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+source_urls = ['https://github.com/gpertea/%(namelower)s/releases/download/v%(version)s/']
+sources = [SOURCE_TAR_GZ]
+checksums = ['3ee1a3a2db938569bcccb1e8d908503392ebf0a3f203ddaff1b967b8ade614d1']
+
+builddependencies = [('binutils', '2.45')]
+
+buildopts = " release"
+
+dependencies = [
+]
+
+keepsymlinks = True
+
+files_to_copy = [
+    (['%(name)s'], 'bin'),
+    'LICENSE',
+]
+
+sanity_check_paths = {
+	'files': ['bin/gffread'],
+	'dirs': [],
+}
+
+sanity_check_commands = ['%(name)s']
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'

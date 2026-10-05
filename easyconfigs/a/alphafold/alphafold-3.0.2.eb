@@ -9,7 +9,6 @@ description = """This package provides an implementation of the inference pipeli
 toolchain = SYSTEM
 
 dependencies = [
-	('singularity','3.8.1'),
 	('alphafold3-db','20250520'),
 ]
 
@@ -25,7 +24,7 @@ modextrapaths = {
 #postinstallcmds = ['chmod 775 %(installdir)s/bin/run_singularity.py']
 
 keeppreviousinstall = True
-moduleclass = 'bio'
+moduleclass = 'ai'
 
 modloadmsg = "Please follow our guide on how to run alphafold at https://help.igb.illinois.edu/Biocluster_Alphafold\n"
 

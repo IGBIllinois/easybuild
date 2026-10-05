@@ -1,6 +1,6 @@
 easyblock = 'ConfigureMake'
 
-name = 'abyss'
+name = 'ABySS'
 version = '2.2.5'
 
 homepage = 'https://github.com/bcgsc/abyss'

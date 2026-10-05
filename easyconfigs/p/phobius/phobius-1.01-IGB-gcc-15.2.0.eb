@@ -1,0 +1,40 @@
+easyblock = 'Tarball'
+
+name = 'phobius'
+version = '1.01'
+
+homepage = 'https://phobius.sbc.su.se/data.html'
+description = """A combined transmembrane topology and signal peptide predictor"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+sources = ['phobius101_linux.tgz']
+source_urls = ['https://phobius.sbc.su.se/download/']
+
+patches = ['phobius-%(version)s.patch']
+
+dependencies = [
+	('Perl','5.42.0'),
+]
+
+keepsymlinks = True
+
+exts_defaultclass = "PerlPackage"
+
+exts_list = [
+
+]
+
+
+fix_perl_shebang_for = ['phobius.pl']
+
+sanity_check_paths = {
+	'files': ['phobius.pl','decodeanhmm','decodeanhmm.64bit','OPSD_SHEEP'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+postinstallcmds = ['chmod 775 %(installdir)s/decodeanhmm %(installdir)s/decodeanhmm.64bit %(installdir)s/OPSD_SHEEP %(installdir)s/phobius.pl']
+
+moduleclass = 'bio'
