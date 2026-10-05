@@ -6,14 +6,14 @@ version = ''
 homepage = ''
 description = """"""
 
-toolchain = {'name': 'IGB-gcc', 'version': '8.2.0'}
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
 
 source_urls = ['']
 sources = ['']
 
 builddependencies = [
-	('Meson', '0.51.2', '-Python-3.7.2'),
-	('Ninja', '1.9.0'),
+	('Meson', '1.8.2'),
+	('Ninja', '1.13.0'),
 ]
 
 dependencies = [

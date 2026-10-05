@@ -1,7 +1,8 @@
 easyblock = 'PerlBundle'
 
 name = ''
-version = '5.42.0'
+version = ''
+versionsuffix = '-Perl-%(perlver)s'
 
 homepage = ''
 description = """"""
@@ -16,7 +17,7 @@ builddependencies = [
 ]
 
 dependencies = [
-	('Perl',version),
+	('Perl','5.42.0'),
 	
 ]
 
