@@ -1,0 +1,41 @@
+easyblock = 'Tarball'
+
+name = 'SUPPA'
+version = '2.4'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/comprna/SUPPA'
+description = """Fast, accurate, and uncertainty-aware differential splicing analysis across multiple conditions."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/comprna/SUPPA/archive/refs/tags/']
+
+dependencies = [
+        ('Python', '3.14.0'),
+	('Python-Bundle','3.14.0'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+
+sanity_check_paths = {
+        'files': ['suppa.py'],
+        'dirs': [],
+}
+
+modextrapaths = {'PATH': ''}
+
+postinstallcmds = ['chmod 775 %(installdir)s/*.py']
+
+fix_python_shebang_for = ['*.py']
+
+moduleclass = 'bio'

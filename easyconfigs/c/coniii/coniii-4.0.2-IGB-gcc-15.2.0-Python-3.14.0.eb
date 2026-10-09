@@ -1,21 +1,20 @@
 easyblock = 'PythonPackage'
 
-name = 'ssqueezepy'
-version = '0.6.6'
+name = 'coniii'
+version = '4.0.2'
 versionsuffix = '-Python-%(pyver)s'
 
-homepage = 'https://github.com/OverLordGoldDragon/ssqueezepy'
-description = """Synchrosqueezing is a powerful reassignment method that focuses time-frequency representations, and allows extraction of instantaneous amplitudes and frequencies."""
+homepage = 'https://github.com/eltrompetero/coniii'
+description = """ConIII is a Python package for solving maximum entropy problems with a focus on the pairwise maximum entropy model, also known as the inverse Ising problem."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
 
-sources = [SOURCELOWER_TAR_GZ]
-source_urls = [PYPI_LOWER_SOURCE]
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/eltrompetero/coniii/archive/refs/tags/']
 
 dependencies = [
         ('Python', '3.14.0'),
 	('Python-Bundle','3.14.0'),
-	('PyTorch','2.14.1','-Python-%(pyver)s'),
 	('numba','0.67.0','-Python-%(pyver)s'),
 ]
 
@@ -26,7 +25,10 @@ exts_default_options = {
 }
 
 exts_defaultclass = "PythonPackage"
-exts_list = []
+exts_list = [
+	('dill','0.4.1'),
+	('multiprocess','0.70.19'),
+]
 
 use_pip = True
 sanity_pip_check = True

@@ -4,43 +4,44 @@ name = 'numba'
 version = '0.67.0'
 versionsuffix = '-Python-%(pyver)s'
 
-homepage = 'http://numba.pydata.org/'
-description = """Numba is an Open Source NumPy-aware optimizing compiler for Python sponsored by Continuum Analytics,
- Inc. It uses the remarkable LLVM compiler infrastructure to compile Python syntax to machine code."""
+homepage = 'https://numba.pydata.org/'
+description = """Numba is an Open Source NumPy-aware optimizing compiler for
+Python sponsored by Continuum Analytics, Inc. It uses the remarkable LLVM
+compiler infrastructure to compile Python syntax to machine code."""
 
 toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
 toolchainopts = {'pic': True}
 
-
+builddependencies = [
+    ('CMake', '4.2.0'),
+    ('LLVM', '21.1.8'),
+]
 dependencies = [
     ('Python', '3.14.0'),
-    ('LLVM', '10.0.1'),
+    ('Python-Bundle', '3.14.0'),
+    ('Z3', '4.15.4'),
+    ('zstd', '1.5.7'),
 ]
-
-use_pip = True
-sanity_pip_check = True
-unpack_sources = False
-
-exts_filter = ('python -c "import %(ext_name)s"', "")
-
-exts_default_options = {
-    'source_urls': [PYPI_SOURCE],
-    'sanity_pip_check': True,
-}
-
-exts_defaultclass = "PythonPackage"
 
 exts_list = [
-    ('llvmlite', '0.42.0', {
-		'source_tmpl': 'llvmlite-%(version)s-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl'
-	}),
-    (name, version),
+    ('llvmlite', '0.49.0', {
+	'source_tmpl': 'llvmlite-%(version)s-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl',
+        'testinstall': True,
+        'runtest': 'python -m llvmlite.tests',
+    }),
+    (name, version, {
+        'testinstall': True,
+	'runtest': False
+    }),
 ]
+
+fix_python_shebang_for = ['bin/*']
 
 sanity_check_paths = {
     'files': ['bin/numba'],
-    'dirs': ['lib/python%(pyshortver)s/site-packages/numba'],
+    'dirs': ['lib/python%(pyshortver)s/site-packages'],
 }
 
+sanity_check_commands = ['numba --help']
 
 moduleclass = 'lang'
