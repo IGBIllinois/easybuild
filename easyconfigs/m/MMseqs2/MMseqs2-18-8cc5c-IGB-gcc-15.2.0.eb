@@ -21,7 +21,7 @@ dependencies = []
 
 separate_build_dir = True
 
-configopts = '-DHAVE_MPI=1 -DHAVE_AVX2=1'
+configopts = '-DHAVE_MPI=0 -DHAVE_AVX2=1'
 sanity_check_paths = {
         'files': ['bin/mmseqs'],
         'dirs': [],
