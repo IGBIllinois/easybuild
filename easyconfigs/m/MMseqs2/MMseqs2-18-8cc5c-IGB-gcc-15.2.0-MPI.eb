@@ -18,7 +18,9 @@ builddependencies = [
 	('CMake', '4.2.0')
 ]
 
-dependencies = []
+dependencies = [
+	('bzip2','1.0.8'),
+]
 
 separate_build_dir = True
 
@@ -27,6 +29,8 @@ sanity_check_paths = {
         'files': ['bin/mmseqs'],
         'dirs': [],
 }
+
+sanity_check_commands = ['mmseqs --help']
 
 modextrapaths = {
 }
