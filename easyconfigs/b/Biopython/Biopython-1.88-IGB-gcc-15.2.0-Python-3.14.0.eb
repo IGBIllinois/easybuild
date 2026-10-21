@@ -6,6 +6,7 @@ easyblock = 'PythonBundle'
 
 name = 'Biopython'
 version = '1.88'
+versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'https://www.biopython.org'
 description = """Biopython is a set of freely available tools for biological

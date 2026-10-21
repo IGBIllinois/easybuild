@@ -16,9 +16,12 @@ toolchainopts = {'openmp': True}
 
 source_urls = ['https://github.com/alexdobin/STAR/archive/']
 sources = ['%(version)s.tar.gz']
+patches = ['STAR-2.7.11a_use-external-htslib.patch']
 
 dependencies = [
-    ('zlib', '2.3.2'),
+	('zlib', '2.3.2'),
+	('HTSlib','1.22'),
+	
 ]
 
 start_dir = 'source'

@@ -9,15 +9,16 @@ description = """A command-line toolkit and Python library for detecting copy nu
 
 toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
 
-sources = ['CNVkit-%(version)s-py3-none-any.whl']
+sources = [SOURCELOWER_TAR_GZ]
 source_urls = [PYPI_LOWER_SOURCE]
 
 dependencies = [
         ('Python', '3.14.0'),
-	('Biopython','1.86','-Python-%(pyver)s'),
-	('numba','0.59.0','-Python-%(pyver)s'),
-	('PyTorch','1.12.1','-Python-%(pyver)s'),
+	('Biopython','1.88','-Python-%(pyver)s'),
+	('numba','0.67.0','-Python-%(pyver)s'),
+	('PyTorch','2.14.1','-Python-%(pyver)s'),
 	('R','4.6.1'),
+	('Pysam','0.24.0','-Python-%(pyver)s'),
 ]
 
 
@@ -28,23 +29,9 @@ exts_default_options = {
 
 exts_defaultclass = "PythonPackage"
 exts_list = [
-	('reportlab','4.1.0', {
-		'source_tmpl': 'reportlab-%(version)s-py3-none-any.whl'
-	}),
-	('apricot-select','0.6.1',{
-		'modulename': 'apricot'
-	}),
-	('networkx','2.8.4'),
-	('pomegranate','1.0.4', {
-		'source_tmpl': 'pomegranate-%(version)s-py3-none-any.whl'
-	}),
-	('pyfaidx','0.8.1.1', {
-		'source_tmpl': 'pyfaidx-%(version)s-py3-none-any.whl'
-	}),
-	('pysam','0.22.0', {
-		'source_tmpl': 'pysam-%(version)s-cp310-cp310-manylinux_2_28_x86_64.whl'
-	}),
-
+	('bioframe','0.8.0'),
+	('pyfaidx','0.9.0.4'),
+	('reportlab','5.0.1'),
 ]
 
 use_pip = True

@@ -16,7 +16,9 @@ builddependencies = [
 ]
 
 dependencies = [
-    ('Perl', '5.42.0'),
+	('Perl', '5.42.0'),
+	('Perl-Bundle','5.42.0'),
+
 ]
 
 sanity_check_paths = {

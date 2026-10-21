@@ -325,6 +325,7 @@ exts_list = [
 	('mpmath','1.4.1', {
 		'source_tmpl': 'mpmath-%(version)s-py3-none-any.whl'
 	}),
+	('versioneer','0.29'),
 ]
 
 moduleclass = 'lang'

@@ -1,0 +1,35 @@
+easyblock = 'Bundle'
+
+name = 'alphafold'
+version = '3.0.4'
+
+homepage = 'https://github.com/google-deepmind/alphafold3'
+description = """This package provides an implementation of the inference pipeline of AlphaFold v2.0. This is a completely new model that was entered in CASP14 and published in Nature. For simplicity, we refer to this model as AlphaFold throughout the rest of this document."""
+
+toolchain = SYSTEM
+
+dependencies = [
+	('alphafold3-db','20250520'),
+]
+
+configopts = ''
+sanity_check_paths = {
+        'files': ['alphafold.sif'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+keeppreviousinstall = True
+moduleclass = 'ai'
+
+modloadmsg = "Please follow our guide on how to run alphafold at https://help.igb.illinois.edu/Biocluster_Alphafold\n"
+
+##Installation
+# create alphafold singularity image
+# apptainer pull --name alphafold.sif docker://jurgjn/alphafold3:v3.0.4
+# Download latest databases according to https://github.com/deepmind/alphafold and put in /private_stores/mirrors
+
+

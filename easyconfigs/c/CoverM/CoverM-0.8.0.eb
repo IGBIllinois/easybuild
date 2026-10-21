@@ -1,0 +1,38 @@
+easyblock = 'Conda'
+
+name = 'CoverM'
+version = '0.8.0'
+
+homepage = 'https://github.com/wwood/CoverM'
+description = """CoverM aims to be a configurable, easy to use and fast DNA read coverage and relative abundance calculator focused on metagenomics applications."""
+
+toolchain = SYSTEM
+
+dependencies = [
+	('Miniconda3','26.7.1'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+extract_sources = False
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': ['bin/coverm'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+#Post install - there is a ncurses library issue, manually run "conda install -c conda-forge ncurses --force-reinstall".
+

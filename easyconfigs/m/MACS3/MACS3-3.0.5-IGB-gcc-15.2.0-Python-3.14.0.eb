@@ -1,0 +1,77 @@
+easyblock = 'PythonPackage'
+
+name = 'MACS3'
+version = '3.0.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://macs3-project.github.io/MACS/index.html'
+description = """A powerful tool for identifying transcription factor binding sites."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+sources = [SOURCELOWER_TAR_GZ]
+source_urls = [PYPI_LOWER_SOURCE]
+
+builddependencies = [
+	('Meson','1.8.2'),
+	('meson-python','0.18.0'),
+
+]
+dependencies = [
+        ('Python', '3.14.0'),
+	('Python-Bundle','3.14.0'),
+	('hmmlearn','0.3.3','-Python-%(pyver)s'),
+	('h5py','3.16.0','-Python-%(pyver)s'),
+
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('array-api-compat','1.15.0'),
+	('legacy-api-wrap','1.5', {
+		'source_tmpl': 'legacy_api_wrap-%(version)s-py3-none-any.whl'
+	}),
+	('natsort','8.4.0'),
+	('session-info2','0.4.2', {
+		'source_tmpl': 'session_info2-%(version)s-py3-none-any.whl'
+	}),
+	('python-dotenv','1.2.4', {
+		'modulename': 'dotenv'
+	}),
+	('pydantic-settings','2.16.0'),
+	('scverse-misc','0.1.7'),
+	('donfig','0.8.1.post1'),
+	('google-crc32c','1.9.0', {
+		'source_tmpl': 'google_crc32c-%(version)s-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.whl'
+	}),
+	('msgspec','0.22.0'),
+	('numcodecs','0.17.0'),
+	('zarr','3.4.1'),
+	('anndata','0.13.4'),
+	('annotated-types','0.8.0'),
+	('pydantic_core','2.50.1'),
+	('typing-inspection','0.4.4'),
+	('pydantic','2.14.1'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+options = {'modulename': 'MACS3' }
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

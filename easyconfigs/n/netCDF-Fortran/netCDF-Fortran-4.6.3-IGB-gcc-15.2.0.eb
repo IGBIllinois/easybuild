@@ -1,0 +1,26 @@
+name = 'netCDF-Fortran'
+version = '4.6.3'
+
+homepage = 'http://www.unidata.ucar.edu/software/netcdf/'
+description = """NetCDF (network Common Data Form) is a set of software libraries
+ and machine-independent data formats that support the creation, access, and sharing of array-oriented
+ scientific data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'pic': True,'usempi': True}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/Unidata/netcdf-fortran/archive']
+
+builddependencies = [
+    ('M4', '1.4.20'),
+]
+dependencies = [
+    ('netCDF', '4.9.3'),
+    ('bzip2', '1.0.8'),
+]
+
+maxparallel = 1
+
+moduleclass = 'data'
+
