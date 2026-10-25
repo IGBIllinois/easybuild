@@ -12,8 +12,12 @@ toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
 sources = ['%(version)s.tar.gz']
 source_urls = ['https://github.com/fenderglass/Flye/archive/']
 
+
+patches = ['Flye-%(version)s.patch']
+
 dependencies = [
         ('Python', '3.14.0'),
+	('SAMtools','1.22'),
 ]
 
 exts_default_options = {
@@ -26,14 +30,16 @@ exts_list = []
 
 use_pip = True
 sanity_pip_check = True
-unpack_sources = False
+unpack_sources = True
 
 exts_filter = ('python -c "import %(ext_name)s"', "")
 
 
 sanity_check_paths = {
         'files': ['bin/flye'],
-        'dirs': [],
+	'dirs': ['lib/python%(pyshortver)s/site-packages'],
 }
+
+sanity_check_commands = ['%(namelower)s --help']
 
 moduleclass = 'bio'

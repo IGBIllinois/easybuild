@@ -1,0 +1,34 @@
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+# Author: Adam Huffman
+# The Francis Crick Institute
+easyblock = 'MakeCp'
+
+name = 'Subread'
+version = '2.1.1'
+
+homepage = 'http://subread.sourceforge.net/'
+description = """High performance read alignment, quantification and mutation discovery"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+source_urls = [SOURCEFORGE_SOURCE]
+sources = ['%(namelower)s-%(version)s-source.tar.gz']
+
+prebuildopts = "sed -i 's/-mtune=core2//g' Makefile.Linux && "
+prebuildopts += "sed -i 's/-mtune=core2//g' longread-one/Makefile && "
+
+start_dir = 'src'
+buildopts = '-f Makefile.Linux'
+
+files_to_copy = ['bin','LICENSE']
+
+local_binaries_list = [
+    'exactSNP', 'featureCounts', 'subindel', 'subjunc', 'sublong', '%(namelower)s-align', '%(namelower)s-buildindex',
+]
+sanity_check_paths = {
+    'files': ['bin/%s' % f for f in local_binaries_list],
+    'dirs': ['bin/utilities'],
+}
+
+moduleclass = 'bio'
+

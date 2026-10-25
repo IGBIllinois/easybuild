@@ -1,4 +1,4 @@
-easyblock = 'Bundle'
+easyblock = 'Binary'
 
 name = 'smrtlink'
 version = '26.1.0.284828'
@@ -8,14 +8,28 @@ description = """PacBio open-source SMRT Analysis software suite is designed for
 
 toolchain = SYSTEM
 
+sources = ['smrtlink-release_%(version)s_linux_x86-64_libc-2.17_anydistro.run']
+
 dependencies = []
+
+download_instructions = """The download is a password protected zip file
+Download it from https://www.pacb.com/support/software-downloads/ and uncompress
+the .run file to your sources folder"""
+
+install_cmd = 'rmdir %(installdir)s && %(builddir)s/smrtlink-release_%(version)s_linux_x86-64_libc-2.17_anydistro.run --install --rootdir %(installdir)s --smrttools-only'
+
+cleanupoldinstall = True
+dontcreateinstalldir = True
 
 sanity_check_paths = {
         'files': ['smrtcmds/bin/pbindex'],
         'dirs': [],
 }
 
-modextrapaths = {'PATH':'smrtcmds/bin'
+modextravars = {
+	'SMRT_ROOT': '%(installdir)s'
+}
+modextrapaths = {'PATH':'smrtcmds/bin',
 }
 
 moduleclass = 'bio'

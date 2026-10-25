@@ -1,0 +1,22 @@
+diff -ruN Mash-2.3.original/src/mash/Command.cpp Mash-2.3/src/mash/Command.cpp
+--- Mash-2.3.original/src/mash/Command.cpp	2026-10-22 15:39:39.091347484 -0500
++++ Mash-2.3/src/mash/Command.cpp	2026-10-22 15:40:05.372403395 -0500
+@@ -8,6 +8,7 @@
+ #include <sys/ioctl.h>
+ #include <sstream>
+ #include <fstream>
++#include <cstdint>
+ 
+ #include "Command.h"
+ #include "version.h"
+diff -ruN Mash-2.3.original/src/mash/robin_hood.h Mash-2.3/src/mash/robin_hood.h
+--- Mash-2.3.original/src/mash/robin_hood.h	2026-10-22 15:39:39.091347484 -0500
++++ Mash-2.3/src/mash/robin_hood.h	2026-10-22 15:44:45.633264507 -0500
+@@ -47,6 +47,7 @@
+ #include <string>
+ #include <type_traits>
+ #include <utility>
++#include <limits>
+ #if __cplusplus >= 201703L
+ #    include <string_view>
+ #endif

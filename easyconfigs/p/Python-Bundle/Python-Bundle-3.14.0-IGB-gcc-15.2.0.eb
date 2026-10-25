@@ -326,6 +326,7 @@ exts_list = [
 		'source_tmpl': 'mpmath-%(version)s-py3-none-any.whl'
 	}),
 	('versioneer','0.29'),
+	('xmltodict','1.0.4'),
 ]
 
 moduleclass = 'lang'

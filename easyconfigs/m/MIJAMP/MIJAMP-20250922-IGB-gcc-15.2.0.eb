@@ -20,11 +20,13 @@ sources = [{
 }]
 dependencies = [
 	('Python','3.14.0'),
+	('Python-Bundle','3.14.0'),
 	('Perl','5.42.0'),
 	('modkit','0.6.4','',True),
 	('minimap2','2.30'),
 	('SAMtools','1.22'),
 	('Biopython','1.88','-Python-%(pyver)s'),
+	('MEME','5.5.9'),
 ]
 
 keepsymlinks = True

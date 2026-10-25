@@ -1,0 +1,87 @@
+diff -ruN RSEM-1.3.3.original/Makefile RSEM-1.3.3/Makefile
+--- RSEM-1.3.3.original/Makefile	2020-02-14 13:21:41.000000000 -0600
++++ RSEM-1.3.3/Makefile	2026-10-25 11:13:23.004539073 -0500
+@@ -1,5 +1,4 @@
+-SAMTOOLS = samtools-1.3
+-HTSLIB = htslib-1.3
++SAMTOOLS ?=
+ 
+ ifneq ($(cygwin), true)
+   SAMTOOLS_MAKEFILE = Makefile
+@@ -11,9 +10,9 @@
+ BOOST = .
+ 
+ # Compilation variables
+-CXX = g++
+-CXXFLAGS = -std=gnu++98 -Wall -I. -I$(BOOST) -I$(SAMTOOLS)/$(HTSLIB)
+-CPPFLAGS =
++#CXX = g++
++CXXFLAGS = -std=gnu++98 -Wall -I. -I$(BOOST) -I$(SAMTOOLS)/include
++#CPPFLAGS =
+ 
+ LDFLAGS =
+ LDLIBS =
+@@ -30,9 +29,8 @@
+ bindir = $(exec_prefix)/bin
+ 
+ # Auxiliary variables for compilation
+-SAMHEADERS = $(SAMTOOLS)/$(HTSLIB)/htslib/sam.h
+-SAMLIBS = $(SAMTOOLS)/$(HTSLIB)/libhts.a
+-CONFIGURE = ./configure
++SAMHEADERS = $(SAMTOOLS)/include/htslib/sam.h
++SAMLIBS = $(SAMTOOLS)/lib/libhts.a
+ 
+ OBJS1 = parseIt.o
+ OBJS2 = extractRef.o synthesisRef.o preRef.o buildReadIndex.o wiggle.o tbam2gbam.o bam2wig.o bam2readdepth.o getUnique.o samValidator.o scanForPairedEndReads.o SamHeader.o
+@@ -54,13 +52,7 @@
+ 
+ .PHONY : all ebseq pRSEM clean
+ 
+-all : $(PROGRAMS) $(SAMTOOLS)/samtools
+-
+-$(SAMTOOLS)/samtools :
+-	cd $(SAMTOOLS) && $(CONFIGURE) --without-curses && $(MAKE) -f $(SAMTOOLS_MAKEFILE) samtools
+-
+-$(SAMLIBS) : $(SAMTOOLS)/samtools
+-
++all : $(PROGRAMS)
+ 
+ # Compile objects
+ $(OBJS1) :
+@@ -75,13 +67,13 @@
+ 
+ # Generate executables
+ $(PROGS1) :
+-	$(CXX) $(LDFLAGS) -o $@ $^ $(LDLIBS)
++	$(CXX) $(LDFLAGS) -o $@ $^ $(LDLIBS) -lcurl -lcrypto
+ 
+ $(PROGS2) :
+-	$(CXX) $(LDFLAGS) -pthread -o $@ $^ $(LDLIBS) -lz
++	$(CXX) $(LDFLAGS) -pthread -o $@ $^ $(LDLIBS) -lz -lcurl -lcrypto -llzma -lbz2
+ 
+ $(PROGS3) :
+-	$(CXX) $(LDFLAGS) -pthread -o $@ $^ $(LDLIBS)
++	$(CXX) $(LDFLAGS) -pthread -o $@ $^ $(LDLIBS) -lcurl -lcrypto
+ 
+ 
+ # Dependencies for executables
+@@ -163,17 +155,14 @@
+ 
+ 
+ # Install RSEM
+-install : $(PROGRAMS) $(SCRIPTS) $(SAMTOOLS)/samtools rsem_perl_utils.pm
+-	$(INSTALL_DIR) $(DESTDIR)$(bindir) $(DESTDIR)$(bindir)/$(SAMTOOLS)
++install : $(PROGRAMS) $(SCRIPTS) rsem_perl_utils.pm
++	$(INSTALL_DIR) $(DESTDIR)$(bindir)
+ 	$(foreach prog,$(PROGRAMS),$(INSTALL_PROGRAM) $(prog) $(DESTDIR)$(bindir)/$(prog) ; $(STRIP) $(DESTDIR)$(bindir)/$(prog) ;)
+-	$(INSTALL_PROGRAM) $(SAMTOOLS)/samtools $(DESTDIR)$(bindir)/$(SAMTOOLS)/samtools
+-	$(STRIP) $(DESTDIR)$(bindir)/$(SAMTOOLS)/samtools
+ 	$(foreach script,$(SCRIPTS),$(INSTALL_PROGRAM) $(script) $(DESTDIR)$(bindir)/$(script) ;)
+ 	$(INSTALL_DATA) rsem_perl_utils.pm $(DESTDIR)$(bindir)/rsem_perl_utils.pm
+ 
+ # Clean
+ clean :
+ 	rm -f *.o *~ $(PROGRAMS)
+-	cd $(SAMTOOLS) && $(MAKE) clean-all
+ 	cd EBSeq && $(MAKE) clean
+ 	cd pRSEM && $(MAKE) clean

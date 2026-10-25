@@ -1,0 +1,32 @@
+easyblock = 'ConfigureMake'
+
+name = 'capnproto'
+version = '1.5.0'
+
+homepage = 'https://capnproto.org/'
+description = """Cap’n Proto is an insanely fast data interchange format and capability-based RPC system. Think JSON, except binary. Or think Protocol Buffers, except faster."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+source_urls = ['https://capnproto.org/']
+sources = ['capnproto-c++-%(version)s.tar.gz']
+
+builddependencies = [
+	('binutils','2.45'),	
+]
+
+dependencies = []
+
+sanity_check_paths = {
+        'files': ['bin/capnp'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+postinstallcmds = ['ln -s %(installdir)s/lib64 %(installdir)s/lib']
+
+moduleclass = 'lib'
+
+

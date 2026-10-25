@@ -1,0 +1,54 @@
+easyblock = 'PythonPackage'
+
+name = 'pod5'
+version = '0.3.49'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://pod5-file-format.readthedocs.io/en/latest/index.html'
+description = """POD5 is a file format for storing nanopore sequencing data in an easily accessible way. The format is able to be written in a streaming manner which allows a sequencing instrument to directly write the format."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+sources = ['pod5-%(version)s-py3-none-any.whl']
+source_urls = [PYPI_LOWER_SOURCE]
+
+dependencies = [
+        ('Python', '3.14.0'),
+	('Python-Bundle','3.14.0'),
+	('h5py','3.16.0','-Python-%(pyver)s'),
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('wrapt','1.17.3'),
+	('deprecated','1.2.18'),
+	('iso8601','2.1.0'),
+	('lib-pod5','0.3.49', {
+		'source_tmpl': 'lib_pod5-%(version)s-cp314-cp314-manylinux_2_28_x86_64.whl'
+	}),
+	('polars','1.30.0'),
+	('pyarrow','22.0.0', {
+		'source_tmpl': 'pyarrow-%(version)s-cp314-cp314-manylinux_2_28_x86_64.whl'
+	}),
+	('vbz-h5py-plugin','1.0.1'),
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = False
+#use_pip_for_deps = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': [],
+        'dirs': ['lib/python%(pyshortver)s/site-packages/%(name)s'],
+}
+
+moduleclass = 'bio'

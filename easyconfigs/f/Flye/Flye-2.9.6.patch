@@ -1,0 +1,24 @@
+diff -ruN Flye-2.9.6.original/flye/polishing/alignment.py Flye-2.9.6/flye/polishing/alignment.py
+--- Flye-2.9.6.original/flye/polishing/alignment.py	2026-10-23 09:02:39.602765886 -0500
++++ Flye-2.9.6/flye/polishing/alignment.py	2026-10-23 09:02:56.432803435 -0500
+@@ -24,7 +24,7 @@
+ 
+ logger = logging.getLogger()
+ MINIMAP_BIN = "flye-minimap2"
+-SAMTOOLS_BIN = "flye-samtools"
++SAMTOOLS_BIN = "samtools"
+ 
+ ContigInfo = namedtuple("ContigInfo", ["id", "length", "type"])
+ 
+diff -ruN Flye-2.9.6.original/flye/utils/sam_parser.py Flye-2.9.6/flye/utils/sam_parser.py
+--- Flye-2.9.6.original/flye/utils/sam_parser.py	2026-10-23 09:02:39.627765942 -0500
++++ Flye-2.9.6/flye/utils/sam_parser.py	2026-10-23 09:03:08.599830571 -0500
+@@ -40,7 +40,7 @@
+ 
+ logger = logging.getLogger()
+ 
+-SAMTOOLS_BIN = "flye-samtools"
++SAMTOOLS_BIN = "samtools"
+ Alignment = namedtuple("Alignment", ["qry_id", "trg_id", "qry_start", "qry_end",
+                                      "qry_sign", "qry_len", "trg_start",
+                                      "trg_end", "trg_sign", "trg_len",
