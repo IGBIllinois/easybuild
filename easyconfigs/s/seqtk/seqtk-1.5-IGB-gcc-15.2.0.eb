@@ -20,7 +20,7 @@ source_urls = [GITHUB_SOURCE]
 sources = ['v%(version)s.tar.gz']
 checksums = ['384aa1e3cecf4f70403839d586cbb29d469b7c6f773a64bc5af48a6e4b8220a6']
 
-dependencies = [('zlib', '1.3.1')]
+dependencies = [('zlib', '2.3.2')]
 
 skipsteps = ['configure']
 

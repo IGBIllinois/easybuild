@@ -1,0 +1,51 @@
+easyblock = 'PythonPackage'
+
+name = 'eggnog-mapper'
+version = '2.1.15'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://github.com/eggnogdb/eggnog-mapper'
+description = """EggNOG-mapper is a tool for fast functional annotation of novel sequences."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/eggnogdb/eggnog-mapper/archive/refs/tags/']
+
+dependencies = [
+        ('Python', '3.14.0'),
+	('Python-Bundle','3.14.0'),
+	('Biopython','1.88','-Python-%(pyver)s'),
+	('DIAMOND','2.1.16'),
+]
+
+# strip out (too) strict version requirements for dependencies
+preinstallopts = "sed -i 's/==[0-9.]*//g' setup.cfg && "
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = [
+	('xlsxwriter','3.3.1')	
+]
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = True
+#use_pip_for_deps = True
+
+options = {'modulename': 'eggnogmapper' }
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_commands = [
+    'download_eggnog_data.py --help',
+    'create_dbs.py --help',
+    'emapper.py --version | grep %(version)s',
+]
+
+postinstallcmds = ['mkdir %(installdir)s/lib/python%(pyshortver)s/site-packages/data']
+moduleclass = 'bio'

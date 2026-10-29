@@ -55,7 +55,7 @@ exts_list = [
 	('pytz', '2025.2', {
 		'source_tmpl': 'pytz-%(version)s-py2.py3-none-any.whl'
 	}),
-	('certifi','2025.11.12', {
+	('certifi','2026.10.19', {
 		'source_tmpl': SOURCE_PY3_WHL,
 	}),
 	('chardet','5.2.0', {
@@ -181,7 +181,7 @@ exts_list = [
                 'source_tmpl': 'semantic_version-%(version)s.tar.gz',
         }),
 	('maturin','1.10.2'),
-	('uv','0.9.21'),
+	('uv','0.13.4'),
 	('uv-build','0.9.21', {
 		'source_tmpl': 'uv_build-%(version)s.tar.gz'
 	}),

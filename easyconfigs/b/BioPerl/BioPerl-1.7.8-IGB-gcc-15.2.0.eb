@@ -39,6 +39,14 @@ exts_list = [
         'source_urls': ['https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/'],
         'checksums': ['d2bd9cfbb091eee2d80ed6cf812ac3813b1c8a1aaca20671037f5f225d31d1da'],
     }),
+    ('Bio-SearchIO-hmmer','1.7.3', {
+	'source_tmpl': 'Bio-SearchIO-hmmer-%(version)s.tar.gz',
+	'source_urls': ['https://cpan.metacpan.org/authors/id/C/CJ/CJFIELDS/'],
+	'runtest': False,
+	'modulename': 'Bio::SearchIO::hmmer3'
+
+    }),
+
 ]
 
 modextrapaths = {

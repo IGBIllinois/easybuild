@@ -1,0 +1,12 @@
+diff -ruN Augustus-3.5.0.original/auxprogs/bam2wig/Makefile Augustus-3.5.0/auxprogs/bam2wig/Makefile
+--- Augustus-3.5.0.original/auxprogs/bam2wig/Makefile	2022-09-23 12:06:14.000000000 -0500
++++ Augustus-3.5.0/auxprogs/bam2wig/Makefile	2026-10-29 09:46:47.639580790 -0500
+@@ -45,7 +45,7 @@
+ LDLIBS += -lhts
+ INCLS += $(INCLUDE_PATH_ZLIB)
+ LDFLAGS += $(LIBRARY_PATH_ZLIB)
+-LDLIBS += -lz -lpthread
++LDLIBS += -lz -lpthread -lcurl -lcrypto -llzma -lbz2 -lm
+ 
+ # when using a static hts library, these additional libraries may be required : 
+ # LDLIBS += -lcurl -lcrypto -llzma -lbz2 -lm -lcurses -lssl

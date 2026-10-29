@@ -51,10 +51,10 @@ exts_list = [
         'checksums': ['f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c'],
     }),
     ('setuptools_scm', '9.2.2'),
-    ('pip', '25.3'),
-	('fonttools','4.61.1', {
+    ('pip', '26.9.4'),
+    ('fonttools','4.61.1', {
 	'modulename': 'fontTools'	
-	},)
+    })
 ]
 
 moduleclass = 'lang'

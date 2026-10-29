@@ -1,0 +1,58 @@
+easyblock = 'PythonPackage'
+
+name = 'BUSCO'
+version = '6.1.0'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'https://busco.ezlab.org/'
+description = """Assessing genome assembly and annotation completeness with Benchmarking Universal Single-Copy Orthologs (BUSCO)"""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+
+sources = ['busco-%(version)s.tar.gz']
+source_urls = ['https://gitlab.com/ezlab/busco/-/archive/%(version)s/']
+
+dependencies = [
+        ('Python', '3.14.0'),
+	('Python-Bundle','3.14.0'),
+	('Java','25.0.1','',SYSTEM),
+	('Biopython','1.88','-Python-%(pyver)s'),
+	('R','4.6.1'),
+	('BLAST+','2.17.0'),
+	('Prodigal','2.6.3'),
+	('SEPP','4.5.6','-Python-%(pyver)s'),
+	('augustus','3.5.0'),
+	('HMMER','3.4'),
+	('MetaEuk','7'),
+	('BBMap','39.59','-Java-%(javaver)s'),
+	('BLAST+','2.17.0'),
+	
+]
+
+
+exts_default_options = {
+    'source_urls': [PYPI_SOURCE],
+    'sanity_pip_check': True,
+}
+
+exts_defaultclass = "PythonPackage"
+exts_list = []
+
+use_pip = True
+sanity_pip_check = True
+unpack_sources = True
+
+exts_filter = ('python -c "import %(ext_name)s"', "")
+
+sanity_check_paths = {
+        'files': ['bin/busco'],
+        'dirs': ['config','test_data'],
+}
+
+postinstallcmds = [('cp -fR config test_data %(installdir)s/')]
+
+modextrapaths = {'PATH':'scripts'}
+
+moduleclass = 'bio'
+
+modloadmsg = "NOTICE: An example BUSCO config file is located at %(installdir)s/config/config.ini\n";

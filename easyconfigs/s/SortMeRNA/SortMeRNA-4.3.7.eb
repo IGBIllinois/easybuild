@@ -1,0 +1,37 @@
+easyblock = 'Conda'
+
+name = 'SortMeRNA'
+version = '4.3.7'
+
+homepage = 'https://github.com/sortmerna/sortmerna'
+description = """SortMeRNA is a local sequence alignment tool for filtering, mapping and clustering."""
+
+toolchain = SYSTEM
+
+dependencies = [
+	('Miniconda3','26.9.4'),
+]
+
+channels = ['defaults','bioconda', 'conda-forge']
+requirements = '%(name)s=%(version)s'
+
+extract_sources = False
+
+environment_file = ""
+
+sanity_check_paths = {
+        'files': ['bin/sortmerna'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+
+modloadmsg = "When running %(name)s, do not have any other modules loaded as other modules might conflict with %(name)s.  You can do the following commands to ensure nothing else is loaded\n"
+modloadmsg += "module purge\n"
+modloadmsg += "module load %(name)s/%(version)s\n"
+
+moduleclass = 'bio'
+
+
