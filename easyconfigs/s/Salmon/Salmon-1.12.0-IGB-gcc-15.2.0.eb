@@ -19,7 +19,6 @@ builddependencies = [
 ]
 
 dependencies = [
-	('Boost', '1.90.0'),
 	('tbb', '2022.3.0'),
 	('Jellyfish', '2.3.1'),
 	('zlib','2.3.2'),
@@ -31,7 +30,6 @@ dependencies = [
 
 configopts = "-DJEMALLOC_ROOT=$EBROOTJEMALLOC -DCMAKE_CXX_STANDARD=14"
 
-runtest = 'test'
 
 sanity_check_paths = {
     'files': ['bin/%(namelower)s', 'lib/libgraphdump.a', 'lib/libntcard.a', 'lib/libsalmon_core.a', 'lib/libtwopaco.a'],
@@ -42,5 +40,4 @@ sanity_check_commands = ['%(namelower)s --help']
 
 modextravars = {'SALMON_NO_VERSION_CHECK':'1'}
 
-max_parallel = 1
 moduleclass = 'bio'
