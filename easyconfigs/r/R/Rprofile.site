@@ -8,4 +8,5 @@ if (file.exists('/private_stores/mirror/R/bioconductor')) {
 }
 
 options(device = "cairo_pdf")
+options(bitmapType = "cairo")
 

@@ -1,0 +1,14 @@
+settings = {
+    "user" : {
+        "appends" : {
+            "flags" : {
+                "compile" : [
+                    "Wno-restrict",
+                    "Wno-stringop-overflow",
+                    "Wno-array-bounds",
+                ],
+            },
+        },
+    },
+}
+

@@ -1,0 +1,40 @@
+# EasyBuild easyconfig for Rosetta 3.15 (hand-written; not from the upstream easyconfigs repo).
+# The software name "Rosetta" makes EasyBuild select the bundled EB_Rosetta easyblock automatically.
+#
+# Rosetta is license-restricted: EasyBuild CANNOT download it. Register at
+# https://www.rosettacommons.org/software/license-and-download , download the 3.15
+# source bundle yourself, and copy it into your sourcepath, e.g.
+#   $EASYBUILD_SOURCEPATH/r/Rosetta/<the tarball>
+# Then set `sources` below to that exact filename and fix the checksum.
+
+name = 'Rosetta'
+version = '3.15'
+
+homepage = 'https://www.rosettacommons.org'
+description = """Rosetta is a software suite for macromolecular modeling, including
+ structure prediction, design, and docking of proteins and nucleic acids."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'usempi': False, 'pic': True}
+
+source_urls = ['https://downloads.rosettacommons.org/downloads/academic/%(version)s/']
+sources = ['rosetta_source_%(version)s_bundle.tar.bz2',
+	{'filename': 'user.settings', 'extract_cmd': 'cp %s %(builddir)s/rosetta.source.release-408/main/source/tools/build/' }
+]
+#patches = ['rosetta-%(version)s_no-werror.patch']
+
+builddependencies = [
+    #('SCons', '4.5.2'),   # optional: Rosetta ships its own scons.py and that is what upstream recommends
+]
+
+dependencies = [
+    ('Python', '3.14.0'),
+    ('zlib', '2.3.2'),
+    ('bzip2', '1.0.8'),
+]
+
+# Passed through to Rosetta's scons.py by the EB_Rosetta easyblock.
+# mode=release is the default; cat=src limits the build to the main binaries.
+buildopts = 'cxx=gcc mode=release'
+
+moduleclass = 'bio'

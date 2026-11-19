@@ -236,7 +236,7 @@ exts_list = [
                 'source_tmpl': 'scikit_learn-%(version)s.tar.gz',
                 'modulename': 'sklearn',
         }),
-	('scikit-build-core','0.11.6', {
+	('scikit-build-core','1.1.2', {
 		'source_tmpl': 'scikit_build_core-%(version)s.tar.gz'
 	}),
 	('rapidfuzz','3.14.3'),
@@ -327,6 +327,9 @@ exts_list = [
 	}),
 	('versioneer','0.29'),
 	('xmltodict','1.0.4'),
+	('hatch-nodejs-version','0.4.0', {
+		'source_tmpl': 'hatch_nodejs_version-%(version)s-py3-none-any.whl'
+	}),
 ]
 
 moduleclass = 'lang'

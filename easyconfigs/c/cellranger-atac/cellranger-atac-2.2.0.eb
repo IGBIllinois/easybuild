@@ -1,0 +1,23 @@
+easyblock = 'Tarball'
+
+name = 'cellranger-atac'
+version = '2.2.0'
+
+homepage = 'https://www.10xgenomics.com/support/software/cell-ranger-atac/latest'
+description = """Cell Ranger ATAC is a set of analysis pipelines that process Chromium Single Cell ATAC data. """
+
+toolchain = SYSTEM
+
+sources = ['%(name)s-%(version)s.tar.gz']
+source_urls = ['']
+
+keepsymlinks = True
+
+sanity_check_paths = {
+	'files': ['cellranger-atac'],
+	'dirs': [],
+}
+
+modextrapaths = {'PATH':''}
+
+moduleclass = 'bio'

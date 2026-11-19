@@ -43,6 +43,7 @@ dependencies = [
 	('GEOS','3.13.1'),
 	('GMP','6.3.0'),
 	('GSL','2.8'),
+	('pandoc','3.13','',SYSTEM),
 
 ]
 

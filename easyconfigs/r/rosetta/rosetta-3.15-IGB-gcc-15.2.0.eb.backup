@@ -1,0 +1,43 @@
+easyblock = 'EB_Rosetta'
+
+name = 'rosetta'
+version = '3.15'
+
+homepage = 'https://www.rosettacommons.org/'
+description = """The Rosetta software suite includes algorithms for computational modeling and analysis of protein structures. """
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'cstd': 'gnu89'}
+
+#Username: Academic_User
+#Password: Xry3x4
+source_urls = ['https://downloads.rosettacommons.org/downloads/academic/%(version)s/']
+sources = ['rosetta_source_%(version)s_bundle.tar.bz2']
+
+
+builddependencies = [
+	('CMake', '3.31.8'),
+	('Python','3.14.0'),
+]
+
+dependencies = [
+]
+
+start_dir = 'source/cmake/build_release'
+
+separate_build_dir = False
+
+preconfigopts = '../make_project.py all && '
+
+
+sanity_check_paths = {
+        'files': ['bin/rosetta_scripts'],
+        'dirs': [],
+}
+
+modextrapaths = {
+}
+
+moduleclass = 'bio'
+
+

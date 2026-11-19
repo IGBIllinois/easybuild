@@ -1,0 +1,46 @@
+easyblock = 'CMakeMake'
+
+name = 'Salmon'
+version = '1.12.0'
+
+homepage = 'https://github.com/COMBINE-lab/salmon'
+description = """Salmon is a wicked-fast program to produce a highly-accurate,
+ transcript-level quantification estimates from RNA-seq data."""
+
+toolchain = {'name': 'IGB-gcc', 'version': '15.2.0'}
+toolchainopts = {'pic': True, 'openmp': True }
+
+sources = ['v%(version)s.tar.gz']
+source_urls = ['https://github.com/COMBINE-lab/salmon/archive/']
+
+builddependencies = [
+	('CMake', '3.31.8'),
+	('jemalloc','5.4.0'),
+]
+
+dependencies = [
+	('Boost', '1.90.0'),
+	('tbb', '2022.3.0'),
+	('Jellyfish', '2.3.1'),
+	('zlib','2.3.2'),
+	('bzip2','1.0.8'),
+	('XZ','5.8.1'),
+	('cURL','8.14.1')
+	
+]
+
+configopts = "-DJEMALLOC_ROOT=$EBROOTJEMALLOC -DCMAKE_CXX_STANDARD=14"
+
+runtest = 'test'
+
+sanity_check_paths = {
+    'files': ['bin/%(namelower)s', 'lib/libgraphdump.a', 'lib/libntcard.a', 'lib/libsalmon_core.a', 'lib/libtwopaco.a'],
+    'dirs': [],
+}
+
+sanity_check_commands = ['%(namelower)s --help']
+
+modextravars = {'SALMON_NO_VERSION_CHECK':'1'}
+
+max_parallel = 1
+moduleclass = 'bio'

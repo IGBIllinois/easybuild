@@ -1,0 +1,17 @@
+# Drop -Werror and silence the spurious GCC >= 11 diagnostics that fire inside
+# std::char_traits<char>::copy / __builtin_memcpy after inlining at -O3.
+# The reported size 9223372036854775809 (2^63+1) is a value-range-propagation artefact,
+# not a real overlap; the code is correct.
+#
+# NOTE: flag names in Rosetta's settings files carry NO leading hyphen - scons adds it.
+# Verify the exact context lines against your tree before applying; line numbers and
+# surrounding entries differ between releases.
+diff -ru rosetta.orig/main/source/tools/build/basic.settings rosetta/main/source/tools/build/basic.settings
+--- rosetta.orig/main/source/tools/build/basic.settings
++++ rosetta/main/source/tools/build/basic.settings
+@@
+-                "Werror",
++                "Wno-restrict",
++                "Wno-stringop-overflow",
++                "Wno-array-bounds",
+
